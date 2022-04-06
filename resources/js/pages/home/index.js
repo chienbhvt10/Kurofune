@@ -8,7 +8,7 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="home-text">User</div>
+      <div className="home-text">Users</div>
     </>
   );
 };
