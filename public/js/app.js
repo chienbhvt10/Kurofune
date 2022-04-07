@@ -5380,6 +5380,1110 @@ var InputIcon = function InputIcon(props) {
 
 /***/ }),
 
+/***/ "./resources/js/commons/Orderlist/index.js":
+/*!*************************************************!*\
+  !*** ./resources/js/commons/Orderlist/index.js ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var OrderList = function OrderList(_ref) {
+  var data = _ref.data,
+      arialLevel = _ref.arialLevel,
+      liStyle = _ref.liStyle,
+      spanStyle = _ref.spanStyle;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ol", {
+    children: data.map(function (liData) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        style: liStyle,
+        "aria-level": arialLevel,
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          style: spanStyle,
+          children: liData.title
+        })
+      });
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderList);
+
+/***/ }),
+
+/***/ "./resources/js/commons/data.js":
+/*!**************************************!*\
+  !*** ./resources/js/commons/data.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "policy3OderListData": () => (/* binding */ policy3OderListData),
+/* harmony export */   "policy4OderListData": () => (/* binding */ policy4OderListData),
+/* harmony export */   "policy5SubOderListData1": () => (/* binding */ policy5SubOderListData1),
+/* harmony export */   "policy5SubOderListData2": () => (/* binding */ policy5SubOderListData2),
+/* harmony export */   "policy6SubOderListData": () => (/* binding */ policy6SubOderListData),
+/* harmony export */   "policy7OderListData": () => (/* binding */ policy7OderListData),
+/* harmony export */   "policy8OderListData": () => (/* binding */ policy8OderListData),
+/* harmony export */   "policy9OderListData": () => (/* binding */ policy9OderListData),
+/* harmony export */   "term1ListData": () => (/* binding */ term1ListData),
+/* harmony export */   "term2SubOrderListData": () => (/* binding */ term2SubOrderListData),
+/* harmony export */   "term3OrderListData": () => (/* binding */ term3OrderListData),
+/* harmony export */   "term4OrderListData": () => (/* binding */ term4OrderListData),
+/* harmony export */   "term5ListData": () => (/* binding */ term5ListData),
+/* harmony export */   "term6SubOrderListData": () => (/* binding */ term6SubOrderListData),
+/* harmony export */   "term7SubOrderListData": () => (/* binding */ term7SubOrderListData),
+/* harmony export */   "term9OrderListData": () => (/* binding */ term9OrderListData)
+/* harmony export */ });
+var term1ListData = [{
+  title: "本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。"
+}, {
+  title: "当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。"
+}, {
+  title: "本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。"
+}];
+var term2SubOrderListData = [{
+  title: "利用登録の申請に際して虚偽の事項を届け出た場合"
+}, {
+  title: "本規約に違反したことがある者からの申請である場合"
+}, {
+  title: "その他，当社が利用登録を相当でないと判断した場合"
+}];
+var term3OrderListData = [{
+  title: "ユーザーは，自己の責任において，本サービスのユーザーIDおよびパスワードを適切に管理するものとします。"
+}, {
+  title: "ユーザーは，いかなる場合にも，ユーザーIDおよびパスワードを第三者に譲渡または貸与し，もしくは第三者と共用することはできません。当社は，ユーザーIDとパスワードの組み合わせが登録情報と一致してログインされた場合には，そのユーザーIDを登録しているユーザー自身による利用とみなします。"
+}, {
+  title: "ユーザーID及びパスワードが第三者によって使用されたことによって生じた損害は，当社に故意又は重大な過失がある場合を除き，当社は一切の責任を負わないものとします。"
+}];
+var term4OrderListData = [{
+  title: "ユーザーは，本サービスの有料部分の対価として，当社が別途定め，本ウェブサイトに表示する利用料金を，当社が指定する方法により支払うものとします。"
+}, {
+  title: "ユーザーが利用料金の支払を遅滞した場合には，ユーザーは年14．6％の割合による遅延損害金を支払うものとします。"
+}];
+var term5ListData = [{
+  title: "法令または公序良俗に違反する行為"
+}, {
+  title: "犯罪行為に関連する行為"
+}, {
+  title: "本サービスの内容等，本サービスに含まれる著作権，商標権ほか知的財産権を侵害する行為"
+}, {
+  title: "当社，ほかのユーザー，またはその他第三者のサーバーまたはネットワークの機能を破壊したり，妨害したりする行為"
+}, {
+  title: "本サービスによって得られた情報を商業的に利用する行為"
+}, {
+  title: "当社のサービスの運営を妨害するおそれのある行為"
+}, {
+  title: "不正アクセスをし，またはこれを試みる行為"
+}, {
+  title: "他のユーザーに関する個人情報等を収集または蓄積する行為"
+}, {
+  title: "不正な目的を持って本サービスを利用する行為"
+}, {
+  title: "本サービスの他のユーザーまたはその他の第三者に不利益，損害，不快感を与える行為"
+}, {
+  title: "他のユーザーに成りすます行為"
+}, {
+  title: "当社が許諾しない本サービス上での宣伝，広告，勧誘，または営業行為"
+}, {
+  title: "当社のサービスに関連して，反社会的勢力に対して直接または間接に利益を供与する行為"
+}, {
+  title: "その他，当社が不適切と判断する行為"
+}];
+var term6SubOrderListData = [{
+  title: "本サービスにかかるコンピュータシステムの保守点検または更新を行う場合"
+}, {
+  title: "地震，落雷，火災，停電または天災などの不可抗力により，本サービスの提供が困難となった場合"
+}, {
+  title: "コンピュータまたは通信回線等が事故により停止した場合"
+}, {
+  title: "その他，当社が本サービスの提供が困難と判断した場合"
+}];
+var term7SubOrderListData = [{
+  title: "本規約のいずれかの条項に違反した場合"
+}, {
+  title: "登録事項に虚偽の事実があることが判明した場合"
+}, {
+  title: "料金等の支払債務の不履行があった場合"
+}, {
+  title: "当社からの連絡に対し，一定期間返答がない場合"
+}, {
+  title: "本サービスについて，最終の利用から一定期間利用がない場合"
+}, {
+  title: "その他，当社が本サービスの利用を適当でないと判断した場合"
+}];
+var term9OrderListData = [{
+  title: "当社は，本サービスに事実上または法律上の瑕疵（安全性，信頼性，正確性，完全性，有効性，特定の目的への適合性，セキュリティなどに関する欠陥，エラーやバグ，権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。"
+}, {
+  title: "当社は，本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし，本サービスに関する当社とユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合，この免責規定は適用されません。"
+}, {
+  title: "前項ただし書に定める場合であっても，当社は，当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（当社またはユーザーが損害発生につき予見し，または予見し得た場合を含みます。）について一切の責任を負いません。また，当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は，ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。"
+}, {
+  title: "当社は，本サービスに関して，ユーザーと他のユーザーまたは第三者との間において生じた取引，連絡または紛争等について一切責任を負いません。"
+}];
+var policy3OderListData = [{
+  title: "当協会が提供する自社サービスを提供するため"
+}, {
+  title: "当協会が生活支援ポータルサイトで展開する提携会社のサービスの利用登録をするため"
+}, {
+  title: "当協会が生活支援ポータルサイトで展開する提携会社のサービスを提供するため"
+}, {
+  title: "ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）"
+}, {
+  title: "ユーザーが利用中のサービスの新機能，更新情報，キャンペーン等及び当協会が提供する他のサービスの案内のメールを送付するため"
+}, {
+  title: "メンテナンス，重要なお知らせなど必要に応じたご連絡のため"
+}, {
+  title: "利用規約に違反したユーザーや，不正・不当な目的でサービスを利用しようとするユーザーの特定をし，ご利用をお断りするため"
+}, {
+  title: "ユーザーにご自身の登録情報の閲覧や変更，削除，ご利用状況の閲覧を行っていただくため"
+}, {
+  title: "有料サービスにおいて，ユーザーに利用料金を請求するため"
+}, {
+  title: "新しいサービスの調査研究のため"
+}, {
+  title: "上記の利用目的に付随する目的"
+}];
+var policy4OderListData = [{
+  title: "当協会は、利用目的が変更前と関連性を有すると合理的に認められる場合に限り、個人情報の利用目的を変更するものとします。"
+}, {
+  title: "利用目的の変更を行った場合には、変更後の目的について、当協会所定の方法により、ユーザーに通知し、または本ウェブサイト上に公表するものとします。"
+}];
+var policy5SubOderListData1 = [{
+  title: "人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき"
+}, {
+  title: "公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき"
+}, {
+  title: "国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき"
+}];
+var policy5SubOderListData2 = [{
+  title: "合併その他の事由による事業の承継に伴って個人情報が提供される場合"
+}, {
+  title: "個人情報やCookieを特定の者との間で共同して利用する場合であって、その旨並びに共同して利用される個人情報の項目、共同して利用する者の範囲、利用する者の利用目的および当該個人情報の管理について責任を有する者の氏名または名称について、あらかじめ本人に通知し、または本人が容易に知り得る状態に置いた場合"
+}];
+var policy6SubOderListData = [{
+  title: "本人または第三者の生命、身体、財産その他の権利利益を害するおそれがある場合"
+}, {
+  title: "当協会の業務の適正な実施に著しい支障を及ぼすおそれがある場合"
+}, {
+  title: "その他法令に違反することとなる場合"
+}];
+var policy7OderListData = [{
+  title: "ユーザーは、当協会の保有する自己の個人情報が誤った情報である場合には、当協会が定める手続きにより、当協会に対して個人情報の訂正、追加または削除（以下、「訂正等」といいます。）を請求することができます。"
+}, {
+  title: "当協会は、ユーザーから前項の請求を受けて情報が誤りであると判断した場合には、遅滞なく、当該個人情報の訂正等を行うものとします。"
+}, {
+  title: "当協会は、前項の規定に基づき訂正等を行った場合、これをユーザーに通知します。"
+}];
+var policy8OderListData = [{
+  title: "当協会は、本人から、個人情報が、利用目的の範囲を超えて取り扱われているという理由、または不正の手段により取得されたものであるという理由により、その利用の停止または消去（以下，「利用停止等」といいます。）を求められた場合には、遅滞なく必要な調査を行います。"
+}, {
+  title: "前項の調査結果に基づき、その請求に応じる必要があると判断した場合には、遅滞なく、当該個人情報の利用停止等を行います。"
+}, {
+  title: "当協会は、前項の規定に基づき利用停止等を行った場合、または利用停止等を行わない旨の決定をしたときは、遅滞なく、これをユーザーに通知します。"
+}, {
+  title: "前2項にかかわらず、利用停止等に多額の費用を有する場合その他利用停止等を行うことが困難な場合であって、ユーザーの権利利益を保護するために必要なこれに代わるべき措置をとれる場合は、この代替策を講じるものとします。"
+}];
+var policy9OderListData = [{
+  title: "本ポリシーの内容は、法令その他本ポリシーに別段の定めのある事項を除いて、ユーザーに通知することなく、変更することができるものとします。"
+}, {
+  title: "当協会が別途定める場合を除いて、変更後のプライバシーポリシーは、本ウェブサイトに掲載したときから効力を生じるものとします。"
+}];
+
+/***/ }),
+
+/***/ "./resources/js/components/modal/ModalPolicy.js":
+/*!******************************************************!*\
+  !*** ./resources/js/components/modal/ModalPolicy.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../commons/data */ "./resources/js/commons/data.js");
+/* harmony import */ var _commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../commons/Orderlist */ "./resources/js/commons/Orderlist/index.js");
+/* harmony import */ var _modal_custom_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modal-custom.scss */ "./resources/js/components/modal/modal-custom.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var ModalPolicy = function ModalPolicy(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    id: "modal-policy",
+    className: "modal-custom",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      type: "button",
+      className: "btn btn-primary",
+      "data-toggle": "modal",
+      "data-target": "#exampleModalLong2",
+      children: "Policy"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "modal fade",
+      id: "exampleModalLong2",
+      tabIndex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalLongTitle2",
+      "aria-hidden": "true",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "modal-dialog",
+        role: "document",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+              className: "modal-title",
+              id: "exampleModalLongTitle2",
+              children: "Ch\xEDnh s\xE1ch b\u1EA3o m\u1EADt"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "button",
+              className: "close",
+              "data-dismiss": "modal",
+              "aria-label": "Close",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                "aria-hidden": "true",
+                children: "\xD7"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "modal-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "modal-content-wrap",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontFamily: "arial, helvetica, sans-serif"
+                  }
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u4E00\u822C\u793E\u56E3\u6CD5\u4EBA\u5728\u65E5\u5916\u56FD\u4EBA\u5C31\u696D\u8005\u652F\u63F4\u5354\u4F1A\uFF08\u4EE5\u4E0B\u3001\u300C\u5F53\u5354\u4F1A\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u306F\u3001\u5F53\u5354\u4F1A\u304C\u751F\u6D3B\u652F\u63F4\u30DD\u30FC\u30BF\u30EB\u30B5\u30A4\u30C8\u306B\u3066\u5C55\u958B\u3059\u308B\u30B5\u30FC\u30D3\u30B9\uFF08\u4EE5\u4E0B\u3001\u300C\u672C\u30B5\u30FC\u30D3\u30B9\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u306B\u304A\u3051\u308B\u3001\u30E6\u30FC\u30B6\u30FC\u306E\u500B\u4EBA\u60C5\u5831\u306E\u53D6\u6271\u3044\u306B\u3064\u3044\u3066\u3001\u4EE5\u4E0B\u306E\u3068\u304A\u308A\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC\uFF08\u4EE5\u4E0B\u3001\u300C\u672C\u30DD\u30EA\u30B7\u30FC\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u3092\u5B9A\u3081\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C1\u6761\uFF08\u500B\u4EBA\u60C5\u5831\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u300C\u500B\u4EBA\u60C5\u5831\u300D\u3068\u306F\u3001\u500B\u4EBA\u60C5\u5831\u4FDD\u8B77\u6CD5\u306B\u3044\u3046\u300C\u500B\u4EBA\u60C5\u5831\u300D\u3092\u6307\u3059\u3082\u306E\u3068\u3057\u3001\u751F\u5B58\u3059\u308B\u500B\u4EBA\u306B\u95A2\u3059\u308B\u60C5\u5831\u3067\u3042\u3063\u3066\u3001\u5F53\u8A72\u60C5\u5831\u306B\u542B\u307E\u308C\u308B\u6C0F\u540D\u3001\u751F\u5E74\u6708\u65E5\u3001\u4F4F\u6240\u3001\u96FB\u8A71\u756A\u53F7\u3001\u9023\u7D61\u5148\u305D\u306E\u4ED6\u306E\u8A18\u8FF0\u7B49\u306B\u3088\u308A\u7279\u5B9A\u306E\u500B\u4EBA\u3092\u8B58\u5225\u3067\u304D\u308B\u60C5\u5831\u53CA\u3073\u5BB9\u8C8C\u3001\u6307\u7D0B\u3001\u58F0\u7D0B\u306B\u304B\u304B\u308B\u30C7\u30FC\u30BF\u3001\u53CA\u3073\u5065\u5EB7\u4FDD\u967A\u8A3C\u306E\u4FDD\u967A\u8005\u756A\u53F7\u306A\u3069\u306E\u5F53\u8A72\u60C5\u5831\u5358\u4F53\u304B\u3089\u7279\u5B9A\u306E\u500B\u4EBA\u3092\u8B58\u5225\u3067\u304D\u308B\u60C5\u5831\uFF08\u500B\u4EBA\u8B58\u5225\u60C5\u5831\uFF09\u3001\u3092\u6307\u3057\u307E\u3059\u3002\u307E\u305F"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u5354\u4F1A\u3067\u306F\u3001\u30B5\u30FC\u30D3\u30B9\u5411\u4E0A\u304A\u3088\u3073\u304A\u5BA2\u69D8\u306B\u3088\u308A\u9069\u3057\u305F\u30B5\u30FC\u30D3\u30B9\u3092\u63D0\u4F9B\u3059\u308B\u305F\u3081\u3001Cookie\u3092\u5229\u7528\u3057\u3066\u3044\u307E\u3059\u3002"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C2\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u306E\u53CE\u96C6\u65B9\u6CD5\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u5354\u4F1A\u306F\u3001\u4EE5\u4E0B\u306E\u65B9\u6CD5\u3067\u500B\u4EBA\u60C5\u5831\u3092\u53D6\u5F97\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ul", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u30E6\u30FC\u30B6\u30FC\u304B\u3089\u76F4\u63A5\u3001\u500B\u4EBA\u60C5\u5831\u306E\u63D0\u4F9B\u3092\u53D7\u3051\u308B\u65B9\u6CD5\xA0"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u30E6\u30FC\u30B6\u30FC\u304C\u672C\u30B5\u30FC\u30D3\u30B9\u3092\u5229\u7528\u3059\u308B\u969B\u306B\u3001\u81EA\u52D5\u7684\u306B\u500B\u4EBA\u60C5\u5831\u3092\u8A18\u9332\u3059\u308B\u65B9\u6CD5\xA0"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u7B2C\u4E09\u8005\u304B\u3089\u9593\u63A5\u7684\u306B\u30E6\u30FC\u30B6\u30FC\u306E\u500B\u4EBA\u60C5\u5831\u306E\u63D0\u4F9B\u3092\u53D7\u3051\u308B\u65B9\u6CD5\xA0"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u520A\u884C\u7269\u3084\u30A4\u30F3\u30BF\u30FC\u30CD\u30C3\u30C8\u7B49\u3067\u516C\u958B\u3055\u308C\u305F\u500B\u4EBA\u60C5\u5831\u3092\u53D6\u5F97\u3059\u308B\u65B9\u6CD5"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C3\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u3092\u53CE\u96C6\u30FB\u5229\u7528\u3059\u308B\u76EE\u7684\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u5354\u4F1A\u304C\u500B\u4EBA\u60C5\u5831\u3001Cookie\u3092\u53CE\u96C6\u30FB\u5229\u7528\u3059\u308B\u76EE\u7684\u306F\u3001\u4EE5\u4E0B\u306E\u3068\u304A\u308A\u3067\u3059\u5F53\u5354\u4F1A\u30B5\u30FC\u30D3\u30B9\u306E\u5229\u7528\u8005\u306B\u969B\u3057\u3066\u4F1A\u54E1\u767B\u9332\u3059\u308B\u305F\u3081"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy3OderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C4\u6761\uFF08\u5229\u7528\u76EE\u7684\u306E\u5909\u66F4\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy4OderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C5\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u306E\u7B2C\u4E09\u8005\u63D0\u4F9B\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ol", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u5354\u4F1A\u306F\u3001\u6B21\u306B\u63B2\u3052\u308B\u5834\u5408\u3092\u9664\u3044\u3066\u3001\u3042\u3089\u304B\u3058\u3081\u30E6\u30FC\u30B6\u30FC\u306E\u540C\u610F\u3092\u5F97\u308B\u3053\u3068\u306A\u304F\u3001\u7B2C\u4E09\u8005\u306B\u500B\u4EBA\u60C5\u5831\u3084Cookie\u3092\u63D0\u4F9B\u3059\u308B\u3053\u3068\u306F\u3042\u308A\u307E\u305B\u3093\u3002\u305F\u3060\u3057\u3001\u500B\u4EBA\u60C5\u5831\u4FDD\u8B77\u6CD5\u305D\u306E\u4ED6\u306E\u6CD5\u4EE4\u3067\u8A8D\u3081\u3089\u308C\u308B\u5834\u5408\u3084\u5F53\u793E\u304C\u5229\u7528\u76EE\u7684\u306E\u9054\u6210\u306B\u5FC5\u8981\u306A\u7BC4\u56F2\u5185\u306B\u304A\u3044\u3066\u500B\u4EBA\u60C5\u5831\u306E\u53D6\u308A\u6271\u3044\u306E\u5168\u90E8\u307E\u305F\u306F\u4E00\u90E8\u3092\u59D4\u8A17\u3059\u308B\u5834\u5408\u3092\u9664\u304D\u307E\u3059\u3002"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                    data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy5SubOderListData1,
+                    liStyle: {
+                      fontWeight: 400
+                    },
+                    spanStyle: {
+                      fontWeight: 400
+                    },
+                    arialLevel: 2
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u524D\u9805\u306E\u5B9A\u3081\u306B\u304B\u304B\u308F\u3089\u305A\u3001\u6B21\u306B\u63B2\u3052\u308B\u5834\u5408\u306B\u306F\u3001\u5F53\u8A72\u60C5\u5831\u306E\u63D0\u4F9B\u5148\u306F\u7B2C\u4E09\u8005\u306B\u8A72\u5F53\u3057\u306A\u3044\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                    data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy5SubOderListData2,
+                    liStyle: {
+                      fontWeight: 400
+                    },
+                    spanStyle: {
+                      fontWeight: 400
+                    },
+                    arialLevel: 2
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30FB\u5171\u540C\u5229\u7528\u3059\u308B\u4E8B\u696D\u8005"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u8CC7\u672C\u95A2\u4FC2\u304C\u3042\u308B\u4F1A\u793E\u306B\u9650\u308B"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30FB\u5171\u540C\u5229\u7528\u3059\u308B\u500B\u4EBA\u60C5\u5831"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u304A\u5BA2\u69D8\u304C\u5F53\u5354\u4F1A\u306B\u63D0\u4F9B\u3057\u305F\u5168\u3066\u306E\u500B\u4EBA\u30C7\u30FC\u30BF"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30FB\u5171\u540C\u5229\u7528\u3059\u308B\u76EE\u7684"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u7B2C\uFF13\u6761\u306B\u3066\u898F\u5B9A\u3057\u305F\u76EE\u7684\u3092\u9054\u6210\u3059\u308B\u305F\u3081"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30FB\u500B\u4EBA\u60C5\u5831\u306E\u7BA1\u7406\u306B\u3064\u3044\u3066\u8CAC\u4EFB\u3092\u6709\u3059\u308B\u3082\u306E\u306E\u6C0F\u540D"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  paddingLeft: 40
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "KUROFUNE\u682A\u5F0F\u4F1A\u793E\uFF1A\u5009\u7247\u7A1C"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C6\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u306E\u958B\u793A\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ol", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u5354\u4F1A\u306F\u3001"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: ["\u6CD5\u4EE4\u9075\u5B88\u307E\u305F\u306F\u5229\u7528\u76EE\u7684\u306E\u9054\u6210\u306B\u5FC5\u8981\u306A\u7BC4\u56F2\u30FB\u671F\u9593\u306B\u304A\u3044\u3066\u3001\u500B\u4EBA\u60C5\u5831\u3092\u4FDD\u7BA1\u30FB\u5229\u7528\u3057\u307E\u3059\u304C\u3001\u30E6\u30FC\u30B6\u30FC\u672C\u4EBA\u307E\u305F\u306F\u4EE3\u7406\u4EBA\u306F\u3001\u5F53\u793E\u6240\u5B9A\u306E\u624B\u7D9A\u304D\u306B\u5F93\u3044\u3001\u30E6\u30FC\u30B6\u30FC\u672C\u4EBA\u304C\u8B58\u5225\u3055\u308C\u308B\u500B\u4EBA\u60C5\u5831\u306E\u958B\u793A\u30FB\u5185\u5BB9\u306E\u8A02\u6B63\u3001\u8FFD\u52A0\u307E\u305F\u306F\u524A\u9664\u30FB\u5229\u7528\u306E\u505C\u6B62\u307E\u305F\u306F\u6D88\u53BB\u304A\u3088\u3073\u5229\u7528\u76EE\u7684\u306E\u901A\u77E5\u3092\u6C42\u3081\u308B\u3053\u3068\u304C\u3067\u304D\u307E\u3059\u3002\u306A\u304A\u3001\u306A\u308A\u3059\u307E\u3057\u7B49\u306B\u3088\u308B\u4E0D\u6B63\u306A\u8ACB\u6C42\u3092\u9632\u6B62\u3059\u308B\u305F\u3081\u3001\u5F53\u5354\u4F1A\u3067\u306F\u3001\u8ACB\u6C42\u6642\u306B\u672C\u4EBA\u78BA\u8A8D\u66F8\u985E\u306E\u63D0\u51FA\u3092\u6C42\u3081\u308B\u7B49\u3001\u5408\u7406\u7684\u306A\u65B9\u6CD5\u3067\u672C\u4EBA\u78BA\u8A8D\u3092\u884C\u3044\u307E\u3059\u3002\u5F53\u5354\u4F1A\u306F\u3001\u5F53\u5354\u4F1A\u304C\u5B9A\u3081\u308B\u672C\u4EBA\u78BA\u8A8D\u306B\u5FC5\u8981\u306A\u9805\u76EE\uFF08\u6C0F\u540D\u3001\u4F4F\u6240\u3001\u52E4\u52D9\u5148\u3001\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\uFF09\u304C\u5168\u3066\u6E80\u305F\u3055\u308C\u308B\u5834\u5408\u3001\u5F53\u8A72\u8ACB\u6C42\u3092\u30E6\u30FC\u30B6\u30FC\u672C\u4EBA\u304B\u3089\u306E\u8ACB\u6C42\u3067\u3042\u308B\u3068\u307F\u306A\u3057\u3001\u90F5\u9001\u307E\u305F\u306F\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u306B\u3066\u60C5\u5831\u3092\u958B\u793A\u3044\u305F\u3057\u307E\u3059\u3002", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})]
+                  }), "\u305F\u3060\u3057\u3001\u958B\u793A\u3059\u308B\u3053\u3068\u306B\u3088\u308A\u6B21\u306E\u3044\u305A\u308C\u304B\u306B\u8A72\u5F53\u3059\u308B\u5834\u5408\u306F\u3001\u305D\u306E\u5168\u90E8\u307E\u305F\u306F\u4E00\u90E8\u3092\u958B\u793A\u3057\u306A\u3044\u3053\u3068\u3082\u3042\u308A\u3001\u958B\u793A\u3057\u306A\u3044\u6C7A\u5B9A\u3092\u3057\u305F\u5834\u5408\u306B\u306F\u3001\u305D\u306E\u65E8\u3092\u9045\u6EDE\u306A\u304F\u901A\u77E5\u3057\u307E\u3059\u3002\u306A\u304A\u3001\u500B\u4EBA\u60C5\u5831\u306E\u958B\u793A\u306B\u969B\u3057\u3066\u306F\u30011\u4EF6\u3042\u305F\u308A1,000\u5186\u306E\u624B\u6570\u6599\u3092\u7533\u3057\u53D7\u3051\u307E\u3059\u3002"]
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ol", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    listStyleType: "none"
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                    data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy6SubOderListData,
+                    liStyle: {
+                      fontWeight: 400
+                    },
+                    spanStyle: {
+                      fontWeight: 400
+                    },
+                    arialLevel: 2
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C7\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u306E\u8A02\u6B63\u304A\u3088\u3073\u524A\u9664\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy7OderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C8\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u306E\u5229\u7528\u505C\u6B62\u7B49\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy8OderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C9\u6761\uFF08\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC\u306E\u5909\u66F4\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_2__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_1__.policy9OderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("strong", {
+                  children: "\u7B2C10\u6761\uFF08\u304A\u554F\u3044\u5408\u308F\u305B\u7A93\u53E3\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u672C\u30DD\u30EA\u30B7\u30FC\u306B\u95A2\u3059\u308B\u304A\u554F\u3044\u5408\u308F\u305B\u306F\u3001\u4E0B\u8A18\u306E\u7A93\u53E3\u307E\u3067\u304A\u9858\u3044\u3044\u305F\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u4F4F\u6240\uFF1A\u611B\u77E5\u770C\u540D\u53E4\u5C4B\u5E02\u897F\u533A\u90A3\u53E4\u91CE2-14-1 \u306A\u3054\u306E\u30AD\u30E3\u30F3\u30D1\u30B92-6"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u793E\u540D\uFF1A\u4E00\u822C\u793E\u56E3\u6CD5\u4EBA\u5728\u65E5\u5916\u56FD\u4EBA\u5C31\u696D\u8005\u652F\u63F4\u5354\u4F1A"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("br", {})
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "E\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\uFF1Ainfo@kurofune-inc.com"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  textAlign: "right"
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u4EE5\u4E0A\xA0 \xA0"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  textAlign: "right"
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5236\u5B9A\u65E5\uFF1A2022\u5E741\u67084\u65E5\xA0 \xA0"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: "\xA0"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  textAlign: "center"
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u8A18"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u5354\u4F1A\u306F\u3001\u5F53\u5354\u4F1A\u30B5\u30FC\u30D3\u30B9\u306B\u3066\u53D6\u6271\u3046\u4FDD\u6709\u500B\u4EBA\u30C7\u30FC\u30BF\u306E\u6F0F\u3048\u3044\u3001\u6EC5\u5931\u307E\u305F\u306F\u304D\u640D\u306E\u9632\u6B62\u305D\u306E\u4ED6\u4FDD\u6709\u500B\u4EBA\u30C7\u30FC\u30BF\u306E\u5B89\u5168\u7BA1\u7406\u306E\u305F\u3081\u3001\u500B\u4EBA\u60C5\u5831\u53D6\u6271\u898F\u7A0B\u7B49\u306E\u6574\u5099\u304A\u3088\u3073\u5B9F\u65BD\u4F53\u5236\u306E\u6574\u5099\u7B49\u3001\u5341\u5206\u306A\u30BB\u30AD\u30E5\u30EA\u30C6\u30A3\u5BFE\u7B56\u3092\u8B1B\u3058\u307E\u3059\u3002\u304B\u304B\u308B\u4FDD\u6709\u500B\u4EBA\u30C7\u30FC\u30BF\u306E\u5B89\u5168\u7BA1\u7406\u63AA\u7F6E\u306F\u3001\u500B\u4EBA\u60C5\u5831\u4FDD\u8B77\u6CD5\u306B\u5B9A\u3081\u308B\u3068\u3053\u308D\u306B\u5F93\u3044\u3001\u30E6\u30FC\u30B6\u30FC\u69D8\u304B\u3089\u958B\u793A\u306E\u3054\u8981\u8ACB\u304C\u3042\u308B\u5834\u5408\u306B\u306F\u3001\u9045\u6EDE\u306A\u304F\u958B\u793A\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                style: {
+                  textAlign: "right"
+                },
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u4EE5\u4E0A\xA0 \xA0"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: "\xA0"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontFamily: "arial, helvetica, sans-serif"
+                  }
+                })
+              }), " "]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "modal-footer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "button",
+              className: "btn btn-secondary",
+              "data-dismiss": "modal",
+              children: "\u0110\xF3ng"
+            })
+          })]
+        })
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalPolicy);
+
+/***/ }),
+
+/***/ "./resources/js/components/modal/ModalTerm.js":
+/*!****************************************************!*\
+  !*** ./resources/js/components/modal/ModalTerm.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../commons/Orderlist */ "./resources/js/commons/Orderlist/index.js");
+/* harmony import */ var _modal_custom_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modal-custom.scss */ "./resources/js/components/modal/modal-custom.scss");
+/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../commons/data */ "./resources/js/commons/data.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+var ModalTerm = function ModalTerm(props) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    id: "modal-term",
+    className: "modal-custom",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+      type: "button",
+      className: "btn btn-primary",
+      "data-toggle": "modal",
+      "data-target": "#exampleModalLong",
+      children: "Term"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "modal fade",
+      id: "exampleModalLong",
+      tabIndex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalLongTitle",
+      "aria-hidden": "true",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "modal-dialog",
+        role: "document",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+              className: "modal-title",
+              id: "exampleModalLongTitle",
+              children: "\u0110i\u1EC1u kho\u1EA3n s\u1EED d\u1EE5ng"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "button",
+              className: "close",
+              "data-dismiss": "modal",
+              "aria-label": "Close",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                "aria-hidden": "true",
+                children: "\xD7"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "modal-body",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "modal-content-wrap",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u3053\u306E\u5229\u7528\u898F\u7D04\uFF08\u4EE5\u4E0B\uFF0C\u300C\u672C\u898F\u7D04\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u306F\uFF0C\u4E00\u822C\u793E\u56E3\u6CD5\u4EBA\u5728\u65E5\u5916\u56FD\u4EBA\u5C31\u696D\u8005\u652F\u63F4\u5354\u4F1A\uFF08\u4EE5\u4E0B\uFF0C\u300C\u5F53\u793E\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u304C\u3053\u306E\u30A6\u30A7\u30D6\u30B5\u30A4\u30C8\u4E0A\u3067\u63D0\u4F9B\u3059\u308B\u751F\u6D3B\u652F\u63F4\u30B5\u30FC\u30D3\u30B9\u30DD\u30FC\u30BF\u30EB\u30B5\u30A4\u30C8\uFF08\u4EE5\u4E0B\uFF0C\u300C\u672C\u30B5\u30FC\u30D3\u30B9\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u306E\u5229\u7528\u6761\u4EF6\u3092\u5B9A\u3081\u308B\u3082\u306E\u3067\u3059\u3002\u767B\u9332\u30E6\u30FC\u30B6\u30FC\u306E\u7686\u3055\u307E\uFF08\u4EE5\u4E0B\uFF0C\u300C\u30E6\u30FC\u30B6\u30FC\u300D\u3068\u3044\u3044\u307E\u3059\u3002\uFF09\u306B\u306F\uFF0C\u672C\u898F\u7D04\u306B\u5F93\u3063\u3066\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u3092\u3054\u5229\u7528\u3044\u305F\u3060\u304D\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C1\u6761\uFF08\u9069\u7528\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term1ListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C2\u6761\uFF08\u5229\u7528\u767B\u9332\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ol", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u672C\u30B5\u30FC\u30D3\u30B9\u306B\u304A\u3044\u3066\u306F\uFF0C\u767B\u9332\u5E0C\u671B\u8005\u304C\u672C\u898F\u7D04\u306B\u540C\u610F\u306E\u4E0A\uFF0C\u5F53\u793E\u306E\u5B9A\u3081\u308B\u65B9\u6CD5\u306B\u3088\u3063\u3066\u5229\u7528\u767B\u9332\u3092\u7533\u8ACB\u3057\uFF0C\u5F53\u793E\u304C\u3053\u308C\u3092\u627F\u8A8D\u3059\u308B\u3053\u3068\u306B\u3088\u3063\u3066\uFF0C\u5229\u7528\u767B\u9332\u304C\u5B8C\u4E86\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u793E\u306F\uFF0C\u5229\u7528\u767B\u9332\u306E\u7533\u8ACB\u8005\u306B\u4EE5\u4E0B\u306E\u4E8B\u7531\u304C\u3042\u308B\u3068\u5224\u65AD\u3057\u305F\u5834\u5408\uFF0C\u5229\u7528\u767B\u9332\u306E\u7533\u8ACB\u3092\u627F\u8A8D\u3057\u306A\u3044\u3053\u3068\u304C\u3042\u308A\uFF0C\u305D\u306E\u7406\u7531\u306B\u3064\u3044\u3066\u306F\u4E00\u5207\u306E\u958B\u793A\u7FA9\u52D9\u3092\u8CA0\u308F\u306A\u3044\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                    data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term2SubOrderListData,
+                    liStyle: {
+                      fontWeight: 400
+                    },
+                    spanStyle: {
+                      fontWeight: 400
+                    },
+                    arialLevel: 2
+                  })]
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C3\u6761\uFF08\u30E6\u30FC\u30B6\u30FCID\u304A\u3088\u3073\u30D1\u30B9\u30EF\u30FC\u30C9\u306E\u7BA1\u7406\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term3OrderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C4\u6761\uFF08\u5229\u7528\u6599\u91D1\u304A\u3088\u3073\u652F\u6255\u65B9\u6CD5\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term4OrderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C5\u6761\uFF08\u7981\u6B62\u4E8B\u9805\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30E6\u30FC\u30B6\u30FC\u306F\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u5229\u7528\u306B\u3042\u305F\u308A\uFF0C\u4EE5\u4E0B\u306E\u884C\u70BA\u3092\u3057\u3066\u306F\u306A\u308A\u307E\u305B\u3093\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term5ListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C6\u6761\uFF08\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u63D0\u4F9B\u306E\u505C\u6B62\u7B49\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ol", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u793E\u306F\uFF0C\u4EE5\u4E0B\u306E\u3044\u305A\u308C\u304B\u306E\u4E8B\u7531\u304C\u3042\u308B\u3068\u5224\u65AD\u3057\u305F\u5834\u5408\uFF0C\u30E6\u30FC\u30B6\u30FC\u306B\u4E8B\u524D\u306B\u901A\u77E5\u3059\u308B\u3053\u3068\u306A\u304F\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u5168\u90E8\u307E\u305F\u306F\u4E00\u90E8\u306E\u63D0\u4F9B\u3092\u505C\u6B62\u307E\u305F\u306F\u4E2D\u65AD\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                    data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term6SubOrderListData,
+                    liStyle: {
+                      fontWeight: 400
+                    },
+                    spanStyle: {
+                      fontWeight: 400
+                    },
+                    arialLevel: 2
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u793E\u306F\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u63D0\u4F9B\u306E\u505C\u6B62\u307E\u305F\u306F\u4E2D\u65AD\u306B\u3088\u308A\uFF0C\u30E6\u30FC\u30B6\u30FC\u307E\u305F\u306F\u7B2C\u4E09\u8005\u304C\u88AB\u3063\u305F\u3044\u304B\u306A\u308B\u4E0D\u5229\u76CA\u307E\u305F\u306F\u640D\u5BB3\u306B\u3064\u3044\u3066\u3082\uFF0C\u4E00\u5207\u306E\u8CAC\u4EFB\u3092\u8CA0\u308F\u306A\u3044\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C7\u6761\uFF08\u5229\u7528\u5236\u9650\u304A\u3088\u3073\u767B\u9332\u62B9\u6D88\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ol", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u793E\u306F\uFF0C\u30E6\u30FC\u30B6\u30FC\u304C\u4EE5\u4E0B\u306E\u3044\u305A\u308C\u304B\u306B\u8A72\u5F53\u3059\u308B\u5834\u5408\u306B\u306F\uFF0C\u4E8B\u524D\u306E\u901A\u77E5\u306A\u304F\uFF0C\u30E6\u30FC\u30B6\u30FC\u306B\u5BFE\u3057\u3066\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u5168\u90E8\u3082\u3057\u304F\u306F\u4E00\u90E8\u306E\u5229\u7528\u3092\u5236\u9650\u3057\uFF0C\u307E\u305F\u306F\u30E6\u30FC\u30B6\u30FC\u3068\u3057\u3066\u306E\u767B\u9332\u3092\u62B9\u6D88\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                    data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term7SubOrderListData,
+                    liStyle: {
+                      fontWeight: 400
+                    },
+                    spanStyle: {
+                      fontWeight: 400
+                    },
+                    arialLevel: 2
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u5F53\u793E\u306F\uFF0C\u672C\u6761\u306B\u57FA\u3065\u304D\u5F53\u793E\u304C\u884C\u3063\u305F\u884C\u70BA\u306B\u3088\u308A\u30E6\u30FC\u30B6\u30FC\u306B\u751F\u3058\u305F\u640D\u5BB3\u306B\u3064\u3044\u3066\uFF0C\u4E00\u5207\u306E\u8CAC\u4EFB\u3092\u8CA0\u3044\u307E\u305B\u3093\u3002"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C8\u6761\uFF08\u9000\u4F1A\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30E6\u30FC\u30B6\u30FC\u306F\uFF0C\u5F53\u793E\u306E\u5B9A\u3081\u308B\u9000\u4F1A\u624B\u7D9A\u306B\u3088\u308A\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u304B\u3089\u9000\u4F1A\u3067\u304D\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C9\u6761\uFF08\u4FDD\u8A3C\u306E\u5426\u8A8D\u304A\u3088\u3073\u514D\u8CAC\u4E8B\u9805\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Orderlist__WEBPACK_IMPORTED_MODULE_1__["default"], {
+                data: _commons_data__WEBPACK_IMPORTED_MODULE_3__.term9OrderListData,
+                liStyle: {
+                  fontWeight: 400
+                },
+                spanStyle: {
+                  fontWeight: 400
+                },
+                arialLevel: 1
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C10\u6761\uFF08\u30B5\u30FC\u30D3\u30B9\u5185\u5BB9\u306E\u5909\u66F4\u7B49\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u793E\u306F\uFF0C\u30E6\u30FC\u30B6\u30FC\u306B\u901A\u77E5\u3059\u308B\u3053\u3068\u306A\u304F\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u5185\u5BB9\u3092\u5909\u66F4\u3057\u307E\u305F\u306F\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u63D0\u4F9B\u3092\u4E2D\u6B62\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3082\u306E\u3068\u3057\uFF0C\u3053\u308C\u306B\u3088\u3063\u3066\u30E6\u30FC\u30B6\u30FC\u306B\u751F\u3058\u305F\u640D\u5BB3\u306B\u3064\u3044\u3066\u4E00\u5207\u306E\u8CAC\u4EFB\u3092\u8CA0\u3044\u307E\u305B\u3093\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C11\u6761\uFF08\u5229\u7528\u898F\u7D04\u306E\u5909\u66F4\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u793E\u306F\uFF0C\u5FC5\u8981\u3068\u5224\u65AD\u3057\u305F\u5834\u5408\u306B\u306F\uFF0C\u30E6\u30FC\u30B6\u30FC\u306B\u901A\u77E5\u3059\u308B\u3053\u3068\u306A\u304F\u3044\u3064\u3067\u3082\u672C\u898F\u7D04\u3092\u5909\u66F4\u3059\u308B\u3053\u3068\u304C\u3067\u304D\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002\u306A\u304A\uFF0C\u672C\u898F\u7D04\u306E\u5909\u66F4\u5F8C\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u5229\u7528\u3092\u958B\u59CB\u3057\u305F\u5834\u5408\u306B\u306F\uFF0C\u5F53\u8A72\u30E6\u30FC\u30B6\u30FC\u306F\u5909\u66F4\u5F8C\u306E\u898F\u7D04\u306B\u540C\u610F\u3057\u305F\u3082\u306E\u3068\u307F\u306A\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C12\u6761\uFF08\u500B\u4EBA\u60C5\u5831\u306E\u53D6\u6271\u3044\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u5F53\u793E\u306F\uFF0C\u672C\u30B5\u30FC\u30D3\u30B9\u306E\u5229\u7528\u306B\u3088\u3063\u3066\u53D6\u5F97\u3059\u308B\u500B\u4EBA\u60C5\u5831\u306B\u3064\u3044\u3066\u306F\uFF0C\u5F53\u793E\u300C\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC\u300D\u306B\u5F93\u3044\u9069\u5207\u306B\u53D6\u308A\u6271\u3046\u3082\u306E\u3068\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C13\u6761\uFF08\u901A\u77E5\u307E\u305F\u306F\u9023\u7D61\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30E6\u30FC\u30B6\u30FC\u3068\u5F53\u793E\u3068\u306E\u9593\u306E\u901A\u77E5\u307E\u305F\u306F\u9023\u7D61\u306F\uFF0C\u5F53\u793E\u306E\u5B9A\u3081\u308B\u65B9\u6CD5\u306B\u3088\u3063\u3066\u884C\u3046\u3082\u306E\u3068\u3057\u307E\u3059\u3002\u5F53\u793E\u306F,\u30E6\u30FC\u30B6\u30FC\u304B\u3089,\u5F53\u793E\u304C\u5225\u9014\u5B9A\u3081\u308B\u65B9\u5F0F\u306B\u5F93\u3063\u305F\u5909\u66F4\u5C4A\u3051\u51FA\u304C\u306A\u3044\u9650\u308A,\u73FE\u5728\u767B\u9332\u3055\u308C\u3066\u3044\u308B\u9023\u7D61\u5148\u304C\u6709\u52B9\u306A\u3082\u306E\u3068\u307F\u306A\u3057\u3066\u5F53\u8A72\u9023\u7D61\u5148\u3078\u901A\u77E5\u307E\u305F\u306F\u9023\u7D61\u3092\u884C\u3044,\u3053\u308C\u3089\u306F,\u767A\u4FE1\u6642\u306B\u30E6\u30FC\u30B6\u30FC\u3078\u5230\u9054\u3057\u305F\u3082\u306E\u3068\u307F\u306A\u3057\u307E\u3059\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C14\u6761\uFF08\u6A29\u5229\u7FA9\u52D9\u306E\u8B72\u6E21\u306E\u7981\u6B62\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u30E6\u30FC\u30B6\u30FC\u306F\uFF0C\u5F53\u793E\u306E\u66F8\u9762\u306B\u3088\u308B\u4E8B\u524D\u306E\u627F\u8AFE\u306A\u304F\uFF0C\u5229\u7528\u5951\u7D04\u4E0A\u306E\u5730\u4F4D\u307E\u305F\u306F\u672C\u898F\u7D04\u306B\u57FA\u3065\u304F\u6A29\u5229\u3082\u3057\u304F\u306F\u7FA9\u52D9\u3092\u7B2C\u4E09\u8005\u306B\u8B72\u6E21\u3057\uFF0C\u307E\u305F\u306F\u62C5\u4FDD\u306B\u4F9B\u3059\u308B\u3053\u3068\u306F\u3067\u304D\u307E\u305B\u3093\u3002"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("b", {
+                  children: "\u7B2C15\u6761\uFF08\u6E96\u62E0\u6CD5\u30FB\u88C1\u5224\u7BA1\u8F44\uFF09"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("ol", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u672C\u898F\u7D04\u306E\u89E3\u91C8\u306B\u3042\u305F\u3063\u3066\u306F\uFF0C\u65E5\u672C\u6CD5\u3092\u6E96\u62E0\u6CD5\u3068\u3057\u307E\u3059\u3002"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  "aria-level": "1",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    style: {
+                      fontWeight: 400
+                    },
+                    children: "\u672C\u30B5\u30FC\u30D3\u30B9\u306B\u95A2\u3057\u3066\u7D1B\u4E89\u304C\u751F\u3058\u305F\u5834\u5408\u306B\u306F\uFF0C\u5F53\u793E\u306E\u672C\u5E97\u6240\u5728\u5730\u3092\u7BA1\u8F44\u3059\u308B\u88C1\u5224\u6240\u3092\u5C02\u5C5E\u7684\u5408\u610F\u7BA1\u8F44\u3068\u3057\u307E\u3059\u3002"
+                  })
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                  style: {
+                    fontWeight: 400
+                  },
+                  children: "\u4EE5\u4E0A"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                children: "\xA0"
+              }), " "]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "modal-footer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              type: "button",
+              className: "btn btn-secondary",
+              "data-dismiss": "modal",
+              children: "\u0110\xF3ng"
+            })
+          })]
+        })
+      })
+    })]
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ModalTerm);
+
+/***/ }),
+
 /***/ "./resources/js/pages/auth/authLayout/index.js":
 /*!*****************************************************!*\
   !*** ./resources/js/pages/auth/authLayout/index.js ***!
@@ -5496,7 +6600,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_modal_ModalPolicy__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/modal/ModalPolicy */ "./resources/js/components/modal/ModalPolicy.js");
+/* harmony import */ var _components_modal_ModalTerm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/modal/ModalTerm */ "./resources/js/components/modal/ModalTerm.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
 
 
 
@@ -5505,10 +6614,10 @@ __webpack_require__.r(__webpack_exports__);
 var HomePage = function HomePage() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "home-text",
-      children: "Userssssss"
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_modal_ModalTerm__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_modal_ModalPolicy__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
     })
   });
 };
@@ -10665,6 +11774,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".form-group {\n  position: relative;\n}\n\n.form-control-auth {\n  border: 0;\n  border-bottom: 1px solid blueviolet;\n  padding-left: 30px;\n  outline: none;\n  width: 100%;\n  background: transparent;\n}\n.form-control-auth:focus {\n  outline: none;\n  border: 0;\n  border-bottom: 2px solid blueviolet;\n}\n\n.icon-input {\n  position: absolute;\n  bottom: 12px;\n  left: 8px;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/modal/modal-custom.scss":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/modal/modal-custom.scss ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".modal-custom {\n  font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, \"Helvetica Neue\", Arial, \"Noto Sans\", \"Liberation Sans\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\", \"Noto Color Emoji\";\n  line-height: 1.5;\n  /* width */\n  /* Track */\n  /* Handle */\n  /* Handle on hover */\n}\n.modal-custom ::-webkit-scrollbar {\n  width: 6px;\n}\n.modal-custom ::-webkit-scrollbar-track {\n  background: #E2E2E2;\n}\n.modal-custom ::-webkit-scrollbar-thumb {\n  background: #62A19B;\n}\n.modal-custom ::-webkit-scrollbar-thumb:hover {\n  background: #62A19B;\n}\n.modal-custom .modal-content .modal-header .modal-title {\n  margin-bottom: 0;\n  line-height: 1.5;\n  font-size: 20px;\n  color: #515151;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap {\n  max-height: 400px;\n  overflow: auto;\n  -webkit-overflow-scrolling: touch;\n  width: 100%;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap p {\n  -webkit-box-orient: vertical;\n  display: -webkit-box;\n  overflow: hidden;\n  margin: 0 0 10px;\n  font-size: 13px;\n  color: #515151;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap span {\n  color: #515151;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap ul {\n  margin: 0 0 10px;\n  padding-left: 25px;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap ul li {\n  color: #515151;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap ol {\n  margin: 0 0 10px;\n  list-style: decimal;\n  padding-left: 25px;\n}\n.modal-custom .modal-content .modal-body .modal-content-wrap li {\n  font-size: 13px;\n}\n.modal-custom .modal-content .modal-footer {\n  display: flex;\n  justify-content: center;\n}\n.modal-custom .modal-content .modal-footer > * {\n  margin: 4px;\n}\n.modal-custom .modal-content .modal-footer .btn-secondary {\n  width: 182px;\n  height: 42px;\n  font-size: 16px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62A19B;\n  border: 1px solid #62A19B;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -65619,6 +66752,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./resources/js/components/modal/modal-custom.scss":
+/*!*********************************************************!*\
+  !*** ./resources/js/components/modal/modal-custom.scss ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modal_custom_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./modal-custom.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/modal/modal-custom.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modal_custom_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_modal_custom_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/js/pages/auth/authLayout/style.scss":
 /*!*******************************************************!*\
   !*** ./resources/js/pages/auth/authLayout/style.scss ***!
@@ -66094,7 +67257,7 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\Chien\\\\Desktop\\\\kurofune"]],"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/","/localtunnel"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Users\\\\Chien\\\\Desktop\\\\kurofune","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
 
 /***/ })
 
