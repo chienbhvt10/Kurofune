@@ -6,9 +6,9 @@ const HomePage = () => {
   },[]);
 
   return (
-      <div className="container-fluid" style={{background:"red"}}>
-        Ối rồi ôi ui
-      </div>
+    <>
+      <div className="home-text">Userssssss</div>
+    </>
   );
 };
 
