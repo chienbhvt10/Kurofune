@@ -14,14 +14,15 @@ import {
 const ModalTerm = (props) => {
   return (
     <div id="modal-term" className="modal-custom">
-      <button
+      <a
+        style={{ color: "#62A19B" }}
         type="button"
-        className="btn btn-primary"
+        className=""
         data-toggle="modal"
         data-target="#exampleModalLong"
       >
-        Term
-      </button>
+        Điều khoản sử dụng
+      </a>
       <div
         className="modal fade"
         id="exampleModalLong"

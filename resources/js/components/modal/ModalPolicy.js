@@ -14,14 +14,15 @@ import "./modal-custom.scss";
 const ModalPolicy = (props) => {
   return (
     <div id="modal-policy" className="modal-custom">
-      <button
+      <a
+        style={{ color: "#62A19B" }}
         type="button"
-        className="btn btn-primary"
+        className=""
         data-toggle="modal"
         data-target="#exampleModalLong2"
       >
-        Policy
-      </button>
+        Chính sách bảo mật
+      </a>
       <div
         className="modal fade"
         id="exampleModalLong2"

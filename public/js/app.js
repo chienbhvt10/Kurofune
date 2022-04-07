@@ -5629,12 +5629,15 @@ var ModalPolicy = function ModalPolicy(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     id: "modal-policy",
     className: "modal-custom",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+      style: {
+        color: "#62A19B"
+      },
       type: "button",
-      className: "btn btn-primary",
+      className: "",
       "data-toggle": "modal",
       "data-target": "#exampleModalLong2",
-      children: "Policy"
+      children: "Ch\xEDnh s\xE1ch b\u1EA3o m\u1EADt"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "modal fade",
       id: "exampleModalLong2",
@@ -6132,12 +6135,15 @@ var ModalTerm = function ModalTerm(props) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     id: "modal-term",
     className: "modal-custom",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+      style: {
+        color: "#62A19B"
+      },
       type: "button",
-      className: "btn btn-primary",
+      className: "",
       "data-toggle": "modal",
       "data-target": "#exampleModalLong",
-      children: "Term"
+      children: "\u0110i\u1EC1u kho\u1EA3n s\u1EED d\u1EE5ng"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "modal fade",
       id: "exampleModalLong",
