@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import '../../../sass/home/index.scss'
 import { useDispatch } from "react-redux";
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -7,9 +6,9 @@ const HomePage = () => {
   },[]);
 
   return (
-    <>
-      <div className="home-text">Users</div>
-    </>
+      <div className="container-fluid" style={{background:"red"}}>
+        Ối rồi ôi ui
+      </div>
   );
 };
 
