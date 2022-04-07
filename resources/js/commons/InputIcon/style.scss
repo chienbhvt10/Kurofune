@@ -1,0 +1,21 @@
+.form-group {
+  position: relative;
+}
+.form-control-auth{
+  border: 0;
+  border-bottom: 1px solid blueviolet;
+  padding-left: 30px;
+  outline: none;
+  width: 100%;
+  background: transparent;
+  &:focus{
+  outline: none;
+    border: 0;
+    border-bottom: 2px solid blueviolet;
+  }
+}
+.icon-input {
+  position: absolute;
+  bottom: 12px;
+  left: 8px;
+}
