@@ -5,7 +5,7 @@ export const InputIcon = (props) => {
   return (
     <>
       <div class="form-group">
-        <label for={props.name}>{props.label}</label>
+        <label htmlFor={props.name}>{props.label}</label>
         <input
           type={props.type}
           class="form-control-auth"
