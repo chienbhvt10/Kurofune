@@ -5365,10 +5365,9 @@ var InputIcon = function InputIcon(props) {
         "for": props.name,
         children: props.label
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "email",
+        type: props.type,
         "class": "form-control-auth",
-        id: props.name,
-        placeholder: props.label
+        id: props.name
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
         className: "icon-input",
         src: props.icon,
@@ -5433,9 +5432,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Login": () => (/* binding */ Login)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _commons_InputIcon__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../commons/InputIcon */ "./resources/js/commons/InputIcon/index.js");
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./resources/js/pages/auth/login/style.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -5448,12 +5449,157 @@ var Login = function Login() {
       className: "title",
       children: ["\u4E00\u822C\u793E\u56E3\u6CD5\u4EBA\u5728\u65E5\u5916\u56FD\u4EBA\u5C31\u696D\u8005\u652F\u63F4\u5354\u4F1A", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u751F\u6D3B\u652F\u63F4\u30DD\u30FC\u30BF\u30EB\u30B5\u30A4\u30C8"]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_commons_InputIcon__WEBPACK_IMPORTED_MODULE_1__.InputIcon, {
-      label: "UserName",
-      name: "UserName"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_commons_InputIcon__WEBPACK_IMPORTED_MODULE_1__.InputIcon, {
-      label: "Password",
-      name: "Password",
+      label: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9",
+      name: "UserName",
+      type: "email",
       icon: "https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_commons_InputIcon__WEBPACK_IMPORTED_MODULE_1__.InputIcon, {
+      label: "\u30D1\u30B9\u30EF\u30FC\u30C9",
+      name: "Password",
+      type: "password",
+      icon: "https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-key.png"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "d-flex justify-content-between remember-block",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "checkbox-remember",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "checkbox",
+          id: "vehicle1",
+          name: "vehicle1",
+          value: "Bike"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          "for": "vehicle1",
+          children: " \u4FDD\u5B58\u3059\u308B"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        to: "member/lostpassword",
+        className: "text-decoration-none text-forgot",
+        children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5FD8\u308C\u305F\u65B9\u306F\u3053\u3061\u3089"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      className: "btn btn-primary d-block m-auto",
+      children: "\u30ED\u30B0\u30A4\u30F3 "
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "d-flex justify-content-center note",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        className: "mr-2",
+        "data-toggle": "modal",
+        "data-target": "#term-of-use",
+        children: "\u5229\u7528\u898F\u7D04"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+        "data-toggle": "modal",
+        "data-target": "#privacy-policy",
+        children: "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      "class": "dropdown",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        "class": "btn btn-secondary dropdown-toggle d-flex m-auto",
+        type: "button",
+        id: "dropdownMenuButton",
+        "data-toggle": "dropdown",
+        "aria-haspopup": "true",
+        "aria-expanded": "false",
+        children: "Dropdown button"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        "class": "dropdown-menu",
+        "aria-labelledby": "dropdownMenuButton",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          "class": "dropdown-item",
+          href: "#",
+          children: "Action"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          "class": "dropdown-item",
+          href: "#",
+          children: "Another action"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          "class": "dropdown-item",
+          href: "#",
+          children: "Something else here"
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      "class": "modal fade",
+      id: "privacy-policy",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        "class": "modal-dialog",
+        role: "document",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          "class": "modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            "class": "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+              "class": "modal-title",
+              id: "exampleModalLabel",
+              children: "Modal title"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              type: "button",
+              "class": "close",
+              "data-dismiss": "modal",
+              "aria-label": "Close",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                "aria-hidden": "true",
+                children: "\xD7"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            "class": "modal-body",
+            children: "..."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            "class": "modal-footer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              type: "button",
+              "class": "btn btn-primary  d-block m-auto",
+              children: "Save changes"
+            })
+          })]
+        })
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      "class": "modal fade",
+      id: "term-of-use",
+      tabindex: "-1",
+      role: "dialog",
+      "aria-labelledby": "exampleModalLabel",
+      "aria-hidden": "true",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        "class": "modal-dialog",
+        role: "document",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          "class": "modal-content",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            "class": "modal-header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+              "class": "modal-title",
+              id: "exampleModalLabel",
+              children: "Modal title"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              type: "button",
+              "class": "close",
+              "data-dismiss": "modal",
+              "aria-label": "Close",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                "aria-hidden": "true",
+                children: "\xD7"
+              })
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            "class": "modal-body",
+            children: "..."
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            "class": "modal-footer",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              type: "button",
+              "class": "btn btn-primary d-block m-auto",
+              children: "Save changes"
+            })
+          })]
+        })
+      })
     })]
   });
 };
@@ -10664,7 +10810,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".form-group {\n  position: relative;\n}\n\n.form-control-auth {\n  border: 0;\n  border-bottom: 1px solid blueviolet;\n  padding-left: 30px;\n  outline: none;\n  width: 100%;\n  background: transparent;\n}\n.form-control-auth:focus {\n  outline: none;\n  border: 0;\n  border-bottom: 2px solid blueviolet;\n}\n\n.icon-input {\n  position: absolute;\n  bottom: 12px;\n  left: 8px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".form-group {\n  position: relative;\n  margin-bottom: 15px;\n}\n.form-group label {\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n  transition: transform 0.2s ease, color 0.2s ease;\n  padding-left: 30px;\n}\n.form-group .form-control-auth {\n  border: 0;\n  border-bottom: 1px solid #ccc;\n  outline: none;\n  background: transparent;\n  padding: 10px 25px;\n  height: 38px;\n  width: 100%;\n  font-weight: 400;\n  font-size: 16px;\n}\n.form-group .form-control-auth:focus {\n  outline: none;\n  border-color: #62A19B;\n  box-shadow: 0 1px 0 0 #62a19b;\n  transition: transform 0.2s ease, color 0.2s ease;\n}\n.form-group .icon-input {\n  position: absolute;\n  bottom: 12px;\n  left: 0;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10688,7 +10834,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".auth-layout {\n  height: 100vh;\n  display: flex;\n}\n.auth-layout .layout-left,\n.auth-layout .layout-right {\n  flex: 1;\n}\n.auth-layout .layout-left img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.auth-layout .layout-right .form-input {\n  padding: 20px;\n  overflow: auto;\n  max-width: 475px;\n  width: 100%;\n  margin: auto;\n  font-size: 13px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".auth-layout {\n  height: 100vh;\n  display: flex;\n}\n.auth-layout .layout-left,\n.auth-layout .layout-right {\n  flex: 1;\n}\n.auth-layout .layout-left img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.auth-layout .layout-right .form-input {\n  padding: 20px 15px;\n  overflow: auto;\n  max-width: 475px;\n  width: 100%;\n  margin: auto;\n  font-size: 13px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10712,7 +10858,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".title {\n  text-align: center;\n  color: #62A19B;\n  line-height: 35px;\n  font-size: 22px;\n  font-weight: bold;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".title {\n  text-align: center;\n  color: #62a19b;\n  line-height: 35px;\n  font-size: 22px;\n  font-weight: bold;\n  margin-bottom: 38px;\n}\n\n.remember-block {\n  padding: 10px 25px;\n  position: relative;\n  margin-top: 30px;\n  margin-bottom: 15px;\n}\n.remember-block .checkbox-remember label {\n  margin-bottom: 0;\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n}\n.remember-block .checkbox-remember input {\n  position: absolute;\n  top: 12px;\n  left: 5px;\n}\n.remember-block .text-forgot {\n  color: #62a19b;\n  font-size: 13px;\n}\n\n.btn-primary {\n  width: 182px;\n  height: 42px;\n  font-size: 16px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62A19B;\n  border: 1px solid #62A19B;\n  transition: all 0.2s ease-in-out;\n}\n.btn-primary:hover {\n  background: #62A19B;\n  border: 1px solid #62A19B;\n  opacity: 0.6;\n}\n.btn-primary:focus, .btn-primary:active {\n  background-color: #62A19B !important;\n  border: 1px solid #62A19B !important;\n}\n\n.note {\n  margin-top: 95px;\n}\n.note a {\n  color: #62A19B !important;\n  font-size: 15px;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

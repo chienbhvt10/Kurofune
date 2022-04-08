@@ -1,21 +1,33 @@
 .form-group {
   position: relative;
-}
-.form-control-auth{
-  border: 0;
-  border-bottom: 1px solid blueviolet;
-  padding-left: 30px;
-  outline: none;
-  width: 100%;
-  background: transparent;
-  &:focus{
-  outline: none;
-    border: 0;
-    border-bottom: 2px solid blueviolet;
+  margin-bottom: 15px;
+  label {
+    color: #62a19b;
+    font-size: 11px;
+    font-weight: 500;
+    transition: transform 0.2s ease, color 0.2s ease;
+    padding-left: 30px;
   }
-}
-.icon-input {
-  position: absolute;
-  bottom: 12px;
-  left: 8px;
+  .form-control-auth {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    outline: none;
+    background: transparent;
+    padding: 10px 25px;
+    height: 38px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 16px;
+    &:focus {
+      outline: none;
+      border-color: #62A19B;
+      box-shadow: 0 1px 0 0 #62a19b;
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+  }
+  .icon-input {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+  }
 }

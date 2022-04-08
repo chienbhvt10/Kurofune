@@ -1,7 +1,59 @@
-.title{
+.title {
   text-align: center;
-  color: #62A19B;
+  color: #62a19b;
   line-height: 35px;
   font-size: 22px;
   font-weight: bold;
+  margin-bottom: 38px;
+}
+.remember-block {
+  padding: 10px 25px;
+  position: relative;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  .checkbox-remember {
+    label {
+      margin-bottom: 0;
+      color: #62a19b;
+      font-size: 11px;
+      font-weight: 500;
+    }
+    input {
+      position: absolute;
+      top: 12px;
+      left: 5px;
+    }
+  }
+  .text-forgot {
+    color: #62a19b;
+    font-size: 13px;
+  }
+
+}
+.btn-primary{
+  width: 182px;
+  height: 42px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: #62A19B;
+  border: 1px solid #62A19B;
+  transition: all .2s ease-in-out;
+  &:hover{
+    background: #62A19B;
+    border: 1px solid #62A19B;
+    opacity: .6;
+  }
+  &:focus,&:active{
+    background-color: #62A19B !important;
+    border: 1px solid #62A19B !important;
+  }
+}
+.note{
+  margin-top: 95px;
+  a{
+    color: #62A19B !important;
+    font-size: 15px;
+    cursor: pointer;
+  }
 }
