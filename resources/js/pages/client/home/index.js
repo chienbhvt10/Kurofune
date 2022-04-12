@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import ModalPolicy from "../../../components/modal/ModalPolicy";
-import ModalTerm from "../../../components/modal/ModalTerm";
+import Footer from "../../../components/footer";
 const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {}, []);
 
   return (
     <>
-      <div className="home-text">
-        <ModalTerm />
-        <ModalPolicy />
-      </div>
+      <div className="home-text">hello</div>
+      <Footer />
     </>
   );
 };
