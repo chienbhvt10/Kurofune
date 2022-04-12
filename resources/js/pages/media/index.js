@@ -32,10 +32,7 @@ const MediaPage = () => {
                   title="member services"
                 >
                   <div className="icon">
-                    <img
-                      src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/pharma.png"
-                      alt=""
-                    />
+                    <img src="images/media/pharma.png" alt="" />
                   </div>
                   <div className="desc">
                     <h3 className="tit">Hiệu thuốc Online </h3>
@@ -50,11 +47,7 @@ const MediaPage = () => {
                   title="https://member.wabisabi.media/vi/service-24h"
                 >
                   <div className="icon">
-                    <img
-                      // src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/support.png"
-                      src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/g_support.png"
-                      alt=""
-                    />
+                    <img src="images/media/g_support.png" alt="" />
                   </div>
                   <div className="desc">
                     <h3 className="tit">Dịch vụ tư vấn 24 giờ</h3>
@@ -69,10 +62,7 @@ const MediaPage = () => {
                   title=""
                 >
                   <div className="icon">
-                    <img
-                      src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/db.png"
-                      alt=""
-                    />
+                    <img src="images/media/db.png" alt="" />
                   </div>
                   <div className="desc">
                     <h3 className="tit">Chuyển tiền ra nước ngoài</h3>
@@ -87,10 +77,7 @@ const MediaPage = () => {
                   title="e-learning"
                 >
                   <div className="icon">
-                    <img
-                      src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/edu.png"
-                      alt=""
-                    />
+                    <img src="images/media/edu.png" alt="" />
                   </div>
                   <div className="desc">
                     <h3 className="tit">Học trực tuyến</h3>
@@ -105,10 +92,7 @@ const MediaPage = () => {
                   title=""
                 >
                   <div className="icon">
-                    <img
-                      src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/heat.png"
-                      alt=""
-                    />
+                    <img src="images/media/heat.png" alt="" />
                   </div>
                   <div className="desc">
                     <h3 className="tit">Bảo hiểm thu nhập</h3>
