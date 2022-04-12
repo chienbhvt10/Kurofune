@@ -5,6 +5,7 @@ import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
 import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
+import LostPassword from "../pages/auth/forget-password";
 const appRouter = () => (
   <BrowserRouter>
     <Routes>
@@ -12,6 +13,7 @@ const appRouter = () => (
       <Route path="/" element={<AuthLayout />} exact={true}>
         <Route path="login" element={<Login />} exact={true} />
         <Route path="register" element={<Register />} exact={true} />
+        <Route path="lost-password" element={<LostPassword />} exact={true} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
