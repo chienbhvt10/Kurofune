@@ -23,7 +23,7 @@ const LostPassword = () => {
                 className="form-control"
                 name="user_email"
                 id="user_email"
-                value=""
+                value="aaaa"
                 style={{ textTransform: "lowercase" }}
               />
               <img

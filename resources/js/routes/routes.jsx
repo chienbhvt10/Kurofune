@@ -6,6 +6,7 @@ import { Login } from "../pages/auth/login";
 import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
+import MediaPage from "../pages/media";
 const appRouter = () => (
   <BrowserRouter>
     <Routes>
@@ -15,6 +16,7 @@ const appRouter = () => (
         <Route path="register" element={<Register />} exact={true} />
         <Route path="lost-password" element={<LostPassword />} exact={true} />
       </Route>
+      <Route path="media" element={<MediaPage />} exact={true} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </BrowserRouter>

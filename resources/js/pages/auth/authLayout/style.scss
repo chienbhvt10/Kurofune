@@ -13,6 +13,7 @@
     }
   }
   .layout-right {
+    background-color: white;
     .form-input {
       padding: 20px 15px;
       overflow: auto;
@@ -21,5 +22,10 @@
       margin: auto;
       font-size: 13px;
     }
+  }
+}
+@media (max-width: 991.98px){
+  .layout-left{
+    display: none;
   }
 }
