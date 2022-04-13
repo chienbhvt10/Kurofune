@@ -10,6 +10,7 @@ import MediaPage from "../pages/media";
 import HomeLayout from "../commons/layout/HomeLayout";
 import MemberPage from "../pages/member";
 import PharmaciesPage from "../pages/list-of-pharmacies";
+import MedicineListPage from "../pages/medicine-list";
 const appRouter = () => (
   <BrowserRouter>
     <Routes>
@@ -18,6 +19,11 @@ const appRouter = () => (
         <Route
           path="list-of-pharmacies"
           element={<PharmaciesPage />}
+          exact={true}
+        />
+        <Route
+          path="medicine-list"
+          element={<MedicineListPage />}
           exact={true}
         />
       </Route>

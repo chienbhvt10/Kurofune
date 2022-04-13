@@ -20212,6 +20212,255 @@ var InputIcon = function InputIcon(props) {
 
 /***/ }),
 
+/***/ "./resources/js/commons/data.js":
+/*!**************************************!*\
+  !*** ./resources/js/commons/data.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "medicineList1": () => (/* binding */ medicineList1),
+/* harmony export */   "medicineList2": () => (/* binding */ medicineList2),
+/* harmony export */   "medicineList3": () => (/* binding */ medicineList3),
+/* harmony export */   "policy3OderListData": () => (/* binding */ policy3OderListData),
+/* harmony export */   "policy4OderListData": () => (/* binding */ policy4OderListData),
+/* harmony export */   "policy5SubOderListData1": () => (/* binding */ policy5SubOderListData1),
+/* harmony export */   "policy5SubOderListData2": () => (/* binding */ policy5SubOderListData2),
+/* harmony export */   "policy6SubOderListData": () => (/* binding */ policy6SubOderListData),
+/* harmony export */   "policy7OderListData": () => (/* binding */ policy7OderListData),
+/* harmony export */   "policy8OderListData": () => (/* binding */ policy8OderListData),
+/* harmony export */   "policy9OderListData": () => (/* binding */ policy9OderListData),
+/* harmony export */   "term1ListData": () => (/* binding */ term1ListData),
+/* harmony export */   "term2SubOrderListData": () => (/* binding */ term2SubOrderListData),
+/* harmony export */   "term3OrderListData": () => (/* binding */ term3OrderListData),
+/* harmony export */   "term4OrderListData": () => (/* binding */ term4OrderListData),
+/* harmony export */   "term5ListData": () => (/* binding */ term5ListData),
+/* harmony export */   "term6SubOrderListData": () => (/* binding */ term6SubOrderListData),
+/* harmony export */   "term7SubOrderListData": () => (/* binding */ term7SubOrderListData),
+/* harmony export */   "term9OrderListData": () => (/* binding */ term9OrderListData)
+/* harmony export */ });
+var term1ListData = [{
+  title: "本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。"
+}, {
+  title: "当社は本サービスに関し，本規約のほか，ご利用にあたってのルール等，各種の定め（以下，「個別規定」といいます。）をすることがあります。これら個別規定はその名称のいかんに関わらず，本規約の一部を構成するものとします。"
+}, {
+  title: "本規約の規定が前条の個別規定の規定と矛盾する場合には，個別規定において特段の定めなき限り，個別規定の規定が優先されるものとします。"
+}];
+var term2SubOrderListData = [{
+  title: "利用登録の申請に際して虚偽の事項を届け出た場合"
+}, {
+  title: "本規約に違反したことがある者からの申請である場合"
+}, {
+  title: "その他，当社が利用登録を相当でないと判断した場合"
+}];
+var term3OrderListData = [{
+  title: "ユーザーは，自己の責任において，本サービスのユーザーIDおよびパスワードを適切に管理するものとします。"
+}, {
+  title: "ユーザーは，いかなる場合にも，ユーザーIDおよびパスワードを第三者に譲渡または貸与し，もしくは第三者と共用することはできません。当社は，ユーザーIDとパスワードの組み合わせが登録情報と一致してログインされた場合には，そのユーザーIDを登録しているユーザー自身による利用とみなします。"
+}, {
+  title: "ユーザーID及びパスワードが第三者によって使用されたことによって生じた損害は，当社に故意又は重大な過失がある場合を除き，当社は一切の責任を負わないものとします。"
+}];
+var term4OrderListData = [{
+  title: "ユーザーは，本サービスの有料部分の対価として，当社が別途定め，本ウェブサイトに表示する利用料金を，当社が指定する方法により支払うものとします。"
+}, {
+  title: "ユーザーが利用料金の支払を遅滞した場合には，ユーザーは年14．6％の割合による遅延損害金を支払うものとします。"
+}];
+var term5ListData = [{
+  title: "法令または公序良俗に違反する行為"
+}, {
+  title: "犯罪行為に関連する行為"
+}, {
+  title: "本サービスの内容等，本サービスに含まれる著作権，商標権ほか知的財産権を侵害する行為"
+}, {
+  title: "当社，ほかのユーザー，またはその他第三者のサーバーまたはネットワークの機能を破壊したり，妨害したりする行為"
+}, {
+  title: "本サービスによって得られた情報を商業的に利用する行為"
+}, {
+  title: "当社のサービスの運営を妨害するおそれのある行為"
+}, {
+  title: "不正アクセスをし，またはこれを試みる行為"
+}, {
+  title: "他のユーザーに関する個人情報等を収集または蓄積する行為"
+}, {
+  title: "不正な目的を持って本サービスを利用する行為"
+}, {
+  title: "本サービスの他のユーザーまたはその他の第三者に不利益，損害，不快感を与える行為"
+}, {
+  title: "他のユーザーに成りすます行為"
+}, {
+  title: "当社が許諾しない本サービス上での宣伝，広告，勧誘，または営業行為"
+}, {
+  title: "当社のサービスに関連して，反社会的勢力に対して直接または間接に利益を供与する行為"
+}, {
+  title: "その他，当社が不適切と判断する行為"
+}];
+var term6SubOrderListData = [{
+  title: "本サービスにかかるコンピュータシステムの保守点検または更新を行う場合"
+}, {
+  title: "地震，落雷，火災，停電または天災などの不可抗力により，本サービスの提供が困難となった場合"
+}, {
+  title: "コンピュータまたは通信回線等が事故により停止した場合"
+}, {
+  title: "その他，当社が本サービスの提供が困難と判断した場合"
+}];
+var term7SubOrderListData = [{
+  title: "本規約のいずれかの条項に違反した場合"
+}, {
+  title: "登録事項に虚偽の事実があることが判明した場合"
+}, {
+  title: "料金等の支払債務の不履行があった場合"
+}, {
+  title: "当社からの連絡に対し，一定期間返答がない場合"
+}, {
+  title: "本サービスについて，最終の利用から一定期間利用がない場合"
+}, {
+  title: "その他，当社が本サービスの利用を適当でないと判断した場合"
+}];
+var term9OrderListData = [{
+  title: "当社は，本サービスに事実上または法律上の瑕疵（安全性，信頼性，正確性，完全性，有効性，特定の目的への適合性，セキュリティなどに関する欠陥，エラーやバグ，権利侵害などを含みます。）がないことを明示的にも黙示的にも保証しておりません。"
+}, {
+  title: "当社は，本サービスに起因してユーザーに生じたあらゆる損害について一切の責任を負いません。ただし，本サービスに関する当社とユーザーとの間の契約（本規約を含みます。）が消費者契約法に定める消費者契約となる場合，この免責規定は適用されません。"
+}, {
+  title: "前項ただし書に定める場合であっても，当社は，当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害のうち特別な事情から生じた損害（当社またはユーザーが損害発生につき予見し，または予見し得た場合を含みます。）について一切の責任を負いません。また，当社の過失（重過失を除きます。）による債務不履行または不法行為によりユーザーに生じた損害の賠償は，ユーザーから当該損害が発生した月に受領した利用料の額を上限とします。"
+}, {
+  title: "当社は，本サービスに関して，ユーザーと他のユーザーまたは第三者との間において生じた取引，連絡または紛争等について一切責任を負いません。"
+}];
+var policy3OderListData = [{
+  title: "当協会が提供する自社サービスを提供するため"
+}, {
+  title: "当協会が生活支援ポータルサイトで展開する提携会社のサービスの利用登録をするため"
+}, {
+  title: "当協会が生活支援ポータルサイトで展開する提携会社のサービスを提供するため"
+}, {
+  title: "ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）"
+}, {
+  title: "ユーザーが利用中のサービスの新機能，更新情報，キャンペーン等及び当協会が提供する他のサービスの案内のメールを送付するため"
+}, {
+  title: "メンテナンス，重要なお知らせなど必要に応じたご連絡のため"
+}, {
+  title: "利用規約に違反したユーザーや，不正・不当な目的でサービスを利用しようとするユーザーの特定をし，ご利用をお断りするため"
+}, {
+  title: "ユーザーにご自身の登録情報の閲覧や変更，削除，ご利用状況の閲覧を行っていただくため"
+}, {
+  title: "有料サービスにおいて，ユーザーに利用料金を請求するため"
+}, {
+  title: "新しいサービスの調査研究のため"
+}, {
+  title: "上記の利用目的に付随する目的"
+}];
+var policy4OderListData = [{
+  title: "当協会は、利用目的が変更前と関連性を有すると合理的に認められる場合に限り、個人情報の利用目的を変更するものとします。"
+}, {
+  title: "利用目的の変更を行った場合には、変更後の目的について、当協会所定の方法により、ユーザーに通知し、または本ウェブサイト上に公表するものとします。"
+}];
+var policy5SubOderListData1 = [{
+  title: "人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき"
+}, {
+  title: "公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき"
+}, {
+  title: "国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき"
+}];
+var policy5SubOderListData2 = [{
+  title: "合併その他の事由による事業の承継に伴って個人情報が提供される場合"
+}, {
+  title: "個人情報やCookieを特定の者との間で共同して利用する場合であって、その旨並びに共同して利用される個人情報の項目、共同して利用する者の範囲、利用する者の利用目的および当該個人情報の管理について責任を有する者の氏名または名称について、あらかじめ本人に通知し、または本人が容易に知り得る状態に置いた場合"
+}];
+var policy6SubOderListData = [{
+  title: "本人または第三者の生命、身体、財産その他の権利利益を害するおそれがある場合"
+}, {
+  title: "当協会の業務の適正な実施に著しい支障を及ぼすおそれがある場合"
+}, {
+  title: "その他法令に違反することとなる場合"
+}];
+var policy7OderListData = [{
+  title: "ユーザーは、当協会の保有する自己の個人情報が誤った情報である場合には、当協会が定める手続きにより、当協会に対して個人情報の訂正、追加または削除（以下、「訂正等」といいます。）を請求することができます。"
+}, {
+  title: "当協会は、ユーザーから前項の請求を受けて情報が誤りであると判断した場合には、遅滞なく、当該個人情報の訂正等を行うものとします。"
+}, {
+  title: "当協会は、前項の規定に基づき訂正等を行った場合、これをユーザーに通知します。"
+}];
+var policy8OderListData = [{
+  title: "当協会は、本人から、個人情報が、利用目的の範囲を超えて取り扱われているという理由、または不正の手段により取得されたものであるという理由により、その利用の停止または消去（以下，「利用停止等」といいます。）を求められた場合には、遅滞なく必要な調査を行います。"
+}, {
+  title: "前項の調査結果に基づき、その請求に応じる必要があると判断した場合には、遅滞なく、当該個人情報の利用停止等を行います。"
+}, {
+  title: "当協会は、前項の規定に基づき利用停止等を行った場合、または利用停止等を行わない旨の決定をしたときは、遅滞なく、これをユーザーに通知します。"
+}, {
+  title: "前2項にかかわらず、利用停止等に多額の費用を有する場合その他利用停止等を行うことが困難な場合であって、ユーザーの権利利益を保護するために必要なこれに代わるべき措置をとれる場合は、この代替策を講じるものとします。"
+}];
+var policy9OderListData = [{
+  title: "本ポリシーの内容は、法令その他本ポリシーに別段の定めのある事項を除いて、ユーザーに通知することなく、変更することができるものとします。"
+}, {
+  title: "当協会が別途定める場合を除いて、変更後のプライバシーポリシーは、本ウェブサイトに掲載したときから効力を生じるものとします。"
+}];
+var medicineList1 = [{
+  href: "https://member.wabisabi.media/product/%e3%83%ad%e3%82%ad%e3%82%bd%e3%83%8b%e3%83%b3s-12%e9%8c%a0",
+  src: "images/medicine-list/1_loxonin-s-1.jpg",
+  name: "ロキソニンS 12錠 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%82%ac%e3%82%b9%e3%82%bf%e3%83%bc10-12%e9%8c%a0",
+  src: "images/medicine-list/3_gaster10.jpeg",
+  name: "ガスター10 12錠 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%82%a2%e3%83%8d%e3%83%88%e3%83%b3%e9%a1%86%e7%b2%92-16%e5%8c%85",
+  src: "images/medicine-list/4_aneton_gra-3.jpg",
+  name: "アネトンせき止め顆粒 16包 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%83%89%e3%82%a5%e3%83%bc%e3%83%86%e3%82%b9%e3%83%88lh%e2%85%b1%ef%bc%88%e6%8e%92%e5%8d%b5%e6%97%a5%e4%ba%88%e6%b8%ac%e6%a4%9c%e6%9f%bb%e8%96%ac%ef%bc%8912%e5%9b%9e%e5%88%86",
+  src: "images/medicine-list/15_lh-stick.jpeg",
+  name: "ドゥーテストLHⅡ（排卵日予測検査薬）12回分"
+}];
+var medicineList2 = [{
+  href: "https://member.wabisabi.media/product/%e3%83%aa%e3%83%b3%e3%83%87%e3%83%ad%e3%83%b3vs%e8%bb%9f%e8%86%8f-10g",
+  src: "images/medicine-list/6_rinderon-1.jpg",
+  name: "リンデロンVs軟膏 10g "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%83%99%e3%83%b3%e3%82%b6%e3%83%96%e3%83%ad%e3%83%83%e3%82%afl-%e3%83%97%e3%83%ac%e3%83%9f%e3%82%a2%e3%83%a0-24%e9%8c%a0",
+  src: "images/medicine-list/7_benzablock_premium-l-1.jpg",
+  name: "ベンザブロックL プレミアム 24錠"
+}, {
+  href: "https://member.wabisabi.media/product/%e6%96%b0%e3%83%ab%e3%83%aba%e3%82%b4%e3%83%bc%e3%83%ab%e3%83%89dx-60%e9%8c%a0",
+  src: "images/medicine-list/8_lulugold_dx.jpeg",
+  name: "新ルルAゴールドDXα60錠 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%83%aa%e3%83%9d%e3%82%b9%e3%83%9f%e3%83%b3%e3%80%8012%e9%8c%a0",
+  src: "images/medicine-list/9_riposmin.jpg",
+  name: "リポスミン 12錠 "
+}];
+var medicineList3 = [{
+  href: "https://member.wabisabi.media/product/%e3%83%ad%e3%82%ad%e3%82%bd%e3%83%8b%e3%83%b3s%e3%83%86%e3%83%bc%e3%83%97-14%e6%9e%9a",
+  src: "images/medicine-list/2_loxonin-s_tape.jpg",
+  name: "ロキソニンSテープ 14枚 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%82%a2%e3%83%ac%e3%82%b0%e3%83%a9-28%e9%8c%a0",
+  src: "images/medicine-list/5_allegra.jpg",
+  name: "アレグラFX28錠 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab12-12ml",
+  src: "images/medicine-list/10_sante_medical12.jpg",
+  name: "サンテメディカル12 12ml "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab%e6%8a%97%e8%8f%8c-20%e6%9c%ac",
+  src: "images/medicine-list/11_sante_medical_koukin.jpg",
+  name: "サンテメディカル抗菌 20本 "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-10ml",
+  src: "images/medicine-list/12_rohto-alguard10.jpg",
+  name: "ロート アルガード 10ml "
+}, {
+  href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-%e3%82%af%e3%83%aa%e3%82%a2%e3%83%96%e3%83%ad%e3%83%83%e3%82%afz-13ml",
+  src: "images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
+  name: "ロート アルガード クリアブロックZ 13ml"
+}, {
+  href: "https://member.wabisabi.media/product/%e3%83%89%e3%82%a5%e3%83%bc%e3%83%86%e3%82%b9%e3%83%88hcga%ef%bc%88%e5%a6%8a%e5%a8%a0%e6%a4%9c%e6%9f%bb%e8%96%ac%ef%bc%891%e5%9b%9e%e7%94%a8",
+  src: "images/medicine-list/14_hcg-stick.jpeg",
+  name: "ドゥーテストhCGa（妊娠検査薬）1回用"
+}];
+
+/***/ }),
+
 /***/ "./resources/js/commons/layout/HomeLayout/index.js":
 /*!*********************************************************!*\
   !*** ./resources/js/commons/layout/HomeLayout/index.js ***!
@@ -21509,6 +21758,128 @@ var MediaPage = function MediaPage() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/medicine-list/index.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/pages/medicine-list/index.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../commons/data */ "./resources/js/commons/data.js");
+/* harmony import */ var _medicine_list_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./medicine-list.scss */ "./resources/js/pages/medicine-list/medicine-list.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+var MedicineListPage = function MedicineListPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    id: "medicine-list",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "list_categories",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "type-wrapper",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "type-name",
+          children: "\u7B2C1\u985E"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card card-product-cat",
+          children: _commons_data__WEBPACK_IMPORTED_MODULE_1__.medicineList1.map(function (item) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "item-product-cat",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "item-pc-wrap",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+                  href: item.href,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "item-pc-image",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                      src: item.src,
+                      alt: item.name
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "item-pc-name",
+                    children: item.name
+                  })]
+                })
+              })
+            });
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "type-wrapper",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "type-name",
+          children: "\u6307\u5B9A\u7B2C2\u985E"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card card-product-cat",
+          children: _commons_data__WEBPACK_IMPORTED_MODULE_1__.medicineList2.map(function (item) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "item-product-cat",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "item-pc-wrap",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+                  href: item.href,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "item-pc-image",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                      src: item.src,
+                      alt: item.name
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "item-pc-name",
+                    children: item.name
+                  })]
+                })
+              })
+            });
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "type-wrapper",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "type-name",
+          children: "\u7B2C2\u985E"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          className: "card card-product-cat",
+          children: _commons_data__WEBPACK_IMPORTED_MODULE_1__.medicineList3.map(function (item) {
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "item-product-cat",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "item-pc-wrap",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
+                  href: item.href,
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "item-pc-image",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                      src: item.src,
+                      alt: item.name
+                    })
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    className: "item-pc-name",
+                    children: item.name
+                  })]
+                })
+              })
+            });
+          })
+        })]
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MedicineListPage);
+
+/***/ }),
+
 /***/ "./resources/js/pages/member/index.js":
 /*!********************************************!*\
   !*** ./resources/js/pages/member/index.js ***!
@@ -21719,8 +22090,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _pages_client_home_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../pages/client/home/index */ "./resources/js/pages/client/home/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _pages_notFound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/notFound */ "./resources/js/pages/notFound/index.js");
 /* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/auth/login */ "./resources/js/pages/auth/login/index.js");
 /* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/auth/register */ "./resources/js/pages/auth/register/index.js");
@@ -21730,7 +22101,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../commons/layout/HomeLayout */ "./resources/js/commons/layout/HomeLayout/index.js");
 /* harmony import */ var _pages_member__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/member */ "./resources/js/pages/member/index.js");
 /* harmony import */ var _pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/list-of-pharmacies */ "./resources/js/pages/list-of-pharmacies/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_medicine_list__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/medicine-list */ "./resources/js/pages/medicine-list/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -21747,45 +22120,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var appRouter = function appRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "member",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "list-of-pharmacies",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
+          exact: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+          path: "medicine-list",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_medicine_list__WEBPACK_IMPORTED_MODULE_11__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
           path: "lost-password",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
         path: "media",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
         exact: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
       })]
     })
   });
@@ -27056,6 +27433,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group {\n  background: #ffffff;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n  min-width: 175px !important;\n  box-shadow: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/medicine-list/medicine-list.scss":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/medicine-list/medicine-list.scss ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "#medicine-list {\n  font-size: 13px;\n}\n#medicine-list .card {\n  padding: 20px;\n  margin: 0 0 24px;\n}\n#medicine-list a {\n  text-decoration: none;\n  color: #62A19B;\n  outline: none;\n}\n#medicine-list .list_categories .type-wrapper .type-name {\n  color: #fff;\n  background-color: #62A19B;\n  padding: 5px 15px;\n  margin-bottom: 10px;\n  font-size: 15px;\n}\n#medicine-list .list_categories .card {\n  padding: 20px 10px;\n}\n#medicine-list .list_categories .card-product-cat {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  flex-direction: unset;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat {\n  width: 20%;\n  margin-bottom: 16px;\n  padding: 0 8px;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap {\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  height: 100%;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap .item-pc-image {\n  height: 180px;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap .item-pc-image img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap .item-pc-name {\n  padding: 10px;\n  text-align: center;\n  font-weight: bold;\n}\n@media screen and (max-width: 992px) {\n  #medicine-list .card-product-cat .item-product-cat {\n    width: 25% !important;\n  }\n}\n@media screen and (max-width: 768px) {\n  #medicine-list .card-product-cat .item-product-cat {\n    width: 33.3333333333% !important;\n  }\n}\n@media screen and (max-width: 500px) {\n  #medicine-list .card-product-cat .item-product-cat {\n    width: 50% !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -83471,6 +83872,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_media_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/pages/medicine-list/medicine-list.scss":
+/*!*************************************************************!*\
+  !*** ./resources/js/pages/medicine-list/medicine-list.scss ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_medicine_list_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./medicine-list.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/medicine-list/medicine-list.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_medicine_list_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_medicine_list_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

@@ -219,3 +219,85 @@ export const policy9OderListData = [
       "当協会が別途定める場合を除いて、変更後のプライバシーポリシーは、本ウェブサイトに掲載したときから効力を生じるものとします。",
   },
 ];
+
+export const medicineList1 = [
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%ad%e3%82%ad%e3%82%bd%e3%83%8b%e3%83%b3s-12%e9%8c%a0",
+    src: "images/medicine-list/1_loxonin-s-1.jpg",
+    name: "ロキソニンS 12錠 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%82%ac%e3%82%b9%e3%82%bf%e3%83%bc10-12%e9%8c%a0",
+    src: "images/medicine-list/3_gaster10.jpeg",
+    name: "ガスター10 12錠 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%82%a2%e3%83%8d%e3%83%88%e3%83%b3%e9%a1%86%e7%b2%92-16%e5%8c%85",
+    src: "images/medicine-list/4_aneton_gra-3.jpg",
+    name: "アネトンせき止め顆粒 16包 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%89%e3%82%a5%e3%83%bc%e3%83%86%e3%82%b9%e3%83%88lh%e2%85%b1%ef%bc%88%e6%8e%92%e5%8d%b5%e6%97%a5%e4%ba%88%e6%b8%ac%e6%a4%9c%e6%9f%bb%e8%96%ac%ef%bc%8912%e5%9b%9e%e5%88%86",
+    src: "images/medicine-list/15_lh-stick.jpeg",
+    name: "ドゥーテストLHⅡ（排卵日予測検査薬）12回分",
+  },
+];
+export const medicineList2 = [
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%aa%e3%83%b3%e3%83%87%e3%83%ad%e3%83%b3vs%e8%bb%9f%e8%86%8f-10g",
+    src: "images/medicine-list/6_rinderon-1.jpg",
+    name: "リンデロンVs軟膏 10g ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%99%e3%83%b3%e3%82%b6%e3%83%96%e3%83%ad%e3%83%83%e3%82%afl-%e3%83%97%e3%83%ac%e3%83%9f%e3%82%a2%e3%83%a0-24%e9%8c%a0",
+    src: "images/medicine-list/7_benzablock_premium-l-1.jpg",
+    name: "ベンザブロックL プレミアム 24錠",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e6%96%b0%e3%83%ab%e3%83%aba%e3%82%b4%e3%83%bc%e3%83%ab%e3%83%89dx-60%e9%8c%a0",
+    src: "images/medicine-list/8_lulugold_dx.jpeg",
+    name: "新ルルAゴールドDXα60錠 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%aa%e3%83%9d%e3%82%b9%e3%83%9f%e3%83%b3%e3%80%8012%e9%8c%a0",
+    src: "images/medicine-list/9_riposmin.jpg",
+    name: "リポスミン 12錠 ",
+  },
+];
+export const medicineList3 = [
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%ad%e3%82%ad%e3%82%bd%e3%83%8b%e3%83%b3s%e3%83%86%e3%83%bc%e3%83%97-14%e6%9e%9a",
+    src: "images/medicine-list/2_loxonin-s_tape.jpg",
+    name: "ロキソニンSテープ 14枚 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%82%a2%e3%83%ac%e3%82%b0%e3%83%a9-28%e9%8c%a0",
+    src: "images/medicine-list/5_allegra.jpg",
+    name: "アレグラFX28錠 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab12-12ml",
+    src: "images/medicine-list/10_sante_medical12.jpg",
+    name: "サンテメディカル12 12ml ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab%e6%8a%97%e8%8f%8c-20%e6%9c%ac",
+    src: "images/medicine-list/11_sante_medical_koukin.jpg",
+    name: "サンテメディカル抗菌 20本 ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-10ml",
+    src: "images/medicine-list/12_rohto-alguard10.jpg",
+    name: "ロート アルガード 10ml ",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-%e3%82%af%e3%83%aa%e3%82%a2%e3%83%96%e3%83%ad%e3%83%83%e3%82%afz-13ml",
+    src: "images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
+    name: "ロート アルガード クリアブロックZ 13ml",
+  },
+  {
+    href: "https://member.wabisabi.media/product/%e3%83%89%e3%82%a5%e3%83%bc%e3%83%86%e3%82%b9%e3%83%88hcga%ef%bc%88%e5%a6%8a%e5%a8%a0%e6%a4%9c%e6%9f%bb%e8%96%ac%ef%bc%891%e5%9b%9e%e7%94%a8",
+    src: "images/medicine-list/14_hcg-stick.jpeg",
+    name: "ドゥーテストhCGa（妊娠検査薬）1回用",
+  },
+];
