@@ -1,0 +1,129 @@
+#list-of-pharmacies{
+    .list_pharmacies{
+        width: 100%;
+        color: #515151;
+        font-size: 13px;    
+        font-weight: 400;
+    }
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+    .pc {
+        width: 100%;
+    }
+    .sp {
+        width: 100%;
+        display: none !important;
+    }
+    .title {
+        position: relative;
+        font-size: 13px;
+        line-height: 19.5px;
+    }
+    .guide-wrapper {
+        text-align: center;
+        a {
+            color: #FF0000FF;
+            text-decoration: none;
+        }
+    }
+    .card-list-pharmacies{
+        padding: 25px 10px;
+        margin: 0 auto 15px;
+        .table-responsive {
+            display: block;
+            width: 100%;
+            overflow-x: auto;
+            .name-vendor {
+                padding: 10px 20px;
+                width: calc(100%/2);
+                font-weight: bold;
+                font-size: 18px;
+                border: 1px solid #dee2e6;
+                margin: 0 auto 15px;
+                text-align: center;
+                &.first{
+                    color: white;
+                    background: #62A19B;
+                }
+                &.second {
+                    width: calc(100%);
+                    border-bottom: none;
+                    margin: 0 auto;
+                }
+            }
+            .vendor-wrap {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                border: 1px solid #dee2e6;
+                &:not(:last-child) {
+                    margin-bottom: 25px;
+                }
+                & .item-info:first-child {
+                    border-right: none;
+                }
+                .title {
+                    color: white;
+                    font-weight: bold;
+                    background: #62A19B;
+                    text-align: center;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin-bottom: 0;
+                }
+                .item-info {
+                    width: calc(100%/2);
+                    padding: 10px 20px;
+                    border-bottom: 0.5px solid #dee2e6;
+                    &.has-line-border {
+                        hr {
+                            margin: 10px -20px;
+                            border-top: 0.5px solid #dee2e6;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                        height: 250px;
+                        object-fit: contain;
+                    }
+                    .item-image:not(:last-child) {
+                        border-bottom: 1px solid #ddd;
+                        margin-bottom: 15px;
+                        padding-bottom: 15px;
+                    }
+                    hr {
+                        display: block;
+                        height: 1px;
+                        border: 0;
+                        border-top: 1px solid #cccccc;
+                        margin: 20px 0;
+                        padding: 0;
+                        opacity: 0.15;
+                    }
+                }
+                .item-info:nth-child(2n+1) {
+                    border-right: 0.5px solid #dee2e6;
+                }
+                .border-none {
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 768px){
+        .pc{
+            display: none !important;
+        }
+        .sp {
+            display: flex !important;
+        }
+        .vendor-wrap {
+            .item-info {
+                width: 100% !important;
+            }
+        }
+    }
+}

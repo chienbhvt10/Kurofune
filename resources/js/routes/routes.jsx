@@ -9,11 +9,17 @@ import LostPassword from "../pages/auth/forget-password";
 import MediaPage from "../pages/media";
 import HomeLayout from "../commons/layout/HomeLayout";
 import MemberPage from "../pages/member";
+import PharmaciesPage from "../pages/list-of-pharmacies";
 const appRouter = () => (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomeLayout />} exact={true}>
         <Route path="member" element={<MemberPage />} exact={true} />
+        <Route
+          path="list-of-pharmacies"
+          element={<PharmaciesPage />}
+          exact={true}
+        />
       </Route>
       <Route path="/" element={<AuthLayout />} exact={true}>
         <Route path="login" element={<Login />} exact={true} />
