@@ -1,10 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { InputIcon } from "../../../commons/InputIcon";
+import {Helmet} from "react-helmet";
 import "./style.scss";
 export const Login = () => {
   return (
     <>
+      <Helmet>
+          <meta charSet="utf-8" />
+          <title>Login</title>
+          <meta name="description" content="Login Page" />
+          <meta name="og:title" content="Login" />
+      </Helmet>
       <h4 className="title">
         一般社団法人在日外国人就業者支援協会
         <br />
