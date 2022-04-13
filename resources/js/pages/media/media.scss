@@ -18,9 +18,7 @@
         text-decoration: none;
         text-align: center;
         transition: 0.5 ease;
-        &:hover{
-            opacity: 0.5;
-        }
+        
     }
     button{
         cursor: pointer;
@@ -29,9 +27,6 @@
         text-decoration: none;
         text-align: center;
         transition: 0.5 ease;
-        &:hover{
-            opacity: 0.5;
-        }
     }
     .content{
         max-width: 700px;
@@ -82,6 +77,9 @@
                         width: 100%;
                         flex: 1 0 auto;
                         transition: all .2s ease-in-out;
+                        &:hover{
+                            opacity: 0.5;
+                        }
                         .icon {
                             display: flex;
                             align-items: center;
@@ -107,6 +105,10 @@
                   }
                   .myLangClass {
                       min-width: 175px !important;
+                      box-shadow: none;
+                      &:hover{
+                        opacity: 0.5;
+                        }
                       span{
                           color: #62A19B;
                           font-weight: 700 !important;
@@ -114,10 +116,14 @@
                       }
                   }
                   ul.dropdown-menu {
+                      min-width: 176px;
                       li {
                         padding: 5px 10px;
                         font-size: 14px;
                         cursor: pointer;
+                        &:hover {
+                            background: #ddd;
+                        }
                         a{
                             color: #0c0c0c;
                             display: block;
@@ -232,6 +238,9 @@
                     text-align: center;
                     padding: 5px 20px;
                     background: #fff;
+                    a{
+                        font-size: 14px;
+                    }
                     .icon{
                         margin-left: 5px;
                         margin-top: 5px;

@@ -1,16 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import Footer from "../../../components/footer";
+import HomeLayout from "../../../commons/layout/HomeLayout";
 const HomePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {}, []);
 
-  return (
-    <>
-      <div className="home-text">hello</div>
-      <Footer />
-    </>
-  );
+  return <HomeLayout></HomeLayout>;
 };
 
 export default HomePage;

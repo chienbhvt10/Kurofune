@@ -1,12 +1,17 @@
 #footer{
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 62px;
     width: 100%;
     background-color: none;
     background: #e5e5e5;
-    .copy-right{
-        font-size: 13px;
-        color: #62A19B;
+    .container-fluid{
+        padding: 0 40px;
+        width: 100%;
+        .copy-right{
+            font-size: 13px;
+            color: #62A19B;
+        }
     }
 }
