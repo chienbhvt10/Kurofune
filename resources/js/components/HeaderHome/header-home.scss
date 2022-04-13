@@ -111,31 +111,31 @@
         }
     }
     
-}
-@media screen and (max-width: 992px) {
-    .container-fluid{
-        padding: 0 15px !important;
-    }
-    .site-header {
-        justify-content: space-between !important;
-        .navbar-toggler{
-            box-shadow: none;
+    @media screen and (max-width: 992px) {
+        .container-fluid{
+            padding: 0 15px !important;
+        }
+        .site-header {
+            justify-content: space-between !important;
+            .navbar-toggler{
+                box-shadow: none;
+            }
         }
     }
-}
-@media screen and (max-width: 768px){
-    .container-fluid {
-        padding: 0 5px !important;
-    }
-    .shopping-cart{
-        padding: 0 5px !important;
-    }
-    .logout-wrap{
-        padding: 0 5px !important;
-    }
-    #openItems{
-        .myLangClass {
-            min-width: 100% !important;
+    @media screen and (max-width: 768px){
+        .container-fluid {
+            padding: 0 5px !important;
+        }
+        .shopping-cart{
+            padding: 0 5px !important;
+        }
+        .logout-wrap{
+            padding: 0 5px !important;
+        }
+        #openItems{
+            .myLangClass {
+                min-width: 100% !important;
+            }
         }
     }
 }

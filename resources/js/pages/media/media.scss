@@ -104,6 +104,7 @@
                       height: 38px;
                   }
                   .myLangClass {
+                    padding: 2px 10px 5px 10px;
                       min-width: 175px !important;
                       box-shadow: none;
                       &:hover{
@@ -168,8 +169,9 @@
                 display: flex;
                 flex-direction: column;
                 .settings-wrap {
+                    height: 38px;
                     text-align: center;
-                    padding: 5px 20px;
+                    padding: 7px 20px 5px 20px;
                     background: #fff;
                     margin-bottom: 10px;
                     a {
@@ -245,6 +247,18 @@
                         margin-left: 5px;
                         margin-top: 5px;
                     }
+                }
+            }
+        }
+    }
+    @media screen and (max-width: 500px){
+        .switch{
+            flex-direction: column;
+            .option{
+                margin-top: 20px;
+                max-width: fit-content;
+                .settings-wrap{
+                    height: 38px;
                 }
             }
         }
