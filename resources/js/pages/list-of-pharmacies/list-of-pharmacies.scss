@@ -120,6 +120,11 @@
         .sp {
             display: flex !important;
         }
+        .name-vendor{
+            &.first {
+                width: 100% !important;
+            }
+        }
         .vendor-wrap {
             .item-info {
                 width: 100% !important;
