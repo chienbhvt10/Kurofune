@@ -20228,6 +20228,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_SideBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/SideBar */ "./resources/js/components/SideBar/index.js");
 /* harmony import */ var _components_HeaderHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/HeaderHome */ "./resources/js/components/HeaderHome/index.js");
 /* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/footer */ "./resources/js/components/footer/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -20240,6 +20241,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -20278,7 +20280,7 @@ var HomeLayout = function HomeLayout(_ref) {
           toggleSideBar: toggleSideBar
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "content",
-          children: children
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Outlet, {})
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       })]
     })
@@ -21264,6 +21266,162 @@ var MediaPage = function MediaPage() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/member/index.js":
+/*!********************************************!*\
+  !*** ./resources/js/pages/member/index.js ***!
+  \********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _member_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./member.scss */ "./resources/js/pages/member/member.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var MemberPage = function MemberPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    id: "member-page",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "service_dashboard",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "board-container",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "board-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            href: "https://member.wabisabi.media/member/questionnaire",
+            className: "item",
+            title: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "images/top-page/Questionnaire-form.png",
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "desc",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "tit",
+                children: "\u554F\u8A3A\u7968"
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "board-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            href: "https://member.wabisabi.media/list-of-pharmacies",
+            className: "item",
+            title: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "images/top-page/list-pharmacies.png",
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "desc",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "tit",
+                children: "\u85AC\u5C40\u60C5\u5831"
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "board-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            href: "https://member.wabisabi.media/medicine-list",
+            className: "item",
+            title: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "images/top-page/medicine-list.png",
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "desc",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "tit",
+                children: "\u85AC\u5264\u60C5\u5831"
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "board-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            href: "https://member.wabisabi.media/member/order-history",
+            className: "item",
+            title: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "images/top-page/Order-history.png",
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "desc",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "tit",
+                children: "\u6CE8\u6587\u5C65\u6B74"
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "board-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            href: "https://member.wabisabi.media/cart",
+            className: "item",
+            title: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "images/top-page/cart.png",
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "desc",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "tit",
+                children: "\u8CB7\u3044\u7269\u304B\u3054"
+              })
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "board-item",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+            href: "https://member.wabisabi.media/member/billing-address",
+            className: "item",
+            title: "",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "icon",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                src: "images/top-page/Settings.png",
+                alt: ""
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "desc",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
+                className: "tit",
+                children: "\u767B\u9332\u60C5\u5831"
+              })
+            })]
+          })
+        })]
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MemberPage);
+
+/***/ }),
+
 /***/ "./resources/js/pages/notFound/index.js":
 /*!**********************************************!*\
   !*** ./resources/js/pages/notFound/index.js ***!
@@ -21318,15 +21476,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _pages_client_home_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../pages/client/home/index */ "./resources/js/pages/client/home/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _pages_notFound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/notFound */ "./resources/js/pages/notFound/index.js");
 /* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/auth/login */ "./resources/js/pages/auth/login/index.js");
 /* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/auth/register */ "./resources/js/pages/auth/register/index.js");
 /* harmony import */ var _pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/auth/authLayout */ "./resources/js/pages/auth/authLayout/index.js");
 /* harmony import */ var _pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/auth/forget-password */ "./resources/js/pages/auth/forget-password/index.js");
 /* harmony import */ var _pages_media__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/media */ "./resources/js/pages/media/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../commons/layout/HomeLayout */ "./resources/js/commons/layout/HomeLayout/index.js");
+/* harmony import */ var _pages_member__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/member */ "./resources/js/pages/member/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -21340,36 +21502,41 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var appRouter = function appRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_client_home_index__WEBPACK_IMPORTED_MODULE_1__["default"], {}),
-        exact: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-        path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+          path: "member",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+          exact: true
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        path: "/",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
+        exact: true,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
           path: "lost-password",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
         path: "media",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
         exact: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
       })]
     })
   });
@@ -26447,7 +26614,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#home-layout .block-main {\n  display: flex;\n}\n#home-layout .block-main .wrap-content {\n  width: 100%;\n}\n#home-layout .block-main .wrap-content .content {\n  min-height: calc(100vh - 62px - 62px);\n  background-color: #E5E5E5;\n}\n#home-layout .block-main #overlay {\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0.5;\n  z-index: 99;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#home-layout .block-main {\n  display: flex;\n}\n#home-layout .block-main .wrap-content {\n  width: 100%;\n}\n#home-layout .block-main .wrap-content .content {\n  padding: 38px 40px;\n  min-height: calc(100vh - 62px - 62px);\n  background-color: #E5E5E5;\n}\n#home-layout .block-main #overlay {\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0.5;\n  z-index: 99;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26615,7 +26782,31 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group {\n  background: #ffffff;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n  min-width: 175px !important;\n  box-shadow: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 17px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group {\n  background: #ffffff;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n  min-width: 175px !important;\n  box-shadow: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/member/member.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/member/member.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "#member-page {\n  margin: 0 auto;\n}\n#member-page .item {\n  width: 100%;\n  flex: 1 0 auto;\n}\n#member-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#member-page .tit {\n  position: relative;\n  -webkit-box-orient: vertical;\n  display: -webkit-box;\n  overflow: hidden;\n}\n#member-page a {\n  text-decoration: none;\n  color: #B7BBCB;\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#member-page a:hover {\n  opacity: 0.7;\n}\n#member-page .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n  margin-top: 25px;\n}\n#member-page .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#member-page .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  width: 33.33333%;\n}\n#member-page .service_dashboard .board-container .board-item .item {\n  display: block;\n  cursor: pointer;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  padding: 28px 44px;\n  min-height: 200px;\n  transition: all 0.2s ease-in-out;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n#member-page .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#member-page .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -81759,6 +81950,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_media_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/pages/member/member.scss":
+/*!***********************************************!*\
+  !*** ./resources/js/pages/member/member.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./member.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/member/member.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

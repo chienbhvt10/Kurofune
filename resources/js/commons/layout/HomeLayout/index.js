@@ -3,6 +3,7 @@ import "./home-layout.scss";
 import SideBar from "../../../components/SideBar";
 import HeaderHome from "../../../components/HeaderHome";
 import Footer from "../../../components/footer";
+import { Outlet } from "react-router-dom";
 
 const HomeLayout = ({ children }) => {
   const [show, setShow] = useState(false);
@@ -16,7 +17,9 @@ const HomeLayout = ({ children }) => {
         <SideBar show={show} toggleSideBar={toggleSideBar} />
         <div className="wrap-content">
           <HeaderHome toggleSideBar={toggleSideBar} />
-          <div className="content">{children}</div>
+          <div className="content">
+            <Outlet />
+          </div>
           <Footer />
         </div>
       </div>

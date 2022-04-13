@@ -1,12 +1,63 @@
 #member-page{
     margin: 0 auto;
+    .item {
+        width: 100%;
+        flex: 1 0 auto;
+    }
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+    .tit {
+        position: relative;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
+        overflow: hidden;
+    }
+    a{
+        text-decoration: none; 
+        color: #B7BBCB;
+        opacity: 1;
+        transition: 0.5s ease;
+        &:hover{
+            opacity: 0.7;
+        }
+    }
     .service_dashboard {
         max-width: 700px;
         width: 100%;
         margin: 0 auto;
+        margin-top: 25px;
         .board-container{
+            display: flex;
+            flex-wrap: wrap;
+            margin-right: -15px;
+            margin-left: -15px;
             .board-item{
+                display: flex;
+                padding: 17px;
                 width: 33.33333%;
+                .item{
+                    display: block;
+                    cursor: pointer;
+                    position: relative;
+                    background: #FFFFFF;
+                    border-radius: 8px;
+                    text-align: center;
+                    padding: 28px 44px;
+                    min-height: 200px;
+                    transition: all .2s ease-in-out;
+                    box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+                    .icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        min-height: 122px;
+                    }
+                    .tit {
+                        font-size: 13px;
+                    }
+                }
             }
         }
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import "./member.scss";
 const MemberPage = () => {
   return (
     <div id="member-page">
