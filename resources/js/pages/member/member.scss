@@ -1,4 +1,5 @@
 #member-page{
+    
     margin: 0 auto;
     .item {
         width: 100%;
@@ -56,8 +57,28 @@
                     }
                     .tit {
                         font-size: 13px;
+                        margin-bottom: 8px;
                     }
                 }
+            }
+        }
+    }
+    @media screen and (max-width:992px) {
+        .service_dashboard {
+            margin-top: 0;
+            .board-container{
+                .board-item{
+                    padding: 15px;
+                    width: 50% ;
+                }
+            }
+        }
+    }
+    @media only screen and (max-width: 575.98px){
+        .service_dashboard {
+            .item {
+                min-height: 155px !important;
+                padding: 5px !important;
             }
         }
     }
