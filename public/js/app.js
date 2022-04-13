@@ -20227,7 +20227,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _home_layout_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./home-layout.scss */ "./resources/js/commons/layout/HomeLayout/home-layout.scss");
 /* harmony import */ var _components_SideBar__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../components/SideBar */ "./resources/js/components/SideBar/index.js");
 /* harmony import */ var _components_HeaderHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../components/HeaderHome */ "./resources/js/components/HeaderHome/index.js");
-/* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/Footer */ "./resources/js/components/Footer/index.js");
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/footer */ "./resources/js/components/footer/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -20279,48 +20279,13 @@ var HomeLayout = function HomeLayout(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "content",
           children: children
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_Footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
       })]
     })
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomeLayout);
-
-/***/ }),
-
-/***/ "./resources/js/components/Footer/index.js":
-/*!*************************************************!*\
-  !*** ./resources/js/components/Footer/index.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./footer.scss */ "./resources/js/components/Footer/footer.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-var Footer = function Footer() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("footer", {
-    id: "footer",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-      className: "container-fluid page-footer-content",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "copy-right text-center",
-        children: "\xA9KUROFUNE 2022"
-      })
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Footer);
 
 /***/ }),
 
@@ -26489,30 +26454,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "#home-layout .block-main {\n  display:
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/Footer/footer.scss":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/Footer/footer.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#footer {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 62px;\n  width: 100%;\n  background-color: none;\n  background: #e5e5e5;\n}\n#footer .container-fluid {\n  padding: 0 40px;\n  width: 100%;\n}\n#footer .container-fluid .copy-right {\n  font-size: 13px;\n  color: #62A19B;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/HeaderHome/header-home.scss":
 /*!***************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/HeaderHome/header-home.scss ***!
@@ -26530,7 +26471,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#header-home {\n  display: flex;\n  align-items: center;\n  height: 62px;\n  width: 100%;\n  background: #ffffff;\n}\n#header-home .dropdown-toggle::after {\n  margin-left: 10px;\n  color: #62A19B;\n}\n#header-home a {\n  text-decoration: none;\n}\n#header-home button {\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#header-home .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#header-home .container-fluid {\n  padding: 0 40px;\n}\n#header-home .site-header {\n  display: flex;\n  justify-content: end;\n}\n#header-home .site-header .block-profile-header {\n  display: flex;\n  align-self: center;\n}\n#header-home .site-header .block-profile-header .shopping-cart {\n  position: relative;\n  padding: 0 25px;\n}\n#header-home .site-header .block-profile-header .shopping-cart .icon-cart .icon {\n  width: 45px;\n  height: 45px;\n  display: block;\n}\n#header-home .site-header .block-profile-header .language-switcher {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .caption {\n  color: #62A19B;\n  font-size: 16px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass {\n  min-width: 175px;\n  box-shadow: none;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#header-home .site-header .block-profile-header .logout-wrap {\n  border-left: 1px solid #ddd;\n  display: flex;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  color: #62A19B;\n}\n#header-home .site-header .block-profile-header .logout-wrap a .icon {\n  margin-left: 5px;\n}\n@media screen and (max-width: 992px) {\n  #header-home .container-fluid {\n    padding: 0 15px !important;\n  }\n  #header-home .site-header {\n    justify-content: space-between !important;\n  }\n  #header-home .site-header .navbar-toggler {\n    box-shadow: none;\n  }\n}\n@media screen and (max-width: 768px) {\n  #header-home .container-fluid {\n    padding: 0 5px !important;\n  }\n  #header-home .shopping-cart {\n    padding: 0 5px !important;\n  }\n  #header-home .logout-wrap {\n    padding: 0 5px !important;\n  }\n  #header-home #openItems .myLangClass {\n    min-width: 100% !important;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#header-home {\n  display: flex;\n  align-items: center;\n  height: 62px;\n  width: 100%;\n  background: #ffffff;\n}\n#header-home .dropdown-toggle::after {\n  margin-left: 10px;\n  color: #62A19B;\n}\n#header-home a {\n  text-decoration: none;\n}\n#header-home button {\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#header-home .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#header-home .container-fluid {\n  padding: 0 40px;\n}\n#header-home .site-header {\n  display: flex;\n  justify-content: flex-end;\n}\n#header-home .site-header .block-profile-header {\n  display: flex;\n  align-self: center;\n}\n#header-home .site-header .block-profile-header .shopping-cart {\n  position: relative;\n  padding: 0 25px;\n}\n#header-home .site-header .block-profile-header .shopping-cart .icon-cart .icon {\n  width: 45px;\n  height: 45px;\n  display: block;\n}\n#header-home .site-header .block-profile-header .language-switcher {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .caption {\n  color: #62A19B;\n  font-size: 16px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass {\n  min-width: 175px;\n  box-shadow: none;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#header-home .site-header .block-profile-header .logout-wrap {\n  border-left: 1px solid #ddd;\n  display: flex;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  color: #62A19B;\n}\n#header-home .site-header .block-profile-header .logout-wrap a .icon {\n  margin-left: 5px;\n}\n@media screen and (max-width: 992px) {\n  #header-home .container-fluid {\n    padding: 0 15px !important;\n  }\n  #header-home .site-header {\n    justify-content: space-between !important;\n  }\n  #header-home .site-header .navbar-toggler {\n    box-shadow: none;\n  }\n}\n@media screen and (max-width: 768px) {\n  #header-home .container-fluid {\n    padding: 0 5px !important;\n  }\n  #header-home .shopping-cart {\n    padding: 0 5px !important;\n  }\n  #header-home .logout-wrap {\n    padding: 0 5px !important;\n  }\n  #header-home #openItems .myLangClass {\n    min-width: 100% !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -81608,36 +81549,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_home_layout_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/components/Footer/footer.scss":
-/*!****************************************************!*\
-  !*** ./resources/js/components/Footer/footer.scss ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_footer_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./footer.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/components/Footer/footer.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_footer_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_footer_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 

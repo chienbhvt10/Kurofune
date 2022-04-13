@@ -1,0 +1,23 @@
+#home-layout{
+    .block-main{
+        display: flex;
+        .wrap-content{
+            width: 100%;
+            .content{
+                display: flex;
+                align-items: center;
+                padding: 36px 40px;
+                min-height: calc(100vh - 62px -  62px);
+                background-color: #E5E5E5;
+            }
+        }
+        #overlay{
+            position: fixed;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0,0,0,0.5);
+            opacity: 0.5;
+            z-index: 99;
+        }
+    }
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./home-layout.scss";
 import SideBar from "../../../components/SideBar";
 import HeaderHome from "../../../components/HeaderHome";
-import Footer from "../../../components/Footer";
+import Footer from "../../../components/footer";
 
 const HomeLayout = ({ children }) => {
   const [show, setShow] = useState(false);
