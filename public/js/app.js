@@ -20981,6 +20981,235 @@ var HomePage = function HomePage() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/list-of-pharmacies/index.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/pages/list-of-pharmacies/index.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-of-pharmacies.scss */ "./resources/js/pages/list-of-pharmacies/list-of-pharmacies.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var PharmaciesPage = function PharmaciesPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    id: "list-of-pharmacies",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "list_pharmacies",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "card card-list-pharmacies",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "table-responsive",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "name-vendor first",
+            children: "\u30DE\u30EA\u30F3\u85AC\u5C40\u3000\u5927\u78EF\u901A\u5E97"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "vendor-wrap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "pc d-flex justify-content-between flex-wrap",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info title",
+                children: "\u85AC\u5C40\u53C8\u306F\u5E97\u8217\u306E\u4E3B\u8981\u306A\u5916\u89B3\u306E\u5199\u771F"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info title",
+                children: "\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u9673\u5217\u306E\u72B6\u6CC1\u3092\u793A\u3059\u5199\u771F"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info border-none",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "item-image",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    alt: "image-vendor",
+                    src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_gaikan_1-1.jpeg"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "item-info border-none",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "item-image",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    alt: "image-vendor",
+                    src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_1-1.jpeg"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "item-image",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    alt: "image-vendor",
+                    src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_2-1.jpeg"
+                  })
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "sp d-flex justify-content-between flex-wrap",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info title",
+                children: "\u85AC\u5C40\u53C8\u306F\u5E97\u8217\u306E\u4E3B\u8981\u306A\u5916\u89B3\u306E\u5199\u771F"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "item-image",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    alt: "image-vendor",
+                    src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_gaikan_1-1.jpeg"
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info title",
+                children: "\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u9673\u5217\u306E\u72B6\u6CC1\u3092\u793A\u3059\u5199\u771F"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                className: "item-info border-none",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "item-image",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    alt: "image-vendor",
+                    src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_1-1.jpeg"
+                  })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "item-image",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+                    alt: "image-vendor",
+                    src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_2-1.jpeg"
+                  })
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "d-none item-info title",
+              children: "\u73FE\u5728\u52E4\u52D9\u3057\u3066\u3044\u308B\u85AC\u5264\u5E2B\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "d-none item-info",
+              children: "\u677E\u6D66 \u502B\u5B50\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09 \u5927\u6A4B\u5EB7\u6CBB\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\uFF09 08:00\u301C12:30\uFF08\u571F\uFF09 \u5742\u7530\u6DF3\u5E73\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C18:00\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "d-none item-info title",
+              children: "\u73FE\u5728\u52E4\u52D9\u3057\u3066\u3044\u308B\u767B\u9332\u8CA9\u58F2\u8005\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "d-none item-info "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "d-none item-info title",
+              children: ["\u958B\u5E97\u6642\u9593\u3068\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u6642\u9593\u304C\u7570\u306A\u308B\u5834\u5408\u306E\u958B\u5E97\u6642\u9593\u53CA\u3073", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u6642\u9593", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "d-none item-info "
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            className: "name-vendor second",
+            children: "\u7BA1\u7406\u304A\u3088\u3073\u904B\u55B6\u306B\u95A2\u3059\u308B\u4E8B\u9805"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "vendor-wrap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u8A31\u53EF\u306E\u533A\u5206"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info item-info ",
+              children: "\u85AC\u5C40"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u958B\u8A2D\u8005"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info",
+              children: "\u682A\u5F0F\u4F1A\u793E\u30DE\u30EA\u30F3 \u4EE3\u8868\u53D6\u7DE0\u5F79 \u85E4\u7530\u54F2\u5EB7"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u8A31\u53EF\u8A3C\u306E\u8A18\u8F09\u4E8B\u9805"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info",
+              children: ["\u540D\u5C40\u7B2C948\u53F7", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u30DE\u30EA\u30F3\u85AC\u5C40\u3000\u5927\u78EF\u901A\u5E97", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u611B\u77E5\u770C\u540D\u53E4\u5C4B\u5E02\u5357\u533A\u57CE\u4E0B\u753A2-36-3", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u4EE4\u548C3\u5E748\u670813\u65E5\u304B\u3089\u4EE4\u548C9\u5E748\u670812\u65E5"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u7BA1\u7406\u85AC\u5264\u5E2B"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info",
+              children: "\u677E\u6D66 \u502B\u5B50"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u5F53\u85AC\u5C40\u306B\u52E4\u52D9\u3059\u308B\u85AC\u5264\u5E2B\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info",
+              children: "\u677E\u6D66 \u502B\u5B50\u30FB\u5927\u6A4B\u5EB7\u6CBB\u30FB\u5742\u7530\u6DF3\u5E73\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u5F53\u85AC\u5C40\u306B\u52E4\u52D9\u3059\u308B\u767B\u9332\u8CA9\u58F2\u8005\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u53D6\u308A\u6271\u3046\u4E00\u822C\u7528\u533B\u85AC\u54C1\u7B49\u306E\u7A2E\u5225"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info",
+              children: "\u8981\u6307\u5C0E\u533B\u85AC\u54C1\u30FB\u7B2C1\u985E\u533B\u85AC\u54C1 \u7B2C2\u985E\u533B\u85AC\u54C1 \u6307\u5B9A2\u985E\u533B\u85AC\u54C1 \u7B2C3\u985E\u533B\u85AC\u54C1"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u5F53\u85AC\u5C40\u306B\u52E4\u52D9\u3059\u308B\u8005\u306E\u540D\u672D\u7B49\u306B\u3088\u308B\u533A\u5225"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info has-line-border",
+              children: ["\u85AC\u5264\u5E2B\u306F\u767D\u8863\u3092\u7740\u7528\u3057\u3001\u540D\u672D\u3092\u9752\u3067\u300C\u85AC\u5264\u5E2B\u300D\u53CA\u3073\u6C0F\u540D\u3092\u660E\u8A18", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), "\u4E00\u822C\u5F93\u4E8B\u8005\u306F\u30D4\u30F3\u30AF\u8272\u306E\u30E6\u30CB\u30D5\u30A9\u30FC\u30E0\u3092\u7740\u7528\u3057\u3001\u540D\u672D\u3092\u767D\u3067\u300C\u4E8B\u52D9\u300D\u53CA\u3073\u6C0F\u540D\u3092\u660E\u8A18"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u55B6\u696D\u6642\u9593"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info",
+              children: ["08:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "08:00\u301C12:30\uFF08\u571F\uFF09"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u55B6\u696D\u6642\u9593\u5916\u306B\u304A\u3051\u308B\u76F8\u8AC7\u6642\u9593"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info",
+              children: "\u6642\u9593\u5916\u306F\u3059\u3079\u3066"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u76F8\u8AC7\u6642\u53CA\u3072\u3099\u7DCA\u6025\u6642\u306E\u9023\u7D61\u5148"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info",
+              children: ["\u30FB\u55B6\u696D\u6642\u9593\u5185\u306F\u5E97\u8217\u3067\u76F8\u8AC7\u3092\u53D7\u3051\u4ED8\u3051\u307E\u3059\u3002\u96FB\u8A71\u306E\u5834\u5408\u306F052-821-1100\u3067\u53D7\u3051\u4ED8\u3051\u3066\u304A\u308A\u307E\u3059\u3002", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u2460 marin-oiso@kzh.biglobe.ne.jp", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u30FB\u7DCA\u6025\u6642\u53CA\u3073\u55B6\u696D\u6642\u9593\u5916\u306B\u304A\u3051\u308B\u3054\u76F8\u8AC7\u306F090-1414-4709\u3067\u53D7\u3051\u4ED8\u3051\u3066\u304A\u308A\u307E\u3059\u3002", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u2461 marine.ooiso@gmail.com"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u73FE\u5728\u52E4\u52D9\u3057\u3066\u3044\u308B\u85AC\u5264\u5E2B\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info has-line-border",
+              children: ["\u677E\u6D66 \u502B\u5B50\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), "\u5927\u6A4B\u5EB7\u6CBB\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\uFF09 08:00\u301C12:30\uFF08\u571F\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), "\u5742\u7530\u6DF3\u5E73\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C18:00\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u958B\u5E97\u6642\u9593\u3068\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u6642\u9593\u304C\u7570\u306A\u308B\u5834\u5408"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info has-line-border",
+              children: ["\u958B\u5E97\u6642\u9593\uFF1A08:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("hr", {}), "\u7279\u5B9A\u8CA9\u58F2\u6642\u9593\uFF1A09:00\u301C19:00\uFF08\u6708\u706B\u6C34\u91D1\uFF0909:00\u301C12:00\uFF08\u571F\uFF09"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title",
+              children: "\u55B6\u696D\u6642\u9593\u5916\u3067\u533B\u85AC\u54C1\u306E\u6CE8\u6587\u3092\u53D7\u7406\u3059\u308B\u6642\u9593"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info ",
+              children: "\u30A4\u30F3\u30BF\u30FC\u30CD\u30C3\u30C8\u6CE8\u6587\uFF0824\u6642\u9593\uFF09"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info title border-none",
+              children: "\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u533B\u85AC\u54C1\u306E\u4F7F\u7528\u671F\u9650"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info border-none",
+              children: "\u5F53\u5E97\u3067\u306F\u4F7F\u7528\u671F\u9650\u304C6\u30F6\u6708\u4EE5\u4E0A\u3042\u308B\u533B\u85AC\u54C1\u306E\u307F\u3092\u914D\u9001\u3044\u305F\u3057\u307E\u3059\u3002"
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "guide-wrapper",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
+          href: "http://member.wabisabi.media/wp-content/uploads/2022/02/\u8981\u6307\u5C0E\u533B\u85AC\u54C1\u53CA\u3073\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u306B\u95A2\u3059\u308B\u5236\u5EA6\u306B\u95A2\u3059\u308B\u4E8B\u9805-.pdf",
+          target: "_blank",
+          children: ["\u8981\u6307\u5C0E\u533B\u85AC\u54C1\u53CA\u3073\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u306B\u95A2\u3059\u308B\u5236\u5EA6\u306B\u95A2\u3059\u308B\u4E8B\u9805", " "]
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PharmaciesPage);
+
+/***/ }),
+
 /***/ "./resources/js/pages/media/index.js":
 /*!*******************************************!*\
   !*** ./resources/js/pages/media/index.js ***!
@@ -21490,8 +21719,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _pages_client_home_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../pages/client/home/index */ "./resources/js/pages/client/home/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _pages_notFound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/notFound */ "./resources/js/pages/notFound/index.js");
 /* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/auth/login */ "./resources/js/pages/auth/login/index.js");
 /* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/auth/register */ "./resources/js/pages/auth/register/index.js");
@@ -21500,7 +21729,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_media__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../pages/media */ "./resources/js/pages/media/index.js");
 /* harmony import */ var _commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../commons/layout/HomeLayout */ "./resources/js/commons/layout/HomeLayout/index.js");
 /* harmony import */ var _pages_member__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/member */ "./resources/js/pages/member/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/list-of-pharmacies */ "./resources/js/pages/list-of-pharmacies/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -21516,41 +21747,45 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var appRouter = function appRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
         exact: true,
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
           path: "member",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
           exact: true
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-        path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
-        exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
-          exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
-          exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
-          path: "lost-password",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+          path: "list-of-pharmacies",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+        path: "/",
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
+        exact: true,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+          path: "login",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
+          exact: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+          path: "register",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
+          exact: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
+          path: "lost-password",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
+          exact: true
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "media",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
         exact: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_12__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_11__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
       })]
     })
   });
@@ -26628,7 +26863,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#home-layout .block-main {\n  display: flex;\n}\n#home-layout .block-main .wrap-content {\n  width: 100%;\n}\n#home-layout .block-main .wrap-content .content {\n  padding: 38px 40px;\n  min-height: calc(100vh - 62px - 62px);\n  background-color: #E5E5E5;\n  /* width */\n}\n#home-layout .block-main #overlay {\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0.5;\n  z-index: 99;\n}\n@media screen and (max-width: 768px) {\n  #home-layout .block-main .wrap-content .content {\n    padding: 38px 15px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#home-layout .block-main {\n  display: flex;\n}\n#home-layout .block-main .wrap-content {\n  width: 100%;\n}\n#home-layout .block-main .wrap-content .content {\n  padding: 38px 40px;\n  overflow: auto;\n  height: calc(100vh - 62px);\n  min-height: calc(100vh - 62px - 62px);\n  background-color: #E5E5E5;\n}\n#home-layout .block-main #overlay {\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  background-color: rgba(0, 0, 0, 0.5);\n  opacity: 0.5;\n  z-index: 99;\n}\n@media screen and (max-width: 768px) {\n  #home-layout .block-main .wrap-content .content {\n    padding: 38px 15px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -26773,6 +27008,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".title {\n  text-align: center;\n  color: #62a19b;\n  line-height: 35px;\n  font-size: 22px;\n  font-weight: bold;\n  margin-bottom: 38px;\n}\n\n.remember-block {\n  padding: 10px 25px;\n  position: relative;\n  margin-top: 30px;\n  margin-bottom: 15px;\n}\n.remember-block .checkbox-remember label {\n  margin-bottom: 0;\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n}\n.remember-block .checkbox-remember input {\n  position: absolute;\n  top: 12px;\n  left: 5px;\n}\n.remember-block .text-forgot {\n  color: #62a19b;\n  font-size: 13px;\n}\n\n.btn-primary {\n  width: 182px;\n  height: 42px;\n  font-size: 16px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62A19B;\n  border: 1px solid #62A19B;\n  transition: all 0.2s ease-in-out;\n}\n.btn-primary:hover {\n  background: #62A19B;\n  border: 1px solid #62A19B;\n  opacity: 0.6;\n}\n.btn-primary:focus, .btn-primary:active {\n  background-color: #62A19B !important;\n  border: 1px solid #62A19B !important;\n}\n\n.note {\n  margin-top: 95px;\n}\n.note a {\n  color: #62A19B !important;\n  font-size: 15px;\n  cursor: pointer;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/list-of-pharmacies/list-of-pharmacies.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/list-of-pharmacies/list-of-pharmacies.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "#list-of-pharmacies .list_pharmacies {\n  width: 100%;\n  color: #515151;\n  font-size: 13px;\n  font-weight: 400;\n}\n#list-of-pharmacies img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#list-of-pharmacies .pc {\n  width: 100%;\n}\n#list-of-pharmacies .sp {\n  width: 100%;\n  display: none !important;\n}\n#list-of-pharmacies .title {\n  position: relative;\n  font-size: 13px;\n  line-height: 19.5px;\n}\n#list-of-pharmacies .guide-wrapper {\n  text-align: center;\n}\n#list-of-pharmacies .guide-wrapper a {\n  color: #FF0000FF;\n  text-decoration: none;\n}\n#list-of-pharmacies .card-list-pharmacies {\n  padding: 25px 10px;\n  margin: 0 auto 15px;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive {\n  display: block;\n  width: 100%;\n  overflow-x: auto;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .name-vendor {\n  padding: 10px 20px;\n  width: 50%;\n  font-weight: bold;\n  font-size: 18px;\n  border: 1px solid #dee2e6;\n  margin: 0 auto 15px;\n  text-align: center;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .name-vendor.first {\n  color: white;\n  background: #62A19B;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .name-vendor.second {\n  width: 100%;\n  border-bottom: none;\n  margin: 0 auto;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  border: 1px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap:not(:last-child) {\n  margin-bottom: 25px;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info:first-child {\n  border-right: none;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .title {\n  color: white;\n  font-weight: bold;\n  background: #62A19B;\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 0;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info {\n  width: 50%;\n  padding: 10px 20px;\n  border-bottom: 0.5px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info.has-line-border hr {\n  margin: 10px -20px;\n  border-top: 0.5px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info img {\n  width: 100%;\n  height: 250px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info .item-image:not(:last-child) {\n  border-bottom: 1px solid #ddd;\n  margin-bottom: 15px;\n  padding-bottom: 15px;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info hr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #cccccc;\n  margin: 20px 0;\n  padding: 0;\n  opacity: 0.15;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info:nth-child(2n+1) {\n  border-right: 0.5px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .border-none {\n  border-bottom: none;\n}\n@media only screen and (max-width: 768px) {\n  #list-of-pharmacies .pc {\n    display: none !important;\n  }\n  #list-of-pharmacies .sp {\n    display: flex !important;\n  }\n  #list-of-pharmacies .vendor-wrap .item-info {\n    width: 100% !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -83152,6 +83411,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/pages/list-of-pharmacies/list-of-pharmacies.scss":
+/*!***********************************************************************!*\
+  !*** ./resources/js/pages/list-of-pharmacies/list-of-pharmacies.scss ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./list-of-pharmacies.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/list-of-pharmacies/list-of-pharmacies.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
