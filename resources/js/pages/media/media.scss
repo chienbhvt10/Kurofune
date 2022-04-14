@@ -11,14 +11,16 @@
         max-width: 100%;
         object-fit: cover;
     }
-    a{
-        cursor: pointer;
-        opacity: 1;
-        color: #62A19B;
-        text-decoration: none;
-        text-align: center;
-        transition: 0.5 ease;
-        
+    .board-container,.option{
+
+      a{
+          cursor: pointer;
+          opacity: 1;
+          color: #62A19B;
+          text-decoration: none;
+          text-align: center;
+          transition: 0.5 ease;
+      }
     }
     button{
         cursor: pointer;
@@ -117,8 +119,8 @@
                     }
                 }
               }
-            } 
-            
+            }
+
             .logout-wrap {
                 text-align: center;
                 padding: 5px 20px;
@@ -159,8 +161,8 @@
                         }
                     }
                 }
-                
-              } 
+
+              }
             }
         }
     }
@@ -198,7 +200,7 @@
                     }
                 }
             }
-            .service_dashboard{ 
+            .service_dashboard{
                 .board-container {
                     .board-item {
                         max-width: 50%;
