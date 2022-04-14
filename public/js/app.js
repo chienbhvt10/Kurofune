@@ -22077,6 +22077,483 @@ var NotFound = function NotFound() {
 
 /***/ }),
 
+/***/ "./resources/js/pages/product-detail/index.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/pages/product-detail/index.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _product_detail_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./product-detail.scss */ "./resources/js/pages/product-detail/product-detail.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var ProductDetailPage = function ProductDetailPage() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    id: "info-prod",
+    className: "card",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "container-detail-product",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "wrap-detail-product",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "item-prod image-prod",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+            alt: "Loxonin S (12 tablets)",
+            src: "https://member.wabisabi.media/wp-content/uploads/2021/12/1_loxonin-s-1.jpg"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "item-prod summary-prod",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "summary-detail",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "product-name",
+              children: "Loxonin S (12 tablets)"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "medicinal_efficacy_block",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "medicinal_efficacy_item medicinal_efficacy_label",
+                children: "Medicinal efficacy classification"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "medicinal_efficacy_item medicinal_efficacy_value",
+                children: "Antipyretic Analgesic"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "block-price flex",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info price-info flex flex-column",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                  className: "no-sale",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                    className: "Ybrg9j",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                      className: "woocommerce-Price-amount amount",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("bdi", {
+                        children: ["713\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+                          className: "woocommerce-Price-currencySymbol",
+                          children: "(JPY)"
+                        })]
+                      })
+                    })
+                  })
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "item-info product-type",
+                children: "First-class OTC drugs"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+                className: "btn-cart-pc item-info block-btn-checkout customs_btn_cart",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+                  className: "cart",
+                  action: "https://member.wabisabi.media/en/product/loxonin-s-12-tablets",
+                  method: "post",
+                  encType: "multipart/form-data",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                    className: "quantity",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                      className: "screen-reader-text",
+                      htmlFor: "quantity_6257eb17c8348",
+                      children: "Loxonin S (12 tablets) quantity"
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                      type: "number",
+                      id: "quantity_6257eb17c8348",
+                      className: "input-text qty text",
+                      step: "1",
+                      min: "1",
+                      max: "",
+                      name: "quantity",
+                      value: "1",
+                      title: "Qty",
+                      size: "4",
+                      placeholder: "",
+                      inputMode: "numeric"
+                    })]
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                    type: "submit",
+                    name: "add-to-cart",
+                    value: "99",
+                    className: "single_add_to_cart_button button alt actived",
+                    children: "Buy Now"
+                  })]
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "d-none btn-cart-sp block-btn-checkout customs_btn_cart",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
+                className: "cart",
+                action: "https://member.wabisabi.media/en/product/loxonin-s-12-tablets",
+                method: "post",
+                encType: "multipart/form-data",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+                  className: "quantity",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+                    className: "screen-reader-text",
+                    htmlFor: "quantity_6257eb17c8412",
+                    children: "Loxonin S (12 tablets) quantity"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+                    type: "number",
+                    id: "quantity_6257eb17c8412",
+                    className: "input-text qty text",
+                    step: "1",
+                    min: "1",
+                    max: "",
+                    name: "quantity",
+                    value: "1",
+                    title: "Qty",
+                    size: "4",
+                    placeholder: "",
+                    inputMode: "numeric"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                  type: "submit",
+                  name: "add-to-cart",
+                  value: "99",
+                  className: "single_add_to_cart_button button alt actived",
+                  children: "Buy Now"
+                })]
+              })
+            })]
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+        type: "hidden",
+        id: "medicine-type",
+        value: "1"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "list-questions-wrap",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "hidden",
+          id: "user-id",
+          value: "1"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "hidden",
+          id: "product-id",
+          value: "99"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
+          type: "hidden",
+          id: "current-lang",
+          value: "en"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["What is your gender?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+              name: "gender",
+              className: "input-answer",
+              id: "",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "",
+                children: "Please select option"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "1",
+                children: "Male"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "2",
+                children: "Female"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-gender"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["How old are you?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+              name: "yearold",
+              className: "input-answer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "",
+                children: "Please select option"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "1",
+                children: "Under 15 years old"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "2",
+                children: "15-64 years old"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "3",
+                children: "65 years of age or older"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-year_old"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["Have you ever used this medicine?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+              name: "used_medicine",
+              className: "input-answer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "",
+                children: "Please select option"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "1",
+                children: "Yes"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "2",
+                children: "No"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-used_medicine"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["Have you ever taken any medicine and had side effects?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+              name: "taken_any_medicine",
+              className: "input-answer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "",
+                children: "Please select option"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "1",
+                children: "Yes"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "2",
+                children: "No"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-taken_any_medicine"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["What is the name of the medicine you were using at that time?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+              placeholder: "Please enter text",
+              name: "list_used_medicine",
+              className: "input-answer",
+              rows: "1"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-list_used_medicine"
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["Are there any illnesses you are currently treating?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
+              name: "currently_treating",
+              id: "",
+              className: "input-answer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "",
+                children: "Please select option"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "12",
+                children: "There is none"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "1",
+                children: "High blood pressure"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "2",
+                children: "Diabetes"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "3",
+                children: "Dyslipidemia"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "4",
+                children: "Asthma"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "5",
+                children: "Liver disease"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "6",
+                children: "Heart disease"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "7",
+                children: "Cerebral infarction"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "8",
+                children: "Gastric / duodenal ulcer"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "9",
+                children: "Thyroid disease"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "10",
+                children: "Prostate disease"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
+                value: "11",
+                children: "Other (free description)"
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-currently_treating"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "another-treating-wrap mt-2 d-none",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+                placeholder: "Please enter text",
+                name: "another-treating",
+                className: "input-answer"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                className: "message-warning warning-another-treating"
+              })]
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "question-answer-wrap",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "question",
+            children: ["Do you have any questions?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: "required",
+              children: "(required)"
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "answer",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+              placeholder: "Please enter text",
+              name: "any-questions",
+              className: "input-answer"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+              className: "message-warning warning-any_questions"
+            })]
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "modal fade",
+        id: "noticeModal",
+        tabIndex: "-1",
+        role: "dialog",
+        "aria-labelledby": "noticeModalTitle",
+        "aria-hidden": "true",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "modal-dialog modal-dialog-centered",
+          role: "document",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "modal-content",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "modal-body",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                className: "font-weight-bold",
+                children: "Could not add to shopping cart"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+                children: "Please check your input."
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "modal-footer",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+                type: "button",
+                className: "btn-close",
+                "data-dismiss": "modal",
+                children: "OK"
+              })
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "wrap-more-info-product",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "more-info-block flex flex-column",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+            className: "more-info-wrap",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info label-item",
+              children: "Features "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["It contains antipyretic and analgesic components that have fast effect on pain. It is a prodrug formulation with little strain on the stomach. Does not contain ingredients that make you sleepy. One tablet at a time works well. A small tablet that is easy to swallow.", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info label-item",
+              children: "Precautions "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["1. People who belong to one of these groups should not take the drug: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(1) People who have had allergic symptoms after taking this drug or the components of it.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(2) People who have had asthma after taking this drug or other antipyretic analgesics, cold remedies.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(3) Children under 15 years of age.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(4) People receiving the following treatment at a medical institution: Gastric / duodenal ulcer, liver disease, kidney disease, heart disease.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(5) People who have been diagnosed by doctors as having blood abnormalities (blood diseases) such as low red blood cell count (anemia), low platelet count (difficult to stop bleeding, excessively bleeding), and low white blood cell count.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(6) Pregnant women within 12 weeks of the expected delivery date.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "2. Do not take any of the following medicines while taking this drug. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Other antipyretic analgesics, cold remedies and sedatives", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "3. Please do not drink alcohol before and after taking this drug.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "4. Please do not take this drug for a long time.", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info label-item",
+              children: "Efficacy / effect "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["Headache, menstrual pain (physiological pain), toothache, post-tooth extraction pain, sore throat, lower back pain, joint pain, nerve pain, muscle pain, frozen shoulder pain, ear pain, bruise pain, fracture pain, sprain, trauma, chills & fever.", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info label-item",
+              children: "Usage / dose "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["Age: 1 dose: Number of doses per day", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Adults (15 years old and over): 1 tablet: up to 2 times", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "However, if symptoms reappear, you can take the third dose.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(Please leave at least 4 hours between doses)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Under 15 years old: Do not take this.", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info label-item",
+              children: "Active ingredients "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["Loxoprofen sodium hydrate 68.1 mg (60 mg as anhydrate)", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "item-info label-item",
+              children: "Additives "
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["Hydroxypropyl cellulose, magnesium stearate, lactose hydrate, iron sesquioxide.", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info label-item",
+              children: ["Precautions for storage and handling", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item",
+              children: ["(1) Store in a cool, dry place and keep it not to be exposed to direct sunlight.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(2) Please keep out of reach of children.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(3) Do not put it in a different container. (It may cause misuse or change of the quality)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(4) Do not use after the expiration date has passed.", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info label-item last-item",
+              children: ["Manufacturer", " "]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+              className: "item-info value-item last-item",
+              children: ["Daiichi Sankyo Healthcare Co., Ltd.", " "]
+            })]
+          })
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductDetailPage);
+
+/***/ }),
+
 /***/ "./resources/js/reducers/index.js":
 /*!****************************************!*\
   !*** ./resources/js/reducers/index.js ***!
@@ -22108,8 +22585,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _pages_client_home_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../pages/client/home/index */ "./resources/js/pages/client/home/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var _pages_notFound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/notFound */ "./resources/js/pages/notFound/index.js");
 /* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/auth/login */ "./resources/js/pages/auth/login/index.js");
 /* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/auth/register */ "./resources/js/pages/auth/register/index.js");
@@ -22120,7 +22597,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_member__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/member */ "./resources/js/pages/member/index.js");
 /* harmony import */ var _pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/list-of-pharmacies */ "./resources/js/pages/list-of-pharmacies/index.jsx");
 /* harmony import */ var _pages_medicine_list__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/medicine-list */ "./resources/js/pages/medicine-list/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _pages_product_detail__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/product-detail */ "./resources/js/pages/product-detail/index.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -22138,49 +22617,53 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var appRouter = function appRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_13__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.BrowserRouter, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_8__["default"], {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "member",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_member__WEBPACK_IMPORTED_MODULE_9__["default"], {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "list-of-pharmacies",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_10__["default"], {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "medicine-list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_medicine_list__WEBPACK_IMPORTED_MODULE_11__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_medicine_list__WEBPACK_IMPORTED_MODULE_11__["default"], {}),
+          exact: true
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
+          path: "product-detail",
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_product_detail__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
           path: "lost-password",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
         path: "media",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_media__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
         exact: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_14__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_15__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
       })]
     })
   });
@@ -27354,7 +27837,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#header-home {\n  display: flex;\n  align-items: center;\n  height: 62px;\n  width: 100%;\n  background: #ffffff;\n}\n#header-home .dropdown-toggle::after {\n  margin-left: 10px;\n  color: #62A19B;\n}\n#header-home a {\n  text-decoration: none;\n}\n#header-home button {\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#header-home .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#header-home .container-fluid {\n  padding: 0 40px;\n}\n#header-home .site-header {\n  display: flex;\n  justify-content: flex-end;\n}\n#header-home .site-header .block-profile-header {\n  display: flex;\n  align-self: center;\n}\n#header-home .site-header .block-profile-header .shopping-cart {\n  position: relative;\n  padding: 0 25px;\n}\n#header-home .site-header .block-profile-header .shopping-cart .icon-cart .icon {\n  width: 45px;\n  height: 45px;\n  display: block;\n}\n#header-home .site-header .block-profile-header .language-switcher {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap {\n  border-left: 1px solid #ddd;\n  display: flex;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  color: #62A19B;\n}\n#header-home .site-header .block-profile-header .logout-wrap a .icon {\n  margin-left: 5px;\n}\n@media screen and (max-width: 992px) {\n  #header-home .container-fluid {\n    padding: 0 15px !important;\n  }\n  #header-home .site-header {\n    justify-content: space-between !important;\n  }\n  #header-home .site-header .navbar-toggler {\n    box-shadow: none;\n  }\n}\n@media screen and (max-width: 768px) {\n  #header-home .container-fluid {\n    padding: 0 5px !important;\n  }\n  #header-home .shopping-cart {\n    padding: 0 5px !important;\n  }\n  #header-home .logout-wrap {\n    padding: 0 5px !important;\n  }\n  #header-home #openItems .myLangClass {\n    min-width: 100% !important;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#header-home {\n  display: flex;\n  align-items: center;\n  height: 62px;\n  width: 100%;\n  background: #ffffff;\n}\n#header-home .dropdown-toggle::after {\n  margin-left: 10px;\n  color: #62A19B;\n}\n#header-home a {\n  text-decoration: none;\n}\n#header-home button {\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#header-home .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#header-home .container-fluid {\n  padding: 0 40px;\n}\n#header-home .site-header {\n  display: flex;\n  justify-content: flex-end;\n}\n#header-home .site-header .block-profile-header {\n  display: flex;\n  align-self: center;\n}\n#header-home .site-header .block-profile-header .shopping-cart {\n  position: relative;\n  padding: 0 25px;\n}\n#header-home .site-header .block-profile-header .shopping-cart .icon-cart .icon {\n  width: 45px;\n  height: 45px;\n  display: block;\n}\n#header-home .site-header .block-profile-header .language-switcher {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap {\n  border-left: 1px solid #ddd;\n  display: flex;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  color: #62A19B;\n}\n#header-home .site-header .block-profile-header .logout-wrap a .icon {\n  margin-left: 5px;\n}\n@media screen and (max-width: 992px) {\n  #header-home .container-fluid {\n    padding: 0 15px !important;\n  }\n  #header-home .site-header {\n    justify-content: space-between !important;\n  }\n  #header-home .site-header .navbar-toggler {\n    box-shadow: none;\n  }\n}\n@media screen and (max-width: 768px) {\n  #header-home .container-fluid {\n    padding: 0 5px !important;\n  }\n  #header-home .shopping-cart {\n    padding: 0 5px !important;\n  }\n  #header-home .logout-wrap {\n    padding: 0 5px !important;\n  }\n  #header-home #openItems .myLangClass {\n    min-width: 100% !important;\n  }\n}\n@media screen and (max-width: 550px) {\n  #header-home .dropdown-toggle {\n    min-width: 100px !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27546,7 +28029,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page .board-container a, #media-page .option a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page .board-container a, #media-page .option a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 550px) {\n  #media-page .dropdown-toggle {\n    margin: 0px !important;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27595,6 +28078,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "#member-page {\n  margin: 0 auto;\n}\n#member-page .item {\n  width: 100%;\n  flex: 1 0 auto;\n}\n#member-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#member-page .tit {\n  position: relative;\n  -webkit-box-orient: vertical;\n  display: -webkit-box;\n  overflow: hidden;\n}\n#member-page a {\n  text-decoration: none;\n  color: #B7BBCB;\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#member-page a:hover {\n  opacity: 0.7;\n}\n#member-page .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n  margin-top: 25px;\n}\n#member-page .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#member-page .service_dashboard .board-container .tit {\n  font-size: 13px;\n  margin-bottom: 8px;\n}\n@media screen and (max-width: 992px) {\n  #member-page .service_dashboard {\n    margin-top: 0;\n  }\n  #member-page .service_dashboard .board-container .board-item {\n    padding: 15px;\n    width: 50%;\n  }\n}\n@media only screen and (max-width: 575.98px) {\n  #member-page .service_dashboard .item {\n    min-height: 155px !important;\n    padding: 5px !important;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/product-detail/product-detail.scss":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/product-detail/product-detail.scss ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "#info-prod {\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  padding: 20px;\n  line-height: 1.5;\n}\n#info-prod input, #info-prod textarea, #info-prod select, #info-prod button, #info-prod a {\n  outline: none;\n  transition: all 0.2s ease-in-out;\n}\n#info-prod .container-detail-product {\n  width: 100%;\n  margin: 0 auto;\n}\n#info-prod .container-detail-product .wrap-detail-product {\n  display: flex;\n  padding: 10px 0;\n}\n#info-prod .container-detail-product .wrap-detail-product .image-prod {\n  width: 36%;\n  flex-shrink: 0;\n  padding: 10px 0;\n  height: 195px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .image-prod img {\n  width: 100%;\n  height: 100%;\n  display: inline-block;\n  text-align: center;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod {\n  flex: 1 0 auto;\n  width: 0;\n  display: flex;\n  height: 195px;\n  flex-wrap: wrap;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout {\n  display: flex;\n  align-items: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout .quantity {\n  display: none;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout button {\n  height: 50px;\n  padding: 0 25px;\n  font-size: 13px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62A19B;\n  border: 1px solid #62A19B;\n  color: #fff;\n  border-radius: 3px;\n  line-height: 1;\n  text-shadow: none;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout .cart {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .summary-detail {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  flex-wrap: wrap;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .product-name {\n  margin: 0;\n  padding: 10px 0;\n  text-align: center;\n  border-left: none;\n  height: 60px;\n  font-size: 17px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block {\n  display: flex;\n  align-items: center;\n  height: 60px;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block .medicinal_efficacy_label {\n  justify-content: right;\n  padding-right: 10px;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block .medicinal_efficacy_item {\n  padding: 0 20px;\n  width: 33.3333333333%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  text-align: center;\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block .medicinal_efficacy_value {\n  flex: 1 auto;\n  justify-content: left;\n  padding-left: 10px;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price {\n  align-items: center;\n  height: 75px;\n  display: flex;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .item-info {\n  width: 33.3333333333%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .price-info {\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .price-info .no-sale {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .price-info .Ybrg9j {\n  font-weight: bold;\n  font-size: 16px;\n  color: #515151;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .product-type {\n  color: #515151;\n  font-weight: bold;\n  font-size: 16px;\n  justify-content: left;\n  padding-left: 10px;\n  text-align: left;\n}\n#info-prod .list-questions-wrap .question-answer-wrap {\n  display: flex;\n  width: 100%;\n}\n#info-prod .list-questions-wrap .question-answer-wrap:not(:last-child) {\n  margin-bottom: 15px;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .question {\n  width: calc(50% - 10px);\n  margin-right: 10px;\n  flex-shrink: 0;\n  text-align: right;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .question .required {\n  color: red;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer {\n  width: 50%;\n  flex-shrink: 0;\n  display: flex;\n  flex-direction: column;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer select {\n  width: 50%;\n  padding-left: 8px;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer p.message-warning {\n  display: none;\n  margin-bottom: 0;\n  margin-top: 5px;\n  color: red;\n  font-size: 11px;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer textarea {\n  resize: vertical;\n  padding: 8px 12px 5px 12px;\n  width: 100%;\n  resize: none;\n}\n#info-prod .wrap-more-info-product {\n  margin-top: 20px;\n}\n#info-prod .wrap-more-info-product .more-info-block {\n  display: flex;\n  flex-direction: column;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  -ms-flex-wrap: wrap;\n  border: 1px solid #1d2327;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap .item-info {\n  padding: 5px 10px;\n  border-bottom: 1px solid #1d2327;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap .label-item {\n  width: 30%;\n  border-right: 1px solid #1d2327;\n  font-weight: bold;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap .value-item {\n  width: 70%;\n}\n@media screen and (max-width: 900px) {\n  #info-prod .medicinal_efficacy_block .medicinal_efficacy_item {\n    width: 50% !important;\n  }\n  #info-prod .summary-prod .block-btn-checkout {\n    justify-self: center;\n  }\n  #info-prod .summary-prod .block-price {\n    flex-wrap: wrap;\n    height: 60px !important;\n  }\n  #info-prod .summary-prod .block-price .item-info {\n    width: 50% !important;\n  }\n  #info-prod .summary-prod .block-price .item-info:last-child {\n    width: 100% !important;\n  }\n  #info-prod .list-questions-wrap {\n    margin-top: 60px;\n  }\n  #info-prod .list-questions-wrap .question-answer-wrap .answer select {\n    width: 70% !important;\n  }\n}\n@media screen and (max-width: 768px) {\n  #info-prod .list-questions-wrap {\n    margin-top: 60px;\n  }\n  #info-prod .list-questions-wrap .question-answer-wrap .answer select {\n    width: 100% !important;\n  }\n}\n@media screen and (max-width: 550px) {\n  #info-prod .wrap-detail-product {\n    flex-direction: column;\n  }\n  #info-prod .wrap-detail-product .image-prod {\n    width: 100% !important;\n  }\n  #info-prod .wrap-detail-product .summary-prod {\n    width: 100% !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -84166,6 +84673,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/pages/product-detail/product-detail.scss":
+/*!***************************************************************!*\
+  !*** ./resources/js/pages/product-detail/product-detail.scss ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_product_detail_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./product-detail.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/product-detail/product-detail.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_product_detail_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_product_detail_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
