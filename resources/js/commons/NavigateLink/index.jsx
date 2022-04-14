@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./navigate-link.scss";
 const NavigateLink = ({ navigateItems }) => {
   return (
     <div className="navbar-main-wrapper">

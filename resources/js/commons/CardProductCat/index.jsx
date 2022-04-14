@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./card-product-cat.scss";
 const CardProductCat = ({ cardItems }) => {
   return (
     <div className="card card-product-cat">

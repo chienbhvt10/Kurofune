@@ -20183,8 +20183,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _board_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./board.scss */ "./resources/js/commons/Board/board.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -20192,43 +20194,43 @@ __webpack_require__.r(__webpack_exports__);
 
 var Board = function Board(_ref) {
   var boardItems = _ref.boardItems;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "board-container",
     children: boardItems.map(function (item, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: item.disable ? "board-item block-disabled" : "board-item",
-        children: item.type === "a_tag" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+        children: item.type === "a_tag" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
           target: "_blank",
           href: item.link,
           className: "item",
           title: item.link,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "icon",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               src: item.imageUrl,
               alt: ""
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "desc",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
               className: "tit",
               children: item.title
             })
           })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
           target: "_blank",
           to: item.link,
           className: "item",
           title: item.link,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "icon",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               src: item.imageUrl,
               alt: ""
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
             className: "desc",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h3", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
               className: "tit",
               children: item.title
             })
@@ -20255,29 +20257,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./card-product-cat.scss */ "./resources/js/commons/CardProductCat/card-product-cat.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 var CardProductCat = function CardProductCat(_ref) {
   var cardItems = _ref.cardItems;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "card card-product-cat",
     children: cardItems.map(function (item) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         className: "item-product-cat",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "item-pc-wrap",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
             href: item.href,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "item-pc-image",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                 src: item.src,
                 alt: item.name
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               className: "item-pc-name",
               children: item.name
             })]
@@ -20303,11 +20307,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _language_switcher_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./language-switcher.scss */ "./resources/js/commons/LanguageSwitcher/language-switcher.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -20316,71 +20322,71 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var LanguageSwitcher = function LanguageSwitcher() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     className: "switch-lang",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "btn-group",
       id: "openItems",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
         className: "btn myLangClass dropdown-toggle",
         "data-toggle": "dropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           className: "caption font-weight-bold",
           children: "Languages"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
           className: "caret"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("ul", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
         className: "dropdown-menu",
         id: "openItemDropdown",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
           className: "lang-item lang-item-38 lang-item-ja lang-item-first",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             lang: "ja",
             hrefLang: "ja",
             to: "member",
             children: "Japanese - \u65E5\u672C\u8A9E"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
           className: "lang-item lang-item-36 lang-item-en",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             lang: "en-GB",
             hrefLang: "en-GB",
             to: "en/member",
             children: "English - \u82F1\u8A9E"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
           className: "lang-item lang-item-67 lang-item-vi current-lang",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             lang: "vi",
             hrefLang: "vi",
             to: "vi/member",
             children: "Ti\u1EBFng Vi\u1EC7t - \u30D9\u30C8\u30CA\u30E0\u8A9E"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
           className: "lang-item lang-item-165 lang-item-tl",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             lang: "tl",
             hrefLang: "tl",
             to: "tl/member",
             children: "Tagalog - \u30BF\u30AC\u30ED\u30B0\u8A9E"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
           className: "lang-item lang-item-198 lang-item-zh",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
             lang: "zh-CN",
             hrefLang: "zh-CN",
             to: "zh/member",
             children: "\u4E2D\u6587 - \u4E2D\u56FD\u8A9E"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("button", {
             id: "close-lang",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
               className: "icon",
-              icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faTimes,
+              icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faTimes,
               size: "sm"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
               className: "ml-2",
               children: "\u0110\xF3ng"
             })]
@@ -20473,8 +20479,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _navigate_link_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./navigate-link.scss */ "./resources/js/commons/NavigateLink/navigate-link.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -20482,20 +20490,20 @@ __webpack_require__.r(__webpack_exports__);
 
 var NavigateLink = function NavigateLink(_ref) {
   var navigateItems = _ref.navigateItems;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: "navbar-main-wrapper",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("ul", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("ul", {
       className: "nav navbar-nav",
       children: navigateItems.map(function (item, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
           className: "menu-item",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
             className: "nav-link",
             to: item.link,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               className: "icon",
               src: item.imageUrl
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
               children: item.title
             })]
           })
@@ -21874,7 +21882,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../commons/data */ "./resources/js/commons/data.js");
 /* harmony import */ var _commons_LanguageSwitcher__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../commons/LanguageSwitcher */ "./resources/js/commons/LanguageSwitcher/index.jsx");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../components/Board'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _commons_Board__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../commons/Board */ "./resources/js/commons/Board/index.jsx");
 /* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/footer */ "./resources/js/components/footer/index.js");
 /* harmony import */ var _media_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./media.scss */ "./resources/js/pages/media/media.scss");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -21907,7 +21915,7 @@ var MediaPage = function MediaPage() {
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           className: "service_dashboard",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../components/Board'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_commons_Board__WEBPACK_IMPORTED_MODULE_4__["default"], {
             boardItems: _commons_data__WEBPACK_IMPORTED_MODULE_2__.mediaBoardItemData
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "switch",
@@ -27226,6 +27234,78 @@ defineJQueryPlugin(Toast);
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Board/board.scss":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Board/board.scss ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n.board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n.board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  padding: 28px 44px;\n  min-height: 200px;\n  width: 100%;\n  transition: all 0.2s ease-in-out;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n.board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n.board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/CardProductCat/card-product-cat.scss":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/CardProductCat/card-product-cat.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".card-product-cat {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  flex-direction: unset;\n}\n.card-product-cat .item-product-cat {\n  width: 20%;\n  margin-bottom: 16px;\n  padding: 0 8px;\n}\n.card-product-cat .item-product-cat .item-pc-wrap {\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  height: 100%;\n}\n.card-product-cat .item-product-cat .item-pc-wrap .item-pc-image {\n  height: 180px;\n}\n.card-product-cat .item-product-cat .item-pc-wrap .item-pc-image img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.card-product-cat .item-product-cat .item-pc-wrap .item-pc-name {\n  padding: 10px;\n  text-align: center;\n  font-weight: bold;\n}\n\n@media screen and (max-width: 992px) {\n  .card-product-cat .item-product-cat {\n    width: 25% !important;\n  }\n}\n@media screen and (max-width: 768px) {\n  .card-product-cat .item-product-cat {\n    width: 33.3333333333% !important;\n  }\n}\n@media screen and (max-width: 500px) {\n  .card-product-cat .item-product-cat {\n    width: 50% !important;\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/LanguageSwitcher/language-switcher.scss":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/LanguageSwitcher/language-switcher.scss ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".switch-lang .btn-group {\n  background: #ffffff;\n}\n.switch-lang .btn-group .caption {\n  color: #62A19B;\n  font-size: 16px;\n}\n.switch-lang .btn-group .myLangClass {\n  min-width: 175px;\n  box-shadow: none;\n}\n.switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n.switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n.switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n.switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n.switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n.switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n.switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n.switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n.switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Languges/style.scss":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Languges/style.scss ***!
@@ -27244,6 +27324,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, ".dropdown-toggle {\n  border: none;\n  background-color: #fff;\n  color: #62a19b;\n  font-size: 16px;\n  padding: 6px 12px;\n  font-weight: bold;\n  font-family: sans-serif;\n  min-width: 175px;\n}\n.dropdown-toggle:hover {\n  opacity: 0.7;\n}\n\n.dropdown.show .dropdown-toggle::after {\n  -webkit-animation-name: toggle-up;\n          animation-name: toggle-up;\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n  -webkit-animation-duration: 0.5s;\n          animation-duration: 0.5s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n\n.dropdown:not(.show) .dropdown-toggle::after {\n  -webkit-animation-name: toggle-down;\n          animation-name: toggle-down;\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n  -webkit-animation-duration: 0.3s;\n          animation-duration: 0.3s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n  transform: rotate(180deg);\n}\n\n@-webkit-keyframes toggle-up {\n  0% {\n    transform: rotate(45deg);\n    -webkit-transform: rotate(45deg);\n    -moz-transform: rotate(45deg);\n    -ms-transform: rotate(45deg);\n    -o-transform: rotate(45deg);\n  }\n  100% {\n    transform: rotate(180deg);\n  }\n}\n\n@keyframes toggle-up {\n  0% {\n    transform: rotate(45deg);\n    -webkit-transform: rotate(45deg);\n    -moz-transform: rotate(45deg);\n    -ms-transform: rotate(45deg);\n    -o-transform: rotate(45deg);\n  }\n  100% {\n    transform: rotate(180deg);\n  }\n}\n@-webkit-keyframes toggle-down {\n  0% {\n    transform: rotate(180deg);\n    -webkit-transform: rotate(180deg);\n    -moz-transform: rotate(180deg);\n    -ms-transform: rotate(180deg);\n    -o-transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n  }\n}\n@keyframes toggle-down {\n  0% {\n    transform: rotate(180deg);\n    -webkit-transform: rotate(180deg);\n    -moz-transform: rotate(180deg);\n    -ms-transform: rotate(180deg);\n    -o-transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n  }\n}", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/NavigateLink/navigate-link.scss":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/NavigateLink/navigate-link.scss ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, ".navbar-nav .menu-item {\n  position: relative;\n  color: #ffffff;\n}\n.navbar-nav .menu-item:hover {\n  background-color: #58918B;\n}\n.navbar-nav .nav-link {\n  position: relative;\n  overflow: hidden;\n  z-index: 0;\n  cursor: pointer;\n  padding: 5px 15px;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27291,7 +27395,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#header-home {\n  display: flex;\n  align-items: center;\n  height: 62px;\n  width: 100%;\n  background: #ffffff;\n}\n#header-home .dropdown-toggle::after {\n  margin-left: 10px;\n  color: #62A19B;\n}\n#header-home a {\n  text-decoration: none;\n}\n#header-home button {\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#header-home .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#header-home .container-fluid {\n  padding: 0 40px;\n}\n#header-home .site-header {\n  display: flex;\n  justify-content: flex-end;\n}\n#header-home .site-header .block-profile-header {\n  display: flex;\n  align-self: center;\n}\n#header-home .site-header .block-profile-header .shopping-cart {\n  position: relative;\n  padding: 0 25px;\n}\n#header-home .site-header .block-profile-header .shopping-cart .icon-cart .icon {\n  width: 45px;\n  height: 45px;\n  display: block;\n}\n#header-home .site-header .block-profile-header .language-switcher {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .caption {\n  color: #62A19B;\n  font-size: 16px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass {\n  min-width: 175px;\n  box-shadow: none;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#header-home .site-header .block-profile-header .language-switcher .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#header-home .site-header .block-profile-header .logout-wrap {\n  border-left: 1px solid #ddd;\n  display: flex;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  color: #62A19B;\n}\n#header-home .site-header .block-profile-header .logout-wrap a .icon {\n  margin-left: 5px;\n}\n@media screen and (max-width: 992px) {\n  #header-home .container-fluid {\n    padding: 0 15px !important;\n  }\n  #header-home .site-header {\n    justify-content: space-between !important;\n  }\n  #header-home .site-header .navbar-toggler {\n    box-shadow: none;\n  }\n}\n@media screen and (max-width: 768px) {\n  #header-home .container-fluid {\n    padding: 0 5px !important;\n  }\n  #header-home .shopping-cart {\n    padding: 0 5px !important;\n  }\n  #header-home .logout-wrap {\n    padding: 0 5px !important;\n  }\n  #header-home #openItems .myLangClass {\n    min-width: 100% !important;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#header-home {\n  display: flex;\n  align-items: center;\n  height: 62px;\n  width: 100%;\n  background: #ffffff;\n}\n#header-home .dropdown-toggle::after {\n  margin-left: 10px;\n  color: #62A19B;\n}\n#header-home a {\n  text-decoration: none;\n}\n#header-home button {\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#header-home .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#header-home .container-fluid {\n  padding: 0 40px;\n}\n#header-home .site-header {\n  display: flex;\n  justify-content: flex-end;\n}\n#header-home .site-header .block-profile-header {\n  display: flex;\n  align-self: center;\n}\n#header-home .site-header .block-profile-header .shopping-cart {\n  position: relative;\n  padding: 0 25px;\n}\n#header-home .site-header .block-profile-header .shopping-cart .icon-cart .icon {\n  width: 45px;\n  height: 45px;\n  display: block;\n}\n#header-home .site-header .block-profile-header .language-switcher {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap {\n  border-left: 1px solid #ddd;\n  display: flex;\n  align-items: center;\n}\n#header-home .site-header .block-profile-header .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  color: #62A19B;\n}\n#header-home .site-header .block-profile-header .logout-wrap a .icon {\n  margin-left: 5px;\n}\n@media screen and (max-width: 992px) {\n  #header-home .container-fluid {\n    padding: 0 15px !important;\n  }\n  #header-home .site-header {\n    justify-content: space-between !important;\n  }\n  #header-home .site-header .navbar-toggler {\n    box-shadow: none;\n  }\n}\n@media screen and (max-width: 768px) {\n  #header-home .container-fluid {\n    padding: 0 5px !important;\n  }\n  #header-home .shopping-cart {\n    padding: 0 5px !important;\n  }\n  #header-home .logout-wrap {\n    padding: 0 5px !important;\n  }\n  #header-home #openItems .myLangClass {\n    min-width: 100% !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27315,7 +27419,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#side-bar {\n  width: 100%;\n  max-width: 229px;\n  height: auto;\n  background: #62A19B;\n  color: white;\n  font-size: 13px;\n  transition: all 0.2s linear;\n}\n#side-bar span {\n  color: white;\n}\n#side-bar .btn_toggle {\n  display: none;\n  left: 232px;\n  top: 20px;\n  position: fixed;\n  z-index: 99999;\n  background-color: #ffffff;\n  border-radius: 45px;\n}\n#side-bar .btn_toggle.show {\n  display: block;\n}\n#side-bar .icon {\n  width: 45px;\n  height: 45px;\n  margin-right: 12px;\n}\n#side-bar .task-bar-title {\n  color: #ffffff;\n  text-align: center;\n  margin: 0;\n  height: 62px;\n  line-height: 62px;\n  font-size: 23px;\n  font-weight: 700;\n  transition: all 0.2s ease-in-out;\n}\n#side-bar .navbar-nav .menu-item {\n  position: relative;\n  color: #ffffff;\n}\n#side-bar .navbar-nav .menu-item:hover {\n  background-color: #58918B;\n}\n#side-bar .navbar-nav .nav-link {\n  position: relative;\n  overflow: hidden;\n  z-index: 0;\n  cursor: pointer;\n  padding: 5px 15px;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n}\n\n@media only screen and (max-width: 992px) {\n  #side-bar {\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 999999;\n    background: #62A19B;\n    transition: all 0.3s linear;\n    transform: translateX(-100%);\n  }\n  #side-bar.show {\n    transform: translateX(0);\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#side-bar {\n  width: 100%;\n  max-width: 229px;\n  height: auto;\n  background: #62A19B;\n  color: white;\n  font-size: 13px;\n  transition: all 0.2s linear;\n}\n#side-bar span {\n  color: white;\n}\n#side-bar .btn_toggle {\n  display: none;\n  left: 232px;\n  top: 20px;\n  position: fixed;\n  z-index: 99999;\n  background-color: #ffffff;\n  border-radius: 45px;\n}\n#side-bar .btn_toggle.show {\n  display: block;\n}\n#side-bar .icon {\n  width: 45px;\n  height: 45px;\n  margin-right: 12px;\n}\n#side-bar .task-bar-title {\n  color: #ffffff;\n  text-align: center;\n  margin: 0;\n  height: 62px;\n  line-height: 62px;\n  font-size: 23px;\n  font-weight: 700;\n  transition: all 0.2s ease-in-out;\n}\n\n@media only screen and (max-width: 992px) {\n  #side-bar {\n    height: 100vh;\n    position: fixed;\n    top: 0;\n    left: 0;\n    z-index: 999999;\n    background: #62A19B;\n    transition: all 0.3s linear;\n    transform: translateX(-100%);\n  }\n  #side-bar.show {\n    transform: translateX(0);\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27483,7 +27587,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group {\n  background: #ffffff;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n  min-width: 175px !important;\n  box-shadow: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass span {\n  color: #62A19B;\n  font-weight: 700 !important;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu {\n  min-width: 176px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li {\n  padding: 5px 10px;\n  font-size: 14px;\n  cursor: pointer;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li:hover {\n  background: #ddd;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang {\n  border: none;\n  background: none;\n  padding: 0;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang .icon {\n  color: black;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li #close-lang span {\n  margin-left: 8px !important;\n  color: black;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27507,7 +27611,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#medicine-list {\n  font-size: 13px;\n}\n#medicine-list .card {\n  padding: 20px;\n  margin: 0 0 24px;\n}\n#medicine-list a {\n  text-decoration: none;\n  color: #62A19B;\n  outline: none;\n}\n#medicine-list .list_categories .type-wrapper .type-name {\n  color: #fff;\n  background-color: #62A19B;\n  padding: 5px 15px;\n  margin-bottom: 10px;\n  font-size: 15px;\n}\n#medicine-list .list_categories .card {\n  padding: 20px 10px;\n}\n#medicine-list .list_categories .card-product-cat {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  flex-direction: unset;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat {\n  width: 20%;\n  margin-bottom: 16px;\n  padding: 0 8px;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap {\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  height: 100%;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap .item-pc-image {\n  height: 180px;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap .item-pc-image img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n#medicine-list .list_categories .card-product-cat .item-product-cat .item-pc-wrap .item-pc-name {\n  padding: 10px;\n  text-align: center;\n  font-weight: bold;\n}\n@media screen and (max-width: 992px) {\n  #medicine-list .card-product-cat .item-product-cat {\n    width: 25% !important;\n  }\n}\n@media screen and (max-width: 768px) {\n  #medicine-list .card-product-cat .item-product-cat {\n    width: 33.3333333333% !important;\n  }\n}\n@media screen and (max-width: 500px) {\n  #medicine-list .card-product-cat .item-product-cat {\n    width: 50% !important;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#medicine-list {\n  font-size: 13px;\n}\n#medicine-list .card {\n  padding: 20px;\n  margin: 0 0 24px;\n}\n#medicine-list a {\n  text-decoration: none;\n  color: #62A19B;\n  outline: none;\n}\n#medicine-list .list_categories .type-wrapper .type-name {\n  color: #fff;\n  background-color: #62A19B;\n  padding: 5px 15px;\n  margin-bottom: 10px;\n  font-size: 15px;\n}\n#medicine-list .list_categories .card {\n  padding: 20px 10px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -27531,7 +27635,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "#member-page {\n  margin: 0 auto;\n}\n#member-page .item {\n  width: 100%;\n  flex: 1 0 auto;\n}\n#member-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#member-page .tit {\n  position: relative;\n  -webkit-box-orient: vertical;\n  display: -webkit-box;\n  overflow: hidden;\n}\n#member-page a {\n  text-decoration: none;\n  color: #B7BBCB;\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#member-page a:hover {\n  opacity: 0.7;\n}\n#member-page .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n  margin-top: 25px;\n}\n#member-page .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#member-page .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  width: 33.33333%;\n}\n#member-page .service_dashboard .board-container .board-item .item {\n  display: block;\n  cursor: pointer;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  padding: 28px 44px;\n  min-height: 200px;\n  transition: all 0.2s ease-in-out;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n#member-page .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#member-page .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  margin-bottom: 8px;\n}\n@media screen and (max-width: 992px) {\n  #member-page .service_dashboard {\n    margin-top: 0;\n  }\n  #member-page .service_dashboard .board-container .board-item {\n    padding: 15px;\n    width: 50%;\n  }\n}\n@media only screen and (max-width: 575.98px) {\n  #member-page .service_dashboard .item {\n    min-height: 155px !important;\n    padding: 5px !important;\n  }\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "#member-page {\n  margin: 0 auto;\n}\n#member-page .item {\n  width: 100%;\n  flex: 1 0 auto;\n}\n#member-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#member-page .tit {\n  position: relative;\n  -webkit-box-orient: vertical;\n  display: -webkit-box;\n  overflow: hidden;\n}\n#member-page a {\n  text-decoration: none;\n  color: #B7BBCB;\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#member-page a:hover {\n  opacity: 0.7;\n}\n#member-page .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n  margin-top: 25px;\n}\n#member-page .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#member-page .service_dashboard .board-container .tit {\n  font-size: 13px;\n  margin-bottom: 8px;\n}\n@media screen and (max-width: 992px) {\n  #member-page .service_dashboard {\n    margin-top: 0;\n  }\n  #member-page .service_dashboard .board-container .board-item {\n    padding: 15px;\n    width: 50%;\n  }\n}\n@media only screen and (max-width: 575.98px) {\n  #member-page .service_dashboard .item {\n    min-height: 155px !important;\n    padding: 5px !important;\n  }\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -83626,6 +83730,96 @@ if (false) {} else {
 
 /***/ }),
 
+/***/ "./resources/js/commons/Board/board.scss":
+/*!***********************************************!*\
+  !*** ./resources/js/commons/Board/board.scss ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_board_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./board.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Board/board.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_board_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_board_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/commons/CardProductCat/card-product-cat.scss":
+/*!*******************************************************************!*\
+  !*** ./resources/js/commons/CardProductCat/card-product-cat.scss ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./card-product-cat.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/CardProductCat/card-product-cat.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/commons/LanguageSwitcher/language-switcher.scss":
+/*!**********************************************************************!*\
+  !*** ./resources/js/commons/LanguageSwitcher/language-switcher.scss ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_language_switcher_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./language-switcher.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/LanguageSwitcher/language-switcher.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_language_switcher_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_language_switcher_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./resources/js/commons/Languges/style.scss":
 /*!**************************************************!*\
   !*** ./resources/js/commons/Languges/style.scss ***!
@@ -83653,6 +83847,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./resources/js/commons/NavigateLink/navigate-link.scss":
+/*!**************************************************************!*\
+  !*** ./resources/js/commons/NavigateLink/navigate-link.scss ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_navigate_link_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./navigate-link.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/NavigateLink/navigate-link.scss");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_navigate_link_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_navigate_link_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
