@@ -25,67 +25,49 @@ const SideBar = ({ show, toggleSideBar }) => {
       <div className="navbar-main-wrapper">
         <ul className="nav navbar-nav">
           <li className="menu-item ">
-            <a
-              className="nav-link"
-              href="https://member.wabisabi.media/vi/member/questionnaire"
-            >
+            <Link className="nav-link" to="questionnaire">
               <img
                 className="icon"
                 src="images/sidebar/Questionnaire-form.png"
               />
               <span>Bảng câu hỏi chẩn đoán bệnh</span>
-            </a>
+            </Link>
           </li>
           <li className="menu-item ">
-            <a
-              className="nav-link"
-              href="https://member.wabisabi.media/vi/list-of-pharmacies"
-            >
+            <Link className="nav-link" to="list-of-pharmacies">
               <img className="icon" src="images/sidebar/list-pharmacies.png" />
               <span>Danh sách nhà thuốc</span>
-            </a>
+            </Link>
           </li>
           <li className="menu-item ">
-            <a
-              className="nav-link"
-              href="https://member.wabisabi.media/vi/medicine-list"
-            >
+            <Link className="nav-link" to="medicine-list">
               <img className="icon" src="images/sidebar/medicine-list.png" />
               <span>Danh sách thuốc</span>
-            </a>
+            </Link>
           </li>
           <li className="menu-item ">
-            <a
-              className="nav-link"
-              href="https://member.wabisabi.media/vi/member/order-history"
-            >
+            <Link className="nav-link" to="order-history">
               <img className="icon" src="images/sidebar/Order-history.png" />
               <span>Lịch sử mua hàng</span>
-            </a>
+            </Link>
           </li>
           <li className="menu-item ">
-            <a
-              className="nav-link"
-              href="https://member.wabisabi.media/vi/cart"
-            >
+            <Link className="nav-link" to="cart">
               <img className="icon" src="images/sidebar/cart.png" />
               <span>Giỏ hàng</span>
-            </a>
+            </Link>
           </li>
           <li className="menu-item ">
-            <a
-              className="nav-link"
-              href="https://member.wabisabi.media/vi/member/billing-address"
-            >
+            <Link className="nav-link" to="billing-address">
               <img className="icon" src="images/sidebar/Settings.png" />
               <span>Thông tin đăng kí</span>
-            </a>
+            </Link>
           </li>
           <li className="menu-item ">
-            <a className="nav-link" href="https://member.wabisabi.media/vi">
+            <Link className="nav-link" to="media">
               <img className="icon" src="images/sidebar/home.png" />
               <span>Trang chủ</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

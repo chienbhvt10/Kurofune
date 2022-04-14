@@ -5,6 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../../components/footer";
 import "./media.scss";
 
@@ -25,9 +26,9 @@ const MediaPage = () => {
           <div className="service_dashboard">
             <div className="board-container">
               <div className="board-item">
-                <a
-                  target="_blank"
-                  href="https://member.wabisabi.media/vi/member"
+                <Link
+                  // target="_blank"
+                  to="member"
                   className="item"
                   title="member services"
                 >
@@ -37,14 +38,14 @@ const MediaPage = () => {
                   <div className="desc">
                     <h3 className="tit">Hiệu thuốc Online </h3>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="board-item block-disabled">
-                <a
+                <Link
                   target="_blank"
-                  href="https://member.wabisabi.media/vi/service-24h"
+                  to="service-24h"
                   className="item"
-                  title="https://member.wabisabi.media/vi/service-24h"
+                  title="service-24h"
                 >
                   <div className="icon">
                     <img src="images/media/g_support.png" alt="" />
@@ -52,7 +53,7 @@ const MediaPage = () => {
                   <div className="desc">
                     <h3 className="tit">Dịch vụ tư vấn 24 giờ</h3>
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="board-item">
                 <a

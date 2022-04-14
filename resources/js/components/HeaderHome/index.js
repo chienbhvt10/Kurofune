@@ -5,6 +5,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { Link } from "react-router-dom";
 import "./header-home.scss";
 const HeaderHome = ({ toggleSideBar }) => {
   return (
@@ -23,13 +24,9 @@ const HeaderHome = ({ toggleSideBar }) => {
           <div className="block-profile-header dropdown">
             <div className="shopping-cart">
               <div className="icon-cart">
-                <a
-                  id="cart-custom"
-                  href="https://member.wabisabi.media/vi/cart"
-                  title="Xem giỏ hàng của bạn "
-                >
+                <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn ">
                   <img className="icon" src="images/icon-card.png" />
-                </a>
+                </Link>
               </div>
               <div className="mini-cart">
                 <div className="basket-block">
@@ -56,49 +53,29 @@ const HeaderHome = ({ toggleSideBar }) => {
                   </button>
                   <ul className="dropdown-menu" id="openItemDropdown">
                     <li className="lang-item lang-item-38 lang-item-ja lang-item-first">
-                      <a
-                        lang="ja"
-                        hrefLang="ja"
-                        href="https://member.wabisabi.media/member"
-                      >
+                      <Link lang="ja" hrefLang="ja" to="member">
                         Japanese - 日本語
-                      </a>
+                      </Link>
                     </li>
                     <li className="lang-item lang-item-36 lang-item-en">
-                      <a
-                        lang="en-GB"
-                        hrefLang="en-GB"
-                        href="https://member.wabisabi.media/en/member"
-                      >
+                      <Link lang="en-GB" hrefLang="en-GB" to="en/member">
                         English - 英語
-                      </a>
+                      </Link>
                     </li>
                     <li className="lang-item lang-item-67 lang-item-vi current-lang">
-                      <a
-                        lang="vi"
-                        hrefLang="vi"
-                        href="https://member.wabisabi.media/vi/member"
-                      >
+                      <Link lang="vi" hrefLang="vi" to="vi/member">
                         Tiếng Việt - ベトナム語
-                      </a>
+                      </Link>
                     </li>
                     <li className="lang-item lang-item-165 lang-item-tl">
-                      <a
-                        lang="tl"
-                        hrefLang="tl"
-                        href="https://member.wabisabi.media/tl/member"
-                      >
+                      <Link lang="tl" hrefLang="tl" to="tl/member">
                         Tagalog - タガログ語
-                      </a>
+                      </Link>
                     </li>
                     <li className="lang-item lang-item-198 lang-item-zh">
-                      <a
-                        lang="zh-CN"
-                        hrefLang="zh-CN"
-                        href="https://member.wabisabi.media/zh/member"
-                      >
+                      <Link lang="zh-CN" hrefLang="zh-CN" to="zh/member">
                         中文 - 中国語
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <button id="close-lang">
