@@ -6,7 +6,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { Link } from "react-router-dom";
-import LanguageSwitcher from "../../commons/LanguageSwitcher";
+// import LanguageSwitcher from "../../commons/LanguageSwitcher";
+import { Languages } from "../../commons/Languges";
 import "./header-home.scss";
 const HeaderHome = ({ toggleSideBar }) => {
   return (
@@ -22,7 +23,7 @@ const HeaderHome = ({ toggleSideBar }) => {
           >
             <FontAwesomeIcon icon={faBars} size={"lg"} color="#58918B" />
           </button>
-          <div className="block-profile-header dropdown">
+          <div className="block-profile-header ">
             <div className="shopping-cart">
               <div className="icon-cart">
                 <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn ">
@@ -42,8 +43,10 @@ const HeaderHome = ({ toggleSideBar }) => {
                 </div>
               </div>
             </div>
+
             <div className="language-switcher language-switcher-dropdown">
-              <LanguageSwitcher />
+            <Languages />
+
             </div>
 
             <div className="logout-wrap">
