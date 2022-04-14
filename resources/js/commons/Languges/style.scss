@@ -1,0 +1,59 @@
+.dropdown-toggle {
+  border: none;
+  background-color: #fff;
+  color: #62a19b;
+  font-size: 16px;
+  padding: 6px 12px;
+  font-weight: bold;
+  font-family: sans-serif;
+  min-width: 175px ;
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.dropdown.show {
+  .dropdown-toggle::after {
+    animation-name: toggle-up;
+    animation-delay: 0.1s;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+  }
+}
+.dropdown:not(.show) {
+  .dropdown-toggle::after {
+    animation-name: toggle-down;
+    animation-delay: 0.1s;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    transform: rotate(180deg);
+  }
+}
+@keyframes toggle-up {
+  0% {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+@keyframes toggle-down {
+  0% {
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+}

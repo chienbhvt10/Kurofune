@@ -6,7 +6,7 @@
   font-weight: bold;
   margin-bottom: 38px;
 }
-#loginForm{
+#registerForm{
   .form-group{
     label{
       margin-bottom: 8px;
@@ -20,14 +20,14 @@
       font-size: 11px;
       font-weight: 500;
       transition: transform 0.2s ease, color 0.2s ease;
-      padding-left: 30px;
+      padding-left: 0;
     }
     .form-control-auth {
       border: 0;
       border-bottom: 1px solid #ccc;
       outline: none;
       background: transparent;
-      padding: 10px 25px;
+      padding: 10px 5px;
       height: 38px;
       width: 100%;
       font-weight: 400;

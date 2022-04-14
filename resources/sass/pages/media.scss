@@ -53,8 +53,6 @@
             .board-container{
                 display: flex;
                 flex-wrap: wrap;
-                margin-right: -15px;
-                margin-left: -15px;
                 .board-item{
                     display: flex;
                     padding: 17px;
@@ -163,7 +161,7 @@
                 }
             }
             .switch{
-                padding: 0 3px;
+                padding: 0 17px;
                 margin-top: 0.5rem !important;
                 display: flex;
                 justify-content: space-between;

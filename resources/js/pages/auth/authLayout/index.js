@@ -11,7 +11,7 @@ export const AuthLayout = () => {
           ></img>
         </div>
         <div className="layout-right">
-          <div className="form-input">
+          <div className="form-input h-100">
           <Outlet></Outlet>
           </div>
         </div>
