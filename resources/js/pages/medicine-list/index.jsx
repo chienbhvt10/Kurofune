@@ -1,4 +1,5 @@
 import React from "react";
+import CardProductCat from "../../commons/CardProductCat";
 import {
   medicineList1,
   medicineList2,
@@ -11,54 +12,15 @@ const MedicineListPage = () => {
       <div className="list_categories">
         <div className="type-wrapper">
           <div className="type-name">第1類</div>
-          <div className="card card-product-cat">
-            {medicineList1.map((item) => (
-              <div className="item-product-cat">
-                <div className="item-pc-wrap">
-                  <a href={item.href}>
-                    <div className="item-pc-image">
-                      <img src={item.src} alt={item.name} />
-                    </div>
-                    <div className="item-pc-name">{item.name}</div>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+          <CardProductCat cardItems={medicineList1} />
         </div>
         <div className="type-wrapper">
           <div className="type-name">指定第2類</div>
-          <div className="card card-product-cat">
-            {medicineList2.map((item) => (
-              <div className="item-product-cat">
-                <div className="item-pc-wrap">
-                  <a href={item.href}>
-                    <div className="item-pc-image">
-                      <img src={item.src} alt={item.name} />
-                    </div>
-                    <div className="item-pc-name">{item.name}</div>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+          <CardProductCat cardItems={medicineList2} />
         </div>
         <div className="type-wrapper">
           <div className="type-name">第2類</div>
-          <div className="card card-product-cat">
-            {medicineList3.map((item) => (
-              <div className="item-product-cat">
-                <div className="item-pc-wrap">
-                  <a href={item.href}>
-                    <div className="item-pc-image">
-                      <img src={item.src} alt={item.name} />
-                    </div>
-                    <div className="item-pc-name">{item.name}</div>
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
+          <CardProductCat cardItems={medicineList3} />
         </div>
       </div>
     </div>
