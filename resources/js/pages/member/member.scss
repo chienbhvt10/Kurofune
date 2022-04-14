@@ -34,32 +34,9 @@
             flex-wrap: wrap;
             margin-right: -15px;
             margin-left: -15px;
-            .board-item{
-                display: flex;
-                padding: 17px;
-                width: 33.33333%;
-                .item{
-                    display: block;
-                    cursor: pointer;
-                    position: relative;
-                    background: #FFFFFF;
-                    border-radius: 8px;
-                    text-align: center;
-                    padding: 28px 44px;
-                    min-height: 200px;
-                    transition: all .2s ease-in-out;
-                    box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
-                    .icon {
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        min-height: 122px;
-                    }
-                    .tit {
-                        font-size: 13px;
-                        margin-bottom: 8px;
-                    }
-                }
+            .tit {
+                font-size: 13px;
+                margin-bottom: 8px;
             }
         }
     }

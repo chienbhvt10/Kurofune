@@ -101,48 +101,18 @@
             }
             .switch-lang{
               .btn-group{
-                  background: #ffffff;
                   .btn{
                       height: 38px;
                   }
                   .myLangClass {
                     padding: 2px 10px 5px 10px;
-                      min-width: 175px !important;
-                      box-shadow: none;
-                      &:hover{
-                        opacity: 0.5;
-                        }
-                      span{
-                          color: #62A19B;
-                          font-weight: 700 !important;
-                          font-size: 16px;
-                      }
                   }
                   ul.dropdown-menu {
-                      min-width: 176px;
-                      li {
-                        padding: 5px 10px;
-                        font-size: 14px;
-                        cursor: pointer;
-                        &:hover {
-                            background: #ddd;
-                        }
+                    li {
                         a{
                             color: #0c0c0c;
                             display: block;
                             text-align: left;
-                        }
-                        #close-lang{
-                            border: none;
-                            background: none;
-                            padding: 0;
-                            .icon{
-                                color: black;
-                            }
-                            span{
-                                margin-left: 8px !important;
-                                color: black;
-                            }
                         }
                     }
                 }
