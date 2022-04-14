@@ -10,28 +10,32 @@ import {
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
 export const Register = () => {
-  const [show, setShow] = useState(true);
+  const [showPass, setPass] = useState(true);
+  const [showConfirmPass, setConfirmPass] = useState(true);
   return (
-    <>
+    <div className="register-container">
       <Helmet>
         <meta charSet="utf-8" />
         <title>Register</title>
         <meta name="description" content="Register Page" />
         <meta name="og:title" content="Register" />
       </Helmet>
-      <h4 className="title">組織名</h4>
+      <div className="header-register">
+        <h4 className="title">組織名</h4>
+        <p>アカウントの作成を完了してください</p>
+      </div>
       <form id="registerForm">
         <div className="row">
           <div class="form-group  col-sm-6">
-            <label htmlFor="UserName">メールアドレス</label>
+            <label htmlFor="UserName">名</label>
             <input type="email" class="form-control-auth" id="UserName" />
           </div>
           <div class="form-group  col-sm-6">
-            <label htmlFor="UserName">メールアドレス</label>
+            <label htmlFor="UserName">姓</label>
             <input type="email" class="form-control-auth" id="UserName" />
           </div>
           <div class="form-group">
-            <label htmlFor="UserName">メールアドレス</label>
+            <label htmlFor="UserName">ユーザーネーム</label>
             <input type="email" class="form-control-auth" id="UserName" />
           </div>
           <div class="form-group">
@@ -41,61 +45,56 @@ export const Register = () => {
           <div class="form-group">
             <label htmlFor="Password">パスワード</label>
             <input
-              type={show ? "password" : "text"}
+              type={showPass? "password" : "text"}
               className="form-control-auth"
               id="Password"
             />
-            <div className="show-pass" onClick={() => setShow(!show)}>
+            <div className="show-pass" onClick={() => setPass(!showPass)}>
               <FontAwesomeIcon
-                icon={show ? faEyeSlash : faEye}
+                icon={showPass? faEyeSlash : faEye}
                 color="#515151"
                 size="sm"
               />
             </div>
           </div>
           <div class="form-group">
-            <label htmlFor="Password">パスワード</label>
+            <label htmlFor="Password">パスワード確認</label>
             <input
-              type={show ? "password" : "text"}
+              type={showConfirmPass ? "password" : "text"}
               className="form-control-auth"
               id="Password"
             />
-            <div className="show-pass" onClick={() => setShow(!show)}>
+            <div className="show-pass" onClick={() => setConfirmPass(!showConfirmPass)}>
               <FontAwesomeIcon
-                icon={show ? faEyeSlash : faEye}
+                icon={showConfirmPass ? faEyeSlash : faEye}
                 color="#515151"
                 size="sm"
               />
             </div>
           </div>
         </div>
-        <div className="d-flex justify-content-between remember-block">
+        <div className="check-info">
           <div className="checkbox-remember">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label for="vehicle1"> 保存する</label>
+            <label for="vehicle1"> パスワード確認</label>
           </div>
-          <Link
-            to="member/lostpassword"
-            className="text-decoration-none text-forgot"
-          >
-            パスワードを忘れた方はこちら
-          </Link>
         </div>
-        <button className="btn btn-primary d-block m-auto">ログイン </button>
+        <div className="check-info">
+          <div className="checkbox-remember">
+            <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
+            <label for="vehicle1"> ベンダーになる</label>
+          </div>
+        </div>
+        <button className="btn btn-primary d-block m-auto">
+          サインアップ
+        </button>
       </form>
 
       <div className="d-flex justify-content-center note">
-        <a className="mr-2" data-toggle="modal" data-target="#term-of-use">
-          利用規約
-        </a>
-        <a data-toggle="modal" data-target="#privacy-policy">
-          プライバシーポリシー
-        </a>
+        <Link to="/login">
+           すでにアカウントをお持ちですか？ログイン
+        </Link>
       </div>
-      <div className="dropdown-language-menu">
-        <Languages />
-        <span className="footer-text">©KUROFUNE 2022</span>
-      </div>
-    </>
+    </div>
   );
 };

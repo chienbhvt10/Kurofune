@@ -1,11 +1,22 @@
-.title {
-  text-align: center;
-  color: #62a19b;
-  line-height: 35px;
-  font-size: 22px;
-  font-weight: bold;
-  margin-bottom: 38px;
+.register-container{
+.header-register{
+  margin-bottom: 30px;
+  .title {
+    text-align: center;
+    color: #62a19b;
+    line-height: 35px;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+  p{
+    text-align: center;
+    font-size: 15px;
+    color: #515151;
+    margin-top: 8px;
+  }
 }
+
 #registerForm{
   .form-group{
     label{
@@ -47,11 +58,14 @@
   }
 
 }
-.remember-block {
+.check-info{
+  &:first-child{
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+  }
   padding: 10px 25px;
   position: relative;
-  margin-top: 30px;
-  margin-bottom: 15px;
   .checkbox-remember {
     label {
       margin-bottom: 0;
@@ -91,11 +105,12 @@
   }
 }
 .note {
-  margin-top: 95px;
+  margin-top: 15px;
   a {
     color: #62a19b !important;
     font-size: 15px;
     cursor: pointer;
+    text-decoration: revert;
   }
 }
 .dropdown-toggle {
@@ -160,8 +175,9 @@
 }
 .show-pass{
   position: absolute;
-  right: 10px;
+  right: 22px;
   bottom: 14px;
   cursor: pointer;
 
+}
 }

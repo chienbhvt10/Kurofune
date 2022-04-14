@@ -21398,14 +21398,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var Register = function Register() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
-      show = _useState2[0],
-      setShow = _useState2[1];
+      showPass = _useState2[0],
+      setPass = _useState2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
+      _useState4 = _slicedToArray(_useState3, 2),
+      showConfirmPass = _useState4[0],
+      setConfirmPass = _useState4[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    className: "register-container",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_helmet__WEBPACK_IMPORTED_MODULE_1__.Helmet, {
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("meta", {
         charSet: "utf-8"
@@ -21418,9 +21423,14 @@ var Register = function Register() {
         name: "og:title",
         content: "Register"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
-      className: "title",
-      children: "\u7D44\u7E54\u540D"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      className: "header-register",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h4", {
+        className: "title",
+        children: "\u7D44\u7E54\u540D"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
+        children: "\u30A2\u30AB\u30A6\u30F3\u30C8\u306E\u4F5C\u6210\u3092\u5B8C\u4E86\u3057\u3066\u304F\u3060\u3055\u3044"
+      })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
       id: "registerForm",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -21429,7 +21439,7 @@ var Register = function Register() {
           "class": "form-group  col-sm-6",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
             htmlFor: "UserName",
-            children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+            children: "\u540D"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             type: "email",
             "class": "form-control-auth",
@@ -21439,7 +21449,7 @@ var Register = function Register() {
           "class": "form-group  col-sm-6",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
             htmlFor: "UserName",
-            children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+            children: "\u59D3"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             type: "email",
             "class": "form-control-auth",
@@ -21449,7 +21459,7 @@ var Register = function Register() {
           "class": "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
             htmlFor: "UserName",
-            children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
+            children: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             type: "email",
             "class": "form-control-auth",
@@ -21471,16 +21481,16 @@ var Register = function Register() {
             htmlFor: "Password",
             children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            type: show ? "password" : "text",
+            type: showPass ? "password" : "text",
             className: "form-control-auth",
             id: "Password"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "show-pass",
             onClick: function onClick() {
-              return setShow(!show);
+              return setPass(!showPass);
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__.FontAwesomeIcon, {
-              icon: show ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEye,
+              icon: showPass ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEye,
               color: "#515151",
               size: "sm"
             })
@@ -21489,26 +21499,26 @@ var Register = function Register() {
           "class": "form-group",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
             htmlFor: "Password",
-            children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
+            children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u78BA\u8A8D"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
-            type: show ? "password" : "text",
+            type: showConfirmPass ? "password" : "text",
             className: "form-control-auth",
             id: "Password"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "show-pass",
             onClick: function onClick() {
-              return setShow(!show);
+              return setConfirmPass(!showConfirmPass);
             },
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__.FontAwesomeIcon, {
-              icon: show ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEye,
+              icon: showConfirmPass ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEye,
               color: "#515151",
               size: "sm"
             })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "d-flex justify-content-between remember-block",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "check-info",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "checkbox-remember",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
             type: "checkbox",
@@ -21517,35 +21527,33 @@ var Register = function Register() {
             value: "Bike"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
             "for": "vehicle1",
-            children: " \u4FDD\u5B58\u3059\u308B"
+            children: " \u30D1\u30B9\u30EF\u30FC\u30C9\u78BA\u8A8D"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
-          to: "member/lostpassword",
-          className: "text-decoration-none text-forgot",
-          children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5FD8\u308C\u305F\u65B9\u306F\u3053\u3061\u3089"
-        })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        className: "check-info",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: "checkbox-remember",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+            type: "checkbox",
+            id: "vehicle1",
+            name: "vehicle1",
+            value: "Bike"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+            "for": "vehicle1",
+            children: " \u30D9\u30F3\u30C0\u30FC\u306B\u306A\u308B"
+          })]
+        })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
         className: "btn btn-primary d-block m-auto",
-        children: "\u30ED\u30B0\u30A4\u30F3 "
+        children: "\u30B5\u30A4\u30F3\u30A2\u30C3\u30D7"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "d-flex justify-content-center note",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        className: "mr-2",
-        "data-toggle": "modal",
-        "data-target": "#term-of-use",
-        children: "\u5229\u7528\u898F\u7D04"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
-        "data-toggle": "modal",
-        "data-target": "#privacy-policy",
-        children: "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "dropdown-language-menu",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_3__.Languages, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
-        className: "footer-text",
-        children: "\xA9KUROFUNE 2022"
-      })]
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        to: "/login",
+        children: "\u3059\u3067\u306B\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u3059\u304B\uFF1F\u30ED\u30B0\u30A4\u30F3"
+      })
     })]
   });
 };
@@ -21830,18 +21838,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../commons/data */ "./resources/js/commons/data.js");
-Object(function webpackMissingModule() { var e = new Error("Cannot find module '../../commons/LanguageSwitcher'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
-/* harmony import */ var _commons_Board__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../commons/Board */ "./resources/js/commons/Board/index.jsx");
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/footer */ "./resources/js/components/footer/index.js");
-/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
-/* harmony import */ var _media_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./media.scss */ "./resources/js/pages/media/media.scss");
-/* harmony import */ var _commons_Languges__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../commons/Languges */ "./resources/js/commons/Languges/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _commons_Board__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../commons/Board */ "./resources/js/commons/Board/index.jsx");
+/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/footer */ "./resources/js/components/footer/index.js");
+/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
+/* harmony import */ var _media_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./media.scss */ "./resources/js/pages/media/media.scss");
+/* harmony import */ var _commons_Languges__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../commons/Languges */ "./resources/js/commons/Languges/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -21856,67 +21862,67 @@ Object(function webpackMissingModule() { var e = new Error("Cannot find module '
 
 
 var MediaPage = function MediaPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_5__["default"], {
       content: "HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N C\u1ED4NG H\u1ED6 TR\u1EE2",
       title: "HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N C\u1ED4NG H\u1ED6 TR\u1EE2"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
       id: "media-page",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
         className: "content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
           className: "page-header-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "box-text",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("h4", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h4", {
               className: "heading",
-              children: ["HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), "C\u1ED4NG H\u1ED6 TR\u1EE2", " "]
+              children: ["HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), "C\u1ED4NG H\u1ED6 TR\u1EE2", " "]
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
           className: "service_dashboard",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Board__WEBPACK_IMPORTED_MODULE_4__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_commons_Board__WEBPACK_IMPORTED_MODULE_3__["default"], {
             boardItems: _commons_data__WEBPACK_IMPORTED_MODULE_2__.mediaBoardItemData
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "switch",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_8__.Languages, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_7__.Languages, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "option",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "settings-wrap",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("a", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
                   href: "https://member.wabisabi.media/vi/member/change-profile",
                   title: "",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
                     className: "icon",
-                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faUserGear,
+                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faUserGear,
                     size: "md"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
                     children: "Th\xF4ng tin ng\u01B0\u1EDDi d\xF9ng "
                   })]
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
                 className: "logout-wrap pc",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("a", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
                   href: "https://member.wabisabi.media/wp-login.php?action=logout&_wpnonce=bb23afb59e",
                   title: "Tho\xE1t",
-                  children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                  children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
                     className: "icon",
-                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faSignOutAlt,
+                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faSignOutAlt,
                     size: "sm"
                   })]
                 })
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
             className: "switch-lang sp",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "logout-wrap",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("a", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
                 href: "https://member.wabisabi.media/wp-login.php?action=logout&_wpnonce=bb23afb59e",
                 title: "Tho\xE1t",
-                children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+                children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
                   className: "icon",
-                  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_10__.faSignOutAlt,
+                  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faSignOutAlt,
                   size: "sm"
                 })]
               })
@@ -21924,7 +21930,7 @@ var MediaPage = function MediaPage() {
           })]
         })]
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_footer__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
   });
 };
 
@@ -27492,7 +27498,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".title {\n  text-align: center;\n  color: #62a19b;\n  line-height: 35px;\n  font-size: 22px;\n  font-weight: bold;\n  margin-bottom: 38px;\n}\n\n#registerForm .form-group label {\n  margin-bottom: 8px;\n}\n#registerForm .form-group {\n  position: relative;\n  margin-bottom: 15px;\n}\n#registerForm .form-group label {\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n  transition: transform 0.2s ease, color 0.2s ease;\n  padding-left: 0;\n}\n#registerForm .form-group .form-control-auth {\n  border: 0;\n  border-bottom: 1px solid #ccc;\n  outline: none;\n  background: transparent;\n  padding: 10px 5px;\n  height: 38px;\n  width: 100%;\n  font-weight: 400;\n  font-size: 16px;\n}\n#registerForm .form-group .form-control-auth:focus {\n  outline: none;\n  border-color: #62A19B;\n  box-shadow: 0 1px 0 0 #62a19b;\n  transition: transform 0.2s ease, color 0.2s ease;\n}\n#registerForm .form-group .icon-input {\n  position: absolute;\n  bottom: 12px;\n  left: 0;\n}\n\n.remember-block {\n  padding: 10px 25px;\n  position: relative;\n  margin-top: 30px;\n  margin-bottom: 15px;\n}\n.remember-block .checkbox-remember label {\n  margin-bottom: 0;\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n}\n.remember-block .checkbox-remember input {\n  position: absolute;\n  top: 12px;\n  left: 5px;\n}\n.remember-block .text-forgot {\n  color: #62a19b;\n  font-size: 13px;\n}\n\n.btn-primary {\n  width: 182px;\n  height: 42px;\n  font-size: 16px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62a19b;\n  border: 1px solid #62a19b;\n  transition: all 0.2s ease-in-out;\n}\n.btn-primary:hover {\n  background: #62a19b;\n  border: 1px solid #62a19b;\n  opacity: 0.6;\n}\n.btn-primary:focus, .btn-primary:active {\n  background-color: #62a19b !important;\n  border: 1px solid #62a19b !important;\n}\n\n.note {\n  margin-top: 95px;\n}\n.note a {\n  color: #62a19b !important;\n  font-size: 15px;\n  cursor: pointer;\n}\n\n.dropdown-toggle {\n  border: none;\n  background-color: #fff;\n  color: #62a19b;\n  font-size: 16px;\n  padding: 6px 12px;\n}\n\n.dropdown.show .dropdown-toggle::after {\n  -webkit-animation-name: toggle-up;\n          animation-name: toggle-up;\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n  -webkit-animation-duration: 0.5s;\n          animation-duration: 0.5s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n\n.dropdown:not(.show) .dropdown-toggle::after {\n  -webkit-animation-name: toggle-down;\n          animation-name: toggle-down;\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n  -webkit-animation-duration: 0.3s;\n          animation-duration: 0.3s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n  transform: rotate(180deg);\n}\n\n@-webkit-keyframes toggle-up {\n  0% {\n    transform: rotate(45deg);\n    -webkit-transform: rotate(45deg);\n    -moz-transform: rotate(45deg);\n    -ms-transform: rotate(45deg);\n    -o-transform: rotate(45deg);\n  }\n  100% {\n    transform: rotate(180deg);\n  }\n}\n\n@keyframes toggle-up {\n  0% {\n    transform: rotate(45deg);\n    -webkit-transform: rotate(45deg);\n    -moz-transform: rotate(45deg);\n    -ms-transform: rotate(45deg);\n    -o-transform: rotate(45deg);\n  }\n  100% {\n    transform: rotate(180deg);\n  }\n}\n@-webkit-keyframes toggle-down {\n  0% {\n    transform: rotate(180deg);\n    -webkit-transform: rotate(180deg);\n    -moz-transform: rotate(180deg);\n    -ms-transform: rotate(180deg);\n    -o-transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n  }\n}\n@keyframes toggle-down {\n  0% {\n    transform: rotate(180deg);\n    -webkit-transform: rotate(180deg);\n    -moz-transform: rotate(180deg);\n    -ms-transform: rotate(180deg);\n    -o-transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n  }\n}\n.footer-text {\n  display: block;\n  text-align: center;\n  margin-top: 21px;\n  color: #62a19b;\n  font-size: 13px;\n}\n\n.show-pass {\n  position: absolute;\n  right: 10px;\n  bottom: 14px;\n  cursor: pointer;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".register-container .header-register {\n  margin-bottom: 30px;\n}\n.register-container .header-register .title {\n  text-align: center;\n  color: #62a19b;\n  line-height: 35px;\n  font-size: 22px;\n  font-weight: bold;\n  margin-bottom: 0;\n}\n.register-container .header-register p {\n  text-align: center;\n  font-size: 15px;\n  color: #515151;\n  margin-top: 8px;\n}\n.register-container #registerForm .form-group label {\n  margin-bottom: 8px;\n}\n.register-container #registerForm .form-group {\n  position: relative;\n  margin-bottom: 15px;\n}\n.register-container #registerForm .form-group label {\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n  transition: transform 0.2s ease, color 0.2s ease;\n  padding-left: 0;\n}\n.register-container #registerForm .form-group .form-control-auth {\n  border: 0;\n  border-bottom: 1px solid #ccc;\n  outline: none;\n  background: transparent;\n  padding: 10px 5px;\n  height: 38px;\n  width: 100%;\n  font-weight: 400;\n  font-size: 16px;\n}\n.register-container #registerForm .form-group .form-control-auth:focus {\n  outline: none;\n  border-color: #62A19B;\n  box-shadow: 0 1px 0 0 #62a19b;\n  transition: transform 0.2s ease, color 0.2s ease;\n}\n.register-container #registerForm .form-group .icon-input {\n  position: absolute;\n  bottom: 12px;\n  left: 0;\n}\n.register-container .check-info {\n  padding: 10px 25px;\n  position: relative;\n}\n.register-container .check-info:first-child {\n  margin-top: 30px;\n  margin-bottom: 15px;\n}\n.register-container .check-info .checkbox-remember label {\n  margin-bottom: 0;\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n}\n.register-container .check-info .checkbox-remember input {\n  position: absolute;\n  top: 12px;\n  left: 5px;\n}\n.register-container .check-info .text-forgot {\n  color: #62a19b;\n  font-size: 13px;\n}\n.register-container .btn-primary {\n  width: 182px;\n  height: 42px;\n  font-size: 16px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62a19b;\n  border: 1px solid #62a19b;\n  transition: all 0.2s ease-in-out;\n}\n.register-container .btn-primary:hover {\n  background: #62a19b;\n  border: 1px solid #62a19b;\n  opacity: 0.6;\n}\n.register-container .btn-primary:focus, .register-container .btn-primary:active {\n  background-color: #62a19b !important;\n  border: 1px solid #62a19b !important;\n}\n.register-container .note {\n  margin-top: 15px;\n}\n.register-container .note a {\n  color: #62a19b !important;\n  font-size: 15px;\n  cursor: pointer;\n  -webkit-text-decoration: revert;\n          text-decoration: revert;\n}\n.register-container .dropdown-toggle {\n  border: none;\n  background-color: #fff;\n  color: #62a19b;\n  font-size: 16px;\n  padding: 6px 12px;\n}\n.register-container .dropdown.show .dropdown-toggle::after {\n  -webkit-animation-name: toggle-up;\n          animation-name: toggle-up;\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n  -webkit-animation-duration: 0.5s;\n          animation-duration: 0.5s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n}\n.register-container .dropdown:not(.show) .dropdown-toggle::after {\n  -webkit-animation-name: toggle-down;\n          animation-name: toggle-down;\n  -webkit-animation-delay: 0.1s;\n          animation-delay: 0.1s;\n  -webkit-animation-duration: 0.3s;\n          animation-duration: 0.3s;\n  -webkit-animation-fill-mode: forwards;\n          animation-fill-mode: forwards;\n  transform: rotate(180deg);\n}\n@-webkit-keyframes toggle-up {\n  0% {\n    transform: rotate(45deg);\n    -webkit-transform: rotate(45deg);\n    -moz-transform: rotate(45deg);\n    -ms-transform: rotate(45deg);\n    -o-transform: rotate(45deg);\n  }\n  100% {\n    transform: rotate(180deg);\n  }\n}\n@keyframes toggle-up {\n  0% {\n    transform: rotate(45deg);\n    -webkit-transform: rotate(45deg);\n    -moz-transform: rotate(45deg);\n    -ms-transform: rotate(45deg);\n    -o-transform: rotate(45deg);\n  }\n  100% {\n    transform: rotate(180deg);\n  }\n}\n@-webkit-keyframes toggle-down {\n  0% {\n    transform: rotate(180deg);\n    -webkit-transform: rotate(180deg);\n    -moz-transform: rotate(180deg);\n    -ms-transform: rotate(180deg);\n    -o-transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n  }\n}\n@keyframes toggle-down {\n  0% {\n    transform: rotate(180deg);\n    -webkit-transform: rotate(180deg);\n    -moz-transform: rotate(180deg);\n    -ms-transform: rotate(180deg);\n    -o-transform: rotate(180deg);\n  }\n  100% {\n    transform: rotate(0deg);\n    -webkit-transform: rotate(0deg);\n    -moz-transform: rotate(0deg);\n    -ms-transform: rotate(0deg);\n    -o-transform: rotate(0deg);\n  }\n}\n.register-container .footer-text {\n  display: block;\n  text-align: center;\n  margin-top: 21px;\n  color: #62a19b;\n  font-size: 13px;\n}\n.register-container .show-pass {\n  position: absolute;\n  right: 22px;\n  bottom: 14px;\n  cursor: pointer;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
