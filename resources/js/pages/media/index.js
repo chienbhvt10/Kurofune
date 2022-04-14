@@ -5,7 +5,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { mediaBoardItemData } from "../../commons/data";
+import Board from "../../components/Board";
 import Footer from "../../components/footer";
 import "./media.scss";
 
@@ -24,101 +25,7 @@ const MediaPage = () => {
             </div>
           </div>
           <div className="service_dashboard">
-            <div className="board-container">
-              <div className="board-item">
-                <Link
-                  // target="_blank"
-                  to="member"
-                  className="item"
-                  title="member services"
-                >
-                  <div className="icon">
-                    <img src="images/media/pharma.png" alt="" />
-                  </div>
-                  <div className="desc">
-                    <h3 className="tit">Hiệu thuốc Online </h3>
-                  </div>
-                </Link>
-              </div>
-              <div className="board-item block-disabled">
-                <Link
-                  target="_blank"
-                  to="service-24h"
-                  className="item"
-                  title="service-24h"
-                >
-                  <div className="icon">
-                    <img src="images/media/g_support.png" alt="" />
-                  </div>
-                  <div className="desc">
-                    <h3 className="tit">Dịch vụ tư vấn 24 giờ</h3>
-                  </div>
-                </Link>
-              </div>
-              <div className="board-item">
-                <a
-                  target="_blank"
-                  href="https://www.payforex.net/smypay/sloginregister.aspx?cd=4TW4BQ0TPWXS&amp;lang=vi-vn"
-                  className="item"
-                  title=""
-                >
-                  <div className="icon">
-                    <img src="images/media/db.png" alt="" />
-                  </div>
-                  <div className="desc">
-                    <h3 className="tit">Chuyển tiền ra nước ngoài</h3>
-                  </div>
-                </a>
-              </div>
-              <div className="board-item">
-                <a
-                  target="_blank"
-                  href="https://kg-japaneseschool.jp/login"
-                  className="item"
-                  title="e-learning"
-                >
-                  <div className="icon">
-                    <img src="images/media/edu.png" alt="" />
-                  </div>
-                  <div className="desc">
-                    <h3 className="tit">Học trực tuyến</h3>
-                  </div>
-                </a>
-              </div>
-              <div className="board-item">
-                <a
-                  target="_blank"
-                  href="https://wabisabi.media/vietnam/income-insurance/"
-                  className="item"
-                  title=""
-                >
-                  <div className="icon">
-                    <img src="images/media/heat.png" alt="" />
-                  </div>
-                  <div className="desc">
-                    <h3 className="tit">Bảo hiểm thu nhập</h3>
-                  </div>
-                </a>
-              </div>
-              <div className="board-item">
-                <a
-                  target="_blank"
-                  href="https://wabisabi.media/vietnam/"
-                  className="item"
-                  title="wabisabi"
-                >
-                  <div className="icon">
-                    <img
-                      src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/wasabi-logo.svg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="desc">
-                    <h3 className="tit">WABISABI-MEDIA</h3>
-                  </div>
-                </a>
-              </div>
-            </div>
+            <Board boardItems={mediaBoardItemData} />
             <div className="switch">
               <div className="switch-lang">
                 <div className="btn-group" id="openItems">

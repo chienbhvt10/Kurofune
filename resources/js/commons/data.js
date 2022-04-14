@@ -301,3 +301,123 @@ export const medicineList3 = [
     name: "ドゥーテストhCGa（妊娠検査薬）1回用",
   },
 ];
+
+export const mediaBoardItemData = [
+  {
+    link: "/member",
+    imageUrl: "images/media/pharma.png",
+    title: "Hiệu thuốc Online ",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "service-24h",
+    imageUrl: "images/media/g_support.png",
+    title: "Dịch vụ tư vấn 24 giờ",
+    type: "link_component",
+    disable: true,
+  },
+  {
+    link: "https://www.payforex.net/smypay/sloginregister.aspx?cd=4TW4BQ0TPWXS&amp;lang=vi-vn",
+    imageUrl: "images/media/db.png",
+    title: "Chuyển tiền ra nước ngoài",
+    type: "a_tag",
+    disable: false,
+  },
+  {
+    link: "https://kg-japaneseschool.jp/login",
+    imageUrl: "images/media/edu.png",
+    title: "Học trực tuyến",
+    type: "a_tag",
+    disable: false,
+  },
+  {
+    link: "vietnam/income-insurance/",
+    imageUrl: "images/media/heat.png",
+    title: "Bảo hiểm thu nhập",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "vietnam",
+    imageUrl:
+      "https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/wasabi-logo.svg",
+    title: "WABISABI-MEDIA",
+    type: "a_tag",
+    disable: false,
+  },
+];
+export const memberBoardItemData = [
+  {
+    link: "/member/questionnaire",
+    imageUrl: "images/top-page/Questionnaire-form.png",
+    title: "Bảng câu hỏi chẩn đoán bệnh",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "/list-of-pharmacies",
+    imageUrl: "images/top-page/list-pharmacies.png",
+    title: "Danh sách nhà thuốc",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "/medicine-list",
+    imageUrl: "images/top-page/medicine-list.png",
+    title: "Danh sách thuốc",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "/member/order-history",
+    imageUrl: "images/top-page/Order-history.png",
+    title: "Lịch sử đặt hàng ",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "/cart",
+    imageUrl: "images/top-page/cart.png",
+    title: "Giỏ hàng",
+    type: "link_component",
+    disable: false,
+  },
+  {
+    link: "/member/billing-address",
+    imageUrl: "images/top-page/Settings.png",
+    title: "Thông tin đăng kí",
+    type: "link_component",
+    disable: false,
+  },
+];
+
+export const navigateLinkData = [
+  {
+    link: "questionnaire",
+    imageUrl: "images/sidebar/Questionnaire-form.png",
+    title: "Bảng câu hỏi chẩn đoán bệnh",
+  },
+  {
+    link: "list-of-pharmacies",
+    imageUrl: "images/sidebar/list-pharmacies.png",
+    title: "Danh sách nhà thuốc",
+  },
+  {
+    link: "medicine-list",
+    imageUrl: "images/sidebar/medicine-list.png",
+    title: "Danh sách thuốc",
+  },
+  {
+    link: "order-history",
+    imageUrl: "images/sidebar/Order-history.png",
+    title: "Lịch sử mua hàng",
+  },
+  { link: "cart", imageUrl: "images/sidebar/cart.png", title: "Giỏ hàng" },
+  {
+    link: "billing-address",
+    imageUrl: "images/sidebar/Settings.png",
+    title: "Thông tin đăng kí",
+  },
+  { link: "media", imageUrl: "images/sidebar/home.png", title: "Trang chủ" },
+];
