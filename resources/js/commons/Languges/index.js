@@ -1,3 +1,5 @@
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import "./style.scss";
 export const Languages = () => {
@@ -31,6 +33,7 @@ export const Languages = () => {
             中文 - 中国語
           </a>
           <a class="dropdown-item" href="#">
+          <FontAwesomeIcon className="icon mr-2" icon={faTimes} size="sm" />
             閉じる
           </a>
         </div>

@@ -11,6 +11,7 @@ import Board from "../../commons/Board";
 import Footer from "../../components/footer";
 import PageHead from "../../commons/PageHead";
 import "./media.scss";
+import { Languages } from "../../commons/Languges";
 
 const MediaPage = () => {
   return (
@@ -33,7 +34,8 @@ const MediaPage = () => {
           <div className="service_dashboard">
             <Board boardItems={mediaBoardItemData} />
             <div className="switch">
-              <LanguageSwitcher />
+              <Languages />
+
               <div className="option">
                 <div className="settings-wrap">
                   <a
