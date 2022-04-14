@@ -9,11 +9,16 @@ import { mediaBoardItemData } from "../../commons/data";
 import LanguageSwitcher from "../../commons/LanguageSwitcher";
 import Board from "../../commons/Board";
 import Footer from "../../components/footer";
+import PageHead from "../../commons/PageHead";
 import "./media.scss";
 
 const MediaPage = () => {
   return (
     <>
+      <PageHead
+        content="HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ"
+        title="HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ"
+      />
       <div id="media-page">
         <div className="content">
           <div className="page-header-content">
