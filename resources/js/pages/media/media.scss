@@ -11,7 +11,7 @@
         max-width: 100%;
         object-fit: cover;
     }
-    .board-container{
+    .board-container,.option{
 
       a{
           cursor: pointer;
@@ -225,11 +225,6 @@
             }
         }
     }
-    @media screen and (max-width: 550px) {
-        .dropdown-toggle {
-          margin: 0px !important;
-        }
-      }
     @media screen and (max-width: 500px){
         .switch{
             flex-direction: column;
