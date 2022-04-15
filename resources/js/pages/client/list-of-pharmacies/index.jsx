@@ -1,6 +1,6 @@
 import React from "react";
 import "./list-of-pharmacies.scss";
-import PageHead from "../../commons/PageHead";
+import PageHead from "../../../commons/PageHead";
 const PharmaciesPage = () => {
   return (
     <>

@@ -1,11 +1,11 @@
 import React from "react";
-import CardProductCat from "../../commons/CardProductCat";
+import CardProductCat from "../../../commons/CardProductCat";
 import {
   medicineList1,
   medicineList2,
   medicineList3,
-} from "../../commons/data";
-import PageHead from "../../commons/PageHead";
+} from "../../../commons/data";
+import PageHead from "../../../commons/PageHead";
 import "./medicine-list.scss";
 const MedicineListPage = () => {
   return (
