@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { historyData } from "../../../commons/data";
 import "./order-history.scss";
 const OrderHistoryPage = () => {
@@ -56,12 +57,12 @@ const OrderHistoryPage = () => {
                   </div>
                 </td>
                 <td class="action-order">
-                  <a
-                    href={item.orderDetailUrl}
+                  <Link
+                    to={item.orderDetailUrl}
                     class="woocommerce-button button view"
                   >
                     詳細
-                  </a>{" "}
+                  </Link>{" "}
                 </td>
               </tr>
             ))}
@@ -78,12 +79,12 @@ const OrderHistoryPage = () => {
           </ul>
         </div>
         <div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
-          <a
+          <Link
             class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button"
-            href="https://member.wabisabi.media/member/order-history?pid=2"
+            to="/order-history"
           >
             次
-          </a>
+          </Link>
         </div>
       </div>
     </div>
