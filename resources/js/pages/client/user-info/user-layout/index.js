@@ -1,7 +1,8 @@
 import iconBack from "../../../../../sass/image/icon-back.png";
 import React from "react";
-import { Link, NavLink, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import "./style.scss";
+import { TabLink } from "../../../../components/tabs";
 export const UserLayout = () => {
   return (
     <div className="user-layout container-fluid">
@@ -12,26 +13,12 @@ export const UserLayout = () => {
             <span className="ml-2">総合トップページへ戻る</span>
           </Link>
         </div>
-        <div className="user-layout-tabs">
-          <ul className="nav nav-pills">
-            <li className="nav-item">
-              <NavLink
-                to="/member/change-profile"
-                className="nav-link"
-              >
-                <span className="title-tab">ユーザー情報</span>
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                to="/member/change-password"
-                className="nav-link"
-              >
-                <span className="title-tab">パスワード情報</span>
-              </NavLink>
-            </li>
-          </ul>
-        </div>
+        <TabLink
+          infoTabs={[
+            { title: "ユーザー情報", routerLink: "/member/change-profile" },
+            { title: "パスワード情報", routerLink: "/member/change-password" },
+          ]}
+        />
         <div className="container-content">
           <Outlet></Outlet>
         </div>
