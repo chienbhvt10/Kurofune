@@ -1,0 +1,15 @@
+{
+  "login": {
+    "title": "一般社団法人在日外国人就業者支援協会生活支援ポータルサイト",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "remember": "保存する",
+    "forgetPassword": "パスワードを忘れた方はこちら",
+    "login_btn": "ログイン",
+    "term_of_use": "利用規約",
+    "privacy_policy": "プライバシーポリシー",
+    "languages": "言語",
+    "kurofune": "©KUROFUNE"
+  },
+  "home": "Trang chủ"
+}

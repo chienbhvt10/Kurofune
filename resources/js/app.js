@@ -21,10 +21,20 @@ import Routes from "./routes/routes";
 import { BrowserRouter, Route } from "react-router-dom";
 import rootReducer from "./reducers/index";
 import thunk from "redux-thunk";
+import i18n from './translate/i18n';
+import { I18nextProvider } from 'react-i18next';
+let composeEnhancers = null
+if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+} else {
+  composeEnhancers = compose
+}
 const store = createStore(rootReducer, applyMiddleware(thunk));
 render(
   <Provider store={store}>
-    <Routes />
+    <I18nextProvider i18n={i18n}>
+      <Routes />
+    </I18nextProvider>
   </Provider>,
   document.getElementById("app")
 );

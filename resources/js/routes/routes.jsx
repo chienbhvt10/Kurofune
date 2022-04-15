@@ -1,28 +1,32 @@
 import React from "react";
-import App from "./../pages/client/home/index";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
 import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
 import HomeLayout from "../commons/layout/HomeLayout";
-import { UserLayout } from "../pages/client/user-info/user-layout";
-import { ChangePassword } from "../pages/client/user-info/change-password";
-import { ChangeProfile } from "../pages/client/user-info/change-profile";
-import MediaPage from "../pages/client/media";
-import MemberPage from "../pages/client/member";
-import PharmaciesPage from "../pages/client/list-of-pharmacies";
-import MedicineListPage from "../pages/client/medicine-list";
-import ProductDetailPage from "../pages/client/product-detail";
-import OrderHistoryPage from "../pages/client/order-history";
-const appRouter = () => (
+import MemberPage from "../pages/member";
+import PharmaciesPage from "../pages/list-of-pharmacies";
+import MedicineListPage from "../pages/medicine-list";
+import ProductDetailPage from "../pages/product-detail";
+import { LangAfterReload } from "../commons/Languges/langAfterReload";
+const base = window.location.pathname.slice(0, 3);
+const appRouter = () => { 
+  const langUrl = window.location.pathname.slice(0, 4)
+  if(langUrl === '/vi/' || langUrl === '/tl/' || langUrl === '/en/' || langUrl === '/zh/'){
+    localStorage.setItem('lang', window.location.pathname.slice(0, 3));
+  }else{
+    localStorage.setItem('lang', '');
+  }
+  let lang = localStorage.getItem('lang')
+  return (
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<HomeLayout />} exact={true}>
         <Route path="member" element={<MemberPage />} exact={true} />
         <Route
-          path="list-of-pharmacies"
+          path={`/${lang}/list-of-pharmacies`}
           element={<PharmaciesPage />}
           exact={true}
         />
@@ -43,9 +47,9 @@ const appRouter = () => (
         />
       </Route>
       <Route path="/" element={<AuthLayout />} exact={true}>
-        <Route path="login" element={<Login />} exact={true} />
-        <Route path="register" element={<Register />} exact={true} />
-        <Route path="lost-password" element={<LostPassword />} exact={true} />
+        <Route path={`/${lang}/login`} element={<Login />} exact={true} />
+        <Route path={`/${lang}/register`} element={<Register />} exact={true} />
+        <Route path={`/${lang}/lost-password`} element={<LostPassword />} exact={true} />
       </Route>
       <Route path="member" element={<UserLayout />} exact={true}>
         <Route
@@ -58,7 +62,9 @@ const appRouter = () => (
       <Route path="media" element={<MediaPage />} exact={true} />
       <Route path="*" element={<NotFound />} />
     </Routes>
+    <LangAfterReload/>
   </BrowserRouter>
-);
+  
+)};
 
 export default appRouter;

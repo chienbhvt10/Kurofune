@@ -1,0 +1,15 @@
+{
+  "login": {
+    "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ",
+    "email": "Email",
+    "password": "Mật khẩu",
+    "remember": "Ghi nhớ",
+    "forgetPassword": "Quên mật khẩu",
+    "login_btn": "Đăng nhập",
+    "term_of_use": "Điều khoản sử dụng",
+    "privacy_policy": "Chính sách bảo mật",
+    "languages": "Ngôn ngữ",
+    "kurofune": "©KUROFUNE"
+  },
+  "home": "Trang chủ"
+}
