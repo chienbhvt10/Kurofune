@@ -1,6 +1,17 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
 /***/ "./node_modules/@fortawesome/fontawesome-svg-core/index.es.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@fortawesome/fontawesome-svg-core/index.es.js ***!
@@ -20099,11 +20110,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
+/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _routes_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./routes/routes */ "./resources/js/routes/routes.jsx");
 /* harmony import */ var _reducers_index__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./reducers/index */ "./resources/js/reducers/index.js");
-/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var redux_thunk__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! redux-thunk */ "./node_modules/redux-thunk/es/index.js");
+/* harmony import */ var _translate_i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./translate/i18n */ "./resources/js/translate/i18n.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes React and other helpers. It's a great starting point while
@@ -20127,10 +20140,23 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
 
-var store = (0,redux__WEBPACK_IMPORTED_MODULE_6__.createStore)(_reducers_index__WEBPACK_IMPORTED_MODULE_4__["default"], (0,redux__WEBPACK_IMPORTED_MODULE_6__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_7__["default"]));
-(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
+
+
+var composeEnhancers = null;
+
+if ( true && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+} else {
+  composeEnhancers = compose;
+}
+
+var store = (0,redux__WEBPACK_IMPORTED_MODULE_8__.createStore)(_reducers_index__WEBPACK_IMPORTED_MODULE_4__["default"], (0,redux__WEBPACK_IMPORTED_MODULE_8__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_9__["default"]));
+(0,react_dom__WEBPACK_IMPORTED_MODULE_1__.render)( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(react_redux__WEBPACK_IMPORTED_MODULE_2__.Provider, {
   store: store,
-  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_routes_routes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {
+    i18n: _translate_i18n__WEBPACK_IMPORTED_MODULE_5__["default"],
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_routes_routes__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+  })
 }), document.getElementById("app"));
 
 /***/ }),
@@ -20171,131 +20197,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/commons/Board/index.jsx":
-/*!**********************************************!*\
-  !*** ./resources/js/commons/Board/index.jsx ***!
-  \**********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var _board_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./board.scss */ "./resources/js/commons/Board/board.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var Board = function Board(_ref) {
-  var boardItems = _ref.boardItems;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "board-container",
-    children: boardItems.map(function (item, index) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: item.disable ? "board-item block-disabled" : "board-item",
-        children: item.type === "a_tag" ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-          target: "_blank",
-          href: item.link,
-          className: "item",
-          title: item.link,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "icon",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: item.imageUrl,
-              alt: ""
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "desc",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-              className: "tit",
-              children: item.title
-            })
-          })]
-        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
-          target: "_blank",
-          to: item.link,
-          className: "item",
-          title: item.link,
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "icon",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-              src: item.imageUrl,
-              alt: ""
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "desc",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h3", {
-              className: "tit",
-              children: item.title
-            })
-          })]
-        })
-      }, index);
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Board);
-
-/***/ }),
-
-/***/ "./resources/js/commons/CardProductCat/index.jsx":
-/*!*******************************************************!*\
-  !*** ./resources/js/commons/CardProductCat/index.jsx ***!
-  \*******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./card-product-cat.scss */ "./resources/js/commons/CardProductCat/card-product-cat.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var CardProductCat = function CardProductCat(_ref) {
-  var cardItems = _ref.cardItems;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "card card-product-cat",
-    children: cardItems.map(function (item) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "item-product-cat",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "item-pc-wrap",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("a", {
-            href: item.href,
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-pc-image",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-                src: item.src,
-                alt: item.name
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-pc-name",
-              children: item.name
-            })]
-          })
-        })
-      });
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardProductCat);
-
-/***/ }),
-
 /***/ "./resources/js/commons/Languges/index.js":
 /*!************************************************!*\
   !*** ./resources/js/commons/Languges/index.js ***!
@@ -20307,11 +20208,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "Languages": () => (/* binding */ Languages)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./resources/js/commons/Languges/style.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./style.scss */ "./resources/js/commons/Languges/style.scss");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -20320,52 +20226,133 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var Languages = function Languages() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)();
+
+  var _useTranslation = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+      t = _useTranslation.t,
+      i18n = _useTranslation.i18n;
+
+  var changeLanguage = function changeLanguage(lng) {
+    i18n.changeLanguage(lng);
+  };
+
+  var langUrl = window.location.pathname.slice(0, 4);
+
+  if (langUrl === '/vi/' || langUrl === '/tl/' || langUrl === '/en/' || langUrl === '/zh/') {
+    localStorage.setItem('lang', window.location.pathname.slice(0, 3));
+    console.log(location.pathname);
+    var pathName = location.pathname.slice(3);
+  } else {
+    localStorage.setItem('lang', '');
+    var pathName = location.pathname;
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       "class": "dropdown",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        "class": "dropdown-toggle d-block m-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        className: "dropdown-toggle d-block m-auto",
         type: "button",
         id: "dropdownMenuButton",
         "data-toggle": "dropdown",
         "aria-haspopup": "true",
         "aria-expanded": "false",
-        children: "\u8A00\u8A9E"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        "class": "dropdown-menu",
+        children: t('login.languages')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "dropdown-menu",
         "aria-labelledby": "dropdownMenuButton",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          "class": "dropdown-item",
-          href: "#",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          className: "dropdown-item",
+          to: "".concat(pathName),
+          onClick: function onClick() {
+            return changeLanguage("ja");
+          },
           children: "Japanese - \u65E5\u672C\u8A9E"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          "class": "dropdown-item",
-          href: "#",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          className: "dropdown-item",
+          to: "/en".concat(pathName),
+          onClick: function onClick() {
+            return changeLanguage("en");
+          },
           children: "English - \u82F1\u8A9E"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          "class": "dropdown-item",
-          href: "#",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          className: "dropdown-item",
+          to: "/vi".concat(pathName),
+          onClick: function onClick() {
+            return changeLanguage("vi");
+          },
           children: "Ti\u1EBFng Vi\u1EC7t - \u30D9\u30C8\u30CA\u30E0\u8A9E"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          "class": "dropdown-item",
-          href: "#",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          className: "dropdown-item",
+          to: "/tl".concat(pathName),
+          onClick: function onClick() {
+            return changeLanguage("tl");
+          },
           children: "Tagalog - \u30BF\u30AC\u30ED\u30B0\u8A9E"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          "class": "dropdown-item",
-          href: "#",
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          className: "dropdown-item",
+          to: "/zh".concat(pathName),
+          onClick: function onClick() {
+            return changeLanguage("zh");
+          },
           children: "\u4E2D\u6587 - \u4E2D\u56FD\u8A9E"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-          "class": "dropdown-item",
-          href: "#",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+          className: "dropdown-item",
+          to: "/zh".concat(pathName),
+          onClick: function onClick() {
+            return changeLanguage("zh");
+          },
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
             className: "icon mr-2",
-            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faTimes,
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faTimes,
             size: "sm"
           }), "\u9589\u3058\u308B"]
         })]
       })]
     })
   });
+};
+
+/***/ }),
+
+/***/ "./resources/js/commons/Languges/langAfterReload.js":
+/*!**********************************************************!*\
+  !*** ./resources/js/commons/Languges/langAfterReload.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "LangAfterReload": () => (/* binding */ LangAfterReload)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var LangAfterReload = function LangAfterReload() {
+  var _useTranslation = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+      t = _useTranslation.t,
+      i18n = _useTranslation.i18n;
+
+  var langUrl = window.location.pathname.slice(0, 4);
+
+  if (langUrl === '/vi/' || langUrl === '/tl/' || langUrl === '/en/' || langUrl === '/zh/') {
+    localStorage.setItem('lang', window.location.pathname.slice(0, 3));
+    var lang = localStorage.getItem('lang');
+  } else {
+    var lang = '/ja';
+  }
+
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    var _lang;
+
+    i18n.changeLanguage((_lang = lang) === null || _lang === void 0 ? void 0 : _lang.slice(1));
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {});
 };
 
 /***/ }),
@@ -20431,9 +20418,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 
 
 
@@ -20442,15 +20439,44 @@ __webpack_require__.r(__webpack_exports__);
 var PageHead = function PageHead(_ref) {
   var title = _ref.title,
       content = _ref.content;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_helmet__WEBPACK_IMPORTED_MODULE_1__["default"], {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("meta", {
+
+  var _useTranslation = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+      i18n = _useTranslation.i18n;
+
+  var lang = localStorage.getItem('lang');
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var getData = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                i18n.changeLanguage(lang.slice(1));
+
+              case 1:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee);
+      }));
+
+      return function getData() {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    getData();
+  }, []);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_helmet__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("meta", {
       charSet: "utf-8"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("title", {
       children: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("meta", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("meta", {
       name: "description",
       content: content
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("meta", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("meta", {
       name: "og:title",
       content: content
     })]
@@ -20684,31 +20710,31 @@ var medicineList2 = [{
 }];
 var medicineList3 = [{
   href: "https://member.wabisabi.media/product/%e3%83%ad%e3%82%ad%e3%82%bd%e3%83%8b%e3%83%b3s%e3%83%86%e3%83%bc%e3%83%97-14%e6%9e%9a",
-  src: "images/medicine-list/2_loxonin-s_tape.jpg",
+  src: "/images/medicine-list/2_loxonin-s_tape.jpg",
   name: "ロキソニンSテープ 14枚 "
 }, {
   href: "https://member.wabisabi.media/product/%e3%82%a2%e3%83%ac%e3%82%b0%e3%83%a9-28%e9%8c%a0",
-  src: "images/medicine-list/5_allegra.jpg",
+  src: "/images/medicine-list/5_allegra.jpg",
   name: "アレグラFX28錠 "
 }, {
   href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab12-12ml",
-  src: "images/medicine-list/10_sante_medical12.jpg",
+  src: "/images/medicine-list/10_sante_medical12.jpg",
   name: "サンテメディカル12 12ml "
 }, {
   href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab%e6%8a%97%e8%8f%8c-20%e6%9c%ac",
-  src: "images/medicine-list/11_sante_medical_koukin.jpg",
+  src: "/images/medicine-list/11_sante_medical_koukin.jpg",
   name: "サンテメディカル抗菌 20本 "
 }, {
   href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-10ml",
-  src: "images/medicine-list/12_rohto-alguard10.jpg",
+  src: "/images/medicine-list/12_rohto-alguard10.jpg",
   name: "ロート アルガード 10ml "
 }, {
   href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-%e3%82%af%e3%83%aa%e3%82%a2%e3%83%96%e3%83%ad%e3%83%83%e3%82%afz-13ml",
-  src: "images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
+  src: "/images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
   name: "ロート アルガード クリアブロックZ 13ml"
 }, {
   href: "https://member.wabisabi.media/product/%e3%83%89%e3%82%a5%e3%83%bc%e3%83%86%e3%82%b9%e3%83%88hcga%ef%bc%88%e5%a6%8a%e5%a8%a0%e6%a4%9c%e6%9f%bb%e8%96%ac%ef%bc%891%e5%9b%9e%e7%94%a8",
-  src: "images/medicine-list/14_hcg-stick.jpeg",
+  src: "/images/medicine-list/14_hcg-stick.jpeg",
   name: "ドゥーテストhCGa（妊娠検査薬）1回用"
 }];
 var mediaBoardItemData = [{
@@ -20750,68 +20776,68 @@ var mediaBoardItemData = [{
 }];
 var memberBoardItemData = [{
   link: "/member/questionnaire",
-  imageUrl: "images/top-page/Questionnaire-form.png",
+  imageUrl: "/images/top-page/Questionnaire-form.png",
   title: "Bảng câu hỏi chẩn đoán bệnh",
   type: "link_component",
   disable: false
 }, {
   link: "/list-of-pharmacies",
-  imageUrl: "images/top-page/list-pharmacies.png",
+  imageUrl: "/images/top-page/list-pharmacies.png",
   title: "Danh sách nhà thuốc",
   type: "link_component",
   disable: false
 }, {
   link: "/medicine-list",
-  imageUrl: "images/top-page/medicine-list.png",
+  imageUrl: "/images/top-page/medicine-list.png",
   title: "Danh sách thuốc",
   type: "link_component",
   disable: false
 }, {
   link: "/member/order-history",
-  imageUrl: "images/top-page/Order-history.png",
+  imageUrl: "/images/top-page/Order-history.png",
   title: "Lịch sử đặt hàng ",
   type: "link_component",
   disable: false
 }, {
   link: "/cart",
-  imageUrl: "images/top-page/cart.png",
+  imageUrl: "/images/top-page/cart.png",
   title: "Giỏ hàng",
   type: "link_component",
   disable: false
 }, {
   link: "/member/billing-address",
-  imageUrl: "images/top-page/Settings.png",
+  imageUrl: "/images/top-page/Settings.png",
   title: "Thông tin đăng kí",
   type: "link_component",
   disable: false
 }];
 var navigateLinkData = [{
   link: "questionnaire",
-  imageUrl: "images/sidebar/Questionnaire-form.png",
+  imageUrl: "/images/sidebar/Questionnaire-form.png",
   title: "Bảng câu hỏi chẩn đoán bệnh"
 }, {
   link: "list-of-pharmacies",
-  imageUrl: "images/sidebar/list-pharmacies.png",
+  imageUrl: "/images/sidebar/list-pharmacies.png",
   title: "Danh sách nhà thuốc"
 }, {
   link: "medicine-list",
-  imageUrl: "images/sidebar/medicine-list.png",
+  imageUrl: "/images/sidebar/medicine-list.png",
   title: "Danh sách thuốc"
 }, {
   link: "order-history",
-  imageUrl: "images/sidebar/Order-history.png",
+  imageUrl: "/images/sidebar/Order-history.png",
   title: "Lịch sử mua hàng"
 }, {
   link: "cart",
-  imageUrl: "images/sidebar/cart.png",
+  imageUrl: "/images/sidebar/cart.png",
   title: "Giỏ hàng"
 }, {
   link: "billing-address",
-  imageUrl: "images/sidebar/Settings.png",
+  imageUrl: "/images/sidebar/Settings.png",
   title: "Thông tin đăng kí"
 }, {
   link: "media",
-  imageUrl: "images/sidebar/home.png",
+  imageUrl: "/images/sidebar/home.png",
   title: "Trang chủ"
 }];
 var historyData = [{
@@ -21028,13 +21054,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _commons_Languges__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../commons/Languges */ "./resources/js/commons/Languges/index.js");
 /* harmony import */ var _header_home_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./header-home.scss */ "./resources/js/components/HeaderHome/header-home.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -21045,68 +21072,69 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var HeaderHome = function HeaderHome(_ref) {
   var toggleSideBar = _ref.toggleSideBar;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
     id: "header-home",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "container-fluid",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "site-header ",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           className: "navbar-toggler d-lg-none",
           id: "touch-menu",
           type: "button",
           "data-target": "#navbar-main",
           onClick: toggleSideBar,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faBars,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+            icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faBars,
             size: "lg",
             color: "#58918B"
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "block-profile-header ",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "shopping-cart",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "icon-cart",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.Link, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
                 id: "cart-custom",
                 to: "cart",
                 title: "Xem gi\u1ECF h\xE0ng c\u1EE7a b\u1EA1n ",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
                   className: "icon",
-                  src: "images/icon-card.png"
+                  src: "/images/icon-card.png"
                 })
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "mini-cart",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 className: "basket-block",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "cart_block_list"
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                 id: "loading",
                 style: {
                   display: "none"
                 },
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "loader"
                 })
               })]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "language-switcher language-switcher-dropdown",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_2__.Languages, {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_2__.Languages, {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "logout-wrap",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("a", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("a", {
               href: "https://member.wabisabi.media/wp-login.php?action=logout&_wpnonce=1750a2467b",
               title: "Tho\xE1t",
-              children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
+              children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
                 className: "icon",
-                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__.faSignOutAlt,
+                icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faSignOutAlt,
                 size: "sm"
               })]
             })
@@ -21343,13 +21371,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "Login": () => (/* binding */ Login)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./resources/js/pages/auth/login/style.scss");
-/* harmony import */ var _commons_Languges__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../commons/Languges */ "./resources/js/commons/Languges/index.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./resources/js/pages/auth/login/style.scss");
+/* harmony import */ var _commons_Languges__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../commons/Languges */ "./resources/js/commons/Languges/index.js");
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -21372,107 +21401,103 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var Login = function Login() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(true),
       _useState2 = _slicedToArray(_useState, 2),
       show = _useState2[0],
       setShow = _useState2[1];
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_helmet__WEBPACK_IMPORTED_MODULE_1__.Helmet, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("meta", {
-        charSet: "utf-8"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("title", {
-        children: "Login"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("meta", {
-        name: "description",
-        content: "Login Page"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("meta", {
-        name: "og:title",
-        content: "Login"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h4", {
+  var _useTranslation = Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(),
+      i18n = _useTranslation.i18n,
+      t = _useTranslation.t;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      content: "Login",
+      title: "Login"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h4", {
       className: "title",
-      children: ["\u4E00\u822C\u793E\u56E3\u6CD5\u4EBA\u5728\u65E5\u5916\u56FD\u4EBA\u5C31\u696D\u8005\u652F\u63F4\u5354\u4F1A", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("br", {}), "\u751F\u6D3B\u652F\u63F4\u30DD\u30FC\u30BF\u30EB\u30B5\u30A4\u30C8"]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+      children: t('login.title')
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("form", {
       id: "loginForm",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        "class": "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
           htmlFor: "UserName",
-          children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          children: t('login.email')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
           type: "email",
-          className: "form-control-auth",
+          "class": "form-control-auth",
           id: "UserName"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
           className: "icon-input",
           src: "https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png",
           alt: ""
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "form-group",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+        "class": "form-group",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("label", {
           htmlFor: "Password",
-          children: "\u30D1\u30B9\u30EF\u30FC\u30C9"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          children: t('login.password')
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
           type: show ? "password" : "text",
           className: "form-control-auth",
           id: "Password"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
           className: "icon-input",
           src: "https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-key.png",
           alt: ""
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: "show-pass",
           onClick: function onClick() {
             return setShow(!show);
           },
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__.FontAwesomeIcon, {
-            icon: show ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__.faEye,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__.FontAwesomeIcon, {
+            icon: show ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__.faEye,
             color: "#515151",
             size: "sm"
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: "d-flex justify-content-between remember-block",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
           className: "checkbox-remember",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
             type: "checkbox",
             id: "vehicle1",
             name: "vehicle1",
             value: "Bike"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("label", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("label", {
             "for": "vehicle1",
-            children: " \u4FDD\u5B58\u3059\u308B"
+            children: [" ", t('login.remember')]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.Link, {
           to: "member/lostpassword",
           className: "text-decoration-none text-forgot",
-          children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u5FD8\u308C\u305F\u65B9\u306F\u3053\u3061\u3089"
+          children: t('login.forgetPassword')
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("button", {
         className: "btn btn-primary d-block m-auto",
-        children: "\u30ED\u30B0\u30A4\u30F3 "
+        children: t('login.login_btn')
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "d-flex justify-content-center note",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
         className: "mr-2",
         "data-toggle": "modal",
         "data-target": "#term-of-use",
-        children: "\u5229\u7528\u898F\u7D04"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("a", {
+        children: t('login.term_of_use')
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("a", {
         "data-toggle": "modal",
         "data-target": "#privacy-policy",
-        children: "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"
+        children: t('login.privacy_policy')
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: "dropdown-language-menu",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_3__.Languages, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_2__.Languages, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("span", {
         className: "footer-text",
-        children: "\xA9KUROFUNE 2022"
+        children: [t('login.kurofune'), " 2022"]
       })]
     })]
   });
@@ -21680,1504 +21705,6 @@ var Register = function Register() {
 
 /***/ }),
 
-/***/ "./resources/js/pages/client/home/index.js":
-/*!*************************************************!*\
-  !*** ./resources/js/pages/client/home/index.js ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../commons/layout/HomeLayout */ "./resources/js/commons/layout/HomeLayout/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var HomePage = function HomePage() {
-  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_1__.useDispatch)();
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_2__["default"], {});
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (HomePage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/list-of-pharmacies/index.jsx":
-/*!****************************************************************!*\
-  !*** ./resources/js/pages/client/list-of-pharmacies/index.jsx ***!
-  \****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list-of-pharmacies.scss */ "./resources/js/pages/client/list-of-pharmacies/list-of-pharmacies.scss");
-/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-var PharmaciesPage = function PharmaciesPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      content: "List Of Pharmacies",
-      title: "List Of Pharmacies"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      id: "list-of-pharmacies",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "list_pharmacies",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "card card-list-pharmacies",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "table-responsive",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "name-vendor first",
-              children: "\u30DE\u30EA\u30F3\u85AC\u5C40\u3000\u5927\u78EF\u901A\u5E97"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "vendor-wrap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "pc d-flex justify-content-between flex-wrap",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "item-info title",
-                  children: "\u85AC\u5C40\u53C8\u306F\u5E97\u8217\u306E\u4E3B\u8981\u306A\u5916\u89B3\u306E\u5199\u771F"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "item-info title",
-                  children: "\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u9673\u5217\u306E\u72B6\u6CC1\u3092\u793A\u3059\u5199\u771F"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "item-info border-none",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                    className: "item-image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      alt: "image-vendor",
-                      src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_gaikan_1-1.jpeg"
-                    })
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                  className: "item-info border-none",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                    className: "item-image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      alt: "image-vendor",
-                      src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_1-1.jpeg"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                    className: "item-image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      alt: "image-vendor",
-                      src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_2-1.jpeg"
-                    })
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "sp d-flex justify-content-between flex-wrap",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "item-info title",
-                  children: "\u85AC\u5C40\u53C8\u306F\u5E97\u8217\u306E\u4E3B\u8981\u306A\u5916\u89B3\u306E\u5199\u771F"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "item-info",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                    className: "item-image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      alt: "image-vendor",
-                      src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_gaikan_1-1.jpeg"
-                    })
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  className: "item-info title",
-                  children: "\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u9673\u5217\u306E\u72B6\u6CC1\u3092\u793A\u3059\u5199\u771F"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                  className: "item-info border-none",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                    className: "item-image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      alt: "image-vendor",
-                      src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_1-1.jpeg"
-                    })
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                    className: "item-image",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                      alt: "image-vendor",
-                      src: "https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_2-1.jpeg"
-                    })
-                  })]
-                })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "d-none item-info title",
-                children: "\u73FE\u5728\u52E4\u52D9\u3057\u3066\u3044\u308B\u85AC\u5264\u5E2B\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "d-none item-info",
-                children: "\u677E\u6D66 \u502B\u5B50\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09 \u5927\u6A4B\u5EB7\u6CBB\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\uFF09 08:00\u301C12:30\uFF08\u571F\uFF09 \u5742\u7530\u6DF3\u5E73\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C18:00\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "d-none item-info title",
-                children: "\u73FE\u5728\u52E4\u52D9\u3057\u3066\u3044\u308B\u767B\u9332\u8CA9\u58F2\u8005\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "d-none item-info "
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "d-none item-info title",
-                children: ["\u958B\u5E97\u6642\u9593\u3068\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u6642\u9593\u304C\u7570\u306A\u308B\u5834\u5408\u306E\u958B\u5E97\u6642\u9593\u53CA\u3073", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u6642\u9593", " "]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "d-none item-info "
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-              className: "name-vendor second",
-              children: "\u7BA1\u7406\u304A\u3088\u3073\u904B\u55B6\u306B\u95A2\u3059\u308B\u4E8B\u9805"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-              className: "vendor-wrap",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u8A31\u53EF\u306E\u533A\u5206"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info item-info ",
-                children: "\u85AC\u5C40"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u958B\u8A2D\u8005"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info",
-                children: "\u682A\u5F0F\u4F1A\u793E\u30DE\u30EA\u30F3 \u4EE3\u8868\u53D6\u7DE0\u5F79 \u85E4\u7530\u54F2\u5EB7"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u8A31\u53EF\u8A3C\u306E\u8A18\u8F09\u4E8B\u9805"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "item-info",
-                children: ["\u540D\u5C40\u7B2C948\u53F7", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u30DE\u30EA\u30F3\u85AC\u5C40\u3000\u5927\u78EF\u901A\u5E97", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u611B\u77E5\u770C\u540D\u53E4\u5C4B\u5E02\u5357\u533A\u57CE\u4E0B\u753A2-36-3", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u4EE4\u548C3\u5E748\u670813\u65E5\u304B\u3089\u4EE4\u548C9\u5E748\u670812\u65E5"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u7BA1\u7406\u85AC\u5264\u5E2B"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info",
-                children: "\u677E\u6D66 \u502B\u5B50"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u5F53\u85AC\u5C40\u306B\u52E4\u52D9\u3059\u308B\u85AC\u5264\u5E2B\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info",
-                children: "\u677E\u6D66 \u502B\u5B50\u30FB\u5927\u6A4B\u5EB7\u6CBB\u30FB\u5742\u7530\u6DF3\u5E73\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u5F53\u85AC\u5C40\u306B\u52E4\u52D9\u3059\u308B\u767B\u9332\u8CA9\u58F2\u8005\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u53D6\u308A\u6271\u3046\u4E00\u822C\u7528\u533B\u85AC\u54C1\u7B49\u306E\u7A2E\u5225"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info",
-                children: "\u8981\u6307\u5C0E\u533B\u85AC\u54C1\u30FB\u7B2C1\u985E\u533B\u85AC\u54C1 \u7B2C2\u985E\u533B\u85AC\u54C1 \u6307\u5B9A2\u985E\u533B\u85AC\u54C1 \u7B2C3\u985E\u533B\u85AC\u54C1"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u5F53\u85AC\u5C40\u306B\u52E4\u52D9\u3059\u308B\u8005\u306E\u540D\u672D\u7B49\u306B\u3088\u308B\u533A\u5225"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "item-info has-line-border",
-                children: ["\u85AC\u5264\u5E2B\u306F\u767D\u8863\u3092\u7740\u7528\u3057\u3001\u540D\u672D\u3092\u9752\u3067\u300C\u85AC\u5264\u5E2B\u300D\u53CA\u3073\u6C0F\u540D\u3092\u660E\u8A18", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), "\u4E00\u822C\u5F93\u4E8B\u8005\u306F\u30D4\u30F3\u30AF\u8272\u306E\u30E6\u30CB\u30D5\u30A9\u30FC\u30E0\u3092\u7740\u7528\u3057\u3001\u540D\u672D\u3092\u767D\u3067\u300C\u4E8B\u52D9\u300D\u53CA\u3073\u6C0F\u540D\u3092\u660E\u8A18"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u55B6\u696D\u6642\u9593"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "item-info",
-                children: ["08:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "08:00\u301C12:30\uFF08\u571F\uFF09"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u55B6\u696D\u6642\u9593\u5916\u306B\u304A\u3051\u308B\u76F8\u8AC7\u6642\u9593"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info",
-                children: "\u6642\u9593\u5916\u306F\u3059\u3079\u3066"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u76F8\u8AC7\u6642\u53CA\u3072\u3099\u7DCA\u6025\u6642\u306E\u9023\u7D61\u5148"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "item-info",
-                children: ["\u30FB\u55B6\u696D\u6642\u9593\u5185\u306F\u5E97\u8217\u3067\u76F8\u8AC7\u3092\u53D7\u3051\u4ED8\u3051\u307E\u3059\u3002\u96FB\u8A71\u306E\u5834\u5408\u306F052-821-1100\u3067\u53D7\u3051\u4ED8\u3051\u3066\u304A\u308A\u307E\u3059\u3002", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u2460 marin-oiso@kzh.biglobe.ne.jp", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u30FB\u7DCA\u6025\u6642\u53CA\u3073\u55B6\u696D\u6642\u9593\u5916\u306B\u304A\u3051\u308B\u3054\u76F8\u8AC7\u306F090-1414-4709\u3067\u53D7\u3051\u4ED8\u3051\u3066\u304A\u308A\u307E\u3059\u3002", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("br", {}), "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u2461 marine.ooiso@gmail.com"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u73FE\u5728\u52E4\u52D9\u3057\u3066\u3044\u308B\u85AC\u5264\u5E2B\uFF08\u62C5\u5F53\u696D\u52D9\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "item-info has-line-border",
-                children: ["\u677E\u6D66 \u502B\u5B50\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), "\u5927\u6A4B\u5EB7\u6CBB\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C19:30\uFF08\u6708\u706B\u6C34\uFF09 08:00\u301C12:30\uFF08\u571F\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), "\u5742\u7530\u6DF3\u5E73\uFF08\u8ABF\u5264\u30FB\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u7B49\uFF0908:00\u301C18:00\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u958B\u5E97\u6642\u9593\u3068\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u6642\u9593\u304C\u7570\u306A\u308B\u5834\u5408"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-                className: "item-info has-line-border",
-                children: ["\u958B\u5E97\u6642\u9593\uFF1A08:00\u301C19:30\uFF08\u6708\u706B\u6C34\u91D1\uFF0908:00\u301C12:30\uFF08\u571F\uFF09", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("hr", {}), "\u7279\u5B9A\u8CA9\u58F2\u6642\u9593\uFF1A09:00\u301C19:00\uFF08\u6708\u706B\u6C34\u91D1\uFF0909:00\u301C12:00\uFF08\u571F\uFF09"]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title",
-                children: "\u55B6\u696D\u6642\u9593\u5916\u3067\u533B\u85AC\u54C1\u306E\u6CE8\u6587\u3092\u53D7\u7406\u3059\u308B\u6642\u9593"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info ",
-                children: "\u30A4\u30F3\u30BF\u30FC\u30CD\u30C3\u30C8\u6CE8\u6587\uFF0824\u6642\u9593\uFF09"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info title border-none",
-                children: "\u7279\u5B9A\u8CA9\u58F2\u3092\u884C\u3046\u533B\u85AC\u54C1\u306E\u4F7F\u7528\u671F\u9650"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                className: "item-info border-none",
-                children: "\u5F53\u5E97\u3067\u306F\u4F7F\u7528\u671F\u9650\u304C6\u30F6\u6708\u4EE5\u4E0A\u3042\u308B\u533B\u85AC\u54C1\u306E\u307F\u3092\u914D\u9001\u3044\u305F\u3057\u307E\u3059\u3002"
-              })]
-            })]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "guide-wrapper",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-            href: "http://member.wabisabi.media/wp-content/uploads/2022/02/\u8981\u6307\u5C0E\u533B\u85AC\u54C1\u53CA\u3073\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u306B\u95A2\u3059\u308B\u5236\u5EA6\u306B\u95A2\u3059\u308B\u4E8B\u9805-.pdf",
-            target: "_blank",
-            children: ["\u8981\u6307\u5C0E\u533B\u85AC\u54C1\u53CA\u3073\u4E00\u822C\u7528\u533B\u85AC\u54C1\u306E\u8CA9\u58F2\u306B\u95A2\u3059\u308B\u5236\u5EA6\u306B\u95A2\u3059\u308B\u4E8B\u9805", " "]
-          })
-        })]
-      })
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PharmaciesPage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/media/index.jsx":
-/*!***************************************************!*\
-  !*** ./resources/js/pages/client/media/index.jsx ***!
-  \***************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../commons/data */ "./resources/js/commons/data.js");
-/* harmony import */ var _commons_Board__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../commons/Board */ "./resources/js/commons/Board/index.jsx");
-/* harmony import */ var _components_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../components/footer */ "./resources/js/components/footer/index.js");
-/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
-/* harmony import */ var _media_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./media.scss */ "./resources/js/pages/client/media/media.scss");
-/* harmony import */ var _commons_Languges__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../commons/Languges */ "./resources/js/commons/Languges/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-
-
-
-
-var MediaPage = function MediaPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      content: "HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N C\u1ED4NG H\u1ED6 TR\u1EE2",
-      title: "HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N C\u1ED4NG H\u1ED6 TR\u1EE2"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-      id: "media-page",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-        className: "content",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-          className: "page-header-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "box-text",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("h4", {
-              className: "heading",
-              children: ["HI\u1EC6P H\u1ED8I H\u1ED6 TR\u1EE2 NG\u01AF\u1EDCI LAO \u0110\u1ED8NG N\u01AF\u1EDAC NGO\xC0I T\u1EA0I NH\u1EACT B\u1EA2N", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), "C\u1ED4NG H\u1ED6 TR\u1EE2", " "]
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          className: "service_dashboard",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_commons_Board__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            boardItems: _commons_data__WEBPACK_IMPORTED_MODULE_2__.mediaBoardItemData
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "switch",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_commons_Languges__WEBPACK_IMPORTED_MODULE_7__.Languages, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "option",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "settings-wrap",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
-                  href: "https://member.wabisabi.media/vi/member/change-profile",
-                  title: "",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                    className: "icon",
-                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faUserGear,
-                    size: "md"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                    children: "Th\xF4ng tin ng\u01B0\u1EDDi d\xF9ng "
-                  })]
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-                className: "logout-wrap pc",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
-                  href: "https://member.wabisabi.media/wp-login.php?action=logout&_wpnonce=bb23afb59e",
-                  title: "Tho\xE1t",
-                  children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                    className: "icon",
-                    icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faSignOutAlt,
-                    size: "sm"
-                  })]
-                })
-              })]
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-            className: "switch-lang sp",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "logout-wrap",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("a", {
-                href: "https://member.wabisabi.media/wp-login.php?action=logout&_wpnonce=bb23afb59e",
-                title: "Tho\xE1t",
-                children: ["Tho\xE1t", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-                  className: "icon",
-                  icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_9__.faSignOutAlt,
-                  size: "sm"
-                })]
-              })
-            })
-          })]
-        })]
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_footer__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MediaPage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/medicine-list/index.jsx":
-/*!***********************************************************!*\
-  !*** ./resources/js/pages/client/medicine-list/index.jsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _commons_CardProductCat__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../commons/CardProductCat */ "./resources/js/commons/CardProductCat/index.jsx");
-/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../commons/data */ "./resources/js/commons/data.js");
-/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
-/* harmony import */ var _medicine_list_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./medicine-list.scss */ "./resources/js/pages/client/medicine-list/medicine-list.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-var MedicineListPage = function MedicineListPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      content: "Medicine List",
-      title: "Medicine List"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      id: "medicine-list",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "list_categories",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "type-wrapper",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "type-name",
-            children: "\u7B2C1\u985E"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_CardProductCat__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            cardItems: _commons_data__WEBPACK_IMPORTED_MODULE_2__.medicineList1
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "type-wrapper",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "type-name",
-            children: "\u6307\u5B9A\u7B2C2\u985E"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_CardProductCat__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            cardItems: _commons_data__WEBPACK_IMPORTED_MODULE_2__.medicineList2
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "type-wrapper",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "type-name",
-            children: "\u7B2C2\u985E"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_CardProductCat__WEBPACK_IMPORTED_MODULE_1__["default"], {
-            cardItems: _commons_data__WEBPACK_IMPORTED_MODULE_2__.medicineList3
-          })]
-        })]
-      })
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MedicineListPage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/member/index.jsx":
-/*!****************************************************!*\
-  !*** ./resources/js/pages/client/member/index.jsx ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../commons/data */ "./resources/js/commons/data.js");
-/* harmony import */ var _member_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./member.scss */ "./resources/js/pages/client/member/member.scss");
-/* harmony import */ var _commons_Board__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../commons/Board */ "./resources/js/commons/Board/index.jsx");
-/* harmony import */ var _commons_PageHead__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../commons/PageHead */ "./resources/js/commons/PageHead/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-
-
-
-var MemberPage = function MemberPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_PageHead__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      content: "Hi\u1EC7u thu\u1ED1c online",
-      title: "Hi\u1EC7u thu\u1ED1c online"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      id: "member-page",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "service_dashboard",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_commons_Board__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          boardItems: _commons_data__WEBPACK_IMPORTED_MODULE_1__.memberBoardItemData
-        })
-      })
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MemberPage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/order-history/index.jsx":
-/*!***********************************************************!*\
-  !*** ./resources/js/pages/client/order-history/index.jsx ***!
-  \***********************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _commons_data__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../commons/data */ "./resources/js/commons/data.js");
-/* harmony import */ var _order_history_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./order-history.scss */ "./resources/js/pages/client/order-history/order-history.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var OrderHistoryPage = function OrderHistoryPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    id: "order-history",
-    "class": "list_order",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      "class": "card table-responsive",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("table", {
-        "class": "table-order",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("thead", {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              children: "\u6CE8\u6587\u65E5"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              children: "\u6CE8\u6587\u756A\u53F7"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-              children: ["\u30B9\u30C6\u30FC\u30BF\u30B9", " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-                "class": "fas fa-info-circle collape-info-status"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              children: "\u91D1\u984D"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-              children: "\u6CE8\u6587\u5546\u54C1"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {})]
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("tbody", {
-          children: _commons_data__WEBPACK_IMPORTED_MODULE_1__.historyData.map(function (item) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("tr", {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("time", {
-                  datetime: item.fulltime,
-                  children: item.time
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: item.op
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                  "class": "order-status status-processing",
-                  children: item.status
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("bdi", {
-                      children: [item.totalPrice, "\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                        children: "\u5186"
-                      })]
-                    })
-                  })
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("td", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  "class": "info-product",
-                  children: item.infoProduct.map(function (product) {
-                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("a", {
-                      href: product.link,
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                        "class": "p-item p-image mr-2",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-                          width: "50",
-                          alt: "\u30A2\u30CD\u30C8\u30F3\u305B\u304D\u6B62\u3081\u9846\u7C92 16\u5305",
-                          src: product.imageUrl
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                        "class": "p-item p-name",
-                        children: product.name
-                      })]
-                    });
-                  })
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("td", {
-                "class": "action-order",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-                  href: item.orderDetailUrl,
-                  "class": "woocommerce-button button view",
-                  children: "\u8A73\u7D30"
-                }), " "]
-              })]
-            });
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        "class": "tracker-order-list",
-        style: {
-          display: "none"
-        },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h6", {
-          "class": "title-list",
-          children: "\u3010\u30B9\u30C6\u30FC\u30BF\u30B9\u306B\u3064\u3044\u3066\u3011"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            "class": "step step1",
-            children: "STEP\u2460: \u85AC\u5264\u5E2B\u304B\u3089\u306E\u30E1\u30FC\u30EB\u78BA\u8A8D"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            "class": "step step2",
-            children: "STEP\u2461: \u5546\u54C1\u767A\u9001\u6E96\u5099"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            "class": "step step3",
-            children: "STEP\u2462: \u5546\u54C1\u767A\u9001\u6E08\u307F"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            "class": "step step4",
-            children: "STEP\u2463: \u5546\u54C1\u53D7\u3051\u53D6\u308A\uFF06\u652F\u6255\u3044"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            "class": "step step5",
-            children: "STEP\u2464: \u5546\u54C1\u53D7\u3051\u53D6\u308A\u5B8C\u4E86"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        "class": "woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          "class": "woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button",
-          href: "https://member.wabisabi.media/member/order-history?pid=2",
-          children: "\u6B21"
-        })
-      })]
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (OrderHistoryPage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/product-detail/index.jsx":
-/*!************************************************************!*\
-  !*** ./resources/js/pages/client/product-detail/index.jsx ***!
-  \************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _product_detail_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./product-detail.scss */ "./resources/js/pages/client/product-detail/product-detail.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var ProductDetailPage = function ProductDetailPage() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    id: "info-prod",
-    className: "card",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "container-detail-product",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "wrap-detail-product",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "item-prod image-prod",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-            alt: "Loxonin S (12 tablets)",
-            src: "https://member.wabisabi.media/wp-content/uploads/2021/12/1_loxonin-s-1.jpg"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "item-prod summary-prod",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "summary-detail",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "product-name",
-              children: "Loxonin S (12 tablets)"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "medicinal_efficacy_block",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "medicinal_efficacy_item medicinal_efficacy_label",
-                children: "Medicinal efficacy classification"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "medicinal_efficacy_item medicinal_efficacy_value",
-                children: "Antipyretic Analgesic"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "block-price flex",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "item-info price-info flex flex-column",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                  className: "no-sale",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                    className: "Ybrg9j",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                      className: "woocommerce-Price-amount amount",
-                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("bdi", {
-                        children: ["713\xA0", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-                          className: "woocommerce-Price-currencySymbol",
-                          children: "(JPY)"
-                        })]
-                      })
-                    })
-                  })
-                })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "item-info product-type",
-                children: "First-class OTC drugs"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                className: "btn-cart-pc item-info block-btn-checkout customs_btn_cart",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-                  className: "cart",
-                  action: "https://member.wabisabi.media/en/product/loxonin-s-12-tablets",
-                  method: "post",
-                  encType: "multipart/form-data",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                    className: "quantity",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                      className: "screen-reader-text",
-                      htmlFor: "quantity_6257eb17c8348",
-                      children: "Loxonin S (12 tablets) quantity"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                      type: "number",
-                      id: "quantity_6257eb17c8348",
-                      className: "input-text qty text",
-                      step: "1",
-                      min: "1",
-                      max: "",
-                      name: "quantity",
-                      value: "1",
-                      title: "Qty",
-                      size: "4",
-                      placeholder: "",
-                      inputMode: "numeric"
-                    })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                    type: "submit",
-                    name: "add-to-cart",
-                    value: "99",
-                    className: "single_add_to_cart_button button alt actived",
-                    children: "Buy Now"
-                  })]
-                })
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "d-none btn-cart-sp block-btn-checkout customs_btn_cart",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
-                className: "cart",
-                action: "https://member.wabisabi.media/en/product/loxonin-s-12-tablets",
-                method: "post",
-                encType: "multipart/form-data",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-                  className: "quantity",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-                    className: "screen-reader-text",
-                    htmlFor: "quantity_6257eb17c8412",
-                    children: "Loxonin S (12 tablets) quantity"
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-                    type: "number",
-                    id: "quantity_6257eb17c8412",
-                    className: "input-text qty text",
-                    step: "1",
-                    min: "1",
-                    max: "",
-                    name: "quantity",
-                    value: "1",
-                    title: "Qty",
-                    size: "4",
-                    placeholder: "",
-                    inputMode: "numeric"
-                  })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                  type: "submit",
-                  name: "add-to-cart",
-                  value: "99",
-                  className: "single_add_to_cart_button button alt actived",
-                  children: "Buy Now"
-                })]
-              })
-            })]
-          })
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-        type: "hidden",
-        id: "medicine-type",
-        value: "1"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "list-questions-wrap",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-          type: "hidden",
-          id: "user-id",
-          value: "1"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-          type: "hidden",
-          id: "product-id",
-          value: "99"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-          type: "hidden",
-          id: "current-lang",
-          value: "en"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["What is your gender?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "gender",
-              className: "input-answer",
-              id: "",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "Please select option"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "1",
-                children: "Male"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "2",
-                children: "Female"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-gender"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["How old are you?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "yearold",
-              className: "input-answer",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "Please select option"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "1",
-                children: "Under 15 years old"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "2",
-                children: "15-64 years old"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "3",
-                children: "65 years of age or older"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-year_old"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["Have you ever used this medicine?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "used_medicine",
-              className: "input-answer",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "Please select option"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "1",
-                children: "Yes"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "2",
-                children: "No"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-used_medicine"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["Have you ever taken any medicine and had side effects?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "taken_any_medicine",
-              className: "input-answer",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "Please select option"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "1",
-                children: "Yes"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "2",
-                children: "No"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-taken_any_medicine"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["What is the name of the medicine you were using at that time?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-              placeholder: "Please enter text",
-              name: "list_used_medicine",
-              className: "input-answer",
-              rows: "1"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-list_used_medicine"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["Are there any illnesses you are currently treating?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("select", {
-              name: "currently_treating",
-              id: "",
-              className: "input-answer",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "",
-                children: "Please select option"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "12",
-                children: "There is none"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "1",
-                children: "High blood pressure"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "2",
-                children: "Diabetes"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "3",
-                children: "Dyslipidemia"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "4",
-                children: "Asthma"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "5",
-                children: "Liver disease"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "6",
-                children: "Heart disease"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "7",
-                children: "Cerebral infarction"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "8",
-                children: "Gastric / duodenal ulcer"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "9",
-                children: "Thyroid disease"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "10",
-                children: "Prostate disease"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("option", {
-                value: "11",
-                children: "Other (free description)"
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-currently_treating"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "another-treating-wrap mt-2 d-none",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-                placeholder: "Please enter text",
-                name: "another-treating",
-                className: "input-answer"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                className: "message-warning warning-another-treating"
-              })]
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "question-answer-wrap",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "question",
-            children: ["Do you have any questions?", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
-              className: "required",
-              children: "(required)"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "answer",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-              placeholder: "Please enter text",
-              name: "any-questions",
-              className: "input-answer"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-              className: "message-warning warning-any_questions"
-            })]
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "modal fade",
-        id: "noticeModal",
-        tabIndex: "-1",
-        role: "dialog",
-        "aria-labelledby": "noticeModalTitle",
-        "aria-hidden": "true",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "modal-dialog modal-dialog-centered",
-          role: "document",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "modal-content",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "modal-body",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                className: "font-weight-bold",
-                children: "Could not add to shopping cart"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-                children: "Please check your input."
-              })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "modal-footer",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-                type: "button",
-                className: "btn-close",
-                "data-dismiss": "modal",
-                children: "OK"
-              })
-            })]
-          })
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "wrap-more-info-product",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          className: "more-info-block flex flex-column",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "more-info-wrap",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-info label-item",
-              children: "Features "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["It contains antipyretic and analgesic components that have fast effect on pain. It is a prodrug formulation with little strain on the stomach. Does not contain ingredients that make you sleepy. One tablet at a time works well. A small tablet that is easy to swallow.", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-info label-item",
-              children: "Precautions "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["1. People who belong to one of these groups should not take the drug: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(1) People who have had allergic symptoms after taking this drug or the components of it.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(2) People who have had asthma after taking this drug or other antipyretic analgesics, cold remedies.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(3) Children under 15 years of age.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(4) People receiving the following treatment at a medical institution: Gastric / duodenal ulcer, liver disease, kidney disease, heart disease.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(5) People who have been diagnosed by doctors as having blood abnormalities (blood diseases) such as low red blood cell count (anemia), low platelet count (difficult to stop bleeding, excessively bleeding), and low white blood cell count.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(6) Pregnant women within 12 weeks of the expected delivery date.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "2. Do not take any of the following medicines while taking this drug. ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Other antipyretic analgesics, cold remedies and sedatives", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "3. Please do not drink alcohol before and after taking this drug.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "4. Please do not take this drug for a long time.", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-info label-item",
-              children: "Efficacy / effect "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["Headache, menstrual pain (physiological pain), toothache, post-tooth extraction pain, sore throat, lower back pain, joint pain, nerve pain, muscle pain, frozen shoulder pain, ear pain, bruise pain, fracture pain, sprain, trauma, chills & fever.", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-info label-item",
-              children: "Usage / dose "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["Age: 1 dose: Number of doses per day", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Adults (15 years old and over): 1 tablet: up to 2 times", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "However, if symptoms reappear, you can take the third dose.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(Please leave at least 4 hours between doses)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "Under 15 years old: Do not take this.", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-info label-item",
-              children: "Active ingredients "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["Loxoprofen sodium hydrate 68.1 mg (60 mg as anhydrate)", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-              className: "item-info label-item",
-              children: "Additives "
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["Hydroxypropyl cellulose, magnesium stearate, lactose hydrate, iron sesquioxide.", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info label-item",
-              children: ["Precautions for storage and handling", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item",
-              children: ["(1) Store in a cool, dry place and keep it not to be exposed to direct sunlight.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(2) Please keep out of reach of children.", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(3) Do not put it in a different container. (It may cause misuse or change of the quality)", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), "(4) Do not use after the expiration date has passed.", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info label-item last-item",
-              children: ["Manufacturer", " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-              className: "item-info value-item last-item",
-              children: ["Daiichi Sankyo Healthcare Co., Ltd.", " "]
-            })]
-          })
-        })
-      })]
-    })
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductDetailPage);
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/user-info/change-password/index.js":
-/*!**********************************************************************!*\
-  !*** ./resources/js/pages/client/user-info/change-password/index.js ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ChangePassword": () => (/* binding */ ChangePassword)
-/* harmony export */ });
-/* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-
-
-
-
-
-var ChangePassword = function ChangePassword() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
-      _useState2 = _slicedToArray(_useState, 2),
-      showOldPass = _useState2[0],
-      setOldPass = _useState2[1];
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
-      _useState4 = _slicedToArray(_useState3, 2),
-      showNewPass = _useState4[0],
-      setNewPass = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
-      _useState6 = _slicedToArray(_useState5, 2),
-      showConfirmPass = _useState6[0],
-      setConfirmPass = _useState6[1];
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_helmet__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("meta", {
-        charSet: "utf-8"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("title", {
-        children: "Change Password"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("meta", {
-        name: "description",
-        content: "Change Password Page"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("meta", {
-        name: "og:title",
-        content: "Change Password"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "row",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "oldPass",
-            children: "\u65E7\u30D1\u30B9\u30EF\u30FC\u30C9 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: showOldPass ? "password" : "text",
-            className: "form-control-auth",
-            id: "oldPass"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "show-pass",
-            onClick: function onClick() {
-              return setOldPass(!showOldPass);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-              icon: showOldPass ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faEye,
-              color: "#515151",
-              size: "sm"
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "newPass",
-            children: "\u65B0\u3057\u3044\u30D1\u30B9\u30EF\u30FC\u30C9 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: showNewPass ? "password" : "text",
-            className: "form-control-auth",
-            id: "newPass"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "show-pass",
-            onClick: function onClick() {
-              return setNewPass(!showNewPass);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-              icon: showNewPass ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faEye,
-              color: "#515151",
-              size: "sm"
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "confirmPass",
-            children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u78BA\u8A8D *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: showConfirmPass ? "password" : "text",
-            className: "form-control-auth",
-            id: "confirmPass"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "show-pass",
-            onClick: function onClick() {
-              return setConfirmPass(!showConfirmPass);
-            },
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_0__.FontAwesomeIcon, {
-              icon: showConfirmPass ? _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faEyeSlash : _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__.faEye,
-              color: "#515151",
-              size: "sm"
-            })
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "btn btn-primary d-block ml-auto",
-        onClick: function onClick() {
-          Alert("asda");
-        },
-        children: "\u5909\u66F4\u3092\u4FDD\u5B58\u3059\u308B"
-      })]
-    })]
-  });
-};
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/user-info/change-profile/index.js":
-/*!*********************************************************************!*\
-  !*** ./resources/js/pages/client/user-info/change-profile/index.js ***!
-  \*********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "ChangeProfile": () => (/* binding */ ChangeProfile)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_helmet__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-helmet */ "./node_modules/react-helmet/es/Helmet.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./resources/js/pages/client/user-info/change-profile/style.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var ChangeProfile = function ChangeProfile() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_helmet__WEBPACK_IMPORTED_MODULE_1__["default"], {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("meta", {
-        charSet: "utf-8"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("title", {
-        children: "Change profile"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("meta", {
-        name: "description",
-        content: "Change profile Page"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("meta", {
-        name: "og:title",
-        content: "Change profile"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        className: "row",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "fullName",
-            children: "\u6C0F\u540D *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
-            className: "form-control-auth",
-            id: "fullName"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "postalCode",
-            children: "\u90F5\u4FBF\u756A\u53F7 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            id: "postalCode",
-            className: "input-postal-code",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: "text",
-              className: "form-control-postal-code mr-2",
-              id: "toPostalCode"
-            }), "-", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-              type: "text",
-              className: "form-control-postal-code ml-2",
-              id: "FromPostalCode"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-              type: "button",
-              className: "btn-search",
-              children: "\u4F4F\u6240\u691C\u7D22"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "Prefecture",
-            children: "\u90FD\u9053\u5E9C\u770C *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("select", {
-            className: "p-0 form-control-auth",
-            defaultValue: "Open this select menu",
-            "aria-label": "Default select example",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-              children: "Open this select menu"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-              value: "1",
-              children: "One"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-              value: "2",
-              children: "Two"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("option", {
-              value: "3",
-              children: "Three"
-            })]
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "city",
-            children: "\u5E02\u533A\u753A\u6751 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
-            className: "form-control-auth",
-            id: "city"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "street",
-            children: "\u4E01\u76EE\u30FB\u756A\u5730\u30FB\u53F7 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
-            className: "form-control-auth",
-            id: "street"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "building",
-            children: "\u5EFA\u7269\u540D\u30FB\u90E8\u5C4B\u756A\u53F7"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
-            className: "form-control-auth",
-            id: "building"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "phone",
-            children: "\u96FB\u8A71\u756A\u53F7 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
-            className: "form-control-auth",
-            id: "phone"
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "form-group",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
-            htmlFor: "email",
-            children: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9 *"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
-            type: "text",
-            className: "form-control-auth",
-            id: "email"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-        className: "btn btn-primary d-block ml-auto",
-        onClick: function onClick() {
-          Alert("asda");
-        },
-        children: "\u5909\u66F4\u3092\u4FDD\u5B58\u3059\u308B"
-      })]
-    })]
-  });
-};
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/user-info/user-layout/index.js":
-/*!******************************************************************!*\
-  !*** ./resources/js/pages/client/user-info/user-layout/index.js ***!
-  \******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "UserLayout": () => (/* binding */ UserLayout)
-/* harmony export */ });
-/* harmony import */ var _sass_image_icon_back_png__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../sass/image/icon-back.png */ "./resources/sass/image/icon-back.png");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./style.scss */ "./resources/js/pages/client/user-info/user-layout/style.scss");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var UserLayout = function UserLayout() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    className: "user-layout",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: "user-layout-container",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "user-layout-back",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
-          to: ".",
-          className: "d-flex",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
-            className: "icon-back",
-            src: _sass_image_icon_back_png__WEBPACK_IMPORTED_MODULE_0__["default"],
-            alt: ""
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            className: "ml-2",
-            children: "\u7DCF\u5408\u30C8\u30C3\u30D7\u30DA\u30FC\u30B8\u3078\u623B\u308B"
-          })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "user-layout-tabs",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("ul", {
-          className: "nav nav-pills",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-              to: "/member/change-profile",
-              className: "nav-link",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "title-tab",
-                children: "\u30E6\u30FC\u30B6\u30FC\u60C5\u5831"
-              })
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-            className: "nav-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.NavLink, {
-              to: "/member/change-password",
-              className: "nav-link",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-                className: "title-tab",
-                children: "\u30D1\u30B9\u30EF\u30FC\u30C9\u60C5\u5831"
-              })
-            })
-          })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "container-content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Outlet, {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("footer", {
-        className: "footer",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "container-fluid page-footer-content",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "copy-right text-center",
-            children: "\xA9KUROFUNE 2022"
-          })
-        })
-      })]
-    })
-  });
-};
-
-/***/ }),
-
 /***/ "./resources/js/pages/notFound/index.js":
 /*!**********************************************!*\
   !*** ./resources/js/pages/notFound/index.js ***!
@@ -23231,25 +21758,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _pages_client_home_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../pages/client/home/index */ "./resources/js/pages/client/home/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var _pages_notFound__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/notFound */ "./resources/js/pages/notFound/index.js");
-/* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/auth/login */ "./resources/js/pages/auth/login/index.js");
-/* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/auth/register */ "./resources/js/pages/auth/register/index.js");
-/* harmony import */ var _pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/auth/authLayout */ "./resources/js/pages/auth/authLayout/index.js");
-/* harmony import */ var _pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pages/auth/forget-password */ "./resources/js/pages/auth/forget-password/index.js");
-/* harmony import */ var _commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../commons/layout/HomeLayout */ "./resources/js/commons/layout/HomeLayout/index.js");
-/* harmony import */ var _pages_client_user_info_user_layout__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../pages/client/user-info/user-layout */ "./resources/js/pages/client/user-info/user-layout/index.js");
-/* harmony import */ var _pages_client_user_info_change_password__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../pages/client/user-info/change-password */ "./resources/js/pages/client/user-info/change-password/index.js");
-/* harmony import */ var _pages_client_user_info_change_profile__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../pages/client/user-info/change-profile */ "./resources/js/pages/client/user-info/change-profile/index.js");
-/* harmony import */ var _pages_client_media__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../pages/client/media */ "./resources/js/pages/client/media/index.jsx");
-/* harmony import */ var _pages_client_member__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../pages/client/member */ "./resources/js/pages/client/member/index.jsx");
-/* harmony import */ var _pages_client_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../pages/client/list-of-pharmacies */ "./resources/js/pages/client/list-of-pharmacies/index.jsx");
-/* harmony import */ var _pages_client_medicine_list__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ../pages/client/medicine-list */ "./resources/js/pages/client/medicine-list/index.jsx");
-/* harmony import */ var _pages_client_product_detail__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ../pages/client/product-detail */ "./resources/js/pages/client/product-detail/index.jsx");
-/* harmony import */ var _pages_client_order_history__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ../pages/client/order-history */ "./resources/js/pages/client/order-history/index.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var _pages_notFound__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../pages/notFound */ "./resources/js/pages/notFound/index.js");
+/* harmony import */ var _pages_auth_login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pages/auth/login */ "./resources/js/pages/auth/login/index.js");
+/* harmony import */ var _pages_auth_register__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../pages/auth/register */ "./resources/js/pages/auth/register/index.js");
+/* harmony import */ var _pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../pages/auth/authLayout */ "./resources/js/pages/auth/authLayout/index.js");
+/* harmony import */ var _pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pages/auth/forget-password */ "./resources/js/pages/auth/forget-password/index.js");
+/* harmony import */ var _commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../commons/layout/HomeLayout */ "./resources/js/commons/layout/HomeLayout/index.js");
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/member'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/list-of-pharmacies'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/medicine-list'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/product-detail'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _commons_Languges_langAfterReload__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../commons/Languges/langAfterReload */ "./resources/js/commons/Languges/langAfterReload.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -23265,83 +21787,149 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-
-
-
-
-
+var base = window.location.pathname.slice(0, 3);
 
 var appRouter = function appRouter() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_18__.BrowserRouter, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+  var langUrl = window.location.pathname.slice(0, 4);
+
+  if (langUrl === '/vi/' || langUrl === '/tl/' || langUrl === '/en/' || langUrl === '/zh/') {
+    localStorage.setItem('lang', window.location.pathname.slice(0, 3));
+  } else {
+    localStorage.setItem('lang', '');
+  }
+
+  var lang = localStorage.getItem('lang');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.BrowserRouter, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_7__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_layout_HomeLayout__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "member",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_member__WEBPACK_IMPORTED_MODULE_12__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/member'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-          path: "list-of-pharmacies",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_list_of_pharmacies__WEBPACK_IMPORTED_MODULE_13__["default"], {}),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          path: "/".concat(lang, "/list-of-pharmacies"),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/list-of-pharmacies'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "medicine-list",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_medicine_list__WEBPACK_IMPORTED_MODULE_14__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/medicine-list'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "product-detail",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_product_detail__WEBPACK_IMPORTED_MODULE_15__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Object(function webpackMissingModule() { var e = new Error("Cannot find module '../pages/product-detail'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "order-history",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_order_history__WEBPACK_IMPORTED_MODULE_16__["default"], {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(OrderHistoryPage, {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_5__.AuthLayout, {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_auth_authLayout__WEBPACK_IMPORTED_MODULE_4__.AuthLayout, {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-          path: "login",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_3__.Login, {}),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          path: "/".concat(lang, "/login"),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_auth_login__WEBPACK_IMPORTED_MODULE_2__.Login, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-          path: "register",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_4__.Register, {}),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          path: "/".concat(lang, "/register"),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_auth_register__WEBPACK_IMPORTED_MODULE_3__.Register, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
-          path: "lost-password",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_6__["default"], {}),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
+          path: "/".concat(lang, "/lost-password"),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_auth_forget_password__WEBPACK_IMPORTED_MODULE_5__["default"], {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
         path: "member",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_user_info_user_layout__WEBPACK_IMPORTED_MODULE_8__.UserLayout, {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(UserLayout, {}),
         exact: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "change-password",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_user_info_change_password__WEBPACK_IMPORTED_MODULE_9__.ChangePassword, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(ChangePassword, {}),
           exact: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
           path: "change-profile",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_user_info_change_profile__WEBPACK_IMPORTED_MODULE_10__.ChangeProfile, {}),
+          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(ChangeProfile, {}),
           exact: true
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
         path: "media",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_client_media__WEBPACK_IMPORTED_MODULE_11__["default"], {}),
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(MediaPage, {}),
         exact: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_19__.Route, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.Route, {
         path: "*",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_17__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_2__.NotFound, {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_notFound__WEBPACK_IMPORTED_MODULE_1__.NotFound, {})
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_commons_Languges_langAfterReload__WEBPACK_IMPORTED_MODULE_8__.LangAfterReload, {})]
   });
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (appRouter);
+
+/***/ }),
+
+/***/ "./resources/js/translate/i18n.js":
+/*!****************************************!*\
+  !*** ./resources/js/translate/i18n.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+/* harmony import */ var _locations_en_common_json__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./locations/en/common.json */ "./resources/js/translate/locations/en/common.json");
+/* harmony import */ var _locations_vi_common_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./locations/vi/common.json */ "./resources/js/translate/locations/vi/common.json");
+/* harmony import */ var _locations_tl_common_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./locations/tl/common.json */ "./resources/js/translate/locations/tl/common.json");
+/* harmony import */ var _locations_ja_common_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./locations/ja/common.json */ "./resources/js/translate/locations/ja/common.json");
+/* harmony import */ var _locations_zh_common_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./locations/zh/common.json */ "./resources/js/translate/locations/zh/common.json");
+
+
+
+
+
+
+ // the translations
+// (tip move them in a JSON file and import them,
+// or even better, manage them separated from your code: https://react.i18next.com/guides/multiple-translation-files)
+
+var resources = {
+  en: {
+    translation: _locations_en_common_json__WEBPACK_IMPORTED_MODULE_1__
+  },
+  vi: {
+    translation: _locations_vi_common_json__WEBPACK_IMPORTED_MODULE_2__
+  },
+  tl: {
+    translation: _locations_tl_common_json__WEBPACK_IMPORTED_MODULE_3__
+  },
+  ja: {
+    translation: _locations_ja_common_json__WEBPACK_IMPORTED_MODULE_4__
+  },
+  zh: {
+    translation: _locations_zh_common_json__WEBPACK_IMPORTED_MODULE_5__
+  }
+};
+Object(function webpackMissingModule() { var e = new Error("Cannot find module 'i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())(Object(function webpackMissingModule() { var e = new Error("Cannot find module 'react-i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }())) // passes i18n down to react-i18next
+.init({
+  resources: resources,
+  lng: 'vi',
+  // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+  // you can use the i18n.changeLanguage function to change the language manually: https://www.i18next.com/overview/api#changelanguage
+  // if you're using a language detector, do not define the lng option
+  interpolation: {
+    escapeValue: false // react already safes from xss
+
+  }
+});
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Object(function webpackMissingModule() { var e = new Error("Cannot find module 'i18next'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 /***/ }),
 
@@ -28372,54 +26960,6 @@ defineJQueryPlugin(Toast);
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Board/board.scss":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Board/board.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n.board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n.board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n.board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  padding: 28px 44px;\n  min-height: 200px;\n  width: 100%;\n  transition: all 0.2s ease-in-out;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n}\n.board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n.board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n.board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/CardProductCat/card-product-cat.scss":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/CardProductCat/card-product-cat.scss ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".card-product-cat {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: flex-start;\n  flex-direction: unset;\n}\n.card-product-cat .item-product-cat {\n  width: 20%;\n  margin-bottom: 16px;\n  padding: 0 8px;\n}\n.card-product-cat .item-product-cat .item-pc-wrap {\n  border: 1px solid #ddd;\n  border-radius: 8px;\n  height: 100%;\n}\n.card-product-cat .item-product-cat .item-pc-wrap .item-pc-image {\n  height: 180px;\n}\n.card-product-cat .item-product-cat .item-pc-wrap .item-pc-image img {\n  width: 100%;\n  height: 100%;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.card-product-cat .item-product-cat .item-pc-wrap .item-pc-name {\n  padding: 10px;\n  text-align: center;\n  font-weight: bold;\n}\n\n@media screen and (max-width: 992px) {\n  .card-product-cat .item-product-cat {\n    width: 25% !important;\n  }\n}\n@media screen and (max-width: 768px) {\n  .card-product-cat .item-product-cat {\n    width: 33.3333333333% !important;\n  }\n}\n@media screen and (max-width: 500px) {\n  .card-product-cat .item-product-cat {\n    width: 50% !important;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Languges/style.scss":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Languges/style.scss ***!
@@ -28660,198 +27200,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".register-container .header-register {
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/list-of-pharmacies/list-of-pharmacies.scss":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/list-of-pharmacies/list-of-pharmacies.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#list-of-pharmacies .list_pharmacies {\n  width: 100%;\n  color: #515151;\n  font-size: 13px;\n  font-weight: 400;\n}\n#list-of-pharmacies img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#list-of-pharmacies .pc {\n  width: 100%;\n}\n#list-of-pharmacies .sp {\n  width: 100%;\n  display: none !important;\n}\n#list-of-pharmacies .title {\n  position: relative;\n  font-size: 13px;\n  line-height: 19.5px;\n}\n#list-of-pharmacies .guide-wrapper {\n  text-align: center;\n}\n#list-of-pharmacies .guide-wrapper a {\n  color: #FF0000FF;\n  text-decoration: none;\n}\n#list-of-pharmacies .card-list-pharmacies {\n  padding: 25px 10px;\n  margin: 0 auto 15px;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive {\n  display: block;\n  width: 100%;\n  overflow-x: auto;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .name-vendor {\n  padding: 10px 20px;\n  width: 50%;\n  font-weight: bold;\n  font-size: 18px;\n  border: 1px solid #dee2e6;\n  margin: 0 auto 15px;\n  text-align: center;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .name-vendor.first {\n  color: white;\n  background: #62A19B;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .name-vendor.second {\n  width: 100%;\n  border-bottom: none;\n  margin: 0 auto;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  border: 1px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap:not(:last-child) {\n  margin-bottom: 25px;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info:first-child {\n  border-right: none;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .title {\n  color: white;\n  font-weight: bold;\n  background: #62A19B;\n  text-align: center;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-bottom: 0;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info {\n  width: 50%;\n  padding: 10px 20px;\n  border-bottom: 0.5px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info.has-line-border hr {\n  margin: 10px -20px;\n  border-top: 0.5px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info img {\n  width: 100%;\n  height: 250px;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info .item-image:not(:last-child) {\n  border-bottom: 1px solid #ddd;\n  margin-bottom: 15px;\n  padding-bottom: 15px;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info hr {\n  display: block;\n  height: 1px;\n  border: 0;\n  border-top: 1px solid #cccccc;\n  margin: 20px 0;\n  padding: 0;\n  opacity: 0.15;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .item-info:nth-child(2n+1) {\n  border-right: 0.5px solid #dee2e6;\n}\n#list-of-pharmacies .card-list-pharmacies .table-responsive .vendor-wrap .border-none {\n  border-bottom: none;\n}\n@media only screen and (max-width: 768px) {\n  #list-of-pharmacies .pc {\n    display: none !important;\n  }\n  #list-of-pharmacies .sp {\n    display: flex !important;\n  }\n  #list-of-pharmacies .name-vendor.first {\n    width: 100% !important;\n  }\n  #list-of-pharmacies .vendor-wrap .item-info {\n    width: 100% !important;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/media/media.scss":
-/*!******************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/media/media.scss ***!
-  \******************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#media-page {\n  width: 100%;\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  background-color: #e5e5e5;\n}\n#media-page .dropdown-toggle::after {\n  margin-left: 10px;\n}\n#media-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#media-page .board-container a, #media-page .option a {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page button {\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  text-decoration: none;\n  text-align: center;\n  transition: 0.5 ease;\n}\n#media-page .content {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .page-header-content {\n  position: relative;\n  padding: 20px 0 20px 0px;\n}\n#media-page .content .page-header-content .box-text {\n  text-align: center;\n}\n#media-page .content .page-header-content .box-text .heading {\n  color: #62A19B;\n  font-size: 22px;\n  line-height: 35px;\n  margin: 0;\n  font-weight: bold;\n}\n#media-page .content .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n}\n#media-page .content .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#media-page .content .service_dashboard .board-container .board-item {\n  display: flex;\n  padding: 17px;\n  flex: 0 0 33.33333%;\n  max-width: 33.33333%;\n  border-radius: 10px;\n}\n#media-page .content .service_dashboard .board-container .board-item.block-disabled .item {\n  pointer-events: none;\n  color: #E6E6E6;\n}\n#media-page .content .service_dashboard .board-container .board-item .item {\n  display: block;\n  position: relative;\n  background: #FFFFFF;\n  border-radius: 8px;\n  text-align: center;\n  min-height: 200px;\n  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);\n  padding: 28px 15px;\n  width: 100%;\n  flex: 1 0 auto;\n  transition: all 0.2s ease-in-out;\n}\n#media-page .content .service_dashboard .board-container .board-item .item:hover {\n  opacity: 0.5;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .icon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-height: 122px;\n}\n#media-page .content .service_dashboard .board-container .board-item .item .tit {\n  font-size: 13px;\n  font-weight: 500;\n  line-height: 1.2;\n}\n#media-page .content .service_dashboard .switch-lang.sp {\n  display: none;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .btn {\n  height: 38px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group .myLangClass {\n  padding: 2px 10px 5px 10px;\n}\n#media-page .content .service_dashboard .switch-lang .btn-group ul.dropdown-menu li a {\n  color: #0c0c0c;\n  display: block;\n  text-align: left;\n}\n#media-page .content .service_dashboard .logout-wrap {\n  text-align: center;\n  padding: 5px 20px;\n  background: #fff;\n}\n#media-page .content .service_dashboard .logout-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n}\n#media-page .content .service_dashboard .logout-wrap a .icon {\n  margin-left: 5px;\n  margin-top: 5px;\n}\n#media-page .content .service_dashboard .switch {\n  padding: 0 3px;\n  margin-top: 0.5rem !important;\n  display: flex;\n  justify-content: space-between;\n}\n#media-page .content .service_dashboard .switch .option {\n  display: flex;\n  flex-direction: column;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap {\n  height: 38px;\n  text-align: center;\n  padding: 7px 20px 5px 20px;\n  background: #fff;\n  margin-bottom: 10px;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a {\n  font-weight: bold;\n  font-size: 16px;\n  display: flex;\n  align-items: center;\n}\n#media-page .content .service_dashboard .switch .option .settings-wrap a .icon {\n  display: inline-block;\n  width: 24px;\n  height: 17px;\n  margin-right: 10px;\n}\n@media screen and (max-width: 992px) {\n  #media-page .content .service_dashboard .board-container .board-item {\n    flex: 0 0 50%;\n    max-width: 50%;\n  }\n}\n@media screen and (max-width: 768px) {\n  #media-page {\n    padding: 0 15px;\n  }\n  #media-page .content .pc {\n    display: none !important;\n  }\n  #media-page .content .sp {\n    width: 100%;\n    display: flex !important;\n    justify-content: center;\n  }\n  #media-page .content .page-header-content .box-text .heading {\n    font-size: 16px;\n    line-height: 25px;\n  }\n  #media-page .content .service_dashboard .board-container .board-item {\n    max-width: 50%;\n  }\n  #media-page .content .switch-lang.sp {\n    margin-top: 24px !important;\n    padding: 0 17px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap {\n    text-align: center;\n    padding: 5px 20px;\n    background: #fff;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap a {\n    font-size: 14px;\n  }\n  #media-page .content .switch-lang.sp .logout-wrap .icon {\n    margin-left: 5px;\n    margin-top: 5px;\n  }\n}\n@media screen and (max-width: 500px) {\n  #media-page .switch {\n    flex-direction: column;\n  }\n  #media-page .switch .option {\n    margin-top: 20px;\n    max-width: -webkit-fit-content;\n    max-width: -moz-fit-content;\n    max-width: fit-content;\n  }\n  #media-page .switch .option .settings-wrap {\n    height: 38px;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/medicine-list/medicine-list.scss":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/medicine-list/medicine-list.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#medicine-list {\n  font-size: 13px;\n}\n#medicine-list .card {\n  padding: 20px;\n  margin: 0 0 24px;\n}\n#medicine-list a {\n  text-decoration: none;\n  color: #62A19B;\n  outline: none;\n}\n#medicine-list .list_categories .type-wrapper .type-name {\n  color: #fff;\n  background-color: #62A19B;\n  padding: 5px 15px;\n  margin-bottom: 10px;\n  font-size: 15px;\n}\n#medicine-list .list_categories .card {\n  padding: 20px 10px;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/member/member.scss":
-/*!********************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/member/member.scss ***!
-  \********************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#member-page {\n  margin: 0 auto;\n}\n#member-page .item {\n  width: 100%;\n  flex: 1 0 auto;\n}\n#member-page img {\n  max-width: 100%;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n#member-page .tit {\n  position: relative;\n  -webkit-box-orient: vertical;\n  display: -webkit-box;\n  overflow: hidden;\n}\n#member-page a {\n  text-decoration: none;\n  color: #B7BBCB;\n  opacity: 1;\n  transition: 0.5s ease;\n}\n#member-page a:hover {\n  opacity: 0.7;\n}\n#member-page .service_dashboard {\n  max-width: 700px;\n  width: 100%;\n  margin: 0 auto;\n  margin-top: 25px;\n}\n#member-page .service_dashboard .board-container {\n  display: flex;\n  flex-wrap: wrap;\n  margin-right: -15px;\n  margin-left: -15px;\n}\n#member-page .service_dashboard .board-container .tit {\n  font-size: 13px;\n  margin-bottom: 8px;\n}\n@media screen and (max-width: 992px) {\n  #member-page .service_dashboard {\n    margin-top: 0;\n  }\n  #member-page .service_dashboard .board-container .board-item {\n    padding: 15px;\n    width: 50%;\n  }\n}\n@media only screen and (max-width: 575.98px) {\n  #member-page .service_dashboard .item {\n    min-height: 155px !important;\n    padding: 5px !important;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/order-history/order-history.scss":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/order-history/order-history.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#order-history {\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  line-height: 1.5;\n}\n#order-history a {\n  text-decoration: none;\n  cursor: pointer;\n  opacity: 1;\n  color: #62A19B;\n  outline: none;\n  transition: all 0.2s ease-in-out;\n}\n#order-history .table-responsive {\n  display: block;\n  width: 100%;\n  overflow-x: auto;\n  -webkit-overflow-scrolling: touch;\n}\n#order-history .card {\n  padding: 20px;\n  margin: 0 0 24px;\n}\n#order-history .card table {\n  width: 100%;\n  text-align: center;\n}\n#order-history .card table thead {\n  background: #62A19B;\n  color: white;\n}\n#order-history .card table thead tr td {\n  border: none;\n  font-weight: bold;\n  padding: 10px;\n}\n#order-history .card table tbody td {\n  padding: 10px 10px;\n  border: 1px solid #dee2e6;\n  vertical-align: middle;\n}\n#order-history .card table tbody td:last-child a {\n  background: #62A19B;\n  color: white !important;\n  padding: 5px 10px;\n  margin: 0 2px;\n  display: inline-block;\n}\n#order-history .card table .info-product a {\n  display: flex;\n  justify-content: normal;\n  align-items: center;\n}\n#order-history .card table .info-product a:not(:last-child) {\n  margin-bottom: 10px;\n}\n#order-history .card table .info-product .p-name {\n  text-align: left;\n}\n#order-history .woocommerce-pagination {\n  margin-top: 25px;\n}\n#order-history .woocommerce-pagination a {\n  padding: 5px 30px;\n  background: #62A19B;\n  color: #ffffff;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/product-detail/product-detail.scss":
-/*!************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/product-detail/product-detail.scss ***!
-  \************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "#info-prod {\n  font-size: 13px;\n  color: #515151;\n  font-weight: 400;\n  padding: 20px;\n  line-height: 1.5;\n}\n#info-prod input, #info-prod textarea, #info-prod select, #info-prod button, #info-prod a {\n  outline: none;\n  transition: all 0.2s ease-in-out;\n}\n#info-prod .container-detail-product {\n  width: 100%;\n  margin: 0 auto;\n}\n#info-prod .container-detail-product .wrap-detail-product {\n  display: flex;\n  padding: 10px 0;\n}\n#info-prod .container-detail-product .wrap-detail-product .image-prod {\n  width: 36%;\n  flex-shrink: 0;\n  padding: 10px 0;\n  height: 195px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .image-prod img {\n  width: 100%;\n  height: 100%;\n  display: inline-block;\n  text-align: center;\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod {\n  flex: 1 0 auto;\n  width: 0;\n  display: flex;\n  height: 195px;\n  flex-wrap: wrap;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout {\n  display: flex;\n  align-items: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout .quantity {\n  display: none;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout button {\n  height: 50px;\n  padding: 0 25px;\n  font-size: 13px;\n  font-weight: bold;\n  text-transform: uppercase;\n  background: #62A19B;\n  border: 1px solid #62A19B;\n  color: #fff;\n  border-radius: 3px;\n  line-height: 1;\n  text-shadow: none;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-btn-checkout .cart {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .summary-detail {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  flex-wrap: wrap;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .product-name {\n  margin: 0;\n  padding: 10px 0;\n  text-align: center;\n  border-left: none;\n  height: 60px;\n  font-size: 17px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block {\n  display: flex;\n  align-items: center;\n  height: 60px;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block .medicinal_efficacy_label {\n  justify-content: right;\n  padding-right: 10px;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block .medicinal_efficacy_item {\n  padding: 0 20px;\n  width: 33.3333333333%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  text-align: center;\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .medicinal_efficacy_block .medicinal_efficacy_value {\n  flex: 1 auto;\n  justify-content: left;\n  padding-left: 10px;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price {\n  align-items: center;\n  height: 75px;\n  display: flex;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .item-info {\n  width: 33.3333333333%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .price-info {\n  justify-content: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .price-info .no-sale {\n  width: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .price-info .Ybrg9j {\n  font-weight: bold;\n  font-size: 16px;\n  color: #515151;\n}\n#info-prod .container-detail-product .wrap-detail-product .summary-prod .block-price .product-type {\n  color: #515151;\n  font-weight: bold;\n  font-size: 16px;\n  justify-content: left;\n  padding-left: 10px;\n  text-align: left;\n}\n#info-prod .list-questions-wrap .question-answer-wrap {\n  display: flex;\n  width: 100%;\n}\n#info-prod .list-questions-wrap .question-answer-wrap:not(:last-child) {\n  margin-bottom: 15px;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .question {\n  width: calc(50% - 10px);\n  margin-right: 10px;\n  flex-shrink: 0;\n  text-align: right;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .question .required {\n  color: red;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer {\n  width: 50%;\n  flex-shrink: 0;\n  display: flex;\n  flex-direction: column;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer select {\n  width: 50%;\n  padding-left: 8px;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer p.message-warning {\n  display: none;\n  margin-bottom: 0;\n  margin-top: 5px;\n  color: red;\n  font-size: 11px;\n}\n#info-prod .list-questions-wrap .question-answer-wrap .answer textarea {\n  resize: vertical;\n  padding: 8px 12px 5px 12px;\n  width: 100%;\n  resize: none;\n}\n#info-prod .wrap-more-info-product {\n  margin-top: 20px;\n}\n#info-prod .wrap-more-info-product .more-info-block {\n  display: flex;\n  flex-direction: column;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap {\n  display: flex;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  -ms-flex-wrap: wrap;\n  border: 1px solid #1d2327;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap .item-info {\n  padding: 5px 10px;\n  border-bottom: 1px solid #1d2327;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap .label-item {\n  width: 30%;\n  border-right: 1px solid #1d2327;\n  font-weight: bold;\n}\n#info-prod .wrap-more-info-product .more-info-block .more-info-wrap .value-item {\n  width: 70%;\n}\n@media screen and (max-width: 900px) {\n  #info-prod .medicinal_efficacy_block .medicinal_efficacy_item {\n    width: 50% !important;\n  }\n  #info-prod .summary-prod .block-btn-checkout {\n    justify-self: center;\n  }\n  #info-prod .summary-prod .block-price {\n    flex-wrap: wrap;\n    height: 60px !important;\n  }\n  #info-prod .summary-prod .block-price .item-info {\n    width: 50% !important;\n  }\n  #info-prod .summary-prod .block-price .item-info:last-child {\n    width: 100% !important;\n  }\n  #info-prod .list-questions-wrap {\n    margin-top: 60px;\n  }\n  #info-prod .list-questions-wrap .question-answer-wrap .answer select {\n    width: 70% !important;\n  }\n}\n@media screen and (max-width: 768px) {\n  #info-prod .list-questions-wrap {\n    margin-top: 60px;\n  }\n  #info-prod .list-questions-wrap .question-answer-wrap .answer select {\n    width: 100% !important;\n  }\n}\n@media screen and (max-width: 550px) {\n  #info-prod .wrap-detail-product {\n    flex-direction: column;\n  }\n  #info-prod .wrap-detail-product .image-prod {\n    width: 100% !important;\n  }\n  #info-prod .wrap-detail-product .summary-prod {\n    width: 100% !important;\n  }\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/user-info/change-profile/style.scss":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/user-info/change-profile/style.scss ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".btn-search {\n  border: 1px solid #62A19B;\n  color: white;\n  background: #62A19B;\n  margin-left: 10px;\n  padding: 2px 15px;\n}\n\n.form-control-postal-code {\n  width: 64px;\n}\n\n.btn-primary {\n  margin-top: 15px;\n  min-width: 254px;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
-/***/ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/user-info/user-layout/style.scss":
-/*!**********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/user-info/user-layout/style.scss ***!
-  \**********************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, ".user-layout {\n  background: #e5e5e5;\n  width: 100%;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  min-height: 100%;\n}\n.user-layout .user-layout-container {\n  width: 700px;\n  margin: auto;\n  display: block;\n  height: 100%;\n  padding-block: 16px;\n}\n.user-layout .user-layout-container .user-layout-back {\n  background: #fff;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  padding: 0 10px;\n  border: 2px solid #62a19b;\n}\n.user-layout .user-layout-container .user-layout-back a {\n  text-decoration: none;\n  color: #62a19b;\n  font-size: 13px;\n  font-weight: 700;\n  line-height: 19.5px;\n  text-align: left;\n}\n.user-layout .user-layout-container .user-layout-back a .icon-back {\n  width: 35px;\n  height: 35px;\n  padding: 3px;\n}\n.user-layout .user-layout-container .user-layout-back a span {\n  display: flex;\n  align-items: center;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills {\n  background-color: #fff;\n  margin-top: 17px;\n  border-radius: 3px;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills .nav-item {\n  display: flex;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills .nav-link.active {\n  background: transparent;\n  border-radius: 0;\n  -webkit-border-radius: 0;\n  -moz-border-radius: 0;\n  -ms-border-radius: 0;\n  -o-border-radius: 0;\n  color: #4E5260;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills .nav-link.active::after {\n  opacity: 1;\n  width: 100%;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills a {\n  font-family: sans-serif;\n  color: #62a19b;\n  text-decoration: none;\n  display: inline-block;\n  text-align: center;\n  padding-bottom: 0;\n  padding-inline: 8px;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills a .title-tab {\n  padding-inline: 14px;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills a:after {\n  content: \"\";\n  position: relative;\n  bottom: -2px;\n  display: inline-block;\n  width: 0px;\n  background: #62a19b;\n  height: 2px;\n  opacity: 0;\n  transition: opacity, width;\n  transition-duration: 0.3s;\n}\n.user-layout .user-layout-container .user-layout-tabs .nav-pills a:hover:after {\n  opacity: 1;\n  width: 100%;\n}\n.user-layout .container-content {\n  margin-top: 25px;\n  background: #fff;\n  border-radius: 3px;\n  -webkit-border-radius: 3px;\n  -moz-border-radius: 3px;\n  -ms-border-radius: 3px;\n  -o-border-radius: 3px;\n  padding: 24px;\n}\n.user-layout .form-group label {\n  margin-bottom: 8px;\n}\n.user-layout .form-group {\n  position: relative;\n  margin-bottom: 15px;\n}\n.user-layout .form-group label {\n  color: #62a19b;\n  font-size: 11px;\n  font-weight: 500;\n  transition: transform 0.2s ease, color 0.2s ease;\n  padding-left: 0;\n}\n.user-layout .form-group .form-control-auth {\n  border: 0;\n  border-bottom: 1px solid #ccc;\n  outline: none;\n  background: transparent;\n  padding: 10px 5px;\n  height: 38px;\n  width: 100%;\n  font-weight: 400;\n  font-size: 16px;\n}\n.user-layout .form-group .form-control-auth:focus {\n  outline: none;\n  border-color: #62a19b;\n  box-shadow: 0 1px 0 0 #62a19b;\n  transition: transform 0.2s ease, color 0.2s ease;\n}\n.user-layout .form-group .icon-input {\n  position: absolute;\n  bottom: 12px;\n  left: 0;\n}\n.user-layout .show-pass {\n  position: absolute;\n  right: 20px;\n  bottom: 14px;\n  cursor: pointer;\n}\n.user-layout .copy-right {\n  color: #62A19B;\n  height: 62px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-top: 24px;\n  font-size: 13px;\n}", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/runtime/api.js":
 /*!*****************************************************!*\
   !*** ./node_modules/css-loader/dist/runtime/api.js ***!
@@ -28925,21 +27273,6 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
-
-/***/ }),
-
-/***/ "./resources/sass/image/icon-back.png":
-/*!********************************************!*\
-  !*** ./resources/sass/image/icon-back.png ***!
-  \********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-back.png?4218b5ff4cd6c370382cfe2c2fe61b18");
 
 /***/ }),
 
@@ -83908,6 +82241,770 @@ if ( true && typeof isCrushed.name === 'string' && isCrushed.name !== 'isCrushed
 
 /***/ }),
 
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/***/ ((module) => {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+var runtime = (function (exports) {
+  "use strict";
+
+  var Op = Object.prototype;
+  var hasOwn = Op.hasOwnProperty;
+  var undefined; // More compressible than void 0.
+  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var iteratorSymbol = $Symbol.iterator || "@@iterator";
+  var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
+  var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
+
+  function define(obj, key, value) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+    return obj[key];
+  }
+  try {
+    // IE 8 has a broken Object.defineProperty that only works on DOM objects.
+    define({}, "");
+  } catch (err) {
+    define = function(obj, key, value) {
+      return obj[key] = value;
+    };
+  }
+
+  function wrap(innerFn, outerFn, self, tryLocsList) {
+    // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var generator = Object.create(protoGenerator.prototype);
+    var context = new Context(tryLocsList || []);
+
+    // The ._invoke method unifies the implementations of the .next,
+    // .throw, and .return methods.
+    generator._invoke = makeInvokeMethod(innerFn, self, context);
+
+    return generator;
+  }
+  exports.wrap = wrap;
+
+  // Try/catch helper to minimize deoptimizations. Returns a completion
+  // record like context.tryEntries[i].completion. This interface could
+  // have been (and was previously) designed to take a closure to be
+  // invoked without arguments, but in all the cases we care about we
+  // already have an existing method we want to call, so there's no need
+  // to create a new function object. We can even get away with assuming
+  // the method takes exactly one argument, since that happens to be true
+  // in every case, so we don't have to touch the arguments object. The
+  // only additional allocation required is the completion record, which
+  // has a stable shape and so hopefully should be cheap to allocate.
+  function tryCatch(fn, obj, arg) {
+    try {
+      return { type: "normal", arg: fn.call(obj, arg) };
+    } catch (err) {
+      return { type: "throw", arg: err };
+    }
+  }
+
+  var GenStateSuspendedStart = "suspendedStart";
+  var GenStateSuspendedYield = "suspendedYield";
+  var GenStateExecuting = "executing";
+  var GenStateCompleted = "completed";
+
+  // Returning this object from the innerFn has the same effect as
+  // breaking out of the dispatch switch statement.
+  var ContinueSentinel = {};
+
+  // Dummy constructor functions that we use as the .constructor and
+  // .constructor.prototype properties for functions that return Generator
+  // objects. For full spec compliance, you may wish to configure your
+  // minifier not to mangle the names of these two functions.
+  function Generator() {}
+  function GeneratorFunction() {}
+  function GeneratorFunctionPrototype() {}
+
+  // This is a polyfill for %IteratorPrototype% for environments that
+  // don't natively support it.
+  var IteratorPrototype = {};
+  define(IteratorPrototype, iteratorSymbol, function () {
+    return this;
+  });
+
+  var getProto = Object.getPrototypeOf;
+  var NativeIteratorPrototype = getProto && getProto(getProto(values([])));
+  if (NativeIteratorPrototype &&
+      NativeIteratorPrototype !== Op &&
+      hasOwn.call(NativeIteratorPrototype, iteratorSymbol)) {
+    // This environment has a native %IteratorPrototype%; use it instead
+    // of the polyfill.
+    IteratorPrototype = NativeIteratorPrototype;
+  }
+
+  var Gp = GeneratorFunctionPrototype.prototype =
+    Generator.prototype = Object.create(IteratorPrototype);
+  GeneratorFunction.prototype = GeneratorFunctionPrototype;
+  define(Gp, "constructor", GeneratorFunctionPrototype);
+  define(GeneratorFunctionPrototype, "constructor", GeneratorFunction);
+  GeneratorFunction.displayName = define(
+    GeneratorFunctionPrototype,
+    toStringTagSymbol,
+    "GeneratorFunction"
+  );
+
+  // Helper for defining the .next, .throw, and .return methods of the
+  // Iterator interface in terms of a single ._invoke method.
+  function defineIteratorMethods(prototype) {
+    ["next", "throw", "return"].forEach(function(method) {
+      define(prototype, method, function(arg) {
+        return this._invoke(method, arg);
+      });
+    });
+  }
+
+  exports.isGeneratorFunction = function(genFun) {
+    var ctor = typeof genFun === "function" && genFun.constructor;
+    return ctor
+      ? ctor === GeneratorFunction ||
+        // For the native GeneratorFunction constructor, the best we can
+        // do is to check its .name property.
+        (ctor.displayName || ctor.name) === "GeneratorFunction"
+      : false;
+  };
+
+  exports.mark = function(genFun) {
+    if (Object.setPrototypeOf) {
+      Object.setPrototypeOf(genFun, GeneratorFunctionPrototype);
+    } else {
+      genFun.__proto__ = GeneratorFunctionPrototype;
+      define(genFun, toStringTagSymbol, "GeneratorFunction");
+    }
+    genFun.prototype = Object.create(Gp);
+    return genFun;
+  };
+
+  // Within the body of any async function, `await x` is transformed to
+  // `yield regeneratorRuntime.awrap(x)`, so that the runtime can test
+  // `hasOwn.call(value, "__await")` to determine if the yielded value is
+  // meant to be awaited.
+  exports.awrap = function(arg) {
+    return { __await: arg };
+  };
+
+  function AsyncIterator(generator, PromiseImpl) {
+    function invoke(method, arg, resolve, reject) {
+      var record = tryCatch(generator[method], generator, arg);
+      if (record.type === "throw") {
+        reject(record.arg);
+      } else {
+        var result = record.arg;
+        var value = result.value;
+        if (value &&
+            typeof value === "object" &&
+            hasOwn.call(value, "__await")) {
+          return PromiseImpl.resolve(value.__await).then(function(value) {
+            invoke("next", value, resolve, reject);
+          }, function(err) {
+            invoke("throw", err, resolve, reject);
+          });
+        }
+
+        return PromiseImpl.resolve(value).then(function(unwrapped) {
+          // When a yielded Promise is resolved, its final value becomes
+          // the .value of the Promise<{value,done}> result for the
+          // current iteration.
+          result.value = unwrapped;
+          resolve(result);
+        }, function(error) {
+          // If a rejected Promise was yielded, throw the rejection back
+          // into the async generator function so it can be handled there.
+          return invoke("throw", error, resolve, reject);
+        });
+      }
+    }
+
+    var previousPromise;
+
+    function enqueue(method, arg) {
+      function callInvokeWithMethodAndArg() {
+        return new PromiseImpl(function(resolve, reject) {
+          invoke(method, arg, resolve, reject);
+        });
+      }
+
+      return previousPromise =
+        // If enqueue has been called before, then we want to wait until
+        // all previous Promises have been resolved before calling invoke,
+        // so that results are always delivered in the correct order. If
+        // enqueue has not been called before, then it is important to
+        // call invoke immediately, without waiting on a callback to fire,
+        // so that the async generator function has the opportunity to do
+        // any necessary setup in a predictable way. This predictability
+        // is why the Promise constructor synchronously invokes its
+        // executor callback, and why async functions synchronously
+        // execute code before the first await. Since we implement simple
+        // async functions in terms of async generators, it is especially
+        // important to get this right, even though it requires care.
+        previousPromise ? previousPromise.then(
+          callInvokeWithMethodAndArg,
+          // Avoid propagating failures to Promises returned by later
+          // invocations of the iterator.
+          callInvokeWithMethodAndArg
+        ) : callInvokeWithMethodAndArg();
+    }
+
+    // Define the unified helper method that is used to implement .next,
+    // .throw, and .return (see defineIteratorMethods).
+    this._invoke = enqueue;
+  }
+
+  defineIteratorMethods(AsyncIterator.prototype);
+  define(AsyncIterator.prototype, asyncIteratorSymbol, function () {
+    return this;
+  });
+  exports.AsyncIterator = AsyncIterator;
+
+  // Note that simple async functions are implemented on top of
+  // AsyncIterator objects; they just return a Promise for the value of
+  // the final result produced by the iterator.
+  exports.async = function(innerFn, outerFn, self, tryLocsList, PromiseImpl) {
+    if (PromiseImpl === void 0) PromiseImpl = Promise;
+
+    var iter = new AsyncIterator(
+      wrap(innerFn, outerFn, self, tryLocsList),
+      PromiseImpl
+    );
+
+    return exports.isGeneratorFunction(outerFn)
+      ? iter // If outerFn is a generator, return the full iterator.
+      : iter.next().then(function(result) {
+          return result.done ? result.value : iter.next();
+        });
+  };
+
+  function makeInvokeMethod(innerFn, self, context) {
+    var state = GenStateSuspendedStart;
+
+    return function invoke(method, arg) {
+      if (state === GenStateExecuting) {
+        throw new Error("Generator is already running");
+      }
+
+      if (state === GenStateCompleted) {
+        if (method === "throw") {
+          throw arg;
+        }
+
+        // Be forgiving, per 25.3.3.3.3 of the spec:
+        // https://people.mozilla.org/~jorendorff/es6-draft.html#sec-generatorresume
+        return doneResult();
+      }
+
+      context.method = method;
+      context.arg = arg;
+
+      while (true) {
+        var delegate = context.delegate;
+        if (delegate) {
+          var delegateResult = maybeInvokeDelegate(delegate, context);
+          if (delegateResult) {
+            if (delegateResult === ContinueSentinel) continue;
+            return delegateResult;
+          }
+        }
+
+        if (context.method === "next") {
+          // Setting context._sent for legacy support of Babel's
+          // function.sent implementation.
+          context.sent = context._sent = context.arg;
+
+        } else if (context.method === "throw") {
+          if (state === GenStateSuspendedStart) {
+            state = GenStateCompleted;
+            throw context.arg;
+          }
+
+          context.dispatchException(context.arg);
+
+        } else if (context.method === "return") {
+          context.abrupt("return", context.arg);
+        }
+
+        state = GenStateExecuting;
+
+        var record = tryCatch(innerFn, self, context);
+        if (record.type === "normal") {
+          // If an exception is thrown from innerFn, we leave state ===
+          // GenStateExecuting and loop back for another invocation.
+          state = context.done
+            ? GenStateCompleted
+            : GenStateSuspendedYield;
+
+          if (record.arg === ContinueSentinel) {
+            continue;
+          }
+
+          return {
+            value: record.arg,
+            done: context.done
+          };
+
+        } else if (record.type === "throw") {
+          state = GenStateCompleted;
+          // Dispatch the exception by looping back around to the
+          // context.dispatchException(context.arg) call above.
+          context.method = "throw";
+          context.arg = record.arg;
+        }
+      }
+    };
+  }
+
+  // Call delegate.iterator[context.method](context.arg) and handle the
+  // result, either by returning a { value, done } result from the
+  // delegate iterator, or by modifying context.method and context.arg,
+  // setting context.delegate to null, and returning the ContinueSentinel.
+  function maybeInvokeDelegate(delegate, context) {
+    var method = delegate.iterator[context.method];
+    if (method === undefined) {
+      // A .throw or .return when the delegate iterator has no .throw
+      // method always terminates the yield* loop.
+      context.delegate = null;
+
+      if (context.method === "throw") {
+        // Note: ["return"] must be used for ES3 parsing compatibility.
+        if (delegate.iterator["return"]) {
+          // If the delegate iterator has a return method, give it a
+          // chance to clean up.
+          context.method = "return";
+          context.arg = undefined;
+          maybeInvokeDelegate(delegate, context);
+
+          if (context.method === "throw") {
+            // If maybeInvokeDelegate(context) changed context.method from
+            // "return" to "throw", let that override the TypeError below.
+            return ContinueSentinel;
+          }
+        }
+
+        context.method = "throw";
+        context.arg = new TypeError(
+          "The iterator does not provide a 'throw' method");
+      }
+
+      return ContinueSentinel;
+    }
+
+    var record = tryCatch(method, delegate.iterator, context.arg);
+
+    if (record.type === "throw") {
+      context.method = "throw";
+      context.arg = record.arg;
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    var info = record.arg;
+
+    if (! info) {
+      context.method = "throw";
+      context.arg = new TypeError("iterator result is not an object");
+      context.delegate = null;
+      return ContinueSentinel;
+    }
+
+    if (info.done) {
+      // Assign the result of the finished delegate to the temporary
+      // variable specified by delegate.resultName (see delegateYield).
+      context[delegate.resultName] = info.value;
+
+      // Resume execution at the desired location (see delegateYield).
+      context.next = delegate.nextLoc;
+
+      // If context.method was "throw" but the delegate handled the
+      // exception, let the outer generator proceed normally. If
+      // context.method was "next", forget context.arg since it has been
+      // "consumed" by the delegate iterator. If context.method was
+      // "return", allow the original .return call to continue in the
+      // outer generator.
+      if (context.method !== "return") {
+        context.method = "next";
+        context.arg = undefined;
+      }
+
+    } else {
+      // Re-yield the result returned by the delegate method.
+      return info;
+    }
+
+    // The delegate iterator is finished, so forget it and continue with
+    // the outer generator.
+    context.delegate = null;
+    return ContinueSentinel;
+  }
+
+  // Define Generator.prototype.{next,throw,return} in terms of the
+  // unified ._invoke helper method.
+  defineIteratorMethods(Gp);
+
+  define(Gp, toStringTagSymbol, "Generator");
+
+  // A Generator should always return itself as the iterator object when the
+  // @@iterator function is called on it. Some browsers' implementations of the
+  // iterator prototype chain incorrectly implement this, causing the Generator
+  // object to not be returned from this call. This ensures that doesn't happen.
+  // See https://github.com/facebook/regenerator/issues/274 for more details.
+  define(Gp, iteratorSymbol, function() {
+    return this;
+  });
+
+  define(Gp, "toString", function() {
+    return "[object Generator]";
+  });
+
+  function pushTryEntry(locs) {
+    var entry = { tryLoc: locs[0] };
+
+    if (1 in locs) {
+      entry.catchLoc = locs[1];
+    }
+
+    if (2 in locs) {
+      entry.finallyLoc = locs[2];
+      entry.afterLoc = locs[3];
+    }
+
+    this.tryEntries.push(entry);
+  }
+
+  function resetTryEntry(entry) {
+    var record = entry.completion || {};
+    record.type = "normal";
+    delete record.arg;
+    entry.completion = record;
+  }
+
+  function Context(tryLocsList) {
+    // The root entry object (effectively a try statement without a catch
+    // or a finally block) gives us a place to store values thrown from
+    // locations where there is no enclosing try statement.
+    this.tryEntries = [{ tryLoc: "root" }];
+    tryLocsList.forEach(pushTryEntry, this);
+    this.reset(true);
+  }
+
+  exports.keys = function(object) {
+    var keys = [];
+    for (var key in object) {
+      keys.push(key);
+    }
+    keys.reverse();
+
+    // Rather than returning an object with a next method, we keep
+    // things simple and return the next function itself.
+    return function next() {
+      while (keys.length) {
+        var key = keys.pop();
+        if (key in object) {
+          next.value = key;
+          next.done = false;
+          return next;
+        }
+      }
+
+      // To avoid creating an additional object, we just hang the .value
+      // and .done properties off the next function object itself. This
+      // also ensures that the minifier will not anonymize the function.
+      next.done = true;
+      return next;
+    };
+  };
+
+  function values(iterable) {
+    if (iterable) {
+      var iteratorMethod = iterable[iteratorSymbol];
+      if (iteratorMethod) {
+        return iteratorMethod.call(iterable);
+      }
+
+      if (typeof iterable.next === "function") {
+        return iterable;
+      }
+
+      if (!isNaN(iterable.length)) {
+        var i = -1, next = function next() {
+          while (++i < iterable.length) {
+            if (hasOwn.call(iterable, i)) {
+              next.value = iterable[i];
+              next.done = false;
+              return next;
+            }
+          }
+
+          next.value = undefined;
+          next.done = true;
+
+          return next;
+        };
+
+        return next.next = next;
+      }
+    }
+
+    // Return an iterator with no values.
+    return { next: doneResult };
+  }
+  exports.values = values;
+
+  function doneResult() {
+    return { value: undefined, done: true };
+  }
+
+  Context.prototype = {
+    constructor: Context,
+
+    reset: function(skipTempReset) {
+      this.prev = 0;
+      this.next = 0;
+      // Resetting context._sent for legacy support of Babel's
+      // function.sent implementation.
+      this.sent = this._sent = undefined;
+      this.done = false;
+      this.delegate = null;
+
+      this.method = "next";
+      this.arg = undefined;
+
+      this.tryEntries.forEach(resetTryEntry);
+
+      if (!skipTempReset) {
+        for (var name in this) {
+          // Not sure about the optimal order of these conditions:
+          if (name.charAt(0) === "t" &&
+              hasOwn.call(this, name) &&
+              !isNaN(+name.slice(1))) {
+            this[name] = undefined;
+          }
+        }
+      }
+    },
+
+    stop: function() {
+      this.done = true;
+
+      var rootEntry = this.tryEntries[0];
+      var rootRecord = rootEntry.completion;
+      if (rootRecord.type === "throw") {
+        throw rootRecord.arg;
+      }
+
+      return this.rval;
+    },
+
+    dispatchException: function(exception) {
+      if (this.done) {
+        throw exception;
+      }
+
+      var context = this;
+      function handle(loc, caught) {
+        record.type = "throw";
+        record.arg = exception;
+        context.next = loc;
+
+        if (caught) {
+          // If the dispatched exception was caught by a catch block,
+          // then let that catch block handle the exception normally.
+          context.method = "next";
+          context.arg = undefined;
+        }
+
+        return !! caught;
+      }
+
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        var record = entry.completion;
+
+        if (entry.tryLoc === "root") {
+          // Exception thrown outside of any try block that could handle
+          // it, so set the completion value of the entire function to
+          // throw the exception.
+          return handle("end");
+        }
+
+        if (entry.tryLoc <= this.prev) {
+          var hasCatch = hasOwn.call(entry, "catchLoc");
+          var hasFinally = hasOwn.call(entry, "finallyLoc");
+
+          if (hasCatch && hasFinally) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            } else if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else if (hasCatch) {
+            if (this.prev < entry.catchLoc) {
+              return handle(entry.catchLoc, true);
+            }
+
+          } else if (hasFinally) {
+            if (this.prev < entry.finallyLoc) {
+              return handle(entry.finallyLoc);
+            }
+
+          } else {
+            throw new Error("try statement without catch or finally");
+          }
+        }
+      }
+    },
+
+    abrupt: function(type, arg) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc <= this.prev &&
+            hasOwn.call(entry, "finallyLoc") &&
+            this.prev < entry.finallyLoc) {
+          var finallyEntry = entry;
+          break;
+        }
+      }
+
+      if (finallyEntry &&
+          (type === "break" ||
+           type === "continue") &&
+          finallyEntry.tryLoc <= arg &&
+          arg <= finallyEntry.finallyLoc) {
+        // Ignore the finally entry if control is not jumping to a
+        // location outside the try/catch block.
+        finallyEntry = null;
+      }
+
+      var record = finallyEntry ? finallyEntry.completion : {};
+      record.type = type;
+      record.arg = arg;
+
+      if (finallyEntry) {
+        this.method = "next";
+        this.next = finallyEntry.finallyLoc;
+        return ContinueSentinel;
+      }
+
+      return this.complete(record);
+    },
+
+    complete: function(record, afterLoc) {
+      if (record.type === "throw") {
+        throw record.arg;
+      }
+
+      if (record.type === "break" ||
+          record.type === "continue") {
+        this.next = record.arg;
+      } else if (record.type === "return") {
+        this.rval = this.arg = record.arg;
+        this.method = "return";
+        this.next = "end";
+      } else if (record.type === "normal" && afterLoc) {
+        this.next = afterLoc;
+      }
+
+      return ContinueSentinel;
+    },
+
+    finish: function(finallyLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.finallyLoc === finallyLoc) {
+          this.complete(entry.completion, entry.afterLoc);
+          resetTryEntry(entry);
+          return ContinueSentinel;
+        }
+      }
+    },
+
+    "catch": function(tryLoc) {
+      for (var i = this.tryEntries.length - 1; i >= 0; --i) {
+        var entry = this.tryEntries[i];
+        if (entry.tryLoc === tryLoc) {
+          var record = entry.completion;
+          if (record.type === "throw") {
+            var thrown = record.arg;
+            resetTryEntry(entry);
+          }
+          return thrown;
+        }
+      }
+
+      // The context.catch method must only be called with a location
+      // argument that corresponds to a known catch block.
+      throw new Error("illegal catch attempt");
+    },
+
+    delegateYield: function(iterable, resultName, nextLoc) {
+      this.delegate = {
+        iterator: values(iterable),
+        resultName: resultName,
+        nextLoc: nextLoc
+      };
+
+      if (this.method === "next") {
+        // Deliberately forget the last sent value so that we don't
+        // accidentally pass it on to the delegate.
+        this.arg = undefined;
+      }
+
+      return ContinueSentinel;
+    }
+  };
+
+  // Regardless of whether this script is executing as a CommonJS module
+  // or not, return the runtime object so that we can declare the variable
+  // regeneratorRuntime in the outer scope, which allows this module to be
+  // injected easily by `bin/regenerator --include-runtime script.js`.
+  return exports;
+
+}(
+  // If this script is executing as a CommonJS module, use module.exports
+  // as the regeneratorRuntime namespace. Otherwise create a new empty
+  // object. Either way, the resulting object will be used to initialize
+  // the regeneratorRuntime variable at the top of this file.
+   true ? module.exports : 0
+));
+
+try {
+  regeneratorRuntime = runtime;
+} catch (accidentalStrictMode) {
+  // This module should not be running in strict mode, so the above
+  // assignment should always work unless something is misconfigured. Just
+  // in case runtime.js accidentally runs in strict mode, in modern engines
+  // we can explicitly access globalThis. In older engines we can escape
+  // strict mode using a global Function call. This could conceivably fail
+  // if a Content Security Policy forbids using Function, but in that case
+  // the proper solution is to fix the accidental strict mode problem. If
+  // you've misconfigured your bundler to force strict mode and applied a
+  // CSP to forbid Function, and you're not willing to fix either of those
+  // problems, please detail your unique predicament in a GitHub issue.
+  if (typeof globalThis === "object") {
+    globalThis.regeneratorRuntime = runtime;
+  } else {
+    Function("r", "regeneratorRuntime = r")(runtime);
+  }
+}
+
+
+/***/ }),
+
 /***/ "./node_modules/scheduler/cjs/scheduler-tracing.development.js":
 /*!*********************************************************************!*\
   !*** ./node_modules/scheduler/cjs/scheduler-tracing.development.js ***!
@@ -84955,66 +84052,6 @@ if (false) {} else {
 
 /***/ }),
 
-/***/ "./resources/js/commons/Board/board.scss":
-/*!***********************************************!*\
-  !*** ./resources/js/commons/Board/board.scss ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_board_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./board.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/Board/board.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_board_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_board_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/commons/CardProductCat/card-product-cat.scss":
-/*!*******************************************************************!*\
-  !*** ./resources/js/commons/CardProductCat/card-product-cat.scss ***!
-  \*******************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./card-product-cat.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/commons/CardProductCat/card-product-cat.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_card_product_cat_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
 /***/ "./resources/js/commons/Languges/style.scss":
 /*!**************************************************!*\
   !*** ./resources/js/commons/Languges/style.scss ***!
@@ -85299,246 +84336,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
 /* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./style.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/auth/register/style.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/list-of-pharmacies/list-of-pharmacies.scss":
-/*!******************************************************************************!*\
-  !*** ./resources/js/pages/client/list-of-pharmacies/list-of-pharmacies.scss ***!
-  \******************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./list-of-pharmacies.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/list-of-pharmacies/list-of-pharmacies.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_list_of_pharmacies_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/media/media.scss":
-/*!****************************************************!*\
-  !*** ./resources/js/pages/client/media/media.scss ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_media_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./media.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/media/media.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_media_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_media_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/medicine-list/medicine-list.scss":
-/*!********************************************************************!*\
-  !*** ./resources/js/pages/client/medicine-list/medicine-list.scss ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_medicine_list_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./medicine-list.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/medicine-list/medicine-list.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_medicine_list_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_medicine_list_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/member/member.scss":
-/*!******************************************************!*\
-  !*** ./resources/js/pages/client/member/member.scss ***!
-  \******************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./member.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/member/member.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_member_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/order-history/order-history.scss":
-/*!********************************************************************!*\
-  !*** ./resources/js/pages/client/order-history/order-history.scss ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_order_history_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./order-history.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/order-history/order-history.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_order_history_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_order_history_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/product-detail/product-detail.scss":
-/*!**********************************************************************!*\
-  !*** ./resources/js/pages/client/product-detail/product-detail.scss ***!
-  \**********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_product_detail_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./product-detail.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/product-detail/product-detail.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_product_detail_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_product_detail_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/user-info/change-profile/style.scss":
-/*!***********************************************************************!*\
-  !*** ./resources/js/pages/client/user-info/change-profile/style.scss ***!
-  \***********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./style.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/user-info/change-profile/style.scss");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
-/***/ "./resources/js/pages/client/user-info/user-layout/style.scss":
-/*!********************************************************************!*\
-  !*** ./resources/js/pages/client/user-info/user-layout/style.scss ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_1_node_modules_postcss_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_2_node_modules_sass_loader_dist_cjs_js_ruleSet_1_rules_7_oneOf_1_use_3_style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!../../../../../../node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!../../../../../../node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./style.scss */ "./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[7].oneOf[1].use[3]!./resources/js/pages/client/user-info/user-layout/style.scss");
 
             
 
@@ -85970,7 +84767,62 @@ function _objectWithoutPropertiesLoose(source, excluded) {
 /***/ ((module) => {
 
 "use strict";
-module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"Promise based HTTP client for the browser and node.js","main":"index.js","scripts":{"test":"grunt test","start":"node ./sandbox/server.js","build":"NODE_ENV=production grunt build","preversion":"npm test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json","postversion":"git push && git push --tags","examples":"node ./examples/server.js","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","fix":"eslint --fix lib/**/*.js"},"repository":{"type":"git","url":"https://github.com/axios/axios.git"},"keywords":["xhr","http","ajax","promise","node"],"author":"Matt Zabriskie","license":"MIT","bugs":{"url":"https://github.com/axios/axios/issues"},"homepage":"https://axios-http.com","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"jsdelivr":"dist/axios.min.js","unpkg":"dist/axios.min.js","typings":"./index.d.ts","dependencies":{"follow-redirects":"^1.14.0"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}]}');
+module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\Chien\\\\Desktop\\\\kurofune"]],"_development":true,"_from":"axios@0.21.4","_id":"axios@0.21.4","_inBundle":false,"_integrity":"sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==","_location":"/axios","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"axios@0.21.4","name":"axios","escapedName":"axios","rawSpec":"0.21.4","saveSpec":null,"fetchSpec":"0.21.4"},"_requiredBy":["#DEV:/","/localtunnel"],"_resolved":"https://registry.npmjs.org/axios/-/axios-0.21.4.tgz","_spec":"0.21.4","_where":"C:\\\\Users\\\\Chien\\\\Desktop\\\\kurofune","author":{"name":"Matt Zabriskie"},"browser":{"./lib/adapters/http.js":"./lib/adapters/xhr.js"},"bugs":{"url":"https://github.com/axios/axios/issues"},"bundlesize":[{"path":"./dist/axios.min.js","threshold":"5kB"}],"dependencies":{"follow-redirects":"^1.14.0"},"description":"Promise based HTTP client for the browser and node.js","devDependencies":{"coveralls":"^3.0.0","es6-promise":"^4.2.4","grunt":"^1.3.0","grunt-banner":"^0.6.0","grunt-cli":"^1.2.0","grunt-contrib-clean":"^1.1.0","grunt-contrib-watch":"^1.0.0","grunt-eslint":"^23.0.0","grunt-karma":"^4.0.0","grunt-mocha-test":"^0.13.3","grunt-ts":"^6.0.0-beta.19","grunt-webpack":"^4.0.2","istanbul-instrumenter-loader":"^1.0.0","jasmine-core":"^2.4.1","karma":"^6.3.2","karma-chrome-launcher":"^3.1.0","karma-firefox-launcher":"^2.1.0","karma-jasmine":"^1.1.1","karma-jasmine-ajax":"^0.1.13","karma-safari-launcher":"^1.0.0","karma-sauce-launcher":"^4.3.6","karma-sinon":"^1.0.5","karma-sourcemap-loader":"^0.3.8","karma-webpack":"^4.0.2","load-grunt-tasks":"^3.5.2","minimist":"^1.2.0","mocha":"^8.2.1","sinon":"^4.5.0","terser-webpack-plugin":"^4.2.3","typescript":"^4.0.5","url-search-params":"^0.10.0","webpack":"^4.44.2","webpack-dev-server":"^3.11.0"},"homepage":"https://axios-http.com","jsdelivr":"dist/axios.min.js","keywords":["xhr","http","ajax","promise","node"],"license":"MIT","main":"index.js","name":"axios","repository":{"type":"git","url":"git+https://github.com/axios/axios.git"},"scripts":{"build":"NODE_ENV=production grunt build","coveralls":"cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js","examples":"node ./examples/server.js","fix":"eslint --fix lib/**/*.js","postversion":"git push && git push --tags","preversion":"npm test","start":"node ./sandbox/server.js","test":"grunt test","version":"npm run build && grunt version && git add -A dist && git add CHANGELOG.md bower.json package.json"},"typings":"./index.d.ts","unpkg":"dist/axios.min.js","version":"0.21.4"}');
+
+/***/ }),
+
+/***/ "./resources/js/translate/locations/en/common.json":
+/*!*********************************************************!*\
+  !*** ./resources/js/translate/locations/en/common.json ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"login":{"title":"Association for Supporting Foreign Workers in Japan Life Support Portal Site","email":"Email","password":"Password","remember":"Remember","forgetPassword":"Forgot password","login_btn":"login","term_of_use":"Term of use","privacy_policy":"Privacy policy","languages":"Languages","kurofune":"©KUROFUNE"},"home":"Trang chủ"}');
+
+/***/ }),
+
+/***/ "./resources/js/translate/locations/ja/common.json":
+/*!*********************************************************!*\
+  !*** ./resources/js/translate/locations/ja/common.json ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"login":{"title":"一般社団法人在日外国人就業者支援協会生活支援ポータルサイト","email":"メールアドレス","password":"パスワード","remember":"保存する","forgetPassword":"パスワードを忘れた方はこちら","login_btn":"ログイン","term_of_use":"利用規約","privacy_policy":"プライバシーポリシー","languages":"言語","kurofune":"©KUROFUNE"},"home":"Trang chủ"}');
+
+/***/ }),
+
+/***/ "./resources/js/translate/locations/tl/common.json":
+/*!*********************************************************!*\
+  !*** ./resources/js/translate/locations/tl/common.json ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"login":{"title":"Association for Supporting Foreign Workers in Japan Life Support Portal Site","email":"Email","password":"password","remember":"Tandaan","forgetPassword":"Nakalimutan ang password","login_btn":"Mag log in","term_of_use":"Kasunduan sa Pag gamit","privacy_policy":"Patakaran sa privacy","languages":"Wika","kurofune":"©KUROFUNE"},"home":"Trang chủ"}');
+
+/***/ }),
+
+/***/ "./resources/js/translate/locations/vi/common.json":
+/*!*********************************************************!*\
+  !*** ./resources/js/translate/locations/vi/common.json ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"login":{"title":"HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ","email":"Email","password":"Mật khẩu","remember":"Ghi nhớ","forgetPassword":"Quên mật khẩu","login_btn":"Đăng nhập","term_of_use":"Điều khoản sử dụng","privacy_policy":"Chính sách bảo mật","languages":"Ngôn ngữ","kurofune":"©KUROFUNE"},"home":"Trang chủ"}');
+
+/***/ }),
+
+/***/ "./resources/js/translate/locations/zh/common.json":
+/*!*********************************************************!*\
+  !*** ./resources/js/translate/locations/zh/common.json ***!
+  \*********************************************************/
+/***/ ((module) => {
+
+"use strict";
+module.exports = JSON.parse('{"login":{"title":"日本综合社团法人外国人劳动者支援协会生活支援门户网站","email":"电子邮件","password":"密码","remember":"记住","forgetPassword":"忘记密码","login_btn":"登录","term_of_use":"使用期限","privacy_policy":"隐私政策","languages":"语言","kurofune":"©KUROFUNE"},"home":"Trang chủ"}');
 
 /***/ })
 
