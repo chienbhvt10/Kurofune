@@ -24,12 +24,7 @@ const Board = ({ boardItems }) => {
               </div>
             </a>
           ) : (
-            <Link
-              target="_blank"
-              to={item.link}
-              className="item"
-              title={item.link}
-            >
+            <Link to={item.link} className="item" title={item.link}>
               <div className="icon">
                 <img src={item.imageUrl} alt="" />
               </div>

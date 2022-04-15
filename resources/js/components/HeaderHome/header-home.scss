@@ -10,6 +10,7 @@
     background: #ffffff;
     a{
         text-decoration: none;
+        outline: none;
     }
     button{
         opacity: 1;
@@ -27,6 +28,7 @@
     .site-header {
         display: flex;
         justify-content: flex-end;
+        
         .block-profile-header{
             display: flex;
             align-self: center;
@@ -89,6 +91,7 @@
             }
         }
     }
+    
     @media screen and (max-width: 550px) {
         .dropdown-toggle {
           min-width: 100px !important;

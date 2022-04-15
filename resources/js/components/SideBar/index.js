@@ -6,7 +6,7 @@ import { navigateLinkData } from "../../commons/data";
 import NavigateLink from "../../commons/NavigateLink";
 import "./side-bar.scss";
 
-const SideBar = ({ show, toggleSideBar }) => {
+const SideBar = ({ show, toggleSideBar, closeSideBar }) => {
   return (
     <div id="side-bar" className={show ? "show" : ""}>
       <div className="task-bar-title">
@@ -20,7 +20,7 @@ const SideBar = ({ show, toggleSideBar }) => {
           />
         </div>
       </div>
-      <NavigateLink navigateItems={navigateLinkData} />
+      <NavigateLink navigateItems={navigateLinkData} onClick={closeSideBar} />
     </div>
   );
 };
