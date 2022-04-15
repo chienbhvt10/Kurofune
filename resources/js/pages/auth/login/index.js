@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Helmet } from "react-helmet";
 import "./style.scss";
 import { Languages } from "../../../commons/Languges";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,24 +8,20 @@ import {
   faEye,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
+import PageHead from "../../../commons/PageHead";
+import { useTranslation } from "react-i18next";
 export const Login = () => {
   const [show, setShow] = useState(true);
+  const { i18n, t } = useTranslation();
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Login</title>
-        <meta name="description" content="Login Page" />
-        <meta name="og:title" content="Login" />
-      </Helmet>
+      <PageHead content="Login" title="Login" />
       <h4 className="title">
-        一般社団法人在日外国人就業者支援協会
-        <br />
-        生活支援ポータルサイト
+        {t('login.title')}
       </h4>
       <form id="loginForm">
         <div class="form-group">
-          <label htmlFor="UserName">メールアドレス</label>
+          <label htmlFor="UserName">{t('login.email')}</label>
           <input type="email" class="form-control-auth" id="UserName" />
           <img
             className="icon-input"
@@ -35,7 +30,7 @@ export const Login = () => {
           />
         </div>
         <div class="form-group">
-          <label htmlFor="Password">パスワード</label>
+          <label htmlFor="Password">{t('login.password')}</label>
           <input
             type={show ? "password" : "text"}
             className="form-control-auth"
@@ -58,29 +53,29 @@ export const Login = () => {
         <div className="d-flex justify-content-between remember-block">
           <div className="checkbox-remember">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label for="vehicle1"> 保存する</label>
+            <label for="vehicle1"> {t('login.remember')}</label>
           </div>
           <Link
             to="member/lostpassword"
             className="text-decoration-none text-forgot"
           >
-            パスワードを忘れた方はこちら
+            {t('login.forgetPassword')}
           </Link>
         </div>
-        <button className="btn btn-primary d-block m-auto">ログイン </button>
+        <button className="btn btn-primary d-block m-auto">{t('login.login_btn')}</button>
       </form>
 
       <div className="d-flex justify-content-center note">
         <a className="mr-2" data-toggle="modal" data-target="#term-of-use">
-          利用規約
+          {t('login.term_of_use')}
         </a>
         <a data-toggle="modal" data-target="#privacy-policy">
-          プライバシーポリシー
+          {t('login.privacy_policy')}
         </a>
       </div>
       <div className="dropdown-language-menu">
         <Languages />
-        <span className="footer-text">©KUROFUNE 2022</span>
+        <span className="footer-text">{t('login.kurofune')} 2022</span>
       </div>
     </>
   );

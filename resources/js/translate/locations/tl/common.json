@@ -1,0 +1,15 @@
+{
+  "login": {
+    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "email": "Email",
+    "password": "password",
+    "remember": "Tandaan",
+    "forgetPassword": "Nakalimutan ang password",
+    "login_btn": "Mag log in",
+    "term_of_use": "Kasunduan sa Pag gamit",
+    "privacy_policy": "Patakaran sa privacy",
+    "languages": "Wika",
+    "kurofune": "©KUROFUNE"
+  },
+  "home": "Trang chủ"
+}

@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 // import LanguageSwitcher from "../../commons/LanguageSwitcher";
 import { Languages } from "../../commons/Languges";
 import "./header-home.scss";
+import { useTranslation } from 'react-i18next';
 const HeaderHome = ({ toggleSideBar }) => {
   return (
     <div id="header-home">
@@ -27,7 +28,7 @@ const HeaderHome = ({ toggleSideBar }) => {
             <div className="shopping-cart">
               <div className="icon-cart">
                 <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn ">
-                  <img className="icon" src="images/icon-card.png" />
+                  <img className="icon" src="/images/icon-card.png" />
                 </Link>
               </div>
               <div className="mini-cart">

@@ -267,37 +267,37 @@ export const medicineList2 = [
 export const medicineList3 = [
   {
     href: "https://member.wabisabi.media/product/%e3%83%ad%e3%82%ad%e3%82%bd%e3%83%8b%e3%83%b3s%e3%83%86%e3%83%bc%e3%83%97-14%e6%9e%9a",
-    src: "images/medicine-list/2_loxonin-s_tape.jpg",
+    src: "/images/medicine-list/2_loxonin-s_tape.jpg",
     name: "ロキソニンSテープ 14枚 ",
   },
   {
     href: "https://member.wabisabi.media/product/%e3%82%a2%e3%83%ac%e3%82%b0%e3%83%a9-28%e9%8c%a0",
-    src: "images/medicine-list/5_allegra.jpg",
+    src: "/images/medicine-list/5_allegra.jpg",
     name: "アレグラFX28錠 ",
   },
   {
     href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab12-12ml",
-    src: "images/medicine-list/10_sante_medical12.jpg",
+    src: "/images/medicine-list/10_sante_medical12.jpg",
     name: "サンテメディカル12 12ml ",
   },
   {
     href: "https://member.wabisabi.media/product/%e3%82%b5%e3%83%b3%e3%83%86%e3%83%a1%e3%83%87%e3%82%a3%e3%82%ab%e3%83%ab%e6%8a%97%e8%8f%8c-20%e6%9c%ac",
-    src: "images/medicine-list/11_sante_medical_koukin.jpg",
+    src: "/images/medicine-list/11_sante_medical_koukin.jpg",
     name: "サンテメディカル抗菌 20本 ",
   },
   {
     href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-10ml",
-    src: "images/medicine-list/12_rohto-alguard10.jpg",
+    src: "/images/medicine-list/12_rohto-alguard10.jpg",
     name: "ロート アルガード 10ml ",
   },
   {
     href: "https://member.wabisabi.media/product/%e3%83%ad%e3%83%bc%e3%83%88-%e3%82%a2%e3%83%ab%e3%82%ac%e3%83%bc%e3%83%89-%e3%82%af%e3%83%aa%e3%82%a2%e3%83%96%e3%83%ad%e3%83%83%e3%82%afz-13ml",
-    src: "images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
+    src: "/images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
     name: "ロート アルガード クリアブロックZ 13ml",
   },
   {
     href: "https://member.wabisabi.media/product/%e3%83%89%e3%82%a5%e3%83%bc%e3%83%86%e3%82%b9%e3%83%88hcga%ef%bc%88%e5%a6%8a%e5%a8%a0%e6%a4%9c%e6%9f%bb%e8%96%ac%ef%bc%891%e5%9b%9e%e7%94%a8",
-    src: "images/medicine-list/14_hcg-stick.jpeg",
+    src: "/images/medicine-list/14_hcg-stick.jpeg",
     name: "ドゥーテストhCGa（妊娠検査薬）1回用",
   },
 ];
@@ -350,42 +350,42 @@ export const mediaBoardItemData = [
 export const memberBoardItemData = [
   {
     link: "/member/questionnaire",
-    imageUrl: "images/top-page/Questionnaire-form.png",
+    imageUrl: "/images/top-page/Questionnaire-form.png",
     title: "Bảng câu hỏi chẩn đoán bệnh",
     type: "link_component",
     disable: false,
   },
   {
     link: "/list-of-pharmacies",
-    imageUrl: "images/top-page/list-pharmacies.png",
+    imageUrl: "/images/top-page/list-pharmacies.png",
     title: "Danh sách nhà thuốc",
     type: "link_component",
     disable: false,
   },
   {
     link: "/medicine-list",
-    imageUrl: "images/top-page/medicine-list.png",
+    imageUrl: "/images/top-page/medicine-list.png",
     title: "Danh sách thuốc",
     type: "link_component",
     disable: false,
   },
   {
     link: "/member/order-history",
-    imageUrl: "images/top-page/Order-history.png",
+    imageUrl: "/images/top-page/Order-history.png",
     title: "Lịch sử đặt hàng ",
     type: "link_component",
     disable: false,
   },
   {
     link: "/cart",
-    imageUrl: "images/top-page/cart.png",
+    imageUrl: "/images/top-page/cart.png",
     title: "Giỏ hàng",
     type: "link_component",
     disable: false,
   },
   {
     link: "/member/billing-address",
-    imageUrl: "images/top-page/Settings.png",
+    imageUrl: "/images/top-page/Settings.png",
     title: "Thông tin đăng kí",
     type: "link_component",
     disable: false,
@@ -395,29 +395,29 @@ export const memberBoardItemData = [
 export const navigateLinkData = [
   {
     link: "questionnaire",
-    imageUrl: "images/sidebar/Questionnaire-form.png",
+    imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "Bảng câu hỏi chẩn đoán bệnh",
   },
   {
     link: "list-of-pharmacies",
-    imageUrl: "images/sidebar/list-pharmacies.png",
+    imageUrl: "/images/sidebar/list-pharmacies.png",
     title: "Danh sách nhà thuốc",
   },
   {
     link: "medicine-list",
-    imageUrl: "images/sidebar/medicine-list.png",
+    imageUrl: "/images/sidebar/medicine-list.png",
     title: "Danh sách thuốc",
   },
   {
     link: "order-history",
-    imageUrl: "images/sidebar/Order-history.png",
+    imageUrl: "/images/sidebar/Order-history.png",
     title: "Lịch sử mua hàng",
   },
-  { link: "cart", imageUrl: "images/sidebar/cart.png", title: "Giỏ hàng" },
+  { link: "cart", imageUrl: "/images/sidebar/cart.png", title: "Giỏ hàng" },
   {
     link: "billing-address",
-    imageUrl: "images/sidebar/Settings.png",
+    imageUrl: "/images/sidebar/Settings.png",
     title: "Thông tin đăng kí",
   },
-  { link: "media", imageUrl: "images/sidebar/home.png", title: "Trang chủ" },
+  { link: "media", imageUrl: "/images/sidebar/home.png", title: "Trang chủ" },
 ];
