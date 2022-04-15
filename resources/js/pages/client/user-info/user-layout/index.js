@@ -4,7 +4,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import "./style.scss";
 export const UserLayout = () => {
   return (
-    <div className="user-layout">
+    <div className="user-layout container-fluid">
       <div className="user-layout-container">
         <div className="user-layout-back">
           <Link to={"."} className="d-flex">
