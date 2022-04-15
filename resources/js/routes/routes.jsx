@@ -17,14 +17,15 @@ import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import MediaPage from "../pages/client/media";
-const base = window.location.pathname.slice(0, 3);
+import { useTranslation } from "react-i18next";
 const appRouter = () => {
-  const langUrl = window.location.pathname.slice(0, 4);
+  const { i18n } = useTranslation();
+  const langUrl = i18n.language;
   if (
-    langUrl === "/vi/" ||
-    langUrl === "/tl/" ||
-    langUrl === "/en/" ||
-    langUrl === "/zh/"
+    langUrl === "vi" ||
+    langUrl === "tl" ||
+    langUrl === "en" ||
+    langUrl === "zh"
   ) {
     localStorage.setItem("lang", window.location.pathname.slice(0, 3));
   } else {
