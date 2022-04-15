@@ -1,4 +1,5 @@
 import React from "react";
+import App from "./../pages/client/home/index";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
