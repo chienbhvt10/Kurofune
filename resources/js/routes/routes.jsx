@@ -36,18 +36,7 @@ const appRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeLayout />} exact={true}>
-          <Route path="member" element={<UserLayout />} exact={true}>
-            <Route
-              path="change-password"
-              element={<ChangePassword />}
-              exact={true}
-            />
-            <Route
-              path="change-profile"
-              element={<ChangeProfile />}
-              exact={true}
-            />
-          </Route>
+          <Route path="member" element={<MemberPage />} exact={true} />
           <Route
             path={`/${lang}/list-of-pharmacies`}
             element={<OrderHistoryPage />}
@@ -61,16 +50,6 @@ const appRouter = () => {
           <Route
             path="list-of-pharmacies"
             element={<PharmaciesPage />}
-            exact={true}
-          />
-          <Route
-            path="medicine-list"
-            element={<MedicineListPage />}
-            exact={true}
-          />
-          <Route
-            path="product-detail"
-            element={<ProductDetailPage />}
             exact={true}
           />
         </Route>
@@ -96,6 +75,18 @@ const appRouter = () => {
           <Route
             path="change-profile"
             element={<ChangeProfile />}
+            exact={true}
+          />
+        </Route>
+        <Route path="member" element={<HomeLayout />} exact={true}>
+          <Route
+            path="order-history"
+            element={<OrderHistoryPage />}
+            exact={true}
+          />
+          <Route
+            path="order-detail"
+            element={<OrderDetailPage />}
             exact={true}
           />
         </Route>
