@@ -11,10 +11,11 @@ import PharmaciesPage from "../pages/list-of-pharmacies";
 import MedicineListPage from "../pages/medicine-list";
 import ProductDetailPage from "../pages/product-detail";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
-const base = window.location.pathname.slice(0, 3);
+import { useTranslation } from "react-i18next";
 const appRouter = () => { 
-  const langUrl = window.location.pathname.slice(0, 4)
-  if(langUrl === '/vi/' || langUrl === '/tl/' || langUrl === '/en/' || langUrl === '/zh/'){
+  const { i18n } = useTranslation();
+  const langUrl = i18n.language
+  if(langUrl === 'vi' || langUrl === 'tl' || langUrl === 'en' || langUrl === 'zh'){
     localStorage.setItem('lang', window.location.pathname.slice(0, 3));
   }else{
     localStorage.setItem('lang', '');
