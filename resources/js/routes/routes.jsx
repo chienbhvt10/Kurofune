@@ -11,6 +11,7 @@ import HomeLayout from "../commons/layout/HomeLayout";
 import MemberPage from "../pages/member";
 import PharmaciesPage from "../pages/list-of-pharmacies";
 import MedicineListPage from "../pages/medicine-list";
+import ProductDetailPage from "../pages/product-detail";
 const appRouter = () => (
   <BrowserRouter>
     <Routes>
@@ -24,6 +25,11 @@ const appRouter = () => (
         <Route
           path="medicine-list"
           element={<MedicineListPage />}
+          exact={true}
+        />
+        <Route
+          path="product-detail"
+          element={<ProductDetailPage />}
           exact={true}
         />
       </Route>

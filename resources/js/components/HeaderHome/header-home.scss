@@ -89,4 +89,9 @@
             }
         }
     }
+    @media screen and (max-width: 550px) {
+        .dropdown-toggle {
+          min-width: 100px !important;
+        }
+      }
 }

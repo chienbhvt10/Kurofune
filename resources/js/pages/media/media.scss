@@ -225,6 +225,11 @@
             }
         }
     }
+    @media screen and (max-width: 550px) {
+        .dropdown-toggle {
+          margin: 0px !important;
+        }
+      }
     @media screen and (max-width: 500px){
         .switch{
             flex-direction: column;
