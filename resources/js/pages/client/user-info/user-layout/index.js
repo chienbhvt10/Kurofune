@@ -1,8 +1,6 @@
-import { faBackward, faBackwardStep } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import iconBack from "../../../../../sass/image/icon-back.png";
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, NavLink, Outlet } from "react-router-dom";
 import "./style.scss";
 export const UserLayout = () => {
   return (
@@ -15,20 +13,33 @@ export const UserLayout = () => {
           </Link>
         </div>
         <div className="user-layout-tabs">
-          <ul class="nav nav-pills">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                ユーザー情報
-              </a>
+          <ul className="nav nav-pills">
+            <li className="nav-item">
+              <NavLink
+                to="/member/change-profile"
+                className="nav-link"
+              >
+                <span className="title-tab">ユーザー情報</span>
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                パスワード情報
-              </a>
+            <li className="nav-item">
+              <NavLink
+                to="/member/change-password"
+                className="nav-link"
+              >
+                <span className="title-tab">パスワード情報</span>
+              </NavLink>
             </li>
           </ul>
         </div>
-        <Outlet></Outlet>
+        <div className="container-content">
+          <Outlet></Outlet>
+        </div>
+        <footer className="footer">
+          <div className="container-fluid page-footer-content">
+            <div className="copy-right text-center">©KUROFUNE 2022</div>
+          </div>
+        </footer>
       </div>
     </div>
   );
