@@ -44,7 +44,12 @@ const appRouter = () => {
           />
           <Route
             path="medicine-list"
-            element={<OrderDetailPage />}
+            element={<MedicineListPage />}
+            exact={true}
+          />
+          <Route
+            path="product-detail"
+            element={<ProductDetailPage />}
             exact={true}
           />
           <Route
