@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import "./style.scss";
-import { Languages } from "../../../commons/Languges";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowCircleLeft,
   faEye,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
