@@ -18,6 +18,8 @@ import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import MediaPage from "../pages/client/media";
 import { useTranslation } from "react-i18next";
+import ShippingAddress from "../pages/client/shipping-address";
+import BillingAddress from "../pages/client/billing-address";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -104,6 +106,16 @@ const appRouter = () => {
           <Route
             path="order-detail"
             element={<OrderDetailPage />}
+            exact={true}
+          />
+          <Route
+            path="shipping-address"
+            element={<ShippingAddress />}
+            exact={true}
+          />
+          <Route
+            path="billing-address"
+            element={<BillingAddress />}
             exact={true}
           />
         </Route>
