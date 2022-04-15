@@ -25,16 +25,16 @@ export const Login = () => {
         生活支援ポータルサイト
       </h4>
       <form id="loginForm">
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="UserName">メールアドレス</label>
-          <input type="email" class="form-control-auth" id="UserName" />
+          <input type="email" className="form-control-auth" id="UserName" />
           <img
             className="icon-input"
             src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
             alt=""
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="Password">パスワード</label>
           <input
             type={show ? "password" : "text"}

@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import "./style.scss";
-import { Languages } from "../../../commons/Languges";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowCircleLeft,
   faEye,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -26,23 +24,23 @@ export const Register = () => {
       </div>
       <form id="registerForm">
         <div className="row">
-          <div class="form-group  col-sm-6">
+          <div className="form-group  col-sm-6">
             <label htmlFor="UserName">名</label>
-            <input type="email" class="form-control-auth" id="UserName" />
+            <input type="email" className="form-control-auth" id="UserName" />
           </div>
-          <div class="form-group  col-sm-6">
+          <div className="form-group  col-sm-6">
             <label htmlFor="UserName">姓</label>
-            <input type="email" class="form-control-auth" id="UserName" />
+            <input type="email" className="form-control-auth" id="UserName" />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="UserName">ユーザーネーム</label>
-            <input type="email" class="form-control-auth" id="UserName" />
+            <input type="email" className="form-control-auth" id="UserName" />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="UserName">メールアドレス</label>
-            <input type="email" class="form-control-auth" id="UserName" />
+            <input type="email" className="form-control-auth" id="UserName" />
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="Password">パスワード</label>
             <input
               type={showPass? "password" : "text"}
@@ -57,7 +55,7 @@ export const Register = () => {
               />
             </div>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="Password">パスワード確認</label>
             <input
               type={showConfirmPass ? "password" : "text"}
