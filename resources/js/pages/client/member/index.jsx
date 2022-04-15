@@ -1,8 +1,8 @@
 import React from "react";
-import { memberBoardItemData } from "../../commons/data";
+import { memberBoardItemData } from "../../../commons/data";
 import "./member.scss";
-import Board from "../../commons/Board";
-import PageHead from "../../commons/PageHead";
+import Board from "../../../commons/Board";
+import PageHead from "../../../commons/PageHead";
 
 const MemberPage = () => {
   return (

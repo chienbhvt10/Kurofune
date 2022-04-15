@@ -5,12 +5,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { mediaBoardItemData } from "../../commons/data";
-import Board from "../../commons/Board";
-import Footer from "../../components/footer";
-import PageHead from "../../commons/PageHead";
+import { mediaBoardItemData } from "../../../commons/data";
+import Board from "../../../commons/Board";
+import Footer from "../../../components/footer";
+import PageHead from "../../../commons/PageHead";
 import "./media.scss";
-import { Languages } from "../../commons/Languges";
+import { Languages } from "../../../commons/Languges";
 
 const MediaPage = () => {
   return (

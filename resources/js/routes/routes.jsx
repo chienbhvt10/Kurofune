@@ -6,12 +6,13 @@ import { Login } from "../pages/auth/login";
 import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
-import MediaPage from "../pages/media";
 import HomeLayout from "../commons/layout/HomeLayout";
-import MemberPage from "../pages/member";
-import PharmaciesPage from "../pages/list-of-pharmacies";
-import MedicineListPage from "../pages/medicine-list";
-import ProductDetailPage from "../pages/product-detail";
+import MediaPage from "../pages/client/media";
+import MemberPage from "../pages/client/member";
+import PharmaciesPage from "../pages/client/list-of-pharmacies";
+import MedicineListPage from "../pages/client/medicine-list";
+import ProductDetailPage from "../pages/client/product-detail";
+import OrderHistoryPage from "../pages/client/order-history";
 const appRouter = () => (
   <BrowserRouter>
     <Routes>
@@ -30,6 +31,11 @@ const appRouter = () => (
         <Route
           path="product-detail"
           element={<ProductDetailPage />}
+          exact={true}
+        />
+        <Route
+          path="order-history"
+          element={<OrderHistoryPage />}
           exact={true}
         />
       </Route>
