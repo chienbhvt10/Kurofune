@@ -5,7 +5,6 @@ import { Login } from "../pages/auth/login";
 import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
-import MediaPage from "../pages/media";
 import HomeLayout from "../commons/layout/HomeLayout";
 import MemberPage from "../pages/member";
 import PharmaciesPage from "../pages/list-of-pharmacies";
@@ -41,11 +40,24 @@ const appRouter = () => {
           element={<ProductDetailPage />}
           exact={true}
         />
+        <Route
+          path="order-history"
+          element={<OrderHistoryPage />}
+          exact={true}
+        />
       </Route>
       <Route path="/" element={<AuthLayout />} exact={true}>
         <Route path={`/${lang}/login`} element={<Login />} exact={true} />
         <Route path={`/${lang}/register`} element={<Register />} exact={true} />
         <Route path={`/${lang}/lost-password`} element={<LostPassword />} exact={true} />
+      </Route>
+      <Route path="member" element={<UserLayout />} exact={true}>
+        <Route
+          path="change-password"
+          element={<ChangePassword />}
+          exact={true}
+        />
+        <Route path="change-profile" element={<ChangeProfile />} exact={true} />
       </Route>
       <Route path="media" element={<MediaPage />} exact={true} />
       <Route path="*" element={<NotFound />} />
