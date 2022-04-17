@@ -41,11 +41,9 @@ const appRouter = () => {
       localStorage.setItem("lang", "");
     }
   } else {
-    console.log(222222222)
     localStorage.setItem("lang", "");
   }
   let lang = localStorage.getItem("lang");
-  // alert(langUrl)
   return (
     <BrowserRouter>
       <Routes>
