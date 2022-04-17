@@ -27,7 +27,15 @@ const appRouter = () => {
     langUrl === "en" ||
     langUrl === "zh"
   ) {
-    localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+    let checkUrl =  window.location.pathname.slice(0, 3);
+    if(checkUrl === "/vi" ||
+      checkUrl === "/tl" ||
+      checkUrl === "/en" ||
+      checkUrl === "/zh"){
+        localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+    }else{
+      localStorage.setItem("lang", "");
+    }
   } else {
     localStorage.setItem("lang", "");
   }
