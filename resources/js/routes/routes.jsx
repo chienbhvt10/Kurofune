@@ -25,21 +25,27 @@ const appRouter = () => {
     langUrl === "vi" ||
     langUrl === "tl" ||
     langUrl === "en" ||
-    langUrl === "zh"
+    langUrl === "zh" ||
+    langUrl === "ja"
   ) {
-    let checkUrl =  window.location.pathname.slice(0, 3);
-    if(checkUrl === "/vi" ||
-      checkUrl === "/tl" ||
-      checkUrl === "/en" ||
-      checkUrl === "/zh"){
+    let checkUrl =  window.location.pathname;
+    if(
+      checkUrl.indexOf("/vi/") !== -1  ||
+      checkUrl.indexOf("/tl/") !== -1 ||
+      checkUrl.indexOf("/en/") !== -1 ||
+      checkUrl.indexOf("/zh/") !== -1 ||
+      checkUrl.indexOf("/ja/") !== -1
+    ){
         localStorage.setItem("lang", window.location.pathname.slice(0, 3));
     }else{
       localStorage.setItem("lang", "");
     }
   } else {
+    console.log(222222222)
     localStorage.setItem("lang", "");
   }
   let lang = localStorage.getItem("lang");
+  // alert(langUrl)
   return (
     <BrowserRouter>
       <Routes>
