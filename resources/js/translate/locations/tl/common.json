@@ -11,5 +11,49 @@
     "languages": "Wika",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "register": {
+    "title": "Pangalan ng Organisasyon",
+    "description": "Mangyaring kumpletuhin ang paggawa ng iyong account.",
+    "field_first_name": "Pangalan",
+    "field_last_name": "Huling pangalan",
+    "field_user_name": "Username",
+    "field_email": "Email",
+    "field_password": "Password",
+    "field_confirm_password": "Kumpirmahin ang password",
+    "check_member_confirm": "Kumpirmahin ang password",
+    "check_vendor_register_confirm": "Maging vendor",
+    "btn_sign_up": "Mag-sign up",
+    "btn_redirect_login": "Mayroon nang account? Mag-sign in"
+  },
+  "home": "Trang chủ",
+  "member": {
+    "user_profile": {
+      "btn_save": "I-save",
+      "text_back": "Bumalik sa tuktok na pahina",
+      "tab_user_info": "User Information",
+      "tab_password": "Impormasyon ng password"
+    },
+    "change_password": {
+      "title": "change password",
+      "field_old_password": "Lumang password",
+      "field_new_password": "Bagong password ",
+      "field_confirm_password": "Kumpirmahin ang password"
+    },
+    "change_profile": {
+      "btn_search": "",
+      "title": "change profile",
+      "field_full_name": "Buong pangalan",
+      "field_postal": "Postal code/zip ",
+      "field_prefecture": "Prefecture",
+      "field_city": "Bayan / Lungsod",
+      "field_street": "Address ng kalye ",
+      "field_building": "Gusali",
+      "field_phone": "Telepono",
+      "field_email": "Email address"
+    }
+  },
+  "tab_address": {
+    "tab_ship": "Address ng pagpapadala",
+    "tab_bill": "Billing address"
+  }
 }

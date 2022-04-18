@@ -11,5 +11,49 @@
     "languages": "言語",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "register": {
+    "title": "組織名",
+    "description": "アカウントの作成を完了してください",
+    "field_first_name": "名",
+    "field_last_name": "姓",
+    "field_user_name": "ユーザーネーム",
+    "field_email": "メールアドレス",
+    "field_password": "パスワード",
+    "field_confirm_password": "パスワード確認",
+    "check_member_confirm": "パスワード確認",
+    "check_vendor_register_confirm": "ベンダーになる",
+    "btn_sign_up": "サインアップ",
+    "btn_redirect_login": "すでにアカウントをお持ちですか？ログイン"
+  },
+  "home": "Trang chủ",
+  "member": {
+    "user_profile": {
+      "btn_save": "変更を保存する",
+      "text_back": "総合トップページへ戻る",
+      "tab_user_info": "ユーザー情報",
+      "tab_password": "パスワード情報"
+    },
+    "change_password": {
+      "title": "Change Password",
+      "field_old_password": "旧パスワード",
+      "field_new_password": "新しいパスワード",
+      "field_confirm_password": "パスワード確認"
+    },
+    "change_profile": {
+      "btn_search": "住所検索",
+      "title": "Change Profile",
+      "field_full_name": "氏名 ",
+      "field_postal": "郵便番号",
+      "field_prefecture": "都道府県",
+      "field_city": "市区町村  ",
+      "field_street": "丁目・番地・号",
+      "field_building": " 建物名・部屋番号 ",
+      "field_phone": " 電話番号",
+      "field_email": "メールアドレス"
+    }
+  },
+  "tab_address": {
+    "tab_ship": "お届け先情報",
+    "tab_bill": "請求先情報"
+  }
 }

@@ -11,5 +11,49 @@
     "languages": "语言",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "register": {
+    "title": "机构名称",
+    "description": "请完成以创建您的帐户。",
+    "field_first_name": "名",
+    "field_last_name": "姓",
+    "field_user_name": "用户名",
+    "field_email": "电子邮件",
+    "field_password": "密码",
+    "field_confirm_password": "确认密码",
+    "check_member_confirm": "确认密码",
+    "check_vendor_register_confirm": "成为供应商",
+    "btn_sign_up": "注册",
+    "btn_redirect_login": "已有账号？登录"
+  },
+  "home": "Trang chủ",
+  "member": {
+    "user_profile": {
+      "btn_save": "保存",
+      "text_back": "返回一般首页",
+      "tab_user_info": "用户信息",
+      "tab_password": "密码信息"
+    },
+    "change_password": {
+      "title": "change password",
+      "field_old_password": "旧密码",
+      "field_new_password": "新密码",
+      "field_confirm_password": "确认密码"
+    },
+    "change_profile": {
+      "btn_search": "搜索",
+      "title": "change profile",
+      "field_full_name": "全名",
+      "field_postal": "邮政编码",
+      "field_prefecture": "州",
+      "field_city": "城镇/城市 ",
+      "field_street": "街道地址",
+      "field_building": "建造",
+      "field_phone": "电话",
+      "field_email": "电子邮件地址"
+    }
+  },
+  "tab_address": {
+    "tab_ship": "收件地址",
+    "tab_bill": "帐单地址"
+  }
 }
