@@ -15,7 +15,7 @@ const LostPassword = () => {
           </div>
           <div className="">
             <div className="form-group">
-              <label for="user_email" className="pd-left">
+              <label htmlFor="user_email" className="pd-left">
                 Email
               </label>
               <input

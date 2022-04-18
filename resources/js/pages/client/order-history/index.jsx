@@ -56,10 +56,10 @@ const OrderHistoryPage = () => {
                     ))}
                   </div>
                 </td>
-                <td class="action-order">
+                <td className="action-order">
                   <Link
                     to={item.orderDetailUrl}
-                    class="woocommerce-button button view"
+                    className="woocommerce-button button view"
                   >
                     詳細
                   </Link>{" "}
@@ -78,9 +78,9 @@ const OrderHistoryPage = () => {
             <li className="step step5">STEP⑤: 商品受け取り完了</li>
           </ul>
         </div>
-        <div class="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
+        <div className="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
           <Link
-            class="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button"
+            className="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button"
             to="/order-history"
           >
             次

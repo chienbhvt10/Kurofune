@@ -74,13 +74,13 @@ export const Register = () => {
         <div className="check-info">
           <div className="checkbox-remember">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label for="vehicle1"> パスワード確認</label>
+            <label htmlFor="vehicle1"> パスワード確認</label>
           </div>
         </div>
         <div className="check-info">
           <div className="checkbox-remember">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label for="vehicle1"> ベンダーになる</label>
+            <label htmlFor="vehicle1"> ベンダーになる</label>
           </div>
         </div>
         <button className="btn btn-primary d-block m-auto">
