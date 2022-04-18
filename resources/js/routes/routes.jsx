@@ -50,7 +50,7 @@ const appRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeLayout />} exact={true}>
-          <Route path="member" element={<MemberPage />} exact={true} />
+          <Route path={`/${lang}/member`} element={<MemberPage />} exact={true} />
           <Route
             path={`/${lang}/list-of-pharmacies`}
             element={<OrderHistoryPage />}
@@ -85,7 +85,7 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path="member" element={<UserLayout />} exact={true}>
+        <Route path={`/${lang}/member`} element={<UserLayout />} exact={true}>
           <Route
             path="change-password"
             element={<ChangePassword />}
@@ -97,7 +97,7 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path="member" element={<HomeLayout />} exact={true}>
+        <Route path={`/${lang}/member`} element={<HomeLayout />} exact={true}>
           <Route
             path="order-history"
             element={<OrderHistoryPage />}

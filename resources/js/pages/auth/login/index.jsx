@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./style.scss";
 import { Languages } from "../../../commons/Languges";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowCircleLeft,
   faEye,
   faEyeSlash,
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,16 +19,16 @@ export const Login = () => {
         {t('login.title')}
       </h4>
       <form id="loginForm">
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="UserName">{t('login.email')}</label>
-          <input type="email" class="form-control-auth" id="UserName" />
+          <input type="email" className="form-control-auth" id="UserName" />
           <img
             className="icon-input"
             src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
             alt=""
           />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label htmlFor="Password">{t('login.password')}</label>
           <input
             type={show ? "password" : "text"}
@@ -53,7 +52,7 @@ export const Login = () => {
         <div className="d-flex justify-content-between remember-block">
           <div className="checkbox-remember">
             <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike" />
-            <label for="vehicle1"> {t('login.remember')}</label>
+            <label htmlFor="vehicle1"> {t('login.remember')}</label>
           </div>
           <Link
             to="member/lostpassword"

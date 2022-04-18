@@ -11,5 +11,49 @@
     "languages": "Languages",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "register": {
+    "title": "Organization name",
+    "description": "Please complete to create your account.",
+    "field_first_name": "First name",
+    "field_last_name": "Last name",
+    "field_user_name": "Username",
+    "field_email": "Email",
+    "field_password": "Password",
+    "field_confirm_password": "Confirm password",
+    "check_member_confirm": "Confirm password",
+    "check_vendor_register_confirm": "Become a vendor",
+    "btn_sign_up": "Sign up",
+    "btn_redirect_login": "Already have an account? Sign in"
+  },
+  "home": "Trang chủ",
+  "member": {
+    "user_profile": {
+      "btn_save": "Save",
+      "text_back": "Return to the top page",
+      "tab_user_info": "User information",
+      "tab_password": "Password information"
+    },
+    "change_password": {
+      "title": "Change Password",
+      "field_old_password": "Old password",
+      "field_new_password": "New password",
+      "field_confirm_password": "Confirm password"
+    },
+    "change_profile": {
+      "btn_search": "Search",
+      "title": "Change Profile",
+      "field_full_name": "Full name",
+      "field_postal": "Postal code/zip",
+      "field_prefecture": "Prefecture",
+      "field_city": "Town / City ",
+      "field_street": " Street address",
+      "field_building": " Building ",
+      "field_phone": " Phone",
+      "field_email": "Email address "
+    }
+  },
+  "tab_address": {
+    "tab_ship": "Shipping address",
+    "tab_bill": "Billing address"
+  }
 }
