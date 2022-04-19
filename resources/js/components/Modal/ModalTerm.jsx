@@ -11,7 +11,7 @@ import {
   term7SubOrderListData,
   term9OrderListData,
 } from "../../commons/data";
-const ModalTerm = (props) => {
+const ModalTerm = ({ text }) => {
   return (
     <div id="modal-term" className="modal-custom">
       <a
@@ -21,7 +21,7 @@ const ModalTerm = (props) => {
         data-toggle="modal"
         data-target="#exampleModalLong"
       >
-        Điều khoản sử dụng
+        {text}
       </a>
       <div
         className="modal fade"
@@ -48,6 +48,9 @@ const ModalTerm = (props) => {
             </div>
             <div className="modal-body">
               <div className="modal-content-wrap">
+                <p>
+                  <strong>オンライン薬局サービス利用規約</strong>
+                </p>
                 <p>
                   <span style={{ fontWeight: 400 }}>
                     この利用規約（以下，「本規約」といいます。）は，一般社団法人在日外国人就業者支援協会（以下，「当社」といいます。）がこのウェブサイト上で提供する生活支援サービスポータルサイト（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
