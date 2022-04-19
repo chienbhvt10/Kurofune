@@ -20,6 +20,8 @@ import { useTranslation } from "react-i18next";
 import ShippingAddress from "../pages/client/shipping-address";
 import BillingAddress from "../pages/client/billing-address";
 import { Questionnaire } from "../pages/client/questionnaire";
+import Cart from "../pages/client/cart";
+import CheckoutPage from "../pages/client/checkout";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -30,16 +32,16 @@ const appRouter = () => {
     langUrl === "zh" ||
     langUrl === "ja"
   ) {
-    let checkUrl =  window.location.pathname;
-    if(
-      checkUrl.indexOf("/vi/") !== -1  ||
+    let checkUrl = window.location.pathname;
+    if (
+      checkUrl.indexOf("/vi/") !== -1 ||
       checkUrl.indexOf("/tl/") !== -1 ||
       checkUrl.indexOf("/en/") !== -1 ||
       checkUrl.indexOf("/zh/") !== -1 ||
       checkUrl.indexOf("/ja/") !== -1
-    ){
-        localStorage.setItem("lang", window.location.pathname.slice(0, 3));
-    }else{
+    ) {
+      localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+    } else {
       localStorage.setItem("lang", "");
     }
   } else {
@@ -71,6 +73,8 @@ const appRouter = () => {
             element={<PharmaciesPage />}
             exact={true}
           />
+          <Route path="cart" element={<Cart />} exact={true}></Route>
+          <Route path="checkout" element={<CheckoutPage />} exact={true} />
         </Route>
         <Route path="/" element={<AuthLayout />} exact={true}>
           <Route path={`/${lang}/login`} element={<Login />} exact={true} />

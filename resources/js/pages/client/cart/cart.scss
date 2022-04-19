@@ -1,0 +1,297 @@
+#cart {
+  font-size: 13px;
+  color: #515151;
+  font-weight: 400;
+  background-color: white;
+  border-radius: 3px;
+  line-height: 1.5;
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+  a {
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  .d-none {
+    display: none !important;
+  }
+  .table {
+    width: 100%;
+    margin-bottom: 16px;
+    color: #212529;
+  }
+  .card-container {
+    padding: 20px;
+    margin: 0 0 24px;
+    .woocommerce-error,
+    .woocommerce-info,
+    .woocommerce-message {
+      padding: 1em 2em 1em 3.5em;
+      margin: 0 0 2em;
+      position: relative;
+      background-color: #f7f6f7;
+      color: #515151;
+      border-top: 3px solid #a46497;
+      list-style: none outside;
+      width: auto;
+      word-wrap: break-word;
+      i {
+        padding-right: 20px;
+        color: #62a19b;
+      }
+      &::after {
+        clear: both;
+        content: " ";
+        display: table;
+      }
+    }
+    .cart-empty {
+      padding-left: 20px;
+      border-top-color: #62a19b;
+    }
+    .woocommerce a.button,
+    .woocommerce button.button,
+    .woocommerce input.button {
+      font-size: 100%;
+      margin: 0;
+      line-height: 1;
+      cursor: pointer;
+      position: relative;
+      text-decoration: none;
+      overflow: visible;
+      padding: 0.618em 1em;
+      font-weight: 700;
+      border-radius: 3px;
+      left: auto;
+      color: #515151;
+      background-color: #ebe9eb;
+      border: 0;
+      display: inline-block;
+      background-image: none;
+      box-shadow: none;
+      text-shadow: none;
+
+      &:hover {
+        background-color: #dfdcde;
+        text-decoration: none;
+        background-image: none;
+        color: #515151;
+      }
+    }
+  }
+  .cart-custom {
+    padding: 30px;
+    background-color: #fff;
+    position: relative;
+    #cart-form {
+      .btn {
+        margin-top: 0;
+      }
+      .btn-remove-product {
+        min-width: 56px;
+        width: auto;
+        font-size: 13px;
+        padding: 8px 10px;
+        line-height: 13px;
+        height: auto;
+      }
+      .cart-header {
+        text-align: center;
+        margin-bottom: 25px;
+        position: relative;
+        .btn-update {
+          position: absolute;
+          top: 0;
+          right: 0;
+          min-width: 254px;
+          height: 42px;
+          width: auto;
+        }
+        .btn:not(:disabled):not(.disabled) {
+          cursor: pointer;
+        }
+        h1 {
+          color: #62a19b;
+          font-size: 20px;
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+          position: relative;
+          &:after {
+            position: absolute;
+            width: 100%;
+            max-width: 300px;
+            height: 1px;
+            background-color: #ccc;
+            content: "";
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        .description {
+          font-size: 16px;
+          .btn {
+            min-width: 254px;
+            height: 42px;
+          }
+        }
+      }
+      .table-wrapper {
+        display: block;
+        overflow: auto;
+      }
+      & .table {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        & > :not(:first-child) {
+          border-top: none;
+        }
+        th {
+          padding: 12px;
+        }
+        td {
+          padding: 12px;
+        }
+        .product-name {
+          a {
+            display: flex;
+            align-items: center;
+            color: #62a19b;
+          }
+          .image-wrap {
+            width: 130px;
+            img {
+              width: 32px;
+              height: auto;
+            }
+          }
+        }
+        .product-quantity {
+          width: 120px;
+          .input-quantity {
+            width: 70px;
+          }
+          input[type="number"] {
+            padding-left: 5px;
+          }
+        }
+        .product-remove {
+          width: 100px;
+        }
+        &.table-bordered {
+          border: 1px solid #dee2e6;
+          & th,
+          & td {
+            border: 1px solid #dee2e6;
+          }
+        }
+        thead {
+          background-color: #62a19b;
+          color: #fff;
+          th {
+            border: none;
+          }
+        }
+        tbody {
+          td {
+            vertical-align: middle;
+          }
+        }
+      }
+    }
+    .cart-footer {
+      .button-group {
+        display: flex;
+        justify-content: space-between;
+        .btn {
+          width: auto;
+          margin-top: 0;
+          &.btn-primary {
+            width: 182px;
+            height: 42px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            background: #62a19b;
+            border: 1px solid #62a19b;
+          }
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 767.98px) {
+    .cart-custom {
+      .cart-header {
+        .btn-update {
+          position: unset !important;
+          margin-top: 10px !important;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 575.98px) {
+    .cart-header {
+      .btn-update {
+        min-width: auto;
+        font-size: 12px;
+        width: 100% !important;
+      }
+    }
+    .cart-footer {
+      margin-top: 10px;
+      .button-group {
+        flex-flow: column;
+        .btn {
+          width: 100% !important;
+          font-size: 12px !important;
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 414.98px) {
+    .cart-custom {
+      padding: 15px !important;
+    }
+    .table-wrapper {
+      overflow: unset !important;
+    }
+    .cart-body {
+      .table {
+        &.table-bordered {
+          border: none !important;
+        }
+        thead {
+          display: none;
+        }
+        tbody td {
+          vertical-align: middle;
+        }
+        tr {
+          margin-bottom: 15px;
+          display: block;
+          width: 100%;
+          td {
+            text-align: right;
+            position: relative;
+          }
+        }
+        td {
+          display: block;
+          width: 100% !important;
+        }
+        td::before {
+          content: attr(data-lable);
+          position: absolute;
+          left: 0;
+          padding-left: 15px;
+          color: #62a19b;
+          font-size: 13px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
