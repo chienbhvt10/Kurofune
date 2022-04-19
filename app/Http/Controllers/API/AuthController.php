@@ -7,29 +7,39 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
     public function login(Request $request) {
         try {
-            $request->validate([
+            $validator = Validator::make($request->all(), [
                 'email' => 'email|required',
                 'password' => 'required'
             ]);
-
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                return response()->json([
+                    'status_code' => 422,
+                    'message' => $errors
+                ], 422);
+            }
             $credentials = request(['email', 'password']);
 
             if (!Auth::attempt($credentials)) {
                 return response()->json([
-                    'status_code' => 500,
-                    'message' => 'Unauthorized'
-                ]);
+                    'status_code' => 401,
+                    'message' =>  __('auth.failed'),
+                ], 401);
             }
 
             $user = User::where('email', $request->email)->first();
 
             if (!Hash::check($request->password, $user->password, [])) {
-                throw new \Exception('Error in Login');
+                return response([
+                    'status_code' => 401,
+                    'message' => __('auth.password')
+                ],401);
             }
 
             $tokenResult = $user->createToken('authToken')->plainTextToken;
@@ -39,22 +49,21 @@ class AuthController extends Controller
                 'access_token' => $tokenResult,
                 'token_type' => 'Bearer',
             ]);
-        } catch (\Exception $error) {
+        }catch (\Exception $error){
             return response()->json([
                 'status_code' => 500,
-                'message' => 'Error in Login',
-                'error' => $error,
-            ]);
+                'message' => $error->getMessage()
+            ], 500);
         }
+
     }
 
     public function logout(Request $request) {
         $request->user()->tokens()->delete();
-        return response()->json(
-            [
+        return response()->json([
+                'status' => 200,
                 'message' => __('Logged out')
-            ]
-        );
+            ]);
     }
 
     public function register(Request $request) {
