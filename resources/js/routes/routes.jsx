@@ -20,6 +20,7 @@ import MediaPage from "../pages/client/media";
 import { useTranslation } from "react-i18next";
 import ShippingAddress from "../pages/client/shipping-address";
 import BillingAddress from "../pages/client/billing-address";
+import { Questionnaire } from "../pages/client/questionnaire";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -118,6 +119,11 @@ const appRouter = () => {
             element={<BillingAddress />}
             exact={true}
           />
+          {/* <Route
+            path="questionnaire"
+            element={<Questionnaire />}
+            exact={true}
+          /> */}
         </Route>
         <Route path="media" element={<MediaPage />} exact={true} />
         <Route path="*" element={<NotFound />} />
