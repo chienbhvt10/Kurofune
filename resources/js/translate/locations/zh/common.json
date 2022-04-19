@@ -55,5 +55,11 @@
   "tab_address": {
     "tab_ship": "收件地址",
     "tab_bill": "帐单地址"
+  },
+  "questionnaire": {
+    "placeholder": "输入药物名称",
+    "btn_search": "提交",
+    "title_number_results": "搜索结果s:",
+    "description_number": "总共有"
   }
 }

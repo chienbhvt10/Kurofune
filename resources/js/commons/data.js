@@ -419,7 +419,7 @@ export const navigateLinkData = [
     imageUrl: "/images/sidebar/Settings.png",
     title: "Thông tin đăng kí",
   },
-  { link: "media", imageUrl: "/images/sidebar/home.png", title: "Trang chủ" },
+  { link: "/media", imageUrl: "/images/sidebar/home.png", title: "Trang chủ" },
 ];
 
 export const historyData = [

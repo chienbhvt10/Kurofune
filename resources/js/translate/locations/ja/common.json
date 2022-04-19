@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "一般社団法人在日外国人就業者支援協会生活支援ポータルサイト",
+    "title": "一般社団法人在日外国人就業者支援協会<br>生活支援ポータルサイト",
     "email": "メールアドレス",
     "password": "パスワード",
     "remember": "保存する",
@@ -55,5 +55,11 @@
   "tab_address": {
     "tab_ship": "お届け先情報",
     "tab_bill": "請求先情報"
+  },
+  "questionnaire": {
+    "placeholder": "薬剤名入力",
+    "btn_search": "検索する",
+    "title_number_results": "検索結果:",
+    "description_number": "件"
   }
 }

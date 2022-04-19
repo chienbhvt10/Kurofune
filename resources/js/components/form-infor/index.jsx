@@ -5,7 +5,7 @@ export const FormInfor = () => {
   const { i18n, t } = useTranslation();
   return (
     <>
-      <form>
+      <form id="form-infor">
         <div className="row">
           <div className="form-group">
             <label htmlFor="fullName">{t('member.change_profile.field_full_name')} *</label>

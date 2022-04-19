@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "title": "Association for Supporting Foreign Workers in Japan<br> Life Support Portal Site",
     "email": "Email",
     "password": "Password",
     "remember": "Remember",
@@ -55,5 +55,11 @@
   "tab_address": {
     "tab_ship": "Shipping address",
     "tab_bill": "Billing address"
+  },
+  "questionnaire": {
+    "placeholder": "Enter drug name",
+    "btn_search": "Submit",
+    "title_number_results": "Search results:",
+    "description_number": " cases in total"
   }
 }

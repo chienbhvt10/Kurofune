@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "title": "Association for Supporting Foreign Workers in Japan <br> Life Support Portal Site",
     "email": "Email",
     "password": "password",
     "remember": "Tandaan",
@@ -40,7 +40,7 @@
       "field_confirm_password": "Kumpirmahin ang password"
     },
     "change_profile": {
-      "btn_search": "",
+      "btn_search": "Maghanap",
       "title": "change profile",
       "field_full_name": "Buong pangalan",
       "field_postal": "Postal code/zip ",
@@ -55,5 +55,11 @@
   "tab_address": {
     "tab_ship": "Address ng pagpapadala",
     "tab_bill": "Billing address"
+  },
+  "questionnaire": {
+    "placeholder": "Ilagay ang pangalan ng gamot",
+    "btn_search": "Ipasa",
+    "title_number_results":"Mga resulta ng paghahanap:",
+    "description_number": " kaso sa kabuuan"
   }
 }

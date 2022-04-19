@@ -119,11 +119,11 @@ const appRouter = () => {
             element={<BillingAddress />}
             exact={true}
           />
-          {/* <Route
+          <Route
             path="questionnaire"
             element={<Questionnaire />}
             exact={true}
-          /> */}
+          />
         </Route>
         <Route path="media" element={<MediaPage />} exact={true} />
         <Route path="*" element={<NotFound />} />
