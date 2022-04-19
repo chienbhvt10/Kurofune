@@ -24,21 +24,21 @@ class AuthController extends Controller
                     'message' => $errors
                 ], 422);
             }
-            $credentials = request(['email', 'password']);
-
-            if (!Auth::attempt($credentials)) {
-                return response()->json([
-                    'status_code' => 401,
-                    'message' =>  __('auth.failed'),
-                ], 401);
-            }
+//            $credentials = request(['email', 'password']);
+//
+//            if (!Auth::attempt($credentials)) {
+//                return response()->json([
+//                    'status_code' => 401,
+//                    'message' =>  __('auth.failed'),
+//                ], 401);
+//            }
 
             $user = User::where('email', $request->email)->first();
 
-            if (!Hash::check($request->password, $user->password, [])) {
+            if (!$user || !Hash::check($request->password, $user->password)) {
                 return response([
                     'status_code' => 401,
-                    'message' => __('auth.password')
+                    'message' => __('auth.failed')
                 ],401);
             }
 
