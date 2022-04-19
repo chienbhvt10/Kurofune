@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "title": "Association for Supporting Foreign Workers in Japan<br> Life Support Portal Site",
     "email": "Email",
     "password": "Password",
     "remember": "Remember",
@@ -11,22 +11,17 @@
     "languages": "Languages",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "Organization name",
-    "description": "Please complete to create your account.",
-    "field_first_name": "First name",
-    "field_last_name": "Last name",
-    "field_user_name": "Username",
-    "field_email": "Email",
-    "field_password": "Password",
-    "field_confirm_password": "Confirm password",
-    "check_member_confirm": "Confirm password",
-    "check_vendor_register_confirm": "Become a vendor",
-    "btn_sign_up": "Sign up",
-    "btn_redirect_login": "Already have an account? Sign in"
-  },
+
   "home": "Trang chủ",
   "member": {
+    "dashboard": {
+      "questionnaire": "Questionnaire",
+      "pharmacy": "Pharmacy information",
+      "drug": "Drug information",
+      "order_history": "Order history",
+      "order_list": "Order list",
+      "registration_info": "Registration information"
+    },
     "user_profile": {
       "btn_save": "Save",
       "text_back": "Return to the top page",
@@ -55,5 +50,22 @@
   "tab_address": {
     "tab_ship": "Shipping address",
     "tab_bill": "Billing address"
+  },
+  "questionnaire": {
+    "placeholder": "Enter drug name",
+    "btn_search": "Submit",
+    "title_number_results": "Search results:",
+    "description_number": " cases in total"
+  },
+  "media": {
+    "title": "Association for Supporting Foreign Workers in Japan<br>Life Support Portal Site",
+    "card_pharmacy": "Online pharmacy",
+    "card_consultation": "24-hour consultation service",
+    "card_remittance": "Overseas remittance",
+    "card_e_leaning": "e-learning",
+    "card_insurance": "Income Compensation Insurance",
+    "card_wabisabi": "WABISABI-MEDIA",
+    "btn_user_info": "User information",
+    "btn_logout": "Logout"
   }
 }

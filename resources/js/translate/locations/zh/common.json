@@ -11,22 +11,17 @@
     "languages": "语言",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "机构名称",
-    "description": "请完成以创建您的帐户。",
-    "field_first_name": "名",
-    "field_last_name": "姓",
-    "field_user_name": "用户名",
-    "field_email": "电子邮件",
-    "field_password": "密码",
-    "field_confirm_password": "确认密码",
-    "check_member_confirm": "确认密码",
-    "check_vendor_register_confirm": "成为供应商",
-    "btn_sign_up": "注册",
-    "btn_redirect_login": "已有账号？登录"
-  },
+
   "home": "Trang chủ",
   "member": {
+    "dashboard": {
+      "questionnaire": "问卷",
+      "pharmacy": "药房名单",
+      "drug": "药品清单",
+      "order_history": "订单历史",
+      "order_list": "订单",
+      "registration_info": "注册信息"
+    },
     "user_profile": {
       "btn_save": "保存",
       "text_back": "返回一般首页",
@@ -55,5 +50,22 @@
   "tab_address": {
     "tab_ship": "收件地址",
     "tab_bill": "帐单地址"
+  },
+  "questionnaire": {
+    "placeholder": "输入药物名称",
+    "btn_search": "提交",
+    "title_number_results": "搜索结果s:",
+    "description_number": "总共有"
+  },
+  "media": {
+    "title": "日本综合社团法人外国人劳动者支援协会生活支援门户网站",
+    "card_pharmacy": "网上药店",
+    "card_consultation": "24小时咨询服务",
+    "card_remittance": "侨汇",
+    "card_e_leaning": "电子学习",
+    "card_insurance": "收入保障保险",
+    "card_wabisabi": "WABISABI-MEDIA",
+    "btn_user_info": "用户信息",
+    "btn_logout": "登出 "
   }
 }

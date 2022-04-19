@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
-import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
 import HomeLayout from "../commons/layout/HomeLayout";
@@ -20,6 +19,7 @@ import MediaPage from "../pages/client/media";
 import { useTranslation } from "react-i18next";
 import ShippingAddress from "../pages/client/shipping-address";
 import BillingAddress from "../pages/client/billing-address";
+import { Questionnaire } from "../pages/client/questionnaire";
 import Cart from "../pages/client/cart";
 import CheckoutPage from "../pages/client/checkout";
 const appRouter = () => {
@@ -79,11 +79,6 @@ const appRouter = () => {
         <Route path="/" element={<AuthLayout />} exact={true}>
           <Route path={`/${lang}/login`} element={<Login />} exact={true} />
           <Route
-            path={`/${lang}/register`}
-            element={<Register />}
-            exact={true}
-          />
-          <Route
             path={`/${lang}/lost-password`}
             element={<LostPassword />}
             exact={true}
@@ -122,8 +117,13 @@ const appRouter = () => {
             element={<BillingAddress />}
             exact={true}
           />
+          <Route
+            path="questionnaire"
+            element={<Questionnaire />}
+            exact={true}
+          />
         </Route>
-        <Route path="media" element={<MediaPage />} exact={true} />
+        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <LangAfterReload />

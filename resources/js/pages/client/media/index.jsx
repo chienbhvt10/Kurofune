@@ -11,23 +11,24 @@ import Footer from "../../../components/footer";
 import PageHead from "../../../commons/PageHead";
 import "./media.scss";
 import { Languages } from "../../../commons/Languges";
+import { useTranslation } from "react-i18next";
 
 const MediaPage = () => {
+  const { i18n, t } = useTranslation();
+  function createMarkup() {
+    return { __html: t("login.title") };
+  }
   return (
     <>
-      <PageHead
-        content="HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ"
-        title="HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ"
-      />
+      <PageHead content={t("login.title")} title={t("login.title")} />
       <div id="media-page">
         <div className="content">
           <div className="page-header-content">
             <div className="box-text">
-              <h4 className="heading">
-                HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN
-                <br />
-                CỔNG HỖ TRỢ{" "}
-              </h4>
+              <h4
+                className="heading"
+                dangerouslySetInnerHTML={createMarkup()}
+              />
             </div>
           </div>
           <div className="service_dashboard">
@@ -46,7 +47,7 @@ const MediaPage = () => {
                       icon={faUserGear}
                       size="md"
                     />
-                    <span>Thông tin người dùng </span>
+                    <span>{t("media.btn_user_info")} </span>
                   </a>
                 </div>
                 <div className="logout-wrap pc">
@@ -54,7 +55,7 @@ const MediaPage = () => {
                     href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=bb23afb59e"
                     title="Thoát"
                   >
-                    Thoát{" "}
+                    {t("media.btn_logout")}
                     <FontAwesomeIcon
                       className="icon"
                       icon={faSignOutAlt}
@@ -70,7 +71,7 @@ const MediaPage = () => {
                   href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=bb23afb59e"
                   title="Thoát"
                 >
-                  Thoát{" "}
+                  {t("media.btn_logout")}
                   <FontAwesomeIcon
                     className="icon"
                     icon={faSignOutAlt}
@@ -81,8 +82,8 @@ const MediaPage = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
     </>
   );
 };
