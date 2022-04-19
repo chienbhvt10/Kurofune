@@ -1,0 +1,86 @@
+
+.modal-custom{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    line-height: 1.5;
+    /* width */
+    ::-webkit-scrollbar {
+    width: 6px;
+    }
+    
+    /* Track */
+    ::-webkit-scrollbar-track {
+    background: #E2E2E2; 
+    }
+    
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+    background: #62A19B; 
+    }
+    
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+    background: #62A19B; 
+    }
+    .modal-content{
+        .modal-header{
+            .modal-title{
+                margin-bottom: 0;
+                line-height: 1.5;
+                font-size: 20px;
+                color: #515151;
+            }
+        }
+        .modal-body{
+            .modal-content-wrap {
+                max-height: 400px;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+                width: 100%;
+                p {
+                    -webkit-box-orient: vertical;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    margin: 0 0 10px;
+                    font-size: 13px;
+                    color: #515151;
+                }
+                span{
+                    color: #515151;
+
+                }
+                ul{
+                    margin: 0 0 10px;
+                    padding-left: 25px;
+                    li{
+                        color: #515151;
+                    }
+                }
+                ol {
+                    margin: 0 0 10px;
+                    list-style: decimal;
+                    padding-left: 25px;
+                }
+                li{
+                    font-size: 13px;
+                }
+            }
+
+        }
+        .modal-footer{
+            display: flex;
+            justify-content: center;
+            & > * {
+                margin: 4px;
+            }
+            .btn-secondary{
+                width: 182px;
+                height: 42px;
+                font-size: 16px;
+                font-weight: bold;
+                text-transform: uppercase;
+                background: #62A19B;
+                border: 1px solid #62A19B;
+            }
+        }
+    }
+}

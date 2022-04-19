@@ -18,6 +18,10 @@ import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import MediaPage from "../pages/client/media";
 import { useTranslation } from "react-i18next";
+import ShippingAddress from "../pages/client/shipping-address";
+import BillingAddress from "../pages/client/billing-address";
+import Cart from "../pages/client/cart";
+import CheckoutPage from "../pages/client/checkout";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -25,9 +29,21 @@ const appRouter = () => {
     langUrl === "vi" ||
     langUrl === "tl" ||
     langUrl === "en" ||
-    langUrl === "zh"
+    langUrl === "zh" ||
+    langUrl === "ja"
   ) {
-    localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+    let checkUrl = window.location.pathname;
+    if (
+      checkUrl.indexOf("/vi/") !== -1 ||
+      checkUrl.indexOf("/tl/") !== -1 ||
+      checkUrl.indexOf("/en/") !== -1 ||
+      checkUrl.indexOf("/zh/") !== -1 ||
+      checkUrl.indexOf("/ja/") !== -1
+    ) {
+      localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+    } else {
+      localStorage.setItem("lang", "");
+    }
   } else {
     localStorage.setItem("lang", "");
   }
@@ -36,31 +52,10 @@ const appRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeLayout />} exact={true}>
-          <Route path="member" element={<UserLayout />} exact={true}>
-            <Route
-              path="change-password"
-              element={<ChangePassword />}
-              exact={true}
-            />
-            <Route
-              path="change-profile"
-              element={<ChangeProfile />}
-              exact={true}
-            />
-          </Route>
+          <Route path={`/${lang}/member`} element={<MemberPage />} exact={true} />
           <Route
             path={`/${lang}/list-of-pharmacies`}
             element={<OrderHistoryPage />}
-            exact={true}
-          />
-          <Route
-            path="member/order-detail"
-            element={<OrderDetailPage />}
-            exact={true}
-          />
-          <Route
-            path="list-of-pharmacies"
-            element={<PharmaciesPage />}
             exact={true}
           />
           <Route
@@ -73,6 +68,13 @@ const appRouter = () => {
             element={<ProductDetailPage />}
             exact={true}
           />
+          <Route
+            path="list-of-pharmacies"
+            element={<PharmaciesPage />}
+            exact={true}
+          />
+          <Route path="cart" element={<Cart />} exact={true}></Route>
+          <Route path="checkout" element={<CheckoutPage />} exact={true} />
         </Route>
         <Route path="/" element={<AuthLayout />} exact={true}>
           <Route path={`/${lang}/login`} element={<Login />} exact={true} />
@@ -87,7 +89,7 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path="member" element={<UserLayout />} exact={true}>
+        <Route path={`/${lang}/member`} element={<UserLayout />} exact={true}>
           <Route
             path="change-password"
             element={<ChangePassword />}
@@ -96,6 +98,28 @@ const appRouter = () => {
           <Route
             path="change-profile"
             element={<ChangeProfile />}
+            exact={true}
+          />
+        </Route>
+        <Route path={`/${lang}/member`} element={<HomeLayout />} exact={true}>
+          <Route
+            path="order-history"
+            element={<OrderHistoryPage />}
+            exact={true}
+          />
+          <Route
+            path="order-detail"
+            element={<OrderDetailPage />}
+            exact={true}
+          />
+          <Route
+            path="shipping-address"
+            element={<ShippingAddress />}
+            exact={true}
+          />
+          <Route
+            path="billing-address"
+            element={<BillingAddress />}
             exact={true}
           />
         </Route>
