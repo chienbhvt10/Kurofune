@@ -11,22 +11,17 @@
     "languages": "Wika",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "Pangalan ng Organisasyon",
-    "description": "Mangyaring kumpletuhin ang paggawa ng iyong account.",
-    "field_first_name": "Pangalan",
-    "field_last_name": "Huling pangalan",
-    "field_user_name": "Username",
-    "field_email": "Email",
-    "field_password": "Password",
-    "field_confirm_password": "Kumpirmahin ang password",
-    "check_member_confirm": "Kumpirmahin ang password",
-    "check_vendor_register_confirm": "Maging vendor",
-    "btn_sign_up": "Mag-sign up",
-    "btn_redirect_login": "Mayroon nang account? Mag-sign in"
-  },
+
   "home": "Trang chủ",
   "member": {
+    "dashboard": {
+      "questionnaire": "Bumili ng gamot gamit ang chatbot",
+      "pharmacy": "Impormasyon sa Pharmacy",
+      "drug": "Impormasyon ng mga gamot",
+      "order_history": "History ng order",
+      "order_list": "Listahan ng order",
+      "registration_info": "Impormasyon ng pagrehistro"
+    },
     "user_profile": {
       "btn_save": "I-save",
       "text_back": "Bumalik sa tuktok na pahina",
@@ -61,5 +56,16 @@
     "btn_search": "Ipasa",
     "title_number_results":"Mga resulta ng paghahanap:",
     "description_number": " kaso sa kabuuan"
+  },
+  "media": {
+    "title": "Association for Supporting Foreign Workers in Japan<br>Life Support Portal Site",
+    "card_pharmacy": "Online pharmacy",
+    "card_consultation": "24 na oras na serbisyo sa konsultasyon",
+    "card_remittance": "Magpadala ng pera",
+    "card_e_leaning": "e-learning",
+    "card_insurance": "Income Compensation Insurance",
+    "card_wabisabi": "WABISABI-MEDIA",
+    "btn_user_info": "User Information",
+    "btn_logout": "Mag-logout"
   }
 }

@@ -11,22 +11,17 @@
     "languages": "言語",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "組織名",
-    "description": "アカウントの作成を完了してください",
-    "field_first_name": "名",
-    "field_last_name": "姓",
-    "field_user_name": "ユーザーネーム",
-    "field_email": "メールアドレス",
-    "field_password": "パスワード",
-    "field_confirm_password": "パスワード確認",
-    "check_member_confirm": "パスワード確認",
-    "check_vendor_register_confirm": "ベンダーになる",
-    "btn_sign_up": "サインアップ",
-    "btn_redirect_login": "すでにアカウントをお持ちですか？ログイン"
-  },
+
   "home": "Trang chủ",
   "member": {
+    "dashboard": {
+      "questionnaire": "問診票",
+      "pharmacy": "薬局情報",
+      "drug": "薬剤情報",
+      "order_history": "注文履歴",
+      "order_list": "買い物かご",
+      "registration_info": "登録情報"
+    },
     "user_profile": {
       "btn_save": "変更を保存する",
       "text_back": "総合トップページへ戻る",
@@ -61,5 +56,16 @@
     "btn_search": "検索する",
     "title_number_results": "検索結果:",
     "description_number": "件"
+  },
+  "media": {
+    "title": "一般社団法人在日外国人就業者支援協会<br>生活支援ポータルサイト",
+    "card_pharmacy": "オンライン薬局",
+    "card_consultation": "24時間サービス",
+    "card_remittance": "海外送金",
+    "card_e_leaning": "eラーニング",
+    "card_insurance": "所得補償保険",
+    "card_wabisabi": "WABISABI-MEDIA",
+    "btn_user_info": "ユーザー情報",
+    "btn_logout": "ログアウト"
   }
 }

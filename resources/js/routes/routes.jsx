@@ -2,7 +2,6 @@ import React from "react";
 import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
-import { Register } from "../pages/auth/register";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
 import HomeLayout from "../commons/layout/HomeLayout";
@@ -76,11 +75,6 @@ const appRouter = () => {
         <Route path="/" element={<AuthLayout />} exact={true}>
           <Route path={`/${lang}/login`} element={<Login />} exact={true} />
           <Route
-            path={`/${lang}/register`}
-            element={<Register />}
-            exact={true}
-          />
-          <Route
             path={`/${lang}/lost-password`}
             element={<LostPassword />}
             exact={true}
@@ -125,7 +119,7 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path="media" element={<MediaPage />} exact={true} />
+        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <LangAfterReload />

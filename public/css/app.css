@@ -11406,15 +11406,15 @@ video {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #E2E2E2;
+  background: #e2e2e2;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #62A19B;
+  background: #62a19b;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #62A19B;
+  background: #62a19b;
 }

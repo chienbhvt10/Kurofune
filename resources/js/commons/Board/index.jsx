@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./board.scss";
 const Board = ({ boardItems }) => {
+  const {i18n,t} = useTranslation()
   return (
     <div className="board-container">
       {boardItems.map((item, index) => (
@@ -20,7 +22,7 @@ const Board = ({ boardItems }) => {
                 <img src={item.imageUrl} alt="" />
               </div>
               <div className="desc">
-                <h3 className="tit">{item.title}</h3>
+                <h3 className="tit">{t(item.title)}</h3>
               </div>
             </a>
           ) : (
@@ -29,7 +31,7 @@ const Board = ({ boardItems }) => {
                 <img src={item.imageUrl} alt="" />
               </div>
               <div className="desc">
-                <h3 className="tit">{item.title}</h3>
+                <h3 className="tit">{t(item.title)}</h3>
               </div>
             </Link>
           )}
