@@ -20,7 +20,8 @@
     "btn_logout": "ログアウト",
     "btn_view_cart": "買い物かごを表示",
     "btn_buy":"購入手続きへ",
-    "cart_empty": "购物车中没有任何信息。"
+    "cart_empty": "购物车中没有任何信息。",
+    "cart_title": "カートを見る"
   },
   "navigate_link": {
     "title": "オンライン薬局",

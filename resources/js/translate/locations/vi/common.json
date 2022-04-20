@@ -20,7 +20,8 @@
     "btn_logout": "Thoát",
     "btn_view_cart": "XEM GIỎ HÀNG",
     "btn_buy":"MUA",
-    "cart_empty": "Không có thông tin trong giỏ hàng."
+    "cart_empty": "Không có thông tin trong giỏ hàng.",
+    "cart_title": "Xem giỏ hàng của bạn "
   },
   "navigate_link": {
     "title": "Hiệu thuốc Online",

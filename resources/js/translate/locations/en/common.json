@@ -20,7 +20,8 @@
     "btn_logout": "Logout",
     "btn_view_cart": "VIEW CART",
     "btn_buy":"CHECKOUT",
-    "cart_empty": "There is no information in the shopping cart."
+    "cart_empty": "There is no information in the shopping cart.",
+    "cart_title": "View your shopping cart"
   },
   "navigate_link": {
     "title": "Online pharmacy",

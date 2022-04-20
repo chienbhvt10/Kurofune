@@ -20,7 +20,8 @@
     "btn_logout":"登出",
     "btn_view_cart": "查看购物车",
     "btn_buy":"购买程序",
-    "cart_empty": "Walang impormasyon sa shopping cart."
+    "cart_empty": "Walang impormasyon sa shopping cart.",
+    "cart_title": "查看您的购物车"
   },
   "navigate_link": {
     "title": "网上药店",

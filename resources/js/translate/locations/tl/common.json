@@ -20,7 +20,8 @@
     "btn_logout": "Mag-logout",
     "btn_view_cart": "TINGNAN ANG CART",
     "btn_buy":"PARA SA PAMAMARAAN NG PAGBILI",
-    "cart_empty": "Walang impormasyon sa shopping cart."
+    "cart_empty": "Walang impormasyon sa shopping cart.",
+    "cart_title": "Tingnan ang iyong shopping cart"
   },
   "navigate_link": {
     "title": "Online pharmacy",
