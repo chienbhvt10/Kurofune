@@ -45,7 +45,7 @@ const MediaPage = () => {
                     <FontAwesomeIcon
                       className="icon"
                       icon={faUserGear}
-                      size="md"
+                      size="sm"
                     />
                     <span>{t("media.btn_user_info")} </span>
                   </a>
