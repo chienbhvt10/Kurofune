@@ -311,7 +311,7 @@ export const mediaBoardItemData = [
     disable: false,
   },
   {
-    link: "service-24h",
+    link: "/service-24h",
     imageUrl: "/images/media/g_support.png",
     title: "media.card_consultation",
     type: "link_component",
@@ -394,7 +394,7 @@ export const memberBoardItemData = [
 
 export const navigateLinkData = [
   {
-    link: "questionnaire",
+    link: "member/questionnaire",
     imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "navigate_link.questionnaire_title",
   },

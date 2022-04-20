@@ -74,8 +74,8 @@
   "questionnaire": {
     "placeholder": "Hãy nhập tên thuốc",
     "btn_search": "Tìm kiếm",
-    "title_number_results": "Kết quả tìm kiếm:",
-    "description_number": "trường hợp"
+    "title_number_results": "Kết quả tìm kiếm: ",
+    "description_number": " trường hợp"
   },
   "media": {
     "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN<br>CỔNG HỖ TRỢ",
