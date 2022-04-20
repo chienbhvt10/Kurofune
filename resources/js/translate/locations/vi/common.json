@@ -16,9 +16,15 @@
   "header": {
     "btn_back1": "Quay lại danh sách thuốc",
     "btn_back2": "Quay về danh sách đặt hàng",
-    "btn_back3": "Trở lại giỏ hàng"
+    "btn_back3": "Trở lại giỏ hàng",
+    "btn_logout": "Thoát",
+    "btn_view_cart": "XEM GIỎ HÀNG",
+    "btn_buy":"MUA",
+    "cart_empty": "Không có thông tin trong giỏ hàng.",
+    "cart_title": "Xem giỏ hàng của bạn "
   },
   "navigate_link": {
+    "title": "Hiệu thuốc Online",
     "questionnaire_title": "Bảng câu hỏi chẩn đoán bệnh",
     "pharmacies_title": "Danh sách nhà thuốc",
     "medicine_title": "Danh sách thuốc",
@@ -193,5 +199,27 @@
     "option_other_illnesses10":"Bệnh tuyến giáp",
     "option_other_illnesses11":"Bệnh tuyến tiền liệt",
     "option_other_illnesses12":"Bệnh khác"
+  },
+  "list_pharmacies":{
+    "title": "Hiệu thuốc Marine Oisotori",
+    "outside_image": "Ảnh chụp bên ngoài chính của hiệu thuốc hoặc cửa hàng",
+    "inside_image": "Ảnh chụp tình trạng trưng bày thuốc không kê đơn",
+    "title_concerning_management": "Các vấn đề liên quan đến quản lý và vận hành",
+    "title_classification": "Phân loại giấy phép",
+    "title_founder": "Người sáng lập",
+    "title_permit": "Các mục được nêu trong giấy phép",
+    "title_management_pharmacist" : "Dược sĩ quản lý",
+    "title_working_pharmacies": "Dược sĩ làm việc tại nhà thuốc của chúng tôi (phụ trách)",
+    "title_register_seller": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi (phụ trách kinh doanh)",
+    "title_over_the_counter_drugs_handle": "Các loại thuốc không kê đơn được xử lý",
+    "title_distinguishing": "Phân biệt bằng bảng tên, v.v. của người làm việc tại hiệu thuốc này",
+    "title_business_hours": "Giờ làm việc",
+    "title_consultation_outside": "Giờ tư vấn ngoài giờ làm việc",
+    "title_contact": "Thông tin liên hệ để được tư vấn và các trường hợp khẩn cấp",
+    "title_current_working_pharmacies": "Dược sĩ đang làm việc (phụ trách)",
+    "title_specific_sale_time": "Khác nhau giữa Thời gian mở cửa và Thời gian mở cửa đặc biệt",
+    "title_time_accept_order": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
+    "title_expiration_date": "Ngày hết hạn của thuốc để bán cụ thể",
+    "title_problem": "Các vấn đề liên quan đến hệ thống bán thuốc cần hướng dẫn và thuốc không kê đơn"
   }
 }
