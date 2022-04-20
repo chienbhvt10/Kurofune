@@ -12,6 +12,8 @@ import { Languages } from "../../commons/Languges";
 import "./header-home.scss";
 import { useTranslation } from "react-i18next";
 const HeaderHome = ({ toggleSideBar }) => {
+  let lang = localStorage.getItem("lang");
+  const { i18n, t } = useTranslation();
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -26,19 +28,19 @@ const HeaderHome = ({ toggleSideBar }) => {
             <FontAwesomeIcon icon={faBars} size={"lg"} color="#58918B" />
           </button>
           <BackButton
-            currentPath="/product-detail"
-            backTo="/medicine-list"
-            title="Quay lại danh sách thuốc"
+            currentPath={`${lang}/product-detail`}
+            backTo={`${lang}/medicine-list`}
+            title={t("header.btn_back1")}
           />
           <BackButton
-            currentPath="/member/order-detail"
-            backTo="/member/order-history"
-            title="Quay lại danh sách đặt hàng"
+            currentPath={`${lang}/member/order-detail`}
+            backTo={`${lang}/member/order-history`}
+            title={t("header.btn_back2")}
           />
           <BackButton
-            currentPath="/checkout"
-            backTo="/cart"
-            title="Quay lại giỏ hàng"
+            currentPath={`${lang}/checkout`}
+            backTo={`${lang}/cart`}
+            title={t("header.btn_back3")}
           />
           <div className="block-profile-header ">
             <div className="shopping-cart">

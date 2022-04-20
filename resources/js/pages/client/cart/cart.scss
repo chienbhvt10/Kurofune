@@ -209,7 +209,7 @@
           width: auto;
           margin-top: 0;
           &.btn-primary {
-            width: 182px;
+            min-width: 182px;
             height: 42px;
             font-size: 16px;
             font-weight: bold;
