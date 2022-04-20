@@ -13,10 +13,7 @@ export const Questionnaire = () => {
       const sc = document.querySelectorAll("script");
       let activeChat = false;
       sc.forEach((el) => {
-        console.log(
-          el.attributes.src?.nodeValue ==
-            "https://front.ebot.chat/embed/js/webInit.js"
-        );
+
         if (
           el.attributes.src?.nodeValue ==
           "https://front.ebot.chat/embed/js/webInit.js"
@@ -25,7 +22,6 @@ export const Questionnaire = () => {
         }
       });
       if (!activeChat) {
-        console.log("activeChat", activeChat);
         const webJs = document.createElement("script");
         webJs.type = "text/javascript";
         webJs.async = true;
