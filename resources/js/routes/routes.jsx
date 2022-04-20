@@ -52,29 +52,32 @@ const appRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeLayout />} exact={true}>
-          <Route path={`/${lang}/member`} element={<MemberPage />} exact={true} />
           <Route
-            path={`/${lang}/list-of-pharmacies`}
-            element={<OrderHistoryPage />}
+            path={`/${lang}/member`}
+            element={<MemberPage />}
             exact={true}
           />
           <Route
-            path="medicine-list"
+            path={`/${lang}/medicine-list`}
             element={<MedicineListPage />}
             exact={true}
           />
           <Route
-            path="product-detail"
+            path={`/${lang}/product-detail`}
             element={<ProductDetailPage />}
             exact={true}
           />
           <Route
-            path="list-of-pharmacies"
+            path={`/${lang}/list-of-pharmacies`}
             element={<PharmaciesPage />}
             exact={true}
           />
-          <Route path="cart" element={<Cart />} exact={true}></Route>
-          <Route path="checkout" element={<CheckoutPage />} exact={true} />
+          <Route path={`/${lang}/cart`} element={<Cart />} exact={true}></Route>
+          <Route
+            path={`/${lang}/checkout`}
+            element={<CheckoutPage />}
+            exact={true}
+          />
         </Route>
         <Route path="/" element={<AuthLayout />} exact={true}>
           <Route path={`/${lang}/login`} element={<Login />} exact={true} />

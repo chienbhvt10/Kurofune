@@ -394,30 +394,39 @@ export const memberBoardItemData = [
 
 export const navigateLinkData = [
   {
-    link: "/questionnaire",
+    link: "questionnaire",
     imageUrl: "/images/sidebar/Questionnaire-form.png",
-    title: "Bảng câu hỏi chẩn đoán bệnh",
+    title: "navigate_link.questionnaire_title",
   },
   {
-    link: "/list-of-pharmacies",
+    link: "list-of-pharmacies",
     imageUrl: "/images/sidebar/list-pharmacies.png",
-    title: "Danh sách nhà thuốc",
+    title: "navigate_link.pharmacies_title",
   },
   {
-    link: "/medicine-list",
+    link: "medicine-list",
     imageUrl: "/images/sidebar/medicine-list.png",
-    title: "Danh sách thuốc",
+    title: "navigate_link.medicine_title",
   },
   {
-    link: "/member/order-history",
+    link: "member/order-history",
     imageUrl: "/images/sidebar/Order-history.png",
-    title: "Lịch sử mua hàng",
+    title: "navigate_link.order_history_title",
   },
-  { link: "cart", imageUrl: "/images/sidebar/cart.png", title: "Giỏ hàng" },
   {
-    link: "/member/billing-address",
+    link: "cart",
+    imageUrl: "/images/sidebar/cart.png",
+    title: "navigate_link.cart_title",
+  },
+  {
+    link: "member/billing-address",
     imageUrl: "/images/sidebar/Settings.png",
-    title: "Thông tin đăng kí",
+    title: "navigate_link.billing_address_title",
+  },
+  {
+    link: "media",
+    imageUrl: "/images/sidebar/home.png",
+    title: "navigate_link.media_title",
   },
   { link: "/media", imageUrl: "/images/sidebar/home.png", title: "Trang chủ" },
 ];
@@ -648,3 +657,13 @@ export const cartData = [
     quantity: 3,
   },
 ];
+export const billingInfo = {
+  fullName: "wabisabi",
+  phone: "123456789",
+  postal: "602-8368",
+  email: "support@wabisabi.media",
+  prefecture: "京都府",
+  city: "京都市上京区",
+  street: "北町上の下立売通天神道西入上る3丁目１６番地１２号",
+  house: "",
+};

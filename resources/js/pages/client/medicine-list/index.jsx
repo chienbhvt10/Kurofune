@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import CardProductCat from "../../../commons/CardProductCat";
 import {
   medicineList1,
@@ -8,21 +9,22 @@ import {
 import PageHead from "../../../commons/PageHead";
 import "./medicine-list.scss";
 const MedicineListPage = () => {
+  const { i18n, t } = useTranslation();
   return (
     <>
       <PageHead content="Medicine List" title="Medicine List" />
       <div id="medicine-list">
         <div className="list_categories">
           <div className="type-wrapper">
-            <div className="type-name">第1類</div>
+            <div className="type-name">{t("medicine_list.type_name1")}</div>
             <CardProductCat cardItems={medicineList1} />
           </div>
           <div className="type-wrapper">
-            <div className="type-name">指定第2類</div>
+            <div className="type-name">{t("medicine_list.type_name2")}</div>
             <CardProductCat cardItems={medicineList2} />
           </div>
           <div className="type-wrapper">
-            <div className="type-name">第2類</div>
+            <div className="type-name">{t("medicine_list.type_name3")}</div>
             <CardProductCat cardItems={medicineList3} />
           </div>
         </div>
