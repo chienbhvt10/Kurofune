@@ -37,5 +37,12 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (\Spatie\Permission\Exceptions\UnauthorizedException $e, $request) {
+            return response()->json([
+                'status_code'  => 403,
+                'message' => __('permission.not_permission'),
+            ]);
+        });
     }
 }
