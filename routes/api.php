@@ -20,7 +20,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware(['language'])->prefix('v1')->group(function () {
     Route::middleware(['auth:sanctum'])->group(function () {
+
+        // Logout
         Route::post('logout', [\App\Http\Controllers\API\AuthController::class, 'logout']);
+
+        // Permission manager
+        Route::middleware(['permission:manage permission'])->group(function () {
+            Route::apiResource('roles', \App\Http\Controllers\API\RoleController::class);
+            Route::get('getPermissionByRole/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
+            Route::put('updatePermissionForRole', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
+
+            Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
+
+        });
     });
 
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);
