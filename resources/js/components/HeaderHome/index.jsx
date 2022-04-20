@@ -45,7 +45,7 @@ const HeaderHome = ({ toggleSideBar }) => {
           <div className="block-profile-header ">
             <div className="shopping-cart">
               <div className="icon-cart">
-                <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn ">
+                <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn">
                   <img className="icon" src="/images/icon-card.png" />
                   <span className="quantity">1</span>
                 </Link>
@@ -53,11 +53,14 @@ const HeaderHome = ({ toggleSideBar }) => {
               <div className="mini-cart">
                 <div className="basket-block">
                   <div className="cart_block_list">
-                    <p className="d-none">Không có thông tin trong giỏ hàng.</p>
+                    <p className="d-none">{t("header.cart_empty")}</p>
                     <div className="group">
                       <p className="buttons">
-                        <Link to="/cart" className="button wc-forward">
-                          Xem giỏ hàng
+                        <Link
+                          to={`/${lang}/cart`}
+                          className="button wc-forward"
+                        >
+                          {t("header.btn_view_cart")}
                         </Link>{" "}
                       </p>
                       <ul className="cart_list product_list_widget ">
@@ -81,10 +84,10 @@ const HeaderHome = ({ toggleSideBar }) => {
                               </bdi>
                             </span>
                           </span>{" "}
-                          <Link to="/product-detail">
+                          <Link to={`/${lang}/product-detail`}>
                             <img
                               alt="image-prod-Medicine list"
-                              src="https://member.wabisabi.media/wp-content/uploads/2022/02/14_hcg-stick.jpeg"
+                              src="/images/medicine-list/14_hcg-stick.jpeg"
                             />
                           </Link>
                         </li>
@@ -102,10 +105,10 @@ const HeaderHome = ({ toggleSideBar }) => {
 
                       <p className="buttons checkout-btn">
                         <Link
-                          to="/checkout"
+                          to={`/${lang}/checkout`}
                           className="button checkout wc-forward"
                         >
-                          Mua
+                          {t("header.btn_buy")}
                         </Link>{" "}
                       </p>
                     </div>
@@ -121,9 +124,9 @@ const HeaderHome = ({ toggleSideBar }) => {
             <div className="logout-wrap">
               <a
                 href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=1750a2467b"
-                title="Thoát"
+                title={t("header.btn_logout")}
               >
-                Thoát{" "}
+                {t("header.btn_logout")}
                 <FontAwesomeIcon
                   className="icon"
                   icon={faSignOutAlt}

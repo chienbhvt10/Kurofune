@@ -18,7 +18,6 @@ export const Languages = () => {
     langUrl === "/zh/"
   ) {
     localStorage.setItem("lang", window.location.pathname.slice(0, 3));
-    console.log(location.pathname);
     var pathName = location.pathname.slice(3);
   } else {
     localStorage.setItem("lang", "");
