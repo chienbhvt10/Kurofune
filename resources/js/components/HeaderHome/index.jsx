@@ -45,7 +45,11 @@ const HeaderHome = ({ toggleSideBar }) => {
           <div className="block-profile-header ">
             <div className="shopping-cart">
               <div className="icon-cart">
-                <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn">
+                <Link
+                  id="cart-custom"
+                  to={`${lang}/cart`}
+                  title={t("header.cart_title")}
+                >
                   <img className="icon" src="/images/icon-card.png" />
                   <span className="quantity">1</span>
                 </Link>
