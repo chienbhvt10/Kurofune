@@ -10,7 +10,7 @@ const Board = ({ boardItems }) => {
       {boardItems.map((item, index) => (
         <div
           key={index}
-          className={item.disable && lang !='/vi'  ? "board-item block-disabled" : "board-item"}
+          className={item.disable && lang !=='/vi'  ? "board-item block-disabled" : "board-item"}
         >
           {item.type === "a_tag" ? (
             <a
@@ -34,7 +34,7 @@ const Board = ({ boardItems }) => {
               title={item.link}
             >
               <div className="icon">
-                <img src={index == 1 && lang =='/vi'  ?"https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/support.png" : item.imageUrl} alt="" />
+                <img src={index === 1 && lang === '/vi'  ?"https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/support.png" : item.imageUrl} alt="" />
               </div>
               <div className="desc">
                 <h3 className="tit">{t(item.title)}</h3>
