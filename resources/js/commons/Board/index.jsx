@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./board.scss";
 const Board = ({ boardItems }) => {
-  const {i18n,t} = useTranslation();
-  const lang = localStorage.getItem('lang');
+  const { i18n, t } = useTranslation();
+  let lang = localStorage.getItem("lang");
   return (
     <div className="board-container">
       {boardItems.map((item, index) => (
@@ -27,7 +27,12 @@ const Board = ({ boardItems }) => {
               </div>
             </a>
           ) : (
-            <Link to={item.link} className="item" title={item.link}>
+            <Link
+              target="_blank"
+              to={`${lang}${item.link}`}
+              className="item"
+              title={item.link}
+            >
               <div className="icon">
                 <img src={index == 1 && lang =='/vi'  ?"https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/support.png" : item.imageUrl} alt="" />
               </div>

@@ -16,9 +16,15 @@
   "header": {
     "btn_back1": "薬剤一覧へ戻る",
     "btn_back2": "注文履歴一覧へ戻る",
-    "btn_back3": "買い物かごに戻る"
+    "btn_back3": "買い物かごに戻る",
+    "btn_logout": "ログアウト",
+    "btn_view_cart": "買い物かごを表示",
+    "btn_buy":"購入手続きへ",
+    "cart_empty": "购物车中没有任何信息。",
+    "cart_title": "カートを見る"
   },
   "navigate_link": {
+    "title": "オンライン薬局",
     "questionnaire_title": "問診票",
     "pharmacies_title": "薬局情報",
     "medicine_title": "薬剤情報",
@@ -193,5 +199,27 @@
     "option_other_illnesses10":"甲状腺疾患",
     "option_other_illnesses11":"前立腺疾患",
     "option_other_illnesses12":"その他（自由記述）"
+  },
+  "list_pharmacies":{
+    "title": "マリン薬局　大磯通店",
+    "outside_image": "薬局又は店舗の主要な外観の写真",
+    "inside_image": "一般用医薬品の陳列の状況を示す写真",
+    "title_concerning_management": "管理および運営に関する事項",
+    "title_classification": "許可の区分",
+    "title_founder": "開設者",
+    "title_permit": "許可証の記載事項",
+    "title_management_pharmacist" : "管理薬剤師",
+    "title_working_pharmacies": "当薬局に勤務する薬剤師（担当業務）",
+    "title_register_seller": "当薬局に勤務する登録販売者（担当業務）",
+    "title_over_the_counter_drugs_handle": "取り扱う一般用医薬品等の種別",
+    "title_distinguishing": "当薬局に勤務する者の名札等による区別",
+    "title_business_hours": "営業時間",
+    "title_consultation_outside": "営業時間外における相談時間",
+    "title_contact": "相談時及び緊急時の連絡先",
+    "title_current_working_pharmacies": "現在勤務している薬剤師（担当業務）",
+    "title_specific_sale_time": "開店時間と特定販売を行う時間が異なる場合",
+    "title_time_accept_order": "営業時間外で医薬品の注文を受理する時間",
+    "title_expiration_date": "特定販売を行う医薬品の使用期限",
+    "title_problem": "要指導医薬品及び一般用医薬品の販売に関する制度に関する事項"
   }
 }

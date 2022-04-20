@@ -16,9 +16,15 @@
   "header": {
     "btn_back1": "Bumalik sa listahan ng gamot",
     "btn_back2": "Bumalik sa listahan ng order",
-    "btn_back3": "Bumalik sa cart"
+    "btn_back3": "Bumalik sa cart",
+    "btn_logout": "Mag-logout",
+    "btn_view_cart": "TINGNAN ANG CART",
+    "btn_buy":"PARA SA PAMAMARAAN NG PAGBILI",
+    "cart_empty": "Walang impormasyon sa shopping cart.",
+    "cart_title": "Tingnan ang iyong shopping cart"
   },
   "navigate_link": {
+    "title": "Online pharmacy",
     "questionnaire_title": "Bumili ng gamot gamit ang chatbot",
     "pharmacies_title": "Impormasyon sa Pharmacy",
     "medicine_title": "Impormasyon ng mga gamot",
@@ -193,5 +199,27 @@
     "option_other_illnesses10":"Sakit sa Thyroid",
     "option_other_illnesses11":"Sakit sa Prostate",
     "option_other_illnesses12":"Iba pa"
+  },
+  "list_pharmacies":{
+    "title": "Marine Pharmacy Oisotori",
+    "outside_image": "Mga larawan ng pangunahing panlabas ng isang parmasya o tindahan",
+    "inside_image": "Larawang nagpapakita ng katayuan sa pagpapakita ng mga over-the-counter na gamot",
+    "title_concerning_management": "Mga bagay tungkol sa pamamahala at operasyon",
+    "title_classification": "Pag-uuri ng permit",
+    "title_founder": "Tagapagtatag",
+    "title_permit": "Mga bagay na isasaad sa permit",
+    "title_management_pharmacist" : "Pamamahala ng parmasyutiko",
+    "title_working_pharmacies": "Pharmacist na nagtatrabaho sa aming botika (namumuno)",
+    "title_register_seller": "Nakarehistrong nagbebenta na nagtatrabaho sa aming parmasya (negosyo na namamahala)",
+    "title_over_the_counter_drugs_handle": "Mga uri ng over-the-counter na gamot na pinangangasiwaan",
+    "title_distinguishing": "Pagkilala sa pamamagitan ng name tag atbp. ng taong nagtatrabaho sa botikang ito",
+    "title_business_hours": "Mga oras ng negosyo",
+    "title_consultation_outside": "Mga oras ng konsultasyon sa labas ng mga oras ng negosyo",
+    "title_contact": "Impormasyon sa pakikipag-ugnayan para sa konsultasyon at emerhensiya",
+    "title_current_working_pharmacies": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
+    "title_specific_sale_time": "Kapag ang oras ng pagbubukas at ang tiyak na oras ng pagbebenta ay magkaiba",
+    "title_time_accept_order": "Oras na para tanggapin ang mga order ng gamot sa labas ng oras ng negosyo",
+    "title_expiration_date": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
+    "title_problem": "Mga usapin tungkol sa sistema para sa pagbebenta ng mga gamot na nangangailangan ng gabay at mga gamot na nabibili nang walang reseta"
   }
 }

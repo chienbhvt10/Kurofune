@@ -16,9 +16,15 @@
   "header": {
     "btn_back1": "Return to drug list",
     "btn_back2": "Return to order list",
-    "btn_back3": "Return to cart"
+    "btn_back3": "Return to cart",
+    "btn_logout": "Logout",
+    "btn_view_cart": "VIEW CART",
+    "btn_buy":"CHECKOUT",
+    "cart_empty": "There is no information in the shopping cart.",
+    "cart_title": "View your shopping cart"
   },
   "navigate_link": {
+    "title": "Online pharmacy",
     "questionnaire_title": "Questionnaire",
     "pharmacies_title": "Pharmacy information",
     "medicine_title": "Drug information",
@@ -193,5 +199,27 @@
     "option_other_illnesses10":"Thyroid disease",
     "option_other_illnesses11":"Prostate disease",
     "option_other_illnesses12":"Other (free description)"
+  },
+  "list_pharmacies":{
+    "title": "Marine Pharmacy Oisotori",
+    "outside_image": "Photographs of the main exterior of a pharmacy or store",
+    "inside_image": "Photograph showing the display status of over-the-counter drugs",
+    "title_concerning_management": "Matters concerning management and operation",
+    "title_classification": "Permit classification",
+    "title_founder": "Founder",
+    "title_permit": "Items to be stated in the permit",
+    "title_management_pharmacist" : "Management pharmacist",
+    "title_working_pharmacies": "Pharmacist working at our pharmacy (in charge)",
+    "title_register_seller": "Registered seller working at our pharmacy (business in charge)",
+    "title_over_the_counter_drugs_handle": "Types of over-the-counter drugs handled",
+    "title_distinguishing": "Distinguishing by name tag etc. of the person who works at this pharmacy",
+    "title_business_hours": "Business hours",
+    "title_consultation_outside": "Consultation hours outside business hours",
+    "title_contact": "Contact information for consultation and emergencies",
+    "title_current_working_pharmacies": "Currently working pharmacist (in charge)",
+    "title_specific_sale_time": "When the opening time and the specific sales time are different",
+    "title_time_accept_order": "Time to accept drug orders outside business hours",
+    "title_expiration_date": "Expiration date of drugs for specific sale",
+    "title_problem": "Matters concerning the system for sales of drugs requiring guidance and over-the-counter drugs"
   }
 }
