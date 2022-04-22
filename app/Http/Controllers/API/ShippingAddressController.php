@@ -17,30 +17,30 @@ class ShippingAddressController extends Controller
             $user_id = $user->id;
             $data = ShippingAddress::where('user_id', $user_id);
 
-            $check_postcode = checkPostalCode($request->postal_code);
-
-            if ($check_postcode == false) {
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
-                ], 422);
-            }
-            
             $validator = Validator::make($request->all(), [
-                'full_name' => 'string|required|max:100',
-                'postal_code' => 'postal_code:JP|string|required|max:50',
-                'city' => 'string|required|max:255',
-                'prefecture' => 'string|required|max:150',
-                'street_address' => 'string|required|max:255',
+                'full_name' => 'required|string|max:100',
+                'postal_code' => 'required|string|max:50',
+                'city' => 'required|string|max:255',
+                'prefecture' => 'required|string|max:150',
+                'street_address' => 'required|string|max:255',
                 'building' => 'string|max:255',
-                'phone' => 'numeric|required',
-                'email' => 'email|required|max:100',
+                'phone' => 'required|numeric',
+                'email' => 'required|email|max:100',
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
                 return response()->json([
                     'status_code' => 422,
                     'message' => $errors
+                ], 422);
+            }
+
+            $check_postcode = checkPostalCode($request->postal_code);
+
+            if ($check_postcode == false) {
+                return response()->json([
+                    'status_code' => 422,
+                    'message' => __( 'message.valid_postal_code')
                 ], 422);
             }
 

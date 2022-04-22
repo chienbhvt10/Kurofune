@@ -17,15 +17,6 @@ class BillingAddressController extends Controller
             $user_id = $user->id;
             $data = BillingAddress::where('user_id', $user_id);
 
-            $check_postcode = checkPostalCode($request->postal_code);
-
-            if ($check_postcode == false) {
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
-                ], 422);
-            }
-            
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
                 'postal_code' => 'required|string|max:50',
@@ -41,6 +32,15 @@ class BillingAddressController extends Controller
                 return response()->json([
                     'status_code' => 422,
                     'message' => $errors
+                ], 422);
+            }
+
+            $check_postcode = checkPostalCode($request->postal_code);
+
+            if ($check_postcode == false) {
+                return response()->json([
+                    'status_code' => 422,
+                    'message' => __( 'message.valid_postal_code')
                 ], 422);
             }
 

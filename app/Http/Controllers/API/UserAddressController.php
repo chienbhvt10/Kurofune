@@ -17,18 +17,9 @@ class UserAddressController extends Controller
             $user_id = $user->id;
             $data = Address::where('user_id', $user_id);
 
-            $check_postcode = checkPostalCode($request->postal_code);
-
-            if ($check_postcode == false) {
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
-                ], 422);
-            }
-            
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
-                'postal_code' => 'required|postal_code:JP|string|max:50',
+                'postal_code' => 'required|string|max:50',
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
@@ -43,6 +34,15 @@ class UserAddressController extends Controller
                 return response()->json([
                     'status_code' => 422,
                     'message' => $errors
+                ], 422);
+            }
+
+            $check_postcode = checkPostalCode($request->postal_code);
+
+            if ($check_postcode == false) {
+                return response()->json([
+                    'status_code' => 422,
+                    'message' => __( 'message.valid_postal_code')
                 ], 422);
             }
 
