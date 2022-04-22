@@ -78,7 +78,7 @@ const ProductDetailPage = () => {
                       value="99"
                       className="single_add_to_cart_button button alt actived"
                     >
-                      {t("product_detail.btn_buy")}
+                      {t("client.product_detail.btn_buy")}
                     </button>
                   </form>
                 </div>
@@ -119,7 +119,7 @@ const ProductDetailPage = () => {
                     value="99"
                     className="single_add_to_cart_button button alt actived"
                   >
-                    {t("product_detail.btn_buy")}
+                    {t("client.product_detail.btn_buy")}
                   </button>
                 </form>
               </div>
@@ -134,77 +134,95 @@ const ProductDetailPage = () => {
           <input type="hidden" id="current-lang" value="en" />
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_gender")}
+              {t("client.product_detail.label_gender")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <select name="gender" className="input-answer" id="">
                 <option value="">
-                  {t("product_detail.placeholder_select")}
+                  {t("client.product_detail.placeholder_select")}
                 </option>
-                <option value="1">{t("product_detail.option_gender1")}</option>
-                <option value="2">{t("product_detail.option_gender2")}</option>
+                <option value="1">
+                  {t("client.product_detail.option_gender1")}
+                </option>
+                <option value="2">
+                  {t("client.product_detail.option_gender2")}
+                </option>
               </select>
               <p className="message-warning warning-gender"></p>
             </div>
           </div>
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_age")}
+              {t("client.product_detail.label_age")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <select name="yearold" className="input-answer">
                 <option value="">
-                  {t("product_detail.placeholder_select")}
+                  {t("client.product_detail.placeholder_select")}
                 </option>
-                <option value="1">{t("product_detail.option_age1")}</option>
-                <option value="2">{t("product_detail.option_age2")}</option>
-                <option value="3">{t("product_detail.option_age3")}</option>
+                <option value="1">
+                  {t("client.product_detail.option_age1")}
+                </option>
+                <option value="2">
+                  {t("client.product_detail.option_age2")}
+                </option>
+                <option value="3">
+                  {t("client.product_detail.option_age3")}
+                </option>
               </select>
               <p className="message-warning warning-year_old"></p>
             </div>
           </div>
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_ever_used")}
+              {t("client.product_detail.label_ever_used")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <select name="used_medicine" className="input-answer">
                 <option value="">
-                  {t("product_detail.placeholder_select")}
+                  {t("client.product_detail.placeholder_select")}
                 </option>
-                <option value="1">{t("product_detail.option_yes")}</option>
-                <option value="2">{t("product_detail.option_no")}</option>
+                <option value="1">
+                  {t("client.product_detail.option_yes")}
+                </option>
+                <option value="2">
+                  {t("client.product_detail.option_no")}
+                </option>
               </select>
               <p className="message-warning warning-used_medicine"></p>
             </div>
           </div>
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_ever_side_effect")}
+              {t("client.product_detail.label_ever_side_effect")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <select name="taken_any_medicine" className="input-answer">
                 <option value="">
-                  {t("product_detail.placeholder_select")}
+                  {t("client.product_detail.placeholder_select")}
                 </option>
-                <option value="1">{t("product_detail.option_yes")}</option>
-                <option value="2">{t("product_detail.option_no")}</option>
+                <option value="1">
+                  {t("client.product_detail.option_yes")}
+                </option>
+                <option value="2">
+                  {t("client.product_detail.option_no")}
+                </option>
               </select>
               <p className="message-warning warning-taken_any_medicine"></p>
             </div>
           </div>
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_using_medicine")}
+              {t("client.product_detail.label_using_medicine")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <textarea
-                placeholder={t("product_detail.placeholder_text")}
+                placeholder={t("client.product_detail.placeholder_text")}
                 name="list_used_medicine"
                 className="input-answer"
                 rows="1"
@@ -214,56 +232,56 @@ const ProductDetailPage = () => {
           </div>
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_other_illnesses")}
+              {t("client.product_detail.label_other_illnesses")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <select name="currently_treating" id="" className="input-answer">
                 <option value="">
-                  {t("product_detail.placeholder_select")}
+                  {t("client.product_detail.placeholder_select")}
                 </option>
                 <option value="12">
-                  {t("product_detail.option_other_illnesses1")}
+                  {t("client.product_detail.option_other_illnesses1")}
                 </option>
                 <option value="1">
-                  {t("product_detail.option_other_illnesses2")}
+                  {t("client.product_detail.option_other_illnesses2")}
                 </option>
                 <option value="2">
-                  {t("product_detail.option_other_illnesses3")}
+                  {t("client.product_detail.option_other_illnesses3")}
                 </option>
                 <option value="3">
-                  {t("product_detail.option_other_illnesses4")}
+                  {t("client.product_detail.option_other_illnesses4")}
                 </option>
                 <option value="4">
-                  {t("product_detail.option_other_illnesses5")}
+                  {t("client.product_detail.option_other_illnesses5")}
                 </option>
                 <option value="5">
-                  {t("product_detail.option_other_illnesses6")}
+                  {t("client.product_detail.option_other_illnesses6")}
                 </option>
                 <option value="6">
-                  {t("product_detail.option_other_illnesses7")}
+                  {t("client.product_detail.option_other_illnesses7")}
                 </option>
                 <option value="7">
-                  {t("product_detail.option_other_illnesses8")}
+                  {t("client.product_detail.option_other_illnesses8")}
                 </option>
                 <option value="8">
-                  {t("product_detail.option_other_illnesses9")}
+                  {t("client.product_detail.option_other_illnesses9")}
                 </option>
                 <option value="9">
-                  {t("product_detail.option_other_illnesses10")}
+                  {t("client.product_detail.option_other_illnesses10")}
                 </option>
                 <option value="10">
-                  {t("product_detail.option_other_illnesses11")}
+                  {t("client.product_detail.option_other_illnesses11")}
                 </option>
                 <option value="11">
-                  {t("product_detail.option_other_illnesses12")}
+                  {t("client.product_detail.option_other_illnesses12")}
                 </option>
               </select>
               <p className="message-warning warning-currently_treating"></p>
 
               <div className="another-treating-wrap mt-2 d-none">
                 <textarea
-                  placeholder={t("product_detail.placeholder_text")}
+                  placeholder={t("client.product_detail.placeholder_text")}
                   name="another-treating"
                   className="input-answer"
                 />
@@ -273,12 +291,12 @@ const ProductDetailPage = () => {
           </div>
           <div className="question-answer-wrap">
             <div className="question">
-              {t("product_detail.label_other_question")}
+              {t("client.product_detail.label_other_question")}
               <span className="required">(required)</span>
             </div>
             <div className="answer">
               <textarea
-                placeholder={t("product_detail.placeholder_text")}
+                placeholder={t("client.product_detail.placeholder_text")}
                 name="any-questions"
                 className="input-answer"
               />

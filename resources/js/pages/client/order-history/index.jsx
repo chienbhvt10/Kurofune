@@ -13,14 +13,14 @@ const OrderHistoryPage = () => {
         <table className="table-order">
           <thead>
             <tr>
-              <td>{t("order-history.th_order_date")}</td>
-              <td>{t("order-history.th_order_ID")}</td>
+              <td>{t("client.order-history.th_order_date")}</td>
+              <td>{t("client.order-history.th_order_ID")}</td>
               <td>
-                {t("order-history.th_order_status")}
+                {t("client.order-history.th_order_status")}
                 <i className="fas fa-info-circle collape-info-status"></i>
               </td>
-              <td>{t("order-history.th_order_price")}</td>
-              <td>{t("order-history.th_purchase_product")}</td>
+              <td>{t("client.order-history.th_order_price")}</td>
+              <td>{t("client.order-history.th_purchase_product")}</td>
               <td></td>
             </tr>
           </thead>
@@ -67,7 +67,7 @@ const OrderHistoryPage = () => {
                     to={`${lang}${item.orderDetailUrl}`}
                     className="woocommerce-button button view"
                   >
-                    {t("order-history.btn_view")}
+                    {t("client.order-history.btn_view")}
                   </Link>{" "}
                 </td>
               </tr>
@@ -75,22 +75,24 @@ const OrderHistoryPage = () => {
           </tbody>
         </table>
         <div className="tracker-order-list" style={{ display: "none" }}>
-          <h6 className="title-list">{t("order-history.about_status")}</h6>
+          <h6 className="title-list">
+            {t("client.order-history.about_status")}
+          </h6>
           <ul>
             <li className="step step1">
-              STEP①: {t("order-history.status_step_1")}
+              STEP①: {t("client.order-history.status_step_1")}
             </li>
             <li className="step step2">
-              STEP②: {t("order-history.status_step_2")}
+              STEP②: {t("client.order-history.status_step_2")}
             </li>
             <li className="step step3">
-              STEP③: {t("order-history.status_step_3")}
+              STEP③: {t("client.order-history.status_step_3")}
             </li>
             <li className="step step4">
-              STEP④: {t("order-history.status_step_4")}
+              STEP④: {t("client.order-history.status_step_4")}
             </li>
             <li className="step step5">
-              STEP⑤: {t("order-history.status_step_5")}
+              STEP⑤: {t("client.order-history.status_step_5")}
             </li>
           </ul>
         </div>
@@ -99,8 +101,8 @@ const OrderHistoryPage = () => {
             className="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button"
             to="/order-history"
           >
-            {t("order-history.btn_next")}
-            {/* {t("order-history.btn_prev")} */}
+            {t("client.order-history.btn_next")}
+            {/* {t("client.order-history.btn_prev")} */}
           </Link>
         </div>
       </div>

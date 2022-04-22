@@ -10,11 +10,11 @@ const CheckoutPage = () => {
     <div id="checkout-page">
       <div className="cart-custom">
         <div className="cart-header">
-          <h1>{t("checkout.title_confirm")}</h1>
+          <h1>{t("client.checkout.title_confirm")}</h1>
           <div className="description">
-            {t("checkout.confirm_description1")}
+            {t("client.checkout.confirm_description1")}
             <br />
-            {t("checkout.confirm_description2")}
+            {t("client.checkout.confirm_description2")}
           </div>
         </div>
 
@@ -24,23 +24,23 @@ const CheckoutPage = () => {
               <thead>
                 <tr>
                   <th className="product-name" scope="col">
-                    {t("checkout.th_product_name")}
+                    {t("client.checkout.th_product_name")}
                   </th>
                   <th className="product-price" scope="col">
-                    {t("checkout.th_product_price")}
+                    {t("client.checkout.th_product_price")}
                   </th>
                   <th className="product-quantity" scope="col">
-                    {t("checkout.th_product_quantity")}
+                    {t("client.checkout.th_product_quantity")}
                   </th>
                   <th className="product-subtotal" scope="col">
-                    {t("checkout.th_product_total")}
+                    {t("client.checkout.th_product_total")}
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
                   <td
-                    data-label={t("checkout.th_product_name")}
+                    data-label={t("client.checkout.th_product_name")}
                     className="product-name"
                   >
                     <a>
@@ -56,7 +56,7 @@ const CheckoutPage = () => {
                     </a>
                   </td>
                   <td
-                    data-label={t("checkout.th_product_price")}
+                    data-label={t("client.checkout.th_product_price")}
                     className="product-price"
                   >
                     <span className="woocommerce-Price-amount amount">
@@ -69,7 +69,7 @@ const CheckoutPage = () => {
                     </span>
                   </td>
                   <td
-                    data-label={t("checkout.th_product_quantity")}
+                    data-label={t("client.checkout.th_product_quantity")}
                     className="product-quantity"
                   >
                     1{" "}
@@ -94,7 +94,7 @@ const CheckoutPage = () => {
               <tbody>
                 <tr className="total-amount">
                   <td className="cart-totals-title">
-                    {t("checkout.td_total")}
+                    {t("client.checkout.td_total")}
                   </td>
                   <td className="cart-totals-value">
                     <span className="woocommerce-Price-amount amount">
@@ -115,13 +115,13 @@ const CheckoutPage = () => {
       <div className="info-block billing-address">
         <BillingShipAddress
           info={billingInfo}
-          title={t("checkout.title_billing")}
+          title={t("client.checkout.title_billing")}
         />
       </div>
       <div className="info-block shipping-address">
         <BillingShipAddress
           info={billingInfo}
-          title={t("checkout.title_ship")}
+          title={t("client.checkout.title_ship")}
         />
       </div>
       <div className="error-block mt-4"></div>
@@ -130,11 +130,11 @@ const CheckoutPage = () => {
           <div className="confirm">
             <input type="checkbox" id="policy-confirm" />
             <label htmlFor="policy-confirm" className="policy-confirm">
-              <ModalTerm text={t("checkout.accept_term")} />
+              <ModalTerm text={t("client.checkout.accept_term")} />
             </label>
           </div>
           <button className="btn btn-primary btn-submit-checkout btn-free-out disabled">
-            {t("checkout.btn_text_buy")}
+            {t("client.checkout.btn_text_buy")}
           </button>
         </form>
       </div>

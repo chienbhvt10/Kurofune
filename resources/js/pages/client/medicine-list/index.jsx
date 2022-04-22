@@ -16,15 +16,21 @@ const MedicineListPage = () => {
       <div id="medicine-list">
         <div className="list_categories">
           <div className="type-wrapper">
-            <div className="type-name">{t("medicine_list.type_name1")}</div>
+            <div className="type-name">
+              {t("client.medicine_list.type_name1")}
+            </div>
             <CardProductCat cardItems={medicineList1} />
           </div>
           <div className="type-wrapper">
-            <div className="type-name">{t("medicine_list.type_name2")}</div>
+            <div className="type-name">
+              {t("client.medicine_list.type_name2")}
+            </div>
             <CardProductCat cardItems={medicineList2} />
           </div>
           <div className="type-wrapper">
-            <div className="type-name">{t("medicine_list.type_name3")}</div>
+            <div className="type-name">
+              {t("client.medicine_list.type_name3")}
+            </div>
             <CardProductCat cardItems={medicineList3} />
           </div>
         </div>
