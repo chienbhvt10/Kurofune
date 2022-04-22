@@ -23,6 +23,8 @@ import { Questionnaire } from "../pages/client/questionnaire";
 import Cart from "../pages/client/cart";
 import CheckoutPage from "../pages/client/checkout";
 import { Service24H } from "../pages/client/service-24";
+import { UserList } from "../pages/admin/user/user-list";
+import { UserItem } from "../pages/admin/user/user-item";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -52,7 +54,7 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeLayout />} exact={true}>
+        <Route path="/" element={<HomeLayout styleColor={'#62A19B'} />} exact={true}>
           <Route
             path={`/${lang}/member`}
             element={<MemberPage />}
@@ -100,7 +102,7 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/${lang}/member`} element={<HomeLayout />} exact={true}>
+        <Route path={`/${lang}/member`} element={<HomeLayout styleColor={'#62A19B'}/>} exact={true}>
           <Route
             path="order-history"
             element={<OrderHistoryPage />}
@@ -124,6 +126,23 @@ const appRouter = () => {
           <Route
             path="questionnaire"
             element={<Questionnaire />}
+            exact={true}
+          />
+        </Route>
+        <Route path={`/admin`} element={<HomeLayout styleColor={'#2C3338'} />} exact={true}>
+        <Route
+            path={`user-list`}
+            element={<UserList />}
+            exact={true}
+          />
+        <Route
+            path={`user-create`}
+            element={<UserItem identify={'create'} />}
+            exact={true}
+          />
+        <Route
+            path={`user-update/:id`}
+            element={<UserItem identify={'update'}  />}
             exact={true}
           />
         </Route>

@@ -87,7 +87,7 @@
     "card_wabisabi": "WABISABI-MEDIA",
     "btn_user_info": "ユーザー情報",
     "btn_logout": "ログアウト"
-  },  
+  },
   "cart":{
     "title_cart": "買い物かご",
     "title_cart_empty": "買い物かご内の情報はありません。",
@@ -221,5 +221,18 @@
     "title_time_accept_order": "営業時間外で医薬品の注文を受理する時間",
     "title_expiration_date": "特定販売を行う医薬品の使用期限",
     "title_problem": "要指導医薬品及び一般用医薬品の販売に関する制度に関する事項"
+  },
+  "admins": {
+    "user": {
+      "list": {
+        "title": ""
+      },
+      "create": {
+        "title": "Create a new"
+      },
+      "update": {
+        "title": "Update a existing"
+      }
+    }
   }
 }

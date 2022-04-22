@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./home-layout.scss";
 import SideBar from "../../../components/SideBar";
 import HeaderHome from "../../../components/HeaderHome";
 import Footer from "../../../components/footer";
 import { Outlet } from "react-router-dom";
 
-const HomeLayout = () => {
+const HomeLayout = ({styleColor}) => {
   const [show, setShow] = useState(false);
   const toggleSideBar = () => {
     setShow(!show);
@@ -21,6 +21,7 @@ const HomeLayout = () => {
           show={show}
           toggleSideBar={toggleSideBar}
           closeSideBar={closeSideBar}
+          styleColor={styleColor}
         />
         <div className="wrap-content">
           <HeaderHome toggleSideBar={toggleSideBar} />

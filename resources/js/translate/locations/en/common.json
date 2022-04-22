@@ -11,7 +11,6 @@
     "languages": "Languages",
     "kurofune": "©KUROFUNE"
   },
-
   "home": "Trang chủ",
   "header": {
     "btn_back1": "Return to drug list",
@@ -19,7 +18,7 @@
     "btn_back3": "Return to cart",
     "btn_logout": "Logout",
     "btn_view_cart": "VIEW CART",
-    "btn_buy":"CHECKOUT",
+    "btn_buy": "CHECKOUT",
     "cart_empty": "There is no information in the shopping cart.",
     "cart_title": "View your shopping cart"
   },
@@ -88,7 +87,7 @@
     "btn_user_info": "User information",
     "btn_logout": "Logout"
   },
-  "cart":{
+  "cart": {
     "title_cart": "Shopping basket",
     "title_cart_empty": "Your basket is currently empty.",
     "cart_description1": "Please check the purchase details.",
@@ -102,8 +101,8 @@
     "btn_update": "UPDATE YOUR SHOPPING CART",
     "btn_return": "Return to shop"
   },
-  "checkout":{
-    "title_confirm":"Purchase confirmation",
+  "checkout": {
+    "title_confirm": "Purchase confirmation",
     "confirm_description1": "Please check the purchase details.",
     "confirm_description2": "Please check the terms of use and click the \"Purchase\" button.",
     "th_product_name": "Product",
@@ -111,7 +110,7 @@
     "th_product_quantity": "Quantity",
     "th_product_total": "SubTotal",
     "td_total": "Total payment",
-    "title_billing":"Billing information",
+    "title_billing": "Billing information",
     "field_full_name": "Full name",
     "field_zip_code": "Postal code/zip",
     "field_prefecture": "Prefecture",
@@ -121,7 +120,7 @@
     "field_phone": "Phone",
     "field_email": "Email address",
     "title_ship": "Shipping information",
-    "accept_term" : "Purchase after agreeing to the terms of use.",
+    "accept_term": "Purchase after agreeing to the terms of use.",
     "btn_text_buy": "BUY"
   },
   "order-history": {
@@ -144,7 +143,7 @@
     "title": "Order details",
     "th_order_date": "【Order Date】",
     "th_order_ID": "【Order ID】",
-    "th_order_status" : "【Order Status】",
+    "th_order_status": "【Order Status】",
     "th_product_name": "Product",
     "th_product_quantity": "Quantity",
     "th_unit_price": "Unit Price",
@@ -172,35 +171,35 @@
   "product_detail": {
     "btn_buy": "BUY NOW",
     "label_gender": "What is your gender?",
-    "label_age" : "How old are you?",
+    "label_age": "How old are you?",
     "label_ever_used": "Have you ever used this medicine?",
     "label_ever_side_effect": "Have you ever taken any medicine and had side effects?",
     "label_using_medicine": "What is the name of the medicine you were using at that time?",
     "label_other_illnesses": "Are there any illnesses you are currently treating?",
     "label_other_question": "Do you have any questions?",
-    "placeholder_select":"Please select option",
-    "placeholder_text":"Please enter text",
-    "option_yes":"Yes",
-    "option_no":"No",
-    "option_gender1":"Male",
-    "option_gender2":"Female",
-    "option_age1":"Under 15 years old",
-    "option_age2":"15-64 years old",
-    "option_age3":"65 years of age or older",
-    "option_other_illnesses1":"There is none",
-    "option_other_illnesses2":"High blood pressure",
-    "option_other_illnesses3":"Diabetes",
-    "option_other_illnesses4":"Dyslipidemia",
-    "option_other_illnesses5":"Asthma",
-    "option_other_illnesses6":"Liver disease",
-    "option_other_illnesses7":"Heart disease",
-    "option_other_illnesses8":"Cerebral infarction",
-    "option_other_illnesses9":"Gastric / duodenal ulcer",
-    "option_other_illnesses10":"Thyroid disease",
-    "option_other_illnesses11":"Prostate disease",
-    "option_other_illnesses12":"Other (free description)"
+    "placeholder_select": "Please select option",
+    "placeholder_text": "Please enter text",
+    "option_yes": "Yes",
+    "option_no": "No",
+    "option_gender1": "Male",
+    "option_gender2": "Female",
+    "option_age1": "Under 15 years old",
+    "option_age2": "15-64 years old",
+    "option_age3": "65 years of age or older",
+    "option_other_illnesses1": "There is none",
+    "option_other_illnesses2": "High blood pressure",
+    "option_other_illnesses3": "Diabetes",
+    "option_other_illnesses4": "Dyslipidemia",
+    "option_other_illnesses5": "Asthma",
+    "option_other_illnesses6": "Liver disease",
+    "option_other_illnesses7": "Heart disease",
+    "option_other_illnesses8": "Cerebral infarction",
+    "option_other_illnesses9": "Gastric / duodenal ulcer",
+    "option_other_illnesses10": "Thyroid disease",
+    "option_other_illnesses11": "Prostate disease",
+    "option_other_illnesses12": "Other (free description)"
   },
-  "list_pharmacies":{
+  "list_pharmacies": {
     "title": "Marine Pharmacy Oisotori",
     "outside_image": "Photographs of the main exterior of a pharmacy or store",
     "inside_image": "Photograph showing the display status of over-the-counter drugs",
@@ -208,7 +207,7 @@
     "title_classification": "Permit classification",
     "title_founder": "Founder",
     "title_permit": "Items to be stated in the permit",
-    "title_management_pharmacist" : "Management pharmacist",
+    "title_management_pharmacist": "Management pharmacist",
     "title_working_pharmacies": "Pharmacist working at our pharmacy (in charge)",
     "title_register_seller": "Registered seller working at our pharmacy (business in charge)",
     "title_over_the_counter_drugs_handle": "Types of over-the-counter drugs handled",
