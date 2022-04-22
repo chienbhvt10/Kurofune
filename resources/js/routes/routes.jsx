@@ -22,6 +22,7 @@ import BillingAddress from "../pages/client/billing-address";
 import { Questionnaire } from "../pages/client/questionnaire";
 import Cart from "../pages/client/cart";
 import CheckoutPage from "../pages/client/checkout";
+import { Service24H } from "../pages/client/service-24";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -127,6 +128,7 @@ const appRouter = () => {
           />
         </Route>
         <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
+        <Route path={`/${lang}/service-24h`} element={<Service24H />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <LangAfterReload />
