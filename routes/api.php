@@ -42,6 +42,6 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         });
     });
 
-    Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login'])->name('login');
+    Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);
     Route::post('register', [\App\Http\Controllers\API\AuthController::class, 'register']);
 });
