@@ -129,7 +129,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
-
+    'zipcode' => '有効な郵便番号を入力してください',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines
