@@ -16,8 +16,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('name', 100)->nullable();
-            $table->dateTime('dob')->nullable();
+            $table->date('dob')->nullable();
             $table->tinyInteger('gender')->nullable()->comment('0: Male 1: Female');
             $table->string('phone', 50)->nullable();
             $table->string('facebook')->nullable();
@@ -34,8 +33,8 @@ class CreateProfilesTable extends Migration
             $table->string('insurance_start_date')->nullable();
             $table->tinyInteger('overseas_remittance_status', [])->nullable()->comment('0: Unregistered 1: Registered');
             $table->string('orientation', 100)->nullable();
-            $table->dateTime('start_date_education')->nullable();
-            $table->dateTime('end_date_education')->nullable();
+            $table->date('start_date_education')->nullable();
+            $table->date('end_date_education')->nullable();
             $table->tinyInteger('education_status')->nullable()->comment('1: N1, 2: N2, 3: N3, 4: N4, 5: N5, 6: N0, 7: unregistered
 , 8: under erasure');
             $table->tinyInteger('wabisabi_my_page_registration')->nullable()->comment('0: Unregistered, 1: Registered');

@@ -34,6 +34,14 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         });
 
+        // User Manage
+        Route::middleware(['permission:manage user'])->group(function () {
+            Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
+        });
+
+        // View Profile
+        Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
+
         // Billing, Shipping, Address manager
         Route::middleware('permission:update user address')->group(function () {
             Route::put('billingAddress', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);

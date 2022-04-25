@@ -26,6 +26,7 @@ class User extends Authenticatable
         'password',
         'avatar',
         'active',
+        'login_counter'
     ];
 
     /**
@@ -50,4 +51,47 @@ class User extends Authenticatable
     public $timestamps = true;
 
     protected $guard_name = 'api';
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
+
+    public function scopeActiveStatus($query, $type)
+    {
+        $query->where('active', $type);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function profile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Profile::class, 'user_id', 'id');
+    }
+
+    public function address(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Address::class, 'user_id', 'id');
+    }
+
+    public function shipping_address(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(ShippingAddress::class, 'user_id', 'id');
+    }
+
+    public function billing_address(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(BillingAddress::class, 'user_id', 'id');
+    }
+
+    public function vendor_profile(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(VendorProfile::class, 'user_id', 'id');
+    }
 }

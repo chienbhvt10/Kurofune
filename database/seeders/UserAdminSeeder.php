@@ -48,10 +48,23 @@ class UserAdminSeeder extends Seeder
                 'active' => Base::USER_ACTIVE
             ]);
 
-        $role = Role::findByName(UserRole::ROLE_ADMIN, 'api');
+            $role = Role::findByName(UserRole::ROLE_ADMIN, 'api');
         foreach ($data as $item) {
             $admin = User::create($item);
             $admin->assignRole($role);
         }
+
+        $item_vendor = [
+            'username' => 'thanhvuvan',
+            'name' => 'thanh',
+            'email' => 'thanhvv@its-global.vn',
+            'password' => Hash::make('admin'),
+            'email_verified_at' => now(),
+            'remember_token' => Str::random(10),
+            'active' => Base::USER_ACTIVE
+        ];
+        $role_vendor = Role::findByName(UserRole::ROLE_VENDOR, 'api');
+        $vendor = User::create($item_vendor);
+        $vendor->assignRole($role_vendor);
     }
 }

@@ -129,7 +129,7 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
-
+    'zipcode' => '请给我一个有效的邮政编码',
     /*
     |--------------------------------------------------------------------------
     | Custom Validation Language Lines

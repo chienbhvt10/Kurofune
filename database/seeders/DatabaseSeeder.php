@@ -16,10 +16,12 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionSeeder::class,
             UserAdminSeeder::class,
-//            UserSeeder::class,
-            // BillingAddressSeeder::class,
-            // ShippingAddressSeeder::class,
-            // AddressSeeder::class
+//          VendorProfileSeeder::class,
+//          UserSeeder::class,
+//          ProfileSeeder::class
+//          BillingAddressSeeder::class,
+//          ShippingAddressSeeder::class,
+//          AddressSeeder::class
         ]);
     }
 }

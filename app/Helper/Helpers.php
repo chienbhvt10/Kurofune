@@ -33,7 +33,7 @@ if (!function_exists('checkPostalCode')) {
         curl_close($ch);
 
         $result = json_decode($response);
-        
+
         if (empty($result->results)) {
             return false;
         } else {
@@ -42,3 +42,16 @@ if (!function_exists('checkPostalCode')) {
     }
 }
 
+
+function getMediaImages(\App\Models\VendorProfile $vendor_profile, $key): array
+{
+    $images = [];
+    if($vendor_profile->hasMedia($key)) {
+        $get_vendor_images2 = $vendor_profile->getMedia($key);
+        foreach ($get_vendor_images2 as $value) {
+            $images['file_name'] = $value->file_name;
+            $images['url'] = $value->getUrl();
+        }
+    }
+    return $images;
+}
