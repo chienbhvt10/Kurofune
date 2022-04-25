@@ -9,7 +9,7 @@ class VendorProfileTranslation extends Model
 {
     use HasFactory;
 
-    public $fillable = [
+    protected $fillable = [
         'id',
         'vendor_id',
         'locate',
