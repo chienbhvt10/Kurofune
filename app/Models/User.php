@@ -94,4 +94,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(VendorProfile::class, 'user_id', 'id');
     }
+
+    public function pages(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Page::class, 'author_id', 'id');
+    }
 }
