@@ -13,7 +13,6 @@ export const Questionnaire = () => {
       const sc = document.querySelectorAll("script");
       let activeChat = false;
       sc.forEach((el) => {
-
         if (
           el.attributes.src?.nodeValue ==
           "https://front.ebot.chat/embed/js/webInit.js"
@@ -53,16 +52,19 @@ export const Questionnaire = () => {
               size="sm"
               className="icon-search"
             />
-            <input type="text" placeholder={t("questionnaire.placeholder")} />
+            <input
+              type="text"
+              placeholder={t("client.questionnaire.placeholder")}
+            />
           </div>
           <button className="btn-search">
-            {t("questionnaire.btn_search")}
+            {t("client.questionnaire.btn_search")}
           </button>
         </div>
         <div className="product-container">
           <p className="show-number-result">
-            {t("questionnaire.title_number_results")} {number}
-            {t("questionnaire.description_number")}
+            {t("client.questionnaire.title_number_results")} {number}
+            {t("client.questionnaire.description_number")}
           </p>
           <div className="product-list">
             <div className="product-item">

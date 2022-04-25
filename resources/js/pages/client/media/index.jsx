@@ -47,7 +47,7 @@ const MediaPage = () => {
                       icon={faUserGear}
                       size="sm"
                     />
-                    <span>{t("media.btn_user_info")} </span>
+                    <span>{t("client.media.btn_user_info")} </span>
                   </a>
                 </div>
                 <div className="logout-wrap pc">
@@ -55,7 +55,7 @@ const MediaPage = () => {
                     href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=bb23afb59e"
                     title="Thoát"
                   >
-                    {t("media.btn_logout")}
+                    {t("client.media.btn_logout")}
                     <FontAwesomeIcon
                       className="icon"
                       icon={faSignOutAlt}
@@ -71,7 +71,7 @@ const MediaPage = () => {
                   href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=bb23afb59e"
                   title="Thoát"
                 >
-                  {t("media.btn_logout")}
+                  {t("client.media.btn_logout")}
                   <FontAwesomeIcon
                     className="icon"
                     icon={faSignOutAlt}

@@ -12,12 +12,12 @@ const Cart = () => {
         <div className="woocommerce">
           <p className="cart-empty woocommerce-info">
             <i className="fas fa-check-circle"></i>
-            {t("cart.title_cart_empty")}
+            {t("client.cart.title_cart_empty")}
           </p>
 
           <p className="return-to-shop">
             <Link className="button wc-backward" to={`${lang}/medicine-list`}>
-              {t("cart.btn_return")}
+              {t("client.cart.btn_return")}
             </Link>
           </p>
         </div>
@@ -25,14 +25,14 @@ const Cart = () => {
       <div className="cart-custom">
         <form action="" id="cart-form" noValidate="">
           <div className="cart-header custom-title-cart">
-            <h1>{t("cart.title_cart")}</h1>
+            <h1>{t("client.cart.title_cart")}</h1>
             <div className="description">
-              {t("cart.cart_description1")}
+              {t("client.cart.cart_description1")}
               <br />
-              {t("cart.cart_description2")}
+              {t("client.cart.cart_description2")}
             </div>
             <button type="submit" className="btn btn-primary btn-update">
-              {t("cart.btn_update")}
+              {t("client.cart.btn_update")}
             </button>
           </div>
 
@@ -74,13 +74,13 @@ const Cart = () => {
                 <thead>
                   <tr>
                     <th className="product-name" scope="col">
-                      {t("cart.th_product_name")}
+                      {t("client.cart.th_product_name")}
                     </th>
                     <th className="product-price" scope="col">
-                      {t("cart.th_product_price")}
+                      {t("client.cart.th_product_price")}
                     </th>
                     <th className="product-quantity" scope="col">
-                      {t("cart.th_product_quantity")}
+                      {t("client.cart.th_product_quantity")}
                     </th>
                     <th className="product-remove" scope="col"></th>
                   </tr>
@@ -89,7 +89,7 @@ const Cart = () => {
                   {cartData.map((item, index) => (
                     <tr key={index}>
                       <td
-                        data-lable={t("cart.th_product_name")}
+                        data-lable={t("client.cart.th_product_name")}
                         className="product-name"
                       >
                         <Link to={`${lang}${item.link}`}>
@@ -100,7 +100,7 @@ const Cart = () => {
                         </Link>
                       </td>
                       <td
-                        data-lable={t("cart.th_product_price")}
+                        data-lable={t("client.cart.th_product_price")}
                         className="product-price"
                       >
                         <span className="woocommerce-Price-amount amount">
@@ -113,7 +113,7 @@ const Cart = () => {
                         </span>
                       </td>
                       <td
-                        data-lable={t("cart.th_product_quantity")}
+                        data-lable={t("client.cart.th_product_quantity")}
                         className="product-quantity"
                       >
                         <input
@@ -133,7 +133,7 @@ const Cart = () => {
                           className="btn btn-primary btn-remove-product"
                           data-item-key="df263d996281d984952c07998dc54358"
                         >
-                          {t("cart.btn_delete")}
+                          {t("client.cart.btn_delete")}
                         </button>
                       </td>
                     </tr>
@@ -146,13 +146,13 @@ const Cart = () => {
         <div className="cart-footer">
           <div className="button-group">
             <button className="btn btn-primary btn-remove-all">
-              {t("cart.btn_empty")}
+              {t("client.cart.btn_empty")}
             </button>
             <Link
               to={`${lang}/checkout`}
               className="btn btn-primary btn-checkout"
             >
-              {t("cart.btn_checkout")}
+              {t("client.cart.btn_checkout")}
             </Link>
           </div>
         </div>

@@ -71,6 +71,8 @@
     "tab_ship": "Address ng pagpapadala",
     "tab_bill": "Billing address"
   },
+  "client":{
+
   "questionnaire": {
     "placeholder": "Ilagay ang pangalan ng gamot",
     "btn_search": "Ipasa",
@@ -221,5 +223,6 @@
     "title_time_accept_order": "Oras na para tanggapin ang mga order ng gamot sa labas ng oras ng negosyo",
     "title_expiration_date": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
     "title_problem": "Mga usapin tungkol sa sistema para sa pagbebenta ng mga gamot na nangangailangan ng gabay at mga gamot na nabibili nang walang reseta"
+  }
   }
 }
