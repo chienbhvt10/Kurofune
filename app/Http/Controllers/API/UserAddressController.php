@@ -18,14 +18,12 @@ class UserAddressController extends Controller
             $data = Address::where('user_id', $user_id);
 
             $validator = Validator::make($request->all(), [
-                'full_name' => 'required|string|max:100',
                 'postal_code' => 'required|string|max:50',
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
                 'building' => 'string|max:255',
                 'phone' => 'required|numeric',
-                'email' => 'required|email|max:100',
             ], [
 
             ]);
@@ -47,14 +45,12 @@ class UserAddressController extends Controller
             }
 
             $dataUpdate = [
-                'full_name' => $request->full_name,
                 'postal_code' => $request->postal_code,
                 'city' => $request->city,
                 'prefecture' => $request->prefecture,
                 'street_address' => $request->street_address,
                 'building' => $request->building,
                 'phone' => $request->phone,
-                'email' => $request->email,
             ];
 
             $data->update($dataUpdate);
