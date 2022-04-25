@@ -33,6 +33,13 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
 
         });
+
+        // Billing, Shipping, Address manager
+        Route::middleware('permission:update user address')->group(function () {
+            Route::put('billingAddress', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
+            Route::put('shippingAddress', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
+            Route::put('userAddress', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
+        });
     });
 
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);

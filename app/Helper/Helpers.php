@@ -9,3 +9,36 @@ if (!function_exists('formatDate')) {
         return $date;
     }
 }
+
+if (!function_exists('checkPostalCode')) {
+    function checkPostalCode($param)
+    {
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HEADER, false);
+
+        $data = [
+            "codes" => $param,
+            'country' => 'JP'
+        ];
+
+        curl_setopt($ch, CURLOPT_URL, "https://app.zipcodebase.com/api/v1/search?" . http_build_query($data));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            "Content-Type: application/json",
+            "apikey: cfdd15a0-8fc8-11ec-be6d-7ddcc654de1d",
+        ));
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        $result = json_decode($response);
+        
+        if (empty($result->results)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
