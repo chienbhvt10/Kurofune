@@ -29,7 +29,7 @@ class UserController extends Controller
                     return $query->where('name', '=', $role);
                 })->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->get();
             }else {
-                $users = User::with(['roles','vendor', 'profile', 'address', 'billing_address', 'shipping_address'])->get();
+                $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->get();
             }
             return response()->json([
                 'status_code' => Response::HTTP_OK,
@@ -167,6 +167,12 @@ class UserController extends Controller
     {
         try {
             $user = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
+            if(!$user) {
+                return response()->json([
+                    'status_code' => Response::HTTP_NOT_FOUND,
+                    'message' => __('User not exist')
+                ]);
+            }
             $role = $user->roles;
             $profile = $user->profile;
             $address = $user->address;
