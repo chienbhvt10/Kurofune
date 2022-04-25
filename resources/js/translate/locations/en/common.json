@@ -70,6 +70,8 @@
     "tab_ship": "Shipping address",
     "tab_bill": "Billing address"
   },
+  "client":{
+
   "questionnaire": {
     "placeholder": "Enter drug name",
     "btn_search": "Submit",
@@ -221,4 +223,6 @@
     "title_expiration_date": "Expiration date of drugs for specific sale",
     "title_problem": "Matters concerning the system for sales of drugs requiring guidance and over-the-counter drugs"
   }
+}
+
 }

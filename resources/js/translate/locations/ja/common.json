@@ -71,12 +71,13 @@
     "tab_ship": "お届け先情報",
     "tab_bill": "請求先情報"
   },
-  "questionnaire": {
-    "placeholder": "薬剤名入力",
-    "btn_search": "検索する",
-    "title_number_results": "検索結果:",
-    "description_number": "件"
-  },
+  "client":{
+    "questionnaire": {
+      "placeholder": "薬剤名入力",
+      "btn_search": "検索する",
+      "title_number_results": "検索結果:",
+      "description_number": "件"
+    },
   "media": {
     "title": "一般社団法人在日外国人就業者支援協会<br>生活支援ポータルサイト",
     "card_pharmacy": "オンライン薬局",
@@ -221,7 +222,9 @@
     "title_time_accept_order": "営業時間外で医薬品の注文を受理する時間",
     "title_expiration_date": "特定販売を行う医薬品の使用期限",
     "title_problem": "要指導医薬品及び一般用医薬品の販売に関する制度に関する事項"
-  },
+  }
+  }
+  ,
   "admins": {
     "user": {
       "list": {

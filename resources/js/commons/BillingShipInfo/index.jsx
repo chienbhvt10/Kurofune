@@ -12,27 +12,29 @@ const BillingShipInfo = ({ info, title }) => {
           </td>
         </tr>
         <tr>
-          <td className="td-label">{t("order-detail.field_full_name")}</td>
+          <td className="td-label">
+            {t("client.order-detail.field_full_name")}
+          </td>
           <td colSpan="3">{info.fullName}</td>
-          <td>{t("order-detail.field_phone")}</td>
+          <td>{t("client.order-detail.field_phone")}</td>
           <td>{info.phone}</td>
         </tr>
         <tr>
-          <td className="td-label">{t("order-detail.field_postal")}</td>
+          <td className="td-label">{t("client.order-detail.field_postal")}</td>
           <td>{info.postal}</td>
-          <td>{t("order-detail.field_prefecture")}</td>
+          <td>{t("client.order-detail.field_prefecture")}</td>
           <td>{info.prefecture}</td>
-          <td>{t("order-detail.field_email")}</td>
+          <td>{t("client.order-detail.field_email")}</td>
           <td>{info.email}</td>
         </tr>
         <tr>
-          <td className="td-label">{t("order-detail.field_city")}</td>
+          <td className="td-label">{t("client.order-detail.field_city")}</td>
           <td>{info.city}</td>
-          <td>{t("order-detail.field_street")}</td>
+          <td>{t("client.order-detail.field_street")}</td>
           <td colSpan="3">{info.street}</td>
         </tr>
         <tr>
-          <td className="td-label">{t("order-detail.field_house")}</td>
+          <td className="td-label">{t("client.order-detail.field_house")}</td>
           <td colSpan="5">{info.house}</td>
         </tr>
       </tbody>

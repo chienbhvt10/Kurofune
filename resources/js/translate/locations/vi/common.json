@@ -71,6 +71,8 @@
     "tab_ship": "Địa chỉ giao hàng",
     "tab_bill": "Địa chỉ thanh toán"
   },
+  "client": {
+
   "questionnaire": {
     "placeholder": "Hãy nhập tên thuốc",
     "btn_search": "Tìm kiếm",
@@ -222,4 +224,6 @@
     "title_expiration_date": "Ngày hết hạn của thuốc để bán cụ thể",
     "title_problem": "Các vấn đề liên quan đến hệ thống bán thuốc cần hướng dẫn và thuốc không kê đơn"
   }
+  }
+
 }

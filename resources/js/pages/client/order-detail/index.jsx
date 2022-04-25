@@ -11,13 +11,13 @@ const OrderDetailPage = () => {
       <div className="card">
         <div className="woocommerce">
           <div className="order-header-title">
-            <h1>{t("order-detail.title")}</h1>
+            <h1>{t("client.order-detail.title")}</h1>
           </div>
           <div className="order-info">
             <div className="order-info-wrap">
               <div className="item-of">
                 <span className="io-label">
-                  {t("order-detail.th_order_date")}
+                  {t("client.order-detail.th_order_date")}
                 </span>
                 <span className="io-value">
                   <time dateTime="2022-02-25T15:01:03+00:00">2022/02/25</time>
@@ -25,13 +25,13 @@ const OrderDetailPage = () => {
               </div>
               <div className="item-of">
                 <span className="io-label">
-                  {t("order-detail.th_order_ID")}
+                  {t("client.order-detail.th_order_ID")}
                 </span>
                 <span className="io-value">OP-00000064</span>
               </div>
               <div className="item-of">
                 <span className="io-label">
-                  {t("order-detail.th_order_status")}
+                  {t("client.order-detail.th_order_status")}
                 </span>
                 <span className="io-value"> STEP①: Đang chờ mail xác nhận</span>
               </div>
@@ -41,11 +41,11 @@ const OrderDetailPage = () => {
             <table>
               <thead>
                 <tr>
-                  <td>{t("order-detail.th_product_name")}</td>
-                  <td>{t("order-detail.th_unit_price")}</td>
-                  <td>{t("order-detail.th_product_quantity")}</td>
-                  <td>{t("order-detail.th_tax")}</td>
-                  <td>{t("order-detail.th_product_total")}</td>
+                  <td>{t("client.order-detail.th_product_name")}</td>
+                  <td>{t("client.order-detail.th_unit_price")}</td>
+                  <td>{t("client.order-detail.th_product_quantity")}</td>
+                  <td>{t("client.order-detail.th_tax")}</td>
+                  <td>{t("client.order-detail.th_product_total")}</td>
                 </tr>
               </thead>
               <tbody>
@@ -95,7 +95,7 @@ const OrderDetailPage = () => {
                 <tbody>
                   <tr className="total-amount">
                     <td className="cart-totals-title">
-                      {t("order-detail.td_total")}
+                      {t("client.order-detail.td_total")}
                     </td>
                     <td className="cart-totals-value">
                       <span className="woocommerce-Price-amount amount">
@@ -115,22 +115,22 @@ const OrderDetailPage = () => {
           <div className="order-billing">
             <BillingShipInfo
               info={billingInfo}
-              title={t("order-detail.title_billing")}
+              title={t("client.order-detail.title_billing")}
             />
           </div>
           <div className="order-shipping">
             <BillingShipInfo
               info={billingInfo}
-              title={t("order-detail.title_ship")}
+              title={t("client.order-detail.title_ship")}
             />
           </div>
           <div className="order-payment">
             <div className="order-payment-wrap">
               <div className="td-label opw-label opw-item">
-                {t("order-detail.payment")}
+                {t("client.order-detail.payment")}
               </div>
               <div className="opw-value opw-item">
-                {t("order-detail.payment_method")}
+                {t("client.order-detail.payment_method")}
               </div>
             </div>
           </div>
