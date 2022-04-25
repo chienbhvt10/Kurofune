@@ -57,6 +57,7 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_UPDATE_BILLING_ADDRESS,
             UserPermission::PERMISSION_VIEW_SHIPPING_ADDRESS,
             UserPermission::PERMISSION_UPDATE_SHIPPING_ADDRESS,
+            UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
 
         ];
@@ -75,6 +76,7 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_VIEW_USER,
             UserPermission::PERMISSION_UPDATE_USER,
             UserPermission::PERMISSION_VIEW_PRODUCT,
+            UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
         ];
 
@@ -95,6 +97,7 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_VIEW_USER,
             UserPermission::PERMISSION_UPDATE_USER,
             UserPermission::PERMISSION_VIEW_PRODUCT,
+            UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
         ];
 
