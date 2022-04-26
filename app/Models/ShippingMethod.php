@@ -4,12 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ShippingMethod extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable = ['id', 'name', 'description', 'logo'];
+    protected $fillable = ['id', 'name', 'total', 'description', 'logo'];
 
     public $timestamps = true;
 }

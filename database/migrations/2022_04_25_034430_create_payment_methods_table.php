@@ -18,6 +18,7 @@ class CreatePaymentMethodsTable extends Migration
             $table->string('name')->nullable();
             $table->string('description', 255)->nullable();
             $table->string('logo')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
