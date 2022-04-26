@@ -1,0 +1,38 @@
+#switch-lang-form {
+  .tab-label {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 20px;
+
+    label {
+      font-weight: bold;
+      padding: 5px 20px;
+      margin: 0 5px;
+      transition: all 0.3s ease;
+      border-bottom: 2px solid white;
+      cursor: pointer;
+      &:hover {
+        border-bottom: 2px solid #2c3338;
+      }
+      &.active {
+        border-bottom: 2px solid #2c3338;
+      }
+    }
+  }
+  label .tab {
+    display: none;
+    background-color: rebeccapurple;
+    &.active {
+      display: block;
+    }
+  }
+}
+#tab-form {
+  padding-bottom: 30px;
+  .tab {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}

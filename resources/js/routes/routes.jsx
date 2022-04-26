@@ -8,29 +8,36 @@ import {
 } from "react-router-dom";
 import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
+import { useTranslation } from "react-i18next";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LangAfterReload } from "../commons/Languges/langAfterReload";
+import HomeLayout from "../commons/layout/HomeLayout";
+import AddProduct from "../pages/admin/product/product-add";
+import ProductForm from "../pages/admin/product/product-form/ProductForm";
+import ProductList from "../pages/admin/product/product-list";
+import UpdateProduct from "../pages/admin/product/product-update";
+import { UserItem } from "../pages/admin/user/user-item";
+import { UserList } from "../pages/admin/user/user-list";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
-import HomeLayout from "../commons/layout/HomeLayout";
-import MemberPage from "../pages/client/member";
-import PharmaciesPage from "../pages/client/list-of-pharmacies";
-import MedicineListPage from "../pages/client/medicine-list";
-import ProductDetailPage from "../pages/client/product-detail";
-import OrderHistoryPage from "../pages/client/order-history";
-import OrderDetailPage from "../pages/client/order-detail";
-import { UserLayout } from "../pages/client/user-info/user-layout";
-import { LangAfterReload } from "../commons/Languges/langAfterReload";
-import { ChangePassword } from "../pages/client/user-info/change-password";
-import { ChangeProfile } from "../pages/client/user-info/change-profile";
-import MediaPage from "../pages/client/media";
-import { useTranslation } from "react-i18next";
-import ShippingAddress from "../pages/client/shipping-address";
+import { Login } from "../pages/auth/login";
 import BillingAddress from "../pages/client/billing-address";
-import { Questionnaire } from "../pages/client/questionnaire";
 import Cart from "../pages/client/cart";
 import CheckoutPage from "../pages/client/checkout";
+import PharmaciesPage from "../pages/client/list-of-pharmacies";
+import MediaPage from "../pages/client/media";
+import MedicineListPage from "../pages/client/medicine-list";
+import MemberPage from "../pages/client/member";
+import OrderDetailPage from "../pages/client/order-detail";
+import OrderHistoryPage from "../pages/client/order-history";
+import ProductDetailPage from "../pages/client/product-detail";
+import { Questionnaire } from "../pages/client/questionnaire";
 import { Service24H } from "../pages/client/service-24";
-import { UserList } from "../pages/admin/user/user-list";
-import { UserItem } from "../pages/admin/user/user-item";
+import ShippingAddress from "../pages/client/shipping-address";
+import { ChangePassword } from "../pages/client/user-info/change-password";
+import { ChangeProfile } from "../pages/client/user-info/change-profile";
+import { UserLayout } from "../pages/client/user-info/user-layout";
+import { NotFound } from "../pages/notFound";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -60,7 +67,7 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-      <Route
+        <Route
           path={`/`}
           element={<Navigate to={`${lang}/member`} />}
           exact={true}
@@ -167,6 +174,13 @@ const appRouter = () => {
           <Route
             path={`user-update/:id`}
             element={<UserItem identify={"update"} />}
+            exact={true}
+          />
+          <Route path={`product-list`} element={<ProductList />} exact={true} />
+          <Route path={`product/add`} element={<AddProduct />} exact={true} />
+          <Route
+            path={`product/update`}
+            element={<UpdateProduct />}
             exact={true}
           />
         </Route>
