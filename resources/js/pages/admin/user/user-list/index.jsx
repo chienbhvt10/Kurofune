@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import BootstrapTable from "react-bootstrap-table-next";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
+import { Header } from "../../../../components/Header-list";
 
 export const UserList = () => {
+
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -89,27 +92,23 @@ export const UserList = () => {
   ];
 
   return (
-    <div  className="user-container">
-      <div className="user-header d-flex">
-        <div className="user-title">
-          <h3 className=" mr-3">User</h3>
-          <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-              <li className="breadcrumb-item">
-                <a href="#">Home</a>
-              </li>
-              <li className="breadcrumb-item active" aria-current="page">
-                User List
-              </li>
-            </ol>
-          </nav>
-        </div>
-      </div>
+    <div className="user-container">
+      <Header
+        title={"User"}
+        breadcrumb={[
+          { name: "Home", routerLink: "../" },
+          { name: "User List", routerLink: "/users" },
+        ]}
+      />
       <div className="user-tab my-3 d-flex">
-        <button className="btn  btn-outline-secondary mr-3">
-          <FontAwesomeIcon icon={faPlus} />
+        <Link
+          className="btn btn-outline-secondary mr-3"
+          role="button"
+          to="../user-create"
+        >
+          <FontAwesomeIcon className="mr-1" icon={faPlus} />
           Add new
-        </button>
+        </Link>
         <ul className="nav nav-pills">
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href="#">

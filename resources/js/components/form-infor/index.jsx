@@ -42,12 +42,6 @@ export const FormInfor = ({ onSubmit, item }) => {
     email: item.email,
   };
 
-  const formik = useFormik({
-    initialValues: initialValues,
-    validationSchema: credential,
-    onSubmit: { onSubmit },
-  });
-
   const renderErrorMessage = (field) => {
     return (
       formik.touched[field] && (

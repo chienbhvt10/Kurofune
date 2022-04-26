@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
-
+import './style.scss'
 export const ChangePassword = () => {
   const { i18n, t } = useTranslation();
 

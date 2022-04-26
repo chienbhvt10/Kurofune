@@ -28,7 +28,6 @@ const Board = ({ boardItems }) => {
             </a>
           ) : (
             <Link
-              target="_blank"
               to={`${lang}${item.link}`}
               className="item"
               title={item.link}

@@ -1,5 +1,11 @@
 import React from "react";
-import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  BrowserRouter,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import { NotFound } from "../pages/notFound";
 import { Login } from "../pages/auth/login";
 import { AuthLayout } from "../pages/auth/authLayout";
@@ -54,7 +60,16 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomeLayout styleColor={'#62A19B'} />} exact={true}>
+      <Route
+          path={`/`}
+          element={<Navigate to={`${lang}/member`} />}
+          exact={true}
+        />
+        <Route
+          path="/"
+          element={<HomeLayout styleColor={"#62A19B"} />}
+          exact={true}
+        >
           <Route
             path={`/${lang}/member`}
             element={<MemberPage />}
@@ -102,7 +117,11 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/${lang}/member`} element={<HomeLayout styleColor={'#62A19B'}/>} exact={true}>
+        <Route
+          path={`/${lang}/member`}
+          element={<HomeLayout styleColor={"#62A19B"} />}
+          exact={true}
+        >
           <Route
             path="order-history"
             element={<OrderHistoryPage />}
@@ -129,20 +148,25 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/admin`} element={<HomeLayout styleColor={'#2C3338'} />} exact={true}>
         <Route
-            path={`user-list`}
-            element={<UserList />}
-            exact={true}
-          />
+          path={`/admin`}
+          element={<Navigate to={`user-list`} />}
+          exact={true}
+        />
         <Route
+          path={`/admin`}
+          element={<HomeLayout styleColor={"#2C3338"} />}
+          exact={true}
+        >
+          <Route path={`user-list`} element={<UserList />} exact={true} />
+          <Route
             path={`user-create`}
-            element={<UserItem identify={'create'} />}
+            element={<UserItem identify={"create"} />}
             exact={true}
           />
-        <Route
+          <Route
             path={`user-update/:id`}
-            element={<UserItem identify={'update'}  />}
+            element={<UserItem identify={"update"} />}
             exact={true}
           />
         </Route>
