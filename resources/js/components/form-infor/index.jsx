@@ -42,6 +42,12 @@ export const FormInfor = ({ onSubmit, item }) => {
     email: item.email,
   };
 
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: credential,
+    onSubmit: onSubmit,
+  });
+
   const renderErrorMessage = (field) => {
     return (
       formik.touched[field] && (
@@ -53,7 +59,6 @@ export const FormInfor = ({ onSubmit, item }) => {
     if (formik.values.toPostalCode && formik.values.fromPostalCode) {
       const code = formik.values.toPostalCode + formik.values.fromPostalCode;
       postal_code.get(code, (address) => {
-        console.log(address);
         if (address.prefecture || address.city || address.street) {
           formik.setFieldValue("prefecture", address.prefecture);
           formik.setFieldValue("city", address.city);
