@@ -39,6 +39,7 @@ class CreateProfilesTable extends Migration
 , 8: under erasure');
             $table->tinyInteger('wabisabi_my_page_registration')->nullable()->comment('0: Unregistered, 1: Registered');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

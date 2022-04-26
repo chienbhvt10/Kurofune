@@ -24,6 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->nullable();
             $table->integer('login_counter')->unsigned()->default(0);
             $table->rememberToken();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

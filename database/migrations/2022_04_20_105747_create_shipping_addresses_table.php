@@ -25,6 +25,7 @@ class CreateShippingAddressesTable extends Migration
             $table->string('phone', 50)->nullable();
             $table->string('email', 100)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

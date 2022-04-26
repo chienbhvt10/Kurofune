@@ -17,9 +17,9 @@ class CreateShippingMethodsTable extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->decimal('total', 13, 2)->nullable()->default(0);
-            $table->decimal('total_tax', 13, 2)->nullable()->default(0);
             $table->string('description')->nullable();
             $table->string('logo')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

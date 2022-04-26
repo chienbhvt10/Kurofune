@@ -23,6 +23,7 @@ class CreateAddressesTable extends Migration
             $table->string('building', 255)->nullable();
             $table->string('phone', 50)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
