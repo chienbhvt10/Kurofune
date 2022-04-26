@@ -11,22 +11,36 @@
     "languages": "语言",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "机构名称",
-    "description": "请完成以创建您的帐户。",
-    "field_first_name": "名",
-    "field_last_name": "姓",
-    "field_user_name": "用户名",
-    "field_email": "电子邮件",
-    "field_password": "密码",
-    "field_confirm_password": "确认密码",
-    "check_member_confirm": "确认密码",
-    "check_vendor_register_confirm": "成为供应商",
-    "btn_sign_up": "注册",
-    "btn_redirect_login": "已有账号？登录"
-  },
   "home": "Trang chủ",
+  "header": {
+    "btn_back1": "返回药品清单",
+    "btn_back2": "返回订单列表",
+    "btn_back3": "返回购物车",
+    "btn_logout": "登出",
+    "btn_view_cart": "查看购物车",
+    "btn_buy": "购买程序",
+    "cart_empty": "购物车中没有任何信息。",
+    "cart_title": "查看您的购物车"
+  },
+  "navigate_link": {
+    "title": "网上药店",
+    "questionnaire_title": "他加禄语",
+    "pharmacies_title": "药房信息",
+    "medicine_title": "药品信息",
+    "order_history_title": "订单历史",
+    "cart_title": "购物篮",
+    "billing_address_title": "注册信息",
+    "media_title": "综合首页"
+  },
   "member": {
+    "dashboard": {
+      "questionnaire": "问卷",
+      "pharmacy": "药房名单",
+      "drug": "药品清单",
+      "order_history": "订单历史",
+      "order_list": "订单",
+      "registration_info": "注册信息"
+    },
     "user_profile": {
       "btn_save": "保存",
       "text_back": "返回一般首页",
@@ -55,5 +69,171 @@
   "tab_address": {
     "tab_ship": "收件地址",
     "tab_bill": "帐单地址"
+  },
+  "client": {
+    "questionnaire": {
+      "placeholder": "输入药物名称",
+      "btn_search": "提交",
+      "title_number_results": "搜索结果s:",
+      "description_number": "总共有"
+    },
+    "media": {
+      "title": "日本综合社团法人外国人劳动者支援协会生活支援门户网站",
+      "card_pharmacy": "网上药店",
+      "card_consultation": "24小时咨询服务",
+      "card_remittance": "侨汇",
+      "card_e_leaning": "电子学习",
+      "card_insurance": "收入保障保险",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "用户信息",
+      "btn_logout": "登出 "
+    },
+    "cart": {
+      "title_cart": "购物篮",
+      "title_cart_empty": "你的购物篮目前是空的。",
+      "cart_description1": "请检查购买详情。",
+      "cart_description2": "检查后，请点击“继续结帐”按钮。",
+      "th_product_name": "产品",
+      "th_product_price": "来自药剂师的电子邮件确认",
+      "th_product_quantity": "数量",
+      "btn_delete": "删除",
+      "btn_checkout": "继续结帐",
+      "btn_empty": "清空购物车",
+      "btn_update": "更新您的购物车",
+      "btn_return": "返回商店"
+    },
+    "checkout": {
+      "title_confirm": "购买确认",
+      "confirm_description1": "请检查购买详情。",
+      "confirm_description2": "请检查使用条款并单击“买”按钮。",
+      "th_product_name": "产品",
+      "th_product_price": "来自药剂师的电子邮件确认",
+      "th_product_quantity": "数量",
+      "th_product_total": "小计",
+      "td_total": "总付款",
+      "title_billing": "账单信息",
+      "field_full_name": "全名",
+      "field_zip_code": "邮政编码",
+      "field_prefecture": "州",
+      "field_town_city": "城镇/城市",
+      "field_street": "街道地址",
+      "field_house": "建造",
+      "field_phone": "电话",
+      "field_email": "电子邮件地址",
+      "title_ship": "发货信息",
+      "accept_term": "同意使用条款后购买。",
+      "btn_text_buy": "买"
+    },
+    "order-history": {
+      "th_order_date": "订购日期",
+      "th_order_ID": "详细资料",
+      "th_order_status": "订单状态",
+      "th_order_price": "来自药剂师的电子邮件确认",
+      "th_purchase_product": "购买的产品",
+      "btn_view": "看法",
+      "btn_next": "下一个",
+      "btn_prev": "上一个",
+      "about_status": "关于订单状态",
+      "status_step_1": "等待确认",
+      "status_step_2": "包装",
+      "status_step_3": "交货",
+      "status_step_4": "船运",
+      "status_step_5": "完全的"
+    },
+    "order-detail": {
+      "title": "订单详细信息",
+      "th_order_date": "【订购日期】",
+      "th_order_ID": "【详细资料】",
+      "th_order_status": "【订单状态】",
+      "th_product_name": "产品",
+      "th_product_quantity": "数量",
+      "th_unit_price": "单价",
+      "th_product_total": "小计",
+      "td_total": "总付款",
+      "th_tax": "税",
+      "title_billing": "账单信息",
+      "field_full_name": "全名",
+      "field_postal": "邮政编码",
+      "field_prefecture": "州",
+      "field_city": "城镇/城市",
+      "field_house": "建造",
+      "field_street": "街道地址",
+      "field_phone": "电话",
+      "field_email": "电子邮件地址",
+      "title_ship": "发货信息",
+      "payment": "支付方式",
+      "payment_method": "货到付款"
+    },
+    "medicine_list": {
+      "type_name1": "第1类",
+      "type_name2": "指定的第2类",
+      "type_name3": "第2类"
+    },
+    "product_detail": {
+      "btn_buy": "立即购买",
+      "label_gender": "请问您的性别为？",
+      "label_age": "请问您的年龄为？",
+      "label_ever_used": "过去有使用过这种药品吗？",
+      "label_ever_side_effect": "过去服用这种药时曾有过副作用吗？",
+      "label_using_medicine": "药品的名字为？",
+      "label_other_illnesses": "您现在有正在治疗中的疾病吗？",
+      "label_other_question": "还有什么想要跟我们讨论的吗？",
+      "placeholder_select": "请选择选项",
+      "placeholder_text": "请输入文字",
+      "option_yes": "是的",
+      "option_no": "不",
+      "option_gender1": "男性",
+      "option_gender2": "女性",
+      "option_age1": "15岁以下",
+      "option_age2": "15-64岁",
+      "option_age3": "65岁或以上",
+      "option_other_illnesses1": "没有",
+      "option_other_illnesses2": "高血压",
+      "option_other_illnesses3": "糖尿病",
+      "option_other_illnesses4": "高脂血症",
+      "option_other_illnesses5": "气喘",
+      "option_other_illnesses6": "肝脏疾病",
+      "option_other_illnesses7": "心脏疾病",
+      "option_other_illnesses8": "脑部梗塞",
+      "option_other_illnesses9": "胃／十二指肠溃疡",
+      "option_other_illnesses10": "甲状腺方面疾病",
+      "option_other_illnesses11": "前列腺方面疾病",
+      "option_other_illnesses12": "其他"
+    },
+    "list_pharmacies": {
+      "title": "海洋药房大矶",
+      "outside_image": "药房或商店主要外观的照片",
+      "inside_image": "显示非处方药展示状态的照片",
+      "title_concerning_management": "经营管理事项",
+      "title_classification": "许可证分类",
+      "title_founder": "创始人",
+      "title_permit": "许可证须载明的事项",
+      "title_management_pharmacist": "管理药剂师",
+      "title_working_pharmacies": "在我们药房工作的药剂师（负责人）",
+      "title_register_seller": "在我们药房工作的注册卖家（负责业务）",
+      "title_over_the_counter_drugs_handle": "处理的非处方药种类",
+      "title_distinguishing": "通过在这家药店工作的人的姓名标签等来区分",
+      "title_business_hours": "营业时间",
+      "title_consultation_outside": "营业时间以外的咨询时间",
+      "title_contact": "咨询和紧急情况的联系信息",
+      "title_current_working_pharmacies": "现任药剂师（主管）",
+      "title_specific_sale_time": "开业时间与具体销售时间不同时",
+      "title_time_accept_order": "营业时间以外接受药品订单的时间",
+      "title_expiration_date": "特定销售药品的有效期",
+      "title_problem": "指导药品和非处方药销售制度有关事项"
+    }
+  },
+  "admins": {
+    "user": {
+      "list": {
+        "title": ""
+      },
+      "create": {
+        "title": "Create a new"
+      },
+      "update": {
+        "title": "Update a existing"
+      }
+    }
   }
 }
