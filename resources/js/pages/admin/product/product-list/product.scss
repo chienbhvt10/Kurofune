@@ -11,6 +11,14 @@
   a {
     text-decoration: none;
   }
+  table {
+    th,
+    td,
+    a {
+      color: #62a19b !important;
+    }
+  }
+
   .table-header {
     display: flex;
     justify-content: space-between;

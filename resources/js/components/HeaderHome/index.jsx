@@ -126,17 +126,14 @@ const HeaderHome = ({ toggleSideBar }) => {
             </div>
 
             <div className="logout-wrap">
-              <a
-                href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=1750a2467b"
-                title={t("header.btn_logout")}
-              >
+              <Link to="/login" title={t("header.btn_logout")}>
                 {t("header.btn_logout")}
                 <FontAwesomeIcon
                   className="icon"
                   icon={faSignOutAlt}
                   size="sm"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

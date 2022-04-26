@@ -1,19 +1,10 @@
 import React from "react";
-import {
-  Routes,
-  Route,
-  BrowserRouter,
-  useLocation,
-  Navigate,
-} from "react-router-dom";
-import { NotFound } from "../pages/notFound";
-import { Login } from "../pages/auth/login";
 import { useTranslation } from "react-i18next";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { navigateLinkData, navigateLinkAdminData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
 import AddProduct from "../pages/admin/product/product-add";
-import ProductForm from "../pages/admin/product/product-form/ProductForm";
 import ProductList from "../pages/admin/product/product-list";
 import UpdateProduct from "../pages/admin/product/product-update";
 import { UserItem } from "../pages/admin/user/user-item";
@@ -74,7 +65,12 @@ const appRouter = () => {
         />
         <Route
           path="/"
-          element={<HomeLayout styleColor={"#62A19B"} />}
+          element={
+            <HomeLayout
+              navigateLinkData={navigateLinkData}
+              styleColor={"#62A19B"}
+            />
+          }
           exact={true}
         >
           <Route
@@ -126,7 +122,12 @@ const appRouter = () => {
         </Route>
         <Route
           path={`/${lang}/member`}
-          element={<HomeLayout styleColor={"#62A19B"} />}
+          element={
+            <HomeLayout
+              navigateLinkData={navigateLinkData}
+              styleColor={"#62A19B"}
+            />
+          }
           exact={true}
         >
           <Route
@@ -162,7 +163,12 @@ const appRouter = () => {
         />
         <Route
           path={`/admin`}
-          element={<HomeLayout styleColor={"#2C3338"} />}
+          element={
+            <HomeLayout
+              navigateLinkData={navigateLinkAdminData}
+              styleColor={"#2C3338"}
+            />
+          }
           exact={true}
         >
           <Route path={`user-list`} element={<UserList />} exact={true} />

@@ -1,4 +1,4 @@
-.user-container{
+.user-container {
   background: #fff;
   padding: 20px;
   border-radius: 5px;
@@ -6,6 +6,9 @@
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  .form-header {
+    padding: 0;
+  }
 }
 .form-group {
   label {
