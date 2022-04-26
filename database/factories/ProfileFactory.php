@@ -18,7 +18,6 @@ class ProfileFactory extends Factory
             'user_id' => 1,
             'dob' => $this->faker->date('Y-m-d', now()),
             'gender' => $this->faker->randomElement([Base::MALE, Base::FEMALE]),
-            'phone' => $this->faker->phoneNumber(),
             'facebook' => $this->faker->url(),
             'line' => $this->faker->url(),
             'address' => $this->faker->address(),
