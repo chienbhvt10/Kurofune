@@ -157,12 +157,12 @@ const appRouter = () => {
           />
         </Route>
         <Route
-          path={`/admin`}
+          path={`${lang}/admin`}
           element={<Navigate to={`user-list`} />}
           exact={true}
         />
         <Route
-          path={`/admin`}
+          path={`${lang}/admin`}
           element={
             <HomeLayout
               navigateLinkData={navigateLinkAdminData}
