@@ -18,7 +18,6 @@ class CreateProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('dob')->nullable();
             $table->tinyInteger('gender')->nullable()->comment('0: Male 1: Female');
-            $table->string('phone', 50)->nullable();
             $table->string('facebook')->nullable();
             $table->string('line')->nullable();
             $table->string('address', 255)->nullable();

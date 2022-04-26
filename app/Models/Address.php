@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Address extends Model
 {
     use HasFactory, SoftDeletes;
-    protected $fillable = ['id', 'user_id', 'full_name', 'postal_code', 'city', 'prefecture', 'street_address', 'building', 'phone'];
+
+    protected $fillable = ['id', 'user_id', 'postal_code', 'city', 'prefecture', 'street_address', 'building'];
+
     public $timestamps = true;
 }

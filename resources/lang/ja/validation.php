@@ -166,6 +166,14 @@ return [
         'street_address' => '丁目・番地・号',
         'phone' => '電話番号',
         'email' => 'メールアドレス',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'en data',
+        'ja' => 'ja data',
+        'tl' => 'tl data',
+        'vi' => 'vi data',
+        'zh' => 'zh data',
     ],
 
 ];

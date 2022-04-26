@@ -166,6 +166,14 @@ return [
         'street_address' => 'Address ng kalye',
         'phone' => 'Telepono',
         'email' => 'Email address',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'en data',
+        'ja' => 'ja data',
+        'tl' => 'tl data',
+        'vi' => 'vi data',
+        'zh' => 'zh data',
     ],
 
 ];

@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\VendorProfile;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
@@ -52,11 +53,13 @@ class UserController extends Controller
     public function store(Request $request)
     {
         try {
+            DB::beginTransaction();
             $roles = Role::all()->pluck('name')->toArray();
             $validator = Validator::make($request->all(), [
                 'username' => 'required|alpha_dash|unique:users',
                 'name' => 'required',
                 'email' => 'email|required',
+                'phone' => 'numeric',
                 'password' => 'required|min:6',
                 'active' => 'required|boolean',
                 'avatar' => 'mimes:jpg,bmp,png',
@@ -67,7 +70,6 @@ class UserController extends Controller
                 'prefecture' => 'string|max:150',
                 'street_address' => 'string|max:255',
                 'building' => 'string|max:255',
-                'phone' => 'numeric',
                 'shipping_full_name' => 'string|max:100',
                 'shipping_postal_code' => 'string|max:50',
                 'shipping_city' => 'string|max:255',
@@ -84,6 +86,7 @@ class UserController extends Controller
                 'billing_phone' => 'numeric',
             ]);
             if ($validator->fails()) {
+                DB::rollBack();
                 $errors = $validator->errors();
                 return response()->json([
                     'status_code' => 422,
@@ -93,63 +96,161 @@ class UserController extends Controller
             $username = $request->username;
             $name = $request->name;
             $email = $request->email;
+            $phone = $request->phone;
             $password = $request->password;
             $active = (boolean)$request->password;
             $role = $request->role;
-            $full_name = $request->full_name ?? null;
-            $postal_code = $request->postal_code ?? null;
-            $city = $request->city ?? null;
-            $prefecture = $request->prefecture ?? null;
-            $building = $request->building ?? null;
-            $phone = $request->phone ?? null;
-            $shipping_full_name = $request->full_name ?? null;
-            $shipping_postal_code = $request->postal_code ?? null;
-            $shipping_city = $request->city ?? null;
-            $shipping_prefecture = $request->prefecture ?? null;
-            $shipping_building = $request->building ?? null;
-            $shipping_phone = $request->phone ?? null;
-            $billing_full_name = $request->full_name ?? null;
-            $billing_postal_code = $request->postal_code ?? null;
-            $billing_city = $request->city ?? null;
-            $billing_prefecture = $request->prefecture ?? null;
-            $billing_building = $request->building ?? null;
-            $billing_phone = $request->phone ?? null;
+
             $data = [
                 'username' => $username,
                 'name' => $name,
                 'email' => $email,
+                'phone' => $phone,
                 'password' => Hash::make($password),
                 'active' => $active,
             ];
             $get_role = Role::findByName($role, 'api');
             $user = User::create($data);
             $user->assignRole($get_role);
-            return response()->json($user);
 
-            if(UserRole::ROLE_FULL_SUPPORT_PLAN || UserRole::ROLE_LIGHT_PLAN) {
+            $user->address()->create([
+                'postal_code' => $request->postal_code ?? null,
+                'city' => $request->city ?? null,
+                'prefecture' => $request->prefecture ?? null,
+                'street_address' => $request->street_address ?? null,
+                'building' => $request->building ?? null,
+            ]);
+
+            $user->shipping_address()->create([
+                'full_name' => $request->shipping_fullname ?? null,
+                'postal_code' => $request->shipping_postal_code ?? null,
+                'city' => $request->shipping_city ?? null,
+                'prefecture' => $request->shipping_prefecture ?? null,
+                'street_address' => $request->shipping_street_address ?? null,
+                'building' => $request->shipping_building ?? null,
+                'phone' => $request->shipping_phone ?? null,
+                'email' => $request->shipping_email ?? null,
+            ]);
+
+            $user->billing_address()->create([
+                'full_name' => $request->billing_fullname ?? null,
+                'postal_code' => $request->billing_postal_code ?? null,
+                'city' => $request->billing_city ?? null,
+                'prefecture' => $request->billing_prefecture ?? null,
+                'street_address' => $request->billing_street_address ?? null,
+                'building' => $request->billing_building ?? null,
+                'phone' => $request->billing_phone ?? null,
+                'email' => $request->billing_email ?? null,
+            ]);
+
+            if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {
                 $validator_profile = Validator::make($request->all(), [
-                    'dob' => 'date',
+                    'dob' => 'date|date_format:Y-m-d',
                     'gender' => 'boolean',
-                    'phone' => 'numeric',
                     'payment' => 'boolean',
                     'overseas_remittance_status' => 'boolean',
-                    'start_date_education' => 'date',
-                    'end_date_education' => 'date',
+                    'start_date_education' => 'date|date_format:Y-m-d',
+                    'end_date_education' => 'date|date_format:Y-m-d',
                     'wabisabi_my_page_registration' => 'boolean',
 
                 ]);
                 if ($validator_profile->fails()) {
+                    DB::rollBack();
                     $errors = $validator_profile->errors();
                     return response()->json([
                         'status_code' => 422,
                         'message' => $errors
                     ], 422);
                 }
+                $dob = $request->dob ?? null;
+                $gender = (boolean)$request->gender;
+                $phone = $request->phone ?? null;
+                $facebook = $request->facebook ?? null;
+                $line = $request->line ?? null;
+                $address = $request->address ?? null;
+                $nationality = $request->nationality ?? null;
+                $visa_type = $request->visa_type ?? null;
+                $job_name = $request->job_name ?? null;
+                $company_representative = $request->company_representative ?? null;
+                $inflow_source = $request->inflow_source ?? null;
+                $payment = (int)$request->payment ?? null;
+                $insurance_support = $request->insurance_support ?? null;
+                $insurance_start_date = $request->insurance_start_date ?? null;
+                $overseas_remittance_status = (int)$request->insurance_start_date ?? null;
+                $orientation = $request->orientation ?? null;
+                $start_date_education = $request->start_date_education ?? null;
+                $end_date_education = $request->end_date_education ?? null;
+                $education_status = (int)$request->education_status ?? null;
+                $wabisabi_my_page_registration = (int)$request->wabisabi_my_page_registration ?? null;
+                $user->profile()->create([
+                    'dob' => $dob,
+                    'gender' => $gender,
+                    'phone' => $phone,
+                    'facebook' => $facebook,
+                    'line' => $line,
+                    'address' => $address,
+                    'nationality' => $nationality,
+                    'visa_type' => $visa_type,
+                    'job_name' => $job_name,
+                    'company_representative' => $company_representative,
+                    'inflow_source' => $inflow_source,
+                    'payment' => $payment,
+                    'insurance_support' => $insurance_support,
+                    'insurance_start_date' => $insurance_start_date,
+                    'overseas_remittance_status' => $overseas_remittance_status,
+                    'orientation' => $orientation,
+                    'start_date_education' => $start_date_education,
+                    'end_date_education' => $end_date_education,
+                    'education_status' => $education_status,
+                    'wabisabi_my_page_registration' => $wabisabi_my_page_registration,
+                ]);
+            }elseif ($role == UserRole::ROLE_VENDOR) {
+                $validator_vendor = Validator::make($request->all(), [
+                    'vendor_images1' => 'mimes:jpg,bmp,png',
+                    'vendor_images2' => 'mimes:jpg,bmp,png',
+                    'en' => 'required',
+                    'ja' => 'required',
+                    'vi' => 'required',
+                    'tl' => 'required',
+                    'zh' => 'required',
+
+                ]);
+                if ($validator_vendor->fails()) {
+                    DB::rollBack();
+                    $errors = $validator_vendor->errors();
+                    return response()->json([
+                        'status_code' => 422,
+                        'message' => $errors
+                    ], 422);
+                }
+                $vendor_images1 = $request->vendor_images1 ?? null;
+                $vendor_images2 = $request->vendor_images2 ?? null;
+
+                $data_vendor = [
+                  'en' => $request->en ?? null,
+                  'ja' => $request->ja ?? null,
+                  'vi' => $request->vi ?? null,
+                  'tl' => $request->tl ?? null,
+                  'zh' => $request->zh ?? null,
+                ];
+
+                $vendor = $user->vendor_profile()->create($data_vendor);
+                if($vendor_images1) {
+                    $vendor->addMediaFromRequest($vendor_images1)->toMediaCollection('vendor_images1');
+                }
+                if($vendor_images2) {
+                    $vendor->addMediaFromRequest($vendor_images2)->toMediaCollection('vendor_images2');
+                }
             }
 
-            $role = $request->role;
-//            if($role ==)
+            DB::commit();
+            return response()->json([
+                'status_code' => 200,
+                'message' => __('create user successfully'),
+                'data' => $user
+            ]);
         }catch (\Exception $error){
+            DB::rollBack();
             return response()->json([
                 'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
                 'message' => $error->getMessage()
@@ -181,14 +282,12 @@ class UserController extends Controller
             $vendor_profile_data = null;
             $vendor_profile = $user->vendor_profile;
             if($vendor_profile){
-                $get_vendor_profile = $user->vendor_profile->first();
-
-                $vendor_images1 = getMediaImages($get_vendor_profile, 'vendor_images1');
-                $vendor_images2 = getMediaImages($get_vendor_profile, 'vendor_images2');
+                $vendor_images1 = getMediaImages($vendor_profile, 'vendor_images1');
+                $vendor_images2 = getMediaImages($vendor_profile, 'vendor_images2');
 
                 $vendor_profile_data = [
-                    'id' => $get_vendor_profile->id,
-                    'vendor_translations' => $get_vendor_profile->translations,
+                    'id' => $vendor_profile->id,
+                    'vendor_translations' => $vendor_profile->translations,
                     'vendor_images1' => $vendor_images1,
                     'vendor_images2' => $vendor_images2,
                 ];
