@@ -14,18 +14,19 @@ require("./bootstrap");
 
 import React from "react";
 import { render } from "react-dom";
+import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
-import Routes from "./routes/routes";
-import { BrowserRouter, Route } from "react-router-dom";
-import rootReducer from "./reducers/index";
+import { applyMiddleware, createStore } from "redux";
 import thunk from "redux-thunk";
-import i18n from './translate/i18n';
-import { I18nextProvider } from 'react-i18next';
-let composeEnhancers = null
-if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+import rootReducer from "./reducers/index";
+import Routes from "./routes/routes";
+import i18n from "./translate/i18n";
+let composeEnhancers = null;
+if (
+  process.env.NODE_ENV === "development" &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 } else {
   // composeEnhancers = compose
 }

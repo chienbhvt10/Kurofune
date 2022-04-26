@@ -9,21 +9,15 @@
       padding: 5px 20px;
       margin: 0 5px;
       transition: all 0.3s ease;
-      border-bottom: 2px solid white;
+      border-bottom: 3px solid white;
       cursor: pointer;
+      color: #62a19b;
       &:hover {
-        border-bottom: 2px solid #2c3338;
+        border-bottom: 3px solid #62a19b;
       }
       &.active {
-        border-bottom: 2px solid #2c3338;
+        border-bottom: 3px solid #62a19b;
       }
-    }
-  }
-  label .tab {
-    display: none;
-    background-color: rebeccapurple;
-    &.active {
-      display: block;
     }
   }
 }

@@ -58,23 +58,23 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
     manufacturer: "",
   };
   const formikJP = useFormik({
-    initialValues: item.ja ? item.ja : initialTranslateValues,
+    initialValues: item?.ja || initialTranslateValues,
     validationSchema: credential,
   });
   const formikVI = useFormik({
-    initialValues: item.vi ? item.vi : initialTranslateValues,
+    initialValues: item?.vi || initialTranslateValues,
     validationSchema: credential,
   });
   const formikTL = useFormik({
-    initialValues: item.tl ? item.tl : initialTranslateValues,
+    initialValues: item?.tl || initialTranslateValues,
     validationSchema: credential,
   });
   const formikEN = useFormik({
-    initialValues: item.en ? item.en : initialTranslateValues,
+    initialValues: item?.en || initialTranslateValues,
     validationSchema: credential,
   });
   const formikZH = useFormik({
-    initialValues: item.zh ? item.zh : initialTranslateValues,
+    initialValues: item?.zh || initialTranslateValues,
     validationSchema: credential,
   });
 
@@ -88,7 +88,15 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
   return (
     <div id="product-form">
       <form onSubmit={formik.handleSubmit}>
-        <FormHeader title={title} onCancel={onCancel} />
+        <FormHeader
+          breadcrumb={[
+            { name: "Home", routerLink: "../" },
+            { name: "Product List", routerLink: "/admin/product-list" },
+            { name: "Add", routerLink: "/admin/product/add" },
+          ]}
+          title={title}
+          onCancel={onCancel}
+        />
         <div className="separate">
           <div className="form-group">
             <label>Name</label>

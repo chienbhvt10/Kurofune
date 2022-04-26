@@ -429,7 +429,43 @@ export const navigateLinkData = [
     title: "navigate_link.media_title",
   },
 ];
-
+export const navigateLinkAdminData = [
+  {
+    link: "member/questionnaire",
+    imageUrl: "/images/sidebar/Questionnaire-form.png",
+    title: "navigate_link.questionnaire_title",
+  },
+  {
+    link: "list-of-pharmacies",
+    imageUrl: "/images/sidebar/list-pharmacies.png",
+    title: "navigate_link.pharmacies_title",
+  },
+  {
+    link: "admin/product-list",
+    imageUrl: "/images/sidebar/medicine-list.png",
+    title: "navigate_link.medicine_title",
+  },
+  {
+    link: "member/order-history",
+    imageUrl: "/images/sidebar/Order-history.png",
+    title: "navigate_link.order_history_title",
+  },
+  {
+    link: "cart",
+    imageUrl: "/images/sidebar/cart.png",
+    title: "navigate_link.cart_title",
+  },
+  {
+    link: "admin/user-list",
+    imageUrl: "/images/sidebar/Settings.png",
+    title: "navigate_link.billing_address_title",
+  },
+  {
+    link: "media",
+    imageUrl: "/images/sidebar/home.png",
+    title: "navigate_link.media_title",
+  },
+];
 export const historyData = [
   {
     fulltime: "2022-02-25T15:01:03+00:00",

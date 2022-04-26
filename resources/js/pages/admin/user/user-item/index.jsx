@@ -1,17 +1,20 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import FormHeader from "../../../../commons/FormHeader";
+
 import "./style.scss";
-import { Header } from "../../../../components/Header-list";
 export const UserItem = ({ identify }) => {
   const { i18n, t } = useTranslation();
   return (
     <div className="user-container">
-      <Header
-        title={t("admins.user.create.title")}
+      <FormHeader
         breadcrumb={[
           { name: "Home", routerLink: "../" },
-          { name: t("admins.user.create.breadcrumb"), routerLink: "/users" },
+          { name: "User List", routerLink: "/admin/user-list" },
+          { name: "Add", routerLink: "/admin/product/add" },
         ]}
+        title="Add User"
+        onCancel={() => {}}
       />
       <form className="mt-3">
         <div className="row">
@@ -44,7 +47,7 @@ export const UserItem = ({ identify }) => {
             />
           </div>
           <div className="form-group">
-            <label htmlFor="role" >
+            <label htmlFor="role">
               {t("admins.user.create.form_infor.field_role")} *
             </label>
             <select class="form-select" aria-label="Default select example">
@@ -55,14 +58,6 @@ export const UserItem = ({ identify }) => {
             </select>
           </div>
         </div>
-        <button
-          className="btn btn-primary d-block ml-auto"
-          onClick={() => {
-            Alert("asda");
-          }}
-        >
-          {t("member.user_profile.btn_save")}
-        </button>
       </form>
     </div>
   );

@@ -1,9 +1,10 @@
 import React from "react";
+import { Breadcrumb } from "../Breadcrumb";
 import "./form-header.scss";
-const FormHeader = ({ title, onCancel }) => {
+const FormHeader = ({ title, breadcrumb, onCancel }) => {
   return (
     <div className="form-header">
-      <span className="form-title">{title}</span>
+      <Breadcrumb breadcrumb={breadcrumb} title={title} />
       <div className="btn-group">
         <button type="button" className="header-btn cancel" onClick={onCancel}>
           Cancel
