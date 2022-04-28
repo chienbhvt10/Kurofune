@@ -36,7 +36,6 @@ const CategoryForm = ({ item, typeForm, title, onCancel, onSave }) => {
           ...formikEN.values,
         },
       };
-      console.log("submit input ", submitInput);
     },
   });
   const initialTranslateValues = {
