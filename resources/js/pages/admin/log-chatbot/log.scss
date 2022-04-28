@@ -1,0 +1,57 @@
+.log-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  table {
+    th {
+      &:not(:first-child) {
+        padding: 20px 20px;
+      }
+      text-align: center;
+      vertical-align: middle;
+    }
+    td {
+      &:not(:first-child) {
+        padding: 10px 20px;
+      }
+      text-align: center;
+      vertical-align: middle;
+    }
+    th {
+      color: #212529 !important;
+    }
+  }
+  .btn-download-csv {
+    img {
+      width: 20px;
+      height: auto;
+    }
+  }
+  .btn-group {
+    padding: 20px 0;
+  }
+  .btn-show {
+    background-color: #62a19b;
+    text-decoration: none;
+    border: 1px solid #62a19b;
+    padding: 10px 20px;
+    display: inline-block;
+    &:nth-child(2) {
+      margin-left: 5px;
+    }
+    span {
+      color: white;
+    }
+  }
+  .btn-show-custom {
+    background-color: #62a19b;
+    text-decoration: none;
+    border: 1px solid #62a19b;
+    display: inline-block;
+    padding: 5px 15px;
+    text-align: center;
+    span {
+      color: white;
+    }
+  }
+}
