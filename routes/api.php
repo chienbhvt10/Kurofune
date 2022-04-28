@@ -35,6 +35,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         // User Manage
         Route::middleware(['permission:manage user'])->group(function () {
             Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
+            Route::post('importUser', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
         });
 
         // View Profile

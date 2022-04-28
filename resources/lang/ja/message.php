@@ -18,6 +18,9 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+    'import_user' => [
+        'success' => 'Import data user success',
+    ],
     'update_billing_success' => '請求先住所が正常に変更されました',
     'update_shipping_success' => '配送先住所が正常に変更されました',
     'update_address_success' => 'ユーザー情報の登録内容を変更しました',

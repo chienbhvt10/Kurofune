@@ -18,6 +18,9 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+    'import_user' => [
+        'success' => 'Import data user success',
+    ],
     'update_billing_success' => '帐单邮寄地址更改成功',
     'update_shipping_success' => '送货地址更改成功',
     'update_address_success' => '个人资料已更新',

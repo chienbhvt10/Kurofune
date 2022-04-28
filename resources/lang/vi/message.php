@@ -18,6 +18,9 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+    'import_user' => [
+        'success' => 'Import data user success',
+    ],
     'update_billing_success' => 'Địa chỉ thanh toán đã được thay đổi thành công.',
     'update_shipping_success' => 'Đã thay đổi thành công địa chỉ giao hàng',
     'update_address_success' => 'Cập nhật thông tin cá nhân',

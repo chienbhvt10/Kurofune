@@ -174,6 +174,7 @@ return [
         'tl' => 'tl data',
         'vi' => 'vi data',
         'zh' => 'zh data',
+        'file_upload' => 'ファイルのアップロード',
     ],
 
 ];

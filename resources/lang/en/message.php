@@ -18,6 +18,9 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+    'import_user' => [
+        'success' => 'Import data user success',
+    ],
     'update_billing_success' => 'Billing address changed successfully.',
     'update_shipping_success' => 'Shipping address changed successfully.',
     'update_address_success' => 'Profile updated.',
