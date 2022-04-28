@@ -1,9 +1,12 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { navigateLinkData, navigateLinkAdminData } from "../commons/data";
+import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
+import AddCategory from "../pages/admin/product-category/category-add";
+import CategoryList from "../pages/admin/product-category/category-list";
+import UpdateCategory from "../pages/admin/product-category/category-update";
 import AddProduct from "../pages/admin/product/product-add";
 import ProductList from "../pages/admin/product/product-list";
 import UpdateProduct from "../pages/admin/product/product-update";
@@ -187,6 +190,17 @@ const appRouter = () => {
           <Route
             path={`product/update`}
             element={<UpdateProduct />}
+            exact={true}
+          />
+          <Route
+            path={`category-list`}
+            element={<CategoryList />}
+            exact={true}
+          />
+          <Route path={`category/add`} element={<AddCategory />} exact={true} />
+          <Route
+            path={`category/update`}
+            element={<UpdateCategory />}
             exact={true}
           />
         </Route>
