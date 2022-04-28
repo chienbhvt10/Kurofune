@@ -59,6 +59,7 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_UPDATE_SHIPPING_ADDRESS,
             UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
+            UserPermission::PERMISSION_VIEW_LIST_VENDOR,
 
         ];
 
@@ -78,6 +79,7 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_VIEW_PRODUCT,
             UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
+            UserPermission::PERMISSION_VIEW_LIST_VENDOR,
         ];
 
         foreach ($permission_light_plan as $permission)   {
@@ -99,6 +101,7 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_VIEW_PRODUCT,
             UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
+            UserPermission::PERMISSION_VIEW_LIST_VENDOR,
         ];
 
         foreach ($permission_full_support_plan as $permission)   {

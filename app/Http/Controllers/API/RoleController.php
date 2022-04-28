@@ -64,7 +64,7 @@ class RoleController extends Controller
             $role = Role::findOrCreate($request->role_name, 'api');
             return response()->json([
                 'status_code' => 200,
-                'message' => 'create role successfully',
+                'message' => 'message.role.created',
                 'data' => $role
             ]);
         }catch (\Exception $error){
@@ -124,7 +124,7 @@ class RoleController extends Controller
             $role->save();
             return response()->json([
                 'status_code' => 200,
-                'message' => 'update role successfully',
+                'message' => __('message.role.updated'),
                 'data' => $role
             ]);
         }catch (\Exception $error){
@@ -148,7 +148,7 @@ class RoleController extends Controller
             $role->delete();
             return response()->json([
                 'status_code' => 200,
-                'message' => 'delete role successfully'
+                'message' => __('message.role.deleted')
             ]);
         }catch (\Exception $error){
             return response()->json([
@@ -198,7 +198,7 @@ class RoleController extends Controller
             $role->syncPermissions($request->permissions);
             return response()->json([
                 'status_code' => 200,
-                'message' => 'Update permissions successfully',
+                'message' => __('message.permission.updated'),
                 'data' => ['role' => $role]
             ]);
         }catch (\Exception $error){
