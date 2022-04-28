@@ -25,6 +25,7 @@ final class UserPermission extends Enum
   const PERMISSION_UPDATE_SHIPPING_ADDRESS = 'update shipping address';
   const PERMISSION_UPDATE_USER_ADDRESS = 'update user address';
   const PERMISSION_VIEW_PROFILE = 'view profile';
+  const PERMISSION_VIEW_LIST_VENDOR = 'view list vendor';
 
 
   const PERMISSION_USER_MANAGE = 'manage user';
