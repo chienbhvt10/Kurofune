@@ -23,7 +23,7 @@ const ProductList = () => {
     },
   ];
   return (
-    <div className="permission-container">
+    <div className="product-container">
       <TableHeader
         addLink="/admin/product/add"
         breadcrumb={[
