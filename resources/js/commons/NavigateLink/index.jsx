@@ -6,7 +6,6 @@ const NavigateLink = ({ navigateItems, onClick }) => {
   let lang = localStorage.getItem("lang");
   const { i18n, t } = useTranslation();
 
-  console.log(navigateItems);
   return (
     <div className="navbar-main-wrapper">
       <ul className="nav navbar-nav">
