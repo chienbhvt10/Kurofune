@@ -11,7 +11,7 @@ class Category extends Model
 {
     use HasFactory, SoftDeletes, Translatable;
 
-    protected $fillable = ['id', 'user_id', 'slug', 'category_image', 'type'];
+    protected $fillable = ['id', 'user_id','parent_id', 'slug', 'category_image', 'type'];
 
     public $translatedAttributes = ['name'];
 
