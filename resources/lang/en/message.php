@@ -18,8 +18,19 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
-    'update_billing_success' => 'Billing address changed successfully.',
-    'update_shipping_success' => 'Shipping address changed successfully.',
-    'update_address_success' => 'Profile updated.',
-    'valid_postal_code' => 'Please enter a valid postal code'
+    'import_user' => [
+        'success' => 'Import data user success',
+    ],
+    'billing' => [
+        'updated' => 'Billing address changed successfully.',
+    ],
+    'shipping' => [
+        'updated' => 'Shipping address changed successfully.',
+    ],
+    'address' => [
+        'updated' => 'Profile updated.',
+    ],
+    'postal_code' => [
+        'valid' => 'Please enter a valid postal code',
+    ],
 ];

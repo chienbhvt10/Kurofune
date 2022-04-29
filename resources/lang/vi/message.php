@@ -18,8 +18,19 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
-    'update_billing_success' => 'Địa chỉ thanh toán đã được thay đổi thành công.',
-    'update_shipping_success' => 'Đã thay đổi thành công địa chỉ giao hàng',
-    'update_address_success' => 'Cập nhật thông tin cá nhân',
-    'valid_postal_code' => 'Vui lòng nhập Zip code hợp lệ',
+    'import_user' => [
+        'success' => 'Import data user success',
+    ],
+    'billing' => [
+        'updated' => 'Địa chỉ thanh toán đã được thay đổi thành công.',
+    ],
+    'shipping' => [
+        'updated' => 'Đã thay đổi thành công địa chỉ giao hàng',
+    ],
+    'address' => [
+        'updated' => 'Cập nhật thông tin cá nhân',
+    ],
+    'postal_code' => [
+        'valid' => 'Vui lòng nhập Zip code hợp lệ',
+    ],
 ];
