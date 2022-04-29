@@ -31,8 +31,10 @@ class ImportUserController extends Controller
             DB::beginTransaction();
 
             $data = file($request->file('file_upload'));
-            mkdir(resource_path() . '/temp-csv', 0755);
             $path = resource_path('temp-csv');
+            if (!is_dir($path)) {
+                mkdir(resource_path() . '/temp-csv', 0755);
+            }
             $chunks = array_chunk($data, 1000);
             foreach ($chunks as $key => $chunk) {
                 $name = "/csv-{$key}.csv";
@@ -113,11 +115,17 @@ class ImportUserController extends Controller
                         $save_profile = Profile::create($data_profile);
                     } else {
                         $update_user = User::where('id', $user_current->id)->first();
-                        $update_user->update($data_user);
+                        if (!empty($update_user)) {
+                            $update_user->update($data_user);
+                        }
                         $update_address = Address::where('user_id', $user_current->id)->first();
-                        $update_address->update($data_address);
+                        if (!empty($update_address)) {
+                            $update_address->update($data_address);
+                        }
                         $update_profile = Profile::where('user_id', $user_current->id)->first();
-                        $update_profile->update($data_profile);
+                        if (!empty($update_profile)) {
+                            $update_profile->update($data_profile);
+                        }
                     }
                 }
                 unlink($file);
@@ -128,6 +136,9 @@ class ImportUserController extends Controller
                 'message' => __('message.import_user.success'),
             ]);
         } catch (\Exception $error) {
+            if (is_dir($path)) {
+                rmdir($path);
+            }
             DB::rollBack();
             return response()->json([
                 'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
