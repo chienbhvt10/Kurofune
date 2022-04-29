@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Address;
 use App\Models\Profile;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
@@ -76,6 +77,7 @@ class ImportUserController extends Controller
                         'name' => $item[1],
                         'phone' => $item[23],
                         'password' => $item[24],
+                        'email_verified_at' => Carbon::now(),
                         'active' => '1'
                     ];
 
