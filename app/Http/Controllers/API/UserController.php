@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -15,6 +16,7 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
+    use RespondsStatusTrait;
     /**
      * Display a listing of the resource.
      *
@@ -31,15 +33,9 @@ class UserController extends Controller
             }else {
                 $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->get();
             }
-            return response()->json([
-                'status_code' => Response::HTTP_OK,
-                'data' => $users
-            ]);
+            return $this->responseData($users);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -87,10 +83,7 @@ class UserController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors, 422);
             }
             $username = $request->username;
             $name = $request->name;
@@ -156,10 +149,7 @@ class UserController extends Controller
                 if ($validator_profile->fails()) {
                     DB::rollBack();
                     $errors = $validator_profile->errors();
-                    return response()->json([
-                        'status_code' => 422,
-                        'message' => $errors
-                    ], 422);
+                    return $this->errorResponse($errors, 422);
                 }
                 $dob = $request->dob ?? null;
                 $gender = (boolean)$request->gender;
@@ -209,10 +199,7 @@ class UserController extends Controller
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
-                    return response()->json([
-                        'status_code' => 422,
-                        'message' => $errors
-                    ], 422);
+                    return $this->errorResponse($errors, 422);
                 }
                 $vendor_images1 = $request->vendor_images1 ?? null;
                 $vendor_images2 = $request->vendor_images2 ?? null;
@@ -320,17 +307,10 @@ class UserController extends Controller
             }
 
             DB::commit();
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.user.created'),
-                'data' => $user
-            ]);
+            return $this->successWithData(__('message.user.created'), $user );
         }catch (\Exception $error){
             DB::rollBack();
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -345,10 +325,7 @@ class UserController extends Controller
         try {
             $user = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
             if(!$user) {
-                return response()->json([
-                    'status_code' => Response::HTTP_NOT_FOUND,
-                    'message' => __('message.user.not_exist')
-                ]);
+                return $this->errorResponse(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $role = $user->roles;
             $profile = $user->profile;
@@ -383,15 +360,9 @@ class UserController extends Controller
                 'billing_address' => $billing_address,
                 'shipping_address' => $shipping_address,
             ];
-            return response()->json([
-                'status_code' => Response::HTTP_OK,
-                'data' => $response
-            ]);
+            return $this->responseData($response);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -408,10 +379,7 @@ class UserController extends Controller
             DB::beginTransaction();
             $user = User::find($id);
             if(!$user) {
-                return response()->json([
-                    'status_code' => Response::HTTP_NOT_FOUND,
-                    'message' => __('message.user.not_exist')
-                ]);
+                return $this->errorResponse(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $roles = Role::all()->pluck('name')->toArray();
             $validator = Validator::make($request->all(), [
@@ -446,10 +414,7 @@ class UserController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors, 422);
             }
             $name = $request->name;
             $email = $request->email;
@@ -512,10 +477,7 @@ class UserController extends Controller
                 if ($validator_profile->fails()) {
                     DB::rollBack();
                     $errors = $validator_profile->errors();
-                    return response()->json([
-                        'status_code' => 422,
-                        'message' => $errors
-                    ], 422);
+                    return $this->errorResponse($errors, 422);
                 }
                 $dob = $request->dob ?? null;
                 $gender = (boolean)$request->gender;
@@ -565,10 +527,7 @@ class UserController extends Controller
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
-                    return response()->json([
-                        'status_code' => 422,
-                        'message' => $errors
-                    ], 422);
+                    return $this->errorResponse($errors, 422);
                 }
                 $vendor_images1 = $request->vendor_images1 ?? null;
                 $vendor_images2 = $request->vendor_images2 ?? null;
@@ -687,17 +646,10 @@ class UserController extends Controller
                 }
             }
             DB::commit();
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.user.updated'),
-                'data' => $user
-            ]);
+            return $this->successWithData(__('message.user.updated'), $user);
         }catch (\Exception $error){
             DB::rollBack();
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -712,15 +664,9 @@ class UserController extends Controller
         try {
             $user = User::find($id);
             $user->delete();
-            return response()->json([
-                'status_code' => Response::HTTP_OK,
-                'message' => 'message.user.deleted'
-            ]);
+            return $this->success(__('message.user.deleted'));
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -729,15 +675,9 @@ class UserController extends Controller
         try {
             $id = $request->user()->id;
             $user = User::with(['roles', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
-            return response()->json([
-                'status_code' => Response::HTTP_OK,
-                'data' => $user
-            ]);
+            return $this->responseData($user);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 }
