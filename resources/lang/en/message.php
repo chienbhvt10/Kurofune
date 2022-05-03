@@ -6,7 +6,10 @@ return [
         'created' => 'user created',
         'updated' => 'user updated',
         'deleted' => 'user deleted',
-        'not_exist' => 'user not exist'
+        'not_exist' => 'user not exist',
+        'vendor' => [
+            'not_data' => 'list of pharmacies is empty'
+        ]
     ],
     'role' => [
         'created' => 'role created',
