@@ -42,7 +42,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
         // View Vendor
-        Route::get('listOfPharmacies', ['App\Http\Controllers\API\VendorController', 'index'])->middleware(['permission:view list vendor']);
+        Route::get('listOfPharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index'])->middleware(['permission:view list vendor']);
 
         // Billing, Shipping, Address manager
         Route::middleware('permission:update user address')->group(function () {

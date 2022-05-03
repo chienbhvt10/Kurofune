@@ -1,4 +1,7 @@
 <?php
+
+use App\Enums\Base;
+
 if (!function_exists('formatDate')) {
     function formatDate($date, string $format = 'Y/m/d')
     {
@@ -49,9 +52,29 @@ function getMediaImages(\App\Models\VendorProfile $vendor_profile, $key): array
     if($vendor_profile->hasMedia($key)) {
         $get_vendor_images2 = $vendor_profile->getMedia($key);
         foreach ($get_vendor_images2 as $value) {
-            $images['file_name'] = $value->file_name;
-            $images['url'] = $value->getUrl();
+            $item['file_name'] = $value->file_name;
+            $item['url'] = $value->getUrl();
+            $images[] = $item;
         }
     }
     return $images;
+}
+
+function upload_avatar($file_avatar = null): string
+{
+    $filename = "avatars/default.png";
+    if($file_avatar) {
+        $filename= date('YmdHi').$file_avatar->getClientOriginalName();
+        $file_avatar->move(public_path('avatars'), $filename);
+    }
+    return $filename;
+}
+
+function get_avatar_url($avatar = null) {
+    if($avatar) {
+        $avatar = url($avatar);
+    }else {
+        $avatar = url(Base::PATH_AVATAR_DEFAULT);
+    }
+    return $avatar;
 }

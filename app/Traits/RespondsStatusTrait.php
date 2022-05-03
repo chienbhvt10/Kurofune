@@ -34,7 +34,7 @@ trait RespondsStatusTrait
     protected function errorResponse($message, $status = Response::HTTP_INTERNAL_SERVER_ERROR): \Illuminate\Http\JsonResponse
     {
         return response()->json([
-            'status_code' => false,
+            'status_code' => $status,
             'message' => $message,
         ], $status);
     }

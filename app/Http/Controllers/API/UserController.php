@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enums\Base;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -26,12 +27,13 @@ class UserController extends Controller
     {
         try {
             $role = $request->role ?? null;
+            $posts_per_page = config('constants.pagination.items_per_page');
             if($role) {
                 $users = User::whereHas('roles', function ($query) use($role) {
                     return $query->where('name', '=', $role);
-                })->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->get();
+                })->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
             }else {
-                $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->get();
+                $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
             }
             return $this->responseData($users);
         }catch (\Exception $error){
@@ -57,7 +59,7 @@ class UserController extends Controller
                 'phone' => 'numeric',
                 'password' => 'required|min:6',
                 'active' => 'required|boolean',
-                'avatar' => 'mimes:jpg,bmp,png',
+                'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
                 'postal_code' => 'string|max:50',
@@ -92,6 +94,8 @@ class UserController extends Controller
             $password = $request->password;
             $active = (boolean)$request->password;
             $role = $request->role;
+            $file_avatar = $request->file('avatar');
+            $filename = upload_avatar($file_avatar);
 
             $data = [
                 'username' => $username,
@@ -100,6 +104,7 @@ class UserController extends Controller
                 'phone' => $phone,
                 'password' => Hash::make($password),
                 'active' => $active,
+                'avatar' => $filename
             ];
             $get_role = Role::findByName($role, 'api');
             $user = User::create($data);
@@ -193,16 +198,18 @@ class UserController extends Controller
                 ]);
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
-                    'vendor_images1' => 'mimes:jpg,bmp,png',
-                    'vendor_images2' => 'mimes:jpg,bmp,png'
+                    'images_outside' => 'array',
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_inside' => 'array',
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
                     return $this->errorResponse($errors, 422);
                 }
-                $vendor_images1 = $request->vendor_images1 ?? null;
-                $vendor_images2 = $request->vendor_images2 ?? null;
+                $images_outside = $request->images_outside ?? null;
+                $images_inside = $request->images_inside ?? null;
 
                 $data_vendor = [
                     'en' => [
@@ -298,11 +305,15 @@ class UserController extends Controller
                 ];
 
                 $vendor = $user->vendor_profile()->create($data_vendor);
-                if($vendor_images1) {
-                    $vendor->addMultipleMediaFromRequest($vendor_images1)->toMediaCollection('vendor_images1');
+                if($images_outside) {
+                    $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
+                        $fileAdder->toMediaCollection('images_outside');
+                    });
                 }
-                if($vendor_images2) {
-                    $vendor->addMultipleMediaFromRequest($vendor_images2)->toMediaCollection('vendor_images2');
+                if($images_inside) {
+                    $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
+                        $fileAdder->toMediaCollection('images_inside');
+                    });
                 }
             }
 
@@ -335,16 +346,19 @@ class UserController extends Controller
             $vendor_profile_data = null;
             $vendor_profile = $user->vendor_profile;
             if($vendor_profile){
-                $vendor_images1 = getMediaImages($vendor_profile, 'vendor_images1');
-                $vendor_images2 = getMediaImages($vendor_profile, 'vendor_images2');
+                $images_outside = getMediaImages($vendor_profile, 'images_outside');
+                $images_inside = getMediaImages($vendor_profile, 'images_inside');
 
                 $vendor_profile_data = [
                     'id' => $vendor_profile->id,
                     'vendor_translations' => $vendor_profile->translations,
-                    'vendor_images1' => $vendor_images1,
-                    'vendor_images2' => $vendor_images2,
+                    'images_outside' => $images_outside,
+                    'images_inside' => $images_inside,
                 ];
             }
+            $avatar = $user->avatar ?? null;
+            $avatar = get_avatar_url($avatar);
+
             $response = [
                 'id' => $user->id,
                 'username' => $user->username,
@@ -352,7 +366,7 @@ class UserController extends Controller
                 'email' => $user->email,
                 'email_verified_at' => $user->email_verified_at,
                 'active' => $user->active,
-                'avatar' => $user->avatar,
+                'avatar' => $avatar,
                 'role' => $role,
                 'profile' => $profile,
                 'vendor_profile' => $vendor_profile_data,
@@ -386,9 +400,9 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'email|required',
                 'phone' => 'numeric',
-                'password' => 'required|min:6',
+                'password' => 'min:6',
                 'active' => 'required|boolean',
-                'avatar' => 'mimes:jpg,bmp,png',
+                'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
                 'postal_code' => 'string|max:50',
@@ -422,7 +436,8 @@ class UserController extends Controller
             $password = $request->password;
             $active = (boolean)$request->active;
             $role = $request->role;
-
+            $file_avatar = $request->file('avatar');
+            $filename = upload_avatar($file_avatar);
             $get_role = Role::findByName($role, 'api');
             $user->syncRoles($get_role);
             $user->name = $name;
@@ -430,6 +445,8 @@ class UserController extends Controller
             $user->phone = $phone;
             $user->password = Hash::make($password);
             $user->active = $active;
+            $user->avatar = $filename;
+            $user->save();
             $user->address()->update([
                 'postal_code' => $request->postal_code ?? null,
                 'city' => $request->city ?? null,
@@ -521,16 +538,18 @@ class UserController extends Controller
                 ]);
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
-                    'vendor_images1' => 'mimes:jpg,bmp,png',
-                    'vendor_images2' => 'mimes:jpg,bmp,png',
+                    'images_outside' => 'array',
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_inside' => 'array',
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
                     return $this->errorResponse($errors, 422);
                 }
-                $vendor_images1 = $request->vendor_images1 ?? null;
-                $vendor_images2 = $request->vendor_images2 ?? null;
+                $images_outside = $request->images_outside ?? null;
+                $images_inside = $request->images_inside ?? null;
 
                 $data_vendor = [
                     'en' => [
@@ -627,21 +646,29 @@ class UserController extends Controller
                 if($user->vendor_profile) {
                     $user->vendor_profile->update($data_vendor);
                     $vendor = $user->vendor_profile;
-                    if($vendor_images1) {
-                        $vendor->clearMediaCollection('vendor_images1');
-                        $vendor->addMultipleMediaFromRequest($vendor_images1)->toMediaCollection('vendor_images1');
+                    if($images_outside) {
+                        $vendor->clearMediaCollection('images_outside');
+                        $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_outside');
+                        });
                     }
-                    if($vendor_images2) {
-                        $vendor->clearMediaCollection('vendor_images2');
-                        $vendor->addMultipleMediaFromRequest($vendor_images2)->toMediaCollection('vendor_images2');
+                    if($images_inside) {
+                        $vendor->clearMediaCollection('images_inside');
+                        $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_outside');
+                        });
                     }
                 }else{
                     $vendor = $user->vendor_profile()->create($data_vendor);
-                    if($vendor_images1) {
-                        $vendor->addMultipleMediaFromRequest($vendor_images1)->toMediaCollection('vendor_images1');
+                    if($images_outside) {
+                        $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_outside');
+                        });
                     }
-                    if($vendor_images2) {
-                        $vendor->addMultipleMediaFromRequest($vendor_images2)->toMediaCollection('vendor_images2');
+                    if($images_inside) {
+                        $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_outside');
+                        });
                     }
                 }
             }
@@ -675,6 +702,11 @@ class UserController extends Controller
         try {
             $id = $request->user()->id;
             $user = User::with(['roles', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
+            if($user->avatar) {
+                $user->avatar = url($user->avatar);
+            }else{
+                $user->avatar = url(Base::PATH_AVATAR_DEFAULT);
+            }
             return $this->responseData($user);
         }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
