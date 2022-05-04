@@ -4,9 +4,10 @@ import { TYPE_FORM_ADD } from "../../../../constants";
 import ProductForm from "../product-form/ProductForm";
 
 const AddProduct = () => {
+  const lang = localStorage.getItem("lang");
   const navigate = useNavigate();
   const onCancel = () => {
-    navigate("/admin/product-list");
+    navigate(`${lang}/admin/product-list`);
   };
   return (
     <div id="add-product-page">

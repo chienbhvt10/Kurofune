@@ -24,7 +24,10 @@
   },
   "navigate_link": {
     "title": "Online pharmacy",
-    "questionnaire_title": "Questionnaire",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "questionnaire_title": "Log Questionnaire",
     "pharmacies_title": "Pharmacy information",
     "medicine_title": "Drug information",
     "order_history_title": "Order history",

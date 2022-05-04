@@ -4,6 +4,7 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import ProductTable from "./ProductTable";
 import { TableHeader } from "../../../../commons/TableHeader";
 const ProductList = () => {
+  const lang = localStorage.getItem("lang");
   const data = [
     {
       id: "1",
@@ -25,7 +26,7 @@ const ProductList = () => {
   return (
     <div className="product-container">
       <TableHeader
-        addLink="/admin/product/add"
+        addLink={`${lang}/admin/product/add`}
         breadcrumb={[
           { name: "Home", routerLink: "../" },
           { name: "Product List", routerLink: "/product-list" },
