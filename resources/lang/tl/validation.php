@@ -145,6 +145,13 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => 'Ang iyong kasalukuyang password ay hindi tama.'
+        ],
+        'new_password' => [
+            'different' => 'Ang bagong password ay hindi maaaring pareho sa kasalukuyang password',
+            'regex' => 'Ang iyong password ay hindi tumutugma sa format'
+        ]
     ],
 
     /*

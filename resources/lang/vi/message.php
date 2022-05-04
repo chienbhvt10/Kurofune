@@ -41,5 +41,9 @@ return [
         'update_success' =>'Cập nhật trang thành công' ,
         'delete_success' =>'Cập nhật trang thành công',
         'not_exist' =>'Trang không tồn tại',
+    ],
+    'password' => [
+        'updated' => 'Đã thay đổi mật khẩu thành công.',
+        'without_spaces' => 'Passwords must not contain spaces'
     ]
 ];

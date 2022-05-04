@@ -41,5 +41,9 @@ return [
         'update_success' =>'页面更新成功' ,
         'delete_success' =>'页面更新成功',
         'not_exist' =>'页面不存在',
+    ],
+    'password' => [
+        'updated' => '密码更换成功。',
+        'without_spaces' => 'Passwords must not contain spaces'
     ]
 ];

@@ -6,6 +6,7 @@ use App\Enums\Base;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Rules\WithoutSpaces;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
@@ -55,9 +57,17 @@ class UserController extends Controller
             $validator = Validator::make($request->all(), [
                 'username' => 'required|alpha_dash|unique:users',
                 'name' => 'required',
-                'email' => 'email|required',
+                'email' => 'email|required|unique:users',
                 'phone' => 'numeric',
-                'password' => 'required|min:6',
+                'password' => [
+                    'required',
+                    'string',
+                    new WithoutSpaces,
+                    Password::min(8)
+                        ->mixedCase()
+                        ->numbers()
+                        ->symbols()
+                ],
                 'active' => 'required|boolean',
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
@@ -403,7 +413,15 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'email|required',
                 'phone' => 'numeric|required',
-                'password' => 'min:6',
+                'password' => [
+                    'required',
+                    'string',
+                    new WithoutSpaces,
+                    Password::min(8)
+                        ->mixedCase()
+                        ->numbers()
+                        ->symbols()
+                ],
                 'active' => 'required|boolean',
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
