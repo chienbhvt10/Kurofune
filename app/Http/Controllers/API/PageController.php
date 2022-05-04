@@ -101,22 +101,18 @@ class PageController extends Controller
                 'en' => [
                     'content' => $request->en['content'] ?? null,
                     'title' => $request->en['title'] ?? null,
-
                 ],
                 'ja' => [
                     'content' => $request->ja['content'] ?? null,
                     'title' => $request->ja['title'] ?? null,
-
                 ],
                 'vn' => [
                     'content' => $request->vi['content'] ?? null,
                     'title' => $request->vi['title'] ?? null,
-
                 ],
                 'tl' => [
                     'content' => $request->tl['content'] ?? null,
                     'title' => $request->tl['title'] ?? null,
-
                 ],
                 'zh' => [
                     'content' => $request->zh['content'] ?? null,
@@ -216,27 +212,22 @@ class PageController extends Controller
                 'en' => [
                     'content' => $request->en['content'] ?? null,
                     'title' => $request->en['title'] ?? null,
-
                 ],
                 'ja' => [
                     'content' => $request->ja['content'] ?? null,
                     'title' => $request->ja['title'] ?? null,
-
                 ],
                 'vn' => [
-                    'content' => $request->vn['content'] ?? null,
-                    'title' => $request->vn['title'] ?? null,
-
+                    'content' => $request->vi['content'] ?? null,
+                    'title' => $request->vi['title'] ?? null,
                 ],
                 'tl' => [
                     'content' => $request->tl['content'] ?? null,
                     'title' => $request->tl['title'] ?? null,
-
                 ],
                 'zh' => [
                     'content' => $request->zh['content'] ?? null,
                     'title' => $request->zh['title'] ?? null,
-
                 ],
             ];
            
