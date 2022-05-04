@@ -7,9 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\BillingAddress;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\RespondsStatusTrait;
 
 class BillingAddressController extends Controller
 {
+    use RespondsStatusTrait;
+
     public function update(Request $request)
     {
         try {
@@ -29,19 +32,13 @@ class BillingAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors);
             }
 
             $check_postcode = checkPostalCode($request->postal_code);
 
             if ($check_postcode == false) {
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => __( 'message.postal_code.valid')
-                ], 422);
+                return $this->errorResponse(__( 'message.postal_code.valid'));
             }
 
             $dataUpdate = [
@@ -55,18 +52,16 @@ class BillingAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            $data->update($dataUpdate);
+            if (empty($data->first())) {
+                $data = BillingAddress::create(['user_id' => $user_id]);
+                $data->update($dataUpdate);
+            } else {
+                $data->update($dataUpdate);
+            }
 
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.billing.updated'),
-                'data' => $data->get()
-            ]);
+            return $this->successWithData(__('message.billing.updated'), $data->get());
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 }
