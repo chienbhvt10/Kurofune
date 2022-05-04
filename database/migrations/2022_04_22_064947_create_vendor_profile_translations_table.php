@@ -35,6 +35,7 @@ class CreateVendorProfileTranslationsTable extends Migration
             $table->string('expiration_date_of_drugs')->nullable();
             $table->unique(['vendor_profile_id', 'locale']);
             $table->foreign('vendor_profile_id')->references('id')->on('vendor_profiles')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

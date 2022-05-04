@@ -54,7 +54,7 @@ class PermissionController extends Controller
             $permission = Permission::findOrCreate($request->permission_name, 'api');
             return response()->json([
                 'status_code' => 200,
-                'message' => 'create permission successfully',
+                'message' => __('message.permission.created'),
                 'data' => $permission
             ]);
         }catch (\Exception $error){
@@ -113,7 +113,7 @@ class PermissionController extends Controller
             $permission->save();
             return response()->json([
                 'status_code' => 200,
-                'message' => 'update permission successfully',
+                'message' => __('message.permission.updated'),
                 'data' => $permission
             ]);
         }catch (\Exception $error){
@@ -137,7 +137,7 @@ class PermissionController extends Controller
             $permission->delete();
             return response()->json([
                 'status_code' => 200,
-                'message' => 'delete permission successfully'
+                'message' => __('message.permission.deleted')
             ]);
         }catch (\Exception $error){
             return response()->json([

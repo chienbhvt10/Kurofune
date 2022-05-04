@@ -21,8 +21,8 @@ class CreateAddressesTable extends Migration
             $table->string('prefecture', 150)->nullable();
             $table->string('street_address', 255)->nullable();
             $table->string('building', 255)->nullable();
-            $table->string('phone', 50)->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

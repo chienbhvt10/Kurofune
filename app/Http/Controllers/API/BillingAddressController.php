@@ -40,7 +40,7 @@ class BillingAddressController extends Controller
             if ($check_postcode == false) {
                 return response()->json([
                     'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
+                    'message' => __( 'message.postal_code.valid')
                 ], 422);
             }
 
@@ -59,7 +59,7 @@ class BillingAddressController extends Controller
 
             return response()->json([
                 'status_code' => 200,
-                'message' => __('message.update_billing_success'),
+                'message' => __('message.billing.updated'),
                 'data' => $data->get()
             ]);
         } catch (\Exception $error) {

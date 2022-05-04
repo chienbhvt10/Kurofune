@@ -29,18 +29,20 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('roles', \App\Http\Controllers\API\RoleController::class);
             Route::get('getPermissionByRole/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
             Route::put('updatePermissionForRole', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
-
             Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
-
         });
 
         // User Manage
         Route::middleware(['permission:manage user'])->group(function () {
             Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
+            Route::post('importUser', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
         });
 
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
+
+        // View Vendor
+        Route::get('listOfPharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index'])->middleware(['permission:view list vendor']);
 
         // Billing, Shipping, Address manager
         Route::middleware('permission:update user address')->group(function () {

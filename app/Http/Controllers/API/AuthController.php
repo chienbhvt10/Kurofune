@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    use RespondsStatusTrait;
+
     public function login(Request $request) {
         try {
             $validator = Validator::make($request->all(), [
@@ -19,10 +22,7 @@ class AuthController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors, 422);
             }
 //            $credentials = request(['email', 'password']);
 //
@@ -36,10 +36,7 @@ class AuthController extends Controller
             $user = User::where('email', $request->email)->first();
 
             if (!$user || !Hash::check($request->password, $user->password)) {
-                return response([
-                    'status_code' => 401,
-                    'message' => __('auth.failed')
-                ],401);
+                return $this->errorResponse(__('auth.failed'), 401);
             }
 
             $tokenResult = $user->createToken('authToken')->plainTextToken;
@@ -53,20 +50,14 @@ class AuthController extends Controller
                 'user' => $user
             ]);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => 500,
-                'message' => $error->getMessage()
-            ], 500);
+            return $this->errorResponse($error->getMessage());
         }
 
     }
 
     public function logout(Request $request) {
         $request->user()->tokens()->delete();
-        return response()->json([
-                'status' => 200,
-                'message' => __('Logged out')
-            ]);
+        return $this->success(__('message.user.logout'));
     }
 
     public function register(Request $request) {

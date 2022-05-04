@@ -40,7 +40,7 @@ class ShippingAddressController extends Controller
             if ($check_postcode == false) {
                 return response()->json([
                     'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
+                    'message' => __( 'message.postal_code.valid')
                 ], 422);
             }
 
@@ -59,7 +59,7 @@ class ShippingAddressController extends Controller
 
             return response()->json([
                 'status_code' => 200,
-                'message' => __('message.update_shipping_success'),
+                'message' => __('message.shipping.updated'),
                 'data' => $data->get()
             ]);
         } catch (\Exception $error) {

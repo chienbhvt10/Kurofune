@@ -166,6 +166,15 @@ return [
         'street_address' => 'Địa chỉ khu phố',
         'phone' => 'Số điện thoại',
         'email' => 'Địa chỉ email',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'Dữ liệu ngôn ngữ tiếng en',
+        'ja' => 'Dữ liệu ngôn ngữ tiếng ja',
+        'tl' => 'Dữ liệu ngôn ngữ tiếng tl',
+        'vi' => 'Dữ liệu ngôn ngữ tiếng vi',
+        'zh' => 'Dữ liệu ngôn ngữ tiếng zh',
+        'file_upload' => 'Tiệp tải lên',
     ],
 
 ];
