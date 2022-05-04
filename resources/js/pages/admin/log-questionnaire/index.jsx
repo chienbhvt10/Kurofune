@@ -3,6 +3,8 @@ import QuestionnaireTable from "./QuestionnaireTable";
 import "./questionnaire.scss";
 import { Link } from "react-router-dom";
 import { TableHeader } from "../../../commons/TableHeader";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 const LogQuestionnaire = () => {
   const items = [
     {
@@ -81,7 +83,11 @@ const LogQuestionnaire = () => {
       >
         <div className="btn-group">
           <Link to="/" className="btn-show">
-            <img src="/images/download_white.png" alt="" />
+            <FontAwesomeIcon
+              icon={faDownload}
+              className=""
+              style={{ color: "white" }}
+            />
             <span> CSVダウンロード</span>
           </Link>
         </div>
