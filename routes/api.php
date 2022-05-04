@@ -40,6 +40,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
+            Route::get('getPageBySlug/{id}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
             Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
         });
 
@@ -59,6 +60,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::put('userAddress', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
             Route::put('changePassword', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
         });
+
+        //Page
+        Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
     });
 
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);

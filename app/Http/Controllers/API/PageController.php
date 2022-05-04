@@ -24,10 +24,9 @@ class PageController extends Controller
      */
     public function index(Request $request)
     {
-
-
         try {
-            $page = Page::all();
+            $posts_per_page = config('constants.pagination.items_per_page');
+            $page = Page::all()->paginate($posts_per_page);
              return $this->responseData($page);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
@@ -40,16 +39,38 @@ class PageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    public function getPageBySlug($slug): \Illuminate\Http\JsonResponse
+    {
+        try {
+            $page = Page::findById($slug);
+            if (!$page) {
+                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
+            }
+            $image = $page->image;
+            $image = get_avatar_url($image);
+            $data = [
+                'author_id' => $page->author_id,
+                'slug' => $page->slug,
+                'status' => $page->status,
+                'image' => $image,
+                'meta_title'=>$page->meta_title,
+                'meta_description' => $page->meta_description,
+                'meta_keywords' => $page->meta_keywords,
+            ];
+            return $this->responseData($data);
+        }catch (\Exception $error){
+            return $this->errorResponse($error->getMessage());
+        }
+    }
+
     public function store(Request $request)
     {
         try {
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'slug' => 'string|required',
-                'status' =>  [Rule::in(['Publish', 'Draft']), 'required'],
-                'image' => 'mimes:jpg,bmp,png',
-
-
+                'status' =>  [Rule::in(['publish', 'draft']), 'required'],
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -57,8 +78,6 @@ class PageController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-
-
             $author_id = $request->author_id;
             $slug = Str::slug($request->slug);
             $status = $request->status;
@@ -73,7 +92,6 @@ class PageController extends Controller
                 'status' => $status,
                 'meta_title'=>$meta_title,
                 'meta_description' => $meta_description,
-                'image' => $image,
                 'meta_keywords' => $meta_keywords,
             ];
 
@@ -91,8 +109,8 @@ class PageController extends Controller
 
                 ],
                 'vn' => [
-                    'content' => $request->vn['content'] ?? null,
-                    'title' => $request->vn['title'] ?? null,
+                    'content' => $request->vi['content'] ?? null,
+                    'title' => $request->vi['title'] ?? null,
 
                 ],
                 'tl' => [
@@ -109,7 +127,7 @@ class PageController extends Controller
             $page_tran = $page->page_translations()->create($data_page);
 
             if ($image) {
-                $page->addMedia($image)->toMediaCollection('image_1');
+                $page->addMedia($image)->toMediaCollection('image');
             }
 
 
@@ -133,32 +151,23 @@ class PageController extends Controller
         try {
             $page = Page::find($id);
             if (!$page) {
-                return response()->json([
-                    'status_code' => Response::HTTP_NOT_FOUND,
-                    'message' => __('message.page.not_exist')
-                ]);
+                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            $image = $page->image;
-            $page_image = getMediaImages($image, 'image_1');
+            $image = $page->image ?? null;
+            $image = get_avatar_url($image);
             $data = [
                 'author_id' => $page->author_id,
                 'slug' => $page->slug,
                 'status' => $page->status,
-                'image' => $page_image,
+                'image' => $image,
                 'meta_title'=>$page->meta_title,
                 'meta_description' => $page->meta_description,
                 'meta_keywords' => $page->meta_keywords,
             ];
 
-            return response()->json([
-                'status_code' => Response::HTTP_OK,
-                'data' => $data 
-            ]);
+            return $this->responseData($data);
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -175,22 +184,15 @@ class PageController extends Controller
             DB::beginTransaction();
             $page = Page::find($id);
             if (!$page) {
-                return response()->json([
-                    'status_code' => Response::HTTP_NOT_FOUND,
-                    'message' => __('message.page.not_exist')
-                ]);
+                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
                 'slug' => 'string|required',
                 'status' => [Rule::in(['publish', 'draft']), 'required'],
-                'image' => 'mimes:jpg,bmp,png',
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors, 422);
             }
 
             $author_id = $request->author_id;
@@ -205,7 +207,6 @@ class PageController extends Controller
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image,
                 'meta_title'=>$meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
@@ -244,17 +245,15 @@ class PageController extends Controller
             }
             
             if ($image) {
-                $page->clearMediaCollection('image_1');
-                $page->addMultipleMediaFromRequest($image)->toMediaCollection('image_1');
+                $page->clearMediaCollection('image');
+                $page->addMultipleMediaFromRequest($image)->toMediaCollection('image');
             }
 
             DB::commit();
             return $this->successWithData(__('message.page.update_success'), $page );
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            DB::rollBack();
+            return $this->errorResponse($error->getMessage());
         }
     }
 
