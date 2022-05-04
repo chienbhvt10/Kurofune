@@ -4,7 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Rules\MatchOldPassword;
 use App\Rules\WithoutSpaces;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
