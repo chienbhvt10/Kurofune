@@ -1,3 +1,5 @@
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
 import { Link } from "react-router-dom";
@@ -222,7 +224,11 @@ const QuestionnaireTable = ({ items }) => {
       },
       formatter: (cell, row) => (
         <Link to="/" className="btn-download-csv">
-          <img src="/images/download.png" alt="" />
+          <FontAwesomeIcon
+            icon={faDownload}
+            className=""
+            style={{ color: "#62a19b" }}
+          />
         </Link>
       ),
     },

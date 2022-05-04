@@ -1,3 +1,5 @@
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import { Link } from "react-router-dom";
@@ -56,7 +58,11 @@ const LogTable = ({ items }) => {
       text: "ダウンロード",
       formatter: (cell, row) => (
         <Link to="/" className="btn-download-csv">
-          <img src="/images/download.png" alt="" />
+          <FontAwesomeIcon
+            icon={faDownload}
+            className=""
+            style={{ color: "#62a19b" }}
+          />
         </Link>
       ),
     },
@@ -65,7 +71,11 @@ const LogTable = ({ items }) => {
       text: "ダウンロード(日本語）",
       formatter: (cell, row) => (
         <Link to="/" className="btn-download-csv">
-          <img src="/images/download.png" alt="" />
+          <FontAwesomeIcon
+            icon={faDownload}
+            className=""
+            style={{ color: "#62a19b" }}
+          />
         </Link>
       ),
     },
