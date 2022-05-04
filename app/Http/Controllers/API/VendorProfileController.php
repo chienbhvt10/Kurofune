@@ -11,7 +11,7 @@ class VendorProfileController extends Controller
     use RespondsStatusTrait;
     public function index(): \Illuminate\Http\JsonResponse
     {
-        $ids_vendor = VendorProfile::pluck('id');
+        $ids_vendor = VendorProfile::pluck('id')->toArray();
         if(empty($ids_vendor)) {
             return $this->errorResponse(__('message.user.vendor.not_data'), 404);
         }else{
@@ -44,7 +44,7 @@ class VendorProfileController extends Controller
                 ];
                 $vendors[] = $items;
             }
-            return response()->json($vendors);
+            return $this->responseData($vendors);
         }
     }
 }

@@ -47,20 +47,9 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_ACCESS_WABISABI,
             UserPermission::PERMISSION_PRODUCT_MANAGE,
             UserPermission::PERMISSION_ORDER_MANAGE,
-            UserPermission::PERMISSION_VIEW_PAGE,
-            UserPermission::PERMISSION_VIEW_CATEGORY_PRODUCT,
-            UserPermission::PERMISSION_VIEW_ORDER_HISTORY,
-            UserPermission::PERMISSION_VIEW_USER,
-            UserPermission::PERMISSION_UPDATE_USER,
-            UserPermission::PERMISSION_VIEW_PRODUCT,
-            UserPermission::PERMISSION_VIEW_BILLING_ADDRESS,
-            UserPermission::PERMISSION_UPDATE_BILLING_ADDRESS,
-            UserPermission::PERMISSION_VIEW_SHIPPING_ADDRESS,
-            UserPermission::PERMISSION_UPDATE_SHIPPING_ADDRESS,
-            UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
-            UserPermission::PERMISSION_VIEW_LIST_VENDOR,
-
+            UserPermission::PERMISSION_USER_CHANGE_PROFILE,
+            UserPermission::PERMISSION_USER_READ_ONLINE_PHARMACY
         ];
 
         foreach ($permission_vendor as $permission)   {
@@ -71,15 +60,9 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_ACCESS_CHAT_24H,
             UserPermission::PERMISSION_ACCESS_ONLINE_PHARMACY,
             UserPermission::PERMISSION_ACCESS_WABISABI,
-            UserPermission::PERMISSION_VIEW_PAGE,
-            UserPermission::PERMISSION_VIEW_CATEGORY_PRODUCT,
-            UserPermission::PERMISSION_VIEW_ORDER_HISTORY,
-            UserPermission::PERMISSION_VIEW_USER,
-            UserPermission::PERMISSION_UPDATE_USER,
-            UserPermission::PERMISSION_VIEW_PRODUCT,
-            UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
-            UserPermission::PERMISSION_VIEW_LIST_VENDOR,
+            UserPermission::PERMISSION_USER_CHANGE_PROFILE,
+            UserPermission::PERMISSION_USER_READ_ONLINE_PHARMACY
         ];
 
         foreach ($permission_light_plan as $permission)   {
@@ -93,15 +76,9 @@ class PermissionSeeder extends Seeder
             UserPermission::PERMISSION_ACCESS_OVERSEAS_REMITTANCE,
             UserPermission::PERMISSION_ACCESS_E_LEANING,
             UserPermission::PERMISSION_ACCESS_WABISABI,
-            UserPermission::PERMISSION_VIEW_PAGE,
-            UserPermission::PERMISSION_VIEW_CATEGORY_PRODUCT,
-            UserPermission::PERMISSION_VIEW_ORDER_HISTORY,
-            UserPermission::PERMISSION_VIEW_USER,
-            UserPermission::PERMISSION_UPDATE_USER,
-            UserPermission::PERMISSION_VIEW_PRODUCT,
-            UserPermission::PERMISSION_UPDATE_USER_ADDRESS,
             UserPermission::PERMISSION_VIEW_PROFILE,
-            UserPermission::PERMISSION_VIEW_LIST_VENDOR,
+            UserPermission::PERMISSION_USER_CHANGE_PROFILE,
+            UserPermission::PERMISSION_USER_READ_ONLINE_PHARMACY
         ];
 
         foreach ($permission_full_support_plan as $permission)   {
