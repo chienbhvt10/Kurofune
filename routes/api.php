@@ -30,6 +30,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::get('getPermissionByRole/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
             Route::put('updatePermissionForRole', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
             Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
+            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
+
         });
 
         // User Manage

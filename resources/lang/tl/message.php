@@ -36,6 +36,12 @@ return [
     'postal_code' => [
         'valid' => 'Mangyaring bigyan ako ng wastong zip code',
     ],
+    'page'=>[
+        'create_success' =>'Matagumpay na nakagawa ng pahina',
+        'update_success' =>'Matagumpay na na-update ang pahina',
+        'delete_success' =>'Matagumpay na natanggal ang pahina',
+        'not_exist' =>'Walang pahina',
+    ],
     'update_billing_success' => 'Matagumpay na nabago ang billing address.',
     'update_shipping_success' => 'Matagumpay na nabago ang address ng pagpapadala.',
     'update_address_success' => 'Na-update ang profile.',

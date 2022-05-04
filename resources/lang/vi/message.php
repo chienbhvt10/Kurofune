@@ -36,4 +36,10 @@ return [
     'postal_code' => [
         'valid' => 'Vui lòng nhập Zip code hợp lệ',
     ],
+    'page'=>[
+        'create_success' =>'Tạo trang thành công',
+        'update_success' =>'Cập nhật trang thành công' ,
+        'delete_success' =>'Cập nhật trang thành công',
+        'not_exist' =>'Trang không tồn tại',
+    ]
 ];
