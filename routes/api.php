@@ -38,6 +38,11 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::post('importUser', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
         });
 
+        // Page Manage
+        Route::middleware(['permission:manage page'])->group(function () {
+            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
+        });
+
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 

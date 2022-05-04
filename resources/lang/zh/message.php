@@ -36,6 +36,12 @@ return [
     'postal_code' => [
         'valid' => '请给我一个有效的邮政编码',
     ],
+    'page'=>[
+        'create_success' =>'页面创建成功',
+        'update_success' =>'页面更新成功' ,
+        'delete_success' =>'页面更新成功',
+        'not_exist' =>'页面不存在',
+    ],
     'password' => [
         'updated' => '密码更换成功。',
         'without_spaces' => 'Passwords must not contain spaces'
