@@ -9,14 +9,18 @@ export const TableHeader = ({ children, title, breadcrumb, addLink }) => {
     <>
       <Breadcrumb title={title} breadcrumb={breadcrumb} />
       <div className="user-tab my-3 d-flex">
-        <Link
-          className="btn btn-outline-secondary mr-3 "
-          role="button"
-          to={addLink}
-        >
-          <FontAwesomeIcon className="mr-1" icon={faPlus} />
-          Add new
-        </Link>
+        {addLink ? (
+          <Link
+            className="btn btn-outline-secondary mr-3 "
+            role="button"
+            to={addLink}
+          >
+            <FontAwesomeIcon className="mr-1" icon={faPlus} />
+            Add new
+          </Link>
+        ) : (
+          <></>
+        )}
         {children}
         <div className="user-search ml-auto">
           <div className="input-group">

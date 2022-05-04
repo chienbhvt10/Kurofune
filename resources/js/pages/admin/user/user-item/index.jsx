@@ -1,20 +1,25 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 import FormHeader from "../../../../commons/FormHeader";
 
 import "./style.scss";
 export const UserItem = ({ identify }) => {
   const { i18n, t } = useTranslation();
+  const lang = localStorage.getItem("lang");
+  const navigate = useNavigate();
   return (
     <div className="user-container">
       <FormHeader
         breadcrumb={[
           { name: "Home", routerLink: "../" },
           { name: "User List", routerLink: "/admin/user-list" },
-          { name: "Add", routerLink: "/admin/product/add" },
+          { name: "Add", routerLink: `${lang}/admin/user/add` },
         ]}
         title="Add User"
-        onCancel={() => {}}
+        onCancel={() => {
+          navigate(`${lang}/admin/user-list`);
+        }}
       />
       <form className="mt-3">
         <div className="row">

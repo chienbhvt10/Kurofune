@@ -2,6 +2,7 @@ import React from "react";
 import LogTable from "./LogTable";
 import "./log.scss";
 import { Link } from "react-router-dom";
+import { TableHeader } from "../../../commons/TableHeader";
 const LogChatBot = () => {
   const items = [
     {
@@ -25,16 +26,24 @@ const LogChatBot = () => {
   ];
   return (
     <div className="log-container">
-      <div className="btn-group">
-        <Link to="/" className="btn-show">
-          <img src="" alt="" />
-          <span> CSVダウンロード</span>
-        </Link>
-        <Link to="/" className="btn-show">
-          <img src="" alt="" />
-          <span> CSVダウンロード (日本語）</span>
-        </Link>
-      </div>
+      <TableHeader
+        breadcrumb={[
+          { name: "Home", routerLink: "../" },
+          { name: "Chatbot List", routerLink: "/log-questionnaire" },
+        ]}
+        title="Chatbot List"
+      >
+        <div className="btn-group">
+          <Link to="/" className="btn-show">
+            <img src="/images/download_white.png" alt="" />
+            <span> CSVダウンロード</span>
+          </Link>
+          <Link to="/" className="btn-show">
+            <img src="/images/download_white.png" alt="" />
+            <span> CSVダウンロード (日本語）</span>
+          </Link>
+        </div>
+      </TableHeader>
       <LogTable items={items} />
     </div>
   );

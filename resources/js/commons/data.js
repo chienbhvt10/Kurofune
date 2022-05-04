@@ -431,7 +431,12 @@ export const navigateLinkData = [
 ];
 export const navigateLinkAdminData = [
   {
-    link: "member/questionnaire",
+    link: "admin/log-chatbot",
+    imageUrl: "/images/sidebar/Questionnaire-form.png",
+    title: "navigate_link.chatbot_title",
+  },
+  {
+    link: "admin/log-questionnaire",
     imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "navigate_link.questionnaire_title",
   },
@@ -443,7 +448,7 @@ export const navigateLinkAdminData = [
   {
     link: "admin/product-list",
     imageUrl: "/images/sidebar/medicine-list.png",
-    title: "navigate_link.medicine_title",
+    title: "navigate_link.product_title",
   },
   {
     link: "member/order-history",
@@ -458,7 +463,7 @@ export const navigateLinkAdminData = [
   {
     link: "admin/user-list",
     imageUrl: "/images/sidebar/Settings.png",
-    title: "navigate_link.billing_address_title",
+    title: "navigate_link.user_title",
   },
   {
     link: "media",

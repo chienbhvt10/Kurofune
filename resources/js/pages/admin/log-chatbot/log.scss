@@ -27,9 +27,7 @@
       height: auto;
     }
   }
-  .btn-group {
-    padding: 20px 0;
-  }
+
   .btn-show {
     background-color: #62a19b;
     text-decoration: none;
@@ -41,6 +39,11 @@
     }
     span {
       color: white;
+    }
+    img {
+      width: 20px;
+      position: relative;
+      bottom: -3px;
     }
   }
   .btn-show-custom {

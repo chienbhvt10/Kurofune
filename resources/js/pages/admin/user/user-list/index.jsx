@@ -6,6 +6,7 @@ import "./style.scss";
 import { UserTable } from "./UserTable";
 
 export const UserList = () => {
+  const lang = localStorage.getItem("lang");
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -36,7 +37,7 @@ export const UserList = () => {
   return (
     <div className="user-container">
       <TableHeader
-        addLink="/admin/user-create"
+        addLink={`${lang}/admin/user-create`}
         title={"User"}
         breadcrumb={[
           { name: "Home", routerLink: "../" },

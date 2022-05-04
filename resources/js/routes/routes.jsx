@@ -5,6 +5,7 @@ import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
 import LogChatBot from "../pages/admin/log-chatbot";
+import LogQuestionnaire from "../pages/admin/log-questionnaire";
 import AddCategory from "../pages/admin/product-category/category-add";
 import CategoryList from "../pages/admin/product-category/category-list";
 import UpdateCategory from "../pages/admin/product-category/category-update";
@@ -205,6 +206,11 @@ const appRouter = () => {
             exact={true}
           />
           <Route path={`log-chatbot`} element={<LogChatBot />} exact={true} />
+          <Route
+            path={`log-questionnaire`}
+            element={<LogQuestionnaire />}
+            exact={true}
+          />
         </Route>
         <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route path={`/${lang}/service-24h`} element={<Service24H />} />
