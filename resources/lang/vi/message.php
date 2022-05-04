@@ -36,4 +36,8 @@ return [
     'postal_code' => [
         'valid' => 'Vui lòng nhập Zip code hợp lệ',
     ],
+    'password' => [
+        'updated' => 'Đã thay đổi mật khẩu thành công.',
+        'without_spaces' => 'Passwords must not contain spaces'
+    ]
 ];

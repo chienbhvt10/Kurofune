@@ -36,4 +36,8 @@ return [
     'postal_code' => [
         'valid' => '有効な郵便番号を入力してください',
     ],
+    'password' => [
+        'updated' => 'パスワードは正常に変更されました',
+        'without_spaces' => 'Passwords must not contain spaces'
+    ]
 ];

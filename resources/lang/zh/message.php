@@ -36,4 +36,8 @@ return [
     'postal_code' => [
         'valid' => '请给我一个有效的邮政编码',
     ],
+    'password' => [
+        'updated' => '密码更换成功。',
+        'without_spaces' => 'Passwords must not contain spaces'
+    ]
 ];
