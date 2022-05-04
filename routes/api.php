@@ -30,14 +30,17 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::get('getPermissionByRole/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
             Route::put('updatePermissionForRole', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
             Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
-            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
-
         });
 
         // User Manage
         Route::middleware(['permission:manage user'])->group(function () {
             Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
             Route::post('importUser', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
+        });
+
+        // Page Manage
+        Route::middleware(['permission:manage page'])->group(function () {
+            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
         });
 
         // View Profile
