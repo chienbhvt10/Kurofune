@@ -145,6 +145,13 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => 'Mật khẩu hiện tại của bạn không chính xác.'
+        ],
+        'new_password' => [
+            'different' => 'Mật khẩu mới không được giống với mật khẩu hiện tại',
+            'regex' => 'Mật khẩu của bạn không phù hợp với định dạng'
+        ]
     ],
 
     /*

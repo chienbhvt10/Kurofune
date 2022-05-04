@@ -145,6 +145,13 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => '您当前的密码不正确。'
+        ],
+        'new_password' => [
+            'different' => '新密码不能与当前密码相同',
+            'regex' => '您的密码与格式不符'
+        ]
     ],
 
     /*

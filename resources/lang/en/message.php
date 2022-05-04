@@ -36,4 +36,8 @@ return [
     'postal_code' => [
         'valid' => 'Please enter a valid postal code',
     ],
+    'password' => [
+        'updated' => 'Password changed successfully.',
+        'without_spaces' => 'Passwords must not contain spaces'
+    ]
 ];

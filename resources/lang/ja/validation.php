@@ -145,6 +145,13 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => '現在のパスワードが正しくありません。'
+        ],
+        'new_password' => [
+            'different' => '新しいパスワードを現在のパスワードと同じにすることはできません',
+            'regex' => 'パスワードが形式と一致しません'
+        ]
     ],
 
     /*
