@@ -43,14 +43,18 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
-        // View Vendor
-        Route::get('listOfPharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index'])->middleware(['permission:view list vendor']);
+        Route::middleware(['permission:user read online pharmacy'])->group(function (){
+            // View Vendor
+            Route::get('listOfPharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
 
-        // Billing, Shipping, Address manager
-        Route::middleware('permission:update user address')->group(function () {
+            // Billing, Shipping, Address manager
             Route::put('billingAddress', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
             Route::put('shippingAddress', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
+        });
+
+        Route::middleware(['permission:user change profile'])->group(function () {
             Route::put('userAddress', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
+            Route::put('changePassword', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
         });
     });
 

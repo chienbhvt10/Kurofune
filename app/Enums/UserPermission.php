@@ -13,19 +13,9 @@ final class UserPermission extends Enum
   const PERMISSION_ACCESS_E_LEANING = 'access url e-learning';
   const PERMISSION_ACCESS_WABISABI = 'access url wabisabi';
 
-  const PERMISSION_VIEW_PAGE = 'view page';
-  const PERMISSION_VIEW_CATEGORY_PRODUCT = 'view category product';
-  const PERMISSION_VIEW_ORDER_HISTORY = 'view order history';
-  const PERMISSION_VIEW_USER = 'view user';
-  const PERMISSION_UPDATE_USER = 'update user';
-  const PERMISSION_VIEW_PRODUCT = 'view product';
-  const PERMISSION_VIEW_BILLING_ADDRESS = 'view billing address';
-  const PERMISSION_UPDATE_BILLING_ADDRESS = 'update billing address';
-  const PERMISSION_VIEW_SHIPPING_ADDRESS = 'view shipping address';
-  const PERMISSION_UPDATE_SHIPPING_ADDRESS = 'update shipping address';
-  const PERMISSION_UPDATE_USER_ADDRESS = 'update user address';
   const PERMISSION_VIEW_PROFILE = 'view profile';
-  const PERMISSION_VIEW_LIST_VENDOR = 'view list vendor';
+  const PERMISSION_USER_CHANGE_PROFILE = 'user change profile';
+  const PERMISSION_USER_READ_ONLINE_PHARMACY = 'user read online pharmacy';
 
 
   const PERMISSION_USER_MANAGE = 'manage user';
