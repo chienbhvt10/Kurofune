@@ -145,6 +145,7 @@ class UserController extends Controller
                     'dob' => 'date|date_format:Y-m-d',
                     'gender' => 'boolean',
                     'payment' => 'boolean',
+                    'insurance_status' => 'numeric',
                     'overseas_remittance_status' => 'boolean',
                     'start_date_education' => 'date|date_format:Y-m-d',
                     'end_date_education' => 'date|date_format:Y-m-d',
@@ -167,6 +168,7 @@ class UserController extends Controller
                 $company_representative = $request->company_representative ?? null;
                 $inflow_source = $request->inflow_source ?? null;
                 $payment = (int)$request->payment ?? null;
+                $insurance_status = $request->insurance_status ?? null;
                 $insurance_support = $request->insurance_support ?? null;
                 $insurance_start_date = $request->insurance_start_date ?? null;
                 $overseas_remittance_status = (int)$request->insurance_start_date ?? null;
@@ -187,6 +189,7 @@ class UserController extends Controller
                     'company_representative' => $company_representative,
                     'inflow_source' => $inflow_source,
                     'payment' => $payment,
+                    'insurance_status' => $insurance_status,
                     'insurance_support' => $insurance_support,
                     'insurance_start_date' => $insurance_start_date,
                     'overseas_remittance_status' => $overseas_remittance_status,
@@ -399,7 +402,7 @@ class UserController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'email' => 'email|required',
-                'phone' => 'numeric',
+                'phone' => 'numeric|required',
                 'password' => 'min:6',
                 'active' => 'required|boolean',
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -485,6 +488,7 @@ class UserController extends Controller
                     'dob' => 'date|date_format:Y-m-d',
                     'gender' => 'boolean',
                     'payment' => 'boolean',
+                    'insurance_status' => 'numeric',
                     'overseas_remittance_status' => 'boolean',
                     'start_date_education' => 'date|date_format:Y-m-d',
                     'end_date_education' => 'date|date_format:Y-m-d',
@@ -507,6 +511,7 @@ class UserController extends Controller
                 $company_representative = $request->company_representative ?? null;
                 $inflow_source = $request->inflow_source ?? null;
                 $payment = (int)$request->payment ?? null;
+                $insurance_status = $request->insurance_status ?? null;
                 $insurance_support = $request->insurance_support ?? null;
                 $insurance_start_date = $request->insurance_start_date ?? null;
                 $overseas_remittance_status = (int)$request->insurance_start_date ?? null;
@@ -527,6 +532,7 @@ class UserController extends Controller
                     'company_representative' => $company_representative,
                     'inflow_source' => $inflow_source,
                     'payment' => $payment,
+                    'insurance_status' => $insurance_status,
                     'insurance_support' => $insurance_support,
                     'insurance_start_date' => $insurance_start_date,
                     'overseas_remittance_status' => $overseas_remittance_status,
