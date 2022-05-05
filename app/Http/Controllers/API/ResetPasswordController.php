@@ -43,42 +43,45 @@ class ResetPasswordController extends Controller
 
     public function resetPassword(Request $request): \Illuminate\Http\JsonResponse
     {
-        $validator = Validator::make($request->all(), [
-            'token' => 'required',
-            'email' => 'required|email',
-            'password' => [
-                'required',
-                'string',
-                new WithoutSpaces,
-                \Illuminate\Validation\Rules\Password::min(8)
-                    ->mixedCase()
-                    ->numbers()
-                    ->symbols()
-            ],
-            'confirm_password' => 'required|same:password'
-        ]);
-        if ($validator->fails()) {
-            $errors = $validator->errors();
-            return $this->errorResponse($errors, 422);
-        }
-
-        $status = Password::reset(
-            $request->only('email', 'password', 'confirm_password', 'token'),
-            function ($user, $password) {
-                $user->forceFill([
-                    'password' => Hash::make($password)
-                ])->setRememberToken(Str::random(60));
-
-                $user->save();
-
-                event(new PasswordReset($user));
+        try {
+            $validator = Validator::make($request->all(), [
+                'token' => 'required',
+                'email' => 'required|email',
+                'password' => [
+                    'required',
+                    'string',
+                    new WithoutSpaces,
+                    \Illuminate\Validation\Rules\Password::min(8)
+                        ->mixedCase()
+                        ->numbers()
+                        ->symbols()
+                ],
+                'confirm_password' => 'required|same:password'
+            ]);
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                return $this->errorResponse($errors, 422);
             }
-        );
 
-        if ($status == Password::PASSWORD_RESET) {
-            return $this->success(__($status));
+            $status = Password::reset(
+                $request->only('email', 'password', 'confirm_password', 'token'),
+                function ($user, $password) {
+                    $user->forceFill([
+                        'password' => Hash::make($password)
+                    ])->setRememberToken(Str::random(60));
+
+                    $user->save();
+
+                    event(new PasswordReset($user));
+                }
+            );
+
+            if ($status == Password::PASSWORD_RESET) {
+                return $this->success(__($status));
+            }
+            return $this->errorResponse(__($status));
+        }catch (\Exception $error){
+            return $this->errorResponse($error->getMessage());
         }
-
-        return $this->errorResponse(__($status));
     }
 }
