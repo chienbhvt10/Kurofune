@@ -2,9 +2,9 @@ import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
-import "./style.scss";
 
 export const UserTable = ({ items }) => {
+  const lang = localStorage.getItem("lang");
   const columns = [
     {
       dataField: "userName",
@@ -13,7 +13,10 @@ export const UserTable = ({ items }) => {
 
       formatter: (cellContent, row) => {
         return (
-          <Link to="/" className="text-decoration-none d-flex">
+          <Link
+            to={`${lang}/admin/user-update/${row.id}`}
+            className="text-decoration-none d-flex"
+          >
             <img
               src={row.imageUrl}
               alt=""
@@ -65,7 +68,7 @@ export const UserTable = ({ items }) => {
         width: 50,
       },
       formatter: (cell, row) => (
-        <Link to="/">
+        <Link to={`${lang}/admin/user-update/${row.id}`}>
           <img
             className="img-row"
             src="/images/editing.png"

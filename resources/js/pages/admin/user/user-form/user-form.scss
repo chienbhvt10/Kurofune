@@ -1,0 +1,66 @@
+.user-container {
+  background: #fff;
+  border-radius: 5px;
+  padding: 0;
+  .form-group {
+    display: flex;
+    flex-direction: column;
+
+    input:not([type="file"]) {
+      border-radius: 4px;
+      border: 1px solid #8c8f94;
+    }
+    select {
+      height: 35px;
+      border-radius: 4px;
+      border: 1px solid #8c8f94;
+    }
+    .form-error {
+      color: red;
+      font-size: 11px;
+    }
+  }
+  .separate {
+    display: flex;
+    flex-direction: row;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 30px 20px 30px;
+      margin-bottom: 0;
+      width: 50%;
+    }
+  }
+  .form-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    .common-info {
+      padding: 20px;
+      border-bottom: 1px solid #eee;
+      form {
+        display: flex;
+        justify-content: space-between;
+        .control-avatar {
+          width: 40%;
+        }
+        .control-field {
+          width: 60%;
+        }
+      }
+    }
+    .translate-role {
+      padding: 20px;
+      .vendor-profile-form {
+        .control-image {
+          display: flex;
+          justify-content: center;
+          .form-group {
+            width: 40%;
+            padding: 20px;
+          }
+        }
+      }
+    }
+  }
+}

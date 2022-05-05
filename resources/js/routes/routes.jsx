@@ -13,7 +13,6 @@ import UpdateCategory from "../pages/admin/product-category/category-update";
 import AddProduct from "../pages/admin/product/product-add";
 import ProductList from "../pages/admin/product/product-list";
 import UpdateProduct from "../pages/admin/product/product-update";
-import { UserItem } from "../pages/admin/user/user-item";
 import { UserList } from "../pages/admin/user/user-list";
 import AddOrder from "../pages/admin/order/order-add";
 import UpdateOrder from "../pages/admin/order/order-update";
@@ -37,6 +36,9 @@ import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import { UserLayout } from "../pages/client/user-info/user-layout";
 import { NotFound } from "../pages/notFound";
+import { UserForm } from "../pages/admin/user/user-form";
+import AddUser from "../pages/admin/user/user-add";
+import UpdateUser from "../pages/admin/user/user-update";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -180,14 +182,10 @@ const appRouter = () => {
           exact={true}
         >
           <Route path={`user-list`} element={<UserList />} exact={true} />
-          <Route
-            path={`user-create`}
-            element={<UserItem identify={"create"} />}
-            exact={true}
-          />
+          <Route path={`user-create`} element={<AddUser />} exact={true} />
           <Route
             path={`user-update/:id`}
-            element={<UserItem identify={"update"} />}
+            element={<UpdateUser />}
             exact={true}
           />
           <Route path={`product-list`} element={<ProductList />} exact={true} />

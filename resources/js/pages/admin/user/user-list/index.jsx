@@ -1,8 +1,7 @@
 import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { TableHeader } from "../../../../commons/TableHeader";
-import "./style.scss";
+import "./user-list.scss";
 import { UserTable } from "./UserTable";
 
 export const UserList = () => {
@@ -35,7 +34,7 @@ export const UserList = () => {
     },
   ];
   return (
-    <div className="user-container">
+    <div className="user-list">
       <TableHeader
         addLink={`${lang}/admin/user-create`}
         title={"User"}
