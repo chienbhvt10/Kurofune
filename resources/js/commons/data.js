@@ -440,23 +440,18 @@ export const navigateLinkAdminData = [
     imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "navigate_link.questionnaire_title",
   },
-  {
-    link: "list-of-pharmacies",
-    imageUrl: "/images/sidebar/list-pharmacies.png",
-    title: "navigate_link.pharmacies_title",
-  },
+  // {
+  //   link: "list-of-pharmacies",
+  //   imageUrl: "/images/sidebar/list-pharmacies.png",
+  //   title: "navigate_link.pharmacies_title",
+  // },
   {
     link: "admin/product-list",
     imageUrl: "/images/sidebar/medicine-list.png",
     title: "navigate_link.product_title",
   },
   {
-    link: "member/order-history",
-    imageUrl: "/images/sidebar/Order-history.png",
-    title: "navigate_link.order_history_title",
-  },
-  {
-    link: "cart",
+    link: "admin/order-list",
     imageUrl: "/images/sidebar/cart.png",
     title: "navigate_link.cart_title",
   },

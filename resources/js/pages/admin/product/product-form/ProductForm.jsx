@@ -7,6 +7,7 @@ import TranslateProductForm from "./TranslateProductForm";
 
 const credential = Yup.object().shape({});
 const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
+  const lang = localStorage.getItem("lang");
   const initialCommonValues = {
     name: "",
     sku: "",
@@ -90,8 +91,11 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
         <FormHeader
           breadcrumb={[
             { name: "Home", routerLink: "../" },
-            { name: "Product List", routerLink: "/admin/product-list" },
-            { name: "Add", routerLink: "/admin/product/add" },
+            { name: "Product List", routerLink: `${lang}/admin/product-list` },
+            {
+              name: "Add",
+              routerLink: "",
+            },
           ]}
           title={title}
           onCancel={onCancel}

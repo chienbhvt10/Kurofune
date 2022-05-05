@@ -6,6 +6,7 @@ import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
 import LogChatBot from "../pages/admin/log-chatbot";
 import LogQuestionnaire from "../pages/admin/log-questionnaire";
+import OrderList from "../pages/admin/order/order-list";
 import AddCategory from "../pages/admin/product-category/category-add";
 import CategoryList from "../pages/admin/product-category/category-list";
 import UpdateCategory from "../pages/admin/product-category/category-update";
@@ -14,6 +15,8 @@ import ProductList from "../pages/admin/product/product-list";
 import UpdateProduct from "../pages/admin/product/product-update";
 import { UserItem } from "../pages/admin/user/user-item";
 import { UserList } from "../pages/admin/user/user-list";
+import AddOrder from "../pages/admin/order/order-add";
+import UpdateOrder from "../pages/admin/order/order-update";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
 import { Login } from "../pages/auth/login";
@@ -209,6 +212,15 @@ const appRouter = () => {
           <Route
             path={`log-questionnaire`}
             element={<LogQuestionnaire />}
+            exact={true}
+          />
+
+          <Route path={`order-list`} element={<OrderList />} exact={true} />
+
+          <Route path={`order-add`} element={<AddOrder />} exact={true} />
+          <Route
+            path={`order-update/:id`}
+            element={<UpdateOrder />}
             exact={true}
           />
         </Route>
