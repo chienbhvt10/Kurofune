@@ -20,8 +20,8 @@ class UserAddressController extends Controller
             $user = auth()->user();
             $user_id = $user->id;
             $data = Address::where('user_id', $user_id);
-            $dataUser = User::where('id', $user_id);
-
+            $dataUser = User::find($user_id);
+            
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'postal_code' => 'required|string|max:50',
@@ -29,8 +29,8 @@ class UserAddressController extends Controller
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
                 'building' => 'string|max:255',
-                'phone' => 'numeric',
-                'email' => 'email|required',
+                'phone' => 'required|numeric',
+                'email' => 'required|email|unique:users,email,' . $user_id . ',id',
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -57,16 +57,10 @@ class UserAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            if (empty($data->first())) {
-                $data = Address::create(['user_id' => $user_id]);
-                $dataUser->update($dataUserUpdate);
-                $data->update($dataUpdate);
-            } else {
-                $dataUser->update($dataUserUpdate);
-                $data->update($dataUpdate);
-            }
+            $dataUser->update($dataUserUpdate);
+            $dataUser->address()->update($dataUpdate);
 
-            return $this->successWithData(__('message.address.updated'), $data->get(), 200);
+            return $this->successWithData(__('message.address.updated'), $data->first(), 200);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
