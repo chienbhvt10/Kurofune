@@ -14,10 +14,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Locale </label>
           <textarea
-            id=""
             type="text"
             name="locale"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.locale}
@@ -30,7 +28,6 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
             id=""
             type="text"
             name="classification"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.classification}
@@ -42,10 +39,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Features</label>
           <textarea
-            id=""
             type="text"
             name="features"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.features}
@@ -55,10 +50,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Precautions</label>
           <textarea
-            id=""
             type="text"
             name="precautions"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.precautions}
@@ -70,10 +63,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Efficacy Effect</label>
           <textarea
-            id=""
             type="text"
             name="efficacyEffect"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.efficacyEffect}
@@ -83,10 +74,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Usage Does</label>
           <textarea
-            id=""
             type="text"
             name="usageDoes"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.usageDoes}
@@ -98,10 +87,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Active Ingredients</label>
           <textarea
-            id=""
             type="text"
             name="activeIngredients"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.activeIngredients}
@@ -111,10 +98,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Additives</label>
           <textarea
-            id=""
             type="text"
             name="additives"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.additives}
@@ -126,10 +111,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Precautions Storage Handling</label>
           <textarea
-            id=""
             type="text"
             name="precautions Storage Handling"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.precautionsStorageHandling}
@@ -139,10 +122,8 @@ const SubFormProductTranslate = ({ lang, className, formik }) => {
         <div className="form-group">
           <label>({lang}) Manufacturer </label>
           <textarea
-            id=""
             type="text"
             name="manufacturer"
-            className=""
             rows={4}
             onChange={formik.handleChange}
             value={formik.values.manufacturer}
