@@ -4,8 +4,6 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use App\Models\BillingAddress;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\RespondsStatusTrait;
 
@@ -17,8 +15,7 @@ class BillingAddressController extends Controller
     {
         try {
             $user = auth()->user();
-            $user_id = $user->id;
-            $data = BillingAddress::where('user_id', $user_id);
+            $data = $user->billing_address->first();
 
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
@@ -52,9 +49,9 @@ class BillingAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            $data->update($dataUpdate);
+            $user->billing_address->update($dataUpdate);
 
-            return $this->successWithData(__('message.billing.updated'), $data->first());
+            return $this->successWithData(__('message.billing.updated'), $data);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }

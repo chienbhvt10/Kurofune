@@ -17,8 +17,7 @@ class ShippingAddressController extends Controller
     {
         try {
             $user = auth()->user();
-            $user_id = $user->id;
-            $data = ShippingAddress::where('user_id', $user_id);
+            $data = $user->shipping_address->first();
 
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
@@ -52,9 +51,9 @@ class ShippingAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            $data->update($dataUpdate);
+            $user->shipping_address->update($dataUpdate);
 
-            return $this->successWithData(__('message.shipping.updated'), $data->first());
+            return $this->successWithData(__('message.shipping.updated'), $data);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
