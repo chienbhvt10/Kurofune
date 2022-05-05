@@ -52,14 +52,9 @@ class ShippingAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            if (empty($data->first())) {
-                $data = ShippingAddress::create(['user_id' => $user_id]);
-                $data->update($dataUpdate);
-            } else {
-                $data->update($dataUpdate);
-            }
+            $data->update($dataUpdate);
 
-            return $this->successWithData(__('message.shipping.updated'), $data->get());
+            return $this->successWithData(__('message.shipping.updated'), $data->first());
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
