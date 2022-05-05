@@ -38,6 +38,7 @@ return [
     ],
     'password' => [
         'updated' => 'パスワードは正常に変更されました',
-        'without_spaces' => 'Passwords must not contain spaces'
+        'without_spaces' => 'Passwords must not contain spaces',
+        'reset_link_sent' => 'パスワード再発行メールが送信されました。<br>ご登録メールアドレスをご確認ください。',
     ]
 ];

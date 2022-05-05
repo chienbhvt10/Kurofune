@@ -38,6 +38,7 @@ return [
     ],
     'password' => [
         'updated' => 'Matagumpay na nabago ang Password.',
-        'without_spaces' => 'Passwords must not contain spaces'
+        'without_spaces' => 'Passwords must not contain spaces',
+        'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password.<br>Pakisuri ang iyong nakarehistrong email address.',
     ]
 ];
