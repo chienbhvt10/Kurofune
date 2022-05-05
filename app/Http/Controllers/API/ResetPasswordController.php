@@ -54,9 +54,9 @@ class ResetPasswordController extends Controller
                     \Illuminate\Validation\Rules\Password::min(8)
                         ->mixedCase()
                         ->numbers()
-                        ->symbols()
+                        ->symbols(),
+                    'confirmed'
                 ],
-                'confirm_password' => 'required|same:password'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();

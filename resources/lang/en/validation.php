@@ -148,9 +148,10 @@ return [
         'current_password' => [
             'current_password' => 'Your current password is incorrect.'
         ],
-        'new_password' => [
+        'password' => [
             'different' => 'The new password cannot be the same as the current password',
-            'regex' => 'Your password does not match the format'
+            'regex' => 'Your password does not match the format',
+            'min' => 'The :attribute must be at least :min characters.'
         ]
     ],
 
@@ -174,7 +175,7 @@ return [
         'phone' => 'Phone',
         'email' => 'Email address',
         'active' => 'Active status',
-        'password' => 'Password',
+        'password' => 'password',
         'role' => 'User role',
         'en' => 'en data',
         'ja' => 'ja data',

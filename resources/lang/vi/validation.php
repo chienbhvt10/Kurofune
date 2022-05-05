@@ -148,9 +148,10 @@ return [
         'current_password' => [
             'current_password' => 'Mật khẩu hiện tại của bạn không chính xác.'
         ],
-        'new_password' => [
+        'password' => [
             'different' => 'Mật khẩu mới không được giống với mật khẩu hiện tại',
-            'regex' => 'Mật khẩu của bạn không phù hợp với định dạng'
+            'regex' => 'Mật khẩu của bạn không phù hợp với định dạng',
+            'min' => 'The :attribute must be at least :min characters.'
         ]
     ],
 
