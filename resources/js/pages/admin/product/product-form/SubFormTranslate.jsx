@@ -1,4 +1,3 @@
-import { useFormik } from "formik";
 import React from "react";
 
 const SubFormProductTranslate = ({ lang, className, formik }) => {
