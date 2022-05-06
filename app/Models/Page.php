@@ -11,7 +11,7 @@ class Page extends Model
 {
     use HasFactory, Translatable, SoftDeletes;
 
-    protected $fillable = ['id', 'author_id', 'slug', 'meta_title', 'meta_description', 'meta_keywords'];
+    protected $fillable = ['id', 'author_id', 'slug', 'image', 'meta_title', 'meta_description', 'meta_keywords'];
 
     public $translatedAttributes = ['title', 'content'];
 
