@@ -1,11 +1,16 @@
 // Tất cả các api đều phải đi qua axios client
 import axios from "axios";
 import { ROOT_URL } from "../constants/api";
+const access_token = localStorage.getItem("access_token");
 // custom instance of axios
 const axiosClient = axios.create({
+  auth: {
+    username: "kurofune",
+    password: "123456",
+  },
   baseURL: ROOT_URL,
   headers: {
-    "Content-type": "application/json",
+    Authorization: `Bearer ${access_token}`,
   },
 });
 

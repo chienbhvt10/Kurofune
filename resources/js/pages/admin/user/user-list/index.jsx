@@ -1,11 +1,15 @@
 import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import { useDispatch, useSelector } from "react-redux";
 import { TableHeader } from "../../../../commons/TableHeader";
+import { getUsers } from "../../../../redux/actions/userAction";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
 
 export const UserList = () => {
   const lang = localStorage.getItem("lang");
+  const users = useSelector((state) => state.userState);
+  const dispatch = useDispatch();
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -33,6 +37,12 @@ export const UserList = () => {
       products: "",
     },
   ];
+
+  React.useEffect(() => {
+    dispatch(getUsers("Oke"));
+  }, []);
+  console.log("dispatch", users);
+
   return (
     <div className="user-list">
       <TableHeader
