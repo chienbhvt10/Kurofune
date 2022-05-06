@@ -54,6 +54,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
             Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
         });
+
+        Route::apiResource('category', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
     });
 
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);

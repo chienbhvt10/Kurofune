@@ -40,5 +40,11 @@ return [
         'updated' => '密码更换成功。',
         'without_spaces' => 'Passwords must not contain spaces',
         'reset_link_sent' => '密码补发邮件已发送。<br>请检查您注册的电子邮件地址。',
-    ]
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
 ];

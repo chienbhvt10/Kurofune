@@ -29,4 +29,7 @@ final class Base extends Enum
     const EDU_UNREGISTERED = 7;
     const EDU_UNDER_ERASURE = 8;
     const PATH_AVATAR_DEFAULT = 'avatars/default.png';
+    const CAT_TYPE_1 = 1;
+    const CAT_TYPE_2 = 2;
+    const CAT_TYPE_3 = 3;
 }
