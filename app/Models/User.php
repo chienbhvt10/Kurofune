@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -55,6 +56,20 @@ class User extends Authenticatable implements HasMedia
     public $timestamps = true;
 
     protected $guard_name = 'api';
+
+    /*
+    |--------------------------------------------------------------------------
+    | override sendPasswordResetNotification
+    |--------------------------------------------------------------------------
+    */
+
+    public function sendPasswordResetNotification($token)
+    {
+
+        $url = url('reset-password?token='.$token);
+
+        $this->notify(new ResetPasswordNotification($url));
+    }
 
     /*
     |--------------------------------------------------------------------------

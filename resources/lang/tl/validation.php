@@ -145,6 +145,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => 'Ang iyong kasalukuyang password ay hindi tama.'
+        ],
+        'password' => [
+            'different' => 'Ang bagong password ay hindi maaaring pareho sa kasalukuyang password',
+            'regex' => 'Ang iyong password ay hindi tumutugma sa format',
+            'min' => 'The :attribute must be at least :min characters.'
+        ]
     ],
 
     /*
