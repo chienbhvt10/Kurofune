@@ -47,5 +47,6 @@ return [
         'updated' => 'Category updated',
         'deleted' => 'Category deleted',
         'not_exist' => 'Category not exist',
+        'required_name' => '姓名 是必填字段',
     ],
 ];

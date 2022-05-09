@@ -45,7 +45,7 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'slug' => 'required|string|max:255',
+                'slug' => 'nullable|string|max:255',
                 'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'type' => 'required|numeric',
             ]);
@@ -55,28 +55,39 @@ class CategoryController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
+            $name_en = $request->en['name'];
+            if (!$name_en) {
+                return $this->errorResponse(__('message.category.required_name'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            } else {
+                if ($request->slug) {
+                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->slug);
+                } else {
+                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->en['name']);
+                }
+            }
+
             $image = $request->file('category_image');
             $image_path = upload_single_image($image, 'category');
 
             $params = [
-                'slug' => $request->slug,
+                'slug' => $slug,
                 'category_image' => $image_path,
                 'type' => $request->type,
                 'parent_id' => $request->parent_id ?? '0',
                 'en' => [
-                    'name' => $request->en['name'] ?? 'Category en',
+                    'name' => $name_en,
                 ],
                 'ja' => [
-                    'name' => $request->ja['name'] ?? 'Category ja',
+                    'name' => $request->ja['name'] ?? null,
                 ],
                 'vi' => [
-                    'name' => $request->vi['name'] ?? 'Category vi',
+                    'name' => $request->vi['name'] ?? null,
                 ],
                 'tl' => [
-                    'name' => $request->tl['name'] ?? 'Category tl',
+                    'name' => $request->tl['name'] ?? null,
                 ],
                 'zh' => [
-                    'name' => $request->zh['name'] ?? 'Category zh',
+                    'name' => $request->zh['name'] ?? null,
                 ]
             ];
 
@@ -132,7 +143,7 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'slug' => 'required|string|max:255',
+                'slug' => 'nullable|string|max:255',
                 'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'type' => 'required|numeric',
             ]);
@@ -142,6 +153,17 @@ class CategoryController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
+            $name_en = $request->en['name'];
+            if (!$name_en) {
+                return $this->errorResponse(__('message.category.required_name'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            } else {
+                if ($request->slug) {
+                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->slug);
+                } else {
+                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->en['name']);
+                }
+            }
+
             $image_update = $request->file('category_image');
             if ($image_update) {
                 $image_path = upload_single_image($image_update, 'category');
@@ -149,23 +171,23 @@ class CategoryController extends Controller
             }
 
             $params_update = [
-                'slug' => $request->slug,
+                'slug' => $slug,
                 'type' => $request->type,
                 'parent_id' => $request->parent_id ?? '0',
                 'en' => [
-                    'name' => $request->en['name'] ?? 'Category en',
+                    'name' => $name_en,
                 ],
                 'ja' => [
-                    'name' => $request->ja['name'] ?? 'Category ja',
+                    'name' => $request->ja['name'] ?? null,
                 ],
                 'vi' => [
-                    'name' => $request->vi['name'] ?? 'Category vi',
+                    'name' => $request->vi['name'] ?? null,
                 ],
                 'tl' => [
-                    'name' => $request->tl['name'] ?? 'Category tl',
+                    'name' => $request->tl['name'] ?? null,
                 ],
                 'zh' => [
-                    'name' => $request->zh['name'] ?? 'Category zh',
+                    'name' => $request->zh['name'] ?? null,
                 ]
             ];
 

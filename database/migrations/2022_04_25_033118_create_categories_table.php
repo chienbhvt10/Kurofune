@@ -17,7 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('parent_id')->nullable()->default(0);
-            $table->string('slug');
+            $table->string('slug')->nullable();
             $table->string('category_image');
             $table->tinyInteger('type')->default(1);
             $table->softDeletes();
