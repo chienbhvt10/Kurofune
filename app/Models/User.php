@@ -118,4 +118,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Page::class, 'author_id', 'id');
     }
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Product::class, 'user_id', 'id');
+    }
 }
