@@ -47,6 +47,6 @@ return [
         'updated' => 'Category updated',
         'deleted' => 'Category deleted',
         'not_exist' => 'Category not exist',
-        'required_name' => 'Name field is required.',
+        'unique_slug' => 'The slug has already been taken.',
     ],
 ];

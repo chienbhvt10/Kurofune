@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -48,6 +49,7 @@ class CategoryController extends Controller
                 'slug' => 'nullable|string|max:255',
                 'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'type' => 'required|numeric',
+                'en.name' => 'required|string'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -55,15 +57,14 @@ class CategoryController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
-            $name_en = $request->en['name'];
-            if (!$name_en) {
-                return $this->errorResponse(__('message.category.required_name'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            if ($request->slug) {
+                $slug = Str::slug($request->slug);
             } else {
-                if ($request->slug) {
-                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->slug);
-                } else {
-                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->en['name']);
-                }
+                $slug = Str::slug($request->en['name']);
+            }
+            $slug_check = Category::where('slug', $slug)->first();
+            if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
+                return $this->errorResponse(__('message.category.unique_slug'));
             }
 
             $image = $request->file('category_image');
@@ -75,7 +76,7 @@ class CategoryController extends Controller
                 'type' => $request->type,
                 'parent_id' => $request->parent_id ?? '0',
                 'en' => [
-                    'name' => $name_en,
+                    'name' => $request->en['name'],
                 ],
                 'ja' => [
                     'name' => $request->ja['name'] ?? null,
@@ -117,7 +118,7 @@ class CategoryController extends Controller
             }
 
             return $this->responseData($cat);
-        } catch (\Exception $error){
+        } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
     }
@@ -146,6 +147,7 @@ class CategoryController extends Controller
                 'slug' => 'nullable|string|max:255',
                 'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'type' => 'required|numeric',
+                'en.name' => 'required|string'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -153,15 +155,15 @@ class CategoryController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
-            $name_en = $request->en['name'];
-            if (!$name_en) {
-                return $this->errorResponse(__('message.category.required_name'), Response::HTTP_INTERNAL_SERVER_ERROR);
+            if ($request->slug) {
+                $slug = Str::slug($request->slug);
             } else {
-                if ($request->slug) {
-                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->slug);
-                } else {
-                    $slug = preg_replace('/[^A-Za-z0-9-]+/', '-', $request->en['name']);
-                }
+                $slug = Str::slug($request->en['name']);
+            }
+            $slug_check = Category::where('slug', $slug)->first();
+            if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
+                dd(1);
+                return $this->errorResponse(__('message.category.unique_slug'));
             }
 
             $image_update = $request->file('category_image');
@@ -175,7 +177,7 @@ class CategoryController extends Controller
                 'type' => $request->type,
                 'parent_id' => $request->parent_id ?? '0',
                 'en' => [
-                    'name' => $name_en,
+                    'name' => $request->en['name'],
                 ],
                 'ja' => [
                     'name' => $request->ja['name'] ?? null,
@@ -194,7 +196,7 @@ class CategoryController extends Controller
             $cat->update($params_update);
             DB::commit();
             return $this->successWithData(__('message.category.updated'), $cat, Response::HTTP_OK);
-        } catch (\Exception $error){
+        } catch (\Exception $error) {
             DB::rollback();
             return $this->errorResponse($error->getMessage());
         }
@@ -212,7 +214,7 @@ class CategoryController extends Controller
             $cat = Category::find($id);
             $cat->delete();
             return $this->success(__('message.category.deleted'));
-        } catch (\Exception $error){
+        } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
     }

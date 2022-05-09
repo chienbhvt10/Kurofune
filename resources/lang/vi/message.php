@@ -47,6 +47,6 @@ return [
         'updated' => 'Category updated',
         'deleted' => 'Category deleted',
         'not_exist' => 'Category not exist',
-        'required_name' => 'Vui lòng nhập tên',
+        'unique_slug' => 'The slug has already been taken.',
     ],
 ];
