@@ -16,8 +16,9 @@ class CreateProductTranslationsTable extends Migration
         Schema::create('product_translations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->string('locate');
-            $table->unique(['product_id', 'locate']);
+            $table->string('locale');
+            $table->unique(['product_id', 'locale']);
+            $table->string('name', 255)->nullable();
             $table->string('medicinal_efficacy_classification')->nullable();
             $table->string('features')->nullable();
             $table->string('precautions')->nullable();

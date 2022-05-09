@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
 //            BillingAddressSeeder::class,
 //            ShippingAddressSeeder::class,
 //            AddressSeeder::class
+//            ProductSeeder::class
         ]);
     }
 }

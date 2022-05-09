@@ -10,7 +10,7 @@ class ProductTranslation extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['id', 'product_id', 'locate', 'medicinal_efficacy_classification', 'features', 'precautions', 'efficacy_effect', 'usage_dose', 'active_ingredients', 'additives', 'precautions_storage_handling', 'manufacturer'];
+    protected $fillable = ['id', 'product_id', 'locale', 'name', 'medicinal_efficacy_classification', 'features', 'precautions', 'efficacy_effect', 'usage_dose', 'active_ingredients', 'additives', 'precautions_storage_handling', 'manufacturer'];
 
     public $timestamps = true;
 }
