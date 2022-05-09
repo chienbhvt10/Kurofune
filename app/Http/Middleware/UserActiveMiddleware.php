@@ -4,21 +4,23 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class LocalizationMiddleware
+class UserActiveMiddleware
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
-     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse
      */
     public function handle(Request $request, Closure $next)
     {
-        $user_language = Auth()->user()->language ?? 'ja';
-        $lang = ($request->hasHeader('X-localization')) ? $request->header('X-localization') : $user_language;
-        app()->setLocale($lang);
-        return $next($request);
+        if(auth()->user()->active) {
+            return $next($request);
+        }else{
+            return response()->json(__('message.user.inactive'));
+        }
     }
 }
