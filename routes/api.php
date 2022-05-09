@@ -38,21 +38,28 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::post('import-user', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
         });
 
+        // Product Manage
+        Route::middleware(['permission:manage product'])->group(function () {
+            Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
+        });
+
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
-        Route::middleware(['permission:user read online pharmacy'])->group(function (){
-            // View Vendor
-            Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
+        Route::middleware(['user.active'])->group(function (){
+            Route::middleware(['permission:user read online pharmacy'])->group(function (){
+                // View Vendor
+                Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
 
-            // Billing, Shipping, Address manager
-            Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
-            Route::put('shipping-address', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
-        });
+                // Billing, Shipping, Address manager
+                Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
+                Route::put('shipping-address', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
+            });
 
-        Route::middleware(['permission:user change profile'])->group(function () {
-            Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
-            Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
+            Route::middleware(['permission:user change profile'])->group(function () {
+                Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
+                Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
+            });
         });
 
         Route::apiResource('category', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');

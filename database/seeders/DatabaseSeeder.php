@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
 //            ShippingAddressSeeder::class,
 //            AddressSeeder::class,
 //            Category::class,
+//            ProductSeeder::class
         ]);
     }
 }

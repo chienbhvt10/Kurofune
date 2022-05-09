@@ -19,8 +19,19 @@ class Category extends Model
 
     public $timestamps = true;
 
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
     public function translation(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(CategoryTranslation::class, 'cat_id', 'id');
+    }
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id');
     }
 }

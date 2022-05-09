@@ -9,7 +9,8 @@ return [
         'not_exist' => 'user not exist',
         'vendor' => [
             'not_data' => 'list of pharmacies is empty'
-        ]
+        ],
+        'inactive' => 'user inactive'
     ],
     'role' => [
         'created' => 'role created',
