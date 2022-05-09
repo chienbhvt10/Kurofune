@@ -162,7 +162,6 @@ class CategoryController extends Controller
             }
             $slug_check = Category::where('slug', $slug)->first();
             if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
-                dd(1);
                 return $this->errorResponse(__('message.slug.unique'));
             }
 
