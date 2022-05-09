@@ -17,7 +17,7 @@ class UserActiveMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->user()->active) {
+        if(auth()->user()->active) {
             return $next($request);
         }else{
             return response()->json(__('message.user.inactive'));
