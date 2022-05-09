@@ -49,4 +49,7 @@ final class Base extends Enum
     const EDU_N5 = 5;
     const EDU_N0 = 6;
     const PATH_AVATAR_DEFAULT = 'avatars/default.png';
+    const CAT_TYPE_1 = 1;
+    const CAT_TYPE_2 = 2;
+    const CAT_TYPE_3 = 3;
 }

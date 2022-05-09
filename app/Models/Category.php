@@ -15,6 +15,8 @@ class Category extends Model
 
     public $translatedAttributes = ['name'];
 
+    protected $translationForeignKey = 'cat_id';
+
     public $timestamps = true;
 
     /*
@@ -22,6 +24,11 @@ class Category extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function translation(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(CategoryTranslation::class, 'cat_id', 'id');
+    }
 
     public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
