@@ -64,7 +64,7 @@ class CategoryController extends Controller
             }
             $slug_check = Category::where('slug', $slug)->first();
             if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
-                return $this->errorResponse(__('message.category.unique_slug'));
+                return $this->errorResponse(__('message.slug.unique'));
             }
 
             $image = $request->file('category_image');
@@ -163,7 +163,7 @@ class CategoryController extends Controller
             $slug_check = Category::where('slug', $slug)->first();
             if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
                 dd(1);
-                return $this->errorResponse(__('message.category.unique_slug'));
+                return $this->errorResponse(__('message.slug.unique'));
             }
 
             $image_update = $request->file('category_image');

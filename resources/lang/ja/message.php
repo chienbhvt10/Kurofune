@@ -47,6 +47,8 @@ return [
         'updated' => 'Category updated',
         'deleted' => 'Category deleted',
         'not_exist' => 'Category not exist',
-        'unique_slug' => 'The slug has already been taken.',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
     ],
 ];
