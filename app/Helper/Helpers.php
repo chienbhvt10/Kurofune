@@ -81,13 +81,13 @@ function get_avatar_url($avatar = null) {
 
 function upload_single_image($image, $path = null)
 {
-    if (!is_dir(public_path('images/' . $path))) {
-        mkdir(public_path('images/' . $path), 0755);
+    if (!is_dir(public_path('images_data/' . $path))) {
+        mkdir(public_path('images_data/' . $path), 0755);
     }
 
-    $image_name = $image->getClientOriginalName();
-    $image->move(public_path('images/' . $path), $image_name);
-    $image_path = '/images/' . $path . $image_name;
+    $image_name = date('YmdHis').'-'.$image->getClientOriginalName();
+    $image->move(public_path('images_data/' . $path), $image_name);
+    $image_path = 'images_data/' . $path . $image_name;
 
     return $image_path;
 }
