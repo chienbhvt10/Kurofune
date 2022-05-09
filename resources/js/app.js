@@ -16,9 +16,7 @@ import React from "react";
 import { render } from "react-dom";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import { applyMiddleware, createStore } from "redux";
-import thunk from "redux-thunk";
-import rootReducer from "./reducers/index";
+import { store } from "./redux/store";
 import Routes from "./routes/routes";
 import i18n from "./translate/i18n";
 let composeEnhancers = null;
@@ -30,7 +28,6 @@ if (
 } else {
   // composeEnhancers = compose
 }
-const store = createStore(rootReducer, applyMiddleware(thunk));
 render(
   <Provider store={store}>
     <I18nextProvider i18n={i18n}>

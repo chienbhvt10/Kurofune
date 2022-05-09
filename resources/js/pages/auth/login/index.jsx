@@ -1,27 +1,54 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import "./style.scss";
-import { Languages } from "../../../commons/Languges";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import PageHead from "../../../commons/PageHead";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useFormik } from "formik";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import * as Yup from "yup";
+import { Languages } from "../../../commons/Languges";
+import PageHead from "../../../commons/PageHead";
 import ModalPolicy from "../../../components/Modal/ModalPolicy";
 import ModalTerm from "../../../components/Modal/ModalTerm";
+import { login } from "../../../redux/actions/authAction";
+import "./style.scss";
+
+const credential = Yup.object().shape({});
 export const Login = () => {
   const [show, setShow] = useState(true);
+  const user = useSelector((state) => state.authState.userInfo);
+  const token = useSelector((state) => state.authState.token);
+  const dispatch = useDispatch();
   const { i18n, t } = useTranslation();
   function createMarkup() {
     return { __html: t("login.title") };
   }
+  const initialValues = {
+    email: "",
+    password: "",
+  };
+  const formik = useFormik({
+    initialValues: initialValues,
+    validationSchema: credential,
+    onSubmit: (values) => {
+      dispatch(login(values));
+    },
+  });
   return (
     <>
       <PageHead content="Login" title="Login" />
       <h4 className="title" dangerouslySetInnerHTML={createMarkup()}></h4>
-      <form id="loginForm">
+      <form id="loginForm" onSubmit={formik.handleSubmit}>
         <div className="form-group">
           <label htmlFor="UserName">{t("login.email")}</label>
-          <input type="email" className="form-control-auth" id="UserName" />
+          <input
+            type="email"
+            name="email"
+            className="form-control-auth"
+            id="UserName"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
           <img
             className="icon-input"
             src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
@@ -33,7 +60,10 @@ export const Login = () => {
           <input
             type={show ? "password" : "text"}
             className="form-control-auth"
+            name="password"
             id="Password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
           />
           <img
             className="icon-input"
@@ -61,7 +91,7 @@ export const Login = () => {
             {t("login.forgetPassword")}
           </Link>
         </div>
-        <button className="btn btn-primary d-block m-auto">
+        <button className="btn btn-primary d-block m-auto" type="submit">
           {t("login.login_btn")}
         </button>
       </form>
