@@ -41,5 +41,14 @@ return [
         'updated' => 'Matagumpay na nabago ang Password.',
         'without_spaces' => 'Passwords must not contain spaces',
         'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password.<br>Pakisuri ang iyong nakarehistrong email address.',
-    ]
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
+    ],
 ];

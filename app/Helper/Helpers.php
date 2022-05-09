@@ -78,3 +78,16 @@ function get_avatar_url($avatar = null) {
     }
     return $avatar;
 }
+
+function upload_single_image($image, $path = null)
+{
+    if (!is_dir(public_path('images_data/' . $path))) {
+        mkdir(public_path('images_data/' . $path), 0755);
+    }
+
+    $image_name = date('YmdHis').'-'.$image->getClientOriginalName();
+    $image->move(public_path('images_data/' . $path), $image_name);
+    $image_path = 'images_data/' . $path . $image_name;
+
+    return $image_path;
+}

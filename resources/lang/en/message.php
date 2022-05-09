@@ -41,5 +41,14 @@ return [
         'updated' => 'Password changed successfully.',
         'without_spaces' => 'Passwords must not contain spaces',
         'reset_link_sent' => 'The password reissue email has been sent.<br>Please check your registered email address.',
-    ]
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
+    ],
 ];

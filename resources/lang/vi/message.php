@@ -41,5 +41,14 @@ return [
         'updated' => 'Đã thay đổi mật khẩu thành công.',
         'without_spaces' => 'Passwords must not contain spaces',
         'reset_link_sent' => 'Email cấp lại mật khẩu đã được gửi.<br>Vui lòng kiểm tra địa chỉ email đã đăng ký của bạn.',
-    ]
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
+    ],
 ];

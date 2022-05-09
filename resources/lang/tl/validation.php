@@ -183,6 +183,7 @@ return [
         'vi' => 'vi data',
         'zh' => 'zh data',
         'file_upload' => 'Pag-upload ng file',
+        'en.name' => 'pangalan',
     ],
 
 ];
