@@ -145,6 +145,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => 'Mật khẩu hiện tại của bạn không chính xác.'
+        ],
+        'password' => [
+            'different' => 'Mật khẩu mới không được giống với mật khẩu hiện tại',
+            'regex' => 'Mật khẩu của bạn không phù hợp với định dạng',
+            'min' => 'The :attribute must be at least :min characters.'
+        ]
     ],
 
     /*
@@ -166,6 +174,15 @@ return [
         'street_address' => 'Địa chỉ khu phố',
         'phone' => 'Số điện thoại',
         'email' => 'Địa chỉ email',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'Dữ liệu ngôn ngữ tiếng en',
+        'ja' => 'Dữ liệu ngôn ngữ tiếng ja',
+        'tl' => 'Dữ liệu ngôn ngữ tiếng tl',
+        'vi' => 'Dữ liệu ngôn ngữ tiếng vi',
+        'zh' => 'Dữ liệu ngôn ngữ tiếng zh',
+        'file_upload' => 'Tiệp tải lên',
     ],
 
 ];

@@ -145,6 +145,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => '現在のパスワードが正しくありません。'
+        ],
+        'password' => [
+            'different' => '新しいパスワードを現在のパスワードと同じにすることはできません',
+            'regex' => 'パスワードが形式と一致しません',
+            'min' => 'The :attribute must be at least :min characters.'
+        ]
     ],
 
     /*
@@ -166,6 +174,15 @@ return [
         'street_address' => '丁目・番地・号',
         'phone' => '電話番号',
         'email' => 'メールアドレス',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'en data',
+        'ja' => 'ja data',
+        'tl' => 'tl data',
+        'vi' => 'vi data',
+        'zh' => 'zh data',
+        'file_upload' => 'ファイルのアップロード',
     ],
 
 ];

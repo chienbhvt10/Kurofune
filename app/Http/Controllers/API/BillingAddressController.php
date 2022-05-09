@@ -4,18 +4,18 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
-use App\Models\BillingAddress;
 use Illuminate\Support\Facades\Validator;
+use App\Traits\RespondsStatusTrait;
 
 class BillingAddressController extends Controller
 {
+    use RespondsStatusTrait;
+
     public function update(Request $request)
     {
         try {
             $user = auth()->user();
-            $user_id = $user->id;
-            $data = BillingAddress::where('user_id', $user_id);
+            $data = $user->billing_address->first();
 
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
@@ -29,19 +29,13 @@ class BillingAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors);
             }
 
             $check_postcode = checkPostalCode($request->postal_code);
 
             if ($check_postcode == false) {
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
-                ], 422);
+                return $this->errorResponse(__( 'message.postal_code.valid'));
             }
 
             $dataUpdate = [
@@ -55,18 +49,11 @@ class BillingAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            $data->update($dataUpdate);
+            $user->billing_address->update($dataUpdate);
 
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.update_billing_success'),
-                'data' => $data->get()
-            ]);
+            return $this->successWithData(__('message.billing.updated'), $data);
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 }

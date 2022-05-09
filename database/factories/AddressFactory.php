@@ -20,8 +20,7 @@ class AddressFactory extends Factory
             'city' => $this->faker->word(),
             'prefecture' => $this->faker->word(),
             'street_address' => $this->faker->word(),
-            'building' => $this->faker->word(),
-            'phone' => $this->faker->phoneNumber(),
+            'building' => $this->faker->word()
         ];
     }
 }
