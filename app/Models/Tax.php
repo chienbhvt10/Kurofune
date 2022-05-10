@@ -10,6 +10,6 @@ class Tax extends Model
     use HasFactory;
 
     protected $fillable = ['id', 'name', 'value'];
-
+    protected $table = 'taxes';
     public $timestamps = true;
 }

@@ -37,7 +37,12 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
             Route::post('import-user', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
         });
-
+        
+        // Taxes
+        Route::middleware(['permission:manage tax'])->group(function () {
+            Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class);
+        });
+        
         // Category Manager
         Route::apiResource('category', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
 

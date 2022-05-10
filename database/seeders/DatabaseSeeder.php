@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tax;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -22,6 +23,7 @@ class DatabaseSeeder extends Seeder
 //            BillingAddressSeeder::class,
 //            ShippingAddressSeeder::class,
 //            AddressSeeder::class,
+//            TaxSeeder::class,
 //            Category::class,
 //            ProductSeeder::class
         ]);
