@@ -22,6 +22,13 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+
+    'tax' => [
+        'created' => 'Tạo thuế thành công',
+        'update' => 'Cập nhập thuế thành công',
+        'delete' => 'Xoá thuế thành công'
+    ],
+
     'import_user' => [
         'success' => 'Import data user success',
     ],
