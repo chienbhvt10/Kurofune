@@ -27,44 +27,56 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         // Permission manager
         Route::middleware(['permission:manage permission'])->group(function () {
             Route::apiResource('roles', \App\Http\Controllers\API\RoleController::class);
-            Route::get('getPermissionByRole/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
-            Route::put('updatePermissionForRole', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
+            Route::get('get-permission-by-role/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
+            Route::put('update-permission-for-role', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
             Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
         });
 
         // User Manage
         Route::middleware(['permission:manage user'])->group(function () {
             Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
-            Route::post('importUser', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
+            Route::post('import-user', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
+        });
+
+        // Category Manager
+        Route::apiResource('category', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
+
+        // Product Manage
+        Route::middleware(['permission:manage product'])->group(function () {
+            Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
-            Route::get('getPageBySlug/{id}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
+           
             Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
         });
 
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
-        Route::middleware(['permission:user read online pharmacy'])->group(function (){
-            // View Vendor
-            Route::get('listOfPharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
+        Route::middleware(['user.active'])->group(function (){
+            Route::middleware(['permission:user read online pharmacy'])->group(function (){
+                // View Vendor
+                Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
 
-            // Billing, Shipping, Address manager
-            Route::put('billingAddress', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
-            Route::put('shippingAddress', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
+                // Billing, Shipping, Address manager
+                Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
+                Route::put('shipping-address', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
+            });
+
+            Route::middleware(['permission:user change profile'])->group(function () {
+                Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
+                Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
+            });
+
+            Route::get('get-page-by-slug/{slug}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
         });
 
-        Route::middleware(['permission:user change profile'])->group(function () {
-            Route::put('userAddress', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
-            Route::put('changePassword', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
-        });
-
-        //Page
-        Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
     });
 
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);
     Route::post('register', [\App\Http\Controllers\API\AuthController::class, 'register']);
+    Route::post('forgot-password', [\App\Http\Controllers\API\ResetPasswordController::class, 'forgotPassword']);
+    Route::post('reset-password', [\App\Http\Controllers\API\ResetPasswordController::class, 'resetPassword']);
 });

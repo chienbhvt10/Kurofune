@@ -109,10 +109,10 @@ class VendorProfileSeeder extends Seeder
         ];
         $vendor = VendorProfile::create($data);
         $vendor->addMediaFromUrl("https://pharma.its-globaltek.com/wp-content/uploads/2022/01/marineooiso_gaikan_1-1.jpeg")
-            ->toMediaCollection('vendor_images1');
+            ->toMediaCollection('images_outside');
         $vendor->addMediaFromUrl("https://pharma.its-globaltek.com/wp-content/uploads/2022/01/marineooiso_naikan_1-1.jpeg")
-            ->toMediaCollection('vendor_images2');
+            ->toMediaCollection('images_inside');
         $vendor->addMediaFromUrl("https://pharma.its-globaltek.com/wp-content/uploads/2022/01/marineooiso_naikan_2-1.jpeg")
-            ->toMediaCollection('vendor_images2');
+            ->toMediaCollection('images_inside');
     }
 }

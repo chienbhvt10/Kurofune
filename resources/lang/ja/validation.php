@@ -148,9 +148,10 @@ return [
         'current_password' => [
             'current_password' => '現在のパスワードが正しくありません。'
         ],
-        'new_password' => [
+        'password' => [
             'different' => '新しいパスワードを現在のパスワードと同じにすることはできません',
-            'regex' => 'パスワードが形式と一致しません'
+            'regex' => 'パスワードが形式と一致しません',
+            'min' => 'The :attribute must be at least :min characters.'
         ]
     ],
 
@@ -182,6 +183,7 @@ return [
         'vi' => 'vi data',
         'zh' => 'zh data',
         'file_upload' => 'ファイルのアップロード',
+        'en.name' => '名前',
     ],
 
 ];

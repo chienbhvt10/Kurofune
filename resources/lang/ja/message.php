@@ -9,7 +9,8 @@ return [
         'not_exist' => 'user not exist',
         'vendor' => [
             'not_data' => 'list of pharmacies is empty'
-        ]
+        ],
+        'inactive' => 'user inactive'
     ],
     'role' => [
         'created' => 'role created',
@@ -44,6 +45,16 @@ return [
     ],
     'password' => [
         'updated' => 'パスワードは正常に変更されました',
-        'without_spaces' => 'Passwords must not contain spaces'
-    ]
+        'without_spaces' => 'Passwords must not contain spaces',
+        'reset_link_sent' => 'パスワード再発行メールが送信されました。<br>ご登録メールアドレスをご確認ください。',
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
+    ],
 ];

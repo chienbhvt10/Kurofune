@@ -14,9 +14,11 @@ use App\Models\Page;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Traits\RespondsStatusTrait;
 
 class PageController extends Controller
 {
+    use RespondsStatusTrait;
     /**
      * Display a listing of the resource.
      *
@@ -26,7 +28,7 @@ class PageController extends Controller
     {
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
-            $page = Page::all()->paginate($posts_per_page);
+            $page = Page::paginate($posts_per_page);
              return $this->responseData($page);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
@@ -40,33 +42,10 @@ class PageController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function getPageBySlug($slug): \Illuminate\Http\JsonResponse
-    {
-        try {
-            $page = Page::findById($slug);
-            if (!$page) {
-                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
-            }
-            $image = $page->image;
-            $image = get_avatar_url($image);
-            $data = [
-                'author_id' => $page->author_id,
-                'slug' => $page->slug,
-                'status' => $page->status,
-                'image' => $image,
-                'meta_title'=>$page->meta_title,
-                'meta_description' => $page->meta_description,
-                'meta_keywords' => $page->meta_keywords,
-            ];
-            return $this->responseData($data);
-        }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
-        }
-    }
-
     public function store(Request $request)
     {
         try {
+           
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'slug' => 'string|required',
@@ -83,21 +62,17 @@ class PageController extends Controller
             $status = $request->status;
             $meta_title = $request->meta_title ?? null;
             $meta_description = $request->meta_description ?? null;
-            $image = $request->image ?? null;
+            $image = $request->file('image') ?? null;
             $meta_keywords = $request->meta_keywords ?? null;
-
+            $image_path = upload_single_image($image, 'page');
             $data = [
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
+                'image' => $image_path,
                 'meta_title'=>$meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
-            ];
-
-            $page = Page::create($data);
-
-            $data_page = [
                 'en' => [
                     'content' => $request->en['content'] ?? null,
                     'title' => $request->en['title'] ?? null,
@@ -117,22 +92,16 @@ class PageController extends Controller
                 'zh' => [
                     'content' => $request->zh['content'] ?? null,
                     'title' => $request->zh['title'] ?? null,
-
                 ],
+            
             ];
-            $page_tran = $page->page_translations()->create($data_page);
 
-            if ($image) {
-                $page->addMedia($image)->toMediaCollection('image');
-            }
-
-
+            $page = Page::create($data);
             DB::commit();
             return $this->successWithData(__('message.page.create_success'), $page );
         } catch (\Exception $error) {
-            DB::rollBack();
-            $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+            DB::rollback();
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -149,13 +118,11 @@ class PageController extends Controller
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            $image = $page->image ?? null;
-            $image = get_avatar_url($image);
             $data = [
                 'author_id' => $page->author_id,
                 'slug' => $page->slug,
                 'status' => $page->status,
-                'image' => $image,
+                'image' => $page->image,
                 'meta_title'=>$page->meta_title,
                 'meta_description' => $page->meta_description,
                 'meta_keywords' => $page->meta_keywords,
@@ -196,19 +163,21 @@ class PageController extends Controller
             $status = $request->status;
             $meta_title = $request->meta_title ?? null;
             $meta_description = $request->meta_description ?? null;
-            $image = $request->image ?? null;
+            $image_update = $request->file('image');
             $meta_keywords = $request->meta_keywords ?? null;
+
+            if ($image_update) {
+                $image_path = upload_single_image($image_update, 'page');
+            }
 
             $page->update([
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
+                'image' => $image_path,
                 'meta_title'=>$meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
-            ]);
-
-            $data_page = [
                 'en' => [
                     'content' => $request->en['content'] ?? null,
                     'title' => $request->en['title'] ?? null,
@@ -229,16 +198,7 @@ class PageController extends Controller
                     'content' => $request->zh['content'] ?? null,
                     'title' => $request->zh['title'] ?? null,
                 ],
-            ];
-           
-            if($page->page_translations){
-                $page->page_translations->update($data_page);
-            }
-            
-            if ($image) {
-                $page->clearMediaCollection('image');
-                $page->addMultipleMediaFromRequest($image)->toMediaCollection('image');
-            }
+            ]);
 
             DB::commit();
             return $this->successWithData(__('message.page.update_success'), $page );
@@ -261,6 +221,20 @@ class PageController extends Controller
             $page->delete();
             return $this->success(__('message.page.delete_success'));
         } catch (\Exception $error) {
+            return $this->errorResponse($error->getMessage());
+        }
+    }
+
+    public function getPageBySlug($slug): \Illuminate\Http\JsonResponse
+    {
+        try {
+        
+            $page = Page::where('slug', $slug)->first();
+            if (!$page) {
+                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
+            }
+            return $this->responseData($page);
+        }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
         }
     }

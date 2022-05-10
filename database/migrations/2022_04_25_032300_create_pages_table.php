@@ -18,6 +18,7 @@ class CreatePagesTable extends Migration
             $table->unsignedBigInteger('author_id');
             $table->string('slug')->unique();
             $table->enum('status', ['publish', 'draft'])->default('draft');
+            $table->string('image')->nullable();
             $table->string('meta_title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();

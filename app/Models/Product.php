@@ -11,13 +11,12 @@ class Product extends Model
 {
     use HasFactory, SoftDeletes, Translatable;
 
-    public $translatedAttributes = ['medicinal_efficacy_classification', 'features', 'precautions', 'efficacy_effect', 'usage_dose', 'active_ingredients', 'additives', 'precautions_storage_handling', 'manufacturer'];
+    public $translatedAttributes = ['name', 'medicinal_efficacy_classification', 'features', 'precautions', 'efficacy_effect', 'usage_dose', 'active_ingredients', 'additives', 'precautions_storage_handling', 'manufacturer'];
 
     protected $fillable = [
         'id',
         'user_id',
         'slug',
-        'name',
         'sku',
         'stock_status',
         'price',
@@ -30,4 +29,31 @@ class Product extends Model
     ];
 
     public $timestamps = true;
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
+
+    public function scopeProductStatus($query, $type)
+    {
+        $query->where('status', $type);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function categories(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Category::class, 'category_product', 'product_id', 'category_id');
+    }
+
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

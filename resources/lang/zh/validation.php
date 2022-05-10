@@ -148,9 +148,10 @@ return [
         'current_password' => [
             'current_password' => '您当前的密码不正确。'
         ],
-        'new_password' => [
+        'password' => [
             'different' => '新密码不能与当前密码相同',
-            'regex' => '您的密码与格式不符'
+            'regex' => '您的密码与格式不符',
+            'min' => 'The :attribute must be at least :min characters.'
         ]
     ],
 
@@ -182,6 +183,7 @@ return [
         'vi' => 'vi data',
         'zh' => 'zh data',
         'file_upload' => '上传文件',
+        'en.name' => '姓名',
     ],
 
 ];

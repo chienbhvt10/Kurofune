@@ -16,9 +16,9 @@ class CreateCategoryTranslationsTable extends Migration
         Schema::create('category_translations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cat_id');
-            $table->string('locate');
-            $table->string('name');
-            $table->unique(['cat_id', 'locate']);
+            $table->string('locale');
+            $table->string('name')->nullable();
+            $table->unique(['cat_id', 'locale']);
             $table->foreign('cat_id')->references('id')->on('categories')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();

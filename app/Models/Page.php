@@ -13,7 +13,7 @@ class Page extends Model implements HasMedia
 {
     use HasFactory, Translatable, SoftDeletes,InteractsWithMedia;
 
-    protected $fillable = ['id', 'author_id', 'slug', 'meta_title', 'meta_description', 'meta_keywords'];
+    protected $fillable = ['id', 'author_id', 'slug', 'image', 'meta_title', 'meta_description', 'meta_keywords'];
 
     public $translatedAttributes = ['title', 'content'];
 

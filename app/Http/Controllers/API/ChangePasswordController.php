@@ -19,7 +19,7 @@ class ChangePasswordController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'current_password' => 'required|current_password',
-                'new_password' => [
+                'password' => [
                     'required',
                     'string',
                     'different:current_password',
@@ -27,9 +27,9 @@ class ChangePasswordController extends Controller
                     Password::min(8)
                     ->mixedCase()
                     ->numbers()
-                    ->symbols()
+                    ->symbols(),
+                    'confirmed'
                 ],
-                'new_confirm_password' => 'required|same:new_password'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
