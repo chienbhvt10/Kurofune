@@ -7,10 +7,9 @@ export const UserTable = ({ items }) => {
   const lang = localStorage.getItem("lang");
   const columns = [
     {
-      dataField: "userName",
+      dataField: "username",
       text: "Username",
       sort: true,
-
       formatter: (cellContent, row) => {
         return (
           <Link
@@ -22,7 +21,7 @@ export const UserTable = ({ items }) => {
               alt=""
               style={{ width: "25px", height: "25px", marginRight: 10 }}
             />
-            <span>{row.userName}</span>
+            <span>{row.username}</span>
           </Link>
         );
       },
@@ -40,23 +39,10 @@ export const UserTable = ({ items }) => {
       dataField: "role",
       text: "Role",
       headerStyle: {
-        width: 100,
+        width: 200,
       },
-    },
-    {
-      dataField: "post",
-      text: "Post",
-      headerStyle: {
-        width: 70,
-      },
-      align: "center",
-      headerAlign: "center",
-    },
-    {
-      dataField: "product",
-      text: "Product",
-      headerStyle: {
-        width: 100,
+      formatter: (cellContent, row) => {
+        return <span>{row.roles[0].name}</span>;
       },
     },
     {

@@ -7,6 +7,7 @@ const authActions = {
 
 export const login = createAsyncThunk(authActions.login, async (payload) => {
   const res = await authApis.login(payload).then((data) => data);
+  localStorage.setItem("access_token", res.access_token);
   return res;
 });
 

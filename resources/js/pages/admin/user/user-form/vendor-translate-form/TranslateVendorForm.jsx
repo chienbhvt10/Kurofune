@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
+import SwitchTabLangForm from "../../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import SubFormUserTranslate from "./SubFormTranslate";
 
-const TranslateUserForm = ({
+const TranslateVendorForm = ({
   formikJP,
   formikVI,
   formikTL,
@@ -47,4 +47,4 @@ const TranslateUserForm = ({
   );
 };
 
-export default TranslateUserForm;
+export default TranslateVendorForm;
