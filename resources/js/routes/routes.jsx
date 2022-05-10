@@ -4,18 +4,21 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
+import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
 import LogChatBot from "../pages/admin/log-chatbot";
 import LogQuestionnaire from "../pages/admin/log-questionnaire";
+import AddOrder from "../pages/admin/order/order-add";
 import OrderList from "../pages/admin/order/order-list";
+import UpdateOrder from "../pages/admin/order/order-update";
 import AddCategory from "../pages/admin/product-category/category-add";
 import CategoryList from "../pages/admin/product-category/category-list";
 import UpdateCategory from "../pages/admin/product-category/category-update";
 import AddProduct from "../pages/admin/product/product-add";
 import ProductList from "../pages/admin/product/product-list";
 import UpdateProduct from "../pages/admin/product/product-update";
+import AddUser from "../pages/admin/user/user-add";
 import { UserList } from "../pages/admin/user/user-list";
-import AddOrder from "../pages/admin/order/order-add";
-import UpdateOrder from "../pages/admin/order/order-update";
+import UpdateUser from "../pages/admin/user/user-update";
 import { AuthLayout } from "../pages/auth/authLayout";
 import LostPassword from "../pages/auth/forget-password";
 import { Login } from "../pages/auth/login";
@@ -36,9 +39,6 @@ import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import { UserLayout } from "../pages/client/user-info/user-layout";
 import { NotFound } from "../pages/notFound";
-import { UserForm } from "../pages/admin/user/user-form";
-import AddUser from "../pages/admin/user/user-add";
-import UpdateUser from "../pages/admin/user/user-update";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
@@ -65,6 +65,7 @@ const appRouter = () => {
     localStorage.setItem("lang", "");
   }
   let lang = localStorage.getItem("lang");
+
   return (
     <BrowserRouter>
       <Routes>
@@ -74,7 +75,7 @@ const appRouter = () => {
           exact={true}
         />
         <Route
-          path="/"
+          path={`/${lang}/`}
           element={
             <HomeLayout
               navigateLinkData={navigateLinkData}
@@ -84,36 +85,36 @@ const appRouter = () => {
           exact={true}
         >
           <Route
-            path={`/${lang}/member`}
-            element={<MemberPage />}
+            path={`member`}
+            element={
+              <PrivateRoute>
+                <MemberPage />
+              </PrivateRoute>
+            }
             exact={true}
           />
           <Route
-            path={`/${lang}/medicine-list`}
+            path={`medicine-list`}
             element={<MedicineListPage />}
             exact={true}
           />
           <Route
-            path={`/${lang}/product-detail`}
+            path={`product-detail`}
             element={<ProductDetailPage />}
             exact={true}
           />
           <Route
-            path={`/${lang}/list-of-pharmacies`}
+            path={`list-of-pharmacies`}
             element={<PharmaciesPage />}
             exact={true}
           />
-          <Route path={`/${lang}/cart`} element={<Cart />} exact={true}></Route>
-          <Route
-            path={`/${lang}/checkout`}
-            element={<CheckoutPage />}
-            exact={true}
-          />
+          <Route path={`cart`} element={<Cart />} exact={true}></Route>
+          <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
         </Route>
-        <Route path="/" element={<AuthLayout />} exact={true}>
-          <Route path={`/${lang}/login`} element={<Login />} exact={true} />
+        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
+          <Route path={`login`} element={<Login />} exact={true} />
           <Route
-            path={`/${lang}/lost-password`}
+            path={`lost-password`}
             element={<LostPassword />}
             exact={true}
           />

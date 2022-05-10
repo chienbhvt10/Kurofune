@@ -31,7 +31,7 @@ class VendorProfile extends Model implements HasMedia
         'expiration_date_of_drugs',
     ];
 
-    public $fillable = ['id'];
+    protected $fillable = ['id'];
 
     public $timestamps = true;
 

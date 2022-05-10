@@ -3,14 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
 import ModalPolicy from "../../../components/Modal/ModalPolicy";
 import ModalTerm from "../../../components/Modal/ModalTerm";
-import { login } from "../../../redux/actions/authAction";
+import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
 
 const credential = Yup.object().shape({});
@@ -18,8 +18,8 @@ export const Login = () => {
   const [show, setShow] = useState(true);
   const user = useSelector((state) => state.authState.userInfo);
   const token = useSelector((state) => state.authState.token);
-  const dispatch = useDispatch();
   const { i18n, t } = useTranslation();
+  const { loginUser } = useLogin();
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -31,7 +31,7 @@ export const Login = () => {
     initialValues: initialValues,
     validationSchema: credential,
     onSubmit: (values) => {
-      dispatch(login(values));
+      loginUser(values);
     },
   });
   return (

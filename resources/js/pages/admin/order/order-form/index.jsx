@@ -3,9 +3,8 @@ import "./order-form.scss";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import FormHeader from "../../../../commons/FormHeader";
-import SubForm from "./SubForm";
 import CartInfoTable from "./CartInfoTable";
-
+import BillingShipForm from "../../../../commons/BillingShipForm";
 const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const lang = localStorage.getItem("lang");
@@ -135,11 +134,11 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         </div>
         <div className="billing-info section-info">
           <p className="title-section">Billing</p>
-          <SubForm formik={formikBilling} typeForm="BILLING" />
+          <BillingShipForm formik={formikBilling} typeForm="BILLING" />
         </div>
         <div className="shipping-info section-info">
           <p className="title-section">Shipping</p>
-          <SubForm formik={formikShipping} typeForm="SHIPPING" />
+          <BillingShipForm formik={formikShipping} typeForm="SHIPPING" />
         </div>
       </div>
       <div className="cart-info">

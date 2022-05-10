@@ -145,6 +145,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => '您当前的密码不正确。'
+        ],
+        'password' => [
+            'different' => '新密码不能与当前密码相同',
+            'regex' => '您的密码与格式不符',
+            'min' => 'The :attribute must be at least :min characters.'
+        ]
     ],
 
     /*
@@ -166,6 +174,15 @@ return [
         'street_address' => '街道地址',
         'phone' => '电话',
         'email' => '电子邮件地址',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'en data',
+        'ja' => 'ja data',
+        'tl' => 'tl data',
+        'vi' => 'vi data',
+        'zh' => 'zh data',
+        'file_upload' => '上传文件',
     ],
 
 ];

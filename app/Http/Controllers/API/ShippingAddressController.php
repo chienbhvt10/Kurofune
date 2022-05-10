@@ -6,16 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\ShippingAddress;
+use App\Traits\RespondsStatusTrait;
 use Illuminate\Support\Facades\Validator;
 
 class ShippingAddressController extends Controller
 {
+    use RespondsStatusTrait;
+
     public function update(Request $request)
     {
         try {
             $user = auth()->user();
-            $user_id = $user->id;
-            $data = ShippingAddress::where('user_id', $user_id);
+            $data = $user->shipping_address->first();
 
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
@@ -29,19 +31,13 @@ class ShippingAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->errorResponse($errors);
             }
 
             $check_postcode = checkPostalCode($request->postal_code);
 
             if ($check_postcode == false) {
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => __( 'message.valid_postal_code')
-                ], 422);
+                return $this->errorResponse(__( 'message.postal_code.valid'));
             }
 
             $dataUpdate = [
@@ -55,18 +51,11 @@ class ShippingAddressController extends Controller
                 'email' => $request->email,
             ];
 
-            $data->update($dataUpdate);
+            $user->shipping_address->update($dataUpdate);
 
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.update_shipping_success'),
-                'data' => $data->get()
-            ]);
+            return $this->successWithData(__('message.shipping.updated'), $data);
         } catch (\Exception $error) {
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->errorResponse($error->getMessage());
         }
     }
 }

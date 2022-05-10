@@ -145,6 +145,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => 'Your current password is incorrect.'
+        ],
+        'password' => [
+            'different' => 'The new password cannot be the same as the current password',
+            'regex' => 'Your password does not match the format',
+            'min' => 'The :attribute must be at least :min characters.'
+        ]
     ],
 
     /*
@@ -166,6 +174,15 @@ return [
         'street_address' => 'Street address',
         'phone' => 'Phone',
         'email' => 'Email address',
+        'active' => 'Active status',
+        'password' => 'password',
+        'role' => 'User role',
+        'en' => 'en data',
+        'ja' => 'ja data',
+        'tl' => 'tl data',
+        'vi' => 'vi data',
+        'zh' => 'zh data',
+        'file_upload' => 'File upload',
     ],
 
 ];

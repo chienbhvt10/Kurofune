@@ -1,8 +1,8 @@
 import { createReducer } from "@reduxjs/toolkit";
 import { getProducts, getProduct } from "../actions/productAction";
 const initialState = {
-  products: [],
-  product: {},
+  products: undefined,
+  product: undefined,
 };
 
 const productReducers = createReducer(initialState, (builder) => {

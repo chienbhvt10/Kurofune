@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { UserForm } from "../user-form";
+import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
   const navigate = useNavigate();

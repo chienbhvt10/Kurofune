@@ -145,6 +145,14 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'current_password' => [
+            'current_password' => 'Ang iyong kasalukuyang password ay hindi tama.'
+        ],
+        'password' => [
+            'different' => 'Ang bagong password ay hindi maaaring pareho sa kasalukuyang password',
+            'regex' => 'Ang iyong password ay hindi tumutugma sa format',
+            'min' => 'The :attribute must be at least :min characters.'
+        ]
     ],
 
     /*
@@ -166,6 +174,15 @@ return [
         'street_address' => 'Address ng kalye',
         'phone' => 'Telepono',
         'email' => 'Email address',
+        'active' => 'Active status',
+        'password' => 'Password',
+        'role' => 'User role',
+        'en' => 'en data',
+        'ja' => 'ja data',
+        'tl' => 'tl data',
+        'vi' => 'vi data',
+        'zh' => 'zh data',
+        'file_upload' => 'Pag-upload ng file',
     ],
 
 ];

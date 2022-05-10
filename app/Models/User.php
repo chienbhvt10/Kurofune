@@ -2,16 +2,20 @@
 
 namespace App\Models;
 
+use App\Notifications\ResetPasswordNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\Permission\Traits\HasRoles;
 
-class User extends Authenticatable
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes, InteractsWithMedia;
 
     /**
      * The attributes that are mass assignable.
@@ -23,6 +27,7 @@ class User extends Authenticatable
         'username',
         'name',
         'email',
+        'phone',
         'password',
         'avatar',
         'active',
@@ -51,6 +56,20 @@ class User extends Authenticatable
     public $timestamps = true;
 
     protected $guard_name = 'api';
+
+    /*
+    |--------------------------------------------------------------------------
+    | override sendPasswordResetNotification
+    |--------------------------------------------------------------------------
+    */
+
+    public function sendPasswordResetNotification($token)
+    {
+
+        $url = url('reset-password?token='.$token);
+
+        $this->notify(new ResetPasswordNotification($url));
+    }
 
     /*
     |--------------------------------------------------------------------------
@@ -93,5 +112,10 @@ class User extends Authenticatable
     public function vendor_profile(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
         return $this->hasOne(VendorProfile::class, 'user_id', 'id');
+    }
+
+    public function pages(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Page::class, 'author_id', 'id');
     }
 }

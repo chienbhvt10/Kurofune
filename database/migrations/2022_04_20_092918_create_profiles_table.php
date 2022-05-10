@@ -18,7 +18,6 @@ class CreateProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->date('dob')->nullable();
             $table->tinyInteger('gender')->nullable()->comment('0: Male 1: Female');
-            $table->string('phone', 50)->nullable();
             $table->string('facebook')->nullable();
             $table->string('line')->nullable();
             $table->string('address', 255)->nullable();
@@ -39,6 +38,7 @@ class CreateProfilesTable extends Migration
 , 8: under erasure');
             $table->tinyInteger('wabisabi_my_page_registration')->nullable()->comment('0: Unregistered, 1: Registered');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }
