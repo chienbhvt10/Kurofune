@@ -25,13 +25,13 @@ class Category extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function translation(): \Illuminate\Database\Eloquent\Relations\HasMany
+    public function category_translations(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(CategoryTranslation::class, 'cat_id', 'id');
     }
 
     public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'category_product', 'category_id', 'product_id');
+        return $this->belongsToMany(Product::class, 'category_product', 'cat_id', 'prod_id');
     }
 }

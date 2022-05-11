@@ -58,4 +58,10 @@ return [
     'slug' => [
         'unique' => 'The slug has already been taken.',
     ],
+    'product' => [
+        'created' => 'Product created',
+        'updated' => 'Product updated',
+        'deleted' => 'Product deleted',
+        'not_exist' => 'Product not exist',
+    ]
 ];
