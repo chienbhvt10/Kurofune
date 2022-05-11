@@ -23,11 +23,23 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index()
     {
-        //
+        try {
+            $posts_per_page = config('constants.pagination.items_per_page');
+            $user = auth()->user();
+            $roles = $user->getRoleNames()->first();
+            if($roles == UserRole::ROLE_VENDOR) {
+                $product = $user->products();
+            }
+            $product = Product::paginate($posts_per_page);
+            return $this->responseData($product);
+
+        }catch (\Exception $error){
+            return $this->errorResponse($error->getMessage());
+        }
     }
 
     /**
@@ -41,12 +53,13 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
-                'slug' => 'unique:products',
-                'sku' => 'unique:products',
-                'price' => 'numeric',
-//                'en.name' => 'required',
-//                'cat_id' => 'required|exists:App\Models\Category,id',
-//                'tax_id' => 'exists:App\Models\Tax,id',
+                'slug' => 'nullable|unique:products',
+                'sku' => 'nullable|unique:products',
+                'price' => 'nullable|numeric',
+                'en.name' => 'required',
+                'cat_id' => 'required|array',
+                'cat_id.*' => 'exists:App\Models\Category,id',
+                'tax_id' => 'exists:App\Models\Tax,id',
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
@@ -78,15 +91,14 @@ class ProductController extends Controller
                 $user_id = $userVendor->id;
 
             }
-            $image_product = upload_single_image($request->product_image);
-            dd($image_product);
+            $image_product = $request->product_image ? upload_single_image($request->product_image, 'products') : null;
             $product = Product::create([
                 'user_id' => $user_id,
                 'slug' => $slug,
                 'sku' => $request->sku,
                 'stock_status' => $request->stock_status,
                 'price' => $request->price ?? null,
-                'product_image' => $request,
+                'product_image' => $image_product,
                 'tax_id' => $request->tax_id ?? null,
                 'meta_title' => $request->meta_title ?? null,
                 'meta_description' => $request->meta_description ?? null,
@@ -152,8 +164,9 @@ class ProductController extends Controller
                     'manufacturer' => $request->zh['manufacturer'] ?? null,
                 ],
             ]);
+            $product->categories()->sync($request->cat_id);
             DB::commit();
-            return response()->json($product);
+            return $this->successWithData(__('message.product.created'), $product);
 
         } catch (\Exception $error) {
             DB::rollBack();
