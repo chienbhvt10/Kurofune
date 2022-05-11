@@ -379,6 +379,7 @@ class UserController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'email_verified_at' => $user->email_verified_at,
+                'phone' => $user->phone,
                 'active' => $user->active,
                 'avatar' => $avatar,
                 'role' => $role,
@@ -415,7 +416,7 @@ class UserController extends Controller
                 'email' => 'email|required',
                 'phone' => 'numeric|required',
                 'password' => [
-                    'required',
+                    'nullable',
                     'string',
                     new WithoutSpaces,
                     Password::min(8)
@@ -455,7 +456,7 @@ class UserController extends Controller
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $password = $request->password;
+            $password = $request->password ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
             $file_avatar = $request->file('avatar');
@@ -465,7 +466,9 @@ class UserController extends Controller
             $user->name = $name;
             $user->email = $email;
             $user->phone = $phone;
-            $user->password = Hash::make($password);
+            if($password) {
+                $user->password = Hash::make($password);
+            }
             $user->active = $active;
             $user->avatar = $filename;
             $user->save();
