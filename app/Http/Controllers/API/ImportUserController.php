@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class ImportUserController extends Controller
 {
@@ -76,7 +77,7 @@ class ImportUserController extends Controller
                         'username' => $item[0],
                         'name' => $item[1],
                         'phone' => $item[23],
-                        'password' => $item[24],
+                        'password' => Hash::make($item[24]),
                         'email_verified_at' => Carbon::now(),
                         'active' => '1'
                     ];

@@ -9,7 +9,8 @@ return [
         'not_exist' => 'user not exist',
         'vendor' => [
             'not_data' => 'list of pharmacies is empty'
-        ]
+        ],
+        'inactive' => 'user inactive'
     ],
     'role' => [
         'created' => 'role created',
@@ -20,6 +21,11 @@ return [
         'created' => 'permission created',
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
+    ],
+    'tax' => [
+        'created' => 'Created Tax successfully.',
+        'update' => 'Tax changed successfully.',
+        'delete' => 'Delete Tax successfully.'
     ],
     'import_user' => [
         'success' => 'Import data user success',
@@ -40,5 +46,23 @@ return [
         'updated' => 'Matagumpay na nabago ang Password.',
         'without_spaces' => 'Passwords must not contain spaces',
         'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password.<br>Pakisuri ang iyong nakarehistrong email address.',
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
+    ],
+    'medicine' => [
+        'not_found' => 'No medicine found.',
+    ],
+    'product' => [
+        'created' => 'Product created',
+        'updated' => 'Product updated',
+        'deleted' => 'Product deleted',
+        'not_exist' => 'Product not exist',
     ]
 ];

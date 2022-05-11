@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Rules\WithoutSpaces;
 use App\Traits\RespondsStatusTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -72,25 +73,25 @@ class UserController extends Controller
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
-                'postal_code' => 'string|max:50',
-                'city' => 'string|max:255',
-                'prefecture' => 'string|max:150',
-                'street_address' => 'string|max:255',
-                'building' => 'string|max:255',
-                'shipping_full_name' => 'string|max:100',
-                'shipping_postal_code' => 'string|max:50',
-                'shipping_city' => 'string|max:255',
-                'shipping_prefecture' => 'string|max:150',
-                'shipping_street_address' => 'string|max:255',
-                'shipping_building' => 'string|max:255',
-                'shipping_phone' => 'numeric',
-                'billing_full_name' => 'string|max:100',
-                'billing_postal_code' => 'string|max:50',
-                'billing_city' => 'string|max:255',
-                'billing_prefecture' => 'string|max:150',
-                'billing_street_address' => 'string|max:255',
-                'billing_building' => 'string|max:255',
-                'billing_phone' => 'numeric',
+                'postal_code' => 'nullable|string|max:50',
+                'city' => 'nullable|string|max:255',
+                'prefecture' => 'nullable|string|max:150',
+                'street_address' => 'nullable|string|max:255',
+                'building' => 'nullable|string|max:255',
+                'shipping_full_name' => 'nullable|string|max:100',
+                'shipping_postal_code' => 'nullable|string|max:50',
+                'shipping_city' => 'nullable|string|max:255',
+                'shipping_prefecture' => 'nullable|string|max:150',
+                'shipping_street_address' => 'nullable|string|max:255',
+                'shipping_building' => 'nullable|string|max:255',
+                'shipping_phone' => 'nullable|numeric',
+                'billing_full_name' => 'nullable|string|max:100',
+                'billing_postal_code' => 'nullable|string|max:50',
+                'billing_city' => 'nullable|string|max:255',
+                'billing_prefecture' => 'nullable|string|max:150',
+                'billing_street_address' => 'nullable|string|max:255',
+                'billing_building' => 'nullable|string|max:255',
+                'billing_phone' => 'nullable|numeric',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -378,6 +379,7 @@ class UserController extends Controller
                 'name' => $user->name,
                 'email' => $user->email,
                 'email_verified_at' => $user->email_verified_at,
+                'phone' => $user->phone,
                 'active' => $user->active,
                 'avatar' => $avatar,
                 'role' => $role,
@@ -414,7 +416,7 @@ class UserController extends Controller
                 'email' => 'email|required',
                 'phone' => 'numeric|required',
                 'password' => [
-                    'required',
+                    'nullable',
                     'string',
                     new WithoutSpaces,
                     Password::min(8)
@@ -425,26 +427,26 @@ class UserController extends Controller
                 'active' => 'required|boolean',
                 'avatar' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
-                'full_name' => 'string|max:100',
-                'postal_code' => 'string|max:50',
-                'city' => 'string|max:255',
-                'prefecture' => 'string|max:150',
-                'street_address' => 'string|max:255',
-                'building' => 'string|max:255',
-                'shipping_full_name' => 'string|max:100',
-                'shipping_postal_code' => 'string|max:50',
-                'shipping_city' => 'string|max:255',
-                'shipping_prefecture' => 'string|max:150',
-                'shipping_street_address' => 'string|max:255',
-                'shipping_building' => 'string|max:255',
-                'shipping_phone' => 'numeric',
-                'billing_full_name' => 'string|max:100',
-                'billing_postal_code' => 'string|max:50',
-                'billing_city' => 'string|max:255',
-                'billing_prefecture' => 'string|max:150',
-                'billing_street_address' => 'string|max:255',
-                'billing_building' => 'string|max:255',
-                'billing_phone' => 'numeric',
+                'full_name' => 'nullable|string|max:100',
+                'postal_code' => 'nullable|string|max:50',
+                'city' => 'nullable|string|max:255',
+                'prefecture' => 'nullable|string|max:150',
+                'street_address' => 'nullable|string|max:255',
+                'building' => 'nullable|string|max:255',
+                'shipping_full_name' => 'nullable|string|max:100',
+                'shipping_postal_code' => 'nullable|string|max:50',
+                'shipping_city' => 'nullable|string|max:255',
+                'shipping_prefecture' => 'nullable|string|max:150',
+                'shipping_street_address' => 'nullable|string|max:255',
+                'shipping_building' => 'nullable|string|max:255',
+                'shipping_phone' => 'nullable|numeric',
+                'billing_full_name' => 'nullable|string|max:100',
+                'billing_postal_code' => 'nullable|string|max:50',
+                'billing_city' => 'nullable|string|max:255',
+                'billing_prefecture' => 'nullable|string|max:150',
+                'billing_street_address' => 'nullable|string|max:255',
+                'billing_building' => 'nullable|string|max:255',
+                'billing_phone' => 'nullable|numeric',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -454,7 +456,7 @@ class UserController extends Controller
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $password = $request->password;
+            $password = $request->password ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
             $file_avatar = $request->file('avatar');
@@ -464,7 +466,9 @@ class UserController extends Controller
             $user->name = $name;
             $user->email = $email;
             $user->phone = $phone;
-            $user->password = Hash::make($password);
+            if($password) {
+                $user->password = Hash::make($password);
+            }
             $user->active = $active;
             $user->avatar = $filename;
             $user->save();

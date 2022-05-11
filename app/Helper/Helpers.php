@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\Base;
+use Illuminate\Support\Facades\File;
 
 if (!function_exists('formatDate')) {
     function formatDate($date, string $format = 'Y/m/d')
@@ -77,4 +78,19 @@ function get_avatar_url($avatar = null) {
         $avatar = url(Base::PATH_AVATAR_DEFAULT);
     }
     return $avatar;
+}
+
+function upload_single_image($image, $path = null): string
+{
+    if (!is_dir(public_path('images_data/' . $path))) {
+        File::makeDirectory('images_data/' . $path, 0775, true);
+    }
+    $path = $path ? $path.'/' : null;
+    $image_name = date('YmdHis').'-'.$image->getClientOriginalName();
+    $image->move(public_path('images_data/' . $path), $image_name);
+    return 'images_data/' . $path . $image_name;
+}
+
+function get_image_url($image = null) {
+    return $image ? url($image) : url(Base::PATH_IMG_DEFAULT);
 }
