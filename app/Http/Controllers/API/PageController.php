@@ -121,7 +121,7 @@ class PageController extends Controller
     public function show(Request $request, $id)
     {
         try {
-            $page = Page::find($id);
+            $page = Page::find($id); 
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }

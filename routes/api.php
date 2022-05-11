@@ -40,7 +40,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         // Taxes
         Route::middleware(['permission:manage tax'])->group(function () {
-            Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class);
+            Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class); 
         });
 
         // Category Manager
