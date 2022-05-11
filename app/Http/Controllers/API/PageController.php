@@ -47,8 +47,9 @@ class PageController extends Controller
         try {
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
-                'slug' => 'string|required',
+                'slug' => 'nullable|string|max:255',
                 'status' =>  [Rule::in(['publish', 'draft']), 'required'],
+                'en.title' => 'required|string'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -56,8 +57,12 @@ class PageController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
+            if ($request->slug) {
+                $slug = Str::slug($request->slug);
+            } else {
+                $slug = Str::slug($request->en['title']);
+            }
             $author_id = $request->author_id;
-            $slug = Str::slug($request->slug);
             $status = $request->status;
             $meta_title = $request->meta_title ?? null;
             $meta_description = $request->meta_description ?? null;
@@ -119,14 +124,19 @@ class PageController extends Controller
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
+            $image = $page->avatar ?? null;
+            $image = get_avatar_url($image);
+            
             $data = [
                 'author_id' => $page->author_id,
                 'slug' => $page->slug,
                 'status' => $page->status,
-                'image' => $page->image,
+                'image' => $image,
                 'meta_title'=>$page->meta_title,
                 'meta_description' => $page->meta_description,
                 'meta_keywords' => $page->meta_keywords,
+                'title' => $page->title,
+                'content' => $page->content,
             ];
 
             return $this->responseData($data);
@@ -151,16 +161,20 @@ class PageController extends Controller
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
-                'slug' => 'string|required',
-                'status' => [Rule::in(['publish', 'draft']), 'required'],
+                'slug' => 'nullable|string|max:255',
+                'status' =>  [Rule::in(['publish', 'draft']), 'required'],
+                'en.title' => 'required|string'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-
+            if ($request->slug) {
+                $slug = Str::slug($request->slug);
+            } else {
+                $slug = Str::slug($request->en['title']);
+            }
             $author_id = $request->author_id;
-            $slug = Str::slug($request->slug);
             $status = $request->status;
             $meta_title = $request->meta_title ?? null;
             $meta_description = $request->meta_description ?? null;
