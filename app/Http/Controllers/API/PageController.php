@@ -45,7 +45,6 @@ class PageController extends Controller
     public function store(Request $request)
     {
         try {
-           
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'slug' => 'string|required',
@@ -64,7 +63,9 @@ class PageController extends Controller
             $meta_description = $request->meta_description ?? null;
             $image = $request->file('image') ?? null;
             $meta_keywords = $request->meta_keywords ?? null;
-            $image_path = upload_single_image($image, 'page');
+            if($image){
+                $image_path = upload_single_image($image, 'page');
+            }
             $data = [
                 'author_id' => $author_id,
                 'slug' => $slug,
@@ -165,11 +166,9 @@ class PageController extends Controller
             $meta_description = $request->meta_description ?? null;
             $image_update = $request->file('image');
             $meta_keywords = $request->meta_keywords ?? null;
-
             if ($image_update) {
                 $image_path = upload_single_image($image_update, 'page');
             }
-
             $page->update([
                 'author_id' => $author_id,
                 'slug' => $slug,
@@ -228,7 +227,6 @@ class PageController extends Controller
     public function getPageBySlug($slug): \Illuminate\Http\JsonResponse
     {
         try {
-        
             $page = Page::where('slug', $slug)->first();
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
