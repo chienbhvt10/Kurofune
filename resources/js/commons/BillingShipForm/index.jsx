@@ -18,10 +18,14 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
         <input
           id=""
           type="text"
-          name="fullname"
+          name={`${typeForm}_full_name`}
           className=""
-          // onChange={formik.handleChange}
-          // value={formik.values.fullname}
+          onChange={formik.handleChange}
+          value={
+            typeForm === "billing"
+              ? formik.values.billing_full_name
+              : formik.values.shipping_full_name
+          }
         />
         {/* {renderErrorMessage("fullname")} */}
       </div>
@@ -31,10 +35,14 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
           <input
             id=""
             type="text"
-            name="postalCode"
+            name="postal_code"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.postalCode}
+            onChange={formik.handleChange}
+            value={
+              typeForm === "billing"
+                ? formik.values.billing_postal_code
+                : formik.values.shipping_postal_code
+            }
           />
           {/* {renderErrorMessage("postalCode")} */}
         </div>
@@ -45,8 +53,12 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
             type="text"
             name="city"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.city}
+            onChange={formik.handleChange}
+            value={
+              typeForm === "billing"
+                ? formik.values.billing_city
+                : formik.values.shipping_city
+            }
           />
           {/* {renderErrorMessage("city")} */}
         </div>
@@ -59,8 +71,12 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
             type="text"
             name="prefecture"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.prefecture}
+            onChange={formik.handleChange}
+            value={
+              typeForm === "billing"
+                ? formik.values.billing_prefecture
+                : formik.values.shipping_prefecture
+            }
           />
           {/* {renderErrorMessage("prefecture")} */}
         </div>
@@ -69,12 +85,16 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
           <input
             id=""
             type="text"
-            name="streetAddress"
+            name="street_address"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.streetAddress}
+            onChange={formik.handleChange}
+            value={
+              typeForm === "billing"
+                ? formik.values.billing_street_address
+                : formik.values.shipping_street_address
+            }
           />
-          {/* {renderErrorMessage("streetAddress")} */}
+          {/* {renderErrorMessage("street_address")} */}
         </div>
       </div>
       <div className="form-group">
@@ -84,8 +104,12 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
           type="text"
           name="building"
           className=""
-          // onChange={formik.handleChange}
-          // value={formik.values.building}
+          onChange={formik.handleChange}
+          value={
+            typeForm === "billing"
+              ? formik.values.billing_building
+              : formik.values.shipping_building
+          }
         />
         {/* {renderErrorMessage("building")} */}
       </div>
@@ -96,8 +120,12 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
           type="text"
           name="phone"
           className=""
-          // onChange={formik.handleChange}
-          // value={formik.values.phone}
+          onChange={formik.handleChange}
+          value={
+            typeForm === "billing"
+              ? formik.values.billing_phone
+              : formik.values.shipping_phone
+          }
         />
         {/* {renderErrorMessage("classification")} */}
       </div>
@@ -108,8 +136,12 @@ const BillingShipForm = ({ lang, className, formik, typeForm }) => {
           type="text"
           name="email"
           className=""
-          // onChange={formik.handleChange}
-          // value={formik.values.email}
+          onChange={formik.handleChange}
+          value={
+            typeForm === "billing"
+              ? formik.values.billing_email
+              : formik.values.shipping_email
+          }
         />
         {/* {renderErrorMessage("email")} */}
       </div>

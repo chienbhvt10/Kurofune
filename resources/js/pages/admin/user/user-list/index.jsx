@@ -9,14 +9,13 @@ import { UserTable } from "./UserTable";
 
 export const UserList = () => {
   const lang = localStorage.getItem("lang");
-  const { getUsers } = useUsers();
-  const users = useSelector((state) => state.userState.users);
+  const { getAllUsers, users } = useUsers();
   function createMarkup() {
     return { __html: t("login.title") };
   }
   React.useEffect(() => {
     if (users.length === 0) {
-      getUsers();
+      getAllUsers();
     }
   }, [users]);
 

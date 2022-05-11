@@ -16,8 +16,8 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <input
             type="text"
             name="locate"
-            // value={formik.values.locate}
-            // onChange={formik.handleChange}
+            value={formik.values.locate}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
@@ -25,8 +25,8 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <input
             type="text"
             name="name"
-            // value={formik.values.name}
-            // onChange={formik.handleChange}
+            value={formik.values.name}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -35,9 +35,9 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang}) Permit classification </label>
           <textarea
             type="text"
-            name="permitClassification"
-            // value={formik.values.permitClassification}
-            // onChange={formik.handleChange}
+            name="permit_classification"
+            value={formik.values.permit_classification}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
@@ -45,8 +45,8 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <textarea
             type="text"
             name="founder"
-            // value={formik.values.founder}
-            // onChange={formik.handleChange}
+            value={formik.values.founder}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -55,18 +55,18 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang}) Items to be stated in the permit </label>
           <textarea
             type="text"
-            name="itemsStatedPermit"
-            // value={formik.values.itemsStatedPermit}
-            // onChange={formik.handleChange}
+            name="items_stated_permit"
+            value={formik.values.items_stated_permit}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
           <label>({lang}) Management pharmacist </label>
           <textarea
             type="text"
-            name="managementPharmacist"
-            // value={formik.values.managementPharmacist}
-            // onChange={formik.handleChange}
+            name="management_pharmacist"
+            value={formik.values.management_pharmacist}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -75,18 +75,18 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang}) Registered Seller Working </label>
           <textarea
             type="text"
-            name="registeredSellerWorking"
-            // value={formik.values.registeredSellerWorking}
-            // onChange={formik.handleChange}
+            name="registered_seller_working"
+            value={formik.values.registered_seller_working}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
           <label>({lang}) Drug Handled </label>
           <textarea
             type="text"
-            name="drugHandled"
-            // value={formik.values.drugHandled}
-            // onChange={formik.handleChange}
+            name="drug_handled"
+            value={formik.values.drug_handled}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -95,18 +95,18 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang}) Distinguishing by name </label>
           <textarea
             type="text"
-            name="distinguishingByName"
-            // value={formik.values.distinguishingByName}
-            // onChange={formik.handleChange}
+            name="distinguishing_by_name"
+            value={formik.values.distinguishing_by_name}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
           <label>({lang}) Business Hours </label>
           <textarea
             type="text"
-            name="businessHours"
-            // value={formik.values.businessHours}
-            // onChange={formik.handleChange}
+            name="business_hours"
+            value={formik.values.business_hours}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -115,18 +115,18 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang}) Consultation Hours </label>
           <textarea
             type="text"
-            name="consultationHours"
-            // value={formik.values.consultationHours}
-            // onChange={formik.handleChange}
+            name="consultation_hours"
+            value={formik.values.consultation_hours}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
           <label>({lang}) Contact Information </label>
           <textarea
             type="text"
-            name="contactInformation"
-            // value={formik.values.contactInformation}
-            // onChange={formik.handleChange}
+            name="contact_information"
+            value={formik.values.contact_information}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -135,18 +135,18 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang}) Currently Working </label>
           <textarea
             type="text"
-            name="currentlyWorking"
-            // value={formik.values.currentlyWorking}
-            // onChange={formik.handleChange}
+            name="currently_working"
+            value={formik.values.currently_working}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
           <label>({lang}) Open Sale Time </label>
           <textarea
             type="text"
-            name="openSaleTime"
-            // value={formik.values.openSaleTime}
-            // onChange={formik.handleChange}
+            name="open_sale_time"
+            value={formik.values.open_sale_time}
+            onChange={formik.handleChange}
           />
         </div>
       </div>
@@ -155,18 +155,18 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           <label>({lang})Time Order Outside</label>
           <textarea
             type="text"
-            name="timeOrderOutside"
-            // value={formik.values.timeOrderOutside}
-            // onChange={formik.handleChange}
+            name="time_order_outside"
+            value={formik.values.time_order_outside}
+            onChange={formik.handleChange}
           />
         </div>
         <div className="form-group">
           <label>({lang})Expiration Date Of Drug</label>
           <textarea
             type="text"
-            name="expirationDateOfDrug"
-            // value={formik.values.expirationDateOfDrug}
-            // onChange={formik.handleChange}
+            name="expiration_date_of_drugs"
+            value={formik.values.expiration_date_of_drugs}
+            onChange={formik.handleChange}
           />
         </div>
       </div>

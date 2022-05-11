@@ -84,15 +84,7 @@ const appRouter = () => {
           }
           exact={true}
         >
-          <Route
-            path={`member`}
-            element={
-              <PrivateRoute>
-                <MemberPage />
-              </PrivateRoute>
-            }
-            exact={true}
-          />
+          <Route path={`member`} element={<MemberPage />} exact={true} />
           <Route
             path={`medicine-list`}
             element={<MedicineListPage />}

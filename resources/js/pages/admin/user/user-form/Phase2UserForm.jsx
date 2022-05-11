@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
-import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
-import BillingShipAddress from "../../../../commons/BillingShipAddress";
 import BillingShipForm from "../../../../commons/BillingShipForm";
+import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
+import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
-import PlanProfileForm from "./plan-profile-form/PlanProfileForm";
+import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 const Phase2UserForm = ({
   role,
   vendorProfileFormikVI,
@@ -12,7 +11,10 @@ const Phase2UserForm = ({
   vendorProfileFormikZH,
   vendorProfileFormikTL,
   vendorProfileFormikEN,
-  commonProfileFormik,
+  planProfileFormik,
+  commonAddressFormik,
+  billingAddressFormik,
+  shippingAddressFormik,
 }) => {
   const [activeTab, setActiveTab] = useState(1);
   const onChangeForm = (number) => {
@@ -25,7 +27,10 @@ const Phase2UserForm = ({
       activeTab={activeTab}
     >
       <div style={{ width: "50%", margin: "auto" }}>
-        <CommonInfoForm className={`tab ${activeTab === 1 ? "active" : ""}`} />
+        <CommonInfoForm
+          formik={commonAddressFormik}
+          className={`tab ${activeTab === 1 ? "active" : ""}`}
+        />
       </div>
 
       {role === "vendor" ? (
@@ -43,7 +48,7 @@ const Phase2UserForm = ({
       {role === "light plan" || role === "full support plan" ? (
         <PlanProfileForm
           className={`tab ${activeTab === 2 ? "active" : ""}`}
-          formik={commonProfileFormik}
+          formik={planProfileFormik}
         />
       ) : (
         <></>
@@ -51,13 +56,15 @@ const Phase2UserForm = ({
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
           className={`tab ${activeTab === 3 ? "active" : ""}`}
-          typeForm="BILLING"
+          typeForm="billing"
+          formik={billingAddressFormik}
         />
       </div>
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
           className={`tab ${activeTab === 4 ? "active" : ""}`}
-          typeForm="SHIPPING"
+          typeForm="shipping"
+          formik={shippingAddressFormik}
         />
       </div>
     </SwitchTabUserForm>

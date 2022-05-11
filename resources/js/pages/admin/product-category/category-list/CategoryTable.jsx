@@ -6,7 +6,9 @@ const CategoryTable = ({ items }) => {
   const columns = [
     {
       dataField: "categoryImage",
-      text: <img className="img-head" src="/images/image.png" alt="" />,
+      text: (
+        <img className="img-head" src="/images/image.png" alt="" width={20} />
+      ),
       align: "center",
       headerAlign: "center",
       headerStyle: {
@@ -28,7 +30,7 @@ const CategoryTable = ({ items }) => {
     },
     {
       dataField: "jp",
-      text: <img className="img-head" src="/images/japan.png" alt="" />,
+      text: "",
       align: "center",
       headerAlign: "center",
       headerStyle: {
@@ -36,63 +38,12 @@ const CategoryTable = ({ items }) => {
       },
       formatter: (cell, row) => (
         <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "vi",
-      text: <img className="img-head" src="/images/vietnam.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "zh",
-      text: <img className="img-head" src="/images/china.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "tl",
-      text: <img className="img-head" src="/images/philippines.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "en",
-      text: <img className="img-head" src="/images/en.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
+          <img
+            className="img-row"
+            src="/images/editing.png"
+            alt=""
+            width={20}
+          />
         </Link>
       ),
     },

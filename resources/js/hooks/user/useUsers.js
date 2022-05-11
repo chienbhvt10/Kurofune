@@ -1,14 +1,18 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { users } from "../../redux/actions/userAction";
+import { useDispatch, useSelector } from "react-redux";
+import { getUsersAction } from "../../redux/actions/userAction";
 
 const useUsers = () => {
+  const { users } = useSelector((state) => state.userState);
   const dispatch = useDispatch();
-  const getUsers = () => {
-    dispatch(users());
+
+  const getAllUsers = () => {
+    dispatch(getUsersAction());
   };
+
   return {
-    getUsers,
+    users,
+    getAllUsers,
   };
 };
 

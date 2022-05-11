@@ -21,7 +21,7 @@ const CategoryList = () => {
     },
   ];
   return (
-    <div className="permission-container">
+    <div className="category-container">
       <TableHeader
         addLink="/admin/category/add"
         breadcrumb={[

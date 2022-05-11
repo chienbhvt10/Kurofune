@@ -9,7 +9,7 @@ const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
             className={`switch-label ${activeTab === 1 ? "active" : ""}`}
             onClick={() => onChangeForm(1)}
           >
-            Common User Info
+            Address
           </label>
           {role === "vendor" ||
           role === "light plan" ||
@@ -28,13 +28,13 @@ const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
             className={`switch-label ${activeTab === 3 ? "active" : ""}`}
             onClick={() => onChangeForm(3)}
           >
-            Billing
+            Billing address
           </label>
           <label
             className={`switch-label ${activeTab === 4 ? "active" : ""}`}
             onClick={() => onChangeForm(4)}
           >
-            Shipping
+            Shipping address
           </label>
         </div>
       </div>

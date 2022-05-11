@@ -17,10 +17,10 @@ const CommonInfoForm = ({ className, formik }) => {
           <input
             id=""
             type="text"
-            name="postalCode"
+            name="postal_code"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.postalCode}
+            onChange={formik.handleChange}
+            value={formik.values.postal_code}
           />
           {/* {renderErrorMessage("postalCode")} */}
         </div>
@@ -31,8 +31,8 @@ const CommonInfoForm = ({ className, formik }) => {
             type="text"
             name="city"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.city}
+            onChange={formik.handleChange}
+            value={formik.values.city}
           />
           {/* {renderErrorMessage("city")} */}
         </div>
@@ -45,8 +45,8 @@ const CommonInfoForm = ({ className, formik }) => {
             type="text"
             name="prefecture"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.prefecture}
+            onChange={formik.handleChange}
+            value={formik.values.prefecture}
           />
           {/* {renderErrorMessage("prefecture")} */}
         </div>
@@ -55,10 +55,10 @@ const CommonInfoForm = ({ className, formik }) => {
           <input
             id=""
             type="text"
-            name="streetAddress"
+            name="street_address"
             className=""
-            // onChange={formik.handleChange}
-            // value={formik.values.streetAddress}
+            onChange={formik.handleChange}
+            value={formik.values.street_address}
           />
           {/* {renderErrorMessage("streetAddress")} */}
         </div>
@@ -70,8 +70,8 @@ const CommonInfoForm = ({ className, formik }) => {
           type="text"
           name="building"
           className=""
-          // onChange={formik.handleChange}
-          // value={formik.values.building}
+          onChange={formik.handleChange}
+          value={formik.values.building}
         />
         {/* {renderErrorMessage("building")} */}
       </div>

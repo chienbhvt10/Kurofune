@@ -440,11 +440,11 @@ export const navigateLinkAdminData = [
     imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "navigate_link.questionnaire_title",
   },
-  // {
-  //   link: "list-of-pharmacies",
-  //   imageUrl: "/images/sidebar/list-pharmacies.png",
-  //   title: "navigate_link.pharmacies_title",
-  // },
+  {
+    link: "admin/category-list",
+    imageUrl: "/images/sidebar/medicine-list.png",
+    title: "navigate_link.category_title",
+  },
   {
     link: "admin/product-list",
     imageUrl: "/images/sidebar/medicine-list.png",
