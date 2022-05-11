@@ -29,6 +29,9 @@ class PageController extends Controller
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $page = Page::paginate($posts_per_page);
+            foreach ($page as $item) {
+                $item->image = get_image_url($item->image);
+            }
              return $this->responseData($page);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
@@ -243,6 +246,7 @@ class PageController extends Controller
     {
         try {
             $page = Page::where('slug', $slug)->first();
+            $page->image = get_image_url($page->image);
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
