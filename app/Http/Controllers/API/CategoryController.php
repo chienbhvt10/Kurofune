@@ -225,7 +225,7 @@ class CategoryController extends Controller
         }
     }
 
-    public function showMedicineList(Request $request)
+    public function listCategory(Request $request)
     {
         try {
             if ($request->type) {
