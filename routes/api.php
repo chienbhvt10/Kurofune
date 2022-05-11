@@ -37,12 +37,12 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('users', \App\Http\Controllers\API\UserController::class);
             Route::post('import-user', [\App\Http\Controllers\API\ImportUserController::class, 'importUser']);
         });
-        
+
         // Taxes
         Route::middleware(['permission:manage tax'])->group(function () {
             Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class);
         });
-        
+
         // Category Manager
         Route::apiResource('category', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
 
@@ -58,10 +58,15 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::middleware(['permission:user read online pharmacy'])->group(function (){
                 // View Vendor
                 Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
+                Route::get('detail-pharmacy', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
 
                 // Billing, Shipping, Address manager
                 Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
                 Route::put('shipping-address', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
+
+                // View medicine
+                Route::get('medicine-list', [\App\Http\Controllers\API\CategoryController::class, 'showMedicineList']);
+                Route::get('detail-category', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {
