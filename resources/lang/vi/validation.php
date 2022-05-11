@@ -183,6 +183,7 @@ return [
         'vi' => 'Dữ liệu ngôn ngữ tiếng vi',
         'zh' => 'Dữ liệu ngôn ngữ tiếng zh',
         'file_upload' => 'Tiệp tải lên',
+        'en.name' => 'tên',
     ],
 
 ];

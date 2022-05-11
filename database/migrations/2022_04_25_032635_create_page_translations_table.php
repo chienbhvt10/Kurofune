@@ -16,8 +16,8 @@ class CreatePageTranslationsTable extends Migration
         Schema::create('page_translations', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('page_id');
-            $table->string('title');
-            $table->longText('content');
+            $table->string('title')->nullable();
+            $table->longText('content')->nullable();
             $table->string('locale');
             $table->unique(['page_id', 'locale']);
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('cascade');

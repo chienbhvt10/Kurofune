@@ -9,7 +9,8 @@ return [
         'not_exist' => 'user not exist',
         'vendor' => [
             'not_data' => 'list of pharmacies is empty'
-        ]
+        ],
+        'inactive' => 'user inactive'
     ],
     'role' => [
         'created' => 'role created',
@@ -21,6 +22,13 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+
+    'tax' => [
+        'created' => 'Created Tax successfully.',
+        'update' => 'Tax changed successfully.',
+        'delete' => 'Delete Tax successfully.'
+    ],
+
     'import_user' => [
         'success' => 'Import data user success',
     ],
@@ -40,5 +48,20 @@ return [
         'updated' => '密码更换成功。',
         'without_spaces' => 'Passwords must not contain spaces',
         'reset_link_sent' => '密码补发邮件已发送。<br>请检查您注册的电子邮件地址。',
+    ],
+    'category' => [
+        'created' => 'Category created',
+        'updated' => 'Category updated',
+        'deleted' => 'Category deleted',
+        'not_exist' => 'Category not exist',
+    ],
+    'slug' => [
+        'unique' => 'The slug has already been taken.',
+    ],
+    'product' => [
+        'created' => 'Product created',
+        'updated' => 'Product updated',
+        'deleted' => 'Product deleted',
+        'not_exist' => 'Product not exist',
     ]
 ];

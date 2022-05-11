@@ -183,6 +183,7 @@ return [
         'vi' => 'vi data',
         'zh' => 'zh data',
         'file_upload' => '上传文件',
+        'en.name' => '姓名',
     ],
 
 ];

@@ -16,6 +16,7 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('vendor_profile_id');
             $table->unsignedBigInteger('shipping_method_id');
             $table->unsignedBigInteger('payment_method_id');
             $table->string('transaction_id')->nullable();
@@ -39,6 +40,7 @@ class CreateOrdersTable extends Migration
             $table->string('billing_phone')->nullable();
             $table->string('billing_email')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('vendor_profile_id')->references('id')->on('vendor_profiles')->onDelete('cascade');
             $table->foreign('shipping_method_id')->references('id')->on('shipping_methods');
             $table->foreign('payment_method_id')->references('id')->on('payment_methods');
             $table->softDeletes();
