@@ -1,6 +1,6 @@
 import React from "react";
 
-const PlanProfileForm = ({ formik }) => {
+const PlanProfileForm = ({ formik, className }) => {
   const renderErrorMessage = (field) => {
     return (
       formik.touched[field] && (
@@ -9,7 +9,7 @@ const PlanProfileForm = ({ formik }) => {
     );
   };
   return (
-    <div className="common-profile-form">
+    <div className={`common-profile-form ${className}`}>
       <form>
         <div className="separate">
           <div className="form-group">
@@ -77,7 +77,7 @@ const PlanProfileForm = ({ formik }) => {
             <input
               type="text"
               name="visaType"
-              value={formik.values.visaType}
+              value={formik.values.visa_type}
               onChange={formik.handleChange}
             />
           </div>
@@ -85,8 +85,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Job Name</label>
             <input
               type="text"
-              name="jobName"
-              value={formik.values.jobName}
+              name="job_name"
+              value={formik.values.job_name}
               onChange={formik.handleChange}
             />
           </div>
@@ -96,8 +96,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Company representative</label>
             <input
               type="text"
-              name="companyRepresentative"
-              value={formik.values.companyRepresentative}
+              name="company_representative"
+              value={formik.values.company_representative}
               onChange={formik.handleChange}
             />
           </div>
@@ -106,7 +106,7 @@ const PlanProfileForm = ({ formik }) => {
             <input
               type="text"
               name="inflowSource"
-              value={formik.values.inflowSource}
+              value={formik.values.inflow_source}
               onChange={formik.handleChange}
             />
           </div>
@@ -125,8 +125,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Insurance Status</label>
             <input
               type="text"
-              name="insuranceStatus"
-              value={formik.values.insuranceStatus}
+              name="insurance_status"
+              value={formik.values.insurance_status}
               onChange={formik.handleChange}
             />
           </div>
@@ -136,8 +136,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Insurance Support</label>
             <input
               type="text"
-              name="insuranceSupport"
-              value={formik.values.insuranceSupport}
+              name="insurance_support"
+              value={formik.values.insurance_support}
               onChange={formik.handleChange}
             />
           </div>
@@ -145,8 +145,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Insurance Start Date</label>
             <input
               type="text"
-              name="insuranceStartDate"
-              value={formik.values.insuranceStartDate}
+              name="insurance_start_date"
+              value={formik.values.insurance_start_date}
               onChange={formik.handleChange}
             />
           </div>
@@ -156,8 +156,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Overseas Remittance Status</label>
             <input
               type="text"
-              name="overseasRemittanceStatus"
-              value={formik.values.overseasRemittanceStatus}
+              name="overseas_remittance_status"
+              value={formik.values.overseas_remittance_status}
               onChange={formik.handleChange}
             />
           </div>
@@ -176,8 +176,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Start Date Education</label>
             <input
               type="text"
-              name="startDateEducation"
-              value={formik.values.startDateEducation}
+              name="start_date_education"
+              value={formik.values.start_date_education}
               onChange={formik.handleChange}
             />
           </div>
@@ -185,8 +185,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>End Date Education</label>
             <input
               type="text"
-              name="endDateEducation"
-              value={formik.values.endDateEducation}
+              name="end_date_education"
+              value={formik.values.end_date_education}
               onChange={formik.handleChange}
             />
           </div>
@@ -196,8 +196,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Education Status</label>
             <input
               type="text"
-              name="educationStatus"
-              value={formik.values.educationStatus}
+              name="education_status"
+              value={formik.values.education_status}
               onChange={formik.handleChange}
             />
           </div>
@@ -205,8 +205,8 @@ const PlanProfileForm = ({ formik }) => {
             <label>Wabisabi My Page Registration</label>
             <input
               type="text"
-              name="wabisabiMyPageRegistration"
-              value={formik.values.wabisabiMyPageRegistration}
+              name="wabisabi_my_page_registration"
+              value={formik.values.wabisabi_my_page_registration}
               onChange={formik.handleChange}
             />
           </div>

@@ -1,13 +1,15 @@
-import { useDispatch } from "react-redux";
-import { roles } from "../../redux/actions/roleAction";
+import { useDispatch, useSelector } from "react-redux";
+import { getRoles } from "../../redux/actions/roleAction";
 
 const useRoles = () => {
+  const roles = useSelector((state) => state.roleState.roles);
   const dispatch = useDispatch();
-  const getRoles = () => {
-    dispatch(roles());
+  const getAllRoles = () => {
+    dispatch(getRoles());
   };
   return {
-    getRoles,
+    roles,
+    getAllRoles,
   };
 };
 

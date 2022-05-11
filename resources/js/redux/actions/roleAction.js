@@ -5,9 +5,12 @@ const roleActions = {
   getRoles: createAction("GET_ROLES"),
 };
 
-export const roles = createAsyncThunk(roleActions.getRoles, async (payload) => {
-  const res = await roleApis.roles().then((data) => data);
-  return res;
-});
+export const getRoles = createAsyncThunk(
+  roleActions.getRoles,
+  async (payload) => {
+    const res = await roleApis.roles().then((data) => data);
+    return res;
+  }
+);
 
 export default roleActions;

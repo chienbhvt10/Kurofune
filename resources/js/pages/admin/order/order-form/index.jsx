@@ -134,11 +134,11 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         </div>
         <div className="billing-info section-info">
           <p className="title-section">Billing</p>
-          <BillingShipForm formik={formikBilling} typeForm="BILLING" />
+          <BillingShipForm formik={formikBilling} typeForm="billing" />
         </div>
         <div className="shipping-info section-info">
           <p className="title-section">Shipping</p>
-          <BillingShipForm formik={formikShipping} typeForm="SHIPPING" />
+          <BillingShipForm formik={formikShipping} typeForm="shipping" />
         </div>
       </div>
       <div className="cart-info">
