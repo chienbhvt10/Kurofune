@@ -65,7 +65,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::put('shipping-address', [\App\Http\Controllers\API\ShippingAddressController::class, 'update']);
 
                 // View medicine
-                Route::get('medicine-list', [\App\Http\Controllers\API\CategoryController::class, 'showMedicineList']);
+                Route::get('list-category', [\App\Http\Controllers\API\CategoryController::class, 'listCategory']);
                 Route::get('detail-category', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
             });
 
