@@ -22,6 +22,13 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+
+    'tax' => [
+        'created' => 'Created Tax successfully.',
+        'update' => 'Tax changed successfully.',
+        'delete' => 'Delete Tax successfully.'
+    ],
+
     'import_user' => [
         'success' => 'Import data user success',
     ],
