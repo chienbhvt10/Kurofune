@@ -126,7 +126,7 @@ class PageController extends Controller
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $image = $page->image ?? null;
-            $image = get_avatar_url($image);
+            $image = get_image_url($image);
 
             $data = [
                 'author_id' => $page->author_id,

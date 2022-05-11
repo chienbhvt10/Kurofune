@@ -53,7 +53,6 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
-           
             Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
         });
 
