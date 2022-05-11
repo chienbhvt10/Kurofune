@@ -22,6 +22,11 @@ return [
         'updated' => 'permission updated',
         'deleted' => 'permission deleted',
     ],
+    'tax' => [
+        'created' => 'Tạo thuế thành công',
+        'update' => 'Cập nhập thuế thành công',
+        'delete' => 'Xoá thuế thành công'
+    ],
     'import_user' => [
         'success' => 'Import data user success',
     ],
@@ -57,4 +62,13 @@ return [
     'slug' => [
         'unique' => 'The slug has already been taken.',
     ],
+    'medicine' => [
+        'not_found' => 'No medicine found.',
+    ],
+    'product' => [
+        'created' => 'Product created',
+        'updated' => 'Product updated',
+        'deleted' => 'Product deleted',
+        'not_exist' => 'Product not exist',
+    ]
 ];

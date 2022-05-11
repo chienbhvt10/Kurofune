@@ -23,7 +23,8 @@ class DatabaseSeeder extends Seeder
 //            BillingAddressSeeder::class,
 //            ShippingAddressSeeder::class,
 //            AddressSeeder::class,
-//            Category::class,
+//            TaxSeeder::class,
+//            CategorySeeder::class,
 //            ProductSeeder::class
         ]);
     }
