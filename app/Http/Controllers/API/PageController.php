@@ -50,6 +50,7 @@ class PageController extends Controller
                 'slug' => 'nullable|string|max:255',
                 'status' =>  [Rule::in(['publish', 'draft']), 'required'],
                 'en.title' => 'required|string'
+               
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -68,14 +69,14 @@ class PageController extends Controller
             $meta_description = $request->meta_description ?? null;
             $image = $request->file('image') ?? null;
             $meta_keywords = $request->meta_keywords ?? null;
-            if($image){
+            if(!empty($image)){
                 $image_path = upload_single_image($image, 'page');
+                $data['image'] = $image_path; 
             }
             $data = [
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image_path,
                 'meta_title'=>$meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
@@ -124,9 +125,9 @@ class PageController extends Controller
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            $image = $page->avatar ?? null;
+            $image = $page->image ?? null;
             $image = get_avatar_url($image);
-            
+
             $data = [
                 'author_id' => $page->author_id,
                 'slug' => $page->slug,
@@ -180,14 +181,14 @@ class PageController extends Controller
             $meta_description = $request->meta_description ?? null;
             $image_update = $request->file('image');
             $meta_keywords = $request->meta_keywords ?? null;
-            if ($image_update) {
+            if (!empty($image_update)) {
                 $image_path = upload_single_image($image_update, 'page');
+                $page['image'] = $image_path; 
             }
             $page->update([
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image_path,
                 'meta_title'=>$meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
