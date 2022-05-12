@@ -63,12 +63,12 @@ function getMediaImages(\App\Models\VendorProfile $vendor_profile, $key): array
 
 function upload_avatar($file_avatar = null): string
 {
-    $filename = "avatars/default.png";
+    $filename = "default.png";
     if($file_avatar) {
         $filename= date('YmdHi').$file_avatar->getClientOriginalName();
         $file_avatar->move(public_path('avatars'), $filename);
     }
-    return $filename;
+    return "avatars/".$filename;
 }
 
 function get_avatar_url($avatar = null) {
