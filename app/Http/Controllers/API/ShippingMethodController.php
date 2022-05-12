@@ -29,9 +29,6 @@ class ShippingMethodController extends Controller
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $shipping = ShippingMethod::paginate($posts_per_page);
-            foreach ($shipping as $item) {
-                $item->logo = get_image_url($item->logo);
-            }
              return $this->responseData($shipping);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
@@ -51,8 +48,7 @@ class ShippingMethodController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'string|max:191',
                 'description' =>  'string|max:191',
-                'total' => 'numeric|regex:^(?:[1-9]\d{1,12}+|\d)(?:\,\d\d)?$'
-               
+                'total' => 'numeric|regex:^(?:[1-9]\d{1,12}+|\d)(?:\,\d\d)?$' 
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -127,7 +123,7 @@ class ShippingMethodController extends Controller
             DB::beginTransaction();
             $ShippingMethod = ShippingMethod::find($id);
             if (!$ShippingMethod) {
-                return $this->errorResponse(__('message.ShippingMethod.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->errorResponse(__('message.shippingmethod.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
                 'name' => 'string|max:191',
@@ -153,7 +149,7 @@ class ShippingMethodController extends Controller
             ]);
 
             DB::commit();
-            return $this->successWithData(__('message.ShippingMethod.update_success'), $ShippingMethod );
+            return $this->successWithData(__('message.shippingmethod.update_success'), $ShippingMethod );
         } catch (\Exception $error) {
             DB::rollBack();
             return $this->errorResponse($error->getMessage());
@@ -170,7 +166,6 @@ class ShippingMethodController extends Controller
     {
         try {
             $shippingmethod = shippingmethod::find($id);
-            dd($shippingmethod);
             $shippingmethod->delete();
             return $this->success(__('message.shippingmethod.delete_success'));
         } catch (\Exception $error) {

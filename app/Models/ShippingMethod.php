@@ -12,5 +12,9 @@ class ShippingMethod extends Model
 
     protected $fillable = ['id', 'name', 'total', 'description', 'logo'];
 
+    public function getLogoAttribute(){
+        return $this->attributes['logo'] = get_avatar_url($this->attributes['logo']);
+    }
+
     public $timestamps = true;
 }
