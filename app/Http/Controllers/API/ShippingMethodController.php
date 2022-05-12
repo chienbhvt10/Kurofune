@@ -95,7 +95,6 @@ class ShippingMethodController extends Controller
                 return $this->errorResponse(__('message.shippingmethod.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $logo = $shippingmethod->logo ?? null;
-            $logo = get_image_url($logo);
 
             $data = [
                 'name' => $shippingmethod->name,
