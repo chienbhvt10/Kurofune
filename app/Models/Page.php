@@ -19,6 +19,10 @@ class Page extends Model implements HasMedia
 
     public $timestamps = true;
 
+    public function getImageAttribute(){
+        return $this->attributes['image'] = get_avatar_url($this->attributes['image']);
+    }
+
     /*
         |--------------------------------------------------------------------------
         | RELATIONS
