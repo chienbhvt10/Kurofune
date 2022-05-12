@@ -70,7 +70,7 @@ class PageController extends Controller
             $image = $request->file('image') ?? null;
             $meta_keywords = $request->meta_keywords ?? null;
             if(!empty($image)){
-                $image_path = upload_single_image($image, 'page');
+                $image_path = upload_single_image($image, 'pages');
                 $data['image'] = $image_path; 
             }
             $data = [
@@ -181,7 +181,7 @@ class PageController extends Controller
             $image_update = $request->file('image');
             $meta_keywords = $request->meta_keywords ?? null;
             if (!empty($image_update)) {
-                $image_path = upload_single_image($image_update, 'page');
+                $image_path = upload_single_image($image_update, 'pages');
                 $page['image'] = $image_path; 
             }
             $page->update([
