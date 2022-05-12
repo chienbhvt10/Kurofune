@@ -52,7 +52,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         });
 
         //Shipping Method Manger
-        Route::middleware(['permission:manage shipping method '])->group(function () {
+        Route::middleware(['permission:manage shipping method'])->group(function () {
             Route::apiResource('shipping-methods', \App\Http\Controllers\API\ShippingMethodController::class);
         });
 
