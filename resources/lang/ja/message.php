@@ -64,5 +64,11 @@ return [
         'updated' => 'Product updated',
         'deleted' => 'Product deleted',
         'not_exist' => 'Product not exist',
+    ],
+    'ShippingMethod' => [
+        'create_success' => 'Create shipping method successfully',
+        'update_success' => 'Update shipping method successfully',
+        'delete_success' => 'Delete shipping method successfully',
+        'not_exist' => 'Shipping method not exist'
     ]
 ];
