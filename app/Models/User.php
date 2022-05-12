@@ -57,6 +57,10 @@ class User extends Authenticatable implements HasMedia
 
     protected $guard_name = 'api';
 
+    public function getAvatarAttribute(){
+        return $this->attributes['avatar'] = get_avatar_url($this->attributes['avatar']);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | override sendPasswordResetNotification
