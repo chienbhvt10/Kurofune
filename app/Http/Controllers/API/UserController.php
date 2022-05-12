@@ -78,20 +78,20 @@ class UserController extends Controller
                 'prefecture' => 'nullable|string|max:150',
                 'street_address' => 'nullable|string|max:255',
                 'building' => 'nullable|string|max:255',
-                'shipping_full_name' => 'nullable|string|max:100',
-                'shipping_postal_code' => 'nullable|string|max:50',
-                'shipping_city' => 'nullable|string|max:255',
-                'shipping_prefecture' => 'nullable|string|max:150',
-                'shipping_street_address' => 'nullable|string|max:255',
-                'shipping_building' => 'nullable|string|max:255',
-                'shipping_phone' => 'nullable|numeric',
-                'billing_full_name' => 'nullable|string|max:100',
-                'billing_postal_code' => 'nullable|string|max:50',
-                'billing_city' => 'nullable|string|max:255',
-                'billing_prefecture' => 'nullable|string|max:150',
-                'billing_street_address' => 'nullable|string|max:255',
-                'billing_building' => 'nullable|string|max:255',
-                'billing_phone' => 'nullable|numeric',
+                'shipping_address.full_name' => 'nullable|string|max:100',
+                'shipping_address.postal_code' => 'nullable|string|max:50',
+                'shipping_address.city' => 'nullable|string|max:255',
+                'shipping_address.prefecture' => 'nullable|string|max:150',
+                'shipping_address.street_address' => 'nullable|string|max:255',
+                'shipping_address.building' => 'nullable|string|max:255',
+                'shipping_address.phone' => 'nullable|numeric',
+                'billing_address.full_name' => 'nullable|string|max:100',
+                'billing_address.postal_code' => 'nullable|string|max:50',
+                'billing_address.city' => 'nullable|string|max:255',
+                'billing_address.prefecture' => 'nullable|string|max:150',
+                'billing_address.street_address' => 'nullable|string|max:255',
+                'billing_address.building' => 'nullable|string|max:255',
+                'billing_address.phone' => 'nullable|numeric',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -130,25 +130,25 @@ class UserController extends Controller
             ]);
 
             $user->shipping_address()->create([
-                'full_name' => $request->shipping_fullname ?? null,
-                'postal_code' => $request->shipping_postal_code ?? null,
-                'city' => $request->shipping_city ?? null,
-                'prefecture' => $request->shipping_prefecture ?? null,
-                'street_address' => $request->shipping_street_address ?? null,
-                'building' => $request->shipping_building ?? null,
-                'phone' => $request->shipping_phone ?? null,
-                'email' => $request->shipping_email ?? null,
+                'full_name' => $request->shipping_address['fullname'] ?? null,
+                'postal_code' => $request->shipping_address['postal_code'] ?? null,
+                'city' => $request->shipping_address['city'] ?? null,
+                'prefecture' => $request->shipping_address['prefecture'] ?? null,
+                'street_address' => $request->shipping_address['street_address'] ?? null,
+                'building' => $request->shipping_address['building'] ?? null,
+                'phone' => $request->shipping_address['phone'] ?? null,
+                'email' => $request->shipping_address['email'] ?? null,
             ]);
 
             $user->billing_address()->create([
-                'full_name' => $request->billing_fullname ?? null,
-                'postal_code' => $request->billing_postal_code ?? null,
-                'city' => $request->billing_city ?? null,
-                'prefecture' => $request->billing_prefecture ?? null,
-                'street_address' => $request->billing_street_address ?? null,
-                'building' => $request->billing_building ?? null,
-                'phone' => $request->billing_phone ?? null,
-                'email' => $request->billing_email ?? null,
+                'full_name' => $request->billing_address['fullname'] ?? null,
+                'postal_code' => $request->billing_address['postal_code'] ?? null,
+                'city' => $request->billing_address['city'] ?? null,
+                'prefecture' => $request->billing_address['prefecture'] ?? null,
+                'street_address' => $request->billing_address['street_address'] ?? null,
+                'building' => $request->billing_address['building'] ?? null,
+                'phone' => $request->billing_address['phone'] ?? null,
+                'email' => $request->billing_address['email'] ?? null,
             ]);
 
             if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {
@@ -370,8 +370,6 @@ class UserController extends Controller
                     'images_inside' => $images_inside,
                 ];
             }
-            $avatar = $user->avatar ?? null;
-            $avatar = get_avatar_url($avatar);
 
             $response = [
                 'id' => $user->id,
@@ -381,7 +379,7 @@ class UserController extends Controller
                 'email_verified_at' => $user->email_verified_at,
                 'phone' => $user->phone,
                 'active' => $user->active,
-                'avatar' => $avatar,
+                'avatar' => $user->avatar,
                 'role' => $role,
                 'profile' => $profile,
                 'vendor_profile' => $vendor_profile_data,
@@ -730,11 +728,6 @@ class UserController extends Controller
         try {
             $id = $request->user()->id;
             $user = User::with(['roles', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
-            if($user->avatar) {
-                $user->avatar = url($user->avatar);
-            }else{
-                $user->avatar = url(Base::PATH_AVATAR_DEFAULT);
-            }
             return $this->responseData($user);
         }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
