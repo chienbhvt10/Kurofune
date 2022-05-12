@@ -6,15 +6,16 @@ import FormHeader from "../../../../commons/FormHeader";
 import { generatePassword } from "../../../../commons/string.js";
 import UploadDragger from "../../../../commons/UploadDragger";
 import useRoles from "../../../../hooks/role/useRoles";
-import useCreateUser from "../../../../hooks/user/createUser";
 import Phase2UserForm from "./Phase2UserForm";
+import moment from "moment";
 import "./user-form.scss";
-
 export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const lang = localStorage.getItem("lang");
-
+  React.useEffect(() => {
+    console.log(item);
+  }, [item]);
   const validateUserInfo = Yup.object().shape({
     id: Yup.string(),
     role: Yup.string().required("Role required!"),
@@ -80,52 +81,57 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     time_order_outside: "",
     expiration_date_of_drugs: "",
   };
+
+  const commonAddressInitValues = {
+    postal_code: item?.address?.postal_code || "",
+    city: item?.address?.city || "",
+    prefecture: item?.address?.prefecture || "",
+    street_address: item?.address?.street_address || "",
+    building: item?.address?.building || "",
+  };
   const billingAddressInitValues = {
-    billing_full_name: item?.billing_full_name || "",
-    billing_postal_code: item?.billing_postal_code || "",
-    billing_city: item?.billing_city || "",
-    billing_prefecture: item?.billing_prefecture || "",
-    billing_street_address: item?.billing_street_address || "",
-    billing_building: item?.billing_building || "",
-    billing_phone: item?.billing_phone || "",
-    billing_email: item?.billing_email || "",
+    full_name: item?.billing_address?.full_name || "",
+    postal_code: item?.billing_address?.postal_code || "",
+    city: item?.billing_address?.city || "",
+    prefecture: item?.billing_address?.prefecture || "",
+    street_address: item?.billing_address?.street_address || "",
+    building: item?.billing_address?.building || "",
+    phone: item?.billing_address?.phone || "",
+    email: item?.billing_address?.email || "",
   };
   const shippingAddressInitValues = {
-    shipping_full_name: item?.shipping_full_name || "",
-    shipping_postal_code: item?.shipping_postal_code || "",
-    shipping_city: item?.shipping_city || "",
-    shipping_prefecture: item?.shipping_prefecture || "",
-    shipping_street_address: item?.shipping_street_address || "",
-    shipping_building: item?.shipping_building || "",
-    shipping_phone: item?.shipping_phone || "",
-    shipping_email: item?.shipping_email || "",
+    full_name: item?.shipping_address?.full_name || "",
+    postal_code: item?.shipping_address?.postal_code || "",
+    city: item?.shipping_address?.city || "",
+    prefecture: item?.shipping_address?.prefecture || "",
+    street_address: item?.shipping_address?.street_address || "",
+    building: item?.shipping_address?.building || "",
+    phone: item?.shipping_address?.phone || "",
+    email: item?.shipping_address?.email || "",
   };
 
   const planProfileFormik = useFormik({ initialValues: planInitValues });
 
-  const vendorProfileFormikJP = useFormik({
-    initialValues: item?.ja || translateInitValues,
+  const vendorProfileFormikEN = useFormik({
+    initialValues:
+      item?.vendor_profile?.vendor_translations[1] || translateInitValues,
   });
-  const vendorProfileFormikVI = useFormik({
-    initialValues: item?.vi || translateInitValues,
+  const vendorProfileFormikJP = useFormik({
+    initialValues:
+      item?.vendor_profile?.vendor_translations[2] || translateInitValues,
   });
   const vendorProfileFormikTL = useFormik({
-    initialValues: item?.tl || translateInitValues,
+    initialValues:
+      item?.vendor_profile?.vendor_translations[3] || translateInitValues,
   });
-  const vendorProfileFormikEN = useFormik({
-    initialValues: item?.en || translateInitValues,
+  const vendorProfileFormikVI = useFormik({
+    initialValues:
+      item?.vendor_profile?.vendor_translations[4] || translateInitValues,
   });
   const vendorProfileFormikZH = useFormik({
-    initialValues: item?.zh || translateInitValues,
+    initialValues:
+      item?.vendor_profile?.vendor_translations[5] || translateInitValues,
   });
-
-  const commonAddressInitValues = {
-    postal_code: item?.postal_code || "",
-    city: item?.city || "",
-    prefecture: item?.prefecture || "",
-    street_address: item?.street_address || "",
-    building: item?.building || "",
-  };
   const commonAddressFormik = useFormik({
     initialValues: commonAddressInitValues,
   });
@@ -144,14 +150,19 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
       let submitValues = {
         ...userInfoFormik.values,
         ...commonAddressFormik.values,
-        ...billingAddressFormik.values,
-        ...shippingAddressFormik.values,
+        billing_address: {
+          ...billingAddressFormik.values,
+        },
+        shipping_address: {
+          ...shippingAddressFormik.values,
+        },
       };
       if (userInfoFormik.values.role === "vendor") {
         submitValues = {
           ...submitValues,
           ja: {
             ...vendorProfileFormikJP.values,
+            dob: moment(vendorProfileFormikJP.values.dob).format("yyyy-MM-dd"),
           },
           en: {
             ...vendorProfileFormikEN.values,
@@ -176,6 +187,7 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
           ...planProfileFormik.values,
         };
       }
+      console.log(submitValues);
       onSave({ ...submitValues });
     },
   });
@@ -329,6 +341,9 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
             </div>
           </form>
         </div>
+        <pre>
+          {planProfileFormik.values && JSON.stringify(planProfileFormik.values)}
+        </pre>
         <div className="translate-role">
           <Phase2UserForm
             role={userInfoFormik.values.role}

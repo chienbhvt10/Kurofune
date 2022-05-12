@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import useCreateUser from "../../../../hooks/user/createUser";
+import useUsers from "../../../../hooks/user/useUsers";
+
 import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
@@ -11,9 +13,10 @@ const AddUser = () => {
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
   };
+
   const onSave = async (values) => {
     await createUser(values);
-    navigate(`${lang}/admin/user-list`);
+    // navigate(`${lang}/admin/user-list`);
   };
   return (
     <div id="add-user">

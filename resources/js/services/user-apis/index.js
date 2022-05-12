@@ -19,7 +19,7 @@ export const userApis = {
     return axiosClient.put(url, data);
   },
   deleteUser: async (data) => {
-    const url = ROOT_URL + "users";
-    return axiosClient.delete(url, data);
+    const url = ROOT_URL + `users/${data}`;
+    return axiosClient.delete(url);
   },
 };
