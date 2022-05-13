@@ -1,9 +1,11 @@
 import React from "react";
-import * as Yup from 'yup';
+import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { forgotPassword } from "../../../redux/actions/authAction";
+import RenderFormikErrorMessage from "../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
+import RenderApiErrorMessage from "../../../commons/RenderErrorMessage/RenderApiErrorMessage";
 import "./forgot-password.scss";
 
 const forgotEmailInitValues = {
@@ -26,8 +28,8 @@ const ForgotPassword = () => {
     initialValues: forgotEmailInitValues,
     validationSchema: validateForgotEmail,
     onSubmit: (values) => {
-      if (values) {
-        dispatch(forgotPassword(values.email));
+      dispatch(forgotPassword(values.email));
+      if(messageErrors?.status_code === 200){
         navigate(`${lang}/reset-link-password`);
       }
     },
@@ -60,6 +62,11 @@ const ForgotPassword = () => {
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
+              <RenderFormikErrorMessage
+                formikInstance={formik}
+                field="email"
+              />
+              <RenderApiErrorMessage errorMessage={messageErrors} field="email" />
               <img
                 src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
                 alt=""

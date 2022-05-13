@@ -4,6 +4,8 @@ import { useFormik } from "formik";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { resetPassword } from "../../../redux/actions/authAction";
+import RenderFormikErrorMessage from "../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
+import RenderApiErrorMessage from "../../../commons/RenderErrorMessage/RenderApiErrorMessage";
 import "./reset-password.scss";
 
 const ResetPassword = () => {
@@ -12,6 +14,8 @@ const ResetPassword = () => {
   const navigate = useNavigate();
   const messageErrors = useSelector((state) => state.authState.errorMessages);
   let resetEmail = localStorage.getItem("forgot-email");
+
+  console.log("reset message error", messageErrors);
 
   const resetPasswordInitValues = {
     token: param.get("token"),
@@ -31,8 +35,8 @@ const ResetPassword = () => {
     initialValues: resetPasswordInitValues,
     validationSchema: validateResetPassword,
     onSubmit: (values) => {
-      if (values) {
-        dispatch(resetPassword(values));
+      dispatch(resetPassword(values));
+      if(messageErrors.status_code === 200){
         navigate("/login");
       }
     },
@@ -64,6 +68,8 @@ const ResetPassword = () => {
             value={formik.values.password}
             onChange={formik.handleChange}
           />
+          <RenderFormikErrorMessage formikInstance={formik} field="password" />
+          <RenderApiErrorMessage errorMessage={messageErrors} field="password" />
         </div>
         <div className="form-group">
           <label htmlFor="password_confirmation">Confirm password</label>
