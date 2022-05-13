@@ -6,15 +6,16 @@ import FormHeader from "../../../../commons/FormHeader";
 import { generatePassword } from "../../../../commons/string.js";
 import UploadDragger from "../../../../commons/UploadDragger";
 import useRoles from "../../../../hooks/role/useRoles";
-import useCreateUser from "../../../../hooks/user/createUser";
 import Phase2UserForm from "./Phase2UserForm";
+import moment from "moment";
 import "./user-form.scss";
-
 export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const lang = localStorage.getItem("lang");
-
+  React.useEffect(() => {
+    console.log(item);
+  }, [item]);
   const validateUserInfo = Yup.object().shape({
     id: Yup.string(),
     role: Yup.string().required("Role required!"),
@@ -41,36 +42,37 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     active: item?.active || 0,
   };
   const planInitValues = {
-    dob: item?.dob || "",
-    gender: item?.gender || "",
-    facebook: item?.facebook || "",
-    line: item?.line || "",
-    address: item?.address || "",
-    nationality: item?.nationality || "",
-    visa_type: item?.visa_type || "",
-    job_name: item?.job_name || "",
-    company_representative: item?.company_representative || "",
-    inflow_source: item?.inflow_source || "",
-    payment: item?.payment || "",
-    insurance_status: item?.insurance_status || "",
-    insurance_support: item?.insurance_support || "",
-    insurance_start_date: item?.insurance_start_date || "",
-    overseas_remittance_status: item?.overseas_remittance_status || "",
-    orientation: item?.orientation || "",
-    start_date_education: item?.start_date_education || "",
-    end_date_education: item?.end_date_education || "",
-    education_status: item?.education_status || "",
-    wabisabi_my_page_registration: item?.wabisabi_my_page_registration || "",
+    dob: item?.profile?.dob || "",
+    gender: item?.profile?.gender || 0,
+    facebook: item?.profile?.facebook || "",
+    line: item?.profile?.line || "",
+    address: item?.profile?.address || "",
+    nationality: item?.profile?.nationality || "",
+    visa_type: item?.profile?.visa_type || "",
+    job_name: item?.profile?.job_name || "",
+    company_representative: item?.profile?.company_representative || "",
+    inflow_source: item?.profile?.inflow_source || "",
+    payment: item?.profile?.payment || 0,
+    insurance_status: item?.profile?.insurance_status || 1,
+    insurance_support: item?.profile?.insurance_support || "",
+    insurance_start_date: item?.profile?.insurance_start_date || "",
+    overseas_remittance_status: item?.profile?.overseas_remittance_status || 0,
+    orientation: item?.profile?.orientation || "",
+    start_date_education: item?.profile?.start_date_education || "",
+    end_date_education: item?.profile?.end_date_education || "",
+    education_status: item?.profile?.education_status || 1,
+    wabisabi_my_page_registration:
+      item?.profile?.wabisabi_my_page_registration || 0,
   };
   const translateInitValues = {
-    locate: "",
+    locale: "",
     name: "",
     permit_classification: "",
     founder: "",
     items_stated_permit: "",
     management_pharmacist: "",
     registered_seller_working: "",
-    drug_handled: "",
+    drugs_handled: "",
     distinguishing_by_name: "",
     business_hours: "",
     consultation_hours: "",
@@ -80,52 +82,57 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     time_order_outside: "",
     expiration_date_of_drugs: "",
   };
+
+  const commonAddressInitValues = {
+    postal_code: item?.address?.postal_code || "",
+    city: item?.address?.city || "",
+    prefecture: item?.address?.prefecture || "",
+    street_address: item?.address?.street_address || "",
+    building: item?.address?.building || "",
+  };
   const billingAddressInitValues = {
-    billing_full_name: item?.billing_full_name || "",
-    billing_postal_code: item?.billing_postal_code || "",
-    billing_city: item?.billing_city || "",
-    billing_prefecture: item?.billing_prefecture || "",
-    billing_street_address: item?.billing_street_address || "",
-    billing_building: item?.billing_building || "",
-    billing_phone: item?.billing_phone || "",
-    billing_email: item?.billing_email || "",
+    full_name: item?.billing_address?.full_name || "",
+    postal_code: item?.billing_address?.postal_code || "",
+    city: item?.billing_address?.city || "",
+    prefecture: item?.billing_address?.prefecture || "",
+    street_address: item?.billing_address?.street_address || "",
+    building: item?.billing_address?.building || "",
+    phone: item?.billing_address?.phone || "",
+    email: item?.billing_address?.email || "",
   };
   const shippingAddressInitValues = {
-    shipping_full_name: item?.shipping_full_name || "",
-    shipping_postal_code: item?.shipping_postal_code || "",
-    shipping_city: item?.shipping_city || "",
-    shipping_prefecture: item?.shipping_prefecture || "",
-    shipping_street_address: item?.shipping_street_address || "",
-    shipping_building: item?.shipping_building || "",
-    shipping_phone: item?.shipping_phone || "",
-    shipping_email: item?.shipping_email || "",
+    full_name: item?.shipping_address?.full_name || "",
+    postal_code: item?.shipping_address?.postal_code || "",
+    city: item?.shipping_address?.city || "",
+    prefecture: item?.shipping_address?.prefecture || "",
+    street_address: item?.shipping_address?.street_address || "",
+    building: item?.shipping_address?.building || "",
+    phone: item?.shipping_address?.phone || "",
+    email: item?.shipping_address?.email || "",
   };
 
   const planProfileFormik = useFormik({ initialValues: planInitValues });
 
-  const vendorProfileFormikJP = useFormik({
-    initialValues: item?.ja || translateInitValues,
+  const vendorProfileFormikEN = useFormik({
+    initialValues:
+      item?.vendor_profile?.vendor_translations[0] || translateInitValues,
   });
-  const vendorProfileFormikVI = useFormik({
-    initialValues: item?.vi || translateInitValues,
+  const vendorProfileFormikJP = useFormik({
+    initialValues:
+      item?.vendor_profile?.vendor_translations[1] || translateInitValues,
   });
   const vendorProfileFormikTL = useFormik({
-    initialValues: item?.tl || translateInitValues,
+    initialValues:
+      item?.vendor_profile?.vendor_translations[2] || translateInitValues,
   });
-  const vendorProfileFormikEN = useFormik({
-    initialValues: item?.en || translateInitValues,
+  const vendorProfileFormikVI = useFormik({
+    initialValues:
+      item?.vendor_profile?.vendor_translations[3] || translateInitValues,
   });
   const vendorProfileFormikZH = useFormik({
-    initialValues: item?.zh || translateInitValues,
+    initialValues:
+      item?.vendor_profile?.vendor_translations[4] || translateInitValues,
   });
-
-  const commonAddressInitValues = {
-    postal_code: item?.postal_code || "",
-    city: item?.city || "",
-    prefecture: item?.prefecture || "",
-    street_address: item?.street_address || "",
-    building: item?.building || "",
-  };
   const commonAddressFormik = useFormik({
     initialValues: commonAddressInitValues,
   });
@@ -144,26 +151,35 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
       let submitValues = {
         ...userInfoFormik.values,
         ...commonAddressFormik.values,
-        ...billingAddressFormik.values,
-        ...shippingAddressFormik.values,
+        billing_address: {
+          ...billingAddressFormik.values,
+        },
+        shipping_address: {
+          ...shippingAddressFormik.values,
+        },
       };
       if (userInfoFormik.values.role === "vendor") {
         submitValues = {
           ...submitValues,
           ja: {
             ...vendorProfileFormikJP.values,
+            dob: moment(vendorProfileFormikJP.values.dob).format("yyyy-MM-dd"),
           },
           en: {
             ...vendorProfileFormikEN.values,
+            dob: moment(vendorProfileFormikEN.values.dob).format("yyyy-MM-dd"),
           },
           zh: {
             ...vendorProfileFormikZH.values,
+            dob: moment(vendorProfileFormikZH.values.dob).format("yyyy-MM-dd"),
           },
           tl: {
             ...vendorProfileFormikTL.values,
+            dob: moment(vendorProfileFormikTL.values.dob).format("yyyy-MM-dd"),
           },
           vi: {
             ...vendorProfileFormikVI.values,
+            dob: moment(vendorProfileFormikVI.values.dob).format("yyyy-MM-dd"),
           },
         };
       }
@@ -186,11 +202,21 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     billingAddressFormik.setValues(billingAddressInitValues);
     shippingAddressFormik.setValues(shippingAddressInitValues);
     commonAddressFormik.setValues(commonAddressInitValues);
-    vendorProfileFormikEN.setValues(item?.en || translateInitValues);
-    vendorProfileFormikJP.setValues(item?.ja || translateInitValues);
-    vendorProfileFormikTL.setValues(item?.tl || translateInitValues);
-    vendorProfileFormikZH.setValues(item?.zh || translateInitValues);
-    vendorProfileFormikVI.setValues(item?.vi || translateInitValues);
+    vendorProfileFormikEN.setValues(
+      item?.vendor_profile?.vendor_translations[0] || translateInitValues
+    );
+    vendorProfileFormikJP.setValues(
+      item?.vendor_profile?.vendor_translations[1] || translateInitValues
+    );
+    vendorProfileFormikTL.setValues(
+      item?.vendor_profile?.vendor_translations[2] || translateInitValues
+    );
+    vendorProfileFormikVI.setValues(
+      item?.vendor_profile?.vendor_translations[3] || translateInitValues
+    );
+    vendorProfileFormikZH.setValues(
+      item?.vendor_profile?.vendor_translations[4] || translateInitValues
+    );
   }, [item]);
 
   React.useEffect(() => {
@@ -329,6 +355,7 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
             </div>
           </form>
         </div>
+
         <div className="translate-role">
           <Phase2UserForm
             role={userInfoFormik.values.role}

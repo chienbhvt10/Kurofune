@@ -1,6 +1,7 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
   createUserAction,
+  deleteUserAction,
   getUserAction,
   getUsersAction,
   updateUserAction,
@@ -18,10 +19,15 @@ const userReducers = createReducer(initialState, (builder) => {
     state.user = actions.payload.data;
   });
   builder.addCase(createUserAction.fulfilled, (state, actions) => {
-    state.users = [...state.user, actions.payload.data];
+    state.users = [...state.users, actions.payload.data];
   });
   builder.addCase(updateUserAction.fulfilled, (state, actions) => {
-    state.users = [...state.user, actions.payload.data];
+    //notification
+  });
+  builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
+    state.users = state.users.filter(
+      (item, index) => item.id !== actions.payload
+    );
   });
 });
 export default userReducers;

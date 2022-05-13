@@ -6,6 +6,7 @@ const userActions = {
   getUser: createAction("GET_USER"),
   createUser: createAction("CREATE_USER"),
   updateUser: createAction("UPDATE_USER"),
+  deleteUser: createAction("DELETE_USER"),
 };
 
 export const getUsersAction = createAsyncThunk(
@@ -34,6 +35,13 @@ export const updateUserAction = createAsyncThunk(
   async (payload) => {
     const res = await userApis.updateUser(payload).then((data) => data);
     return res;
+  }
+);
+export const deleteUserAction = createAsyncThunk(
+  userActions.deleteUser,
+  async (payload) => {
+    const res = await userApis.deleteUser(payload).then((data) => data);
+    return payload;
   }
 );
 export default userActions;
