@@ -2,7 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetPassword } from "../../../redux/actions/authAction";
 import "./reset-password.scss";
 
@@ -23,13 +23,7 @@ const ResetPassword = () => {
   const validateResetPassword = Yup.object().shape({
     token: Yup.string(),
     email: Yup.string(),
-    password: Yup.string().test(
-      "Require at least 8 characters...<br/>" +
-      "Require at least one uppercase and one lowercase letter...<br />" +
-      "Require at least one number...<br /> Require at least one symbol...<br/>" +
-      "Require match with password confirmation<br/>" +
-      "Require not contain char space"
-    ),
+    password: Yup.string(),
     password_confirmation: Yup.string().optional(),
   });
 
