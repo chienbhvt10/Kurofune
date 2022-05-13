@@ -16,7 +16,7 @@ class CronDataChatLog extends Command
      *
      * @var string
      */
-    protected $signature = 'dataLog:cron';
+    protected $signature = 'cron:dataChatLog';
 
     /**
      * The console command description.
