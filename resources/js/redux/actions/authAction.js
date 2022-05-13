@@ -19,7 +19,7 @@ export const forgotPassword = createAsyncThunk(authActions.forgotPassword, async
       localStorage.setItem("forgot-email", payload);
       return data;
     }
-  });
+  }).catch(errors => JSON.parse(errors.response.request.response));
   return res;
 });
 
@@ -29,7 +29,7 @@ export const resetPassword = createAsyncThunk(authActions.resetPassword, async (
       localStorage.removeItem('forgot-email');
       return data;
     }
-  });
+  }).catch(errors => JSON.parse(errors.response.request.response));
   return res;
 });
 

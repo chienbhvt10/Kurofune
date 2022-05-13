@@ -4,7 +4,7 @@ const initialState = {
   userInfo: {},
   token: "",
   isLogin: false,
-  forgotEmail: ""
+  errorMessages: undefined
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -17,17 +17,16 @@ const authReducers = createReducer(initialState, (builder) => {
     console.log("Reject Action");
   });
   builder.addCase(forgotPassword.fulfilled, (state, actions) => {
-    state.forgotEmail = actions.meta.arg;
+    state.errorMessages = actions.payload;
   });
   builder.addCase(forgotPassword.rejected, (state, actions) => {
-    console.log("We can't find a user with that email address.");
+    console.log("state", state);
   });
   builder.addCase(resetPassword.fulfilled, (state, actions) => {
-    console.log("state reset password", state);
-    console.log("actions reset password", actions);
+    state.errorMessages = actions.payload;
   });
   builder.addCase(resetPassword.rejected, (state, actions) => {
-    console.log("This password reset token is invalid.");
+    console.log("state", state);
   });
 });
 export default authReducers;

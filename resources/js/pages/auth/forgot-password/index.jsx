@@ -1,6 +1,7 @@
 import React from "react";
+import * as Yup from 'yup';
 import { useFormik } from "formik";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { forgotPassword } from "../../../redux/actions/authAction";
 import "./forgot-password.scss";
@@ -9,25 +10,23 @@ const forgotEmailInitValues = {
   email: "",
 };
 
-const validate = values => {
-  const errors = {};
-  if(!values.email){
-    errors.email = 'Required';
-  }else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = 'Invalid email address';
-  }
-  console.log("errors", errors);
-}
+const validateForgotEmail = Yup.object().shape({
+  email: Yup.string(),
+});
 
 const ForgotPassword = () => {
   let lang = localStorage.getItem("lang");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const messageErrors = useSelector((state) => state.authState.errorMessages);
+
+  console.log("messageErrors", messageErrors);
 
   const formik = useFormik({
     initialValues: forgotEmailInitValues,
+    validationSchema: validateForgotEmail,
     onSubmit: (values) => {
-      if (validate(values)) {
+      if (values) {
         dispatch(forgotPassword(values.email));
         navigate(`${lang}/reset-link-password`);
       }
@@ -57,11 +56,10 @@ const ForgotPassword = () => {
                 name="email"
                 id="email"
                 style={{ textTransform: "lowercase" }}
-                value={formik.values.forgotEmail}
+                value={formik.values.email}
                 onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
-              {formik.errors.email === 'Required' ? (<div>{formik.errors.email}</div>) : null}
               <img
                 src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
                 alt=""
