@@ -22,7 +22,6 @@ export const UserForm = ({
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const lang = localStorage.getItem("lang");
-  React.useEffect(() => {}, [item]);
   const validateUserInfo = Yup.object().shape({
     id: Yup.string(),
     role: Yup.string().required("Role required!"),

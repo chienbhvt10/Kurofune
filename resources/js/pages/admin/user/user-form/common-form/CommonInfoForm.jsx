@@ -1,79 +1,89 @@
 import { auto } from "@popperjs/core";
 import React from "react";
+import { useSelector } from "react-redux";
+import RenderApiErrorMessage from "../../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
+import RenderFormikErrorMessage from "../../../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
 
 const CommonInfoForm = ({ className, formik }) => {
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
-  };
+  const errorMessage = useSelector((state) => state.userState.errorMessage);
   return (
     <form className={className}>
       <div className="separate">
         <div className="form-group">
           <label>Postal code</label>
           <input
-            id=""
             type="text"
             name="postal_code"
-            className=""
             onChange={formik.handleChange}
             value={formik.values.postal_code}
           />
-          {/* {renderErrorMessage("postalCode")} */}
+          <RenderFormikErrorMessage
+            formikInstance={formik}
+            field="postal_code"
+          />
+          <RenderApiErrorMessage
+            errorMessage={errorMessage}
+            field="postal_code"
+          />
         </div>
         <div className="form-group">
           <label>City</label>
           <input
-            id=""
             type="text"
             name="city"
-            className=""
             onChange={formik.handleChange}
             value={formik.values.city}
           />
-          {/* {renderErrorMessage("city")} */}
+          <RenderFormikErrorMessage formikInstance={formik} field="city" />
+          <RenderApiErrorMessage errorMessage={errorMessage} field="city" />
         </div>
       </div>
       <div className="separate">
         <div className="form-group">
           <label>Prefecture</label>
           <input
-            id=""
             type="text"
             name="prefecture"
-            className=""
             onChange={formik.handleChange}
             value={formik.values.prefecture}
           />
-          {/* {renderErrorMessage("prefecture")} */}
+          <RenderFormikErrorMessage
+            formikInstance={formik}
+            field="prefecture"
+          />
+          <RenderApiErrorMessage
+            errorMessage={errorMessage}
+            field="prefecture"
+          />
         </div>
         <div className="form-group">
           <label>Street address</label>
           <input
-            id=""
             type="text"
             name="street_address"
-            className=""
             onChange={formik.handleChange}
             value={formik.values.street_address}
           />
-          {/* {renderErrorMessage("streetAddress")} */}
+          <RenderFormikErrorMessage
+            formikInstance={formik}
+            field="street_address"
+          />
+          <RenderApiErrorMessage
+            errorMessage={errorMessage}
+            field="street_address"
+          />
         </div>
       </div>
       <div className="form-group">
         <label>Building</label>
         <input
-          id=""
           type="text"
           name="building"
-          className=""
           onChange={formik.handleChange}
           value={formik.values.building}
         />
-        {/* {renderErrorMessage("building")} */}
+        <RenderFormikErrorMessage formikInstance={formik} field="building" />
+        <RenderApiErrorMessage errorMessage={errorMessage} field="building" />
       </div>
     </form>
   );
