@@ -1,0 +1,51 @@
+.questionnaire-container {
+  background-color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  .questionnaire-table {
+    overflow-x: scroll;
+    table {
+      & > :not(:first-child) {
+        border-top: none;
+      }
+      th {
+        text-align: center;
+        border: 1px solid #777;
+        background-color: #62a19b;
+        color: white !important;
+        font-size: 15px;
+        vertical-align: middle;
+      }
+      td {
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid #777;
+        &:last-child() {
+          text-align: center;
+        }
+      }
+      .btn-download-csv {
+        img {
+          width: 20px;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  .btn-show {
+    background-color: #62a19b;
+    text-decoration: none;
+    border: 1px solid #62a19b;
+    padding: 10px 20px;
+    display: inline-block;
+    &:nth-child(2) {
+      margin-left: 5px;
+    }
+    span {
+      color: white;
+    }
+  }
+}

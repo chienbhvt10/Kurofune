@@ -1,0 +1,115 @@
+.questionnaire-container {
+  display: flex;
+  justify-content: center;
+  .card {
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    padding: 20px;
+    .search-wrap {
+      display: flex;
+      flex-direction: row;
+      .input-group {
+        position: relative;
+        width: 100%;
+        input {
+          width: 100%;
+          height: 39px;
+          background: #f2f4f8;
+          border: none;
+          padding-left: 40px;
+          border-radius: 5px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          -ms-border-radius: 5px;
+          -o-border-radius: 5px;
+          &:focus-visible {
+            outline: none;
+          }
+        }
+        .icon-search {
+          position: absolute;
+          top: 12px;
+          left: 12px;
+          color: #515151;
+        }
+      }
+      .btn-search {
+        margin-left: 10px;
+        white-space: nowrap;
+        border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        -ms-border-radius: 5px;
+        -o-border-radius: 5px;
+        padding: 0 45px;
+        border: 0;
+        background: #62A19B;
+        color: #fff;
+      }
+    }
+    .product-container {
+      margin-top: 50px;
+      .show-number-result {
+        color: #515151;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 19.5px;
+        text-align: left;
+      }
+      .product-list {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        @media screen and (max-width: 767px) {
+          flex-direction: column;
+        }
+
+        .product-item {
+          display: flex;
+          margin-bottom: 15px;
+          width: 50%;
+
+          @media screen and (max-width: 767px) {
+            width: 100%;
+          }
+          .product-link {
+            img {
+              border: 1px solid #dddddd;
+              border-radius: 5px;
+              width: 215px;
+              height: 200px;
+              object-fit: contain;
+            }
+          }
+          .product-info {
+            margin-left: 15px;
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            .product-title {
+              color: #62a19b;
+              text-decoration: none;
+              font-weight: 500;
+              line-height: 24px;
+              margin: 0px 0px 10px;
+              text-align: left;
+            }
+            .btn-detail {
+              background-color: #62a19b;
+              border-radius: 5px;
+              color: #ffffff;
+              width: fit-content;
+              font-size: 13px;
+              line-height: 19.5px;
+              padding: 5px 15px;
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}

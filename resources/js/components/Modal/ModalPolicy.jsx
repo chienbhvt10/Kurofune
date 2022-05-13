@@ -11,7 +11,7 @@ import {
 } from "../../commons/data";
 import OrderList from "../../commons/Orderlist";
 import "./modal-custom.scss";
-const ModalPolicy = (props) => {
+const ModalPolicy = ({text}) => {
   return (
     <div id="modal-policy" className="modal-custom">
       <a
@@ -21,7 +21,7 @@ const ModalPolicy = (props) => {
         data-toggle="modal"
         data-target="#exampleModalLong2"
       >
-        Chính sách bảo mật
+        {text}
       </a>
       <div
         className="modal fade"

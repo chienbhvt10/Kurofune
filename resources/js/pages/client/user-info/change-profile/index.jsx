@@ -2,6 +2,18 @@ import React from "react";
 import Helmet from "react-helmet";
 import { FormInfor } from "../../../../components/form-infor";
 export const ChangeProfile = () => {
+  const [item, setItem] = React.useState({
+    fullName: "",
+    toPostalCode: "",
+    fromPostalCode: "",
+    prefecture: "",
+    city: "",
+    street: "",
+    building: "",
+    phone: "",
+    email: "",
+  });
+  const submitChangeProfile = (value) => {};
   return (
     <>
       <Helmet>
@@ -10,7 +22,7 @@ export const ChangeProfile = () => {
         <meta name="description" content="Change profile Page" />
         <meta name="og:title" content="Change profile" />
       </Helmet>
-     <FormInfor/>
-     </>
+      <FormInfor item={item} onSubmit={submitChangeProfile} />
+    </>
   );
 };

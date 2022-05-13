@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ",
+    "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN <br> CỔNG HỖ TRỢ",
     "email": "Email",
     "password": "Mật khẩu",
     "remember": "Ghi nhớ",
@@ -11,22 +11,36 @@
     "languages": "Ngôn ngữ",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "Tên tổ chức",
-    "description": "Vui lòng hoàn thành để tạo tài khoản của bạn.",
-    "field_first_name": "Tên",
-    "field_last_name": "Họ",
-    "field_user_name": "Tên người dùng",
-    "field_email": "Email",
-    "field_password": "Mật khẩu",
-    "field_confirm_password": "Nhập lại mật khẩu vừa tạo",
-    "check_member_confirm": "Nhập lại mật khẩu vừa tạo",
-    "check_vendor_register_confirm": "Trở thành nhà cung cấp",
-    "btn_sign_up": "Đăng ký",
-    "btn_redirect_login": "Bạn đã có tài khoản chưa ? Đăng nhập"
-  },
   "home": "Trang chủ",
+  "header": {
+    "btn_back1": "Quay lại danh sách thuốc",
+    "btn_back2": "Quay về danh sách đặt hàng",
+    "btn_back3": "Trở lại giỏ hàng",
+    "btn_logout": "Thoát",
+    "btn_view_cart": "XEM GIỎ HÀNG",
+    "btn_buy": "MUA",
+    "cart_empty": "Không có thông tin trong giỏ hàng.",
+    "cart_title": "Xem giỏ hàng của bạn "
+  },
+  "navigate_link": {
+    "title": "Hiệu thuốc Online",
+    "questionnaire_title": "Bảng câu hỏi chẩn đoán bệnh",
+    "pharmacies_title": "Danh sách nhà thuốc",
+    "medicine_title": "Danh sách thuốc",
+    "order_history_title": "Lịch sử mua hàng",
+    "cart_title": "Giỏ hàng",
+    "billing_address_title": "Thông tin đăng kí",
+    "media_title": "Trang chủ"
+  },
   "member": {
+    "dashboard": {
+      "questionnaire": "Bảng câu hỏi chẩn đoán bệnh",
+      "pharmacy": "Danh sách nhà thuốc",
+      "drug": "Danh sách thuốc",
+      "order_history": "Lịch sử đặt hàng",
+      "order_list": "Giỏ hàng",
+      "registration_info": "Thông tin đăng kí"
+    },
     "user_profile": {
       "btn_save": "Lưu",
       "text_back": "Quay về trang chính",
@@ -55,5 +69,171 @@
   "tab_address": {
     "tab_ship": "Địa chỉ giao hàng",
     "tab_bill": "Địa chỉ thanh toán"
+  },
+  "client": {
+    "questionnaire": {
+      "placeholder": "Hãy nhập tên thuốc",
+      "btn_search": "Tìm kiếm",
+      "title_number_results": "Kết quả tìm kiếm: ",
+      "description_number": " trường hợp"
+    },
+    "media": {
+      "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN<br>CỔNG HỖ TRỢ",
+      "card_pharmacy": "Hiệu thuốc Online",
+      "card_consultation": "Dịch vụ tư vấn 24 giờ",
+      "card_remittance": "Chuyển tiền ra nước ngoài",
+      "card_e_leaning": "Học trực tuyến",
+      "card_insurance": "Bảo hiểm thu nhập",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "Thông tin người dùng",
+      "btn_logout": "Thoát"
+    },
+    "cart": {
+      "title_cart": "Giỏ hàng",
+      "title_cart_empty": "Giỏ hàng của bạn hiện đang trống.",
+      "cart_description1": "Vui lòng kiểm tra thông tin đơn hàng.",
+      "cart_description2": "Sau khi kiểm tra hãy nhấp vào nút \" TIẾP TỤC MUA HÀNG \"",
+      "th_product_name": "Sản phẩm",
+      "th_product_price": "Số tiền",
+      "th_product_quantity": "Số lượng",
+      "btn_delete": "XÓA BỎ",
+      "btn_checkout": "TIẾP TỤC MUA HÀNG",
+      "btn_empty": "GIỎ HÀNG TRỐNG",
+      "btn_update": "CẬP NHẬT GIỎ HÀNG CỦA BẠN",
+      "btn_return": "Quay lại cửa hàng"
+    },
+    "checkout": {
+      "title_confirm": "Xác nhận mua hàng",
+      "confirm_description1": "Vui lòng kiểm tra thông tin đơn hàng",
+      "confirm_description2": "Vui lòng đọc kĩ các điều khoản sử dụng và nhấp vào nút “ MUA ”",
+      "th_product_name": "Sản phẩm",
+      "th_product_price": "Số tiền",
+      "th_product_quantity": "Số lượng",
+      "th_product_total": "Tổng phụ (Gồm thuế)",
+      "td_total": "Tổng đơn hàng",
+      "title_billing": "Thông tin thanh toán",
+      "field_full_name": "Họ và Tên",
+      "field_zip_code": "Mã bưu điện/ ZIP code",
+      "field_prefecture": "Tỉnh/ Thành phố",
+      "field_town_city": "Thị trấn / Thành phố",
+      "field_street": "Địa chỉ khu phố",
+      "field_house": "Tên toà nhà",
+      "field_phone": "Số điện thoại",
+      "field_email": "Địa chỉ email",
+      "title_ship": "Thông tin giao hàng",
+      "accept_term": "Tôi đồng ý với điều khoản sử dụng và mua hàng.",
+      "btn_text_buy": "MUA"
+    },
+    "order-history": {
+      "th_order_date": "Ngày đặt hàng",
+      "th_order_ID": "Mã đơn đặt hàng",
+      "th_order_status": "Tình trạng đơn đặt hàng",
+      "th_order_price": "Số tiền",
+      "th_purchase_product": "Đơn hàng đã mua",
+      "btn_view": "Xem",
+      "btn_next": "Kế tiếp",
+      "btn_prev": "Trước",
+      "about_status": "Tình trạng đơn hàng",
+      "status_step_1": "Đang chờ mail xác nhận",
+      "status_step_2": "Đang chuẩn bị hàng",
+      "status_step_3": "Đang vận chuyển",
+      "status_step_4": "Đang giao hàng",
+      "status_step_5": "Hoàn thành"
+    },
+    "order-detail": {
+      "title": "Chi tiết đơn đặt hàng",
+      "th_order_date": "【Ngày đặt hàng】",
+      "th_order_ID": "【Mã đơn đặt hàng】",
+      "th_order_status": "【Tình trạng đơn đặt hàng】",
+      "th_product_name": "Sản phẩm",
+      "th_product_quantity": "Số lượng",
+      "th_unit_price": "Đơn giá",
+      "th_product_total": "Tổng phụ (Gồm thuế)",
+      "td_total": "Tổng đơn hàng",
+      "th_tax": "Thuế",
+      "title_billing": "Thông tin thanh toán",
+      "field_full_name": "Họ và Tên",
+      "field_postal": "Mã bưu điện/ ZIP code",
+      "field_prefecture": "Tỉnh / Thành phố",
+      "field_city": "Thị trấn / Thành phố",
+      "field_house": "Tên toà nhà",
+      "field_street": "Địa chỉ khu phố",
+      "field_phone": "Số điện thoại",
+      "field_email": "Địa chỉ email",
+      "title_ship": "Thông tin giao hàng",
+      "payment": "Phương thức thanh toán",
+      "payment_method": "Thanh toán khi giao hàng"
+    },
+    "medicine_list": {
+      "type_name1": "Loại 1",
+      "type_name2": "Loại 2 chỉ định",
+      "type_name3": "Loại 2"
+    },
+    "product_detail": {
+      "btn_buy": "MUA NGAY",
+      "label_gender": "Giới tính của bạn là gì ?",
+      "label_age": "Bạn bao nhiêu tuổi ?",
+      "label_ever_used": "Bạn dùng thuốc này bao giờ chưa ?",
+      "label_ever_side_effect": "Bạn đã bao giờ uống thuốc và bị tác dụng phụ chưa?",
+      "label_using_medicine": "Tên loại thuốc bạn đang sử dụng lúc đó là gì?",
+      "label_other_illnesses": "Hiện tại bạn có đang điều trị bệnh gì không ?",
+      "label_other_question": "Bạn có câu hỏi nào không?",
+      "placeholder_select": "Vui lòng hãy chọn",
+      "placeholder_text": "Vui lòng hãy nhập",
+      "option_yes": "Có",
+      "option_no": "Không",
+      "option_gender1": "Nam",
+      "option_gender2": "Nữ",
+      "option_age1": "Dưới 15 tuổi ",
+      "option_age2": "15-64 tuổi",
+      "option_age3": "65 tuổi trở lên",
+      "option_other_illnesses1": "Không",
+      "option_other_illnesses2": "Bệnh cao huyềt áp",
+      "option_other_illnesses3": "Bệnh tiểu đường",
+      "option_other_illnesses4": "Rối loạn mỡ máu",
+      "option_other_illnesses5": "Hen suyễn",
+      "option_other_illnesses6": "Bệnh gan",
+      "option_other_illnesses7": "Bệnh tim",
+      "option_other_illnesses8": "Nhồi máu não",
+      "option_other_illnesses9": "Loét dạ dày / tá tràng",
+      "option_other_illnesses10": "Bệnh tuyến giáp",
+      "option_other_illnesses11": "Bệnh tuyến tiền liệt",
+      "option_other_illnesses12": "Bệnh khác"
+    },
+    "list_pharmacies": {
+      "title": "Hiệu thuốc Marine Oisotori",
+      "outside_image": "Ảnh chụp bên ngoài chính của hiệu thuốc hoặc cửa hàng",
+      "inside_image": "Ảnh chụp tình trạng trưng bày thuốc không kê đơn",
+      "title_concerning_management": "Các vấn đề liên quan đến quản lý và vận hành",
+      "title_classification": "Phân loại giấy phép",
+      "title_founder": "Người sáng lập",
+      "title_permit": "Các mục được nêu trong giấy phép",
+      "title_management_pharmacist": "Dược sĩ quản lý",
+      "title_working_pharmacies": "Dược sĩ làm việc tại nhà thuốc của chúng tôi (phụ trách)",
+      "title_register_seller": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi (phụ trách kinh doanh)",
+      "title_over_the_counter_drugs_handle": "Các loại thuốc không kê đơn được xử lý",
+      "title_distinguishing": "Phân biệt bằng bảng tên, v.v. của người làm việc tại hiệu thuốc này",
+      "title_business_hours": "Giờ làm việc",
+      "title_consultation_outside": "Giờ tư vấn ngoài giờ làm việc",
+      "title_contact": "Thông tin liên hệ để được tư vấn và các trường hợp khẩn cấp",
+      "title_current_working_pharmacies": "Dược sĩ đang làm việc (phụ trách)",
+      "title_specific_sale_time": "Khác nhau giữa Thời gian mở cửa và Thời gian mở cửa đặc biệt",
+      "title_time_accept_order": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
+      "title_expiration_date": "Ngày hết hạn của thuốc để bán cụ thể",
+      "title_problem": "Các vấn đề liên quan đến hệ thống bán thuốc cần hướng dẫn và thuốc không kê đơn"
+    }
+  },
+  "admins": {
+    "user": {
+      "list": {
+        "title": ""
+      },
+      "create": {
+        "title": "Create a new"
+      },
+      "update": {
+        "title": "Update a existing"
+      }
+    }
   }
 }

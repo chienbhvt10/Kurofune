@@ -84,6 +84,8 @@
     }
     .cart-body {
       #cart-form {
+        display: block;
+        overflow: auto;
         .table {
           width: 100%;
           height: auto;

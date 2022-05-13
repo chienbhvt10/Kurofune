@@ -1,7 +1,7 @@
 import iconBack from "../../../../../sass/image/icon-back.png";
 import React, { useState } from "react";
 import { Link, Outlet } from "react-router-dom";
-import "./style.scss";
+import './style.scss'
 import { TabLink } from "../../../../components/tabs";
 import { useTranslation } from "react-i18next";
 export const UserLayout = () => {

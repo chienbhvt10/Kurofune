@@ -2,7 +2,6 @@
     width: 100%;
     max-width: 229px;
     height: auto;
-    background: #62A19B;
     color: white;
     font-size: 13px;
     transition: all 0.2s linear;
@@ -20,7 +19,7 @@
 
         &.show{
             display: block;
-            
+
         }
     }
     .icon{
@@ -39,7 +38,7 @@
         transition: all 0.2s ease-in-out;
     }
 
-    
+
 }
 
 @media only screen and (max-width: 992px){
@@ -49,7 +48,6 @@
         top: 0;
         left: 0;
         z-index: 999999;
-        background: #62A19B;
         transition: all 0.3s linear;
         transform: translateX(-100%);
         &.show{

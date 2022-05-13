@@ -12,6 +12,8 @@ import { Languages } from "../../commons/Languges";
 import "./header-home.scss";
 import { useTranslation } from "react-i18next";
 const HeaderHome = ({ toggleSideBar }) => {
+  let lang = localStorage.getItem("lang");
+  const { i18n, t } = useTranslation();
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -26,24 +28,28 @@ const HeaderHome = ({ toggleSideBar }) => {
             <FontAwesomeIcon icon={faBars} size={"lg"} color="#58918B" />
           </button>
           <BackButton
-            currentPath="/product-detail"
-            backTo="/medicine-list"
-            title="Quay lại danh sách thuốc"
+            currentPath={`${lang}/product-detail`}
+            backTo={`${lang}/medicine-list`}
+            title={t("header.btn_back1")}
           />
           <BackButton
-            currentPath="/member/order-detail"
-            backTo="/member/order-history"
-            title="Quay lại danh sách đặt hàng"
+            currentPath={`${lang}/member/order-detail`}
+            backTo={`${lang}/member/order-history`}
+            title={t("header.btn_back2")}
           />
           <BackButton
-            currentPath="/checkout"
-            backTo="/cart"
-            title="Quay lại giỏ hàng"
+            currentPath={`${lang}/checkout`}
+            backTo={`${lang}/cart`}
+            title={t("header.btn_back3")}
           />
           <div className="block-profile-header ">
             <div className="shopping-cart">
               <div className="icon-cart">
-                <Link id="cart-custom" to="cart" title="Xem giỏ hàng của bạn ">
+                <Link
+                  id="cart-custom"
+                  to={`${lang}/cart`}
+                  title={t("header.cart_title")}
+                >
                   <img className="icon" src="/images/icon-card.png" />
                   <span className="quantity">1</span>
                 </Link>
@@ -51,11 +57,14 @@ const HeaderHome = ({ toggleSideBar }) => {
               <div className="mini-cart">
                 <div className="basket-block">
                   <div className="cart_block_list">
-                    <p className="d-none">Không có thông tin trong giỏ hàng.</p>
+                    <p className="d-none">{t("header.cart_empty")}</p>
                     <div className="group">
                       <p className="buttons">
-                        <Link to="/cart" className="button wc-forward">
-                          Xem giỏ hàng
+                        <Link
+                          to={`/${lang}/cart`}
+                          className="button wc-forward"
+                        >
+                          {t("header.btn_view_cart")}
                         </Link>{" "}
                       </p>
                       <ul className="cart_list product_list_widget ">
@@ -79,10 +88,10 @@ const HeaderHome = ({ toggleSideBar }) => {
                               </bdi>
                             </span>
                           </span>{" "}
-                          <Link to="/product-detail">
+                          <Link to={`/${lang}/product-detail`}>
                             <img
                               alt="image-prod-Medicine list"
-                              src="https://member.wabisabi.media/wp-content/uploads/2022/02/14_hcg-stick.jpeg"
+                              src="/images/medicine-list/14_hcg-stick.jpeg"
                             />
                           </Link>
                         </li>
@@ -100,10 +109,10 @@ const HeaderHome = ({ toggleSideBar }) => {
 
                       <p className="buttons checkout-btn">
                         <Link
-                          to="/checkout"
+                          to={`/${lang}/checkout`}
                           className="button checkout wc-forward"
                         >
-                          Mua
+                          {t("header.btn_buy")}
                         </Link>{" "}
                       </p>
                     </div>
@@ -117,17 +126,14 @@ const HeaderHome = ({ toggleSideBar }) => {
             </div>
 
             <div className="logout-wrap">
-              <a
-                href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=1750a2467b"
-                title="Thoát"
-              >
-                Thoát{" "}
+              <Link to="/login" title={t("header.btn_logout")}>
+                {t("header.btn_logout")}
                 <FontAwesomeIcon
                   className="icon"
                   icon={faSignOutAlt}
                   size="sm"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </div>

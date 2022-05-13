@@ -11,7 +11,7 @@ import {
   term7SubOrderListData,
   term9OrderListData,
 } from "../../commons/data";
-const ModalTerm = ({ text }) => {
+const ModalTerm = ({text}) => {
   return (
     <div id="modal-term" className="modal-custom">
       <a
@@ -21,7 +21,7 @@ const ModalTerm = ({ text }) => {
         data-toggle="modal"
         data-target="#exampleModalLong"
       >
-        {text}
+     {text}
       </a>
       <div
         className="modal fade"

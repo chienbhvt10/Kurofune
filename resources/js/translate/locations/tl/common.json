@@ -1,6 +1,6 @@
 {
   "login": {
-    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "title": "Association for Supporting Foreign Workers in Japan <br> Life Support Portal Site",
     "email": "Email",
     "password": "password",
     "remember": "Tandaan",
@@ -11,22 +11,36 @@
     "languages": "Wika",
     "kurofune": "©KUROFUNE"
   },
-  "register": {
-    "title": "Pangalan ng Organisasyon",
-    "description": "Mangyaring kumpletuhin ang paggawa ng iyong account.",
-    "field_first_name": "Pangalan",
-    "field_last_name": "Huling pangalan",
-    "field_user_name": "Username",
-    "field_email": "Email",
-    "field_password": "Password",
-    "field_confirm_password": "Kumpirmahin ang password",
-    "check_member_confirm": "Kumpirmahin ang password",
-    "check_vendor_register_confirm": "Maging vendor",
-    "btn_sign_up": "Mag-sign up",
-    "btn_redirect_login": "Mayroon nang account? Mag-sign in"
-  },
   "home": "Trang chủ",
+  "header": {
+    "btn_back1": "Bumalik sa listahan ng gamot",
+    "btn_back2": "Bumalik sa listahan ng order",
+    "btn_back3": "Bumalik sa cart",
+    "btn_logout": "Mag-logout",
+    "btn_view_cart": "TINGNAN ANG CART",
+    "btn_buy": "PARA SA PAMAMARAAN NG PAGBILI",
+    "cart_empty": "Walang impormasyon sa shopping cart.",
+    "cart_title": "Tingnan ang iyong shopping cart"
+  },
+  "navigate_link": {
+    "title": "Online pharmacy",
+    "questionnaire_title": "Bumili ng gamot gamit ang chatbot",
+    "pharmacies_title": "Impormasyon sa Pharmacy",
+    "medicine_title": "Impormasyon ng mga gamot",
+    "order_history_title": "History ng order",
+    "cart_title": "Listahan ng order",
+    "billing_address_title": "Impormasyon ng pagrehistro",
+    "media_title": "Bumalik sa top page"
+  },
   "member": {
+    "dashboard": {
+      "questionnaire": "Bumili ng gamot gamit ang chatbot",
+      "pharmacy": "Impormasyon sa Pharmacy",
+      "drug": "Impormasyon ng mga gamot",
+      "order_history": "History ng order",
+      "order_list": "Listahan ng order",
+      "registration_info": "Impormasyon ng pagrehistro"
+    },
     "user_profile": {
       "btn_save": "I-save",
       "text_back": "Bumalik sa tuktok na pahina",
@@ -40,7 +54,7 @@
       "field_confirm_password": "Kumpirmahin ang password"
     },
     "change_profile": {
-      "btn_search": "",
+      "btn_search": "Maghanap",
       "title": "change profile",
       "field_full_name": "Buong pangalan",
       "field_postal": "Postal code/zip ",
@@ -55,5 +69,171 @@
   "tab_address": {
     "tab_ship": "Address ng pagpapadala",
     "tab_bill": "Billing address"
+  },
+  "client": {
+    "questionnaire": {
+      "placeholder": "Ilagay ang pangalan ng gamot",
+      "btn_search": "Ipasa",
+      "title_number_results": "Mga resulta ng paghahanap:",
+      "description_number": " kaso sa kabuuan"
+    },
+    "media": {
+      "title": "Association for Supporting Foreign Workers in Japan<br>Life Support Portal Site",
+      "card_pharmacy": "Online pharmacy",
+      "card_consultation": "24 na oras na serbisyo sa konsultasyon",
+      "card_remittance": "Magpadala ng pera",
+      "card_e_leaning": "e-learning",
+      "card_insurance": "Income Compensation Insurance",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "User Information",
+      "btn_logout": "Mag-logout"
+    },
+    "cart": {
+      "title_cart": "Basket ng pamimili",
+      "title_cart_empty": "Kasalukuyang walang laman ang iyong basket.",
+      "cart_description1": "Pakisuri ang mga detalye ng pagbili.",
+      "cart_description2": "Pakisuri at i-click ang pindutang　\"TUMULOY SA PAG-CHECKOUT\".",
+      "th_product_name": "Produkto",
+      "th_product_price": "Halaga",
+      "th_product_quantity": "Dami",
+      "btn_delete": "TANGGALIN",
+      "btn_checkout": "TUMULOY SA PAG-CHECKOUT",
+      "btn_empty": "ALISAN ANG LAMAN NG SHOPPING CART",
+      "btn_update": "I-UPDATE ANG IYONG SHOPPING CART",
+      "btn_return": "Bumalik sa tindahan"
+    },
+    "checkout": {
+      "title_confirm": "Pagkumpirma ng pagbili",
+      "confirm_description1": "Pakisuri ang mga detalye ng pagbili.",
+      "confirm_description2": "Pakisuri ang mga tuntunin ng paggamit at i-click ang button na \"Bumili\".",
+      "th_product_name": "Produkto",
+      "th_product_price": "Halaga",
+      "th_product_quantity": "Dami",
+      "th_product_total": "SubTotal",
+      "td_total": "Kabuuang bayad",
+      "title_billing": "Impormasyon sa pagsingil",
+      "field_full_name": "Buong pangalan",
+      "field_zip_code": "Postal code/zip",
+      "field_prefecture": "Prefecture",
+      "field_town_city": "Bayan / Lungsod",
+      "field_street": "Address ng kalye",
+      "field_house": "Gusali",
+      "field_phone": "Telepono",
+      "field_email": "Email address",
+      "title_ship": "Impormasyon ng Pagpapadala",
+      "accept_term": "Bumili pagkatapos sumang-ayon sa mga tuntunin ng paggamit.",
+      "btn_text_buy": "BUMILI"
+    },
+    "order-history": {
+      "th_order_date": "Petsa ng Order",
+      "th_order_ID": "Order ID",
+      "th_order_status": "Katayuan ng Order",
+      "th_order_price": "Halaga",
+      "th_purchase_product": "Binili na Produkto",
+      "btn_view": "Tingnan",
+      "btn_next": "Next",
+      "btn_prev": "Previous",
+      "about_status": "Tungkol sa katayuan ng order",
+      "status_step_1": "Naghihintay ng kumpirmasyon",
+      "status_step_2": "Pag-iimpake",
+      "status_step_3": "Paghahatid",
+      "status_step_4": "Pagpapadala",
+      "status_step_5": "Nakumpleto"
+    },
+    "order-detail": {
+      "title": "Mga detalye ng order",
+      "th_order_date": "【Petsa ng Order】",
+      "th_order_ID": "【Order ID】",
+      "th_order_status": "【Katayuan ng Order】",
+      "th_product_name": "Produkto",
+      "th_product_quantity": "Dami",
+      "th_unit_price": "Presyo ng isang piraso",
+      "th_product_total": "SubTotal",
+      "td_total": "Kabuuang bayad",
+      "th_tax": "Buwis",
+      "title_billing": "Impormasyon sa pagsingil",
+      "field_full_name": "Buong pangalan",
+      "field_postal": "Postal code/zip ",
+      "field_prefecture": "Prefecture",
+      "field_city": "Bayan / Lungsod",
+      "field_house": "Gusali",
+      "field_street": "Address ng kalye",
+      "field_phone": "Telepono",
+      "field_email": "Email address",
+      "title_ship": "Impormasyon ng Pagpapadala",
+      "payment": "Mga paraan ng pagbabayad",
+      "payment_method": "Cash on delivery"
+    },
+    "medicine_list": {
+      "type_name1": "First-class OTC drugs",
+      "type_name2": "Specify Second-class OTC drugs",
+      "type_name3": "Second-class OTC drugs"
+    },
+    "product_detail": {
+      "btn_buy": "BUMILI KA NA NGAYON",
+      "label_gender": "Ano ang iyong kasarian?",
+      "label_age": "Ilan taon ka na?",
+      "label_ever_used": "Nagamit mo na ba itong gamot na ito?",
+      "label_ever_side_effect": "May gamot ka bang nainom na mayroon side effect sa iyo?",
+      "label_using_medicine": "Anong gamot iyon?",
+      "label_other_illnesses": "Mayroon ka bang kasalukuyang karamdaman?",
+      "label_other_question": "Mayroon ka bang nais isangguni?",
+      "placeholder_select": "Mangyaring pumili ng opsyon",
+      "placeholder_text": "Mangyaring magpasok ng teksto",
+      "option_yes": "Oo",
+      "option_no": "Hindi",
+      "option_gender1": "Lalaki",
+      "option_gender2": "Babae",
+      "option_age1": "Wala pang 15 taong gulang",
+      "option_age2": "15-64 taong gulang",
+      "option_age3": "65 taong gulang o mas matanda",
+      "option_other_illnesses1": "Wala naman",
+      "option_other_illnesses2": "High blood",
+      "option_other_illnesses3": "Diabetes",
+      "option_other_illnesses4": "Dyslipidemia",
+      "option_other_illnesses5": "Asthma",
+      "option_other_illnesses6": "Sakit sa atay",
+      "option_other_illnesses7": "Sakit sa puso",
+      "option_other_illnesses8": "Stroke",
+      "option_other_illnesses9": "Ulcer",
+      "option_other_illnesses10": "Sakit sa Thyroid",
+      "option_other_illnesses11": "Sakit sa Prostate",
+      "option_other_illnesses12": "Iba pa"
+    },
+    "list_pharmacies": {
+      "title": "Marine Pharmacy Oisotori",
+      "outside_image": "Mga larawan ng pangunahing panlabas ng isang parmasya o tindahan",
+      "inside_image": "Larawang nagpapakita ng katayuan sa pagpapakita ng mga over-the-counter na gamot",
+      "title_concerning_management": "Mga bagay tungkol sa pamamahala at operasyon",
+      "title_classification": "Pag-uuri ng permit",
+      "title_founder": "Tagapagtatag",
+      "title_permit": "Mga bagay na isasaad sa permit",
+      "title_management_pharmacist": "Pamamahala ng parmasyutiko",
+      "title_working_pharmacies": "Pharmacist na nagtatrabaho sa aming botika (namumuno)",
+      "title_register_seller": "Nakarehistrong nagbebenta na nagtatrabaho sa aming parmasya (negosyo na namamahala)",
+      "title_over_the_counter_drugs_handle": "Mga uri ng over-the-counter na gamot na pinangangasiwaan",
+      "title_distinguishing": "Pagkilala sa pamamagitan ng name tag atbp. ng taong nagtatrabaho sa botikang ito",
+      "title_business_hours": "Mga oras ng negosyo",
+      "title_consultation_outside": "Mga oras ng konsultasyon sa labas ng mga oras ng negosyo",
+      "title_contact": "Impormasyon sa pakikipag-ugnayan para sa konsultasyon at emerhensiya",
+      "title_current_working_pharmacies": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
+      "title_specific_sale_time": "Kapag ang oras ng pagbubukas at ang tiyak na oras ng pagbebenta ay magkaiba",
+      "title_time_accept_order": "Oras na para tanggapin ang mga order ng gamot sa labas ng oras ng negosyo",
+      "title_expiration_date": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
+      "title_problem": "Mga usapin tungkol sa sistema para sa pagbebenta ng mga gamot na nangangailangan ng gabay at mga gamot na nabibili nang walang reseta"
+    }
+  },
+  "admins": {
+    "user": {
+      "list": {
+        "title": ""
+      },
+      "create": {
+        "title": "Create a new"
+      },
+      "update": {
+        "title": "Update a existing"
+      }
+    }
   }
 }

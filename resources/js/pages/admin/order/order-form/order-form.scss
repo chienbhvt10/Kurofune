@@ -1,0 +1,156 @@
+#order-form {
+  background-color: white;
+  border-radius: 5px;
+  button {
+    opacity: 1;
+    transition: all 0.3s ease;
+    &:hover {
+      opacity: 0.6;
+    }
+  }
+  .cart-container {
+    height: 280px;
+    overflow: hidden;
+  }
+  .order-detail-title {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px 20px 0 20px;
+  }
+  .order-info {
+    display: flex;
+    padding: 20px;
+    .section-info {
+      width: calc(100% / 3);
+      padding: 20px;
+      .title-section {
+        padding-bottom: 10px;
+        font-weight: bold;
+        color: #62a19b;
+      }
+    }
+    .separate {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      label {
+        font-weight: bold;
+      }
+      input {
+        border-radius: 4px;
+        border: 1px solid #8c8f94;
+      }
+    }
+    .general-info {
+      input[type="number"] {
+        width: 50px;
+        margin: 0 5px;
+      }
+    }
+  }
+  .cart-info {
+    padding: 40px;
+    table {
+      margin-bottom: 0;
+    }
+    .cart-total {
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #dee2e6;
+      .calculate {
+        padding: 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        .cal-title {
+          text-align: right;
+        }
+        .cal-total {
+          padding-left: 50px;
+          text-align: right;
+        }
+      }
+      .tool-container {
+        border-top: 1px solid #dee2e6;
+        padding: 20px;
+        height: 71px;
+        overflow: hidden;
+        .tool {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          .tool-btn {
+            border: 1px solid #135e96;
+            color: #135e96;
+            background-color: white;
+            border-radius: 3px;
+            font-size: 14px;
+            padding: 3px 5px;
+            margin-left: 3px;
+          }
+          .save-btn,
+          .recalculate-btn,
+          .refund-btn {
+            background-color: #135e96;
+            color: white;
+          }
+        }
+        .tool-first {
+          display: flex;
+          position: relative;
+          top: -200%;
+          transition: all 0.3s ease-out;
+          height: 100%;
+          &.active {
+            top: 30%;
+          }
+        }
+        .tool-second {
+          display: flex;
+          position: relative;
+          top: 100%;
+          transition: all 0.3s ease-out;
+          height: 100%;
+          &.active {
+            top: -100%;
+          }
+        }
+      }
+    }
+    .cart-total {
+      position: relative;
+      top: -200%;
+      transition: all 0.5s ease-out;
+      height: 100%;
+      &.active {
+        top: 0;
+      }
+    }
+    .cart-total-refund {
+      top: 100%;
+      transition: all 0.5s ease-out;
+      height: 100%;
+      &.active {
+        top: -100%;
+      }
+      .calculate {
+        .cal-total {
+          input,
+          p {
+            margin: 2px 0;
+          }
+        }
+      }
+      .tool-container {
+        border-top: 1px solid #dee2e6;
+        padding: 20px;
+        height: 71px;
+        overflow: hidden;
+      }
+    }
+  }
+}

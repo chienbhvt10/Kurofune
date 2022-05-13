@@ -1,34 +1,40 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { historyData } from "../../../commons/data";
 import "./order-history.scss";
 const OrderHistoryPage = () => {
+  const { i18n, t } = useTranslation();
+  let lang = localStorage.getItem("lang");
+
   return (
     <div id="order-history" className="list_order">
       <div className="card table-responsive">
         <table className="table-order">
           <thead>
             <tr>
-              <td>注文日</td>
-              <td>注文番号</td>
+              <td>{t("client.order-history.th_order_date")}</td>
+              <td>{t("client.order-history.th_order_ID")}</td>
               <td>
-                ステータス{" "}
+                {t("client.order-history.th_order_status")}
                 <i className="fas fa-info-circle collape-info-status"></i>
               </td>
-              <td>金額</td>
-              <td>注文商品</td>
+              <td>{t("client.order-history.th_order_price")}</td>
+              <td>{t("client.order-history.th_purchase_product")}</td>
               <td></td>
             </tr>
           </thead>
           <tbody>
-            {historyData.map((item) => (
-              <tr>
+            {historyData.map((item, index) => (
+              <tr key={index}>
                 <td>
-                  <time datetime={item.fulltime}>{item.time}</time>
+                  <time dateTime={item.fulltime}>{item.time}</time>
                 </td>
                 <td>{item.op}</td>
                 <td>
-                  <p className="order-status status-processing">{item.status}</p>
+                  <p className="order-status status-processing">
+                    {item.status}
+                  </p>
                 </td>
                 <td>
                   <p>
@@ -42,8 +48,8 @@ const OrderHistoryPage = () => {
                 </td>
                 <td>
                   <div className="info-product">
-                    {item.infoProduct.map((product) => (
-                      <a href={product.link}>
+                    {item.infoProduct.map((product, index) => (
+                      <a key={index} href={product.link}>
                         <div className="p-item p-image mr-2">
                           <img
                             width="50"
@@ -58,10 +64,10 @@ const OrderHistoryPage = () => {
                 </td>
                 <td className="action-order">
                   <Link
-                    to={item.orderDetailUrl}
+                    to={`${lang}${item.orderDetailUrl}`}
                     className="woocommerce-button button view"
                   >
-                    詳細
+                    {t("client.order-history.btn_view")}
                   </Link>{" "}
                 </td>
               </tr>
@@ -69,13 +75,25 @@ const OrderHistoryPage = () => {
           </tbody>
         </table>
         <div className="tracker-order-list" style={{ display: "none" }}>
-          <h6 className="title-list">【ステータスについて】</h6>
+          <h6 className="title-list">
+            {t("client.order-history.about_status")}
+          </h6>
           <ul>
-            <li className="step step1">STEP①: 薬剤師からのメール確認</li>
-            <li className="step step2">STEP②: 商品発送準備</li>
-            <li className="step step3">STEP③: 商品発送済み</li>
-            <li className="step step4">STEP④: 商品受け取り＆支払い</li>
-            <li className="step step5">STEP⑤: 商品受け取り完了</li>
+            <li className="step step1">
+              STEP①: {t("client.order-history.status_step_1")}
+            </li>
+            <li className="step step2">
+              STEP②: {t("client.order-history.status_step_2")}
+            </li>
+            <li className="step step3">
+              STEP③: {t("client.order-history.status_step_3")}
+            </li>
+            <li className="step step4">
+              STEP④: {t("client.order-history.status_step_4")}
+            </li>
+            <li className="step step5">
+              STEP⑤: {t("client.order-history.status_step_5")}
+            </li>
           </ul>
         </div>
         <div className="woocommerce-pagination woocommerce-pagination--without-numbers woocommerce-Pagination">
@@ -83,7 +101,8 @@ const OrderHistoryPage = () => {
             className="woocommerce-button woocommerce-button--next woocommerce-Button woocommerce-Button--next button"
             to="/order-history"
           >
-            次
+            {t("client.order-history.btn_next")}
+            {/* {t("client.order-history.btn_prev")} */}
           </Link>
         </div>
       </div>

@@ -1,15 +1,20 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import BillingShipAddress from "../../../commons/BillingShipAddress";
+import { billingInfo } from "../../../commons/data";
 import ModalTerm from "../../../components/Modal/ModalTerm";
 import "./checkout.scss";
 const CheckoutPage = () => {
+  const { i18n, t } = useTranslation();
   return (
     <div id="checkout-page">
       <div className="cart-custom">
         <div className="cart-header">
-          <h1>Xác nhận mua hàng</h1>
+          <h1>{t("client.checkout.title_confirm")}</h1>
           <div className="description">
-            Vui lòng kiểm tra thông tin đơn hàng. <br />
-            Vui lòng đọc kĩ các điều khoản sử dụng và nhấp vào nút “ MUA ”{" "}
+            {t("client.checkout.confirm_description1")}
+            <br />
+            {t("client.checkout.confirm_description2")}
           </div>
         </div>
 
@@ -19,22 +24,25 @@ const CheckoutPage = () => {
               <thead>
                 <tr>
                   <th className="product-name" scope="col">
-                    Sản phẩm
+                    {t("client.checkout.th_product_name")}
                   </th>
                   <th className="product-price" scope="col">
-                    Số tiền
+                    {t("client.checkout.th_product_price")}
                   </th>
                   <th className="product-quantity" scope="col">
-                    Số lượng{" "}
+                    {t("client.checkout.th_product_quantity")}
                   </th>
                   <th className="product-subtotal" scope="col">
-                    Tổng phụ (Gồm thuế)
+                    {t("client.checkout.th_product_total")}
                   </th>
                 </tr>
               </thead>
               <tbody>
                 <tr>
-                  <td data-label="Sản phẩm" className="product-name">
+                  <td
+                    data-label={t("client.checkout.th_product_name")}
+                    className="product-name"
+                  >
                     <a>
                       <div className="image-wrap">
                         <img
@@ -47,7 +55,10 @@ const CheckoutPage = () => {
                       </div>
                     </a>
                   </td>
-                  <td data-label="Số tiền" className="product-price">
+                  <td
+                    data-label={t("client.checkout.th_product_price")}
+                    className="product-price"
+                  >
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
                         3,278&nbsp;
@@ -57,7 +68,10 @@ const CheckoutPage = () => {
                       </bdi>
                     </span>
                   </td>
-                  <td data-label="Số lượng" className="product-quantity">
+                  <td
+                    data-label={t("client.checkout.th_product_quantity")}
+                    className="product-quantity"
+                  >
                     1{" "}
                   </td>
                   <td className="product-subtotal">
@@ -79,7 +93,9 @@ const CheckoutPage = () => {
             <table className="table table-bordered table-cart-totals">
               <tbody>
                 <tr className="total-amount">
-                  <td className="cart-totals-title">Tổng đơn hàng</td>
+                  <td className="cart-totals-title">
+                    {t("client.checkout.td_total")}
+                  </td>
                   <td className="cart-totals-value">
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
@@ -97,90 +113,28 @@ const CheckoutPage = () => {
         </div>
       </div>
       <div className="info-block billing-address">
-        <h2>Thông tin thanh toán</h2>
-        <div className="info-wrap">
-          <div className="info-row full-name">
-            <p className="label">Họ và Tên</p>
-            <p>wabisabi</p>
-          </div>
-          <div className="info-row post-code">
-            <p>Mã bưu điện/ ZIP code</p>
-            <p className="label">602-8368</p>
-          </div>
-          <div className="info-row prefecture">
-            <p className="label">Tỉnh/ Thành phố </p>
-            <p>京都府</p>
-          </div>
-          <div className="info-row city">
-            <p className="label">Thị trấn / Thành phố</p>
-            <p>京都市上京区</p>
-          </div>
-          <div className="info-row address1">
-            <p className="label">Địa chỉ khu phố</p>
-            <p>北町上の下立売通天神道西入上る3丁目１６番地１２号</p>
-          </div>
-          <div className="info-row address2">
-            <p className="label">Tên toà nhà</p>
-            <p>Azuma</p>
-          </div>
-          <div className="info-row phone">
-            <p className="label">Số điện thoại </p>
-            <p>123456789</p>
-          </div>
-          <div className="info-row email">
-            <p className="label">Địa chỉ email</p>
-            <p>support@wabisabi.media</p>
-          </div>
-        </div>
+        <BillingShipAddress
+          info={billingInfo}
+          title={t("client.checkout.title_billing")}
+        />
       </div>
       <div className="info-block shipping-address">
-        <h2>Thông tin giao hàng </h2>
-        <div className="info-wrap">
-          <div className="info-row full-name">
-            <p className="label">Họ và Tên</p>
-            <p>wabisabi</p>
-          </div>
-          <div className="info-row post-code">
-            <p>Mã bưu điện/ ZIP code</p>
-            <p className="label">100-0002</p>
-          </div>
-          <div className="info-row prefecture">
-            <p className="label">Tỉnh/ Thành phố </p>
-            <p>東京都</p>
-          </div>
-          <div className="info-row city">
-            <p className="label">Thị trấn / Thành phố</p>
-            <p>千代田区</p>
-          </div>
-          <div className="info-row address1">
-            <p className="label">Địa chỉ khu phố</p>
-            <p>皇居外苑</p>
-          </div>
-          <div className="info-row address2">
-            <p className="label">Tên toà nhà</p>
-            <p>Azuma</p>
-          </div>
-          <div className="info-row phone">
-            <p className="label">Số điện thoại </p>
-            <p>123456789</p>
-          </div>
-          <div className="info-row email">
-            <p className="label">Địa chỉ email</p>
-            <p>thanhvv@its-global.vn</p>
-          </div>
-        </div>
+        <BillingShipAddress
+          info={billingInfo}
+          title={t("client.checkout.title_ship")}
+        />
       </div>
-      <div class="error-block mt-4"></div>
-      <div class="submit-block">
+      <div className="error-block mt-4"></div>
+      <div className="submit-block">
         <form action="" id="submit-checkout">
-          <div class="confirm">
+          <div className="confirm">
             <input type="checkbox" id="policy-confirm" />
-            <label for="policy-confirm" className="policy-confirm">
-              <ModalTerm text="Tôi đồng ý với điều khoản sử dụng và mua hàng." />
+            <label htmlFor="policy-confirm" className="policy-confirm">
+              <ModalTerm text={t("client.checkout.accept_term")} />
             </label>
           </div>
-          <button class="btn btn-primary btn-submit-checkout btn-free-out disabled">
-            Mua{" "}
+          <button className="btn btn-primary btn-submit-checkout btn-free-out disabled">
+            {t("client.checkout.btn_text_buy")}
           </button>
         </form>
       </div>
