@@ -25,10 +25,6 @@ class CategoryController extends Controller
             $posts_per_page = config('constants.pagination.items_per_page');
             $cat = Category::paginate($posts_per_page);
 
-            foreach ($cat as $item) {
-                $item->category_image = get_image_url($item->category_image);
-            }
-
             return $this->responseData($cat);
         } catch (\Exception $error) {
             DB::rollback();
@@ -121,8 +117,6 @@ class CategoryController extends Controller
                 return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
-            $cat->category_image = get_image_url($cat->category_image);
-
             return $this->responseData($cat);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
@@ -199,7 +193,6 @@ class CategoryController extends Controller
             ];
 
             $cat->update($params_update);
-            $cat->category_image = get_image_url($cat->category_image);
             DB::commit();
             return $this->successWithData(__('message.category.updated'), $cat, Response::HTTP_OK);
         } catch (\Exception $error) {
@@ -257,8 +250,6 @@ class CategoryController extends Controller
             if (empty($detail)) {
                 return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
-
-            $detail->category_image = get_image_url($detail->category_image);
 
             return $this->responseData($detail);
         } catch (\Exception $error) {
