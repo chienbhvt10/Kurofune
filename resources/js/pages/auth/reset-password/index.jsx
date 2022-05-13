@@ -9,12 +9,10 @@ import "./reset-password.scss";
 const ResetPassword = () => {
   const [param, setParam] = useSearchParams();
   const dispatch = useDispatch();
-  let navigate = useNavigate();
-  let resetEmail = localStorage.getItem("save-email");
+  const navigate = useNavigate();
+  let resetEmail = localStorage.getItem("forgot-email");
 
-  console.log("resetEmail", resetEmail);
-
-  const resetPasswordInitValue = {
+  const resetPasswordInitValues = {
     token: param.get("token"),
     email: resetEmail,
     password: "",
@@ -22,10 +20,9 @@ const ResetPassword = () => {
   };
 
   const formik = useFormik({
-    initialValues: resetPasswordInitValue,
+    initialValues: resetPasswordInitValues,
     onSubmit: (values) => {
       if(values){
-        console.log("values form", values);
         dispatch(resetPassword(values));
         navigate("/login");
       }

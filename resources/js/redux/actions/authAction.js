@@ -14,13 +14,23 @@ export const login = createAsyncThunk(authActions.login, async (payload) => {
 });
 
 export const forgotPassword = createAsyncThunk(authActions.forgotPassword, async(payload) => {
-  const res = authApis.forgotPassword(payload).then(data => data);
-  return res; 
+  const res = authApis.forgotPassword(payload).then(data => {
+    if(data.status_code === 200){
+      localStorage.setItem("forgot-email", payload);
+      return data;
+    }
+  });
+  return res;
 });
 
 export const resetPassword = createAsyncThunk(authActions.resetPassword, async (payload) => {
-  const res = authApis.resetPassword(payload).then(data => data);
+  const res = authApis.resetPassword(payload).then(data => {
+    if(data.status_code === 200){
+      localStorage.removeItem('forgot-email');
+      return data;
+    }
+  });
   return res;
-})
+});
 
 export default authActions;
