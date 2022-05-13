@@ -25,7 +25,9 @@ const userReducers = createReducer(initialState, (builder) => {
     //notification
   });
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
-    //notification
+    state.users = state.users.filter(
+      (item, index) => item.id !== actions.payload
+    );
   });
 });
 export default userReducers;

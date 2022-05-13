@@ -12,11 +12,11 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
     <form className={className}>
       <div className="separate">
         <div className="form-group">
-          <label>({lang}) Locate </label>
+          <label>({lang}) Locale </label>
           <input
             type="text"
-            name="locate"
-            value={formik.values.locate}
+            name="locale"
+            value={formik.values.locale}
             onChange={formik.handleChange}
           />
         </div>
@@ -81,11 +81,11 @@ const SubFormUserTranslate = ({ lang, className, formik }) => {
           />
         </div>
         <div className="form-group">
-          <label>({lang}) Drug Handled </label>
+          <label>({lang}) Drugs Handled </label>
           <textarea
             type="text"
-            name="drug_handled"
-            value={formik.values.drug_handled}
+            name="drugs_handled"
+            value={formik.values.drugs_handled}
             onChange={formik.handleChange}
           />
         </div>

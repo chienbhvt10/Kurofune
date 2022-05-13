@@ -25,7 +25,7 @@ export const UserList = () => {
 
   const onDelete = (row) => async () => {
     await deleteUser(row.id);
-    await getAllUsers();
+    // await getAllUsers();
   };
   const onEdit = (row) => () => {
     navigate(`${lang}/admin/user-update/${row.id}`);

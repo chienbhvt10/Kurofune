@@ -41,7 +41,7 @@ export const deleteUserAction = createAsyncThunk(
   userActions.deleteUser,
   async (payload) => {
     const res = await userApis.deleteUser(payload).then((data) => data);
-    return res;
+    return payload;
   }
 );
 export default userActions;

@@ -118,7 +118,7 @@ const PlanProfileForm = ({ formik, className }) => {
           <div className="form-group">
             <label>Payment</label>
             <select
-              name="gender"
+              name="payment"
               value={formik.values.gender}
               onChange={formik.handleChange}
             >
@@ -208,8 +208,8 @@ const PlanProfileForm = ({ formik, className }) => {
           <div className="form-group">
             <label>Education Status</label>
             <select
-              name="overseas_remittance_status"
-              value={formik.values.overseas_remittance_status}
+              name="education_status"
+              value={formik.values.education_status}
               onChange={formik.handleChange}
             >
               <option value="1">EDU_N1 </option>

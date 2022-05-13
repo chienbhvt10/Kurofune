@@ -9,31 +9,31 @@ const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
             className={`switch-label ${activeTab === 1 ? "active" : ""}`}
             onClick={() => onChangeLanguageForm(1)}
           >
-            Japan
+            English
           </label>
           <label
             className={`switch-label ${activeTab === 2 ? "active" : ""}`}
             onClick={() => onChangeLanguageForm(2)}
           >
-            Vietnam
+            Japan
           </label>
           <label
             className={`switch-label ${activeTab === 3 ? "active" : ""}`}
             onClick={() => onChangeLanguageForm(3)}
           >
-            China
+            Thailand
           </label>
           <label
             className={`switch-label ${activeTab === 4 ? "active" : ""}`}
             onClick={() => onChangeLanguageForm(4)}
           >
-            Philippines
+            Vietnam
           </label>
           <label
             className={`switch-label ${activeTab === 5 ? "active" : ""}`}
             onClick={() => onChangeLanguageForm(5)}
           >
-            English
+            China
           </label>
         </div>
       </div>

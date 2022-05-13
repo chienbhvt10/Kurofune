@@ -26,7 +26,7 @@ const UpdateUser = () => {
   const onSave = async (values) => {
     await updateUser(values);
     await getAllUsers();
-    navigate(`${lang}/admin/user-list`);
+    // navigate(`${lang}/admin/user-list`);
   };
 
   return (

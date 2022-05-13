@@ -42,36 +42,37 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     active: item?.active || 0,
   };
   const planInitValues = {
-    dob: item?.dob || "",
-    gender: item?.gender || "",
-    facebook: item?.facebook || "",
-    line: item?.line || "",
-    address: item?.address || "",
-    nationality: item?.nationality || "",
-    visa_type: item?.visa_type || "",
-    job_name: item?.job_name || "",
-    company_representative: item?.company_representative || "",
-    inflow_source: item?.inflow_source || "",
-    payment: item?.payment || "",
-    insurance_status: item?.insurance_status || "",
-    insurance_support: item?.insurance_support || "",
-    insurance_start_date: item?.insurance_start_date || "",
-    overseas_remittance_status: item?.overseas_remittance_status || "",
-    orientation: item?.orientation || "",
-    start_date_education: item?.start_date_education || "",
-    end_date_education: item?.end_date_education || "",
-    education_status: item?.education_status || "",
-    wabisabi_my_page_registration: item?.wabisabi_my_page_registration || "",
+    dob: item?.profile?.dob || "",
+    gender: item?.profile?.gender || 0,
+    facebook: item?.profile?.facebook || "",
+    line: item?.profile?.line || "",
+    address: item?.profile?.address || "",
+    nationality: item?.profile?.nationality || "",
+    visa_type: item?.profile?.visa_type || "",
+    job_name: item?.profile?.job_name || "",
+    company_representative: item?.profile?.company_representative || "",
+    inflow_source: item?.profile?.inflow_source || "",
+    payment: item?.profile?.payment || 0,
+    insurance_status: item?.profile?.insurance_status || 1,
+    insurance_support: item?.profile?.insurance_support || "",
+    insurance_start_date: item?.profile?.insurance_start_date || "",
+    overseas_remittance_status: item?.profile?.overseas_remittance_status || 0,
+    orientation: item?.profile?.orientation || "",
+    start_date_education: item?.profile?.start_date_education || "",
+    end_date_education: item?.profile?.end_date_education || "",
+    education_status: item?.profile?.education_status || 1,
+    wabisabi_my_page_registration:
+      item?.profile?.wabisabi_my_page_registration || 0,
   };
   const translateInitValues = {
-    locate: "",
+    locale: "",
     name: "",
     permit_classification: "",
     founder: "",
     items_stated_permit: "",
     management_pharmacist: "",
     registered_seller_working: "",
-    drug_handled: "",
+    drugs_handled: "",
     distinguishing_by_name: "",
     business_hours: "",
     consultation_hours: "",
@@ -114,23 +115,23 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
 
   const vendorProfileFormikEN = useFormik({
     initialValues:
-      item?.vendor_profile?.vendor_translations[1] || translateInitValues,
+      item?.vendor_profile?.vendor_translations[0] || translateInitValues,
   });
   const vendorProfileFormikJP = useFormik({
     initialValues:
-      item?.vendor_profile?.vendor_translations[2] || translateInitValues,
+      item?.vendor_profile?.vendor_translations[1] || translateInitValues,
   });
   const vendorProfileFormikTL = useFormik({
     initialValues:
-      item?.vendor_profile?.vendor_translations[3] || translateInitValues,
+      item?.vendor_profile?.vendor_translations[2] || translateInitValues,
   });
   const vendorProfileFormikVI = useFormik({
     initialValues:
-      item?.vendor_profile?.vendor_translations[4] || translateInitValues,
+      item?.vendor_profile?.vendor_translations[3] || translateInitValues,
   });
   const vendorProfileFormikZH = useFormik({
     initialValues:
-      item?.vendor_profile?.vendor_translations[5] || translateInitValues,
+      item?.vendor_profile?.vendor_translations[4] || translateInitValues,
   });
   const commonAddressFormik = useFormik({
     initialValues: commonAddressInitValues,
@@ -166,15 +167,19 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
           },
           en: {
             ...vendorProfileFormikEN.values,
+            dob: moment(vendorProfileFormikEN.values.dob).format("yyyy-MM-dd"),
           },
           zh: {
             ...vendorProfileFormikZH.values,
+            dob: moment(vendorProfileFormikZH.values.dob).format("yyyy-MM-dd"),
           },
           tl: {
             ...vendorProfileFormikTL.values,
+            dob: moment(vendorProfileFormikTL.values.dob).format("yyyy-MM-dd"),
           },
           vi: {
             ...vendorProfileFormikVI.values,
+            dob: moment(vendorProfileFormikVI.values.dob).format("yyyy-MM-dd"),
           },
         };
       }
@@ -187,7 +192,6 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
           ...planProfileFormik.values,
         };
       }
-      console.log(submitValues);
       onSave({ ...submitValues });
     },
   });
@@ -198,11 +202,21 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     billingAddressFormik.setValues(billingAddressInitValues);
     shippingAddressFormik.setValues(shippingAddressInitValues);
     commonAddressFormik.setValues(commonAddressInitValues);
-    vendorProfileFormikEN.setValues(item?.en || translateInitValues);
-    vendorProfileFormikJP.setValues(item?.ja || translateInitValues);
-    vendorProfileFormikTL.setValues(item?.tl || translateInitValues);
-    vendorProfileFormikZH.setValues(item?.zh || translateInitValues);
-    vendorProfileFormikVI.setValues(item?.vi || translateInitValues);
+    vendorProfileFormikEN.setValues(
+      item?.vendor_profile?.vendor_translations[0] || translateInitValues
+    );
+    vendorProfileFormikJP.setValues(
+      item?.vendor_profile?.vendor_translations[1] || translateInitValues
+    );
+    vendorProfileFormikTL.setValues(
+      item?.vendor_profile?.vendor_translations[2] || translateInitValues
+    );
+    vendorProfileFormikVI.setValues(
+      item?.vendor_profile?.vendor_translations[3] || translateInitValues
+    );
+    vendorProfileFormikZH.setValues(
+      item?.vendor_profile?.vendor_translations[4] || translateInitValues
+    );
   }, [item]);
 
   React.useEffect(() => {
@@ -341,9 +355,7 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
             </div>
           </form>
         </div>
-        <pre>
-          {planProfileFormik.values && JSON.stringify(planProfileFormik.values)}
-        </pre>
+
         <div className="translate-role">
           <Phase2UserForm
             role={userInfoFormik.values.role}
