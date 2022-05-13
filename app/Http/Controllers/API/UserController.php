@@ -457,8 +457,11 @@ class UserController extends Controller
             $password = $request->password ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
-            $file_avatar = $request->file('avatar');
-            $filename = upload_avatar($file_avatar);
+            $file_avatar = $request->file('avatar') ?? null;
+            if($file_avatar) {
+                $filename = upload_avatar($file_avatar);
+                $user->avatar = $filename;
+            }
             $get_role = Role::findByName($role, 'api');
             $user->syncRoles($get_role);
             $user->name = $name;
@@ -468,7 +471,6 @@ class UserController extends Controller
                 $user->password = Hash::make($password);
             }
             $user->active = $active;
-            $user->avatar = $filename;
             $user->save();
             $user->address()->update([
                 'postal_code' => $request->postal_code ?? null,
