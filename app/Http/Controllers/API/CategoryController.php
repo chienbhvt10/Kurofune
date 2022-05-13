@@ -247,11 +247,13 @@ class CategoryController extends Controller
             $id = $request->id;
             $detail = Category::find($id);
 
-            if (empty($detail)) {
+            $data = $detail->products()->get();
+
+            if (empty($data)) {
                 return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
-            return $this->responseData($detail);
+            return $this->responseData($data);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
