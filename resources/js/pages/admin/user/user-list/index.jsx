@@ -2,11 +2,11 @@ import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useNavigate } from "react-router-dom";
 import { TableHeader } from "../../../../commons/TableHeader";
-import useUsers from "../../../../hooks/user/useUsers";
 import useDeleteUser from "../../../../hooks/user/useDeleteUser";
-
+import useUsers from "../../../../hooks/user/useUsers";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
+
 
 export const UserList = () => {
   const lang = localStorage.getItem("lang");

@@ -6,4 +6,12 @@ export const authApis = {
     const url = ROOT_URL + "login";
     return axiosClient.post(url, data);
   },
+  forgotPassword: async (data) => {
+    const url = ROOT_URL + "forgot-password";
+    return axiosClient.post(url, { email: data });
+  },
+  resetPassword: async (data) => {
+    const url = ROOT_URL + "reset-password";
+    return axiosClient.post(url, data);
+  }
 };

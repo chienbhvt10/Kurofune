@@ -1,9 +1,26 @@
-import React from "react";
-import "./forget-password.scss";
-const LostPassword = () => {
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
+import { forgotPassword } from "../../../redux/actions/authAction";
+import "./forgot-password.scss";
+
+const ForgotPassword = () => {
+  let lang = localStorage.getItem("lang");
+  const [forgotEmail, setForgotEmail] = useState("");
+  const dispatch = useDispatch();
+
+  const handleChangeEmail = (e) => {
+    setForgotEmail(e.target.value);
+  };
+
+  const handleResetPassword = () => {
+    localStorage.setItem("save-email", forgotEmail);
+    dispatch(forgotPassword(forgotEmail));
+  }
+
   return (
-    <div id="lost-password-page">
-      <form className="lost-password-form">
+    <div id="forgot-password-page">
+      <form className="forgot-password-form">
         <div className="container">
           <div className="box-text">
             <p>
@@ -23,8 +40,9 @@ const LostPassword = () => {
                 className="form-control"
                 name="user_email"
                 id="user_email"
-                value="aaaa"
+                value={forgotEmail}
                 style={{ textTransform: "lowercase" }}
+                onChange={(e) => handleChangeEmail(e)}
               />
               <img
                 src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
@@ -33,18 +51,19 @@ const LostPassword = () => {
               />
             </div>
             <div className="form-group d-few text-center">
-              <button
-                type="submit"
-                name="submit-action"
+              <Link
+                to={`${lang}/reset-link-password`}
                 className="btn btn-primary w-auto"
+                onClick={() => handleResetPassword()}
+                state={{forgotEmail}}
               >
                 GỬI EMAIL{" "}
-              </button>
+              </Link>
             </div>
             <div className="form-group d-few text-center">
-              <a className="btn btn-back" href="/login">
+              <Link className="btn btn-back" to="/login">
                 Trở lại
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -52,4 +71,4 @@ const LostPassword = () => {
     </div>
   );
 };
-export default LostPassword;
+export default ForgotPassword;
