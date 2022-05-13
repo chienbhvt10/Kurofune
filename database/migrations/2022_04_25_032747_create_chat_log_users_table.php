@@ -16,9 +16,8 @@ class CreateChatLogUsersTable extends Migration
         Schema::create('chat_log_users', function (Blueprint $table) {
             $table->id();
             $table->string('cpid');
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->longText('data_log');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
