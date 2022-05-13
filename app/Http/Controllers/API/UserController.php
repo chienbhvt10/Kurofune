@@ -130,7 +130,7 @@ class UserController extends Controller
             ]);
 
             $user->shipping_address()->create([
-                'full_name' => $request->shipping_address['fullname'] ?? null,
+                'full_name' => $request->shipping_address['full_name'] ?? null,
                 'postal_code' => $request->shipping_address['postal_code'] ?? null,
                 'city' => $request->shipping_address['city'] ?? null,
                 'prefecture' => $request->shipping_address['prefecture'] ?? null,
@@ -141,7 +141,7 @@ class UserController extends Controller
             ]);
 
             $user->billing_address()->create([
-                'full_name' => $request->billing_address['fullname'] ?? null,
+                'full_name' => $request->billing_address['full_name'] ?? null,
                 'postal_code' => $request->billing_address['postal_code'] ?? null,
                 'city' => $request->billing_address['city'] ?? null,
                 'prefecture' => $request->billing_address['prefecture'] ?? null,
@@ -457,8 +457,11 @@ class UserController extends Controller
             $password = $request->password ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
-            $file_avatar = $request->file('avatar');
-            $filename = upload_avatar($file_avatar);
+            $file_avatar = $request->file('avatar') ?? null;
+            if($file_avatar) {
+                $filename = upload_avatar($file_avatar);
+                $user->avatar = $filename;
+            }
             $get_role = Role::findByName($role, 'api');
             $user->syncRoles($get_role);
             $user->name = $name;
@@ -468,7 +471,6 @@ class UserController extends Controller
                 $user->password = Hash::make($password);
             }
             $user->active = $active;
-            $user->avatar = $filename;
             $user->save();
             $user->address()->update([
                 'postal_code' => $request->postal_code ?? null,
@@ -479,25 +481,25 @@ class UserController extends Controller
             ]);
 
             $user->shipping_address()->update([
-                'full_name' => $request->shipping_fullname ?? null,
-                'postal_code' => $request->shipping_postal_code ?? null,
-                'city' => $request->shipping_city ?? null,
-                'prefecture' => $request->shipping_prefecture ?? null,
-                'street_address' => $request->shipping_street_address ?? null,
-                'building' => $request->shipping_building ?? null,
-                'phone' => $request->shipping_phone ?? null,
-                'email' => $request->shipping_email ?? null,
+                'full_name' => $request->shipping_address['full_name'] ?? null,
+                'postal_code' => $request->shipping_address['postal_code'] ?? null,
+                'city' => $request->shipping_address['city'] ?? null,
+                'prefecture' => $request->shipping_address['prefecture'] ?? null,
+                'street_address' => $request->shipping_address['street_address'] ?? null,
+                'building' => $request->shipping_address['building'] ?? null,
+                'phone' => $request->shipping_address['phone'] ?? null,
+                'email' => $request->shipping_address['email'] ?? null,
             ]);
 
             $user->billing_address()->update([
-                'full_name' => $request->billing_fullname ?? null,
-                'postal_code' => $request->billing_postal_code ?? null,
-                'city' => $request->billing_city ?? null,
-                'prefecture' => $request->billing_prefecture ?? null,
-                'street_address' => $request->billing_street_address ?? null,
-                'building' => $request->billing_building ?? null,
-                'phone' => $request->billing_phone ?? null,
-                'email' => $request->billing_email ?? null,
+                'full_name' => $request->billing_address['full_name'] ?? null,
+                'postal_code' => $request->billing_address['postal_code'] ?? null,
+                'city' => $request->billing_address['city'] ?? null,
+                'prefecture' => $request->billing_address['prefecture'] ?? null,
+                'street_address' => $request->billing_address['street_address'] ?? null,
+                'building' => $request->billing_address['building'] ?? null,
+                'phone' => $request->billing_address['phone'] ?? null,
+                'email' => $request->billing_address['email'] ?? null,
             ]);
 
             if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {

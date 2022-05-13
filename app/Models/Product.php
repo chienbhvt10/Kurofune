@@ -30,6 +30,10 @@ class Product extends Model
 
     public $timestamps = true;
 
+    public function getProductImageAttribute(){
+        return $this->attributes['product_image'] = get_image_url($this->attributes['product_image']);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | SCOPES
