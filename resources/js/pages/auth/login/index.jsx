@@ -85,7 +85,7 @@ export const Login = () => {
             <label htmlFor="vehicle1"> {t("login.remember")}</label>
           </div>
           <Link
-            to="member/lostpassword"
+            to="member/ForgotPassword"
             className="text-decoration-none text-forgot"
           >
             {t("login.forgetPassword")}
