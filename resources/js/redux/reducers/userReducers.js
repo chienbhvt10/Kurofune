@@ -9,6 +9,7 @@ import {
 const initialState = {
   users: [],
   user: undefined,
+  errorMessage: undefined,
 };
 
 const userReducers = createReducer(initialState, (builder) => {
@@ -19,10 +20,18 @@ const userReducers = createReducer(initialState, (builder) => {
     state.user = actions.payload.data;
   });
   builder.addCase(createUserAction.fulfilled, (state, actions) => {
-    state.users = [...state.users, actions.payload.data];
+    if (actions.payload.data) {
+      state.users = [...state.users, actions.payload.data];
+    } else {
+      state.errorMessage = actions.payload;
+    }
   });
   builder.addCase(updateUserAction.fulfilled, (state, actions) => {
-    //notification
+    if (actions.payload.data) {
+      state.users = [...state.users, actions.payload.data];
+    } else {
+      state.errorMessage = actions.payload;
+    }
   });
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
     state.users = state.users.filter(
