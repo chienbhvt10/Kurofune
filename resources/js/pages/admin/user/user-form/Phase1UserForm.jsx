@@ -9,13 +9,20 @@ import useRoles from "../../../../hooks/role/useRoles";
 import Phase2UserForm from "./Phase2UserForm";
 import moment from "moment";
 import "./user-form.scss";
-export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
+import RenderApiErrorMessage from "../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
+import RenderFormikErrorMessage from "../../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
+export const UserForm = ({
+  item,
+  typeForm,
+  onCancel,
+  onSave,
+  title,
+  errorMessage,
+}) => {
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const lang = localStorage.getItem("lang");
-  React.useEffect(() => {
-    console.log(item);
-  }, [item]);
+  React.useEffect(() => {}, [item]);
   const validateUserInfo = Yup.object().shape({
     id: Yup.string(),
     role: Yup.string().required("Role required!"),
@@ -225,13 +232,6 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
     }
   }, [roles]);
 
-  const renderErrorMessage = (formikInstance, field) => {
-    return (
-      formikInstance.touched[field] && (
-        <div className="form-error">{formikInstance.errors[field]}</div>
-      )
-    );
-  };
   const onGeneratePassword = () => {
     const password = generatePassword(12);
     userInfoFormik.setFieldValue("password", password);
@@ -269,14 +269,20 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                     value={userInfoFormik.values.role}
                     onChange={userInfoFormik.handleChange}
                   >
-                    <option value="">Open this select menu</option>
                     {roles.map((item, index) => (
                       <option key={index} value={item.name}>
                         {item.name}
                       </option>
                     ))}
                   </select>
-                  {renderErrorMessage(userInfoFormik, "role")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="role"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="role"
+                  />
                 </div>
                 <div className="form-group">
                   <label>Name</label>
@@ -286,7 +292,14 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                     value={userInfoFormik.values.name}
                     onChange={userInfoFormik.handleChange}
                   />
-                  {renderErrorMessage(userInfoFormik, "name")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="name"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="name"
+                  />
                 </div>
 
                 <div className="form-group">
@@ -297,7 +310,14 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                     value={userInfoFormik.values.email}
                     onChange={userInfoFormik.handleChange}
                   />
-                  {renderErrorMessage(userInfoFormik, "email")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="email"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="email"
+                  />
                 </div>
 
                 <div className="form-group">
@@ -308,7 +328,14 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                     value={userInfoFormik.values.phone}
                     onChange={userInfoFormik.handleChange}
                   />
-                  {renderErrorMessage(userInfoFormik, "phone")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="phone"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="phone"
+                  />
                 </div>
 
                 <div className="form-group">
@@ -319,7 +346,14 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                     value={userInfoFormik.values.username}
                     onChange={userInfoFormik.handleChange}
                   />
-                  {renderErrorMessage(userInfoFormik, "username")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="username"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="username"
+                  />
                 </div>
 
                 <div className="form-group">
@@ -335,7 +369,14 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                       Generate
                     </button>
                   </div>
-                  {renderErrorMessage(userInfoFormik, "password")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="password"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="password"
+                  />
                 </div>
 
                 <div className="form-group">
@@ -349,7 +390,14 @@ export const UserForm = ({ item, typeForm, onCancel, onSave, title }) => {
                     <option value={0}>USER_ACTIVE</option>
                     <option value={1}>USER_INACTIVE</option>
                   </select>
-                  {renderErrorMessage(userInfoFormik, "active")}
+                  <RenderFormikErrorMessage
+                    formikInstance={userInfoFormik}
+                    field="active"
+                  />
+                  <RenderApiErrorMessage
+                    errorMessage={errorMessage}
+                    field="active"
+                  />
                 </div>
               </div>
             </div>

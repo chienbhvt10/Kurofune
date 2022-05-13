@@ -7,7 +7,7 @@ import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
   const navigate = useNavigate();
-  const { createUser, users } = useCreateUser();
+  const { createUser, users, errorMessage } = useCreateUser();
 
   const lang = localStorage.getItem("lang");
 
@@ -19,9 +19,11 @@ const AddUser = () => {
     await createUser(values);
     // navigate(`${lang}/admin/user-list`);
   };
+
   return (
     <div id="add-user">
       <UserForm
+        errorMessage={errorMessage}
         onCancel={onCancel}
         onSave={onSave}
         title="Create User"

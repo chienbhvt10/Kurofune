@@ -3,13 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { createUserAction } from "../../redux/actions/userAction";
 
 const useCreateUser = () => {
-  const users = useSelector((state) => state.userState.users);
+  const userState = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   const createUser = (payload) => {
     dispatch(createUserAction(payload));
   };
   return {
-    users,
+    users: userState.uses,
+    errorMessage: userState.errorMessage,
     createUser,
   };
 };
