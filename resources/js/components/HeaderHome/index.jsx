@@ -12,7 +12,7 @@ import { Languages } from "../../commons/Languges";
 import "./header-home.scss";
 import { useTranslation } from "react-i18next";
 const HeaderHome = ({ toggleSideBar }) => {
-  let lang = localStorage.getItem("lang");
+  const lang = localStorage.getItem("lang");
   const { i18n, t } = useTranslation();
   return (
     <div id="header-home">
@@ -126,7 +126,7 @@ const HeaderHome = ({ toggleSideBar }) => {
             </div>
 
             <div className="logout-wrap">
-              <Link to="/login" title={t("header.btn_logout")}>
+              <Link to={`${lang}/login`} title={t("header.btn_logout")}>
                 {t("header.btn_logout")}
                 <FontAwesomeIcon
                   className="icon"

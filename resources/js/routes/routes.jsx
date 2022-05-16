@@ -74,6 +74,7 @@ const appRouter = () => {
           element={<Navigate to={`${lang}/member`} />}
           exact={true}
         />
+        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route
           path={`/${lang}/`}
           element={
@@ -215,7 +216,6 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route path={`/${lang}/service-24h`} element={<Service24H />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

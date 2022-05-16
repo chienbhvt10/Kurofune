@@ -22,4 +22,12 @@ export const userApis = {
     const url = ROOT_URL + `users/${data}`;
     return axiosClient.delete(url);
   },
+  showProfile: async () => {
+    const url = ROOT_URL + `profile`;
+    return axiosClient.get(url);
+  },
+  changePassword: async (data) => {
+    const url = ROOT_URL + `change-password`;
+    return axiosClient.put(url, data);
+  },
 };
