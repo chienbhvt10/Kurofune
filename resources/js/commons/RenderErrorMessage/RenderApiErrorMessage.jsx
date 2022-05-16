@@ -1,14 +1,14 @@
 import React from "react";
 import "./RenderErrorMessage.scss";
 
-const RenderApiErrorMessage = ({ errorMessage, field }) => {
+const RenderApiErrorMessage = ({ response, field }) => {
   return (
     <div className="form-error">
-      {errorMessage?.message?.[field] ? errorMessage?.message?.[field]?.map((item, index) => (
+      {response?.message?.[field] ? response?.message?.[field]?.map((item, index) => (
         <span className="" key={index}>
           {item}
         </span>
-      )) : errorMessage?.message}
+      )) : response?.message}
     </div>
   );
 };

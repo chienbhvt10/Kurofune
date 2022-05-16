@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
-import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { forgotPassword } from "../../../redux/actions/authAction";
 import RenderFormikErrorMessage from "../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
 import RenderApiErrorMessage from "../../../commons/RenderErrorMessage/RenderApiErrorMessage";
+import useForgotPassword from "../../../hooks/auth/useForgotPassword";
 import "./forgot-password.scss";
 
 const forgotEmailInitValues = {
@@ -17,23 +16,30 @@ const validateForgotEmail = Yup.object().shape({
 });
 
 const ForgotPassword = () => {
-  let lang = localStorage.getItem("lang");
+  const lang = localStorage.getItem("lang");
   const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const messageErrors = useSelector((state) => state.authState.errorMessages);
-
-  console.log("messageErrors", messageErrors);
+  let { response, getForgotPassword, resetResponse } = useForgotPassword();
 
   const formik = useFormik({
     initialValues: forgotEmailInitValues,
     validationSchema: validateForgotEmail,
     onSubmit: (values) => {
-      dispatch(forgotPassword(values.email));
-      if(messageErrors?.status_code === 200){
-        navigate(`${lang}/reset-link-password`);
-      }
+      getForgotPassword(values.email);
     },
   });
+
+  const backLogin = () => {
+    resetResponse(undefined);
+  }
+
+  useEffect(() => {
+    if (!response || response?.status_code !== 200) {
+      return;
+    } else {
+      navigate(`${lang}/member/reset-link-password`);
+      backLogin();
+    }
+  }, [response]);
 
   return (
     <div id="forgot-password-page">
@@ -41,13 +47,12 @@ const ForgotPassword = () => {
         <div className="container">
           <div className="box-text">
             <p>
-              Bạn quên mật khẩu đúng không?
+              Lost your password? Please enter your email address.
               <br />
-              Hãy điền địa chỉ email, chúng tôi sẽ gửi một đường dẫn cài đặt lại
-              mật khẩu mới.
+              You will receive a link to create a new password via email.
             </p>
           </div>
-          <div className="">
+          <div>
             <div className="form-group">
               <label htmlFor="email" className="pd-left">
                 Email
@@ -59,28 +64,29 @@ const ForgotPassword = () => {
                 id="email"
                 style={{ textTransform: "lowercase" }}
                 value={formik.values.email}
-                onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
               />
-              <RenderFormikErrorMessage
-                formikInstance={formik}
-                field="email"
-              />
-              <RenderApiErrorMessage errorMessage={messageErrors} field="email" />
               <img
-                src="https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
+                className="icon-input"
+                src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
                 alt=""
-                className="icon"
               />
+              <div>
+                <RenderFormikErrorMessage
+                  formikInstance={formik}
+                  field="email"
+                />
+                <RenderApiErrorMessage response={response} field="email" />
+              </div>
             </div>
             <div className="form-group d-few text-center">
               <button type="submit" className="btn btn-primary w-auto">
-                GỬI EMAIL{" "}
+                RESET PASSWORD{" "}
               </button>
             </div>
             <div className="form-group d-few text-center">
-              <Link className="btn btn-back" to="/login">
-                Trở lại
+              <Link className="btn btn-back" to={`${lang}/member/login`} onClick={backLogin}>
+                BACK
               </Link>
             </div>
           </div>

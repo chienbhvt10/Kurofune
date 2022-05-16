@@ -4,7 +4,8 @@ import { authApis } from "../../services/auth-apis";
 const authActions = {
   login: createAction("LOGIN"),
   forgotPassword: createAction("FORGOT_PASSWORD"),
-  resetPassword: createAction("RESET_PASSWORD")
+  resetPassword: createAction("RESET_PASSWORD"),
+  resetResponseState: createAction("RESET_RESPONSE_STATE")
 };
 
 export const login = createAsyncThunk(authActions.login, async (payload) => {
@@ -31,6 +32,10 @@ export const resetPassword = createAsyncThunk(authActions.resetPassword, async (
     }
   }).catch(errors => JSON.parse(errors.response.request.response));
   return res;
+});
+
+export const resetResponseState = createAsyncThunk(authActions.resetResponseState, async (payload) => {
+  return payload;
 });
 
 export default authActions;
