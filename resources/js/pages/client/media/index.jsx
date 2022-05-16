@@ -12,12 +12,14 @@ import PageHead from "../../../commons/PageHead";
 import "./media.scss";
 import { Languages } from "../../../commons/Languges";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const MediaPage = () => {
   const { i18n, t } = useTranslation();
   function createMarkup() {
     return { __html: t("login.title") };
   }
+  const lang = localStorage.getItem("lang");
   return (
     <>
       <PageHead content={t("login.title")} title={t("login.title")} />
@@ -38,46 +40,37 @@ const MediaPage = () => {
 
               <div className="option">
                 <div className="settings-wrap">
-                  <a
-                    href="https://member.wabisabi.media/vi/member/change-profile"
-                    title=""
-                  >
+                  <Link to={`${lang}/member/change-profile`} title="">
                     <FontAwesomeIcon
                       className="icon"
                       icon={faUserGear}
                       size="sm"
                     />
                     <span>{t("client.media.btn_user_info")} </span>
-                  </a>
+                  </Link>
                 </div>
                 <div className="logout-wrap pc">
-                  <a
-                    href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=bb23afb59e"
-                    title="Thoát"
-                  >
+                  <Link to={`${lang}/login`} title="Thoát">
                     {t("client.media.btn_logout")}
                     <FontAwesomeIcon
                       className="icon"
                       icon={faSignOutAlt}
                       size="sm"
                     />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
             <div className="switch-lang sp">
               <div className="logout-wrap">
-                <a
-                  href="https://member.wabisabi.media/wp-login.php?action=logout&amp;_wpnonce=bb23afb59e"
-                  title="Thoát"
-                >
+                <Link to={`${lang}/login`} title="Thoát">
                   {t("client.media.btn_logout")}
                   <FontAwesomeIcon
                     className="icon"
                     icon={faSignOutAlt}
                     size="sm"
                   />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

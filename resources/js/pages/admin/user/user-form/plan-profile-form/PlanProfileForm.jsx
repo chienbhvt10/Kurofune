@@ -1,9 +1,12 @@
+import moment from "moment";
 import React from "react";
+import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from "react-redux";
+import DatePickerField from "../../../../../commons/DatePickerField";
 import RenderApiErrorMessage from "../../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
 import RenderFormikErrorMessage from "../../../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
 const PlanProfileForm = ({ formik, className }) => {
-  const errorMessage = useSelector((state) => state.userState.errorMessage);
+  const response = useSelector((state) => state.userState.response);
 
   return (
     <div className={`common-profile-form ${className}`}>
@@ -11,15 +14,9 @@ const PlanProfileForm = ({ formik, className }) => {
         <div className="separate">
           <div className="form-group">
             <label>DOB</label>
-            <input
-              type="date"
-              name="dob"
-              placeholder="yyyy-MM-dd"
-              value={formik.values.dob}
-              onChange={formik.handleChange}
-            />
+            <DatePickerField formik={formik} field="dob" />
             <RenderFormikErrorMessage formikInstance={formik} field="dob" />
-            <RenderApiErrorMessage errorMessage={errorMessage} field="dob" />
+            <RenderApiErrorMessage response={response} field="dob" />
           </div>
           <div className="form-group">
             <label>Gender</label>
@@ -32,7 +29,7 @@ const PlanProfileForm = ({ formik, className }) => {
               <option value="1">FEMALE</option>
             </select>
             <RenderFormikErrorMessage formikInstance={formik} field="gender" />
-            <RenderApiErrorMessage errorMessage={errorMessage} field="gender" />
+            <RenderApiErrorMessage response={response} field="gender" />
           </div>
         </div>
         <div className="separate">
@@ -48,10 +45,7 @@ const PlanProfileForm = ({ formik, className }) => {
               formikInstance={formik}
               field="facebook"
             />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="facebook"
-            />
+            <RenderApiErrorMessage response={response} field="facebook" />
           </div>
           <div className="form-group">
             <label>Line</label>
@@ -62,7 +56,7 @@ const PlanProfileForm = ({ formik, className }) => {
               onChange={formik.handleChange}
             />
             <RenderFormikErrorMessage formikInstance={formik} field="line" />
-            <RenderApiErrorMessage errorMessage={errorMessage} field="line" />
+            <RenderApiErrorMessage response={response} field="line" />
           </div>
         </div>
         <div className="separate">
@@ -75,10 +69,7 @@ const PlanProfileForm = ({ formik, className }) => {
               onChange={formik.handleChange}
             />
             <RenderFormikErrorMessage formikInstance={formik} field="address" />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="address"
-            />
+            <RenderApiErrorMessage response={response} field="address" />
           </div>
           <div className="form-group">
             <label>Nationality</label>
@@ -92,10 +83,7 @@ const PlanProfileForm = ({ formik, className }) => {
               formikInstance={formik}
               field="nationality"
             />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="nationality"
-            />
+            <RenderApiErrorMessage response={response} field="nationality" />
           </div>
         </div>
         <div className="separate">
@@ -111,10 +99,7 @@ const PlanProfileForm = ({ formik, className }) => {
               formikInstance={formik}
               field="visa_type"
             />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="visa_type"
-            />
+            <RenderApiErrorMessage response={response} field="visa_type" />
           </div>
           <div className="form-group">
             <label>Job Name</label>
@@ -128,10 +113,7 @@ const PlanProfileForm = ({ formik, className }) => {
               formikInstance={formik}
               field="job_name"
             />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="job_name"
-            />
+            <RenderApiErrorMessage response={response} field="job_name" />
           </div>
         </div>
         <div className="separate">
@@ -148,7 +130,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="company_representative"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="company_representative"
             />
           </div>
@@ -164,10 +146,7 @@ const PlanProfileForm = ({ formik, className }) => {
               formikInstance={formik}
               field="inflow_source"
             />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="inflow_source"
-            />
+            <RenderApiErrorMessage response={response} field="inflow_source" />
           </div>
         </div>
         <div className="separate">
@@ -182,7 +161,7 @@ const PlanProfileForm = ({ formik, className }) => {
               <option value="0">No</option>
             </select>
             <RenderFormikErrorMessage formikInstance={formik} field="gender" />
-            <RenderApiErrorMessage errorMessage={errorMessage} field="gender" />
+            <RenderApiErrorMessage response={response} field="gender" />
           </div>
           <div className="form-group">
             <label>Insurance Status</label>
@@ -203,7 +182,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="insurance_status"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="insurance_status"
             />
           </div>
@@ -222,7 +201,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="insurance_support"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="insurance_support"
             />
           </div>
@@ -239,7 +218,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="insurance_start_date"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="insurance_start_date"
             />
           </div>
@@ -260,7 +239,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="overseas_remittance_status"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="overseas_remittance_status"
             />
           </div>
@@ -276,44 +255,31 @@ const PlanProfileForm = ({ formik, className }) => {
               formikInstance={formik}
               field="orientation"
             />
-            <RenderApiErrorMessage
-              errorMessage={errorMessage}
-              field="orientation"
-            />
+            <RenderApiErrorMessage response={response} field="orientation" />
           </div>
         </div>
         <div className="separate">
           <div className="form-group">
             <label>Start Date Education</label>
-            <input
-              type="date"
-              name="start_date_education"
-              value={formik.values.start_date_education}
-              onChange={formik.handleChange}
-            />
+            <DatePickerField formik={formik} field="start_date_education" />
             <RenderFormikErrorMessage
               formikInstance={formik}
               field="start_date_education"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="start_date_education"
             />
           </div>
           <div className="form-group">
             <label>End Date Education</label>
-            <input
-              type="date"
-              name="end_date_education"
-              value={formik.values.end_date_education}
-              onChange={formik.handleChange}
-            />
+            <DatePickerField formik={formik} field="end_date_education" />
             <RenderFormikErrorMessage
               formikInstance={formik}
               field="end_date_education"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="end_date_education"
             />
           </div>
@@ -340,7 +306,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="education_status"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="education_status"
             />
           </div>
@@ -359,7 +325,7 @@ const PlanProfileForm = ({ formik, className }) => {
               field="wabisabi_my_page_registration"
             />
             <RenderApiErrorMessage
-              errorMessage={errorMessage}
+              response={response}
               field="wabisabi_my_page_registration"
             />
           </div>

@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import { PREF } from "../../commons/data";
 import postal_code from "japan-postal-code";
+import RenderFormikErrorMessage from "../../commons/RenderErrorMessage/RenderFormikErrorMessage";
 import "./style.scss";
 
 const credential = Yup.object().shape(
   {
-    fullName: Yup.string().required("Full Name require"),
+    name: Yup.string().required("Name require"),
     toPostalCode: Yup.string().when("fromPostalCode", {
       is: (fieldTwo) => !fieldTwo || fieldTwo.length === 0,
       then: Yup.string().required("At least one of the fields is required"),
@@ -27,63 +28,74 @@ const credential = Yup.object().shape(
   ["toPostalCode", "fromPostalCode"]
 );
 
-export const FormInfor = ({ onSubmit, item }) => {
+export const FormInfor = ({ onSave, item }) => {
   const { i18n, t } = useTranslation();
 
-  const initialValues = {
-    fullName: item.fullName,
-    toPostalCode: item.toPostalCode,
-    fromPostalCode: item.fromPostalCode,
-    prefecture: item.prefecture,
-    city: item.city,
-    area: item.street,
-    building: item.building,
-    phone: item.phone,
-    email: item.email,
+  const formInfoInitValues = {
+    name: item?.name || "",
+    toPostalCode: item?.address?.toPostalCode || "",
+    fromPostalCode: item?.address?.fromPostalCode || "",
+    prefecture: item?.address?.prefecture || "",
+    city: item?.address?.city || "",
+    street_address: item?.address?.street_address || "",
+    building: item?.address?.building || "",
+    phone: item?.phone || "",
+    email: item?.email || "",
   };
-
-  const formik = useFormik({
-    initialValues: initialValues,
+  React.useEffect(() => {
+    formInfoFomik.setValues(formInfoInitValues);
+  }, [item]);
+  const formInfoFomik = useFormik({
+    initialValues: formInfoInitValues,
     validationSchema: credential,
-    onSubmit: onSubmit,
+    onSubmit: () => {
+      onSave();
+    },
   });
 
   const renderErrorMessage = (field) => {
     return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
+      formInfoFomik.touched[field] && (
+        <div className="form-error">{formInfoFomik.errors[field]}</div>
       )
     );
   };
   const onCodeJapan = () => {
-    if (formik.values.toPostalCode && formik.values.fromPostalCode) {
-      const code = formik.values.toPostalCode + formik.values.fromPostalCode;
+    if (
+      formInfoFomik.values.toPostalCode &&
+      formInfoFomik.values.fromPostalCode
+    ) {
+      const code =
+        formInfoFomik.values.toPostalCode + formInfoFomik.values.fromPostalCode;
       postal_code.get(code, (address) => {
         if (address.prefecture || address.city || address.street) {
-          formik.setFieldValue("prefecture", address.prefecture);
-          formik.setFieldValue("city", address.city);
-          formik.setFieldValue("area", address.area);
+          formInfoFomik.setFieldValue("prefecture", address.prefecture);
+          formInfoFomik.setFieldValue("city", address.city);
+          formInfoFomik.setFieldValue("area", address.area);
         }
       });
     }
   };
   return (
-    <form id="form-infor" onSubmit={formik.handleSubmit}>
+    <form id="form-infor" onSubmit={formInfoFomik.handleSubmit}>
       <div className="row">
         <div className="form-group">
-          <label htmlFor="fullName">
+          <label htmlFor="name">
             {t("member.change_profile.field_full_name")}
             <span>*</span>
           </label>
           <input
-            id="fullName"
+            id="name"
             type="text"
-            name="fullName"
+            name="name"
             className="form-control-auth"
-            onChange={formik.handleChange}
-            value={formik.values.fullName}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.name}
           />
-          {renderErrorMessage("fullName")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="name"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="postalCode">
@@ -96,16 +108,16 @@ export const FormInfor = ({ onSubmit, item }) => {
               name="toPostalCode"
               className="form-control-postal-code mr-2"
               id="toPostalCode"
-              onChange={formik.handleChange}
-              value={formik.values.toPostalCode}
+              onChange={formInfoFomik.handleChange}
+              value={formInfoFomik.values.toPostalCode}
             />
             <input
               type="text"
               name="fromPostalCode"
               className="form-control-postal-code ml-2"
               id="fromPostalCode"
-              onChange={formik.handleChange}
-              value={formik.values.fromPostalCode}
+              onChange={formInfoFomik.handleChange}
+              value={formInfoFomik.values.fromPostalCode}
             />
             <button type="button" className="btn-search" onClick={onCodeJapan}>
               {t("member.change_profile.btn_search")}
@@ -123,8 +135,8 @@ export const FormInfor = ({ onSubmit, item }) => {
             name="prefecture"
             as="select"
             className="p-0 form-control-auth"
-            onChange={formik.handleChange}
-            value={formik.values.prefecture}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.prefecture}
           >
             <option disabled></option>
             {PREF.map((item, index) => (
@@ -133,7 +145,10 @@ export const FormInfor = ({ onSubmit, item }) => {
               </option>
             ))}
           </select>
-          {renderErrorMessage("prefecture")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="prefecture"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="city">
@@ -144,10 +159,13 @@ export const FormInfor = ({ onSubmit, item }) => {
             type="text"
             className="form-control-auth"
             id="city"
-            onChange={formik.handleChange}
-            value={formik.values.city}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.city}
           />
-          {renderErrorMessage("city")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="city"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="street">
@@ -155,14 +173,17 @@ export const FormInfor = ({ onSubmit, item }) => {
             <span>*</span>
           </label>
           <input
-            name="area"
+            name="street_address"
             type="text"
             className="form-control-auth"
             id="street"
-            onChange={formik.handleChange}
-            value={formik.values.area}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.street_address}
           />
-          {renderErrorMessage("area")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="street_address"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="building">
@@ -173,10 +194,13 @@ export const FormInfor = ({ onSubmit, item }) => {
             type="text"
             className="form-control-auth"
             id="building"
-            onChange={formik.handleChange}
-            value={formik.values.building}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.building}
           />
-          {renderErrorMessage("building")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="building"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="phone">
@@ -188,10 +212,13 @@ export const FormInfor = ({ onSubmit, item }) => {
             type="text"
             className="form-control-auth"
             id="phone"
-            onChange={formik.handleChange}
-            value={formik.values.phone}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.phone}
           />
-          {renderErrorMessage("phone")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="phone"
+          />
         </div>
         <div className="form-group">
           <label htmlFor="email">
@@ -203,10 +230,13 @@ export const FormInfor = ({ onSubmit, item }) => {
             type="text"
             className="form-control-auth"
             id="email"
-            onChange={formik.handleChange}
-            value={formik.values.email}
+            onChange={formInfoFomik.handleChange}
+            value={formInfoFomik.values.email}
           />
-          {renderErrorMessage("email")}
+          <RenderFormikErrorMessage
+            formikInstance={formInfoFomik}
+            field="email"
+          />
         </div>
       </div>
       <button className="btn btn-primary d-block ml-auto" type="submit">

@@ -12,23 +12,28 @@ const UpdateUser = () => {
   const { getUser, user } = useUser();
   const { getAllUsers } = useUsers();
 
-  const { updateUser } = useUpdateUser();
+  const { updateUser, response } = useUpdateUser();
   const lang = localStorage.getItem("lang");
 
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
+  };
+  const onSave = async (values) => {
+    await updateUser(values);
   };
   React.useEffect(() => {
     if (id) {
       getUser(id);
     }
   }, [id]);
-  const onSave = async (values) => {
-    await updateUser(values);
-    await getAllUsers();
-    // navigate(`${lang}/admin/user-list`);
-  };
-
+  React.useEffect(() => {
+    if (response?.status_code === 200) {
+      getAllUsers();
+      navigate(`${lang}/admin/user-list`);
+    } else {
+      return;
+    }
+  }, [response]);
   return (
     <div id="update-user">
       <UserForm

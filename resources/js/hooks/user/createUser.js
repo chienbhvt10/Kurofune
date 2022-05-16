@@ -1,4 +1,3 @@
-import React, { useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createUserAction } from "../../redux/actions/userAction";
 
@@ -9,8 +8,8 @@ const useCreateUser = () => {
     dispatch(createUserAction(payload));
   };
   return {
-    users: userState.uses,
-    errorMessage: userState.errorMessage,
+    users: userState.users,
+    response: userState.response,
     createUser,
   };
 };
