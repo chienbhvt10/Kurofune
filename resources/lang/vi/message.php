@@ -65,10 +65,10 @@ return [
         'deleted' => 'Product deleted',
         'not_exist' => 'Product not exist',
     ],
-    'ShippingMethod' => [
-        'create_success' => 'Create shipping method successfully',
-        'update_success' => 'Update shipping method successfully',
-        'delete_success' => 'Delete shipping method successfully',
+    'shipping_method' => [
+        'created' => 'Create shipping method successfully',
+        'updated' => 'Update shipping method successfully',
+        'deleted' => 'Delete shipping method successfully',
         'not_exist' => 'Shipping method not exist'
     ]
 ];

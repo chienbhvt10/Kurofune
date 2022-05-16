@@ -28,8 +28,8 @@ class ShippingMethodController extends Controller
     { 
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
-            $shipping = ShippingMethod::paginate($posts_per_page);
-             return $this->responseData($shipping);
+            $shipping_method = ShippingMethod::paginate($posts_per_page);
+             return $this->responseData($shipping_method);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
@@ -48,12 +48,12 @@ class ShippingMethodController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'string|max:191',
                 'description' =>  'string|max:191',
-                'total' => 'numeric|regex:^(?:[1-9]\d{1,12}+|\d)(?:\,\d\d)?$' 
+                //decimal[13.2]
+                'total' => 'numeric|regex:^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$' 
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
                 DB::rollBack();
-                $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
           
@@ -62,7 +62,7 @@ class ShippingMethodController extends Controller
             $description = $request->description ?? null;
             $logo = $request->file('logo') ?? null;
             if(!empty($logo)){
-                $logo_path = upload_single_image($logo, 'shippingmethod');
+                $logo_path = upload_single_image($logo, 'shippingmethods');
                 $data['logo'] = $logo_path; 
             }
             $data = [
@@ -72,9 +72,9 @@ class ShippingMethodController extends Controller
                 'logo'=>$logo,
             ];
 
-            $shippingmethod = ShippingMethod::create($data);
+            $shipping_method = ShippingMethod::create($data);
             DB::commit();
-            return $this->successWithData(__('message.shippingmethod.create_success'), $shippingmethod );
+            return $this->successWithData(__('message.shipping_method.created'), $shipping_method );
         } catch (\Exception $error) {
             DB::rollback();
             return $this->errorResponse($error->getMessage());
@@ -90,16 +90,16 @@ class ShippingMethodController extends Controller
     public function show(Request $request ,$id)
     {
         try {
-            $shippingmethod = ShippingMethod::find($id); 
-            if (!$shippingmethod) {
-                return $this->errorResponse(__('message.shippingmethod.not_exist'), Response::HTTP_NOT_FOUND);
+            $shipping_method = ShippingMethod::find($id); 
+            if (!$shipping_method) {
+                return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            $logo = $shippingmethod->logo ?? null;
+            $logo = $shipping_method->logo ?? null;
 
             $data = [
-                'name' => $shippingmethod->name,
-                'total' => $shippingmethod->total,
-                'description' => $shippingmethod->description,
+                'name' => $shipping_method->name,
+                'total' => $shipping_method->total,
+                'description' => $shipping_method->description,
                 'logo' => $logo,
             ];
 
@@ -120,14 +120,15 @@ class ShippingMethodController extends Controller
     {
         try {
             DB::beginTransaction();
-            $ShippingMethod = ShippingMethod::find($id);
-            if (!$ShippingMethod) {
-                return $this->errorResponse(__('message.shippingmethod.not_exist'), Response::HTTP_NOT_FOUND);
+            $shipping_method = ShippingMethod::find($id);
+            if (!$shipping_method) {
+                return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
                 'name' => 'string|max:191',
                 'description' =>  'string|max:191',
-                'total' => 'numeric|regex:^(?:[1-9]\d{1,12}+|\d)(?:\,\d\d)?$'
+                //decimal[13.2]
+                'total' => 'numeric|regex:^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -138,17 +139,17 @@ class ShippingMethodController extends Controller
             $description = $request->description ?? null;
             $logo_update = $request->file('logo');
             if (!empty($logo_update)) {
-                $logo_path = upload_single_image($logo_update, 'page');
-                $ShippingMethod['image'] = $logo_path; 
+                $logo_path = upload_single_image($logo_update, 'shippingmethods');
+                $shipping_method['image'] = $logo_path; 
             }
-            $ShippingMethod->update([
+            $shipping_method->update([
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
             ]);
 
             DB::commit();
-            return $this->successWithData(__('message.shippingmethod.update_success'), $ShippingMethod );
+            return $this->successWithData(__('message.shipping_method.updated'), $shipping_method );
         } catch (\Exception $error) {
             DB::rollBack();
             return $this->errorResponse($error->getMessage());
@@ -164,9 +165,9 @@ class ShippingMethodController extends Controller
     public function destroy($id)
     {
         try {
-            $shippingmethod = shippingmethod::find($id);
-            $shippingmethod->delete();
-            return $this->success(__('message.shippingmethod.delete_success'));
+            $shipping_method = ShippingMethod::find($id);
+            $shipping_method->delete();
+            return $this->success(__('message.shipping_method.deleted'));
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
