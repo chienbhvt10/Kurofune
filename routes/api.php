@@ -78,6 +78,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
                 Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
             });
+
+            Route::get('list-shipping-method',[\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
         });
     });
 

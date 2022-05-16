@@ -178,4 +178,13 @@ class ShippingMethodController extends Controller
             return $this->errorResponse($error->getMessage());
         }
     }
+
+    public function listShippingmethod(){
+        try {
+            $shipping_method = ShippingMethod::all();
+             return $this->responseData($shipping_method);
+        } catch (\Exception $error) {
+            return $this->errorResponse($error->getMessage());
+        }
+    }
 }
