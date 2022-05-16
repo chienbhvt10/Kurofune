@@ -34,8 +34,8 @@ export const resetPassword = createAsyncThunk(authActions.resetPassword, async (
   return res;
 });
 
-export const resetResponseState = createAsyncThunk(authActions.resetResponseState, async (payload) => {
-  return payload;
+export const resetResponseState = createAsyncThunk(authActions.resetResponseState, async () => {
+  return;
 });
 
 export default authActions;

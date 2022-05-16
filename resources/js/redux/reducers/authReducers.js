@@ -4,7 +4,7 @@ const initialState = {
   userInfo: {},
   token: "",
   isLogin: false,
-  response: {}
+  response: undefined
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -23,7 +23,7 @@ const authReducers = createReducer(initialState, (builder) => {
   });
   
   builder.addCase(resetResponseState.fulfilled, (state, actions) => {
-    state.response = actions.payload;
+    state.response = undefined;
   });
 });
 export default authReducers;

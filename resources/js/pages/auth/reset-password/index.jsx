@@ -49,7 +49,7 @@ const ResetPassword = () => {
       return;
     } else {
       navigate(`${lang}/member/login`);
-      resetResponse(undefined);
+      resetResponse();
     }
   }, [response]);
 

@@ -7,8 +7,8 @@ const useResetPassword = () => {
   const getResetPassword = (params) => {
     dispatch(resetPassword(params));
   };
-  const resetResponse = (params) => {
-    dispatch(resetResponseState(params));
+  const resetResponse = () => {
+    dispatch(resetResponseState());
   }
   return {
     response,
