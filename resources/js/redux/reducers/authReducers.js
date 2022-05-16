@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { login, forgotPassword, resetPassword, resetResponseState } from "../actions/authAction";
+import { login, forgotPassword, resetPassword, resetResponseState, logout } from "../actions/authAction";
 const initialState = {
   userInfo: {},
   token: "",
@@ -25,5 +25,11 @@ const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(resetResponseState.fulfilled, (state, actions) => {
     state.response = undefined;
   });
+
+  builder.addCase(logout.fulfilled, (state, actions) => {
+    console.log("state", state);
+    console.log("actions", actions);
+  });
+
 });
 export default authReducers;

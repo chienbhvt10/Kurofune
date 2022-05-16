@@ -6,6 +6,18 @@ export const authApis = {
     const url = ROOT_URL + "login";
     return axiosClient.post(url, data);
   },
+  logout: async () => {
+    const url = ROOT_URL + "logout";
+    return axiosClient.post(url);
+  },
+  checkLogin: () => {
+    const jwtToken = localStorage.getItem("access_token");
+    if(jwtToken){
+      return true;
+    }else{
+      return false;
+    }
+  },
   forgotPassword: async (data) => {
     const url = ROOT_URL + "forgot-password";
     return axiosClient.post(url, { email: data });
