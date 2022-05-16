@@ -1,10 +1,10 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { login, forgotPassword, resetPassword } from "../actions/authAction";
+import { login, forgotPassword, resetPassword, resetResponseState } from "../actions/authAction";
 const initialState = {
   userInfo: {},
   token: "",
   isLogin: false,
-  errorMessages: undefined
+  response: undefined
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -13,20 +13,17 @@ const authReducers = createReducer(initialState, (builder) => {
     state.token = actions.payload.access_token;
     state.isLogin = true;
   });
-  builder.addCase(login.rejected, (state, actions) => {
-    console.log("Reject Action");
-  });
+  
   builder.addCase(forgotPassword.fulfilled, (state, actions) => {
-    state.errorMessages = actions.payload;
+    state.response = actions.payload;
   });
-  builder.addCase(forgotPassword.rejected, (state, actions) => {
-    console.log("state", state);
-  });
+  
   builder.addCase(resetPassword.fulfilled, (state, actions) => {
-    state.errorMessages = actions.payload;
+    state.response = actions.payload;
   });
-  builder.addCase(resetPassword.rejected, (state, actions) => {
-    console.log("state", state);
+  
+  builder.addCase(resetResponseState.fulfilled, (state, actions) => {
+    state.response = undefined;
   });
 });
 export default authReducers;
