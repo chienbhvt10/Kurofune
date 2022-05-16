@@ -1,4 +1,5 @@
 import React from "react";
+import "./RenderErrorMessage.scss";
 
 const RenderFormikErrorMessage = ({ formikInstance, field }) => {
   return (

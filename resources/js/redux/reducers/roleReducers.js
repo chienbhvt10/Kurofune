@@ -8,8 +8,5 @@ const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(getRoles.fulfilled, (state, actions) => {
     state.roles = actions.payload.data;
   });
-  builder.addCase(getRoles.rejected, (state, actions) => {
-    console.log("Reject Action");
-  });
 });
 export default authReducers;

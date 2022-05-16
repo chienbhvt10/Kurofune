@@ -106,7 +106,7 @@ const appRouter = () => {
           <Route path={`cart`} element={<Cart />} exact={true}></Route>
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
         </Route>
-        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
+        <Route path={`/${lang}/member`} element={<AuthLayout />} exact={true}>
           <Route path={`login`} element={<Login />} exact={true} />
           <Route
             path={`forgot-password`}
