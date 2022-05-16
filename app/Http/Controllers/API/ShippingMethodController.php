@@ -49,7 +49,10 @@ class ShippingMethodController extends Controller
                 'name' => 'string|max:191',
                 'description' =>  'string|max:191',
                 //decimal[13.2]
-                'total' => 'numeric|regex:^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$' 
+                'total' => [
+                    'numeric',
+                    'regex:/^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$/'
+                ], 
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -128,7 +131,10 @@ class ShippingMethodController extends Controller
                 'name' => 'string|max:191',
                 'description' =>  'string|max:191',
                 //decimal[13.2]
-                'total' => 'numeric|regex:^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$'
+                'total' => [
+                    'numeric',
+                    'regex:/^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$/'
+                ], 
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
