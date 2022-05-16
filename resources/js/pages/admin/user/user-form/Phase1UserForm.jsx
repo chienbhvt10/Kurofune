@@ -17,7 +17,7 @@ export const UserForm = ({
   onCancel,
   onSave,
   title,
-  errorMessage,
+  response,
 }) => {
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
@@ -268,6 +268,7 @@ export const UserForm = ({
                     value={userInfoFormik.values.role}
                     onChange={userInfoFormik.handleChange}
                   >
+                    <option value="">Select an option</option>
                     {roles.map((item, index) => (
                       <option key={index} value={item.name}>
                         {item.name}
@@ -278,10 +279,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="role"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="role"
-                  />
+                  <RenderApiErrorMessage response={response} field="role" />
                 </div>
                 <div className="form-group">
                   <label>Name</label>
@@ -295,10 +293,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="name"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="name"
-                  />
+                  <RenderApiErrorMessage response={response} field="name" />
                 </div>
 
                 <div className="form-group">
@@ -313,10 +308,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="email"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="email"
-                  />
+                  <RenderApiErrorMessage response={response} field="email" />
                 </div>
 
                 <div className="form-group">
@@ -331,10 +323,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="phone"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="phone"
-                  />
+                  <RenderApiErrorMessage response={response} field="phone" />
                 </div>
 
                 <div className="form-group">
@@ -349,10 +338,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="username"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="username"
-                  />
+                  <RenderApiErrorMessage response={response} field="username" />
                 </div>
 
                 <div className="form-group">
@@ -372,10 +358,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="password"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="password"
-                  />
+                  <RenderApiErrorMessage response={response} field="password" />
                 </div>
 
                 <div className="form-group">
@@ -393,10 +376,7 @@ export const UserForm = ({
                     formikInstance={userInfoFormik}
                     field="active"
                   />
-                  <RenderApiErrorMessage
-                    errorMessage={errorMessage}
-                    field="active"
-                  />
+                  <RenderApiErrorMessage response={response} field="active" />
                 </div>
               </div>
             </div>

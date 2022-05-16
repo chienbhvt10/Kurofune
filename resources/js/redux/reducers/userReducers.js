@@ -1,4 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { useNavigate } from "react-router-dom";
 import {
   createUserAction,
   deleteUserAction,
@@ -9,9 +10,8 @@ import {
 const initialState = {
   users: [],
   user: undefined,
-  errorMessage: undefined,
+  response: undefined,
 };
-
 const userReducers = createReducer(initialState, (builder) => {
   builder.addCase(getUsersAction.fulfilled, (state, actions) => {
     state.users = actions.payload.data.data;
@@ -21,16 +21,16 @@ const userReducers = createReducer(initialState, (builder) => {
   });
   builder.addCase(createUserAction.fulfilled, (state, actions) => {
     if (actions.payload.data) {
-      state.users = [...state.users, actions.payload.data];
+      state.response = actions.payload;
     } else {
-      state.errorMessage = actions.payload;
+      state.response = actions.payload;
     }
   });
   builder.addCase(updateUserAction.fulfilled, (state, actions) => {
     if (actions.payload.data) {
-      state.users = [...state.users, actions.payload.data];
+      state.response = actions.payload;
     } else {
-      state.errorMessage = actions.payload;
+      state.response = actions.payload;
     }
   });
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {

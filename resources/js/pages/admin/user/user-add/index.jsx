@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useCreateUser from "../../../../hooks/user/createUser";
 import useUsers from "../../../../hooks/user/useUsers";
 
@@ -7,8 +7,8 @@ import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
   const navigate = useNavigate();
-  const { createUser, users, errorMessage } = useCreateUser();
-
+  const { createUser, response } = useCreateUser();
+  const { getAllUsers } = useUsers();
   const lang = localStorage.getItem("lang");
 
   const onCancel = () => {
@@ -17,13 +17,19 @@ const AddUser = () => {
 
   const onSave = async (values) => {
     await createUser(values);
-    // navigate(`${lang}/admin/user-list`);
   };
-
+  React.useEffect(() => {
+    if (response?.status_code === 200) {
+      getAllUsers();
+      navigate(`${lang}/admin/user-list`);
+    } else {
+      return;
+    }
+  }, [response]);
   return (
     <div id="add-user">
       <UserForm
-        errorMessage={errorMessage}
+        response={response}
         onCancel={onCancel}
         onSave={onSave}
         title="Create User"
