@@ -12,14 +12,24 @@ import PageHead from "../../../commons/PageHead";
 import "./media.scss";
 import { Languages } from "../../../commons/Languges";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useLogout from "../../../hooks/auth/useLogout";
 
 const MediaPage = () => {
   const { i18n, t } = useTranslation();
+  const navigate = useNavigate();
   function createMarkup() {
     return { __html: t("login.title") };
   }
   const lang = localStorage.getItem("lang");
+
+  const { getLogout } = useLogout();
+
+  const logout = () => {
+    getLogout();
+    navigate(`${lang}/login`);
+  }
+
   return (
     <>
       <PageHead content={t("login.title")} title={t("login.title")} />
@@ -50,18 +60,18 @@ const MediaPage = () => {
                   </Link>
                 </div>
                 <div className="logout-wrap pc">
-                  <Link to={`${lang}/login`} title="Thoát">
+                  <a title="Thoát" onClick={logout}>
                     {t("client.media.btn_logout")}
                     <FontAwesomeIcon
                       className="icon"
                       icon={faSignOutAlt}
                       size="sm"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="switch-lang sp">
+            {/* <div className="switch-lang sp">
               <div className="logout-wrap">
                 <Link to={`${lang}/login`} title="Thoát">
                   {t("client.media.btn_logout")}
@@ -72,7 +82,7 @@ const MediaPage = () => {
                   />
                 </Link>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <Footer />
