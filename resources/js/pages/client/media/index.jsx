@@ -12,11 +12,12 @@ import PageHead from "../../../commons/PageHead";
 import "./media.scss";
 import { Languages } from "../../../commons/Languges";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../../hooks/auth/useLogout";
 
 const MediaPage = () => {
   const { i18n, t } = useTranslation();
+  const navigate = useNavigate();
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -26,6 +27,7 @@ const MediaPage = () => {
 
   const logout = () => {
     getLogout();
+    navigate(`${lang}/login`);
   }
 
   return (
@@ -58,14 +60,14 @@ const MediaPage = () => {
                   </Link>
                 </div>
                 <div className="logout-wrap pc">
-                  <Link to={`${lang}/member/login`} title="Thoát" onClick={logout}>
+                  <a title="Thoát" onClick={logout}>
                     {t("client.media.btn_logout")}
                     <FontAwesomeIcon
                       className="icon"
                       icon={faSignOutAlt}
                       size="sm"
                     />
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

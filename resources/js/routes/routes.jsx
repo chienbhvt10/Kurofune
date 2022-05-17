@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { BrowserRouter, Navigate, Route, Routes, useParams } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
@@ -70,24 +70,23 @@ const appRouter = () => {
   let lang = localStorage.getItem("lang");
 
   const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    if(!authApis.checkLogin() && window.location.pathname !== `${lang}/member/login`){
-      window.location.pathname = `${lang}/member/login`;
-      console.log("check");
+    if(!authApis.checkLogin() && window.location.pathname !== `${lang}/login`){
+      window.location.pathname !== `${lang}/login`;
     }else{
       setLoading(false);
     }
   },[]);
-
   if(loading) return null;
+
+  
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={`/`}
-          element={<Navigate to={`${lang}/member/login`} />}
+          element={<Navigate to={`${lang}/login`} />}
           exact={true}
         />
         <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
@@ -120,7 +119,7 @@ const appRouter = () => {
           <Route path={`cart`} element={<Cart />} exact={true}></Route>
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
         </Route>
-        <Route path={`/${lang}/member`} element={<AuthLayout />} exact={true}>
+        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
           <Route path={`login`} element={<Login />} exact={true} />
           <Route
             path={`forgot-password`}

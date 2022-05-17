@@ -5,8 +5,7 @@ const authActions = {
   login: createAction("LOGIN"),
   forgotPassword: createAction("FORGOT_PASSWORD"),
   resetPassword: createAction("RESET_PASSWORD"),
-  resetResponseState: createAction("RESET_RESPONSE_STATE"),
-  logout: createAction("LOGOUT")
+  resetResponseState: createAction("RESET_RESPONSE_STATE")
 };
 
 export const login = createAsyncThunk(authActions.login, async (payload) => {
@@ -18,7 +17,7 @@ export const login = createAsyncThunk(authActions.login, async (payload) => {
 export const forgotPassword = createAsyncThunk(authActions.forgotPassword, async(payload) => {
   const res = await authApis.forgotPassword(payload).then(data => {
     if(data.status_code === 200){
-      localStorage.setItem("forgot-email", payload);
+      localStorage.setItem("reset_email", payload);
       return data;
     }
   }).catch(errors => JSON.parse(errors.response.request.response));
@@ -28,7 +27,7 @@ export const forgotPassword = createAsyncThunk(authActions.forgotPassword, async
 export const resetPassword = createAsyncThunk(authActions.resetPassword, async (payload) => {
   const res = await authApis.resetPassword(payload).then(data => {
     if(data.status_code === 200){
-      localStorage.removeItem('forgot-email');
+      localStorage.removeItem('reset_email');
       return data;
     }
   }).catch(errors => JSON.parse(errors.response.request.response));
@@ -40,10 +39,8 @@ export const resetResponseState = createAsyncThunk(authActions.resetResponseStat
 });
 
 export const logout = createAsyncThunk(authActions.logout, async () => {
-  const res = await authApis.logout();
-  if(res.status_code === 200){
-    localStorage.removeItem("access_token");
-  }
+  const res = await authApis.logout().then((data) => data);
+  localStorage.removeItem("access_token");
   return res;
 });
 
