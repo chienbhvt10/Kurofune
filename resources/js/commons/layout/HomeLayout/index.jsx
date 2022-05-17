@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./home-layout.scss";
 import SideBar from "../../../components/SideBar";
 import HeaderHome from "../../../components/HeaderHome";
-import Footer from "../../../components/footer";
+import Footer from "../../../components/Footer";
 import { Outlet } from "react-router-dom";
 
 const HomeLayout = ({ styleColor, navigateLinkData }) => {
