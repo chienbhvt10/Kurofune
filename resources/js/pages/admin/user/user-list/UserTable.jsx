@@ -2,8 +2,9 @@ import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
+import TableRowAction from "../../../../commons/TableRowAction";
 
-export const UserTable = ({ items }) => {
+export const UserTable = ({ items, onEdit, onDelete }) => {
   const lang = localStorage.getItem("lang");
   const columns = [
     {
@@ -51,17 +52,10 @@ export const UserTable = ({ items }) => {
       align: "center",
       headerAlign: "center",
       headerStyle: {
-        width: 50,
+        width: 100,
       },
       formatter: (cell, row) => (
-        <Link to={`${lang}/admin/user-update/${row.id}`}>
-          <img
-            className="img-row"
-            src="/images/editing.png"
-            alt=""
-            width={25}
-          />
-        </Link>
+        <TableRowAction record={row} onDelete={onDelete} onEdit={onEdit} />
       ),
     },
   ];

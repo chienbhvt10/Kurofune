@@ -4,27 +4,36 @@ import useUser from "../../../../hooks/user/useUser";
 import useUpdateUser from "../../../../hooks/user/useUpdateUser";
 
 import { UserForm } from "../user-form/Phase1UserForm";
+import useUsers from "../../../../hooks/user/useUsers";
 
 const UpdateUser = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { getUser, user } = useUser();
-  const { updateUser } = useUpdateUser();
+  const { getAllUsers } = useUsers();
+
+  const { updateUser, response } = useUpdateUser();
   const lang = localStorage.getItem("lang");
 
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
+  };
+  const onSave = async (values) => {
+    await updateUser(values);
   };
   React.useEffect(() => {
     if (id) {
       getUser(id);
     }
   }, [id]);
-  const onSave = async (values) => {
-    await updateUser(values);
-    navigate(`${lang}/admin/user-list`);
-  };
-
+  React.useEffect(() => {
+    if (response?.status_code === 200) {
+      getAllUsers();
+      navigate(`${lang}/admin/user-list`);
+    } else {
+      return;
+    }
+  }, [response]);
   return (
     <div id="update-user">
       <UserForm

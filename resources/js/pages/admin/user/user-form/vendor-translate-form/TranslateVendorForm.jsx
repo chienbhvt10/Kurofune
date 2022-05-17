@@ -19,29 +19,29 @@ const TranslateVendorForm = ({
       activeTab={activeTab}
     >
       <SubFormUserTranslate
-        lang="JA"
+        lang="EN"
         className={`tab ${activeTab === 1 ? "active" : ""}`}
+        formik={formikEN}
+      />
+      <SubFormUserTranslate
+        lang="JA"
+        className={`tab ${activeTab === 2 ? "active" : ""}`}
         formik={formikJP}
       />
       <SubFormUserTranslate
+        lang="TL"
+        className={`tab ${activeTab === 3 ? "active" : ""}`}
+        formik={formikTL}
+      />
+      <SubFormUserTranslate
         lang="VI"
-        className={`tab ${activeTab === 2 ? "active" : ""}`}
+        className={`tab ${activeTab === 4 ? "active" : ""}`}
         formik={formikVI}
       />
       <SubFormUserTranslate
         lang="ZH"
-        className={`tab ${activeTab === 3 ? "active" : ""}`}
-        formik={formikZH}
-      />
-      <SubFormUserTranslate
-        lang="TL"
-        className={`tab ${activeTab === 4 ? "active" : ""}`}
-        formik={formikTL}
-      />
-      <SubFormUserTranslate
-        lang="EN"
         className={`tab ${activeTab === 5 ? "active" : ""}`}
-        formik={formikEN}
+        formik={formikZH}
       />
     </SwitchTabLangForm>
   );

@@ -19,6 +19,7 @@ export const Login = () => {
   const user = useSelector((state) => state.authState.userInfo);
   const token = useSelector((state) => state.authState.token);
   const { i18n, t } = useTranslation();
+  const lang = localStorage.getItem('lang');
   const { loginUser } = useLogin();
   function createMarkup() {
     return { __html: t("login.title") };
@@ -85,7 +86,7 @@ export const Login = () => {
             <label htmlFor="vehicle1"> {t("login.remember")}</label>
           </div>
           <Link
-            to="member/lostpassword"
+            to={`${lang}/member/forgot-password`}
             className="text-decoration-none text-forgot"
           >
             {t("login.forgetPassword")}

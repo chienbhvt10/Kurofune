@@ -1,6 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useParams } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
@@ -20,7 +20,9 @@ import AddUser from "../pages/admin/user/user-add";
 import { UserList } from "../pages/admin/user/user-list";
 import UpdateUser from "../pages/admin/user/user-update";
 import { AuthLayout } from "../pages/auth/authLayout";
-import LostPassword from "../pages/auth/forget-password";
+import ForgotPassword from "../pages/auth/forgot-password";
+import ResetLinkPassword from "../pages/auth/reset-link-password";
+import ResetPassword from "../pages/auth/reset-password";
 import { Login } from "../pages/auth/login";
 import BillingAddress from "../pages/client/billing-address";
 import Cart from "../pages/client/cart";
@@ -74,6 +76,7 @@ const appRouter = () => {
           element={<Navigate to={`${lang}/member`} />}
           exact={true}
         />
+        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route
           path={`/${lang}/`}
           element={
@@ -103,13 +106,15 @@ const appRouter = () => {
           <Route path={`cart`} element={<Cart />} exact={true}></Route>
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
         </Route>
-        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
+        <Route path={`/${lang}/member`} element={<AuthLayout />} exact={true}>
           <Route path={`login`} element={<Login />} exact={true} />
           <Route
-            path={`lost-password`}
-            element={<LostPassword />}
+            path={`forgot-password`}
+            element={<ForgotPassword />}
             exact={true}
           />
+          <Route path={`reset-link-password`} element={<ResetLinkPassword />} exact={true} />
+          <Route path={`reset-password`} element={<ResetPassword />} exact={true} />
         </Route>
         <Route path={`/${lang}/member`} element={<UserLayout />} exact={true}>
           <Route
@@ -215,7 +220,6 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
         <Route path={`/${lang}/service-24h`} element={<Service24H />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

@@ -35,7 +35,7 @@ class ChangePasswordController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-            User::find(auth()->user()->id)->update(['password'=> Hash::make($request->new_password)]);
+            User::find(auth()->user()->id)->update(['password'=> Hash::make($request->password)]);
             return $this->success(__('message.password.updated'));
         }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
