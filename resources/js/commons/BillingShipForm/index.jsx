@@ -1,119 +1,108 @@
+import { Form, Input, Row, Col } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
 import * as Yup from "yup";
+import InputField from "../Form/InputField";
+import RenderApiErrorMessage from "../RenderErrorMessage/RenderApiErrorMessage";
 
 const credential = Yup.object().shape({});
 
-const BillingShipForm = ({ lang, className, formik, typeForm }) => {
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
-  };
+const BillingShipForm = ({ lang, className, form, typeForm }) => {
+  const response = useSelector((state) => state.userState.response);
+
   return (
-    <form className={className}>
-      <div className="form-group">
-        <label>[{typeForm}] Full Name</label>
-        <input
-          id=""
-          type="text"
-          name="full_name"
-          className=""
-          onChange={formik.handleChange}
-          value={formik.values.full_name}
-        />
-        {/* {renderErrorMessage("fullname")} */}
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>[{typeForm}] Postal code</label>
-          <input
-            id=""
-            type="text"
-            name="postal_code"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.postal_code}
+    <Form className={className} name={`${typeForm}-info-form`} form={form}>
+      <Row justify="center">
+        <Col span={12}>
+          <InputField
+            field="full_name"
+            label="Full Name"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
           />
-          {/* {renderErrorMessage("postalCode")} */}
-        </div>
-        <div className="form-group">
-          <label>[{typeForm}] City</label>
-          <input
-            id=""
-            type="text"
-            name="city"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.city}
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="postal_code"
+            label="Postal code"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
           />
-          {/* {renderErrorMessage("city")} */}
-        </div>
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>[{typeForm}] Prefecture</label>
-          <input
-            id=""
-            type="text"
-            name="prefecture"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.prefecture}
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="prefecture"
+            label="Prefecture"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
           />
-          {/* {renderErrorMessage("prefecture")} */}
-        </div>
-        <div className="form-group">
-          <label>[{typeForm}] Street address</label>
-          <input
-            id=""
-            type="text"
-            name="street_address"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.street_address}
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="city"
+            label="City"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
           />
-          {/* {renderErrorMessage("street_address")} */}
-        </div>
-      </div>
-      <div className="form-group">
-        <label>[{typeForm}] Building</label>
-        <input
-          id=""
-          type="text"
-          name="building"
-          className=""
-          onChange={formik.handleChange}
-          value={formik.values.building}
-        />
-        {/* {renderErrorMessage("building")} */}
-      </div>
-      <div className="form-group">
-        <label>[{typeForm}] Phone</label>
-        <input
-          id=""
-          type="text"
-          name="phone"
-          className=""
-          onChange={formik.handleChange}
-          value={formik.values.phone}
-        />
-        {/* {renderErrorMessage("classification")} */}
-      </div>
-      <div className="form-group">
-        <label>[{typeForm}] Email</label>
-        <input
-          id=""
-          type="text"
-          name="email"
-          className=""
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        {/* {renderErrorMessage("email")} */}
-      </div>
-    </form>
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="street_address"
+            label="Street address"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
+          />
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="building"
+            label="Building"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
+          />
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="phone"
+            label="Phone"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
+          />
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="email"
+            label="Email"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            response={response}
+            type={<Input />}
+            typeForm={typeForm}
+          />
+        </Col>
+      </Row>
+    </Form>
   );
 };
 

@@ -36,13 +36,15 @@ const UpdateUser = () => {
   }, [response]);
   return (
     <div id="update-user">
-      <UserForm
-        onCancel={onCancel}
-        onSave={onSave}
-        item={user}
-        title="Update User"
-        typeForm="update"
-      />
+      {user && (
+        <UserForm
+          onCancel={onCancel}
+          onSave={onSave}
+          item={user}
+          title="Update User"
+          typeForm="update"
+        />
+      )}
     </div>
   );
 };

@@ -1,91 +1,76 @@
-import { auto } from "@popperjs/core";
+import { Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
+import InputField from "../../../../../commons/Form/InputField";
 import RenderApiErrorMessage from "../../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
-import RenderFormikErrorMessage from "../../../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
 
-const CommonInfoForm = ({ className, formik }) => {
-  const errorMessage = useSelector((state) => state.userState.errorMessage);
+const CommonInfoForm = ({ className, form }) => {
+  const response = useSelector((state) => state.userState.response);
   return (
-    <form className={className}>
-      <div className="separate">
-        <div className="form-group">
-          <label>Postal code</label>
-          <input
-            type="text"
-            name="postal_code"
-            onChange={formik.handleChange}
-            value={formik.values.postal_code}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formik}
+    <Form
+      className={className}
+      name="common-address-form"
+      form={form}
+      autoComplete="off"
+    >
+      <Row justify="center">
+        <Col span={12}>
+          <InputField
             field="postal_code"
+            label="Postal code"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            rules={[]}
+            response={response}
+            type={<Input />}
           />
-          <RenderApiErrorMessage
-            errorMessage={errorMessage}
-            field="postal_code"
-          />
-        </div>
-        <div className="form-group">
-          <label>City</label>
-          <input
-            type="text"
-            name="city"
-            onChange={formik.handleChange}
-            value={formik.values.city}
-          />
-          <RenderFormikErrorMessage formikInstance={formik} field="city" />
-          <RenderApiErrorMessage errorMessage={errorMessage} field="city" />
-        </div>
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>Prefecture</label>
-          <input
-            type="text"
-            name="prefecture"
-            onChange={formik.handleChange}
-            value={formik.values.prefecture}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formik}
+        </Col>
+        <Col span={12}>
+          <InputField
             field="prefecture"
+            label="Prefecture"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            rules={[]}
+            response={response}
+            type={<Input />}
           />
-          <RenderApiErrorMessage
-            errorMessage={errorMessage}
-            field="prefecture"
+        </Col>
+        <Col span={12}>
+          <InputField
+            field="city"
+            label="City"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            rules={[]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-        <div className="form-group">
-          <label>Street address</label>
-          <input
-            type="text"
-            name="street_address"
-            onChange={formik.handleChange}
-            value={formik.values.street_address}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formik}
+        </Col>
+        <Col span={12}>
+          <InputField
             field="street_address"
+            label="Street address"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            rules={[]}
+            response={response}
+            type={<Input />}
           />
-          <RenderApiErrorMessage
-            errorMessage={errorMessage}
-            field="street_address"
+        </Col>
+        <Col span={24}>
+          <InputField
+            field="building"
+            label="Building"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 22 }}
+            rules={[]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-      </div>
-      <div className="form-group">
-        <label>Building</label>
-        <input
-          type="text"
-          name="building"
-          onChange={formik.handleChange}
-          value={formik.values.building}
-        />
-        <RenderFormikErrorMessage formikInstance={formik} field="building" />
-        <RenderApiErrorMessage errorMessage={errorMessage} field="building" />
-      </div>
-    </form>
+        </Col>
+      </Row>
+    </Form>
   );
 };
 export default CommonInfoForm;

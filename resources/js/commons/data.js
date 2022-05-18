@@ -751,3 +751,43 @@ export const PREF = [
   { value: "JP46", text: "児島県" },
   { value: "JP47", text: "沖縄県" },
 ];
+export const userFormOptions = {
+  active_status: [
+    { value: 0, label: "USER_ACTIVE" },
+    { value: 1, label: "USER_INACTIVE" },
+  ],
+  gender: [
+    { value: 0, label: "MALE" },
+    { value: 1, label: "FEMALE" },
+  ],
+  payment: [
+    { value: 1, label: "Yes" },
+    { value: 0, label: "No" },
+  ],
+  insurance_status: [
+    { value: 1, label: "1" },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+    { value: 4, label: "4" },
+    { value: 5, label: "5" },
+    { value: 6, label: "6" },
+  ],
+  overseas_remittance_status: [
+    { value: 0, label: "UNREGISTERED" },
+    { value: 1, label: "REGISTERED" },
+  ],
+  education_status: [
+    { value: 1, label: "EDU_N1" },
+    { value: 2, label: "EDU_N2" },
+    { value: 3, label: "EDU_N3" },
+    { value: 4, label: "EDU_N4" },
+    { value: 5, label: "EDU_N5" },
+    { value: 6, label: "EDU_N0" },
+    { value: 7, label: "EDU_UNREGISTERED" },
+    { value: 8, label: "EDU_UNDER_ERASURE" },
+  ],
+  wabisabi_my_page_registration: [
+    { value: 0, label: "UNREGISTERED" },
+    { value: 1, label: "REGISTERED" },
+  ],
+};
