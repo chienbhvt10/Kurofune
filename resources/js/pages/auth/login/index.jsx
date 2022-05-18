@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
@@ -24,6 +24,7 @@ export const Login = () => {
   function createMarkup() {
     return { __html: t("login.title") };
   }
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -33,6 +34,7 @@ export const Login = () => {
     validationSchema: credential,
     onSubmit: (values) => {
       loginUser(values);
+      navigate(`${lang}/media`);
     },
   });
   return (
@@ -86,7 +88,7 @@ export const Login = () => {
             <label htmlFor="vehicle1"> {t("login.remember")}</label>
           </div>
           <Link
-            to={`${lang}/member/forgot-password`}
+            to={`${lang}/forgot-password`}
             className="text-decoration-none text-forgot"
           >
             {t("login.forgetPassword")}

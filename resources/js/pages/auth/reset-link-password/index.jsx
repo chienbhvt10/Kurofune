@@ -6,7 +6,7 @@ const ResetLinkPassword = () => {
   const lang = localStorage.getItem("lang");
 
   const backLogin = () => {
-    localStorage.removeItem("forgot-email");
+    localStorage.removeItem("reset_email");
   };
 
   return (
@@ -18,7 +18,7 @@ const ResetLinkPassword = () => {
         Please check your registered email address.
       </p>
       <div className="form-group d-few text-center">
-        <Link className="btn btn-back" to={`${lang}/member/login`} onClick={backLogin}>
+        <Link className="btn btn-back" to={`${lang}/login`} onClick={backLogin}>
           BACK
         </Link>
       </div>

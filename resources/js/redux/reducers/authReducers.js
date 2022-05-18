@@ -25,5 +25,6 @@ const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(resetResponseState.fulfilled, (state, actions) => {
     state.response = undefined;
   });
+
 });
 export default authReducers;
