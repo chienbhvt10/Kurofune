@@ -9,7 +9,6 @@ export const ChangeProfile = () => {
       showProfile();
     }
   }, [profile]);
-
   const onSave = (value) => {};
   return (
     <>
@@ -19,7 +18,7 @@ export const ChangeProfile = () => {
         <meta name="description" content="Change profile Page" />
         <meta name="og:title" content="Change profile" />
       </Helmet>
-      <FormInfor item={profile} onSave={onSave} />
+      <FormInfor item={profile} onSave={onSave} typeForm="profile" />
     </>
   );
 };

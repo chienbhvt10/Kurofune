@@ -1,3 +1,5 @@
+import moment from "moment";
+
 export const generatePassword = (length) => {
   var result = "";
   var characters =
@@ -7,4 +9,8 @@ export const generatePassword = (length) => {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
   }
   return result;
+};
+
+export const formatDate = (date) => {
+  return moment(date).format("YYYY-MM-DD");
 };

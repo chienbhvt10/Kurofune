@@ -1,40 +1,65 @@
-import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
-import React from "react";
+import { useFormik } from "formik";
+import postal_code from "japan-postal-code";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
 import { PREF } from "../../commons/data";
-import postal_code from "japan-postal-code";
 import RenderFormikErrorMessage from "../../commons/RenderErrorMessage/RenderFormikErrorMessage";
 import "./style.scss";
-
 const credential = Yup.object().shape(
   {
     name: Yup.string().required("Name require"),
-    toPostalCode: Yup.string().when("fromPostalCode", {
-      is: (fieldTwo) => !fieldTwo || fieldTwo.length === 0,
-      then: Yup.string().required("At least one of the fields is required"),
-    }),
-    fromPostalCode: Yup.string().when("toPostalCode", {
-      is: (fieldOne) => !fieldOne || fieldOne.length === 0,
-      then: Yup.string().required("At least one of the fields is required"),
-    }),
+    full_name: Yup.string(),
+    to_code: Yup.string()
+      .max(3, "Only 3 character in first postal code")
+      .when("from_code", {
+        is: (fieldTwo) => !fieldTwo || fieldTwo.length === 0,
+        then: Yup.string().required("At least one of the fields is required"),
+      }),
+    from_code: Yup.string()
+      .max(4, "Only 4 character in second postal code")
+      .when("to_code", {
+        is: (fieldOne) => !fieldOne || fieldOne.length === 0,
+        then: Yup.string().required("At least one of the fields is required"),
+      }),
     prefecture: Yup.string().required("Prefecture require"),
     city: Yup.string().required("Town / City require"),
-    area: Yup.string().required("Street address require"),
-    building: "",
-    phone: Yup.string().required("Phone require"),
+    street_address: Yup.string().required("Street address require"),
+    phone: Yup.string(),
     email: Yup.string().required("Email address require"),
-  },
-  ["toPostalCode", "fromPostalCode"]
+  }[("to_code", "from_code")]
 );
-
-export const FormInfor = ({ onSave, item }) => {
+export const FormInfor = ({ onSave, item, typeForm }) => {
   const { i18n, t } = useTranslation();
-
-  const formInfoInitValues = {
+  const billingInitValues = {
+    name: "",
+    full_name: item?.billing_address?.full_name || "",
+    to_code: item?.billing_address?.postal_code?.slice(0, 3) || "",
+    from_code: item?.billing_address?.postal_code?.slice(3, 7) || "",
+    prefecture: item?.billing_address?.prefecture || "",
+    city: item?.billing_address?.city || "",
+    street_address: item?.billing_address?.street_address || "",
+    building: item?.billing_address?.building || "",
+    phone: item?.billing_address?.phone || "",
+    email: item?.billing_address?.email || "",
+  };
+  const shippingInitValues = {
+    name: "",
+    full_name: item?.shipping_address?.full_name || "",
+    to_code: item?.shipping_address?.postal_code?.slice(0, 3) || "",
+    from_code: item?.shipping_address?.postal_code?.slice(3, 7) || "",
+    prefecture: item?.shipping_address?.prefecture || "",
+    city: item?.shipping_address?.city || "",
+    street_address: item?.shipping_address?.street_address || "",
+    building: item?.shipping_address?.building || "",
+    phone: item?.shipping_address?.phone || "",
+    email: item?.shipping_address?.email || "",
+  };
+  const profileInitValues = {
     name: item?.name || "",
-    toPostalCode: item?.address?.toPostalCode || "",
-    fromPostalCode: item?.address?.fromPostalCode || "",
+    full_name: "",
+    to_code: item?.address?.postal_code?.slice(0, 3) || "",
+    from_code: item?.address?.postal_code?.slice(3, 7) || "",
     prefecture: item?.address?.prefecture || "",
     city: item?.address?.city || "",
     street_address: item?.address?.street_address || "",
@@ -42,42 +67,39 @@ export const FormInfor = ({ onSave, item }) => {
     phone: item?.phone || "",
     email: item?.email || "",
   };
+
   React.useEffect(() => {
-    formInfoFomik.setValues(formInfoInitValues);
+    if (typeForm === "billing") {
+      formInfoFormik.setValues(billingInitValues);
+    } else if (typeForm === "shipping") {
+      formInfoFormik.setValues(shippingInitValues);
+    } else if (typeForm === "profile") {
+      formInfoFormik.setValues(profileInitValues);
+    }
   }, [item]);
-  const formInfoFomik = useFormik({
-    initialValues: formInfoInitValues,
+
+  const formInfoFormik = useFormik({
+    initialValues: profileInitValues,
     validationSchema: credential,
     onSubmit: () => {
       onSave();
     },
   });
-
-  const renderErrorMessage = (field) => {
-    return (
-      formInfoFomik.touched[field] && (
-        <div className="form-error">{formInfoFomik.errors[field]}</div>
-      )
-    );
-  };
   const onCodeJapan = () => {
-    if (
-      formInfoFomik.values.toPostalCode &&
-      formInfoFomik.values.fromPostalCode
-    ) {
+    if (formInfoFormik.values.to_code && formInfoFormik.values.from_code) {
       const code =
-        formInfoFomik.values.toPostalCode + formInfoFomik.values.fromPostalCode;
+        formInfoFormik.values.to_code + formInfoFormik.values.from_code;
       postal_code.get(code, (address) => {
-        if (address.prefecture || address.city || address.street) {
-          formInfoFomik.setFieldValue("prefecture", address.prefecture);
-          formInfoFomik.setFieldValue("city", address.city);
-          formInfoFomik.setFieldValue("area", address.area);
+        if (address.prefecture || address.city || address.area) {
+          formInfoFormik.setFieldValue("prefecture", address.prefecture);
+          formInfoFormik.setFieldValue("city", address.city);
+          formInfoFormik.setFieldValue("street_address", address.area);
         }
       });
     }
   };
   return (
-    <form id="form-infor" onSubmit={formInfoFomik.handleSubmit}>
+    <form id="form-infor" onSubmit={formInfoFormik.handleSubmit}>
       <div className="row">
         <div className="form-group">
           <label htmlFor="name">
@@ -87,14 +109,18 @@ export const FormInfor = ({ onSave, item }) => {
           <input
             id="name"
             type="text"
-            name="name"
+            name={typeForm === "profile" ? "name" : "full_name"}
             className="form-control-auth"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.name}
+            onChange={formInfoFormik.handleChange}
+            value={
+              typeForm === "profile"
+                ? formInfoFormik.values.name
+                : formInfoFormik.values.full_name
+            }
           />
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
-            field="name"
+            formikInstance={formInfoFormik}
+            field={typeForm === "profile" ? "name" : "full_name"}
           />
         </div>
         <div className="form-group">
@@ -105,25 +131,23 @@ export const FormInfor = ({ onSave, item }) => {
           <div id="postalCode" className="input-postal-code">
             <input
               type="text"
-              name="toPostalCode"
+              name="to_code"
               className="form-control-postal-code mr-2"
               id="toPostalCode"
-              onChange={formInfoFomik.handleChange}
-              value={formInfoFomik.values.toPostalCode}
+              onChange={formInfoFormik.handleChange}
+              value={formInfoFormik.values.to_code}
             />
             <input
               type="text"
-              name="fromPostalCode"
+              name="from_code"
               className="form-control-postal-code ml-2"
               id="fromPostalCode"
-              onChange={formInfoFomik.handleChange}
-              value={formInfoFomik.values.fromPostalCode}
+              onChange={formInfoFormik.handleChange}
+              value={formInfoFormik.values.from_code}
             />
             <button type="button" className="btn-search" onClick={onCodeJapan}>
               {t("member.change_profile.btn_search")}
             </button>
-            {renderErrorMessage("toPostalCode") ||
-              renderErrorMessage("fromPostalCode")}
           </div>
         </div>
         <div className="form-group">
@@ -135,8 +159,8 @@ export const FormInfor = ({ onSave, item }) => {
             name="prefecture"
             as="select"
             className="p-0 form-control-auth"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.prefecture}
+            onChange={formInfoFormik.handleChange}
+            value={formInfoFormik.values.prefecture}
           >
             <option disabled></option>
             {PREF.map((item, index) => (
@@ -146,7 +170,7 @@ export const FormInfor = ({ onSave, item }) => {
             ))}
           </select>
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+            formikInstance={formInfoFormik}
             field="prefecture"
           />
         </div>
@@ -159,11 +183,11 @@ export const FormInfor = ({ onSave, item }) => {
             type="text"
             className="form-control-auth"
             id="city"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.city}
+            onChange={formInfoFormik.handleChange}
+            value={formInfoFormik.values.city}
           />
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+            formikInstance={formInfoFormik}
             field="city"
           />
         </div>
@@ -177,11 +201,11 @@ export const FormInfor = ({ onSave, item }) => {
             type="text"
             className="form-control-auth"
             id="street"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.street_address}
+            onChange={formInfoFormik.handleChange}
+            value={formInfoFormik.values.street_address}
           />
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+            formikInstance={formInfoFormik}
             field="street_address"
           />
         </div>
@@ -194,29 +218,28 @@ export const FormInfor = ({ onSave, item }) => {
             type="text"
             className="form-control-auth"
             id="building"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.building}
+            onChange={formInfoFormik.handleChange}
+            value={formInfoFormik.values.building}
           />
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+            formikInstance={formInfoFormik}
             field="building"
           />
         </div>
         <div className="form-group">
           <label htmlFor="phone">
             {t("member.change_profile.field_phone")}
-            <span>*</span>
           </label>
           <input
             name="phone"
             type="text"
             className="form-control-auth"
             id="phone"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.phone}
+            onChange={formInfoFormik.handleChange}
+            value={formInfoFormik.values.phone}
           />
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+            formikInstance={formInfoFormik}
             field="phone"
           />
         </div>
@@ -230,11 +253,11 @@ export const FormInfor = ({ onSave, item }) => {
             type="text"
             className="form-control-auth"
             id="email"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.email}
+            onChange={formInfoFormik.handleChange}
+            value={formInfoFormik.values.email}
           />
           <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+            formikInstance={formInfoFormik}
             field="email"
           />
         </div>

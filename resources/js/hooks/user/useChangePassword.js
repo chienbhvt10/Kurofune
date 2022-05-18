@@ -5,7 +5,6 @@ const useChangePassword = () => {
   const userState = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   const changePassword = (payload) => {
-    console.log("here");
     dispatch(changePasswordAction(payload));
   };
   return {

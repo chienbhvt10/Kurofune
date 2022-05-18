@@ -1,336 +1,252 @@
+import { Col, DatePicker, Form, Input, Row, Select } from "antd";
 import moment from "moment";
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from "react-redux";
-import DatePickerField from "../../../../../commons/DatePickerField";
+import { userFormOptions } from "../../../../../commons/data";
+import DateField from "../../../../../commons/Form/DateField";
+import InputField from "../../../../../commons/Form/InputField";
+import SelectField from "../../../../../commons/Form/SelectField";
 import RenderApiErrorMessage from "../../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
-import RenderFormikErrorMessage from "../../../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
-const PlanProfileForm = ({ formik, className }) => {
+
+const PlanProfileForm = ({ form, className }) => {
   const response = useSelector((state) => state.userState.response);
+  const dateFormat = "YYYY/MM/DD";
 
   return (
     <div className={`common-profile-form ${className}`}>
-      <form>
-        <div className="separate">
-          <div className="form-group">
-            <label>DOB</label>
-            <DatePickerField formik={formik} field="dob" />
-            <RenderFormikErrorMessage formikInstance={formik} field="dob" />
-            <RenderApiErrorMessage response={response} field="dob" />
-          </div>
-          <div className="form-group">
-            <label>Gender</label>
-            <select
-              name="gender"
-              value={formik.values.gender}
-              onChange={formik.handleChange}
-            >
-              <option value="0">MALE</option>
-              <option value="1">FEMALE</option>
-            </select>
-            <RenderFormikErrorMessage formikInstance={formik} field="gender" />
-            <RenderApiErrorMessage response={response} field="gender" />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Facebook</label>
-            <input
-              type="text"
-              name="facebook"
-              value={formik.values.facebook}
-              onChange={formik.handleChange}
+      <Form name="plan-profile-form" form={form}>
+        <Row>
+          <Col span={12}>
+            <DateField
+              field="dob"
+              label="Dob"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              locale={{ lang: { locale: "vi_VN" } }}
+              response={response}
             />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <SelectField
+              field="gender"
+              label="Gender"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              placeholder="Please select gender"
+              options={userFormOptions.gender}
+            />
+          </Col>
+          <Col span={12}>
+            <InputField
               field="facebook"
+              label="Facebook"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderApiErrorMessage response={response} field="facebook" />
-          </div>
-          <div className="form-group">
-            <label>Line</label>
-            <input
-              type="text"
-              name="line"
-              value={formik.values.line}
-              onChange={formik.handleChange}
+          </Col>
+          <Col span={12}>
+            <InputField
+              field="line"
+              label="Line"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderFormikErrorMessage formikInstance={formik} field="line" />
-            <RenderApiErrorMessage response={response} field="line" />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Address</label>
-            <input
-              type="text"
-              name="address"
-              value={formik.values.address}
-              onChange={formik.handleChange}
+          </Col>
+          <Col span={12}>
+            <InputField
+              field="address"
+              label="Address"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderFormikErrorMessage formikInstance={formik} field="address" />
-            <RenderApiErrorMessage response={response} field="address" />
-          </div>
-          <div className="form-group">
-            <label>Nationality</label>
-            <input
-              type="text"
-              name="nationality"
-              value={formik.values.nationality}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="nationality"
+              label="Nationality"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderApiErrorMessage response={response} field="nationality" />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Visa Type</label>
-            <input
-              type="text"
-              name="visa_type"
-              value={formik.values.visa_type}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="visa_type"
+              label="Visa Type"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderApiErrorMessage response={response} field="visa_type" />
-          </div>
-          <div className="form-group">
-            <label>Job Name</label>
-            <input
-              type="text"
-              name="job_name"
-              value={formik.values.job_name}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="job_name"
-            />
-            <RenderApiErrorMessage response={response} field="job_name" />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Company representative</label>
-            <input
-              type="text"
-              name="company_representative"
-              value={formik.values.company_representative}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
-              field="company_representative"
-            />
-            <RenderApiErrorMessage
+              label="Job Name"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
+              type={<Input />}
+            />
+          </Col>
+          <Col span={12}>
+            <InputField
               field="company_representative"
+              label="Company representative"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-          </div>
-          <div className="form-group">
-            <label>Inflow Source</label>
-            <input
-              type="text"
-              name="inflow_source"
-              value={formik.values.inflow_source}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="inflow_source"
+              label="Inflow Source"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderApiErrorMessage response={response} field="inflow_source" />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Payment</label>
-            <select
-              name="payment"
-              value={formik.values.gender}
-              onChange={formik.handleChange}
-            >
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-            <RenderFormikErrorMessage formikInstance={formik} field="gender" />
-            <RenderApiErrorMessage response={response} field="gender" />
-          </div>
-          <div className="form-group">
-            <label>Insurance Status</label>
-            <select
-              name="insurance_status"
-              value={formik.values.insurance_status}
-              onChange={formik.handleChange}
-            >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-            </select>
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <SelectField
+              field="payment"
+              label="Payment"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              placeholder="Please select payment"
+              options={userFormOptions.payment}
+            />
+          </Col>
+          <Col span={12}>
+            <SelectField
               field="insurance_status"
-            />
-            <RenderApiErrorMessage
+              label="Insurance Status"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
-              field="insurance_status"
+              placeholder="Please select Insurance Status"
+              options={userFormOptions.insurance_status}
             />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Insurance Support</label>
-            <input
-              type="text"
-              name="insurance_support"
-              value={formik.values.insurance_support}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="insurance_support"
-            />
-            <RenderApiErrorMessage
+              label="Insurance Support"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
-              field="insurance_support"
+              type={<Input />}
             />
-          </div>
-          <div className="form-group">
-            <label>Insurance Start Date</label>
-            <input
-              type="text"
-              name="insurance_start_date"
-              value={formik.values.insurance_start_date}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="insurance_start_date"
-            />
-            <RenderApiErrorMessage
+              label="Insurance Start Date"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
-              field="insurance_start_date"
+              type={<Input />}
             />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Overseas Remittance Status</label>
-            <select
-              name="overseas_remittance_status"
-              value={formik.values.overseas_remittance_status}
-              onChange={formik.handleChange}
-            >
-              <option value="0">UNREGISTERED </option>
-              <option value="1">REGISTERED</option>
-            </select>
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <SelectField
               field="overseas_remittance_status"
-            />
-            <RenderApiErrorMessage
+              label="Overseas Remittance Status"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
-              field="overseas_remittance_status"
+              placeholder="Please select Overseas Remittance Status"
+              options={userFormOptions.overseas_remittance_status}
             />
-          </div>
-          <div className="form-group">
-            <label>Orientation</label>
-            <input
-              type="text"
-              name="orientation"
-              value={formik.values.orientation}
-              onChange={formik.handleChange}
-            />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <InputField
               field="orientation"
+              label="Orientation"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={response}
+              type={<Input />}
             />
-            <RenderApiErrorMessage response={response} field="orientation" />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Start Date Education</label>
-            <DatePickerField formik={formik} field="start_date_education" />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+
+          <Col span={12}>
+            <DateField
               field="start_date_education"
-            />
-            <RenderApiErrorMessage
+              label="Start Date Education"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              locale={{ lang: { locale: "vi_VN" } }}
               response={response}
-              field="start_date_education"
             />
-          </div>
-          <div className="form-group">
-            <label>End Date Education</label>
-            <DatePickerField formik={formik} field="end_date_education" />
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <DateField
               field="end_date_education"
-            />
-            <RenderApiErrorMessage
+              label="End Date Education"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              locale={{ lang: { locale: "vi_VN" } }}
               response={response}
-              field="end_date_education"
             />
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Education Status</label>
-            <select
-              name="education_status"
-              value={formik.values.education_status}
-              onChange={formik.handleChange}
-            >
-              <option value="1">EDU_N1 </option>
-              <option value="2">EDU_N2 </option>
-              <option value="3">EDU_N3 </option>
-              <option value="4">EDU_N4 </option>
-              <option value="5">EDU_N5 </option>
-              <option value="6">EDU_N0 </option>
-              <option value="7">EDU_UNREGISTERED </option>
-              <option value="8">EDU_UNDER_ERASURE </option>
-            </select>
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+
+          <Col span={12}>
+            <SelectField
               field="education_status"
-            />
-            <RenderApiErrorMessage
+              label="Education Status"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
-              field="education_status"
+              placeholder="Please select Education Status"
+              options={userFormOptions.education_status}
             />
-          </div>
-          <div className="form-group">
-            <label>Wabisabi My Page Registration</label>
-            <select
-              name="wabisabi_my_page_registration"
-              value={formik.values.wabisabi_my_page_registration}
-              onChange={formik.handleChange}
-            >
-              <option value="1">Yes</option>
-              <option value="0">No</option>
-            </select>
-            <RenderFormikErrorMessage
-              formikInstance={formik}
+          </Col>
+          <Col span={12}>
+            <SelectField
               field="wabisabi_my_page_registration"
-            />
-            <RenderApiErrorMessage
+              label="Wabisabi My Page Registration"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
               response={response}
-              field="wabisabi_my_page_registration"
+              placeholder="Please select Wabisabi My Page Registration"
+              options={userFormOptions.wabisabi_my_page_registration}
             />
-          </div>
-        </div>
-      </form>
+          </Col>
+        </Row>
+      </Form>
     </div>
   );
 };
