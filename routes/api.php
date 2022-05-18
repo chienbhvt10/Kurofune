@@ -43,12 +43,18 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class);
         });
 
-        // Category Manager
+        // Category Manage
         Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
 
         // Product Manage
         Route::middleware(['permission:manage product'])->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
+        });
+
+        // Chat log user manage
+        Route::middleware('permission:manage chat log user')->group(function () {
+            Route::get('list-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'listChatLog']);
+            Route::get('detail-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'detailChatLog']);
         });
 
         // View Profile
