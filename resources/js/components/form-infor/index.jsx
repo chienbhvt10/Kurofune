@@ -17,7 +17,6 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
   const [formInfo] = Form.useForm();
   const { i18n, t } = useTranslation();
 
-  console.log(response);
   const billingInitValues = getBillingInitValues(item);
   const shippingInitValues = getShippingInitValues(item);
   const profileInitValues = getProfileInitValues(item);

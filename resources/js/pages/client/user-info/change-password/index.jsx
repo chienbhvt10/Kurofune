@@ -29,7 +29,6 @@ export const ChangePassword = () => {
   }, [resChangePassword]);
 
   const onFinish = async (values) => {
-    console.log(values);
     await changePassword(values);
   };
 

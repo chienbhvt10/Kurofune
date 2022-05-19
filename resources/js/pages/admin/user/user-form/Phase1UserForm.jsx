@@ -27,7 +27,6 @@ export const UserForm = ({
   title,
   response,
 }) => {
-  console.log(response);
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const [role, setRole] = useState();
