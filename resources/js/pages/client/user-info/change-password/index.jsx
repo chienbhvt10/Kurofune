@@ -1,48 +1,37 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useFormik } from "formik";
+import { Button, Form, Row, Col, Input } from "antd";
 import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
-import RenderFormikErrorMessage from "../../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
-import "./style.scss";
-import * as Yup from "yup";
-import useChangePassword from "../../../../hooks/user/useChangePassword";
 import { useDispatch } from "react-redux";
-import RenderApiErrorMessage from "../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
-
-const validateChangePasswordForm = Yup.object().shape({
-  current_password: Yup.string().required("Current Password Require"),
-  password: Yup.string().required("Password Require"),
-  password_confirmation: Yup.string()
-    .required("Confirm Password Require")
-    .oneOf([Yup.ref("password"), null], "Confirm password must match password"),
-});
+import InputField from "../../../../commons/Form/InputField";
+import useChangePassword from "../../../../hooks/auth/useChangePassword";
+import "./style.scss";
 
 export const ChangePassword = () => {
   const { i18n, t } = useTranslation();
-  const { changePassword, response } = useChangePassword();
+  const { changePassword, resChangePassword } = useChangePassword();
   const dispatch = useDispatch();
+  const [changePasswordForm] = Form.useForm();
+  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const changePasswordInitValues = {
     current_password: "",
     password: "",
     password_confirmation: "",
   };
-  const changePasswordFormik = useFormik({
-    initialValues: changePasswordInitValues,
-    onSubmit: () => {
-      changePassword(changePasswordFormik.values);
-    },
-    validationSchema: validateChangePasswordForm,
-  });
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   React.useEffect(() => {
-    if (response?.status_code === 200) {
-      changePasswordFormik.setValues(changePasswordInitValues);
+    if (resChangePassword?.status_code === 200) {
+      changePasswordForm.setFieldsValue(changePasswordInitValues);
     }
-  }, [response]);
+  }, [resChangePassword]);
+
+  const onFinish = async (values) => {
+    await changePassword(values);
+  };
+
   return (
     <>
       <Helmet>
@@ -51,106 +40,118 @@ export const ChangePassword = () => {
         <meta name="description" content="Change Password Page" />
         <meta name="og:title" content="Change Password" />
       </Helmet>
-      <form
+      <Form
         className="change-password-form"
-        onSubmit={changePasswordFormik.handleSubmit}
+        form={changePasswordForm}
+        onFinish={onFinish}
+        autoComplete="off"
       >
-        <div className="row">
-          <div className="form-group">
-            <label htmlFor="current_password">
-              {t("member.change_password.field_old_password")} *
-            </label>
-            <input
-              type={!showCurrentPassword ? "password" : "text"}
-              className="form-control-auth"
-              id="current_password"
-              name="current_password"
-              value={changePasswordFormik.values.current_password}
-              onChange={changePasswordFormik.handleChange}
-            />
-            <div
-              className="show-pass"
-              onClick={() => setShowCurrentPassword(!showCurrentPassword)}
-            >
-              <FontAwesomeIcon
-                icon={!showCurrentPassword ? faEyeSlash : faEye}
-                color="#515151"
-                size="sm"
-              />
-            </div>
-            <RenderFormikErrorMessage
-              formikInstance={changePasswordFormik}
+        <Row justify="center">
+          <Col span={24}>
+            <InputField
               field="current_password"
+              label={t("member.change_password.field_old_password")}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[
+                { required: true, message: "Please input current password" },
+              ]}
+              response={resChangePassword}
+              type={
+                <Input
+                  type={!showCurrentPassword ? "password" : "text"}
+                  addonAfter={
+                    <FontAwesomeIcon
+                      icon={!showCurrentPassword ? faEyeSlash : faEye}
+                      color="#515151"
+                      size="sm"
+                      style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        setShowCurrentPassword(!showCurrentPassword)
+                      }
+                    />
+                  }
+                />
+              }
             />
-            <RenderApiErrorMessage
-              response={response}
-              field="current_password"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">
-              {t("member.change_password.field_new_password")} *
-            </label>
-            <input
-              type={!showPassword ? "password" : "text"}
-              className="form-control-auth"
-              id="password"
-              name="password"
-              value={changePasswordFormik.values.password}
-              onChange={changePasswordFormik.handleChange}
-            />
-            <div
-              className="show-pass"
-              onClick={() => setShowPassword(!showPassword)}
-            >
-              <FontAwesomeIcon
-                icon={!showPassword ? faEyeSlash : faEye}
-                color="#515151"
-                size="sm"
-              />
-            </div>
-            <RenderFormikErrorMessage
-              formikInstance={changePasswordFormik}
+          </Col>
+          <Col span={24}>
+            <InputField
               field="password"
+              label={t("member.change_password.field_new_password")}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[{ required: true, message: "Please input new password" }]}
+              response={resChangePassword}
+              type={
+                <Input
+                  type={!showPassword ? "password" : "text"}
+                  addonAfter={
+                    <FontAwesomeIcon
+                      icon={!showPassword ? faEyeSlash : faEye}
+                      color="#515151"
+                      size="sm"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  }
+                />
+              }
             />
-            <RenderApiErrorMessage response={response} field="password" />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password_confirmation">
-              {t("member.change_password.field_confirm_password")} *
-            </label>
-            <input
-              type={!showConfirmPassword ? "password" : "text"}
-              className="form-control-auth"
-              id="password_confirmation"
-              name="password_confirmation"
-              value={changePasswordFormik.values.password_confirmation}
-              onChange={changePasswordFormik.handleChange}
-            />
-            <div
-              className="show-pass"
-              onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-            >
-              <FontAwesomeIcon
-                icon={!showConfirmPassword ? faEyeSlash : faEye}
-                color="#515151"
-                size="sm"
-              />
-            </div>
-            <RenderFormikErrorMessage
-              formikInstance={changePasswordFormik}
+          </Col>
+          <Col span={24}>
+            <InputField
               field="password_confirmation"
+              label={t("member.change_password.field_confirm_password")}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              dependencies={["password"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input password confirmation",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error(
+                        "The two passwords that you entered do not match!"
+                      )
+                    );
+                  },
+                }),
+              ]}
+              response={resChangePassword}
+              type={
+                <Input
+                  type={!showConfirmPassword ? "password" : "text"}
+                  addonAfter={
+                    <FontAwesomeIcon
+                      icon={!showConfirmPassword ? faEyeSlash : faEye}
+                      color="#515151"
+                      size="sm"
+                      style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        setShowConfirmPassword(!showConfirmPassword)
+                      }
+                    />
+                  }
+                />
+              }
             />
-            <RenderApiErrorMessage
-              response={response}
-              field="password_confirmation"
-            />
-          </div>
-        </div>
-        <button className="btn btn-primary d-block ml-auto" type="submit">
-          {t("member.user_profile.btn_save")}
-        </button>
-      </form>
+          </Col>
+        </Row>
+        <Col span={24}>
+          <Row justify="end">
+            <Button className="btn-save" htmlType="submit">
+              {t("member.user_profile.btn_save")}
+            </Button>
+          </Row>
+        </Col>
+      </Form>
     </>
   );
 };

@@ -20,6 +20,11 @@
       z-index: 99;
     }
   }
+  @media screen and (max-width: 992px) {
+    .wrap-content {
+      width: calc(100%) !important;
+    }
+  }
   @media screen and (max-width: 768px) {
     .block-main {
       .wrap-content {

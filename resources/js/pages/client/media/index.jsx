@@ -14,10 +14,12 @@ import { Languages } from "../../../commons/Languges";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../../hooks/auth/useLogout";
+import { useSelector } from "react-redux";
 
 const MediaPage = () => {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
+  const resLogout = useSelector((state) => state.authState.resLogout);
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -25,11 +27,14 @@ const MediaPage = () => {
 
   const { getLogout } = useLogout();
 
-  const logout = () => {
-    getLogout();
-    navigate(`${lang}/login`);
-  }
-
+  const logout = async () => {
+    await getLogout();
+  };
+  React.useEffect(() => {
+    if (resLogout?.status_code === 200) {
+      navigate(`${lang}/login`);
+    }
+  }, [resLogout]);
   return (
     <>
       <PageHead content={t("login.title")} title={t("login.title")} />

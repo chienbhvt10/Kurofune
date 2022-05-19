@@ -10,14 +10,18 @@ const InputField = ({
   response,
   typeForm,
   type,
+  className,
+  dependencies,
 }) => {
   return (
     <Form.Item
+      className={className}
       label={label}
       name={field}
       labelCol={labelCol}
       wrapperCol={wrapperCol}
       rules={rules}
+      dependencies={dependencies}
       hasFeedback
       help={
         typeForm === "billing_address" || typeForm === "shipping_address"

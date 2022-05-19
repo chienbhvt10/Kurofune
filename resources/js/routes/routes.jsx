@@ -71,22 +71,23 @@ const appRouter = () => {
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    if(!authApis.checkLogin() && window.location.pathname !== `${lang}/login`){
+    if (
+      !authApis.checkLogin() &&
+      window.location.pathname !== `${lang}/login`
+    ) {
       window.location.pathname !== `${lang}/login`;
-    }else{
+    } else {
       setLoading(false);
     }
-  },[]);
-  if(loading) return null;
-
-  
+  }, []);
+  if (loading) return null;
 
   return (
     <BrowserRouter>
       <Routes>
         <Route
           path={`/`}
-          element={<Navigate to={`${lang}/login`} />}
+          element={<Navigate to={`${lang}/member`} />}
           exact={true}
         />
         <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
@@ -126,8 +127,16 @@ const appRouter = () => {
             element={<ForgotPassword />}
             exact={true}
           />
-          <Route path={`reset-link-password`} element={<ResetLinkPassword />} exact={true} />
-          <Route path={`reset-password`} element={<ResetPassword />} exact={true} />
+          <Route
+            path={`reset-link-password`}
+            element={<ResetLinkPassword />}
+            exact={true}
+          />
+          <Route
+            path={`reset-password`}
+            element={<ResetPassword />}
+            exact={true}
+          />
         </Route>
         <Route path={`/${lang}/member`} element={<UserLayout />} exact={true}>
           <Route

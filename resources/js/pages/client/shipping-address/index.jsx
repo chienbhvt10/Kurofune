@@ -2,17 +2,22 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { FormInfor } from "../../../components/form-infor";
 import { TabLink } from "../../../components/tabs";
-import useShowProfile from "../../../hooks/user/useShowProfile";
+import useShowProfile from "../../../hooks/auth/useShowProfile";
+import useUpdateShippingAddress from "../../../hooks/auth/useUpdateShippingAddress";
 import "./style.scss";
 const ShippingAddress = () => {
   const { i18n, t } = useTranslation();
   const { showProfile, profile } = useShowProfile();
+  const { updateShippingAddress, resUpdateShippingAddress } =
+    useUpdateShippingAddress();
   React.useEffect(() => {
     if (!profile) {
       showProfile();
     }
   }, [profile]);
-  const onSave = (value) => {};
+  const onSave = (values) => {
+    updateShippingAddress(values);
+  };
   return (
     <div id="ShippingAddress">
       <TabLink
@@ -28,7 +33,12 @@ const ShippingAddress = () => {
         ]}
       />
       <div className="content-tab">
-        <FormInfor item={profile} onSave={onSave} typeForm="shipping" />
+        <FormInfor
+          item={profile}
+          onSave={onSave}
+          typeForm="shipping"
+          response={resUpdateShippingAddress}
+        />
       </div>
     </div>
   );
