@@ -9,7 +9,7 @@ const useCreateUser = () => {
   };
   return {
     users: userState.users,
-    response: userState.response,
+    resCreateUsers: userState.resCreateUser,
     createUser,
   };
 };

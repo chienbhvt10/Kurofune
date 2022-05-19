@@ -12,9 +12,9 @@ export const authApis = {
   },
   checkLogin: () => {
     const jwtToken = localStorage.getItem("access_token");
-    if(jwtToken){
+    if (jwtToken) {
       return true;
-    }else{
+    } else {
       return false;
     }
   },
@@ -25,5 +25,25 @@ export const authApis = {
   resetPassword: async (data) => {
     const url = ROOT_URL + "reset-password";
     return await axiosClient.post(url, data);
+  },
+  showProfile: async () => {
+    const url = ROOT_URL + `profile`;
+    return await axiosClient.get(url);
+  },
+  changePassword: async (data) => {
+    const url = ROOT_URL + `change-password`;
+    return await axiosClient.put(url, data);
+  },
+  updateProfile: async (data) => {
+    const url = ROOT_URL + `user-address`;
+    return await axiosClient.put(url, data);
+  },
+  updateBillingAddress: async (data) => {
+    const url = ROOT_URL + `billing-address`;
+    return await axiosClient.put(url, data);
+  },
+  updateShippingAddress: async (data) => {
+    const url = ROOT_URL + `shipping-address`;
+    return await axiosClient.put(url, data);
   },
 };
