@@ -131,11 +131,11 @@ class ShippingMethodController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-            
+
             $name = $request->name ?? $shipping_method->name;
             $total = $request->total ?? $shipping_method->total;
             $description = $request->description ?? $shipping_method->description;
-            $logo_update = $request->file('logo') ?? $shipping_method->logo ;
+            $logo_update = $request->file('logo') ?? $shipping_method->logo;
             if (!empty($logo_update)) {
                 $logo_update = upload_single_image($logo_update, 'shippingmethods');
                 $params_update['logo'] = $logo_update;
