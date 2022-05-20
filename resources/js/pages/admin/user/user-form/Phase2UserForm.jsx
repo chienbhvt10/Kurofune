@@ -6,15 +6,15 @@ import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 const Phase2UserForm = ({
   role,
-  vendorProfileFormikVI,
-  vendorProfileFormikJP,
-  vendorProfileFormikZH,
-  vendorProfileFormikTL,
-  vendorProfileFormikEN,
-  planProfileFormik,
-  commonAddressFormik,
-  billingAddressFormik,
-  shippingAddressFormik,
+  vendorProfileFormVI,
+  vendorProfileFormJP,
+  vendorProfileFormZH,
+  vendorProfileFormTL,
+  vendorProfileFormEN,
+  planProfileForm,
+  commonAddressForm,
+  billingAddressForm,
+  shippingAddressForm,
 }) => {
   const [activeTab, setActiveTab] = useState(1);
   const onChangeForm = (number) => {
@@ -28,43 +28,47 @@ const Phase2UserForm = ({
     >
       <div style={{ width: "50%", margin: "auto" }}>
         <CommonInfoForm
-          formik={commonAddressFormik}
+          form={commonAddressForm}
           className={`tab ${activeTab === 1 ? "active" : ""}`}
         />
       </div>
 
       {role === "vendor" ? (
-        <VendorProfileForm
-          className={`tab ${activeTab === 2 ? "active" : ""}`}
-          formikJP={vendorProfileFormikJP}
-          formikEN={vendorProfileFormikEN}
-          formikTL={vendorProfileFormikTL}
-          formikVI={vendorProfileFormikVI}
-          formikZH={vendorProfileFormikZH}
-        />
+        <div style={{ width: "80%", margin: "auto" }}>
+          <VendorProfileForm
+            className={`tab ${activeTab === 2 ? "active" : ""}`}
+            formJP={vendorProfileFormJP}
+            formEN={vendorProfileFormEN}
+            formTL={vendorProfileFormTL}
+            formVI={vendorProfileFormVI}
+            formZH={vendorProfileFormZH}
+          />
+        </div>
       ) : (
         <></>
       )}
       {role === "light plan" || role === "full support plan" ? (
-        <PlanProfileForm
-          className={`tab ${activeTab === 2 ? "active" : ""}`}
-          formik={planProfileFormik}
-        />
+        <div style={{ width: "80%", margin: "auto" }}>
+          <PlanProfileForm
+            className={`tab ${activeTab === 2 ? "active" : ""}`}
+            form={planProfileForm}
+          />
+        </div>
       ) : (
         <></>
       )}
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
           className={`tab ${activeTab === 3 ? "active" : ""}`}
-          typeForm="billing"
-          formik={billingAddressFormik}
+          typeForm="billing_address"
+          form={billingAddressForm}
         />
       </div>
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
           className={`tab ${activeTab === 4 ? "active" : ""}`}
-          typeForm="shipping"
-          formik={shippingAddressFormik}
+          typeForm="shipping_address"
+          form={shippingAddressForm}
         />
       </div>
     </SwitchTabUserForm>

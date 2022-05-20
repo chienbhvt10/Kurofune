@@ -1,247 +1,197 @@
-import { ErrorMessage, Field, Form, Formik, useFormik } from "formik";
+import { Button, Col, Form, Input, Row } from "antd";
+import postal_code from "japan-postal-code";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import * as Yup from "yup";
+import { useSelector } from "react-redux";
 import { PREF } from "../../commons/data";
-import postal_code from "japan-postal-code";
-import RenderFormikErrorMessage from "../../commons/RenderErrorMessage/RenderFormikErrorMessage";
+import InputField from "../../commons/Form/InputField";
+import SelectField from "../../commons/Form/SelectField";
+import {
+  getBillingInitValues,
+  getProfileInitValues,
+  getShippingInitValues,
+} from "./initValues.js";
 import "./style.scss";
 
-const credential = Yup.object().shape(
-  {
-    name: Yup.string().required("Name require"),
-    toPostalCode: Yup.string().when("fromPostalCode", {
-      is: (fieldTwo) => !fieldTwo || fieldTwo.length === 0,
-      then: Yup.string().required("At least one of the fields is required"),
-    }),
-    fromPostalCode: Yup.string().when("toPostalCode", {
-      is: (fieldOne) => !fieldOne || fieldOne.length === 0,
-      then: Yup.string().required("At least one of the fields is required"),
-    }),
-    prefecture: Yup.string().required("Prefecture require"),
-    city: Yup.string().required("Town / City require"),
-    area: Yup.string().required("Street address require"),
-    building: "",
-    phone: Yup.string().required("Phone require"),
-    email: Yup.string().required("Email address require"),
-  },
-  ["toPostalCode", "fromPostalCode"]
-);
-
-export const FormInfor = ({ onSave, item }) => {
+export const FormInfor = ({ onSave, item, typeForm, response }) => {
+  const [formInfo] = Form.useForm();
   const { i18n, t } = useTranslation();
 
-  const formInfoInitValues = {
-    name: item?.name || "",
-    toPostalCode: item?.address?.toPostalCode || "",
-    fromPostalCode: item?.address?.fromPostalCode || "",
-    prefecture: item?.address?.prefecture || "",
-    city: item?.address?.city || "",
-    street_address: item?.address?.street_address || "",
-    building: item?.address?.building || "",
-    phone: item?.phone || "",
-    email: item?.email || "",
-  };
-  React.useEffect(() => {
-    formInfoFomik.setValues(formInfoInitValues);
-  }, [item]);
-  const formInfoFomik = useFormik({
-    initialValues: formInfoInitValues,
-    validationSchema: credential,
-    onSubmit: () => {
-      onSave();
-    },
-  });
+  const billingInitValues = getBillingInitValues(item);
+  const shippingInitValues = getShippingInitValues(item);
+  const profileInitValues = getProfileInitValues(item);
 
-  const renderErrorMessage = (field) => {
-    return (
-      formInfoFomik.touched[field] && (
-        <div className="form-error">{formInfoFomik.errors[field]}</div>
-      )
-    );
-  };
+  React.useEffect(() => {
+    if (typeForm === "billing") {
+      formInfo.setFieldsValue(billingInitValues);
+    } else if (typeForm === "shipping") {
+      formInfo.setFieldsValue(shippingInitValues);
+    } else if (typeForm === "profile") {
+      formInfo.setFieldsValue(profileInitValues);
+    }
+  }, [item]);
   const onCodeJapan = () => {
     if (
-      formInfoFomik.values.toPostalCode &&
-      formInfoFomik.values.fromPostalCode
+      formInfo.getFieldValue("to_code") &&
+      formInfo.getFieldValue("from_code")
     ) {
       const code =
-        formInfoFomik.values.toPostalCode + formInfoFomik.values.fromPostalCode;
+        +formInfo.getFieldValue("from_code") +
+        formInfo.getFieldValue("to_code");
       postal_code.get(code, (address) => {
-        if (address.prefecture || address.city || address.street) {
-          formInfoFomik.setFieldValue("prefecture", address.prefecture);
-          formInfoFomik.setFieldValue("city", address.city);
-          formInfoFomik.setFieldValue("area", address.area);
+        if (address.prefecture || address.city || address.area) {
+          formInfo.setFieldsValue({
+            ...formInfo.getFieldsValue(),
+            prefecture: address.prefecture,
+            city: address.city,
+            street_address: address.area,
+          });
         }
       });
     }
   };
+
+  const onFinish = () => {
+    onSave({
+      ...formInfo.getFieldsValue(),
+      postal_code:
+        formInfo.getFieldValue("from_code") + formInfo.getFieldValue("to_code"),
+    });
+  };
   return (
-    <form id="form-infor" onSubmit={formInfoFomik.handleSubmit}>
-      <div className="row">
-        <div className="form-group">
-          <label htmlFor="name">
-            {t("member.change_profile.field_full_name")}
-            <span>*</span>
-          </label>
-          <input
-            id="name"
-            type="text"
-            name="name"
-            className="form-control-auth"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.name}
+    <Form
+      id="form-infor"
+      form={formInfo}
+      onFinish={onFinish}
+      autoComplete="off"
+    >
+      <Row justify="center">
+        <Col span={24}>
+          <InputField
+            field={typeForm === "profile" ? "name" : "full_name"}
+            label={t("member.change_profile.field_full_name")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[{ required: true, message: "Please input full name" }]}
+            response={response}
+            type={<Input />}
           />
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
-            field="name"
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="postalCode">
-            {t("member.change_profile.field_postal")}
-            <span>*</span>
-          </label>
-          <div id="postalCode" className="input-postal-code">
-            <input
-              type="text"
-              name="toPostalCode"
-              className="form-control-postal-code mr-2"
-              id="toPostalCode"
-              onChange={formInfoFomik.handleChange}
-              value={formInfoFomik.values.toPostalCode}
-            />
-            <input
-              type="text"
-              name="fromPostalCode"
-              className="form-control-postal-code ml-2"
-              id="fromPostalCode"
-              onChange={formInfoFomik.handleChange}
-              value={formInfoFomik.values.fromPostalCode}
-            />
-            <button type="button" className="btn-search" onClick={onCodeJapan}>
-              {t("member.change_profile.btn_search")}
-            </button>
-            {renderErrorMessage("toPostalCode") ||
-              renderErrorMessage("fromPostalCode")}
-          </div>
-        </div>
-        <div className="form-group">
-          <label htmlFor="prefecture">
-            {t("member.change_profile.field_prefecture")}
-            <span>*</span>
-          </label>
-          <select
-            name="prefecture"
-            as="select"
-            className="p-0 form-control-auth"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.prefecture}
-          >
-            <option disabled></option>
-            {PREF.map((item, index) => (
-              <option key={index} value={item.value}>
-                {item.text}
-              </option>
-            ))}
-          </select>
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+        </Col>
+        <Col span={24}>
+          <Row align="middle">
+            <Col span={8}>
+              <InputField
+                field="from_code"
+                label={t("member.change_profile.field_postal")}
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[
+                  { required: true, message: "Please input postal code" },
+                  { max: 3, message: "Input only 3 number" },
+                ]}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <span style={{ margin: "0 5px", fontSize: 26 }}>-</span>
+            <Col span={8}>
+              <InputField
+                field="to_code"
+                label=" "
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[{ max: 4, message: "Input only 4 number" }]}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={5}>
+              <Button
+                type="button"
+                className="btn-search"
+                onClick={onCodeJapan}
+              >
+                {t("member.change_profile.btn_search")}
+              </Button>
+            </Col>
+          </Row>
+        </Col>
+        <Col span={24}>
+          <SelectField
             field="prefecture"
+            label={t("member.change_profile.field_prefecture")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[{ required: true, message: "Please input prefecture" }]}
+            response={response}
+            placeholder="Please select active status"
+            options={PREF}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="city">
-            {t("member.change_profile.field_city")} <span>*</span>
-          </label>
-          <input
-            name="city"
-            type="text"
-            className="form-control-auth"
-            id="city"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.city}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+        </Col>
+
+        <Col span={24}>
+          <InputField
             field="city"
+            label={t("member.change_profile.field_city")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[{ required: true, message: "Please input city" }]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="street">
-            {t("member.change_profile.field_street")}
-            <span>*</span>
-          </label>
-          <input
-            name="street_address"
-            type="text"
-            className="form-control-auth"
-            id="street"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.street_address}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+        </Col>
+        <Col span={24}>
+          <InputField
             field="street_address"
+            label={t("member.change_profile.field_street")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[{ required: true, message: "Please input street address" }]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="building">
-            {t("member.change_profile.field_building")}
-          </label>
-          <input
-            name="building"
-            type="text"
-            className="form-control-auth"
-            id="building"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.building}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+        </Col>
+        <Col span={24}>
+          <InputField
             field="building"
+            label={t("member.change_profile.field_building")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="phone">
-            {t("member.change_profile.field_phone")}
-            <span>*</span>
-          </label>
-          <input
-            name="phone"
-            type="text"
-            className="form-control-auth"
-            id="phone"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.phone}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+        </Col>
+        <Col span={24}>
+          <InputField
             field="phone"
+            label={t("member.change_profile.field_phone")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[{ required: true, message: "Please input phone" }]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-        <div className="form-group">
-          <label htmlFor="email">
-            {t("member.change_profile.field_email")}
-            <span>*</span>
-          </label>
-          <input
-            name="email"
-            type="text"
-            className="form-control-auth"
-            id="email"
-            onChange={formInfoFomik.handleChange}
-            value={formInfoFomik.values.email}
-          />
-          <RenderFormikErrorMessage
-            formikInstance={formInfoFomik}
+        </Col>
+        <Col span={24}>
+          <InputField
             field="email"
+            label={t("member.change_profile.field_email")}
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            rules={[{ required: true, message: "Please input email" }]}
+            response={response}
+            type={<Input />}
           />
-        </div>
-      </div>
-      <button className="btn btn-primary d-block ml-auto" type="submit">
-        {t("member.user_profile.btn_save")}
-      </button>
-    </form>
+        </Col>
+        <Col span={24}>
+          <Row justify="end">
+            <Button className="btn-save" htmlType="submit">
+              {t("member.user_profile.btn_save")}
+            </Button>
+          </Row>
+        </Col>
+      </Row>
+    </Form>
   );
 };

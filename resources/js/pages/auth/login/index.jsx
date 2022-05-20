@@ -4,7 +4,7 @@ import { useFormik } from "formik";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
@@ -16,14 +16,14 @@ import "./style.scss";
 const credential = Yup.object().shape({});
 export const Login = () => {
   const [show, setShow] = useState(true);
-  const user = useSelector((state) => state.authState.userInfo);
-  const token = useSelector((state) => state.authState.token);
+  const resLogin = useSelector((state) => state.authState.resLogin);
   const { i18n, t } = useTranslation();
-  const lang = localStorage.getItem('lang');
+  const lang = localStorage.getItem("lang");
   const { loginUser } = useLogin();
   function createMarkup() {
     return { __html: t("login.title") };
   }
+  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
@@ -31,10 +31,15 @@ export const Login = () => {
   const formik = useFormik({
     initialValues: initialValues,
     validationSchema: credential,
-    onSubmit: (values) => {
-      loginUser(values);
+    onSubmit: async (values) => {
+      await loginUser(values);
     },
   });
+  React.useEffect(() => {
+    if (resLogin?.status_code === 200) {
+      navigate(`${lang}/media`);
+    }
+  }, [resLogin]);
   return (
     <>
       <PageHead content="Login" title="Login" />
@@ -86,7 +91,7 @@ export const Login = () => {
             <label htmlFor="vehicle1"> {t("login.remember")}</label>
           </div>
           <Link
-            to={`${lang}/member/forgot-password`}
+            to={`${lang}/forgot-password`}
             className="text-decoration-none text-forgot"
           >
             {t("login.forgetPassword")}

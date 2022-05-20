@@ -36,7 +36,7 @@ const ForgotPassword = () => {
     if (!response || response?.status_code !== 200) {
       return;
     } else {
-      navigate(`${lang}/member/reset-link-password`);
+      navigate(`${lang}/reset-link-password`);
       backLogin();
     }
   }, [response]);
@@ -85,7 +85,7 @@ const ForgotPassword = () => {
               </button>
             </div>
             <div className="form-group d-few text-center">
-              <Link className="btn btn-back" to={`${lang}/member/login`} onClick={backLogin}>
+              <Link className="btn btn-back" to={`${lang}/login`} onClick={backLogin}>
                 BACK
               </Link>
             </div>

@@ -3,13 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { userApis } from "../../services/user-apis";
 
 const userActions = {
-  showProfile: createAction("SHOW_PROFILE"),
   getUsers: createAction("GET_USERS"),
   getUser: createAction("GET_USER"),
   createUser: createAction("CREATE_USER"),
   updateUser: createAction("UPDATE_USER"),
   deleteUser: createAction("DELETE_USER"),
-  changePassword: createAction("CHANGE_PASSWORD"),
 };
 
 export const getUsersAction = createAsyncThunk(
@@ -49,29 +47,12 @@ export const updateUserAction = createAsyncThunk(
 export const deleteUserAction = createAsyncThunk(
   userActions.deleteUser,
   async (payload) => {
-    const res = await userApis.deleteUser(payload).then((data) => data);
-    return payload;
+    const res = await userApis
+      .deleteUser(payload)
+      .then((data) => data)
+      .catch((err) => JSON.parse(err.response.request.response));
+    return res;
   }
 );
 
-export const showProfileAction = createAsyncThunk(
-  userActions.showProfile,
-  async (payload) => {
-    const res = await userApis
-      .showProfile(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
-  }
-);
-export const changePasswordAction = createAsyncThunk(
-  userActions.changePassword,
-  async (payload) => {
-    const res = await userApis
-      .changePassword(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
-  }
-);
 export default userActions;

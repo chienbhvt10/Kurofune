@@ -1,14 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { showProfileAction } from "../../redux/actions/userAction";
+import { showProfileAction } from "../../redux/actions/authAction";
 
 const useShowProfile = () => {
-  const userState = useSelector((state) => state.userState);
+  const authState = useSelector((state) => state.authState);
   const dispatch = useDispatch();
   const showProfile = (payload) => {
     dispatch(showProfileAction(payload));
   };
   return {
-    profile: userState.profile,
+    profile: authState.profile,
     showProfile,
   };
 };

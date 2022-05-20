@@ -18,7 +18,7 @@ const ResetPassword = () => {
   let { response, getResetPassword, resetResponse } = useResetPassword();
 
   const lang = localStorage.getItem("lang");
-  let resetEmail = localStorage.getItem("forgot-email");
+  let resetEmail = localStorage.getItem("reset_email");
 
 
 
@@ -48,7 +48,7 @@ const ResetPassword = () => {
     if (!response || response?.status_code !== 200) {
       return;
     } else {
-      navigate(`${lang}/member/login`);
+      navigate(`${lang}/login`);
       resetResponse();
     }
   }, [response]);

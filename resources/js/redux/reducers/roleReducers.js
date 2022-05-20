@@ -4,9 +4,9 @@ const initialState = {
   roles: [],
 };
 
-const authReducers = createReducer(initialState, (builder) => {
+const roleReducers = createReducer(initialState, (builder) => {
   builder.addCase(getRoles.fulfilled, (state, actions) => {
     state.roles = actions.payload.data;
   });
 });
-export default authReducers;
+export default roleReducers;

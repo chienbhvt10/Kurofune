@@ -2,21 +2,25 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { FormInfor } from "../../../components/form-infor";
 import { TabLink } from "../../../components/tabs";
+import useShowProfile from "../../../hooks/auth/useShowProfile";
+import useUpdateBillingAddress from "../../../hooks/auth/useUpdateBillingAddress";
 import "./style.scss";
+
 const BillingAddress = () => {
   const { i18n, t } = useTranslation();
-  const [item, setItem] = React.useState({
-    fullName: "",
-    toPostalCode: "",
-    fromPostalCode: "",
-    prefecture: "",
-    city: "",
-    street: "",
-    building: "",
-    phone: "",
-    email: "",
-  });
-  const submitBillingAddress = (value) => {};
+  const { showProfile, profile } = useShowProfile();
+  const { updateBillingAddress, resUpdateBillingAddress } =
+    useUpdateBillingAddress();
+  React.useEffect(() => {
+    if (!profile) {
+      showProfile();
+    }
+  }, [profile]);
+
+  const onSave = async (values) => {
+    await updateBillingAddress(values);
+  };
+
   return (
     <div id="BillingAddress">
       <TabLink
@@ -32,7 +36,12 @@ const BillingAddress = () => {
         ]}
       />
       <div className="content-tab">
-        <FormInfor item={item} onSubmit={submitBillingAddress} />
+        <FormInfor
+          item={profile}
+          onSave={onSave}
+          typeForm="billing"
+          response={resUpdateBillingAddress}
+        />
       </div>
     </div>
   );

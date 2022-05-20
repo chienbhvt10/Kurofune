@@ -12,7 +12,7 @@ const UpdateUser = () => {
   const { getUser, user } = useUser();
   const { getAllUsers } = useUsers();
 
-  const { updateUser, response } = useUpdateUser();
+  const { updateUser, resUpdateUser } = useUpdateUser();
   const lang = localStorage.getItem("lang");
 
   const onCancel = () => {
@@ -27,22 +27,25 @@ const UpdateUser = () => {
     }
   }, [id]);
   React.useEffect(() => {
-    if (response?.status_code === 200) {
+    if (resUpdateUser?.status_code === 200) {
       getAllUsers();
       navigate(`${lang}/admin/user-list`);
     } else {
       return;
     }
-  }, [response]);
+  }, [resUpdateUser]);
   return (
     <div id="update-user">
-      <UserForm
-        onCancel={onCancel}
-        onSave={onSave}
-        item={user}
-        title="Update User"
-        typeForm="update"
-      />
+      {user && (
+        <UserForm
+          onCancel={onCancel}
+          onSave={onSave}
+          item={user}
+          title="Update User"
+          typeForm="update"
+          response={resUpdateUser}
+        />
+      )}
     </div>
   );
 };
