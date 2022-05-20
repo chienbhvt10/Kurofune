@@ -67,6 +67,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 // View Vendor
                 Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
                 Route::get('detail-pharmacy', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
+                Route::get('product-of-pharmacy', [\App\Http\Controllers\API\VendorProfileController::class, 'productPharmacy']);
 
                 // Billing, Shipping, Address manager
                 Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);

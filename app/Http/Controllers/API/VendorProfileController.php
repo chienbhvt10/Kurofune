@@ -83,4 +83,14 @@ class VendorProfileController extends Controller
 
         return $this->responseData($vendor);
     }
+
+    public function productPharmacy(Request $request)
+    {
+        $id = $request->id;
+        $vendor = [];
+        $vendor = VendorProfile::find($id);
+        $products = $vendor->user->products()->get();
+        
+        return $this->responseData($products);
+    }
 }
