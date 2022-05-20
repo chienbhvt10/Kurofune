@@ -51,6 +51,11 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
+        //Shipping Method Manger
+        Route::middleware(['permission:manage shipping method'])->group(function () {
+            Route::apiResource('shipping-methods', \App\Http\Controllers\API\ShippingMethodController::class);
+        });
+
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
@@ -73,6 +78,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
                 Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
             });
+
+            Route::get('list-shipping-method',[\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
         });
     });
 
