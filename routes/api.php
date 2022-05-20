@@ -55,6 +55,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         Route::middleware('permission:manage chat log user')->group(function () {
             Route::get('list-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'listChatLog']);
             Route::get('detail-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'detailChatLog']);
+            Route::get('export-chat-log-all', [\App\Http\Controllers\API\ChatLogUserController::class, 'allExportCsv']);
+            Route::get('export-chat-log-user', [\App\Http\Controllers\API\ChatLogUserController::class, 'chatLogUser']);
         });
 
         // View Profile
