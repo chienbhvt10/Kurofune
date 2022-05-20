@@ -25,11 +25,11 @@ class ShippingMethodController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
+    {
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $shipping_method = ShippingMethod::paginate($posts_per_page);
-             return $this->responseData($shipping_method);
+            return $this->responseData($shipping_method);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
@@ -52,32 +52,31 @@ class ShippingMethodController extends Controller
                 'total' => [
                     'numeric',
                     'regex:/^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$/'
-                ], 
+                ],
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
                 DB::rollBack();
                 return $this->errorResponse($errors, 422);
             }
-          
-            $name = $request->name;
-            $total = $request->total;
+
+            $name = $request->name ?? null;
+            $total = $request->total ?? null;
             $description = $request->description ?? null;
             $logo = $request->file('logo') ?? null;
-            if(!empty($logo)){
+            if (!empty($logo)) {
                 $logo_path = upload_single_image($logo, 'shippingmethods');
-                $data['logo'] = $logo_path; 
             }
             $data = [
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-                'logo'=>$logo,
+                'logo' => $logo_path ?? null
             ];
 
             $shipping_method = ShippingMethod::create($data);
             DB::commit();
-            return $this->successWithData(__('message.shipping_method.created'), $shipping_method );
+            return $this->successWithData(__('message.shipping_method.created'), $shipping_method);
         } catch (\Exception $error) {
             DB::rollback();
             return $this->errorResponse($error->getMessage());
@@ -90,23 +89,14 @@ class ShippingMethodController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request ,$id)
+    public function show($id)
     {
         try {
-            $shipping_method = ShippingMethod::find($id); 
+            $shipping_method = ShippingMethod::find($id);
             if (!$shipping_method) {
                 return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            $logo = $shipping_method->logo ?? null;
-
-            $data = [
-                'name' => $shipping_method->name,
-                'total' => $shipping_method->total,
-                'description' => $shipping_method->description,
-                'logo' => $logo,
-            ];
-
-            return $this->responseData($data);
+            return $this->responseData($shipping_method);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
@@ -124,6 +114,7 @@ class ShippingMethodController extends Controller
         try {
             DB::beginTransaction();
             $shipping_method = ShippingMethod::find($id);
+            $params_update = [];
             if (!$shipping_method) {
                 return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
@@ -134,28 +125,30 @@ class ShippingMethodController extends Controller
                 'total' => [
                     'numeric',
                     'regex:/^\d{1,13}$|(?=^.{1,14}$)^\d+\.\d{0,2}$/'
-                ], 
+                ],
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-            $name = $request->name;
-            $total = $request->total;
-            $description = $request->description ?? null;
-            $logo_update = $request->file('logo');
+            
+            $name = $request->name ?? $shipping_method->name;
+            $total = $request->total ?? $shipping_method->total;
+            $description = $request->description ?? $shipping_method->description;
+            $logo_update = $request->file('logo') ?? $shipping_method->logo ;
             if (!empty($logo_update)) {
-                $logo_path = upload_single_image($logo_update, 'shippingmethods');
-                $shipping_method['image'] = $logo_path; 
+                $logo_update = upload_single_image($logo_update, 'shippingmethods');
+                $params_update['logo'] = $logo_update;
             }
-            $shipping_method->update([
+            $params_update = [
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-            ]);
+            ];
 
+            $shipping_method->update($params_update);
             DB::commit();
-            return $this->successWithData(__('message.shipping_method.updated'), $shipping_method );
+            return $this->successWithData(__('message.shipping_method.updated'), $shipping_method);
         } catch (\Exception $error) {
             DB::rollBack();
             return $this->errorResponse($error->getMessage());
@@ -179,10 +172,11 @@ class ShippingMethodController extends Controller
         }
     }
 
-    public function listShippingmethod(){
+    public function listShippingmethod()
+    {
         try {
             $shipping_method = ShippingMethod::all();
-             return $this->responseData($shipping_method);
+            return $this->responseData($shipping_method);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
