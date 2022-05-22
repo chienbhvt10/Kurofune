@@ -43,9 +43,9 @@ return [
         'valid' => 'Mangyaring bigyan ako ng wastong zip code',
     ],
     'page'=>[
-        'create_success' =>'Matagumpay na nakagawa ng pahina',
-        'update_success' =>'Matagumpay na na-update ang pahina',
-        'delete_success' =>'Matagumpay na natanggal ang pahina',
+        'created' =>'Matagumpay na nakagawa ng pahina',
+        'updated' =>'Matagumpay na na-update ang pahina',
+        'deleted' =>'Matagumpay na natanggal ang pahina',
         'not_exist' =>'Walang pahina',
     ],
     'password' => [

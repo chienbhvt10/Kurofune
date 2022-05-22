@@ -29,7 +29,7 @@ class PageController extends Controller
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $page = Page::paginate($posts_per_page);
-             return $this->responseData($page);
+            return $this->responseData($page);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
@@ -50,7 +50,6 @@ class PageController extends Controller
                 'slug' => 'nullable|string|max:255',
                 'status' =>  [Rule::in(['publish', 'draft']), 'required'],
                 'en.title' => 'required|string'
-               
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
@@ -69,15 +68,15 @@ class PageController extends Controller
             $meta_description = $request->meta_description ?? null;
             $image = $request->file('image') ?? null;
             $meta_keywords = $request->meta_keywords ?? null;
-            if(!empty($image)){
+            if (!empty($image)) {
                 $image_path = upload_single_image($image, 'pages');
-                $data['image'] = $image_path; 
             }
             $data = [
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'meta_title'=>$meta_title,
+                'image' => $image_path ?? null,
+                'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
                 'en' => [
@@ -100,12 +99,12 @@ class PageController extends Controller
                     'content' => $request->zh['content'] ?? null,
                     'title' => $request->zh['title'] ?? null,
                 ],
-            
+
             ];
 
             $page = Page::create($data);
             DB::commit();
-            return $this->successWithData(__('message.page.create_success'), $page );
+            return $this->successWithData(__('message.page.created'), $page);
         } catch (\Exception $error) {
             DB::rollback();
             return $this->errorResponse($error->getMessage());
@@ -118,28 +117,14 @@ class PageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
         try {
-            $page = Page::find($id); 
+            $page = Page::find($id);
             if (!$page) {
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            $image = $page->image ?? null;
-
-            $data = [
-                'author_id' => $page->author_id,
-                'slug' => $page->slug,
-                'status' => $page->status,
-                'image' => $image,
-                'meta_title'=>$page->meta_title,
-                'meta_description' => $page->meta_description,
-                'meta_keywords' => $page->meta_keywords,
-                'title' => $page->title,
-                'content' => $page->content,
-            ];
-
-            return $this->responseData($data);
+            return $this->responseData($page);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
@@ -174,21 +159,21 @@ class PageController extends Controller
             } else {
                 $slug = Str::slug($request->en['title']);
             }
-            $author_id = $request->author_id;
-            $status = $request->status;
-            $meta_title = $request->meta_title ?? null;
-            $meta_description = $request->meta_description ?? null;
+            $author_id = $request->author_id ?? $page->author_id;
+            $status = $request->status ?? $page->status;
+            $meta_title = $request->meta_title ?? $page->meta_title;
+            $meta_description = $request->meta_description ?? $page->meta_description;
             $image_update = $request->file('image');
-            $meta_keywords = $request->meta_keywords ?? null;
+            $meta_keywords = $request->meta_keywords ?? $page->meta_keywords;
             if (!empty($image_update)) {
                 $image_path = upload_single_image($image_update, 'pages');
-                $page['image'] = $image_path; 
             }
             $page->update([
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'meta_title'=>$meta_title,
+                'image' => $image_path ?? $page->image,
+                'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
                 'en' => [
@@ -214,7 +199,7 @@ class PageController extends Controller
             ]);
 
             DB::commit();
-            return $this->successWithData(__('message.page.update_success'), $page );
+            return $this->successWithData(__('message.page.updated'), $page);
         } catch (\Exception $error) {
             DB::rollBack();
             return $this->errorResponse($error->getMessage());
@@ -232,7 +217,7 @@ class PageController extends Controller
         try {
             $page = page::find($id);
             $page->delete();
-            return $this->success(__('message.page.delete_success'));
+            return $this->success(__('message.page.deleted'));
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
@@ -246,7 +231,7 @@ class PageController extends Controller
                 return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
             return $this->responseData($page);
-        }catch (\Exception $error){
+        } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
     }
