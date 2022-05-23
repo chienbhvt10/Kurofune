@@ -49,9 +49,8 @@ class VendorProfileController extends Controller
         }
     }
 
-    public function detailPharmacy(Request $request)
+    public function detailPharmacy($id)
     {
-        $id = $request->id;
         $vendor = [];
         $vendor = VendorProfile::find($id);
         $images_outside = getMediaImages($vendor, 'images_outside');
@@ -84,9 +83,8 @@ class VendorProfileController extends Controller
         return $this->responseData($vendor);
     }
 
-    public function productPharmacy(Request $request)
+    public function productPharmacy($id)
     {
-        $id = $request->id;
         $vendor = [];
         $vendor = VendorProfile::find($id);
         if (!empty($vendor)) {

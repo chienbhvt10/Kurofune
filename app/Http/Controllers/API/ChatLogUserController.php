@@ -34,10 +34,8 @@ class ChatLogUserController extends Controller
         }
     }
 
-    public function detailChatLog(Request $request)
+    public function detailChatLog($id)
     {
-        $id = $request->id;
-
         $chat_log = ChatLogUser::find($id);
         if (!empty($chat_log)) {
             $chat_log->data_log = json_decode($chat_log->data_log) ?? null;
@@ -104,9 +102,8 @@ class ChatLogUserController extends Controller
         exit();
     }
 
-    public function chatLogUser(Request $request)
+    public function chatLogUser(Request $request, $id)
     {
-        $id = $request->data_id;
         $export_ja = $request->export_ja ?? null;
 
         $results = ChatLogUser::find($id);
