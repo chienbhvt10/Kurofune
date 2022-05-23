@@ -42,6 +42,7 @@ import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import { UserLayout } from "../pages/client/user-info/user-layout";
 import { NotFound } from "../pages/notFound";
 import { authApis } from "../services/auth-apis";
+
 const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;

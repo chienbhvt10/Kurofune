@@ -31,6 +31,7 @@
         "@fortawesome/react-fontawesome": "^0.1.18",
         "@reduxjs/toolkit": "^1.8.1",
         "antd": "^4.20.5",
+        "antd-img-crop": "^4.2.3",
         "dotenv": "^16.0.0",
         "font-awesome": "^4.7.0",
         "formik": "^2.2.9",

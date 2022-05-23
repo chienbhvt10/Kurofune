@@ -1,5 +1,4 @@
 import { Button, Col, Form, Input, Row, Select } from "antd";
-import moment from "moment";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { userFormOptions } from "../../../../commons/data";
@@ -7,7 +6,7 @@ import InputField from "../../../../commons/Form/InputField";
 import SelectField from "../../../../commons/Form/SelectField";
 import FormHeader from "../../../../commons/FormHeader";
 import { formatDate, generatePassword } from "../../../../commons/string.js";
-import UploadDragger from "../../../../commons/UploadDragger";
+import UploadDragger from "../../../../commons/UploadDragger/UploadDragger";
 import useRoles from "../../../../hooks/role/useRoles";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
@@ -30,7 +29,11 @@ export const UserForm = ({
   const { i18n, t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const [role, setRole] = useState();
-
+  const [avatarState, setAvatarState] = useState({
+    avatarUrl: undefined,
+    base64Avatar: undefined,
+    loading: false,
+  });
   const lang = localStorage.getItem("lang");
   const [userInfoForm] = Form.useForm();
   const [planProfileForm] = Form.useForm();
@@ -46,6 +49,7 @@ export const UserForm = ({
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
+      avatar: avatarState.base64Avatar,
       ...userInfoForm.getFieldsValue(),
       ...commonAddressForm.getFieldsValue(),
       billing_address: {
@@ -91,7 +95,7 @@ export const UserForm = ({
         ),
       };
     }
-    onSave({ ...submitValues });
+    onSave(submitValues);
   };
   const userInfoInitValues = getUserInfoInitValues(item);
   const planInitValues = getPlanInitValues(item);
@@ -141,9 +145,17 @@ export const UserForm = ({
   const onChangeRole = (values) => {
     setRole(values);
   };
+
+  const onChangeAvatar = (base64Image) => {
+    setAvatarState({ base64Avatar: base64Image });
+  };
+  React.useEffect(() => {
+    setAvatarState({ imageUrl: item?.avatar || "" });
+  }, [item]);
   return (
     <div className="user-form">
       <Form
+        encType="multipart/form-data"
         name="common-info-form"
         form={userInfoForm}
         onFinish={onFinishAll}
@@ -166,7 +178,11 @@ export const UserForm = ({
         />
         <Row justify="center" style={{ marginTop: 30 }}>
           <Col span={8}>
-            <UploadDragger title="Avatar" name="avatar" />
+            <UploadDragger
+              onChangeImage={onChangeAvatar}
+              imageUrlProps={avatarState.avatarUrl}
+              loading={avatarState.loading}
+            />
           </Col>
           <Col span={14}>
             <Col span={23}>
