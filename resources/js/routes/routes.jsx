@@ -69,19 +69,6 @@ const appRouter = () => {
   }
   let lang = localStorage.getItem("lang");
 
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    if (
-      !authApis.checkLogin() &&
-      window.location.pathname !== `${lang}/login`
-    ) {
-      window.location.pathname !== `${lang}/login`;
-    } else {
-      setLoading(false);
-    }
-  }, []);
-  if (loading) return null;
-
   return (
     <BrowserRouter>
       <Routes>
