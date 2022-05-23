@@ -89,8 +89,12 @@ class VendorProfileController extends Controller
         $id = $request->id;
         $vendor = [];
         $vendor = VendorProfile::find($id);
-        $products = $vendor->user->products()->get();
-        
+        if (!empty($vendor)) {
+            $products = $vendor->user->products()->get();
+        } else {
+            return $this->errorResponse(__('Not found data'));
+        }
+
         return $this->responseData($products);
     }
 }
