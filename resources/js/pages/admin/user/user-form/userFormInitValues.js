@@ -9,6 +9,7 @@ export const getUserInfoInitValues = (item) => {
     phone: item?.phone || "",
     email: item?.email || "",
     active: item?.active || 0,
+    avatar: item?.avatar || "",
   };
 };
 export const getTranslateInitValues = () => {

@@ -19,11 +19,13 @@ const initialState = {
 const userReducers = createReducer(initialState, (builder) => {
   builder.addCase(getUsersAction.fulfilled, (state, actions) => {
     state.users = actions.payload.data.data;
-    state.response = undefined;
+    state.resUpdateUser = undefined;
+    state.resCreateUser = undefined;
   });
   builder.addCase(getUserAction.fulfilled, (state, actions) => {
     state.user = actions.payload.data;
-    state.response = undefined;
+    state.resUpdateUser = undefined;
+    state.resCreateUser = undefined;
   });
   builder.addCase(createUserAction.fulfilled, (state, actions) => {
     if (actions.payload.status_code === 200) {

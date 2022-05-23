@@ -1,13 +1,10 @@
-import { DeleteOutlined, EyeOutlined, PlusOutlined } from "@ant-design/icons";
+import { EyeOutlined } from "@ant-design/icons";
 import { Button, Modal, Space, Upload } from "antd";
-import ImgCrop from "antd-img-crop";
 import React, { useRef, useState } from "react";
-import { UploadOutlined } from "@ant-design/icons";
 import "./upload-dragger.scss";
 
-const UploadDragger = ({ fileProp, onChangeImage, loading }) => {
+const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
   const ref = useRef();
-  const [file, setFile] = useState();
   const [previewImage, setPreviewImage] = useState(false);
   const [imageUrl, setImageUrl] = useState("/avatars/default.png");
 
@@ -20,34 +17,17 @@ const UploadDragger = ({ fileProp, onChangeImage, loading }) => {
     });
   };
 
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.file);
-      console.log(getBase64(file.file));
-    }
-    setImageUrl(file.url || file.preview);
-    setPreviewImage(true);
-  };
-
   const handleChange = async (info) => {
-    onChangeImage && onChangeImage(info.file);
+    const base64Image = await getBase64(info.file);
+    onChangeImage && onChangeImage(base64Image);
     setImageUrl(URL.createObjectURL(info.file));
   };
 
-  const onUpload = () => {
-    console.log(ref.current);
-    if (ref && ref.current) {
-      ref.current.upload();
-    }
-  };
-
   React.useEffect(() => {
-    if (typeof fileProp === "string" && fileProp.length) {
-      setImageUrl(fileProp);
+    if (imageUrlProps) {
+      setImageUrl(imageUrlProps);
     }
-  }, [fileProp]);
-
-  console.log(fileProp);
+  }, [imageUrlProps]);
   return (
     <div className="form-image-custom">
       <div className="container">
@@ -67,26 +47,23 @@ const UploadDragger = ({ fileProp, onChangeImage, loading }) => {
           height={300}
           style={{ width: "100%", objectFit: "cover" }}
         />
-        {typeof fileProp === "string" && (
-          <div className="middle" onClick={onUpload}>
-            <Space>
-              <Button
-                type="ghost"
-                shape="circle"
-                icon={<EyeOutlined style={{ color: "#ffffff" }} />}
-                size="middle"
-                title="Xem"
-                onClick={() => setPreviewImage(true)}
-              />
-            </Space>
-          </div>
-        )}
+        <div className="middle">
+          <Space>
+            <Button
+              type="ghost"
+              shape="circle"
+              icon={<EyeOutlined style={{ color: "#ffffff" }} />}
+              size="middle"
+              title="Xem"
+              onClick={() => setPreviewImage(true)}
+            />
+          </Space>
+        </div>
       </div>
       <Upload
         ref={ref}
         name="image"
         className="upload"
-        onPreview={handlePreview}
         onChange={handleChange}
         multiple={false}
         beforeUpload={() => false}
