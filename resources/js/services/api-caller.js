@@ -13,9 +13,12 @@ const axiosClient = axios.create({
 axiosClient.interceptors.request.use(
   async (config) => {
     const access_token = localStorage.getItem("access_token");
+    const lang = localStorage.getItem("lang");
+
     if (access_token) {
       config.headers = {
         Authorization: `Bearer ${access_token}`,
+        "X-localization": lang.replace("/", "") || "ja",
       };
     }
     return config;

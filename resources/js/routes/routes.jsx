@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
-import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
 import LogChatBot from "../pages/admin/log-chatbot";
 import LogQuestionnaire from "../pages/admin/log-questionnaire";
 import AddOrder from "../pages/admin/order/order-add";
@@ -21,15 +20,16 @@ import { UserList } from "../pages/admin/user/user-list";
 import UpdateUser from "../pages/admin/user/user-update";
 import { AuthLayout } from "../pages/auth/authLayout";
 import ForgotPassword from "../pages/auth/forgot-password";
+import { Login } from "../pages/auth/login";
 import ResetLinkPassword from "../pages/auth/reset-link-password";
 import ResetPassword from "../pages/auth/reset-password";
-import { Login } from "../pages/auth/login";
 import BillingAddress from "../pages/client/billing-address";
 import Cart from "../pages/client/cart";
+import CategoryListPage from "../pages/client/category-list";
+import CategoryListDetail from "../pages/client/category-list-detail";
 import CheckoutPage from "../pages/client/checkout";
 import PharmaciesPage from "../pages/client/list-of-pharmacies";
 import MediaPage from "../pages/client/media";
-import MedicineListPage from "../pages/client/medicine-list";
 import MemberPage from "../pages/client/member";
 import OrderDetailPage from "../pages/client/order-detail";
 import OrderHistoryPage from "../pages/client/order-history";
@@ -41,7 +41,6 @@ import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import { UserLayout } from "../pages/client/user-info/user-layout";
 import { NotFound } from "../pages/notFound";
-import { authApis } from "../services/auth-apis";
 
 const appRouter = () => {
   const { i18n } = useTranslation();
@@ -91,12 +90,17 @@ const appRouter = () => {
         >
           <Route path={`member`} element={<MemberPage />} exact={true} />
           <Route
-            path={`medicine-list`}
-            element={<MedicineListPage />}
+            path={`category-list`}
+            element={<CategoryListPage />}
             exact={true}
           />
           <Route
-            path={`product-detail`}
+            path={`category-list-detail/:id`}
+            element={<CategoryListDetail />}
+            exact={true}
+          />
+          <Route
+            path={`product-detail/:id`}
             element={<ProductDetailPage />}
             exact={true}
           />

@@ -241,10 +241,10 @@ class CategoryController extends Controller
         }
     }
 
-    public function detailCategory(Request $request)
+    public function detailCategory($id)
     {
         try {
-            $id = $request->id;
+            // $id = $request->id;
             $detail = Category::find($id);
 
             $data = $detail->products()->get();
