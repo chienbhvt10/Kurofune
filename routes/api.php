@@ -29,7 +29,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('roles', \App\Http\Controllers\API\RoleController::class);
             Route::get('get-permission-by-role/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
             Route::put('update-permission-for-role', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
-            Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
+            Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class);
         });
 
         // User Manage
@@ -40,7 +40,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         // Taxes
         Route::middleware(['permission:manage tax'])->group(function () {
-            Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class); 
+            Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class);
         });
 
         // Category Manage
@@ -54,23 +54,22 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
-            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class );
+            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
         });
-        
+
         // Chat log user manage
         Route::middleware('permission:manage chat log user')->group(function () {
             Route::get('list-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'listChatLog']);
             Route::get('detail-chat-log/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'detailChatLog']);
             Route::get('export-chat-log-all', [\App\Http\Controllers\API\ChatLogUserController::class, 'allExportCsv']);
             Route::get('export-chat-log-user/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'chatLogUser']);
-
         });
 
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
-        Route::middleware(['user.active'])->group(function (){
-            Route::middleware(['permission:user read online pharmacy'])->group(function (){
+        Route::middleware(['user.active'])->group(function () {
+            Route::middleware(['permission:user read online pharmacy'])->group(function () {
                 // View Vendor
                 Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
                 Route::get('detail-pharmacy/{id}', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
@@ -92,7 +91,6 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
             Route::get('get-page-by-slug/{slug}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
         });
-
     });
 
     Route::post('login', [\App\Http\Controllers\API\AuthController::class, 'login']);

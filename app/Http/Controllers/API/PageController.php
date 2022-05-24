@@ -70,12 +70,13 @@ class PageController extends Controller
             $meta_keywords = $request->meta_keywords ?? null;
             if (!empty($image)) {
                 $image_path = upload_single_image($image, 'pages');
+                $image64 = base64_encode($image_path);
             }
             $data = [
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image_path ?? null,
+                'image' => $image64 ?? null,
                 'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
@@ -167,12 +168,13 @@ class PageController extends Controller
             $meta_keywords = $request->meta_keywords ?? $page->meta_keywords;
             if (!empty($image_update)) {
                 $image_path = upload_single_image($image_update, 'pages');
+                $image64 = base64_encode($image_path);
             }
             $page->update([
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image_path ?? $page->image,
+                'image' => $image64 ?? $page->image,
                 'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
