@@ -72,12 +72,7 @@ function upload_avatar($file_avatar = null): string
 }
 
 function get_avatar_url($avatar = null) {
-    if($avatar) {
-        $avatar = url($avatar);
-    }else {
-        $avatar = url(Base::PATH_AVATAR_DEFAULT);
-    }
-    return $avatar;
+    return $avatar ? url($avatar) : url(Base::PATH_AVATAR_DEFAULT);
 }
 
 function upload_single_image($image, $path = null): string
