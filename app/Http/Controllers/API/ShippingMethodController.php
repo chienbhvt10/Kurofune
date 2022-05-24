@@ -66,12 +66,13 @@ class ShippingMethodController extends Controller
             $logo = $request->file('logo') ?? null;
             if (!empty($logo)) {
                 $logo_path = upload_single_image($logo, 'shippingmethods');
+                $logo64 = base64_encode($logo_path);
             }
             $data = [
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-                'logo' => $logo_path ?? null
+                'logo' => $logo64 ?? null
             ];
 
             $shipping_method = ShippingMethod::create($data);
@@ -138,12 +139,13 @@ class ShippingMethodController extends Controller
             $logo_update = $request->file('logo') ?? null;
             if (!empty($logo_update)) {
                 $logo_update = upload_single_image($logo_update, 'shippingmethods');
+                $logo64 = base64_encode($logo_update);
             }
             $params_update = [
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-                'logo' => $logo_update ?? $shipping_method->logo
+                'logo' => $logo64 ?? $shipping_method->logo
             ];
 
             $shipping_method->update($params_update);
