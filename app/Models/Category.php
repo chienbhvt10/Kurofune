@@ -19,6 +19,10 @@ class Category extends Model
 
     public $timestamps = true;
 
+    public function getCategoryImageAttribute(){
+        return $this->attributes['category_image'] = get_avatar_url($this->attributes['category_image']);
+    }
+
     /*
     |--------------------------------------------------------------------------
     | RELATIONS

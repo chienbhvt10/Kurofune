@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { mediaBoardItemData } from "../../../commons/data";
 import Board from "../../../commons/Board";
-import Footer from "../../../components/footer";
+import Footer from "../../../components/Footer";
 import PageHead from "../../../commons/PageHead";
 import "./media.scss";
 import { Languages } from "../../../commons/Languges";
