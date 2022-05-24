@@ -1,17 +1,17 @@
-import { Form, Input, Row, Col } from "antd";
+import { Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
-import * as Yup from "yup";
 import InputField from "../Form/InputField";
-import RenderApiErrorMessage from "../RenderErrorMessage/RenderApiErrorMessage";
-
-const credential = Yup.object().shape({});
 
 const BillingShipForm = ({ lang, className, form, typeForm }) => {
   const response = useSelector((state) => state.userState.response);
 
   return (
-    <Form className={className} name={`${typeForm}-info-form`} form={form}>
+    <Form
+      className={className + " billing-shipping-form"}
+      name={`${typeForm}-info-form`}
+      form={form}
+    >
       <Row justify="center">
         <Col span={12}>
           <InputField
@@ -20,8 +20,8 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
             typeForm={typeForm}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={12}>
@@ -31,7 +31,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>
@@ -42,7 +42,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>
@@ -53,7 +53,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>
@@ -64,7 +64,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>
@@ -75,7 +75,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>
@@ -86,7 +86,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>
@@ -97,7 +97,7 @@ const BillingShipForm = ({ lang, className, form, typeForm }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
             typeForm={typeForm}
           />
         </Col>

@@ -1,16 +1,11 @@
-import {
-  faBars,
-  faSignOutAlt,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import BackButton from "../../commons/BackButton";
-// import LanguageSwitcher from "../../commons/LanguageSwitcher";
 import { Languages } from "../../commons/Languges";
 import "./header-home.scss";
-import { useTranslation } from "react-i18next";
 const HeaderHome = ({ toggleSideBar }) => {
   const lang = localStorage.getItem("lang");
   const { i18n, t } = useTranslation();
@@ -29,7 +24,7 @@ const HeaderHome = ({ toggleSideBar }) => {
           </button>
           <BackButton
             currentPath={`${lang}/product-detail`}
-            backTo={`${lang}/medicine-list`}
+            backTo={`${lang}/category-list`}
             title={t("header.btn_back1")}
           />
           <BackButton

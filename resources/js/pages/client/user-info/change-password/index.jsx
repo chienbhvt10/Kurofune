@@ -60,6 +60,7 @@ export const ChangePassword = () => {
               type={
                 <Input
                   type={!showCurrentPassword ? "password" : "text"}
+                  className="input-field"
                   addonAfter={
                     <FontAwesomeIcon
                       icon={!showCurrentPassword ? faEyeSlash : faEye}
@@ -86,6 +87,7 @@ export const ChangePassword = () => {
               type={
                 <Input
                   type={!showPassword ? "password" : "text"}
+                  className="input-field"
                   addonAfter={
                     <FontAwesomeIcon
                       icon={!showPassword ? faEyeSlash : faEye}
@@ -128,6 +130,7 @@ export const ChangePassword = () => {
               type={
                 <Input
                   type={!showConfirmPassword ? "password" : "text"}
+                  className="input-field"
                   addonAfter={
                     <FontAwesomeIcon
                       icon={!showConfirmPassword ? faEyeSlash : faEye}

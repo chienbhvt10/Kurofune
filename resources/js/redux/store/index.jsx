@@ -2,6 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userState from "../reducers/userReducers";
 import productState from "../reducers/productReducers";
 import authState from "../reducers/authReducers";
+import categoryState from "../reducers/categoryReducer";
 import roleState from "../reducers/roleReducers";
 
 import thunk from "redux-thunk";
@@ -11,6 +12,7 @@ export const store = configureStore({
     productState,
     authState,
     roleState,
+    categoryState,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });
