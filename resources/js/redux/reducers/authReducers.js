@@ -42,12 +42,20 @@ const authReducers = createReducer(initialState, (builder) => {
       state.isLogin = true;
       NotificationSuccess("Thông báo", "Đăng nhập thành công");
     } else {
-      NotificationError("Thông báo", "Đăng nhập thất bại");
+      NotificationError(
+        "Thông báo",
+        "Tên tài khoản hoặc mật khẩu không chính xác"
+      );
     }
   });
 
   builder.addCase(forgotPassword.fulfilled, (state, actions) => {
     state.resForgotPassword = actions.payload;
+    if (actions.payload.status_code === 200) {
+      NotificationSuccess("Thông báo", actions.payload.message);
+    } else {
+      NotificationError("Thông báo", "Gửi xác nhận tới email thất bại");
+    }
   });
 
   builder.addCase(resetPassword.fulfilled, (state, actions) => {
@@ -69,9 +77,9 @@ const authReducers = createReducer(initialState, (builder) => {
       state.userInfo = undefined;
       state.token = undefined;
       state.profile = undefined;
-      NotificationSuccess("Thông báo", "Bạn đã đăng xuất");
+      NotificationSuccess("Thông báo", actions.payload.message);
     } else {
-      NotificationError("Thông báo", "Đăng xuất thất bại");
+      NotificationError("Thông báo", actions.payload.message);
     }
   });
   builder.addCase(showProfileAction.fulfilled, (state, actions) => {
