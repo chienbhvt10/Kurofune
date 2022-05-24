@@ -2,11 +2,20 @@ import React from "react";
 import "./list-of-pharmacies.scss";
 import PageHead from "../../../commons/PageHead";
 import { useTranslation } from "react-i18next";
-const PharmaciesPage = () => {
+import { useParams } from "react-router-dom";
+import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
+const PharmacyDetail = () => {
   const { t } = useTranslation();
+  const { id } = useParams();
+  const { getPharmacy, pharmacy } = usePharmacy();
+  React.useEffect(() => {
+    if (id) {
+      getPharmacy(id);
+    }
+  }, [id]);
   return (
     <>
-      <PageHead content="List Of Pharmacies" title="List Of Pharmacies" />
+      <PageHead content="Pharmacy Detail" title="Pharmacy Detail" />
       <div id="list-of-pharmacies">
         <div className="list_pharmacies">
           <div className="card card-list-pharmacies">
@@ -243,4 +252,4 @@ const PharmaciesPage = () => {
   );
 };
 
-export default PharmaciesPage;
+export default PharmacyDetail;

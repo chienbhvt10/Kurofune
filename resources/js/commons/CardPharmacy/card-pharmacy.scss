@@ -1,9 +1,9 @@
-.card-category-detail {
+.card-pharmacy {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   flex-direction: unset;
-  .item-category-detail {
+  .item-pharmacy {
     width: calc(100% / 5);
     margin-bottom: 16px;
     padding: 0 8px;
@@ -24,36 +24,26 @@
         text-align: center;
         font-weight: bold;
       }
-      .item-pc-price {
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-      }
-      .item-pc-vendor {
-        padding: 10px;
-        text-align: center;
-        font-weight: bold;
-      }
     }
   }
 }
 @media screen and (max-width: 992px) {
-  .card-category-detail {
-    .item-category-detail {
+  .card-pharmacy {
+    .item-pharmacy {
       width: calc(100% / 4) !important;
     }
   }
 }
 @media screen and (max-width: 768px) {
-  .card-category-detail {
-    .item-category-detail {
+  .card-pharmacy {
+    .item-pharmacy {
       width: calc(100% / 3) !important;
     }
   }
 }
 @media screen and (max-width: 500px) {
-  .card-category-detail {
-    .item-category-detail {
+  .card-pharmacy {
+    .item-pharmacy {
       width: calc(100% / 2) !important;
     }
   }
