@@ -8,9 +8,9 @@ const CardCategory = ({ cardItems, type }) => {
   return (
     <div className="card card-product-cat">
       {cardItems?.map((item, index) => (
-        <>
-          {item.type === type && (
-            <div key={index} className="item-product-cat">
+        <React.Fragment key={index}>
+          <div className="item-product-cat">
+            {item.type === type && (
               <div className="item-pc-wrap">
                 <Link to={`${lang}/category-list-detail/${item.id}`}>
                   <div className="item-pc-image">
@@ -19,9 +19,9 @@ const CardCategory = ({ cardItems, type }) => {
                   <div className="item-pc-name">{item.name}</div>
                 </Link>
               </div>
-            </div>
-          )}
-        </>
+            )}
+          </div>
+        </React.Fragment>
       ))}
     </div>
   );

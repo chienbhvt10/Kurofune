@@ -7,7 +7,6 @@ export const categoryApis = {
     return await axiosClient.get(url, data);
   },
   category: async (data) => {
-    console.log(data);
     const url = ROOT_URL + `detail-category/${data}`;
     return await axiosClient.get(url);
   },

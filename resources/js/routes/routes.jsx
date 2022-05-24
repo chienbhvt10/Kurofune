@@ -28,11 +28,12 @@ import Cart from "../pages/client/cart";
 import CategoryListPage from "../pages/client/category-list";
 import CategoryListDetail from "../pages/client/category-list-detail";
 import CheckoutPage from "../pages/client/checkout";
-import PharmaciesPage from "../pages/client/list-of-pharmacies";
 import MediaPage from "../pages/client/media";
 import MemberPage from "../pages/client/member";
 import OrderDetailPage from "../pages/client/order-detail";
 import OrderHistoryPage from "../pages/client/order-history";
+import PharmacyDetail from "../pages/client/pharmacy-detail";
+import PharmacyList from "../pages/client/pharmacy-list";
 import ProductDetailPage from "../pages/client/product-detail";
 import { Questionnaire } from "../pages/client/questionnaire";
 import { Service24H } from "../pages/client/service-24";
@@ -106,7 +107,12 @@ const appRouter = () => {
           />
           <Route
             path={`list-of-pharmacies`}
-            element={<PharmaciesPage />}
+            element={<PharmacyList />}
+            exact={true}
+          />
+          <Route
+            path={`pharmacy-detail/:id`}
+            element={<PharmacyDetail />}
             exact={true}
           />
           <Route path={`cart`} element={<Cart />} exact={true}></Route>
