@@ -20,6 +20,7 @@ import { store } from "./redux/store";
 import Routes from "./routes/routes";
 import i18n from "./translate/i18n";
 import "antd/dist/antd.css";
+import "../less/app.less";
 
 let composeEnhancers = null;
 if (

@@ -1,6 +1,6 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Checkbox, Col, Form, Input, Row } from "antd";
+import { Button, Checkbox, Col, Form, Input, Row, Typography } from "antd";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -12,6 +12,8 @@ import ModalPolicy from "../../../components/Modal/ModalPolicy";
 import ModalTerm from "../../../components/Modal/ModalTerm";
 import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
+
+const { Title } = Typography;
 
 export const Login = () => {
   const [show, setShow] = useState(true);
@@ -35,14 +37,18 @@ export const Login = () => {
       navigate(`${lang}/media`);
     }
   }, [resLogin]);
+
   const onLogin = async (values) => {
     await loginUser(values);
   };
+
   return (
-    <Row justify="center" id="login-page">
-      <Col style={{ maxWidth: 425 }}>
+    <Row justify="center">
+      <Col span={12}>
         <PageHead content="Login" title="Login" />
-        <h4 className="title" dangerouslySetInnerHTML={createMarkup()}></h4>
+        <Title className="title" level={4}>
+          <span dangerouslySetInnerHTML={createMarkup()}/>
+        </Title>
         <Form
           id="loginForm"
           form={form}
@@ -113,11 +119,9 @@ export const Login = () => {
                 align="center"
               >
                 <Col>
-                  <Form.Item name="remember" className="remember">
+                  <Form.Item name="remember" label="" className="remember">
                     <Checkbox value="checked">
-                      <span className="remember-label">
-                        {t("login.remember")}
-                      </span>
+                      <Typography type="secondary">{t("login.remember")}</Typography>
                     </Checkbox>
                   </Form.Item>
                 </Col>
@@ -131,24 +135,22 @@ export const Login = () => {
                 </Col>
               </Row>
             </Col>
-            <Col span={24}>
-              <button className="btn btn-primary d-block m-auto" type="submit">
-                {t("login.login_btn")}
-              </button>
+            <Col span={8}>
+              <Button className="w-100" size="large" type="primary" htmlType="submit" >{t("login.login_btn")}</Button>
             </Col>
           </Row>
         </Form>
-        <Row justify="center" style={{ marginTop: 40 }}>
-          <Col style={{ marginRight: 10 }}>
+        <Row justify="center" className="mt-4">
+          <Col>
             <ModalTerm text={t("login.term_of_use")} />
           </Col>
           <Col>
             <ModalPolicy text={t("login.privacy_policy")} />
           </Col>
         </Row>
-        <div className="dropdown-language-menu">
+        <div className="dropdown-language-menu text-center">
           <Languages />
-          <span className="footer-text">{t("login.kurofune")} 2022</span>
+          {t("login.kurofune")} 2022
         </div>
       </Col>
     </Row>

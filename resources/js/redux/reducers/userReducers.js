@@ -15,12 +15,22 @@ const initialState = {
   user: undefined,
   resCreateUser: undefined,
   resUpdateUser: undefined,
+  total: undefined,
+  from: undefined,
+  to: undefined,
+  current_page: undefined,
+  last_page: undefined,
 };
 const userReducers = createReducer(initialState, (builder) => {
   builder.addCase(getUsersAction.fulfilled, (state, actions) => {
     state.users = actions.payload.data.data;
     state.resUpdateUser = undefined;
     state.resCreateUser = undefined;
+    state.total = actions.payload.data.total;
+    state.from = actions.payload.data.from;
+    state.to = actions.payload.data.to;
+    state.current_page = actions.payload.data.current_page;
+    state.last_page = actions.payload.data.last_page;
   });
   builder.addCase(getUserAction.fulfilled, (state, actions) => {
     state.user = actions.payload.data;

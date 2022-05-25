@@ -1,6 +1,6 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Col, Form, Input, Row } from "antd";
+import { Button, Col, Form, Input, Row } from "antd";
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
@@ -45,15 +45,15 @@ const ResetPassword = () => {
     }
   };
   return (
-    <div id="reset-password">
+    <Row justify="center">
+      <Col span={12}>
       <Form
         initialValues={resetPasswordInitValues}
         name="reset-password-form"
-        className="reset-password-form"
         onFinish={onResetPassword}
         autoComplete="off"
       >
-        <Row justify="center" align="middle" className="h-100">
+        <Row justify="center" align="middle" >
           <Col span={24}>
             <InputField
               field="email"
@@ -87,7 +87,6 @@ const ResetPassword = () => {
               type={
                 <Input
                   type={!showPassword ? "password" : "text"}
-                  className="input-field"
                   addonBefore={
                     <img
                       className="icon-input"
@@ -160,7 +159,7 @@ const ResetPassword = () => {
               }
             />
           </Col>
-
+          <Col span={24}>
           <InputField
             field="token"
             label=""
@@ -169,16 +168,14 @@ const ResetPassword = () => {
             response={resResetPassword}
             type={<Input hidden />}
           />
-          <Col span={24}>
-            <div className="form-group text-center">
-              <button type="submit" className="btn btn-primary">
-                Save
-              </button>
-            </div>
+          </Col>
+          <Col span={12}>
+            <Button type="primary" className="w-100" htmlType="submit">Save</Button>
           </Col>
         </Row>
       </Form>
-    </div>
+      </Col>
+    </Row>
   );
 };
 

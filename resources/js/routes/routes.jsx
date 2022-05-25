@@ -75,7 +75,7 @@ const appRouter = () => {
       <Routes>
         <Route
           path={`/`}
-          element={<Navigate to={`${lang}/member`} />}
+          element={<Navigate to={`${lang}/login`} />}
           exact={true}
         />
         <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
