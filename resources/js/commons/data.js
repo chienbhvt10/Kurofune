@@ -222,81 +222,81 @@ export const policy9OderListData = [
 
 export const medicineList1 = [
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "ロキソニンS 12錠 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/3_gaster10.jpeg",
     name: "ガスター10 12錠 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/4_aneton_gra-3.jpg",
     name: "アネトンせき止め顆粒 16包 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/15_lh-stick.jpeg",
     name: "ドゥーテストLHⅡ（排卵日予測検査薬）12回分",
   },
 ];
 export const medicineList2 = [
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/6_rinderon-1.jpg",
     name: "リンデロンVs軟膏 10g ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/7_benzablock_premium-l-1.jpg",
     name: "ベンザブロックL プレミアム 24錠",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/8_lulugold_dx.jpeg",
     name: "新ルルAゴールドDXα60錠 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/9_riposmin.jpg",
     name: "リポスミン 12錠 ",
   },
 ];
 export const medicineList3 = [
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/2_loxonin-s_tape.jpg",
     name: "ロキソニンSテープ 14枚 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/5_allegra.jpg",
     name: "アレグラFX28錠 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/10_sante_medical12.jpg",
     name: "サンテメディカル12 12ml ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/11_sante_medical_koukin.jpg",
     name: "サンテメディカル抗菌 20本 ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/12_rohto-alguard10.jpg",
     name: "ロート アルガード 10ml ",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/13_rohto-alguard-clearblockz.jpeg",
     name: "ロート アルガード クリアブロックZ 13ml",
   },
   {
-    href: "/product-detail",
+    href: "/category-list-detail",
     src: "/images/medicine-list/14_hcg-stick.jpeg",
     name: "ドゥーテストhCGa（妊娠検査薬）1回用",
   },
@@ -404,7 +404,7 @@ export const navigateLinkData = [
     title: "navigate_link.pharmacies_title",
   },
   {
-    link: "medicine-list",
+    link: "category-list",
     imageUrl: "/images/sidebar/medicine-list.png",
     title: "navigate_link.medicine_title",
   },

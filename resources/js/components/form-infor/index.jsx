@@ -74,7 +74,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             wrapperCol={{ span: 24 }}
             rules={[{ required: true, message: "Please input full name" }]}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={24}>
@@ -90,7 +90,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                   { max: 3, message: "Input only 3 number" },
                 ]}
                 response={response}
-                type={<Input />}
+                type={<Input className="input-field" />}
               />
             </Col>
             <span style={{ margin: "0 5px", fontSize: 26 }}>-</span>
@@ -102,7 +102,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                 wrapperCol={{ span: 24 }}
                 rules={[{ max: 4, message: "Input only 4 number" }]}
                 response={response}
-                type={<Input />}
+                type={<Input className="input-field" />}
               />
             </Col>
             <Col span={5}>
@@ -137,7 +137,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             wrapperCol={{ span: 24 }}
             rules={[{ required: true, message: "Please input city" }]}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={24}>
@@ -148,7 +148,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             wrapperCol={{ span: 24 }}
             rules={[{ required: true, message: "Please input street address" }]}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={24}>
@@ -159,7 +159,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             wrapperCol={{ span: 24 }}
             rules={[]}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={24}>
@@ -170,7 +170,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             wrapperCol={{ span: 24 }}
             rules={[{ required: true, message: "Please input phone" }]}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={24}>
@@ -181,7 +181,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             wrapperCol={{ span: 24 }}
             rules={[{ required: true, message: "Please input email" }]}
             response={response}
-            type={<Input />}
+            type={<Input className="input-field" />}
           />
         </Col>
         <Col span={24}>

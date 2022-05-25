@@ -1,26 +1,22 @@
-import React, { useState, useEffect } from "react";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import RenderFormikErrorMessage from "../../../commons/RenderErrorMessage/RenderFormikErrorMessage";
-import RenderApiErrorMessage from "../../../commons/RenderErrorMessage/RenderApiErrorMessage";
-import useResetPassword from "../../../hooks/auth/useResetPassword";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Col, Form, Input, Row } from "antd";
+import React, { useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import InputField from "../../../commons/Form/InputField";
+import useResetPassword from "../../../hooks/auth/useResetPassword";
 import "./reset-password.scss";
 
 const ResetPassword = () => {
   const [param, setParam] = useSearchParams();
   const [showPassword, setShowPassword] = useState(true);
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(true);
-
-  const navigate = useNavigate();
-  let { response, getResetPassword, resetResponse } = useResetPassword();
-
+  const { resResetPassword, getResetPassword, resetResponse } =
+    useResetPassword();
   const lang = localStorage.getItem("lang");
-  let resetEmail = localStorage.getItem("reset_email");
-
-
+  const resetEmail = localStorage.getItem("reset_email");
+  const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const resetPasswordInitValues = {
     token: param.get("token"),
@@ -29,118 +25,159 @@ const ResetPassword = () => {
     password_confirmation: "",
   };
 
-  const validateResetPassword = Yup.object().shape({
-    token: Yup.string(),
-    email: Yup.string(),
-    password: Yup.string(),
-    password_confirmation: Yup.string().optional(),
-  });
-
-  const formik = useFormik({
-    initialValues: resetPasswordInitValues,
-    validationSchema: validateResetPassword,
-    onSubmit: (values) => {
-      getResetPassword(values);
-    },
-  });
-
-  useEffect(() => {
-    if (!response || response?.status_code !== 200) {
+  React.useEffect(() => {
+    if (!resResetPassword || resResetPassword?.status_code !== 200) {
       return;
     } else {
       navigate(`${lang}/login`);
       resetResponse();
     }
-  }, [response]);
+  }, [resResetPassword]);
 
+  React.useEffect(() => {
+    form.setFieldsValue(resetPasswordInitValues);
+  }, [param]);
+
+  const onResetPassword = async (values) => {
+    await getResetPassword(values);
+    if (resResetPassword.status_code === 200) {
+      navigate(`${lang}/login`);
+    }
+  };
   return (
     <div id="reset-password">
-      <form className="reset-password-form" onSubmit={formik.handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            disabled
-            className="form-control"
-            name="email"
-            id="email"
-            style={{ textTransform: "lowercase" }}
-            defaultValue={formik.values.email}
-          />
-          <img
-            className="icon-input"
-            src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-user.png"
-            alt=""
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <input
-            type={showPassword ? "password" : "text"}
-            className="form-control"
-            name="password"
-            id="password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
-          />
-          <img
-            className="icon-input"
-            src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-key.png"
-            alt=""
-          />
-          <div
-            className="show-pass"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            <FontAwesomeIcon
-              icon={showPassword ? faEyeSlash : faEye}
-              color="#515151"
-              size="sm"
+      <Form
+        initialValues={resetPasswordInitValues}
+        name="reset-password-form"
+        className="reset-password-form"
+        onFinish={onResetPassword}
+        autoComplete="off"
+      >
+        <Row justify="center" align="middle" className="h-100">
+          <Col span={24}>
+            <InputField
+              field="email"
+              label="Email"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              response={resResetPassword}
+              rules={[{ required: true, message: "Please input email" }]}
+              type={
+                <Input
+                  addonBefore={
+                    <img
+                      className="icon-input"
+                      src="/images/ic-user.png"
+                      alt=""
+                    />
+                  }
+                  className="input-field"
+                />
+              }
             />
-          </div>
-          <RenderFormikErrorMessage formikInstance={formik} field="password" />
-          <RenderApiErrorMessage response={response} field="password" />
-        </div>
+          </Col>
+          <Col span={24}>
+            <InputField
+              field="password"
+              label="Password"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[{ required: true, message: "Please input new password" }]}
+              response={resResetPassword}
+              type={
+                <Input
+                  type={!showPassword ? "password" : "text"}
+                  className="input-field"
+                  addonBefore={
+                    <img
+                      className="icon-input"
+                      src="/images/ic-key.png"
+                      alt=""
+                    />
+                  }
+                  addonAfter={
+                    <FontAwesomeIcon
+                      icon={!showPassword ? faEyeSlash : faEye}
+                      color="#515151"
+                      size="sm"
+                      style={{ cursor: "pointer" }}
+                      onClick={() => setShowPassword(!showPassword)}
+                    />
+                  }
+                />
+              }
+            />
+          </Col>
+          <Col span={24}>
+            <InputField
+              field="password_confirmation"
+              label="Password confirmation"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              dependencies={["password"]}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input password confirmation",
+                },
+                ({ getFieldValue }) => ({
+                  validator(_, value) {
+                    if (!value || getFieldValue("password") === value) {
+                      return Promise.resolve();
+                    }
+                    return Promise.reject(
+                      new Error(
+                        "The two passwords that you entered do not match!"
+                      )
+                    );
+                  },
+                }),
+              ]}
+              response={resResetPassword}
+              type={
+                <Input
+                  type={!showPasswordConfirm ? "password" : "text"}
+                  className="input-field"
+                  addonBefore={
+                    <img
+                      className="icon-input"
+                      src="/images/ic-key.png"
+                      alt=""
+                    />
+                  }
+                  addonAfter={
+                    <FontAwesomeIcon
+                      icon={!showPasswordConfirm ? faEyeSlash : faEye}
+                      color="#515151"
+                      size="sm"
+                      style={{ cursor: "pointer" }}
+                      onClick={() =>
+                        setShowPasswordConfirm(!showPasswordConfirm)
+                      }
+                    />
+                  }
+                />
+              }
+            />
+          </Col>
 
-        <div className="form-group">
-          <label htmlFor="password_confirmation">Confirm password</label>
-          <input
-            type={showPasswordConfirm ? "password" : "text"}
-            className="form-control"
-            name="password_confirmation"
-            id="password_confirmation"
-            value={formik.values.password_confirmation}
-            onChange={formik.handleChange}
+          <InputField
+            field="token"
+            label=""
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            response={resResetPassword}
+            type={<Input hidden />}
           />
-          <img
-            className="icon-input"
-            src="https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/icon/ic-key.png"
-            alt=""
-          />
-          <div
-            className="show-pass"
-            onClick={() => setShowPasswordConfirm(!showPasswordConfirm)}
-          >
-            <FontAwesomeIcon
-              icon={showPasswordConfirm ? faEyeSlash : faEye}
-              color="#515151"
-              size="sm"
-            />
-          </div>
-        </div>
-        <div className="form-group">
-          <input
-            name="token"
-            type="hidden"
-            defaultValue={formik.values.token}
-          />
-        </div>
-        <div className="form-group text-center">
-          <button type="submit" className="btn btn-primary">
-            Save
-          </button>
-        </div>
-      </form>
+          <Col span={24}>
+            <div className="form-group text-center">
+              <button type="submit" className="btn btn-primary">
+                Save
+              </button>
+            </div>
+          </Col>
+        </Row>
+      </Form>
     </div>
   );
 };

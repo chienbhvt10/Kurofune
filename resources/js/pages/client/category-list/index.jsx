@@ -1,37 +1,45 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import CardProductCat from "../../../commons/CardProductCat";
-import {
-  medicineList1,
-  medicineList2,
-  medicineList3,
-} from "../../../commons/data";
+import CardCategory from "../../../commons/CardCategory";
 import PageHead from "../../../commons/PageHead";
-import "./medicine-list.scss";
-const MedicineListPage = () => {
+import useCategories from "../../../hooks/category/useCategories";
+import "./category-list.scss";
+const CategoryListPage = () => {
   const { i18n, t } = useTranslation();
+  const { getAllCategories, categories } = useCategories();
+  const lang = localStorage.getItem("lang");
+  React.useEffect(() => {
+    if (!categories) {
+      getAllCategories();
+    }
+  }, [categories]);
+
+  React.useEffect(() => {
+    getAllCategories();
+  }, [lang]);
+
   return (
     <>
-      <PageHead content="Medicine List" title="Medicine List" />
-      <div id="medicine-list">
+      <PageHead content="Category List" title="Category List" />
+      <div id="category-list">
         <div className="list_categories">
           <div className="type-wrapper">
             <div className="type-name">
               {t("client.medicine_list.type_name1")}
             </div>
-            <CardProductCat cardItems={medicineList1} />
+            <CardCategory cardItems={categories} type={1} />
           </div>
           <div className="type-wrapper">
             <div className="type-name">
               {t("client.medicine_list.type_name2")}
             </div>
-            <CardProductCat cardItems={medicineList2} />
+            <CardCategory cardItems={categories} type={2} />
           </div>
           <div className="type-wrapper">
             <div className="type-name">
               {t("client.medicine_list.type_name3")}
             </div>
-            <CardProductCat cardItems={medicineList3} />
+            <CardCategory cardItems={categories} type={3} />
           </div>
         </div>
       </div>
@@ -39,4 +47,4 @@ const MedicineListPage = () => {
   );
 };
 
-export default MedicineListPage;
+export default CategoryListPage;

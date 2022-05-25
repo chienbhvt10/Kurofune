@@ -244,7 +244,10 @@ class CategoryController extends Controller
     public function detailCategory($id)
     {
         try {
-            $cat = Category::find($id);
+            // $id = $request->id;
+            $detail = Category::find($id);
+
+            $data = $detail->products()->get();
 
             if (empty($cat)) {
                 return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);

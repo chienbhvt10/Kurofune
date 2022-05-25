@@ -9,6 +9,7 @@ export const Languages = () => {
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    // window.location.load();
   };
   const langUrl = window.location.pathname.slice(0, 4);
   if (

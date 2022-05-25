@@ -1,19 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
-import { resetPassword, resetResponseState } from "../../redux/actions/authAction";
+import {
+  resetPassword,
+  resetResponseState,
+} from "../../redux/actions/authAction";
 
 const useResetPassword = () => {
-  const response = useSelector((state) => state.authState.response);
+  const authState = useSelector((state) => state.authState);
   const dispatch = useDispatch();
   const getResetPassword = (params) => {
     dispatch(resetPassword(params));
   };
   const resetResponse = () => {
     dispatch(resetResponseState());
-  }
+  };
   return {
-    response,
+    resResetPassword: authState.resResetPassword,
     getResetPassword,
-    resetResponse
+    resetResponse,
   };
 };
 
