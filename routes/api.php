@@ -43,12 +43,20 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('taxes',  \App\Http\Controllers\API\TaxsController::class);
         });
 
-        // Category Manager
+        // Category Manage
         Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
 
         // Product Manage
         Route::middleware(['permission:manage product'])->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
+        });
+
+        // Chat log user manage
+        Route::middleware('permission:manage chat log user')->group(function () {
+            Route::get('list-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'listChatLog']);
+            Route::get('detail-chat-log/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'detailChatLog']);
+            Route::get('export-chat-log-all', [\App\Http\Controllers\API\ChatLogUserController::class, 'allExportCsv']);
+            Route::get('export-chat-log-user/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'chatLogUser']);
         });
 
         // View Profile
@@ -58,7 +66,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::middleware(['permission:user read online pharmacy'])->group(function (){
                 // View Vendor
                 Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
-                Route::get('detail-pharmacy', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
+                Route::get('detail-pharmacy/{id}', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
+                Route::get('product-of-pharmacy/{id}', [\App\Http\Controllers\API\VendorProfileController::class, 'productPharmacy']);
 
                 // Billing, Shipping, Address manager
                 Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);
@@ -66,13 +75,17 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
                 // View medicine
                 Route::get('list-category', [\App\Http\Controllers\API\CategoryController::class, 'listCategory']);
-                Route::get('detail-category', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
+                Route::get('detail-category/{id}', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
+                
+                // View detail product
+                Route::get('detail-product', [\App\Http\Controllers\API\ProductController::class, 'detailProduct']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {
                 Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
                 Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
             });
+
         });
     });
 
