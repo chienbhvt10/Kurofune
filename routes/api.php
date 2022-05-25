@@ -76,6 +76,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 // View medicine
                 Route::get('list-category', [\App\Http\Controllers\API\CategoryController::class, 'listCategory']);
                 Route::get('detail-category/{id}', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
+                
+                // View detail product
+                Route::get('detail-product', [\App\Http\Controllers\API\ProductController::class, 'detailProduct']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {
@@ -83,7 +86,6 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
             });
 
-            Route::get('detail-product', [\App\Http\Controllers\API\ProductController::class, 'detailProduct']);
         });
     });
 
