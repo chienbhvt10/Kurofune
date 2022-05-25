@@ -352,4 +352,18 @@ class ProductController extends Controller
             return $this->errorResponse($error->getMessage());
         }
     }
+
+    public function detailProduct(Request $request)
+    {
+        try {
+            $id = $request->id;
+            $data = Product::find($id);
+            if (empty($data)) {
+                return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
+            }
+            return $this->responseData($data);
+        } catch (\Exception $error) {
+            return $this->errorResponse($error->getMessage());
+        }
+    }
 }
