@@ -1,8 +1,13 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { getProducts, getProduct } from "../actions/productAction";
+import {
+  getProduct,
+  getProductClientAction,
+  getProducts,
+} from "../actions/productAction";
 const initialState = {
   products: undefined,
   product: undefined,
+  productClient: undefined,
 };
 
 const productReducers = createReducer(initialState, (builder) => {
@@ -11,6 +16,10 @@ const productReducers = createReducer(initialState, (builder) => {
   });
   builder.addCase(getProduct.fulfilled, (state, actions) => {
     state.product = actions.payload;
+  });
+  builder.addCase(getProductClientAction.fulfilled, (state, actions) => {
+    console.log(actions.payload);
+    state.productClient = actions.payload;
   });
 });
 export default productReducers;

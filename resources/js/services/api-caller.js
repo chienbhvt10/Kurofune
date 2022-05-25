@@ -1,7 +1,6 @@
 import axios from "axios";
 import { ROOT_URL } from "../constants/api";
 
-// custom instance of axios
 const axiosClient = axios.create({
   baseURL: ROOT_URL,
   headers: {
