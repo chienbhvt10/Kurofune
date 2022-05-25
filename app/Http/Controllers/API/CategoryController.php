@@ -241,19 +241,18 @@ class CategoryController extends Controller
         }
     }
 
-    public function detailCategory(Request $request)
+    public function detailCategory($id)
     {
         try {
-            $id = $request->id;
-            $detail = Category::find($id);
+            $cat = Category::find($id);
 
-            $data = $detail->products()->get();
-
-            if (empty($data)) {
+            if (empty($cat)) {
                 return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
-            return $this->responseData($data);
+            $products = $cat->products()->where('status', 'publish')->with('categories')->get();
+
+            return $this->responseData($products);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
