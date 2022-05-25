@@ -21,7 +21,7 @@ return [
     'alpha' => ':attribute hỉ được chứa các chữ cái.',
     'alpha_dash' => ':attribute chỉ được chứa các chữ cái, số, dấu gạch ngang và dấu gạch dưới.',
     'alpha_num' => ':attribute chỉ được chứa các chữ cái và số.',
-    'array' => 'The :attribute phải là mộtt mảng.',
+    'array' => 'The :attribute phải là một mảng.',
     'before' => 'The :attribute must be a date before :date.',
     'before_or_equal' => 'The :attribute must be a date before or equal to :date.',
     'between' => [
