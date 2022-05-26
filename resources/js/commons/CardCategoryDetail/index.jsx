@@ -1,25 +1,38 @@
+import { Card, Col, Row } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./card-category-detail.scss";
 const CardCategoryDetail = ({ cardItems }) => {
   let lang = localStorage.getItem("lang");
   return (
-    <div className="card card-category-detail">
+    <Row gutter={[16, 16]}>
       {cardItems?.map((item, index) => (
-        <div key={index} className="item-category-detail">
-          <div className="item-pc-wrap">
-            <Link to={`${lang}/product-detail/${item.id}`}>
-              <div className="item-pc-image">
-                <img src={item.product_image} alt={item.name} />
-              </div>
-              <div className="item-pc-name">{item.name}</div>
-              <div className="item-pc-price">{item.price} [JPY]</div>
-              <div className="item-pc-vendor">Vendor: {item.vendor}</div>
-            </Link>
-          </div>
-        </div>
+        <Col
+          xl={{ span: 4 }}
+          lg={{ span: 6 }}
+          md={{ span: 8 }}
+          sm={{ span: 12 }}
+          xs={{ span: 24 }}
+          span={24}
+          key={index}
+        >
+          <Link to={`${lang}/product-detail/${item.id}`}>
+            <Card
+              hoverable
+              cover={
+                <img
+                  style={{ objectFit: "cover" }}
+                  src={item.product_image || "images/image-default.png"}
+                  alt={item.name}
+                />
+              }
+            >
+              <Card.Meta title={item.name || "Not set name now"} />
+            </Card>
+          </Link>
+        </Col>
       ))}
-    </div>
+    </Row>
   );
 };
 

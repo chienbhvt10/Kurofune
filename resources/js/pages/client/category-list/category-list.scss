@@ -18,6 +18,9 @@
         margin-bottom: 10px;
         font-size: 15px;
       }
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
     }
     .card {
       padding: 20px 10px;

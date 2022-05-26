@@ -1,10 +1,6 @@
 #form-infor {
   .ant-form-item-label {
     padding: 0px;
-    label {
-      font-size: 11px;
-      color: #62a19b;
-    }
   }
   .btn-search {
     border: 1px solid #62a19b;
@@ -31,58 +27,4 @@
       opacity: 0.5;
     }
   }
-  // .form-control-postal-code {
-  //   width: 64px;
-  // }
-  // .btn-primary {
-  //   margin-top: 15px;
-  //   min-width: 254px;
-  // }
-  // .form-group {
-  //   label {
-  //     margin-bottom: 8px;
-  //   }
-  // }
-  // .form-group {
-  //   position: relative;
-  //   margin-bottom: 15px;
-
-  //   label {
-  //     color: #62a19b;
-  //     font-size: 11px;
-  //     font-weight: 500;
-  //     transition: transform 0.2s ease, color 0.2s ease;
-  //     padding-left: 0;
-  //     span {
-  //       color: red;
-  //       padding-left: 5px;
-  //     }
-  //   }
-  //   .form-error {
-  //     color: red;
-  //     font-size: 11px;
-  //   }
-  //   .icon-input {
-  //     position: absolute;
-  //     bottom: 12px;
-  //     left: 0;
-  //   }
-  // }
-  // .form-control-auth {
-  //   border: 0;
-  //   border-bottom: 1px solid #ccc;
-  //   outline: none;
-  //   background: transparent;
-  //   padding: 10px 5px;
-  //   height: 38px;
-  //   width: 100%;
-  //   font-weight: 400;
-  //   font-size: 16px;
-  //   &:focus {
-  //     outline: none;
-  //     border-color: #62a19b;
-  //     box-shadow: 0 1px 0 0 #62a19b;
-  //     transition: transform 0.2s ease, color 0.2s ease;
-  //   }
-  // }
 }

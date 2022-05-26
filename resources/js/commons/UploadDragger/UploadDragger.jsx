@@ -70,7 +70,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         showUploadList={false}
         accept="image/*"
       >
-        <Button style={{ marginTop: 10 }} icon={<Upload />}>
+        <Button type="primary" style={{ marginTop: 10 }} icon={<Upload />}>
           Click to Upload
         </Button>
       </Upload>
