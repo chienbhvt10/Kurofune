@@ -1,25 +1,39 @@
 import React from "react";
 import "./category.scss";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import CategoryTable from "./CategoryTable";
 import { TableHeader } from "../../../../commons/TableHeader";
+import useCategories from "../../../../hooks/category/useCategories.js";
+import useDeleteAdminCategory from "../../../../hooks/categoryAdmin/useDeleteAdminCategory.js";
+import { useNavigate } from "react-router-dom";
+import { NotificationSuccess } from "../../../../commons/Notification";
+
 const CategoryList = () => {
-  const data = [
-    {
-      id: "1",
-      categoryImage: "abc",
-      name: "abc",
-      slug: "guard1",
-      type: "aaa",
-    },
-    {
-      id: "2",
-      categoryImage: "xyz",
-      name: "sxy",
-      slug: "guard2",
-      type: "bbb",
-    },
-  ];
+  const lang = localStorage.getItem("lang");
+  const { getAllCategories, categories } = useCategories();
+  const { deleteAdminCategory, resDeleteCategory } = useDeleteAdminCategory();
+  const navigate = useNavigate();
+
+  const onDelete = (row) => () => {
+    deleteAdminCategory(row.id);
+  };
+
+  const onEdit = (row) => () => {
+    navigate(`${lang}/admin/category/update/${row.id}`);
+  };
+
+  React.useEffect(() => {
+    getAllCategories();
+  }, []);
+
+  React.useEffect(() => {
+    if (resDeleteCategory?.status_code === 200) {
+      getAllCategories();
+      NotificationSuccess("Thông báo", "Xoá Category Thành Công!");
+      return;
+    }
+    return () => {};
+  }, [resDeleteCategory]);
+
   return (
     <div className="category-container">
       <TableHeader
@@ -30,7 +44,7 @@ const CategoryList = () => {
         ]}
         title="Product Category"
       />
-      <CategoryTable items={data} />
+      <CategoryTable items={categories} onDelete={onDelete} onEdit={onEdit} />
     </div>
   );
 };

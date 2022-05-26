@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { getProductAction } from "../../redux/actions/productAction.js";
 
-const useProduct = () => {
+const useProductDetail = () => {
   const product = useSelector((state) => state.productState.product);
   const dispatch = useDispatch();
   const getProduct = (id) => {
@@ -13,4 +13,4 @@ const useProduct = () => {
   };
 };
 
-export default useProduct;
+export default useProductDetail;

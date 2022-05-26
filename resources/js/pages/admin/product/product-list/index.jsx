@@ -1,28 +1,38 @@
 import React from "react";
-import "./product.scss";
-import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
-import ProductTable from "./ProductTable";
+import { useNavigate } from "react-router-dom";
+import { NotificationSuccess } from "../../../../commons/Notification";
 import { TableHeader } from "../../../../commons/TableHeader";
+import useProducts from "../../../../hooks/product/useProducts.js";
+import useDeleteProduct from "./../../../../hooks/product/useDeleteProduct";
+import "./product.scss";
+import ProductTable from "./ProductTable";
+
 const ProductList = () => {
   const lang = localStorage.getItem("lang");
-  const data = [
-    {
-      id: "1",
-      name: "guard1",
-      price: 1,
-      categories: "abc",
-      store: "store1",
-      date: "13/3",
-    },
-    {
-      id: "2",
-      name: "guard2",
-      price: 2,
-      categories: "xyz",
-      store: "store2",
-      date: "13/3",
-    },
-  ];
+  const navigate = useNavigate();
+  const { getAllProducts, products } = useProducts();
+  const { deleteProduct, resDeleteProduct } = useDeleteProduct();
+
+  const onDelete = (row) => async () => {
+    deleteProduct(row.id);
+  };
+  const onEdit = (row) => () => {
+    navigate(`${lang}/admin/product/update/${row.id}`);
+  };
+
+  React.useEffect(() => {
+    getAllProducts();
+  }, []);
+
+  React.useEffect(() => {
+    if (resDeleteProduct?.status_code === 200) {
+      getAllProducts();
+      // NotificationSuccess("Thông báo", "Xoá Product Thành Công!");
+    } else {
+      return;
+    }
+  }, [resDeleteProduct]);
+
   return (
     <div className="product-container">
       <TableHeader
@@ -33,7 +43,8 @@ const ProductList = () => {
         ]}
         title="Product"
       />
-      <ProductTable items={data} />
+
+      <ProductTable items={products} onDelete={onDelete} onEdit={onEdit} />
     </div>
   );
 };

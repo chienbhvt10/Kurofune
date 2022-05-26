@@ -1,24 +1,66 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { productApis } from "../../services/product-apis";
+import { productsApis } from "./../../services/products-api/index";
 
 const productActions = {
   getProducts: createAction("GET_PRODUCTS"),
   getProduct: createAction("GET_PRODUCT"),
-  getProductClient: createAction("GET_PRODUCT_CLIENT"),
+
+  createProduct: createAction("CREATE_PRODUCT"),
+  updateProduct: createAction("UPDATE_PRODUCT"),
+  deleteProduct: createAction("DELETE_PRODUCT"),
 };
 
-export const getProducts = createAsyncThunk(
+export const  getAllProductsAction = createAsyncThunk(
   productActions.getProducts,
-  async (payload) => {
-    //fetch api
-    return [{ hello: "hello", firstname: "aaaa", payload: payload }];
+  async () => {
+    const res = await productsApis
+      .products()
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
   }
 );
-export const getProduct = createAsyncThunk(
+export const getProductAction = createAsyncThunk(
   productActions.getProduct,
+  async (id) => {
+    const res = await productsApis
+      .product(id)
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+
+export const createProductAction = createAsyncThunk(
+  productActions.createProduct,
+  async (payload, { rejectWithValue }) => {
+    const res = await productsApis
+      .createProduct(payload)
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+
+export const updateProductAction = createAsyncThunk(
+  productActions.updateProduct,
   async (payload) => {
-    //fetch api
-    return { hello: "hello", firstname: "aaaa", payload: payload };
+    const res = await productsApis
+      .updateProduct(payload)
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+
+export const deleteProductAction = createAsyncThunk(
+  productActions.deleteProduct,
+  async (id) => {
+    const res = await productsApis
+      .deleteProduct(id)
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
   }
 );
 

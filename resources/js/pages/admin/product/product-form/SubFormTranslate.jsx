@@ -1,138 +1,135 @@
+import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
+import InputField from "../../../../commons/Form/InputField.jsx";
 
-const SubFormProductTranslate = ({ lang, className, formik }) => {
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
-  };
+const SubFormTranslate = ({ lang, className, form }) => {
+  const response = useSelector((state) => state.userState.response);
   return (
-    <form className={className}>
-      <div className="separate">
-        <div className="form-group">
-          <label>({lang}) Locale </label>
-          <textarea
-            type="text"
-            name="locale"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.locale}
-          />
-          {renderErrorMessage("locale")}
-        </div>
-        <div className="form-group">
-          <label>({lang}) Medicinal efficacy classification</label>
-          <textarea
-            id=""
-            type="text"
-            name="classification"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.classification}
-          />
-          {renderErrorMessage("classification")}
-        </div>
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>({lang}) Features</label>
-          <textarea
-            type="text"
-            name="features"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.features}
-          />
-          {renderErrorMessage("features")}
-        </div>
-        <div className="form-group">
-          <label>({lang}) Precautions</label>
-          <textarea
-            type="text"
-            name="precautions"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.precautions}
-          />
-          {renderErrorMessage("precautions")}
-        </div>
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>({lang}) Efficacy Effect</label>
-          <textarea
-            type="text"
-            name="efficacyEffect"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.efficacyEffect}
-          />
-          {renderErrorMessage("efficacyEffect")}
-        </div>
-        <div className="form-group">
-          <label>({lang}) Usage Does</label>
-          <textarea
-            type="text"
-            name="usageDoes"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.usageDoes}
-          />
-          {renderErrorMessage("name")}
-        </div>
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>({lang}) Active Ingredients</label>
-          <textarea
-            type="text"
-            name="activeIngredients"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.activeIngredients}
-          />
-          {renderErrorMessage("activeIngredients")}
-        </div>
-        <div className="form-group">
-          <label>({lang}) Additives</label>
-          <textarea
-            type="text"
-            name="additives"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.additives}
-          />
-          {renderErrorMessage("additives")}
-        </div>
-      </div>
-      <div className="separate">
-        <div className="form-group">
-          <label>({lang}) Precautions Storage Handling</label>
-          <textarea
-            type="text"
-            name="precautions Storage Handling"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.precautionsStorageHandling}
-          />
-          {renderErrorMessage("Precautions Storage Handling")}
-        </div>
-        <div className="form-group">
-          <label>({lang}) Manufacturer </label>
-          <textarea
-            type="text"
-            name="manufacturer"
-            rows={4}
-            onChange={formik.handleChange}
-            value={formik.values.manufacturer}
-          />
-          {renderErrorMessage("manufacturer")}
-        </div>
-      </div>
-    </form>
+    <Row justify="center">
+      <Form className={className} name="common-translate-form" form={form}>
+        <Row justify="center">
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="name"
+              label={`(${lang}) Name`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[
+                {
+                  required: true,
+                  message: "Please input Name",
+                },
+              ]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="medicinal_efficacy_classification"
+              label={`(${lang}) Medicinal efficacy classification`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              rows={4}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="features"
+              label={`(${lang}) Features`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="precautions"
+              label={`(${lang}) Precautions`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="efficacy_effect"
+              label={`(${lang}) Efficacy Effect`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="usage_dose"
+              label={`(${lang}) Usage Does`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="active_ingredients"
+              label={`(${lang}) Active Ingredients`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="additives"
+              label={`(${lang}) Additives`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="precautions_storage_handling"
+              label={`(${lang}) Precautions Storage Handling`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12} className="form-group-col">
+            <InputField
+              field="manufacturer"
+              label={`(${lang}) Manufacturer`}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 24 }}
+              rules={[]}
+              response={response}
+              type={<Input.TextArea />}
+            />
+          </Col>
+        </Row>
+      </Form>
+    </Row>
   );
 };
 
-export default SubFormProductTranslate;
+export default SubFormTranslate;

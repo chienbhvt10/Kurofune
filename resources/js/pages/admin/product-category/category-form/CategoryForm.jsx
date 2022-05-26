@@ -1,79 +1,99 @@
-import { useFormik } from "formik";
+import { Col, Form, Input, InputNumber, Row } from "antd";
 import React from "react";
-import * as Yup from "yup";
 import FormHeader from "../../../../commons/FormHeader";
+import InputField from "./../../../../commons/Form/InputField";
+import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./category-form.scss";
 import TranslateCategoryForm from "./TranslateCategoryForm";
 
-const credential = Yup.object().shape({});
 const CategoryForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const initialCommonValues = {
-    user: "",
-    slug: "",
-    categoryImage: "",
-    type: "",
+    user_id: item?.user_id || "",
+    slug: item?.slug || "",
+    category_image: item?.category_image || "",
+    type: item?.type || "",
   };
 
-  const formik = useFormik({
-    initialValues: initialCommonValues,
-    validationSchema: credential,
-    onSubmit: () => {
-      const submitInput = {
-        ...formik.values,
-        ja: {
-          ...formikJP.values,
-        },
-        vi: {
-          ...formikVI.values,
-        },
-        tl: {
-          ...formikTL.values,
-        },
-        zh: {
-          ...formikZH.values,
-        },
-        en: {
-          ...formikEN.values,
-        },
-      };
-    },
-  });
   const initialTranslateValues = {
     cat: "",
     locale: "",
     name: "",
   };
-  const formikJP = useFormik({
-    initialValues: item?.ja || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikVI = useFormik({
-    initialValues: item?.vi || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikTL = useFormik({
-    initialValues: item?.tl || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikEN = useFormik({
-    initialValues: item?.en || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikZH = useFormik({
-    initialValues: item?.zh || initialTranslateValues,
-    validationSchema: credential,
-  });
 
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
+  const [categoryForm] = Form.useForm();
+  const [categoryProfileFormEN] = Form.useForm();
+  const [categoryProfileFormJP] = Form.useForm();
+  const [categoryProfileFormTL] = Form.useForm();
+  const [categoryProfileFormVI] = Form.useForm();
+  const [categoryProfileFormZH] = Form.useForm();
+
+  const onFinishAll = (values) => {
+    const submitInput = {
+      id: item?.id,
+      ...categoryForm.getFieldsValue(),
+      ja: {
+        ...categoryProfileFormJP.getFieldsValue(),
+      },
+      vi: {
+        ...categoryProfileFormVI.getFieldsValue(),
+      },
+      tl: {
+        ...categoryProfileFormTL.getFieldsValue(),
+      },
+      zh: {
+        ...categoryProfileFormZH.getFieldsValue(),
+      },
+      en: {
+        ...categoryProfileFormEN.getFieldsValue(),
+      },
+      category_image: [avatarState.base64Avatar],
+    };
+
+    onSave(submitInput);
   };
+
+  React.useEffect(() => {
+    categoryForm.setFieldsValue(initialCommonValues);
+    if (item) {
+      categoryProfileFormEN.setFieldsValue(
+        item?.translations[0] || initialTranslateValues
+      );
+      categoryProfileFormJP.setFieldsValue(
+        item?.translations[1] || initialTranslateValues
+      );
+      categoryProfileFormVI.setFieldsValue(
+        item?.translations[2] || initialTranslateValues
+      );
+      categoryProfileFormTL.setFieldsValue(
+        item?.translations[3] || initialTranslateValues
+      );
+
+      categoryProfileFormZH.setFieldsValue(
+        item?.translations[4] || initialTranslateValues
+      );
+    }
+  }, [item]);
+
+  const [avatarState, setAvatarState] = React.useState({
+    avatarUrl: undefined,
+    base64Avatar: undefined,
+    loading: false,
+  });
+  const onChangeAvatar = (base64Image) => {
+    setAvatarState({ base64Avatar: base64Image });
+  };
+
   return (
     <div id="category-form">
-      <form onSubmit={formik.handleSubmit}>
+      <Form
+        name="common-category-form"
+        form={categoryForm}
+        onFinish={onFinishAll}
+        autoComplete="off"
+        initialValues={{
+          ...initialCommonValues,
+        }}
+      >
         <FormHeader
           breadcrumb={[
             { name: "Home", routerLink: "../" },
@@ -83,49 +103,65 @@ const CategoryForm = ({ item, typeForm, title, onCancel, onSave }) => {
           title={title}
           onCancel={onCancel}
         />
-        <div className="form-group">
-          <label>User</label>
-          <input
-            id=""
-            type="text"
-            name="user"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.user}
-          />
-          {renderErrorMessage("user")}
+
+        <div>
+          <Row>
+            {/* <Col span={24} style={{ padding: "0 30px" }}>
+              <InputField
+                field="user_id"
+                label="User"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<InputNumber />}
+              />
+            </Col> */}
+            <Col span={24} style={{ padding: "0 30px" }}>
+              <InputField
+                field="slug"
+                label="Slug"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={24} style={{ padding: "0 30px" }}>
+              <InputField
+                field="type"
+                label="Type"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<InputNumber />}
+              />
+            </Col>
+            <Col span={24} style={{ padding: "0 30px" }}>
+              <InputField
+                field="category_image"
+                label="Image"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={8} style={{ padding: "0 30px" }}>
+              <UploadDragger
+                onChangeImage={onChangeAvatar}
+                imageUrlProps={avatarState.avatarUrl}
+                loading={avatarState.loading}
+              />
+            </Col>
+          </Row>
         </div>
-        <div className="form-group">
-          <label>Slug</label>
-          <input
-            id=""
-            type="text"
-            name="slug"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.slug}
-          />
-          {renderErrorMessage("slug")}
-        </div>
-        <div className="form-group">
-          <label>Image</label>
-          <input
-            id=""
-            type="text"
-            name="categoryImage"
-            className=""
-            onChange={formik.handleChange}
-            value={formik.values.categoryImage}
-          />
-          {renderErrorMessage("categoryImage")}
-        </div>
-      </form>
+      </Form>
       <TranslateCategoryForm
-        formikEN={formikEN}
-        formikJP={formikJP}
-        formikTL={formikTL}
-        formikVI={formikVI}
-        formikZH={formikZH}
+        formEN={categoryProfileFormEN}
+        formJP={categoryProfileFormJP}
+        formTL={categoryProfileFormTL}
+        formVI={categoryProfileFormVI}
+        formZH={categoryProfileFormZH}
       />
     </div>
   );

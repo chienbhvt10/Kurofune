@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import SubFormCategoryTranslate from "./SubFormTranslate";
 
-const TranslateCategoryForm = ({
-  formikJP,
-  formikVI,
-  formikTL,
-  formikEN,
-  formikZH,
-}) => {
+const TranslateCategoryForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
   const [activeTab, setActiveTab] = useState(1);
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
@@ -19,29 +13,29 @@ const TranslateCategoryForm = ({
       activeTab={activeTab}
     >
       <SubFormCategoryTranslate
-        lang="JA"
+        lang="EN"
         className={`tab ${activeTab === 1 ? "active" : ""}`}
-        formik={formikJP}
+        form={formEN}
       />
       <SubFormCategoryTranslate
-        lang="VI"
+        lang="JA"
         className={`tab ${activeTab === 2 ? "active" : ""}`}
-        formik={formikVI}
-      />
-      <SubFormCategoryTranslate
-        lang="ZH"
-        className={`tab ${activeTab === 3 ? "active" : ""}`}
-        formik={formikZH}
+        form={formJP}
       />
       <SubFormCategoryTranslate
         lang="TL"
-        className={`tab ${activeTab === 4 ? "active" : ""}`}
-        formik={formikTL}
+        className={`tab ${activeTab === 3 ? "active" : ""}`}
+        form={formTL}
       />
       <SubFormCategoryTranslate
-        lang="EN"
+        lang="VI"
+        className={`tab ${activeTab === 4 ? "active" : ""}`}
+        form={formVI}
+      />
+      <SubFormCategoryTranslate
+        lang="ZH"
         className={`tab ${activeTab === 5 ? "active" : ""}`}
-        formik={formikEN}
+        form={formZH}
       />
     </SwitchTabLangForm>
   );

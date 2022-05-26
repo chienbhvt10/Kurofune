@@ -1,93 +1,108 @@
-import { useFormik } from "formik";
+import { Col, Form, Input, Row, InputNumber } from "antd";
 import React from "react";
-import * as Yup from "yup";
+import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
+import SelectField from "./../../../../commons/Form/SelectField";
 import "./product-form.scss";
 import TranslateProductForm from "./TranslateProductForm";
+import { productFormOptions } from "../../../../commons/data.js";
 
-const credential = Yup.object().shape({});
 const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const lang = localStorage.getItem("lang");
   const initialCommonValues = {
-    name: "",
-    sku: "",
-    stockStatus: "",
-    price: 0,
-    status: "",
-    productImage: "",
-    tax: "",
-    meta_title: "",
-    meta_description: "",
-    meta_keyword: "",
+    name: item?.name || "",
+    slug: item?.slug || "",
+    sku: item?.sku || "",
+    stock_status: item?.stock_status || "",
+    price: item?.price || 0,
+    status: item?.status || "",
+    product_image: item?.product_image || "",
+    tax: item?.tax_id || 0,
+    meta_title: item?.meta_title || "",
+    meta_description: item?.meta_description || "",
+    meta_keyword: item?.meta_keywords || "",
+    user_id: item?.user_id || 4,
+    id: item?.id || 0,
   };
 
-  const formik = useFormik({
-    initialValues: initialCommonValues,
-    validationSchema: credential,
-    onSubmit: () => {
-      const submitInput = {
-        ...formik.values,
-        ja: {
-          ...formikJP.values,
-        },
-        vi: {
-          ...formikVI.values,
-        },
-        tl: {
-          ...formikTL.values,
-        },
-        zh: {
-          ...formikZH.values,
-        },
-        en: {
-          ...formikEN.values,
-        },
-      };
-    },
-  });
   const initialTranslateValues = {
-    locale: "",
     classification: "",
     features: "",
     precautions: "",
-    efficacyEffect: "",
-    usageDoes: "",
+    efficacy_effect: "",
+    usage_dose: "",
     activeIngredients: "",
     additives: "",
     precautionsStorageHandling: "",
     manufacturer: "",
+    name: "",
   };
-  const formikJP = useFormik({
-    initialValues: item?.ja || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikVI = useFormik({
-    initialValues: item?.vi || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikTL = useFormik({
-    initialValues: item?.tl || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikEN = useFormik({
-    initialValues: item?.en || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikZH = useFormik({
-    initialValues: item?.zh || initialTranslateValues,
-    validationSchema: credential,
-  });
 
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
+  const [productsForm] = Form.useForm();
+  const [productProfileFormEN] = Form.useForm();
+  const [productProfileFormJP] = Form.useForm();
+  const [productProfileFormTL] = Form.useForm();
+  const [productProfileFormVI] = Form.useForm();
+  const [productProfileFormZH] = Form.useForm();
+
+  const onFinishAll = (values) => {
+    const submitInput = {
+      ...productsForm.getFieldsValue(),
+      cat_id: [1],
+      id: item?.id || 0,
+      ja: {
+        ...productProfileFormJP.getFieldsValue(),
+      },
+      vi: {
+        ...productProfileFormVI.getFieldsValue(),
+      },
+      tl: {
+        ...productProfileFormTL.getFieldsValue(),
+      },
+      zh: {
+        ...productProfileFormZH.getFieldsValue(),
+      },
+      en: {
+        ...productProfileFormEN.getFieldsValue(),
+      },
+    };
+
+    // console.log(submitInput);
+    onSave(submitInput);
   };
+
+  React.useEffect(() => {
+    productsForm.setFieldsValue(initialCommonValues);
+    if (item) {
+      productProfileFormEN.setFieldsValue(
+        item?.translations[0] || initialTranslateValues
+      );
+      productProfileFormJP.setFieldsValue(
+        item?.translations[1] || initialTranslateValues
+      );
+      productProfileFormTL.setFieldsValue(
+        item?.translations[2] || initialTranslateValues
+      );
+      productProfileFormVI.setFieldsValue(
+        item?.translations[3] || initialTranslateValues
+      );
+      productProfileFormZH.setFieldsValue(
+        item?.translations[4] || initialTranslateValues
+      );
+    }
+  }, [item]);
+
   return (
     <div id="product-form">
-      <form onSubmit={formik.handleSubmit}>
+      <Form
+        name="common-product-form"
+        form={productsForm}
+        onFinish={onFinishAll}
+        autoComplete="off"
+        initialValues={{
+          ...initialCommonValues,
+        }}
+      >
         <FormHeader
           breadcrumb={[
             { name: "Home", routerLink: "../" },
@@ -100,143 +115,150 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
           title={title}
           onCancel={onCancel}
         />
-        <div className="separate">
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              id=""
-              type="text"
-              name="name"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.name}
-            />
-            {renderErrorMessage("name")}
-          </div>
-          <div className="form-group">
-            <label>Sku</label>
-            <input
-              id=""
-              type="text"
-              name="sku"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.sku}
-            />
-            {renderErrorMessage("sku")}
-          </div>
+        <div>
+          <Row justify="center">
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="name"
+                label="Name"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="slug"
+                label="Slug"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="sku"
+                label="Sku"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Sku",
+                  },
+                ]}
+                type={<Input />}
+              />
+            </Col>
+
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <SelectField
+                field="status"
+                label="Status"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                placeholder="Please select active status"
+                options={productFormOptions.status}
+              />
+            </Col>
+
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <SelectField
+                field="stock_status"
+                label="Stock Status"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                placeholder="Please select Category"
+                options={productFormOptions.stock_status}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="price"
+                label="Price"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Price",
+                  },
+                ]}
+                type={<InputNumber />}
+              />
+            </Col>
+
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="product_image"
+                label="Product Image"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="tax"
+                label="Tax"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<InputNumber />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="meta_title"
+                label="meta_title"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="meta_description"
+                label="meta_description"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <InputField
+                field="meta_keyword"
+                label="meta_keyword"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <SelectField
+                field="user_id"
+                label="User "
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                placeholder="Please select active status"
+                options={productFormOptions.user_id}
+              />
+            </Col>
+          </Row>
         </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Stock Status</label>
-            <input
-              id=""
-              type="text"
-              name="stockStatus"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.stockStatus}
-            />
-            {renderErrorMessage("stockStatus")}
-          </div>
-          <div className="form-group">
-            <label>Price</label>
-            <input
-              id=""
-              type="text"
-              name="price"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.price}
-            />
-            {renderErrorMessage("price")}
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Status</label>
-            <input
-              id=""
-              type="text"
-              name="status"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.status}
-            />
-            {renderErrorMessage("status")}
-          </div>
-          <div className="form-group">
-            <label>Product Image</label>
-            <input
-              id=""
-              type="text"
-              name="productImage"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.productImage}
-            />
-            {renderErrorMessage("productImage")}
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Tax</label>
-            <input
-              id=""
-              type="text"
-              name="tax"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.tax}
-            />
-            {renderErrorMessage("tax")}
-          </div>
-          <div className="form-group">
-            <label>meta_title</label>
-            <input
-              id=""
-              type="text"
-              name="meta_title"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.meta_title}
-            />
-            {renderErrorMessage("meta_title")}
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>meta_description</label>
-            <input
-              id=""
-              type="text"
-              name="meta_description"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.meta_description}
-            />
-            {renderErrorMessage("meta_description")}
-          </div>
-          <div className="form-group">
-            <label>meta_keyword</label>
-            <input
-              id=""
-              type="text"
-              name="meta_keyword"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.meta_keyword}
-            />
-            {renderErrorMessage("meta_keyword")}
-          </div>
-        </div>
-      </form>
+      </Form>
+
       <TranslateProductForm
-        formikEN={formikEN}
-        formikJP={formikJP}
-        formikTL={formikTL}
-        formikVI={formikVI}
-        formikZH={formikZH}
+        formEN={productProfileFormEN}
+        formJP={productProfileFormJP}
+        formTL={productProfileFormTL}
+        formVI={productProfileFormVI}
+        formZH={productProfileFormZH}
       />
     </div>
   );

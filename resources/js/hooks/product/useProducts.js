@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsAction } from "./../../redux/actions/productAction";
+import { getAllProductsAction } from "../../redux/actions/productAction";
 
 const useProducts = () => {
   const products = useSelector((state) => state.productState.products);

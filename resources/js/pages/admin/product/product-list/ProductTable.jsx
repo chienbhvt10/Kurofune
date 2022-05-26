@@ -1,140 +1,75 @@
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import { Link } from "react-router-dom";
-
-const ProductTable = ({ items }) => {
+import { Table } from "antd";
+import TableRowAction from "./../../../../commons/TableRowAction/index";
+const ProductTable = ({ items, onEdit, onDelete }) => {
+  const lang = localStorage.getItem("lang");
   const columns = [
     {
-      dataField: "image",
-      text: <img className="img-head" src="/images/image.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => <Link to="/">{row.image}</Link>,
+      key: "image",
+      dataIndex: "image",
+      title: <img className="img-head" src="/images/image.png" alt="" />,
+      render: (_, record) => (
+        <Link to="#">
+          <img src={record.product_image} alt="" height={50} width={50} />
+        </Link>
+      ),
     },
     {
-      dataField: "name",
-      text: "Name",
-      sort: true,
-      formatter: (cell, row) => <Link to="/">{row.name}</Link>,
+      key: "name",
+      dataIndex: "name",
+      title: "Name",
+      render: (_, record) => (
+        <Link to={`${lang}/admin/product/update/${record.id}`}>
+          {record.name}
+        </Link>
+      ),
     },
     {
-      dataField: "price",
-      text: "Price",
-      formatter: (cell, row) => <span>{row.price} (JPY)</span>,
+      key: "price",
+      dataIndex: "price",
+      title: "Price",
+      render: (_, record) => <span>{record.price} (JPY)</span>,
     },
     {
-      dataField: "categories",
-      text: "Categories",
-      formatter: (cell, row) => <Link to="/">{row.categories}</Link>,
+      key: "categories",
+      dataIndex: "categories",
+      title: "Categories",
     },
     {
-      dataField: "date",
-      text: "Date",
-      style: {
-        fontSize: 13,
-      },
-      formatter: (cell, row) => (
+      key: "date",
+      dataIndex: "date",
+      title: "Date",
+      render: (_, record) => (
         <div>
-          <span>Published</span>
+          <span>Published: </span>
           <br />
-          {row.date} at 1:00
+          {record.created_at}
         </div>
       ),
     },
     {
-      dataField: "store",
-      text: "Store",
-      formatter: (cell, row) => <Link to="/">{row.store}</Link>,
+      key: "store",
+      dataIndex: "store",
+      title: "Store",
     },
     {
-      dataField: "jp",
-      text: <img className="img-head" src="/images/japan.png" alt="" />,
+      key: "vi",
+      dataIndex: "vi",
+      title: <img className="img-head" src="/images/vietnam.png" alt="" />,
       align: "center",
       headerAlign: "center",
       headerStyle: {
-        width: 50,
+        width: 100,
       },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "vi",
-      text: <img className="img-head" src="/images/vietnam.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "zh",
-      text: <img className="img-head" src="/images/china.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "tl",
-      text: <img className="img-head" src="/images/philippines.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
-      ),
-    },
-    {
-      dataField: "en",
-      text: <img className="img-head" src="/images/en.png" alt="" />,
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img className="img-row" src="/images/editing.png" alt="" />
-        </Link>
+      render: (_, record) => (
+        <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
       ),
     },
   ];
-  const defaultSorted = [{ dataField: "name", order: "desc" }];
-  return (
-    <BootstrapTable
-      keyField="id"
-      columns={columns}
-      data={items}
-      defaultSorted={defaultSorted}
-      selectRow={{ mode: "checkbox" }}
-      bootstrap4
-      bordered
-      hover
-      striped
-      tabIndexCell
-    />
-  );
+
+  return <Table rowKey="id" columns={columns} dataSource={items} bordered />;
 };
 
 export default ProductTable;

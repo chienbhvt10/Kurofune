@@ -209,7 +209,7 @@ const appRouter = () => {
           <Route path={`product-list`} element={<ProductList />} exact={true} />
           <Route path={`product/add`} element={<AddProduct />} exact={true} />
           <Route
-            path={`product/update`}
+            path={`product/update/:id`}
             element={<UpdateProduct />}
             exact={true}
           />
@@ -220,7 +220,7 @@ const appRouter = () => {
           />
           <Route path={`category/add`} element={<AddCategory />} exact={true} />
           <Route
-            path={`category/update`}
+            path={`category/update/:id`}
             element={<UpdateCategory />}
             exact={true}
           />
