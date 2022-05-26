@@ -70,7 +70,7 @@ class UserController extends Controller
                         ->symbols()
                 ],
                 'active' => 'required|boolean',
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'nullable|string',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
                 'postal_code' => 'nullable|string|max:50',
@@ -105,8 +105,8 @@ class UserController extends Controller
             $password = $request->password;
             $active = (boolean)$request->password;
             $role = $request->role;
-            $file_avatar = $request->file('avatar');
-            $filename = upload_avatar($file_avatar);
+            $file_avatar = $request->avatar;
+            $filename = save_base_64_image($file_avatar, 'avatar');
 
             $data = [
                 'username' => $username,
@@ -423,7 +423,7 @@ class UserController extends Controller
                         ->symbols()
                 ],
                 'active' => 'required|boolean',
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'nullable|string',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'nullable|string|max:100',
                 'postal_code' => 'nullable|string|max:50',
@@ -457,9 +457,9 @@ class UserController extends Controller
             $password = $request->password ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
-            $file_avatar = $request->file('avatar') ?? null;
+            $file_avatar = $request->avatar ?? null;
             if($file_avatar) {
-                $filename = upload_avatar($file_avatar);
+                $filename = save_base_64_image($file_avatar);
                 $user->avatar = $filename;
             }
             $get_role = Role::findByName($role, 'api');
@@ -683,7 +683,7 @@ class UserController extends Controller
                     if($images_inside) {
                         $vendor->clearMediaCollection('images_inside');
                         $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
-                            $fileAdder->toMediaCollection('images_outside');
+                            $fileAdder->toMediaCollection('images_inside');
                         });
                     }
                 }else{
@@ -695,7 +695,7 @@ class UserController extends Controller
                     }
                     if($images_inside) {
                         $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
-                            $fileAdder->toMediaCollection('images_outside');
+                            $fileAdder->toMediaCollection('images_inside');
                         });
                     }
                 }
