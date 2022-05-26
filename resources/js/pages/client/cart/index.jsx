@@ -1,162 +1,205 @@
+import { Button, Col, Form, Input, Row, Table, Typography } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { cartData } from "../../../commons/data";
+import InputField from "../../../commons/Form/InputField";
 import "./cart.scss";
 const Cart = () => {
   const { i18n, t } = useTranslation();
   let lang = localStorage.getItem("lang");
+  const navigate = useNavigate();
+  const columns = [
+    {
+      key: "name",
+      dataIndex: "name",
+      title: t("client.cart.th_product_name"),
+      align: "center",
+      render: (_, record) => (
+        <Link to={`${lang}/member/product-detail/${record.id}`}>
+          <Row>
+            <Col span={4}>
+              <Row justify="center">
+                <img alt="image-prod-Cart" width={40} src={record.imageUrl} />
+              </Row>
+            </Col>
+            <Col span={20}>
+              <Row justify="start">
+                <div className="name">{record.name}</div>
+              </Row>
+            </Col>
+          </Row>
+        </Link>
+      ),
+    },
+    {
+      key: "price",
+      dataIndex: "price",
+      title: t("client.cart.th_product_price"),
+      render: (_, record) => <span>{record.price}(JPY)</span>,
+      align: "center",
+      width: 230,
+    },
+    {
+      key: "quantity",
+      dataIndex: "quantity",
+      title: t("client.cart.th_product_quantity"),
+      width: 120,
+      align: "center",
+      render: (_, record) => (
+        <InputField
+          field="quantity"
+          label=""
+          value={record.quantity}
+          labelCol={{ span: 24 }}
+          wrapperCol={{ span: 22 }}
+          type={<Input type="number" className="input-field" />}
+        />
+      ),
+    },
+    {
+      key: "tool",
+      dataIndex: "tool",
+      title: "",
+      align: "center",
+      width: 100,
+      render: (cell, row) => (
+        <Button type="primary">{t("client.cart.btn_delete")}</Button>
+      ),
+    },
+  ];
+
   return (
     <div id="cart">
-      <div className="card-container d-none">
-        <div className="woocommerce">
-          <p className="cart-empty woocommerce-info">
-            <i className="fas fa-check-circle"></i>
-            {t("client.cart.title_cart_empty")}
-          </p>
+      <Row justify="center" style={{ padding: "40px 0" }} className="d-none">
+        <Col
+          span={23}
+          style={{
+            borderTop: "3px solid #62a19b",
+            padding: "10px",
+            backgroundColor: "#f7f6f7",
+          }}
+        >
+          <Col span={23}>
+            <Typography.Text>
+              <i className="fas fa-check-circle"></i>
+              {t("client.cart.title_cart_empty")}
+            </Typography.Text>
+          </Col>
+        </Col>
+        <Col span={23} style={{ marginTop: 10 }}>
+          <Button
+            type="primary"
+            onClick={() => {
+              navigate(`${lang}/medicine-list`);
+            }}
+          >
+            {t("client.cart.btn_return")}
+          </Button>
+        </Col>
+      </Row>
+      <Row justify="center">
+        <Col span={23}>
+          <Form id="cart-form">
+            <Row style={{ padding: "20px 0" }}>
+              <Col span={24} sm={{ span: 20 }}>
+                <Col span={24}>
+                  <Row justify="center">
+                    <Typography.Title level={3}>
+                      {t("client.cart.title_cart")}
+                    </Typography.Title>
+                  </Row>
+                </Col>
+                <Col span={24}>
+                  <Row justify="center">
+                    <Typography.Text>
+                      {t("client.cart.cart_description1")}
+                    </Typography.Text>
+                  </Row>
+                </Col>
+                <Col span={24}>
+                  <Row justify="center">
+                    <Typography.Text>
+                      {t("client.cart.cart_description2")}
+                    </Typography.Text>
+                  </Row>
+                </Col>
+              </Col>
+              <Col xs={24} sm={{ span: 4 }}>
+                <Row justify="end">
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    className="btn btn-primary btn-update"
+                  >
+                    {t("client.cart.btn_update")}
+                  </Button>
+                </Row>
+              </Col>
+            </Row>
 
-          <p className="return-to-shop">
-            <Link className="button wc-backward" to={`${lang}/medicine-list`}>
-              {t("client.cart.btn_return")}
-            </Link>
-          </p>
-        </div>
-      </div>
-      <div className="cart-custom">
-        <form action="" id="cart-form" noValidate="">
-          <div className="cart-header custom-title-cart">
-            <h1>{t("client.cart.title_cart")}</h1>
-            <div className="description">
-              {t("client.cart.cart_description1")}
-              <br />
-              {t("client.cart.cart_description2")}
+            <div className="notice d-none">
+              <div className="woocommerce-notices-wrapper"></div>{" "}
             </div>
-            <button type="submit" className="btn btn-primary btn-update">
-              {t("client.cart.btn_update")}
-            </button>
-          </div>
-
-          <div className="notice d-none">
-            <div className="woocommerce-notices-wrapper"></div>{" "}
-          </div>
-          <div className="cart-body ">
-            <div
-              className="modal fade"
-              id="noticeModal"
-              tabIndex="-1"
-              role="dialog"
-              aria-labelledby="noticeModalTitle"
-              aria-hidden="true"
-            >
+            <div className="cart-body ">
               <div
-                className="modal-dialog modal-dialog-centered"
-                role="document"
+                className="modal fade"
+                id="noticeModal"
+                tabIndex="-1"
+                role="dialog"
+                aria-labelledby="noticeModalTitle"
+                aria-hidden="true"
               >
-                <div className="modal-content">
-                  <div className="modal-body">
-                    <p className="font-weight-bold">Bạn không thể mua </p>
-                    <p>Vui lòng kiểm tra thông tin đơn hàng.</p>
-                  </div>
-                  <div className="modal-footer">
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-dismiss="modal"
-                    >
-                      OK
-                    </button>
+                <div
+                  className="modal-dialog modal-dialog-centered"
+                  role="document"
+                >
+                  <div className="modal-content">
+                    <div className="modal-body">
+                      <p className="font-weight-bold">Bạn không thể mua </p>
+                      <p>Vui lòng kiểm tra thông tin đơn hàng.</p>
+                    </div>
+                    <div className="modal-footer">
+                      <button
+                        type="button"
+                        className="btn-close"
+                        data-dismiss="modal"
+                      >
+                        OK
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
+              <div className="table-wrapper">
+                <Table
+                  rowKey="id"
+                  columns={columns}
+                  dataSource={cartData}
+                  bordered
+                />
+              </div>
             </div>
-            <div className="table-wrapper">
-              <table className="table table-bordered table-item-line">
-                <thead>
-                  <tr>
-                    <th className="product-name" scope="col">
-                      {t("client.cart.th_product_name")}
-                    </th>
-                    <th className="product-price" scope="col">
-                      {t("client.cart.th_product_price")}
-                    </th>
-                    <th className="product-quantity" scope="col">
-                      {t("client.cart.th_product_quantity")}
-                    </th>
-                    <th className="product-remove" scope="col"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {cartData.map((item, index) => (
-                    <tr key={index}>
-                      <td
-                        data-lable={t("client.cart.th_product_name")}
-                        className="product-name"
-                      >
-                        <Link to={`${lang}${item.link}`}>
-                          <div className="image-wrap">
-                            <img alt="image-prod-Cart" src={item.imageUrl} />
-                          </div>
-                          <div className="name">{item.name}</div>
-                        </Link>
-                      </td>
-                      <td
-                        data-lable={t("client.cart.th_product_price")}
-                        className="product-price"
-                      >
-                        <span className="woocommerce-Price-amount amount">
-                          <bdi>
-                            {item.price}&nbsp;
-                            <span className="woocommerce-Price-currencySymbol">
-                              (JPY)
-                            </span>
-                          </bdi>
-                        </span>
-                      </td>
-                      <td
-                        data-lable={t("client.cart.th_product_quantity")}
-                        className="product-quantity"
-                      >
-                        <input
-                          title=""
-                          type="number"
-                          className="input-quantity"
-                          data-item-key="df263d996281d984952c07998dc54358"
-                          value={item.quantity}
-                          min="1"
-                          max="3"
-                        />
-                      </td>
-
-                      <td data-lable="" className="product-remove">
-                        <button
-                          type="button"
-                          className="btn btn-primary btn-remove-product"
-                          data-item-key="df263d996281d984952c07998dc54358"
-                        >
-                          {t("client.cart.btn_delete")}
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </form>
-        <div className="cart-footer">
-          <div className="button-group">
-            <button className="btn btn-primary btn-remove-all">
+          </Form>
+        </Col>
+      </Row>
+      <Row justify="center" style={{ padding: "20px 0" }}>
+        <Col span={23}>
+          <Row justify="space-between">
+            <Button type="primary" className="btn btn-primary btn-remove-all">
               {t("client.cart.btn_empty")}
-            </button>
-            <Link
-              to={`${lang}/checkout`}
-              className="btn btn-primary btn-checkout"
+            </Button>
+            <Button
+              type="primary"
+              onClick={() => {
+                navigate(`${lang}/checkout`);
+              }}
             >
               {t("client.cart.btn_checkout")}
-            </Link>
-          </div>
-        </div>
-      </div>
+            </Button>
+          </Row>
+        </Col>
+      </Row>
     </div>
   );
 };

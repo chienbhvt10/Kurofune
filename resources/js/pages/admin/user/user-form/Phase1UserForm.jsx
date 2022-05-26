@@ -269,7 +269,11 @@ export const UserForm = ({
                   />
                 </Col>
                 <Col span={4}>
-                  <Button type="button" onClick={onGeneratePassword}>
+                  <Button
+                    type="primary"
+                    htmlType="button"
+                    onClick={onGeneratePassword}
+                  >
                     Generate
                   </Button>
                 </Col>
