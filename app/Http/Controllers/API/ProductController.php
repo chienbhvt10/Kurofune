@@ -353,10 +353,9 @@ class ProductController extends Controller
         }
     }
 
-    public function detailProduct(Request $request)
+    public function detailProduct($id)
     {
         try {
-            $id = $request->id;
             $data = Product::find($id);
             if (empty($data)) {
                 return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
