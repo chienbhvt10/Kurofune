@@ -2,33 +2,33 @@
 
 return [
     'user' => [
-        'logout' => 'logged out',
-        'created' => 'user created',
-        'updated' => 'user updated',
-        'deleted' => 'user deleted',
-        'not_exist' => 'user not exist',
+        'logout' => 'Naka-log out.',
+        'created' => 'Nilikha ng user.',
+        'updated' => 'Na-update ng user.',
+        'deleted' => 'Tinanggal ang user.',
+        'not_exist' => 'Wala ang user.',
         'vendor' => [
-            'not_data' => 'list of pharmacies is empty'
+            'not_data' => 'Walang laman ang listahan ng mga botika.'
         ],
-        'inactive' => 'user inactive'
+        'inactive' => 'hindi aktibo ang user.'
     ],
     'role' => [
-        'created' => 'role created',
-        'updated' => 'role updated',
-        'deleted' => 'role deleted',
+        'created' => 'Nabuong papel',
+        'updated' => 'Na-update ang tungkulin.',
+        'deleted' => 'Tinanggal ang pahintulot.',
     ],
     'permission' => [
-        'created' => 'permission created',
-        'updated' => 'permission updated',
-        'deleted' => 'permission deleted',
+        'created' => 'Nilikha ang pahintulot',
+        'updated' => 'Na-update ang pahintulot',
+        'deleted' => 'Tinanggal ang pahintulot',
     ],
     'tax' => [
-        'created' => 'Created Tax successfully.',
-        'update' => 'Tax changed successfully.',
-        'delete' => 'Delete Tax successfully.'
+        'created' => 'Matagumpay na lumikha ng pahina.',
+        'update' => 'Matagumpay na na-update ang pahina.',
+        'delete' => 'Matagumpay na tanggalin ang pahina.'
     ],
     'import_user' => [
-        'success' => 'Import data user success',
+        'success' => 'Tagumpay ng user ng import ng data.',
     ],
     'billing' => [
         'updated' => 'Matagumpay na nabago ang billing address.',
@@ -48,22 +48,22 @@ return [
         'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password.<br>Pakisuri ang iyong nakarehistrong email address.',
     ],
     'category' => [
-        'created' => 'Category created',
-        'updated' => 'Category updated',
-        'deleted' => 'Category deleted',
-        'not_exist' => 'Category not exist',
+        'created' => 'Nagawa ang kategorya.',
+        'updated' => 'Na-update ang kategorya.',
+        'deleted' => 'Tinanggal ang kategorya',
+        'not_exist' => 'Hindi umiiral ang kategorya.',
     ],
     'slug' => [
-        'unique' => 'The slug has already been taken.',
+        'unique' => 'Kinuha na ang slug.',
     ],
     'medicine' => [
-        'not_found' => 'No medicine found.',
+        'not_found' => 'Walang nakitang gamot.',
     ],
     'product' => [
-        'created' => 'Product created',
-        'updated' => 'Product updated',
-        'deleted' => 'Product deleted',
-        'not_exist' => 'Product not exist',
+        'created' => 'Nilikha ang produkto.',
+        'updated' => 'Na-update ang produkto.',
+        'deleted' => 'Tinanggal ang produkto',
+        'not_exist' => 'Walang produkto',
     ],
     'cart' => [
         'add' => ':product_name has been added to your cart',

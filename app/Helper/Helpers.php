@@ -95,3 +95,20 @@ function upload_single_image($image, $path = null): string
 function get_image_url($image = null) {
     return $image ? url($image) : url(Base::PATH_IMG_DEFAULT);
 }
+
+function save_base_64_image($image, $path = null)
+{
+    if (!is_dir(public_path('images_data/' . $path))) {
+        File::makeDirectory('images_data/' . $path, 0775, true);
+    }
+    $path = $path ? $path . '/' : null;
+    $folder_path = public_path('images_data/' . $path);
+    $image_parts = explode(';base64,', $image);
+    $image_type_aux = explode('image/', $image_parts[0]);
+    $image_type = $image_type_aux[1];
+    $image_base64 = base64_decode($image_parts[1]);
+    $file_name = date('YmdHis') . '-' . uniqid() . '.' . $image_type;
+    $file_path = $folder_path . $file_name;
+    file_put_contents($file_path, $image_base64);
+    return 'images_data/' . $path . $file_name;
+}

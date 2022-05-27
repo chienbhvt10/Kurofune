@@ -49,9 +49,8 @@ class VendorProfileController extends Controller
         }
     }
 
-    public function detailPharmacy(Request $request)
+    public function detailPharmacy($id)
     {
-        $id = $request->id;
         $vendor = [];
         $vendor = VendorProfile::find($id);
         $images_outside = getMediaImages($vendor, 'images_outside');
@@ -82,5 +81,18 @@ class VendorProfileController extends Controller
         $vendor = $items;
 
         return $this->responseData($vendor);
+    }
+
+    public function productPharmacy($id)
+    {
+        $vendor = [];
+        $vendor = VendorProfile::find($id);
+        if (!empty($vendor)) {
+            $products = $vendor->user->products()->get();
+        } else {
+            return $this->errorResponse(__('Not found data'));
+        }
+
+        return $this->responseData($products);
     }
 }
