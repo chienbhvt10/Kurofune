@@ -152,6 +152,27 @@ return [
             'different' => '新密码不能与当前密码相同',
             'regex' => '您的密码与格式不符',
             'min' => 'The :attribute must be at least :min characters.'
+        ],
+        'anket_1' => [
+            'required' => '这是必填栏。'
+        ],
+        'anket_2' => [
+            'required' => '这是必填栏。'
+        ],
+        'anket_3' => [
+            'required' => '这是必填栏。'
+        ],
+        'anket_4' => [
+            'required' => '这是必填栏。'
+        ],
+        'anket_5' => [
+            'required' => '这是必填栏。'
+        ],
+        'anket_6' => [
+            'required' => '这是必填栏。'
+        ],
+        'anket_7' => [
+            'required' => '这是必填栏。'
         ]
     ],
 

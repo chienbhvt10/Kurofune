@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('slug')->unique()->nullable()->default(null);
             $table->string('sku', 100)->unique()->nullable();
             $table->enum('stock_status', ['instock', 'outofstock'])->default('instock');
-            $table->decimal('price', 13, 2)->nullable()->default(0);
+            $table->decimal('price')->nullable()->default(0);
             $table->enum('status', ['publish', 'draft'])->default('draft');
             $table->string('product_image')->nullable();
             $table->unsignedBigInteger('tax_id')->nullable();

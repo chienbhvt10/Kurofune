@@ -152,6 +152,27 @@ return [
             'different' => 'Mật khẩu mới không được giống với mật khẩu hiện tại',
             'regex' => 'Mật khẩu của bạn không phù hợp với định dạng',
             'min' => 'The :attribute must be at least :min characters.'
+        ],
+        'anket_1' => [
+            'required' => 'Mục này là mục bắt buộc.'
+        ],
+        'anket_2' => [
+            'required' => 'Mục này là mục bắt buộc.'
+        ],
+        'anket_3' => [
+            'required' => 'Mục này là mục bắt buộc.'
+        ],
+        'anket_4' => [
+            'required' => 'Mục này là mục bắt buộc.'
+        ],
+        'anket_5' => [
+            'required' => 'Mục này là mục bắt buộc.'
+        ],
+        'anket_6' => [
+            'required' => 'Mục này là mục bắt buộc.'
+        ],
+        'anket_7' => [
+            'required' => 'Mục này là mục bắt buộc.'
         ]
     ],
 

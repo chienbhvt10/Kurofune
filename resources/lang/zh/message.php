@@ -64,5 +64,12 @@ return [
         'updated' => 'Product updated',
         'deleted' => 'Product deleted',
         'not_exist' => 'Product not exist',
+    ],
+    'cart' => [
+        'add' => ':product_name has been added to your cart',
+        'no_info' => '购物车中没有任何信息。',
+        'deleted' => 'Cart deleted',
+        'updated' => 'Cart updated',
+        'quantity' => '请查看购买详情'
     ]
 ];

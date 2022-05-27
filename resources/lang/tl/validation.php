@@ -152,6 +152,27 @@ return [
             'different' => 'Ang bagong password ay hindi maaaring pareho sa kasalukuyang password',
             'regex' => 'Ang iyong password ay hindi tumutugma sa format',
             'min' => 'The :attribute must be at least :min characters.'
+        ],
+        'anket_1' => [
+            'required' => 'Kinakailangan ang field na ito.'
+        ],
+        'anket_2' => [
+            'required' => 'Kinakailangan ang field na ito.'
+        ],
+        'anket_3' => [
+            'required' => 'Kinakailangan ang field na ito.'
+        ],
+        'anket_4' => [
+            'required' => 'Kinakailangan ang field na ito.'
+        ],
+        'anket_5' => [
+            'required' => 'Kinakailangan ang field na ito.'
+        ],
+        'anket_6' => [
+            'required' => 'Kinakailangan ang field na ito.'
+        ],
+        'anket_7' => [
+            'required' => 'Kinakailangan ang field na ito.'
         ]
     ],
 

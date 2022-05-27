@@ -67,6 +67,18 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 // View medicine
                 Route::get('list-category', [\App\Http\Controllers\API\CategoryController::class, 'listCategory']);
                 Route::get('detail-category', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
+
+                // Cart process
+                Route::get('cart', [\App\Http\Controllers\API\CartController::class, 'cartList']);
+                Route::post('add-to-cart', [\App\Http\Controllers\API\CartController::class, 'addToCart']);
+                Route::put('update-cart', [\App\Http\Controllers\API\CartController::class, 'updateCart']);
+                Route::post('remove-cart', [\App\Http\Controllers\API\CartController::class, 'removeCart']);
+
+                Route::post('delete-cart', [\App\Http\Controllers\API\CartController::class, 'deleteCart']);
+                Route::delete('delete-cart-item/{id}', [\App\Http\Controllers\API\CartController::class, 'deleteCartItem']);
+
+                // Checkout process
+                Route::post('checkout', [\App\Http\Controllers\API\CartController::class, 'checkout']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {
