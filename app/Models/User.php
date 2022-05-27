@@ -132,4 +132,9 @@ class User extends Authenticatable implements HasMedia
     {
         return $this->hasMany(Product::class, 'user_id', 'id');
     }
+
+    public function cart(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Cart::class, 'user_id', 'id');
+    }
 }
