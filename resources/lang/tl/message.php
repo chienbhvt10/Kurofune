@@ -64,5 +64,12 @@ return [
         'updated' => 'Na-update ang produkto.',
         'deleted' => 'Tinanggal ang produkto',
         'not_exist' => 'Walang produkto',
+    ],
+    'cart' => [
+        'add' => ':product_name has been added to your cart',
+        'no_info' => 'Walang impormasyon sa shopping cart.',
+        'deleted' => 'Cart deleted',
+        'updated' => 'Cart updated',
+        'quantity' => 'Pakisuri ang mga detalye ng pagbili.'
     ]
 ];

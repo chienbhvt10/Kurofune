@@ -152,6 +152,27 @@ return [
             'different' => 'The new password cannot be the same as the current password',
             'regex' => 'Your password does not match the format',
             'min' => 'The :attribute must be at least :min characters.'
+        ],
+        'anket_1' => [
+            'required' => 'This field is required.'
+        ],
+        'anket_2' => [
+            'required' => 'This field is required.'
+        ],
+        'anket_3' => [
+            'required' => 'This field is required.'
+        ],
+        'anket_4' => [
+            'required' => 'This field is required.'
+        ],
+        'anket_5' => [
+            'required' => 'This field is required.'
+        ],
+        'anket_6' => [
+            'required' => 'This field is required.'
+        ],
+        'anket_7' => [
+            'required' => 'This field is required.'
         ]
     ],
 

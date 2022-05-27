@@ -16,7 +16,8 @@
         "laravel/ui": "^3.4",
         "maatwebsite/excel": "^3.1",
         "spatie/laravel-medialibrary": "9.0.0",
-        "spatie/laravel-permission": "^5.5"
+        "spatie/laravel-permission": "^5.5",
+        "cartalyst/stripe-laravel": "^13.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",
