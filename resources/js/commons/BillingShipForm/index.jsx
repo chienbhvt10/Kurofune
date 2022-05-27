@@ -1,6 +1,8 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { PREF } from "../data";
 import InputField from "../Form/InputField";
+import SelectField from "../Form/SelectField";
 
 const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
   return (
@@ -33,14 +35,16 @@ const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
           />
         </Col>
         <Col span={12}>
-          <InputField
+          <SelectField
             field="prefecture"
             errorField={`${typeForm}.prefecture`}
             label="Prefecture"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
+            rules={[]}
             response={response}
-            type={<Input className="input-field" />}
+            placeholder="Please select prefecture"
+            options={PREF}
           />
         </Col>
         <Col span={12}>
