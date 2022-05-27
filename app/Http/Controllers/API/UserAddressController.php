@@ -21,14 +21,14 @@ class UserAddressController extends Controller
             $user_id = $user->id;
             $data = Address::where('user_id', $user_id);
             $dataUser = User::find($user_id);
-            
+
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
                 'postal_code' => 'required|string|max:50',
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
-                'building' => 'string|max:255',
+                'building' => 'nullablestring|max:255',
                 'phone' => 'required|numeric',
                 'email' => 'required|email|unique:users,email,' . $user_id . ',id',
             ]);
