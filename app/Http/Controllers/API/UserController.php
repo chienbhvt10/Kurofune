@@ -85,6 +85,7 @@ class UserController extends Controller
                 'shipping_address.street_address' => 'nullable|string|max:255',
                 'shipping_address.building' => 'nullable|string|max:255',
                 'shipping_address.phone' => 'nullable|numeric',
+                'shipping_address.email' => 'nullable|email',
                 'billing_address.full_name' => 'nullable|string|max:100',
                 'billing_address.postal_code' => 'nullable|string|max:50',
                 'billing_address.city' => 'nullable|string|max:255',
@@ -92,6 +93,7 @@ class UserController extends Controller
                 'billing_address.street_address' => 'nullable|string|max:255',
                 'billing_address.building' => 'nullable|string|max:255',
                 'billing_address.phone' => 'nullable|numeric',
+                'billing_address.email' => 'nullable|email',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -437,6 +439,7 @@ class UserController extends Controller
                 'shipping_address.street_address' => 'nullable|string|max:255',
                 'shipping_address.building' => 'nullable|string|max:255',
                 'shipping_address.phone' => 'nullable|numeric',
+                'shipping_address.email' => 'nullable|email',
                 'billing_address.full_name' => 'nullable|string|max:100',
                 'billing_address.postal_code' => 'nullable|string|max:50',
                 'billing_address.city' => 'nullable|string|max:255',
@@ -444,6 +447,7 @@ class UserController extends Controller
                 'billing_address.street_address' => 'nullable|string|max:255',
                 'billing_address.building' => 'nullable|string|max:255',
                 'billing_address.phone' => 'nullable|numeric',
+                'billing_address.email' => 'nullable|email',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
