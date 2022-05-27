@@ -42,13 +42,28 @@ class AuthController extends Controller
             $tokenResult = $user->createToken('authToken')->plainTextToken;
             $user->login_counter++;
             $user->save();
+            $roles = $user->roles;
+            $user = [
+                'id' => $user->id,
+                'username' => $user->username,
+                'name' => $user->name,
+                'email' => $user->email,
+                'phone' => $user->phone,
+                'email_verified_at' => $user->email_verified_at,
+                'active' => $user->avatar,
+                'avatar' => $user->phone,
+                'login_counter' => $user->login_counter,
+                'roles' => [
+                    'id' => $roles[0]->id,
+                    'name' => $roles[0]->name,
+                ]
+            ];
 
             return response()->json([
                 'status_code' => 200,
                 'access_token' => $tokenResult,
                 'token_type' => 'Bearer',
                 'user' => $user,
-                'role' => $user->roles
             ]);
         }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
