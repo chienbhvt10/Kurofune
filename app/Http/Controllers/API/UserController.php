@@ -7,6 +7,7 @@ use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Rules\WithoutSpaces;
+use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -20,7 +21,7 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
@@ -37,6 +38,11 @@ class UserController extends Controller
                 })->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
             }else {
                 $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
+            }
+            if ($request->name) {
+                $users = $this->filterScopeName(new User, $request->name)
+                            ->with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])
+                            ->paginate($posts_per_page);
             }
             return $this->responseData($users);
         }catch (\Exception $error){

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
 use App\Rules\WithoutSpaces;
+use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -18,22 +19,30 @@ use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
-    use RespondsStatusTrait;
-
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
-            $product = Product::paginate($posts_per_page);
+
+            if ($request->name) {
+                $product = $this->filterScopeName(new Product, $request->name);
+            } else {
+                $product = Product::paginate($posts_per_page);
+            }
             if($roles == UserRole::ROLE_VENDOR) {
-                $product = $user->products()->paginate($posts_per_page);
+                if ($request->name) {
+                    $product = $this->filterScopeName(new Product, $request->name);
+                } else {
+                    $product = $user->products()->paginate($posts_per_page);
+                }
             }
             return $this->responseData($product);
 
