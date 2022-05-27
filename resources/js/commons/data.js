@@ -650,42 +650,42 @@ export const orderDetailData = [
 
 export const cartData = [
   {
-    link: "/product-detail",
+    id: "1",
     imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "Loxonin S (12 viên) ",
     price: "713",
     quantity: 1,
   },
   {
-    link: "/product-detail",
+    id: "2",
     imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "Loxonin S (12 viên) ",
     price: "1426",
     quantity: 2,
   },
   {
-    link: "/product-detail",
+    id: "3",
     imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "Loxonin S (12 viên) ",
     price: "2139",
     quantity: 3,
   },
   {
-    link: "/product-detail",
+    id: "4",
     imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "Loxonin S (12 viên) ",
     price: "2139",
     quantity: 3,
   },
   {
-    link: "/product-detail",
+    id: "5",
     imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "Loxonin S (12 viên) ",
     price: "2139",
     quantity: 3,
   },
   {
-    link: "/product-detail",
+    id: "6",
     imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
     name: "Loxonin S (12 viên) ",
     price: "2139",
