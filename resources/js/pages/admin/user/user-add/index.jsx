@@ -17,10 +17,10 @@ const AddUser = () => {
 
   const onSave = async (values) => {
     await createUser(values);
+    await getAllUsers({ page: 1 });
   };
   React.useEffect(() => {
     if (resCreateUsers?.status_code === 200) {
-      getAllUsers();
       navigate(`${lang}/admin/user-list`);
     } else {
       return;

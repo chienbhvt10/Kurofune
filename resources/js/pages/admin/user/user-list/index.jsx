@@ -22,10 +22,9 @@ export const UserList = () => {
       getAllUsers();
     }
   }, [users]);
-
   const onDelete = (row) => async () => {
     await deleteUser(row.id);
-    // await getAllUsers();
+    await getAllUsers({ page: 1 });
   };
   const onEdit = (row) => () => {
     navigate(`${lang}/admin/user-update/${row.id}`);

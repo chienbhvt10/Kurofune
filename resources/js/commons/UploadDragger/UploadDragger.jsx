@@ -6,7 +6,7 @@ import "./upload-dragger.scss";
 const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
   const ref = useRef();
   const [previewImage, setPreviewImage] = useState(false);
-  const [imageUrl, setImageUrl] = useState("/avatars/default.png");
+  const [imageUrl, setImageUrl] = useState();
 
   const getBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -28,6 +28,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
       setImageUrl(imageUrlProps);
     }
   }, [imageUrlProps]);
+
   return (
     <div className="form-image-custom">
       <div className="container">
@@ -41,7 +42,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         </Modal>
         <input
           type="image"
-          src={imageUrl}
+          src={imageUrl || "/avatars/default.png"}
           className="image"
           alt="avatar"
           height={300}

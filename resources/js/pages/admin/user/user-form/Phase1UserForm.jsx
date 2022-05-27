@@ -150,7 +150,7 @@ export const UserForm = ({
     setAvatarState({ base64Avatar: base64Image });
   };
   React.useEffect(() => {
-    setAvatarState({ imageUrl: item?.avatar || "" });
+    setAvatarState({ avatarUrl: item?.avatar || "" });
   }, [item]);
   return (
     <div className="user-form">
