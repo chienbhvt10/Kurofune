@@ -2,45 +2,45 @@
 
 return [
     'user' => [
-        'logout' => 'logged out',
-        'created' => 'user created',
-        'updated' => 'user updated',
-        'deleted' => 'user deleted',
-        'not_exist' => 'user not exist',
+        'logout' => '已登出。',
+        'created' => '用户创建。',
+        'updated' => '用户更新。',
+        'deleted' => '用户删除。',
+        'not_exist' => '用户的选择是非常重要的。',
         'vendor' => [
-            'not_data' => 'list of pharmacies is empty'
+            'not_data' => '药店名单是空的。'
         ],
-        'inactive' => 'user inactive'
+        'inactive' => '用戶不活躍。'
     ],
     'role' => [
-        'created' => 'role created',
-        'updated' => 'role updated',
-        'deleted' => 'role deleted',
+        'created' => '创建的角色。',
+        'updated' => '角色更新。',
+        'deleted' => '允许删除。',
     ],
     'permission' => [
-        'created' => 'permission created',
-        'updated' => 'permission updated',
-        'deleted' => 'permission deleted',
+        'created' => '创建的权限。',
+        'updated' => '许可更新。',
+        'deleted' => '允许删除。',
     ],
     'tax' => [
-        'created' => 'Created Tax successfully.',
-        'update' => 'Tax changed successfully.',
-        'delete' => 'Delete Tax successfully.'
+        'created' => '成功创建税收',
+        'update' => '税种成功变更。',
+        'delete' => '成功删除税收。'
     ],
     'import_user' => [
-        'success' => 'Import data user success',
+        'success' => '导入数据用户成功。',
     ],
     'billing' => [
-        'updated' => '帐单邮寄地址更改成功',
+        'updated' => '帐单邮寄地址更改成功。',
     ],
     'shipping' => [
-        'updated' => '送货地址更改成功',
+        'updated' => '送货地址更改成功。',
     ],
     'address' => [
-        'updated' => '个人资料已更新',
+        'updated' => '个人资料已更新。',
     ],
     'postal_code' => [
-        'valid' => '请给我一个有效的邮政编码',
+        'valid' => '请给我一个有效的邮政编码。',
     ],
     'page'=>[
         'created' =>'页面创建成功',
@@ -50,25 +50,25 @@ return [
     ],
     'password' => [
         'updated' => '密码更换成功。',
-        'without_spaces' => 'Passwords must not contain spaces',
+        'without_spaces' => '密码不能包含空格。',
         'reset_link_sent' => '密码补发邮件已发送。<br>请检查您注册的电子邮件地址。',
     ],
     'category' => [
-        'created' => 'Category created',
-        'updated' => 'Category updated',
-        'deleted' => 'Category deleted',
-        'not_exist' => 'Category not exist',
+        'created' => '创建的类别。',
+        'updated' => '类别更新。',
+        'deleted' => '类别删除。',
+        'not_exist' => '类别不存在。',
     ],
     'slug' => [
-        'unique' => 'The slug has already been taken.',
+        'unique' => '鼻涕虫已经被带走了。',
     ],
     'medicine' => [
-        'not_found' => 'No medicine found.',
+        'not_found' => '没有发现药物。',
     ],
     'product' => [
-        'created' => 'Product created',
-        'updated' => 'Product updated',
-        'deleted' => 'Product deleted',
-        'not_exist' => 'Product not exist',
+        'created' => '创建的产品。',
+        'updated' => '产品更新。',
+        'deleted' => '产品删除。',
+        'not_exist' => '产品不存在。',
     ]
 ];

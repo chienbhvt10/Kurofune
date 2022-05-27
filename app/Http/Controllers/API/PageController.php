@@ -66,17 +66,16 @@ class PageController extends Controller
             $status = $request->status;
             $meta_title = $request->meta_title ?? null;
             $meta_description = $request->meta_description ?? null;
-            $image = $request->file('image') ?? null;
+            $image = $request->image ?? null;
             $meta_keywords = $request->meta_keywords ?? null;
             if (!empty($image)) {
-                $image_path = upload_single_image($image, 'pages');
-                $image64 = base64_encode($image_path);
+                $image_path = save_base_64_image($image, 'pages');
             }
             $data = [
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image64 ?? null,
+                'image' => $image_path ?? null,
                 'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
@@ -160,21 +159,20 @@ class PageController extends Controller
             } else {
                 $slug = Str::slug($request->en['title']);
             }
-            $author_id = $request->author_id ?? $page->author_id;
-            $status = $request->status ?? $page->status;
-            $meta_title = $request->meta_title ?? $page->meta_title;
-            $meta_description = $request->meta_description ?? $page->meta_description;
-            $image_update = $request->file('image');
-            $meta_keywords = $request->meta_keywords ?? $page->meta_keywords;
+            $author_id = $request->author_id ?? null;
+            $status = $request->status ?? null;
+            $meta_title = $request->meta_title ?? null;
+            $meta_description = $request->meta_description ?? null;
+            $image_update = $request->image ?? null;
+            $meta_keywords = $request->meta_keywords ?? null;
             if (!empty($image_update)) {
-                $image_path = upload_single_image($image_update, 'pages');
-                $image64 = base64_encode($image_path);
+                $image_path = save_base_64_image($image_update, 'pages');
             }
             $page->update([
                 'author_id' => $author_id,
                 'slug' => $slug,
                 'status' => $status,
-                'image' => $image64 ?? $page->image,
+                'image' => $image_path ?? null,
                 'meta_title' => $meta_title,
                 'meta_description' => $meta_description,
                 'meta_keywords' => $meta_keywords,
