@@ -4,8 +4,10 @@ import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
 import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
+import { useSelector } from "react-redux";
 const Phase2UserForm = ({
   role,
+  typeForm,
   vendorProfileFormVI,
   vendorProfileFormJP,
   vendorProfileFormZH,
@@ -17,6 +19,9 @@ const Phase2UserForm = ({
   shippingAddressForm,
 }) => {
   const [activeTab, setActiveTab] = useState(1);
+  const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+  const resUpdateUser = useSelector((state) => state.userState.resCreateUser);
+
   const onChangeForm = (number) => {
     setActiveTab(number);
   };
@@ -62,6 +67,7 @@ const Phase2UserForm = ({
           className={`tab ${activeTab === 3 ? "active" : ""}`}
           typeForm="billing_address"
           form={billingAddressForm}
+          response={typeForm === "create" ? resCreateUser : resUpdateUser}
         />
       </div>
       <div style={{ width: "50%", margin: "auto" }}>
@@ -69,6 +75,7 @@ const Phase2UserForm = ({
           className={`tab ${activeTab === 4 ? "active" : ""}`}
           typeForm="shipping_address"
           form={shippingAddressForm}
+          response={typeForm === "create" ? resCreateUser : resUpdateUser}
         />
       </div>
     </SwitchTabUserForm>
