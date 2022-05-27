@@ -414,7 +414,6 @@ class UserController extends Controller
                 'email' => 'email|required',
                 'phone' => 'numeric|required',
                 'password' => [
-                    'nullable',
                     'string',
                     new WithoutSpaces,
                     Password::min(8)
@@ -468,6 +467,21 @@ class UserController extends Controller
             $user->email = $email;
             $user->phone = $phone;
             if($password) {
+                $validator = Validator::make($request->all(), [
+                    'password' => [
+                        'string',
+                        new WithoutSpaces,
+                        Password::min(8)
+                            ->mixedCase()
+                            ->numbers()
+                            ->symbols()
+                    ]
+                ]);
+                if ($validator->fails()) {
+                    DB::rollBack();
+                    $errors = $validator->errors();
+                    return $this->errorResponse($errors, 422);
+                }
                 $user->password = Hash::make($password);
             }
             $user->active = $active;
