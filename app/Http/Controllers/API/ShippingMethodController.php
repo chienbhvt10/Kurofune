@@ -132,9 +132,9 @@ class ShippingMethodController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
-            $name = $request->name ?? $shipping_method->name;
-            $total = $request->total ?? $shipping_method->total;
-            $description = $request->description ?? $shipping_method->description;
+            $name = $request->name ?? null;
+            $total = $request->total ?? null;
+            $description = $request->description ?? null;
             $logo_update = $request->logo ?? null;
             if (!empty($logo_update)) {
                 $logo_update = save_base_64_image($logo_update, 'shippingmethods');
@@ -143,7 +143,7 @@ class ShippingMethodController extends Controller
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-                'logo' => $logo_update ?? $shipping_method->logo
+                'logo' => $logo_update ?? null
             ];
 
             $shipping_method->update($params_update);
