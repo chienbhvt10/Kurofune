@@ -56,7 +56,7 @@ class ProductController extends Controller
                 'slug' => 'nullable|unique:products',
                 'sku' => 'nullable|unique:products',
                 'price' => 'nullable|numeric',
-                'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'product_image' => 'nullable|string',
                 'en.name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
@@ -92,7 +92,7 @@ class ProductController extends Controller
                 $user_id = $userVendor->id;
 
             }
-            $image_product = $request->file('product_image') ? upload_single_image($request->file('product_image'), 'products') : null;
+            $image_product = $request->product_image ? save_base_64_image($request->product_image, 'products') : null;
             $product = Product::create([
                 'user_id' => $user_id,
                 'slug' => $slug,
@@ -210,7 +210,7 @@ class ProductController extends Controller
                 'slug' => 'nullable|unique:products,slug,'.$product->id.',id',
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
                 'price' => 'nullable|numeric',
-                'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'product_image' => 'nullable|string',
                 'en.name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
@@ -317,9 +317,9 @@ class ProductController extends Controller
                     'manufacturer' => $request->zh['manufacturer'] ?? null,
                 ],
             ];
-            $image_product = $request->file('product_image') ?? null;
+            $image_product = $request->product_image ?? null;
             if($image_product) {
-                $image_product = upload_single_image($image_product, 'products');
+                $image_product = save_base_64_image($image_product, 'products');
                 $data_update['image_product'] = $image_product;
             }
             $product->update($data_update);
