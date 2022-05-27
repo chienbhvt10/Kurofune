@@ -14,18 +14,16 @@ import { Languages } from "../../../commons/Languges";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import useLogout from "../../../hooks/auth/useLogout";
-import { useSelector } from "react-redux";
 
 const MediaPage = () => {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
-  const resLogout = useSelector((state) => state.authState.resLogout);
   function createMarkup() {
     return { __html: t("login.title") };
   }
   const lang = localStorage.getItem("lang");
 
-  const { getLogout } = useLogout();
+  const { getLogout, resLogout } = useLogout();
 
   const logout = async () => {
     await getLogout();

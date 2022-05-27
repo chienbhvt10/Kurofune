@@ -60,4 +60,9 @@ class Product extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function cart_item(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(CartItem::class, 'product_id', 'id');
+    }
 }

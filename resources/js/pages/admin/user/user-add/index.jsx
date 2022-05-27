@@ -7,7 +7,7 @@ import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
   const navigate = useNavigate();
-  const { createUser, resCreateUsers } = useCreateUser();
+  const { createUser, resCreateUser } = useCreateUser();
   const { getAllUsers } = useUsers();
   const lang = localStorage.getItem("lang");
 
@@ -17,19 +17,19 @@ const AddUser = () => {
 
   const onSave = async (values) => {
     await createUser(values);
+    await getAllUsers({ page: 1 });
   };
   React.useEffect(() => {
-    if (resCreateUsers?.status_code === 200) {
-      getAllUsers();
+    if (resCreateUser?.status_code === 200) {
       navigate(`${lang}/admin/user-list`);
     } else {
       return;
     }
-  }, [resCreateUsers]);
+  }, [resCreateUser]);
   return (
     <div id="add-user">
       <UserForm
-        response={resCreateUsers}
+        response={resCreateUser}
         onCancel={onCancel}
         onSave={onSave}
         title="Create User"

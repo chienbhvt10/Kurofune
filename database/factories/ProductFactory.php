@@ -24,7 +24,7 @@ class ProductFactory extends Factory
             'tax_id' => null,
             'meta_title' => $this->faker->text(50),
             'meta_description' => $this->faker->text(100),
-            'meta_keywords' => $this->faker->randomKey(['pharmacy', 'medicine', 'panadol']),
+            'meta_keywords' => $this->faker->randomElement(['pharmacy', 'medicine', 'panadol']),
             'en' => [
                 'name' => $this->faker->text(100),
                 'medicinal_efficacy_classification' => $this->faker->text(100),

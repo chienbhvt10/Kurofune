@@ -2,6 +2,12 @@
 
 use App\Enums\Base;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
+
+function generate_uuid(): string
+{
+    return (string) Str::uuid();
+}
 
 if (!function_exists('formatDate')) {
     function formatDate($date, string $format = 'Y/m/d')

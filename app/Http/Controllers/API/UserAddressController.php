@@ -28,7 +28,7 @@ class UserAddressController extends Controller
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
-                'building' => 'nullablestring|max:255',
+                'building' => 'nullable|string|max:255',
                 'phone' => 'required|numeric',
                 'email' => 'required|email|unique:users,email,' . $user_id . ',id',
             ]);

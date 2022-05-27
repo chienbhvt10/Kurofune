@@ -17,6 +17,7 @@ export const UserTable = ({
       dataIndex: "username",
       title: "Username",
       sort: true,
+      width: 350,
       render: (_, record) => {
         return (
           <Link
@@ -37,18 +38,20 @@ export const UserTable = ({
       key: "name",
       dataIndex: "name",
       title: "Name",
+      width: 250,
     },
     {
       key: "email",
       dataIndex: "email",
       title: "Email",
+      width: 250,
     },
     {
       key: "role",
       dataIndex: "role",
       title: "Role",
       headerStyle: {
-        width: 200,
+        width: 150,
       },
       render: (_, record) => {
         return <span>{record?.roles[0]?.name}</span>;

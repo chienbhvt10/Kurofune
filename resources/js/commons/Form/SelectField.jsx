@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Select } from "antd";
 const SelectField = ({
   field,
+  errorField,
   label,
   labelCol,
   wrapperCol,
@@ -18,12 +19,13 @@ const SelectField = ({
       wrapperCol={wrapperCol}
       rules={rules}
       help={
-        response?.message?.[field] &&
-        response?.message?.[field].length &&
-        response?.message?.[field][0]
+        response?.message?.[errorField] &&
+        response?.message?.[errorField].length &&
+        response?.message?.[errorField][0]
       }
       validateStatus={
-        response?.message?.[field] && response?.message?.[field].length
+        response?.message?.[errorField] &&
+        response?.message?.[errorField].length
           ? "error"
           : ""
       }

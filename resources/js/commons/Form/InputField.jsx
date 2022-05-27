@@ -3,11 +3,11 @@ import React from "react";
 const InputField = ({
   label,
   field,
+  errorField,
   labelCol,
   wrapperCol,
   rules,
   response,
-  typeForm,
   type,
   className,
   dependencies,
@@ -25,18 +25,13 @@ const InputField = ({
       value={value}
       hasFeedback
       help={
-        typeForm === "billing_address" || typeForm === "shipping_address"
-          ? response?.message?.[`${typeForm}.${field}`] &&
-            response?.message?.[`${typeForm}.${field}`].length &&
-            response?.message?.[`${typeForm}.${field}`][0]
-          : response?.message?.[field] &&
-            response?.message?.[field].length &&
-            response?.message?.[field][0]
+        response?.message?.[errorField] &&
+        response?.message?.[errorField].length &&
+        response?.message?.[errorField][0]
       }
       validateStatus={
-        (response?.message?.[field] && response?.message?.[field].length) ||
-        (response?.message?.[`${typeForm}.${field}`] &&
-          response?.message?.[`${typeForm}.${field}`].length)
+        response?.message?.[errorField] &&
+        response?.message?.[errorField].length
           ? "error"
           : ""
       }
