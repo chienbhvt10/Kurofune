@@ -122,9 +122,9 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input prefecture" }]}
+            rules={[{ required: true, message: "Please select prefecture" }]}
             response={response}
-            placeholder="Please select active status"
+            placeholder="Please select prefecture"
             options={PREF}
           />
         </Col>

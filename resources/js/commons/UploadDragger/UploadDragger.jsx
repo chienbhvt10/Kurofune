@@ -1,6 +1,6 @@
 import { EyeOutlined } from "@ant-design/icons";
-import { Button, Modal, Space, Upload } from "antd";
-import React, { useRef, useState } from "react";
+import { Button, message, Modal, Space, Upload } from "antd";
+import React, { useCallback, useRef, useState } from "react";
 import "./upload-dragger.scss";
 
 const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
@@ -16,8 +16,20 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
       reader.onerror = (error) => reject(error);
     });
   };
-
+  const beforeUpload = (file) => {
+    const isValidImage =
+      file.type === "image/png" ||
+      file.type === "image/jpeg" ||
+      file.type === "image/jpg";
+    console.log(file.type);
+    if (!isValidImage) {
+      message.error("Ảnh phải là định dạng png/jpeg/jpg/gif");
+      throw new Error("Ảnh phải là định dạng png/jpeg/jpg/gif");
+    }
+    return false;
+  };
   const handleChange = async (info) => {
+    console.log(info.file);
     const base64Image = await getBase64(info.file);
     onChangeImage && onChangeImage(base64Image);
     setImageUrl(URL.createObjectURL(info.file));
@@ -67,7 +79,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         className="upload"
         onChange={handleChange}
         multiple={false}
-        beforeUpload={() => false}
+        beforeUpload={beforeUpload}
         showUploadList={false}
         accept="image/*"
       >

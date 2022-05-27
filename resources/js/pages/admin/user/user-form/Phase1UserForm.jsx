@@ -138,7 +138,7 @@ export const UserForm = ({
   }, [item]);
 
   const onGeneratePassword = () => {
-    const password = generatePassword(12);
+    const password = generatePassword(16);
     userInfoForm.setFieldsValue({ ...userInfoForm.getFieldsValue(), password });
   };
 
@@ -187,8 +187,9 @@ export const UserForm = ({
           <Col span={14}>
             <Col span={23}>
               <Form.Item
-                label="Role"
                 name="role"
+                errorField="role"
+                label="Role"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 hasFeedback
@@ -210,6 +211,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="name"
+                errorField="name"
                 label="Name"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -221,11 +223,13 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="email"
+                errorField="email"
                 label="Email"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 rules={[
                   { required: true, message: "Please input your email!" },
+                  { type: "email", message: "Please input valid email!" },
                 ]}
                 response={response}
                 type={<Input />}
@@ -234,6 +238,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="phone"
+                errorField="phone"
                 label="Phone"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -245,6 +250,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="username"
+                errorField="username"
                 label="Username"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -260,10 +266,16 @@ export const UserForm = ({
                 <Col span={18}>
                   <InputField
                     field="password"
+                    errorField="password"
                     label="Password"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    rules={[]}
+                    rules={[
+                      typeForm === "create" && {
+                        required: true,
+                        message: "Please input your password!",
+                      },
+                    ]}
                     response={response}
                     type={<Input />}
                   />
@@ -283,6 +295,7 @@ export const UserForm = ({
             <Col span={23}>
               <SelectField
                 field="active"
+                errorField="active"
                 label="Active"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -301,6 +314,7 @@ export const UserForm = ({
       <div className="translate-role">
         <Phase2UserForm
           role={role}
+          typeForm={typeForm}
           vendorProfileFormJP={vendorProfileFormJP}
           vendorProfileFormEN={vendorProfileFormEN}
           vendorProfileFormTL={vendorProfileFormTL}
