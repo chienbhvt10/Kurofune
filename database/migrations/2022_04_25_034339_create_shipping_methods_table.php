@@ -16,7 +16,7 @@ class CreateShippingMethodsTable extends Migration
         Schema::create('shipping_methods', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
-            $table->decimal('total', 13, 2)->nullable()->default(0);
+            $table->decimal('total')->nullable()->default(0);
             $table->string('description')->nullable();
             $table->string('logo')->nullable();
             $table->softDeletes();

@@ -64,5 +64,12 @@ return [
         'updated' => '商品を更新しました。',
         'deleted' => '商品を消除しました。',
         'not_exist' => '商品が存在しません。',
+    ],
+    'cart' => [
+        'add' => ':product_name has been added to your cart',
+        'no_info' => '買い物かご内の情報はありません。',
+        'deleted' => 'Cart deleted',
+        'updated' => 'Cart updated',
+        'quantity' => '購入内容をご確認ください。'
     ]
 ];
