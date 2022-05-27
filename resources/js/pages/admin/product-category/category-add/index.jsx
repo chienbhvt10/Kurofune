@@ -14,11 +14,13 @@ const AddCategory = () => {
   const onSave = (data) => {
     createAdminCategory(data);
   };
-
+  console.log(resCreateCategory);
   React.useEffect(() => {
     if (resCreateCategory?.status_code === 200) {
       navigate(`${lang}/admin/category-list`);
-    } else return;
+    } else {
+      return;
+    }
   }, [resCreateCategory]);
   return (
     <div id="add-category-page">
@@ -27,6 +29,7 @@ const AddCategory = () => {
         title="Add Category"
         onCancel={onCancel}
         onSave={onSave}
+        response={resCreateCategory}
       />
     </div>
   );

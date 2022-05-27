@@ -8,6 +8,7 @@ import {
 
 const initialState = {
   adminCategory: undefined,
+  resGetAdminCategory: undefined,
   adminCategoryRes: undefined,
   resDeleteCategory: undefined,
   resCreateCategory: undefined,
@@ -17,6 +18,7 @@ const initialState = {
 const adminCategoryReducers = createReducer(initialState, (builder) => {
   builder.addCase(getCategoryAdminAction.fulfilled, (state, actions) => {
     state.adminCategory = actions.payload?.data;
+    state.resGetAdminCategory = actions.payload;
   });
 
   // Create Category

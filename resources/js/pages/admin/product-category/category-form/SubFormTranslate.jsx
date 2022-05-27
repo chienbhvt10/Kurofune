@@ -17,8 +17,13 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               label={`(${lang}) Name`}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
-              rules={[]}
-              response={response}
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter your Name",
+                },
+              ]}
+              // response={response}
               type={<Input />}
             />
           </Col>
@@ -29,8 +34,13 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
                 label={`(${lang}) Locale`}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[]}
-                response={response}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your Locale",
+                  },
+                ]}
+                // response={response}
                 type={<Input />}
               />
             </Col>
@@ -40,8 +50,13 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
                 label={`(${lang}) Category`}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[]}
-                response={response}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please enter your Category",
+                  },
+                ]}
+                // response={response}
                 type={<Input />}
               />
             </Col>

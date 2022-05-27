@@ -1,4 +1,4 @@
-import { Col, Form, Input, Row, InputNumber } from "antd";
+import { Col, Form, Input, Row, InputNumber, Upload, Button } from "antd";
 import React from "react";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
@@ -184,7 +184,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     message: "Please input your Price",
                   },
                 ]}
-                type={<InputNumber />}
+                type={<Input type="number" className="input-field" />}
               />
             </Col>
 
@@ -205,7 +205,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
-                type={<InputNumber />}
+                type={<Input type="number" className="input-field" />}
               />
             </Col>
             <Col span={12} style={{ padding: "0 30px" }}>
