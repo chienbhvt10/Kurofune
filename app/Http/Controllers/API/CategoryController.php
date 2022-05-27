@@ -47,7 +47,7 @@ class CategoryController extends Controller
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
                 'slug' => 'nullable|string|max:255',
-                'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'category_image' => 'required|string',
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
             ]);
@@ -57,18 +57,14 @@ class CategoryController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
-            if ($request->slug) {
-                $slug = Str::slug($request->slug);
-            } else {
-                $slug = Str::slug($request->en['name']);
-            }
+            $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
             $slug_check = Category::where('slug', $slug)->first();
             if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
                 return $this->errorResponse(__('message.slug.unique'));
             }
 
-            $image = $request->file('category_image');
-            $image_path = upload_single_image($image, 'category');
+            $image = $request->category_image;
+            $image_path = save_base_64_image($image, 'category');
 
             $params = [
                 'slug' => $slug,
@@ -145,7 +141,7 @@ class CategoryController extends Controller
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
                 'slug' => 'nullable|string|max:255',
-                'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'category_image' => 'nullable|string',
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
             ]);
@@ -155,19 +151,15 @@ class CategoryController extends Controller
                 return $this->errorResponse($errors, 422);
             }
 
-            if ($request->slug) {
-                $slug = Str::slug($request->slug);
-            } else {
-                $slug = Str::slug($request->en['name']);
-            }
+            $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
             $slug_check = Category::where('slug', $slug)->first();
             if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
                 return $this->errorResponse(__('message.slug.unique'));
             }
 
-            $image_update = $request->file('category_image');
+            $image_update = $request->category_image;
             if ($image_update) {
-                $image_path = upload_single_image($image_update, 'category');
+                $image_path = save_base_64_image($image_update, 'category');
                 $params_update['category_image'] = $image_path;
             }
 
@@ -241,19 +233,18 @@ class CategoryController extends Controller
         }
     }
 
-    public function detailCategory(Request $request)
+    public function detailCategory($id)
     {
         try {
-            $id = $request->id;
-            $detail = Category::find($id);
+            $cat = Category::find($id);
 
-            $data = $detail->products()->get();
-
-            if (empty($data)) {
+            if (empty($cat)) {
                 return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
-            return $this->responseData($data);
+            $products = $cat->products()->where('status', 'publish')->with('categories')->get();
+
+            return $this->responseData($products);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }

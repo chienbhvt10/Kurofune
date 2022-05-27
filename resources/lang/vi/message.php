@@ -2,25 +2,25 @@
 
 return [
     'user' => [
-        'logout' => 'logged out',
-        'created' => 'user created',
-        'updated' => 'user updated',
-        'deleted' => 'user deleted',
-        'not_exist' => 'user not exist',
+        'logout' => 'Đăng xuất thành công .',
+        'created' => 'Tạo người dùng trong quản trị thành công.',
+        'updated' => 'Cập nhật người dùng trong quản trị thành công.',
+        'deleted' => 'Xóa người dùng trong quản trị viên.',
+        'not_exist' => 'Không tồn tại thông tin người dùng .',
         'vendor' => [
-            'not_data' => 'list of pharmacies is empty'
+            'not_data' => 'Danh sách hiệu thuốc trống.'
         ],
-        'inactive' => 'user inactive'
+        'inactive' => 'người dùng không hoạt động.'
     ],
     'role' => [
-        'created' => 'role created',
-        'updated' => 'role updated',
-        'deleted' => 'role deleted',
+        'created' => 'Tạo vai trò thành công .',
+        'updated' => 'Sửa vai trò thành công .',
+        'deleted' => 'Xóa vai trò thành công .',
     ],
     'permission' => [
-        'created' => 'permission created',
-        'updated' => 'permission updated',
-        'deleted' => 'permission deleted',
+        'created' => 'Tạo quyền thành công ',
+        'updated' => 'Sửa quyền thành công',
+        'deleted' => 'Xóa quyền thành công.',
     ],
     'tax' => [
         'created' => 'Tạo thuế thành công',
@@ -28,47 +28,47 @@ return [
         'delete' => 'Xoá thuế thành công'
     ],
     'import_user' => [
-        'success' => 'Import data user success',
+        'success' => 'Xuất  dữ liệu người dùng thành công.',
     ],
     'billing' => [
         'updated' => 'Địa chỉ thanh toán đã được thay đổi thành công.',
     ],
     'shipping' => [
-        'updated' => 'Đã thay đổi thành công địa chỉ giao hàng',
+        'updated' => 'Đã thay đổi thành công địa chỉ giao hàng.',
     ],
     'address' => [
-        'updated' => 'Cập nhật thông tin cá nhân',
+        'updated' => 'Cập nhật thông tin cá nhân.',
     ],
     'postal_code' => [
-        'valid' => 'Vui lòng nhập Zip code hợp lệ',
+        'valid' => 'Vui lòng nhập Zip code hợp lệ.',
     ],
     'password' => [
         'updated' => 'Đã thay đổi mật khẩu thành công.',
-        'without_spaces' => 'Passwords must not contain spaces',
+        'without_spaces' => 'Passwords must not contain spaces.',
         'reset_link_sent' => 'Email cấp lại mật khẩu đã được gửi.<br>Vui lòng kiểm tra địa chỉ email đã đăng ký của bạn.',
     ],
     'category' => [
-        'created' => 'Category created',
-        'updated' => 'Category updated',
-        'deleted' => 'Category deleted',
-        'not_exist' => 'Category not exist',
+        'created' => 'Danh mục đã tạo thành công',
+        'updated' => 'Đã cập nhật danh mục thành công.',
+        'deleted' => 'Danh mục đã bị xóa.',
+        'not_exist' => 'Danh mục không tồn tại.',
     ],
     'slug' => [
-        'unique' => 'The slug has already been taken.',
+        'unique' => 'Đườg dẫn đã tồn tại .',
     ],
     'medicine' => [
-        'not_found' => 'No medicine found.',
+        'not_found' => 'Không tìm thấy thuốc.',
     ],
     'product' => [
-        'created' => 'Product created',
-        'updated' => 'Product updated',
-        'deleted' => 'Product deleted',
-        'not_exist' => 'Product not exist',
+        'created' => 'Danh mục đã tạo thành công.',
+        'updated' => 'Đã cập nhật danh mục thành công.',
+        'deleted' => 'Danh mục đã bị xóa.',
+        'not_exist' => 'Danh mục không tồn tại.',
     ],
     'shipping_method' => [
-        'created' => 'Create shipping method successfully',
-        'updated' => 'Update shipping method successfully',
-        'deleted' => 'Delete shipping method successfully',
-        'not_exist' => 'Shipping method not exist'
+        'created' => 'Tạo phương thức giao hàng thành công',
+        'updated' => 'Cập nhật phương thức giao hàng thành công',
+        'deleted' => 'Xóa phương thức giao hàng thành công',
+        'not_exist' => 'Phương thức vận chuyển không tồn tại'
     ]
 ];
