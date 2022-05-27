@@ -153,14 +153,14 @@ class UserController extends Controller
 
             if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {
                 $validator_profile = Validator::make($request->all(), [
-                    'dob' => 'date|date_format:Y-m-d',
-                    'gender' => 'boolean',
-                    'payment' => 'boolean',
-                    'insurance_status' => 'numeric',
-                    'overseas_remittance_status' => 'boolean',
-                    'start_date_education' => 'date|date_format:Y-m-d',
-                    'end_date_education' => 'date|date_format:Y-m-d',
-                    'wabisabi_my_page_registration' => 'boolean',
+                    'dob' => 'nullable|date|date_format:Y-m-d',
+                    'gender' => 'nullable|boolean',
+                    'payment' => 'nullable|boolean',
+                    'insurance_status' => 'nullable|numeric',
+                    'overseas_remittance_status' => 'nullable|boolean',
+                    'start_date_education' => 'nullable|date|date_format:Y-m-d',
+                    'end_date_education' => 'nullable|date|date_format:Y-m-d',
+                    'wabisabi_my_page_registration' => 'nullable|boolean',
 
                 ]);
                 if ($validator_profile->fails()) {
@@ -212,9 +212,9 @@ class UserController extends Controller
                 ]);
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
-                    'images_outside' => 'array',
+                    'images_outside' => 'nullable|array',
                     'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                    'images_inside' => 'array',
+                    'images_inside' => 'nullable|array',
                     'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                 ]);
                 if ($validator_vendor->fails()) {
@@ -507,14 +507,14 @@ class UserController extends Controller
                     $user->vendor_profile()->delete();
                 }
                 $validator_profile = Validator::make($request->all(), [
-                    'dob' => 'date|date_format:Y-m-d',
-                    'gender' => 'boolean',
-                    'payment' => 'boolean',
-                    'insurance_status' => 'numeric',
-                    'overseas_remittance_status' => 'boolean',
-                    'start_date_education' => 'date|date_format:Y-m-d',
-                    'end_date_education' => 'date|date_format:Y-m-d',
-                    'wabisabi_my_page_registration' => 'boolean',
+                    'dob' => 'nullable|date|date_format:Y-m-d',
+                    'gender' => 'nullable|boolean',
+                    'payment' => 'nullable|boolean',
+                    'insurance_status' => 'nullable|numeric',
+                    'overseas_remittance_status' => 'nullable|boolean',
+                    'start_date_education' => 'nullable|date|date_format:Y-m-d',
+                    'end_date_education' => 'nullable|date|date_format:Y-m-d',
+                    'wabisabi_my_page_registration' => 'nullable|boolean',
 
                 ]);
                 if ($validator_profile->fails()) {
@@ -566,9 +566,9 @@ class UserController extends Controller
                 ]);
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
-                    'images_outside' => 'array',
+                    'images_outside' => 'nullable|array',
                     'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-                    'images_inside' => 'array',
+                    'images_inside' => 'nullable|array',
                     'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
                 ]);
                 if ($validator_vendor->fails()) {
