@@ -78,7 +78,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::get('detail-category/{id}', [\App\Http\Controllers\API\CategoryController::class, 'detailCategory']);
                 
                 // View detail product
-                Route::get('detail-product', [\App\Http\Controllers\API\ProductController::class, 'detailProduct']);
+                Route::get('detail-product/{id}', [\App\Http\Controllers\API\ProductController::class, 'detailProduct']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {
