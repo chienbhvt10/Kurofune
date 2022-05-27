@@ -85,7 +85,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::post('add-to-cart', [\App\Http\Controllers\API\CartController::class, 'addToCart']);
                 Route::put('update-cart', [\App\Http\Controllers\API\CartController::class, 'updateCart']);
 
-                Route::post('delete-cart', [\App\Http\Controllers\API\CartController::class, 'deleteCart']);
+                Route::delete('delete-cart', [\App\Http\Controllers\API\CartController::class, 'deleteCart']);
                 Route::delete('delete-cart-item/{id}', [\App\Http\Controllers\API\CartController::class, 'deleteCartItem']);
 
                 // Checkout process
