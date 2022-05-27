@@ -1,10 +1,15 @@
+import { Table } from "antd";
 import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
 import TableRowAction from "../../../../commons/TableRowAction";
-import { Table } from "antd";
-export const UserTable = ({ items, onEdit, onDelete }) => {
+export const UserTable = ({
+  items,
+  onEdit,
+  onDelete,
+  pagination,
+  onTableChange,
+}) => {
   const lang = localStorage.getItem("lang");
   const columns = [
     {
@@ -12,6 +17,7 @@ export const UserTable = ({ items, onEdit, onDelete }) => {
       dataIndex: "username",
       title: "Username",
       sort: true,
+      width: 350,
       render: (_, record) => {
         return (
           <Link
@@ -32,18 +38,20 @@ export const UserTable = ({ items, onEdit, onDelete }) => {
       key: "name",
       dataIndex: "name",
       title: "Name",
+      width: 250,
     },
     {
       key: "email",
       dataIndex: "email",
       title: "Email",
+      width: 250,
     },
     {
       key: "role",
       dataIndex: "role",
       title: "Role",
       headerStyle: {
-        width: 200,
+        width: 150,
       },
       render: (_, record) => {
         return <span>{record?.roles[0]?.name}</span>;
@@ -64,5 +72,21 @@ export const UserTable = ({ items, onEdit, onDelete }) => {
     },
   ];
 
-  return <Table rowKey="id" columns={columns} dataSource={items} bordered />;
+  return (
+    <Table
+      rowKey="id"
+      columns={columns}
+      dataSource={items}
+      bordered
+      onChange={onTableChange}
+      pagination={{
+        showSizeChanger: true,
+        showPrevNextJumpers: false,
+        pageSizeOptions: ["5", "10", "20", "50", "100"],
+        total: pagination.total,
+        pageSize: pagination.per_page,
+        showTotal: () => `Total ${pagination.total} items`,
+      }}
+    />
+  );
 };

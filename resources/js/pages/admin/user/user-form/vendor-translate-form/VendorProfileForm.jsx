@@ -1,7 +1,6 @@
 import React from "react";
 import TranslateVendorForm from "./TranslateVendorForm";
 import { Row, Col } from "antd";
-import UploadDragger from "../../../../../commons/UploadDragger";
 const VendorProfileForm = ({
   formEN,
   formJP,
@@ -15,12 +14,12 @@ const VendorProfileForm = ({
       <Row justify="center" className="control-image">
         <Col span={12}>
           <Row justify="center">
-            <UploadDragger title="Image1" name="image1" />
+            {/* <UploadDragger title="Image1" name="image1" /> */}
           </Row>
         </Col>
         <Col span={12}>
           <Row justify="center">
-            <UploadDragger title="Image2" name="image2" />
+            {/* <UploadDragger title="Image2" name="image2" /> */}
           </Row>
         </Col>
       </Row>

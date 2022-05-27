@@ -3,8 +3,8 @@ import axiosClient from "../api-caller";
 
 export const userApis = {
   users: async (data) => {
-    const url = ROOT_URL + "users";
-    return await axiosClient.get(url, data);
+    let url = ROOT_URL + "users";
+    return await axiosClient.get(url, { params: data });
   },
   user: async (data) => {
     const url = ROOT_URL + `users/${data}`;

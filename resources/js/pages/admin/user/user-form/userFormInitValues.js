@@ -2,13 +2,14 @@ import moment from "moment";
 export const getUserInfoInitValues = (item) => {
   return {
     id: item?.id || "",
-    role: item?.role[0].name || "",
+    role: item?.role[0]?.name || "",
     name: item?.name || "",
     username: item?.username || "",
     password: item?.password || "",
     phone: item?.phone || "",
     email: item?.email || "",
     active: item?.active || 0,
+    avatar: item?.avatar || "",
   };
 };
 export const getTranslateInitValues = () => {

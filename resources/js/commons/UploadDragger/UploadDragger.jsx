@@ -1,15 +1,12 @@
-import { DeleteOutlined, EyeOutlined, PlusOutlined } from "@ant-design/icons";
-import { Button, Modal, Space, Upload } from "antd";
-import ImgCrop from "antd-img-crop";
-import React, { useRef, useState } from "react";
-import { UploadOutlined } from "@ant-design/icons";
+import { EyeOutlined } from "@ant-design/icons";
+import { Button, message, Modal, Space, Upload } from "antd";
+import React, { useCallback, useRef, useState } from "react";
 import "./upload-dragger.scss";
 
-const UploadDragger = ({ fileProp, onChangeImage, loading }) => {
+const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
   const ref = useRef();
-  const [file, setFile] = useState();
   const [previewImage, setPreviewImage] = useState(false);
-  const [imageUrl, setImageUrl] = useState("/avatars/default.png");
+  const [imageUrl, setImageUrl] = useState();
 
   const getBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -19,35 +16,31 @@ const UploadDragger = ({ fileProp, onChangeImage, loading }) => {
       reader.onerror = (error) => reject(error);
     });
   };
-
-  const handlePreview = async (file) => {
-    if (!file.url && !file.preview) {
-      file.preview = await getBase64(file.file);
-      console.log(getBase64(file.file));
+  const beforeUpload = (file) => {
+    const isValidImage =
+      file.type === "image/png" ||
+      file.type === "image/jpeg" ||
+      file.type === "image/jpg";
+    console.log(file.type);
+    if (!isValidImage) {
+      message.error("Ảnh phải là định dạng png/jpeg/jpg/gif");
+      throw new Error("Ảnh phải là định dạng png/jpeg/jpg/gif");
     }
-    setImageUrl(file.url || file.preview);
-    setPreviewImage(true);
+    return false;
   };
-
   const handleChange = async (info) => {
-    onChangeImage && onChangeImage(info.file);
+    console.log(info.file);
+    const base64Image = await getBase64(info.file);
+    onChangeImage && onChangeImage(base64Image);
     setImageUrl(URL.createObjectURL(info.file));
   };
 
-  const onUpload = () => {
-    console.log(ref.current);
-    if (ref && ref.current) {
-      ref.current.upload();
-    }
-  };
-
   React.useEffect(() => {
-    if (typeof fileProp === "string" && fileProp.length) {
-      setImageUrl(fileProp);
+    if (imageUrlProps) {
+      setImageUrl(imageUrlProps);
     }
-  }, [fileProp]);
+  }, [imageUrlProps]);
 
-  console.log(fileProp);
   return (
     <div className="form-image-custom">
       <div className="container">
@@ -61,39 +54,36 @@ const UploadDragger = ({ fileProp, onChangeImage, loading }) => {
         </Modal>
         <input
           type="image"
-          src={imageUrl}
+          src={imageUrl || "/avatars/default.png"}
           className="image"
           alt="avatar"
           height={300}
           style={{ width: "100%", objectFit: "cover" }}
         />
-        {typeof fileProp === "string" && (
-          <div className="middle" onClick={onUpload}>
-            <Space>
-              <Button
-                type="ghost"
-                shape="circle"
-                icon={<EyeOutlined style={{ color: "#ffffff" }} />}
-                size="middle"
-                title="Xem"
-                onClick={() => setPreviewImage(true)}
-              />
-            </Space>
-          </div>
-        )}
+        <div className="middle">
+          <Space>
+            <Button
+              type="ghost"
+              shape="circle"
+              icon={<EyeOutlined style={{ color: "#ffffff" }} />}
+              size="middle"
+              title="Xem"
+              onClick={() => setPreviewImage(true)}
+            />
+          </Space>
+        </div>
       </div>
       <Upload
         ref={ref}
         name="image"
         className="upload"
-        onPreview={handlePreview}
         onChange={handleChange}
         multiple={false}
-        beforeUpload={() => false}
+        beforeUpload={beforeUpload}
         showUploadList={false}
         accept="image/*"
       >
-        <Button style={{ marginTop: 10 }} icon={<Upload />}>
+        <Button type="primary" style={{ marginTop: 10 }} icon={<Upload />}>
           Click to Upload
         </Button>
       </Upload>

@@ -1,11 +1,12 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
+import { PREF } from "../../../../../commons/data";
 import InputField from "../../../../../commons/Form/InputField";
-import RenderApiErrorMessage from "../../../../../commons/RenderErrorMessage/RenderApiErrorMessage";
+import SelectField from "../../../../../commons/Form/SelectField";
 
 const CommonInfoForm = ({ className, form }) => {
-  const response = useSelector((state) => state.userState.response);
+  const resCreateUser = useSelector((state) => state.userState.resCreateUser);
   return (
     <Form
       className={className}
@@ -17,55 +18,61 @@ const CommonInfoForm = ({ className, form }) => {
         <Col span={12}>
           <InputField
             field="postal_code"
+            errorField="postal_code"
             label="Postal code"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
-            response={response}
+            response={resCreateUser}
             type={<Input />}
           />
         </Col>
         <Col span={12}>
-          <InputField
+          <SelectField
             field="prefecture"
+            errorField="prefecture"
             label="Prefecture"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
-            response={response}
-            type={<Input />}
+            response={resCreateUser}
+            placeholder="Please select prefecture"
+            options={PREF}
           />
         </Col>
         <Col span={12}>
           <InputField
             field="city"
+            errorField="city"
             label="City"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
-            response={response}
+            response={resCreateUser}
             type={<Input />}
           />
         </Col>
         <Col span={12}>
           <InputField
             field="street_address"
+            errorField="street_address"
             label="Street address"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
-            response={response}
+            response={resCreateUser}
             type={<Input />}
           />
         </Col>
         <Col span={24}>
           <InputField
             field="building"
+            errorField="building"
             label="Building"
             labelCol={{ span: 24 }}
-            wrapperCol={{ span: 22 }}
+            wrapperCol={{ span: 23 }}
             rules={[]}
-            response={response}
+            response={resCreateUser}
             type={<Input />}
           />
         </Col>

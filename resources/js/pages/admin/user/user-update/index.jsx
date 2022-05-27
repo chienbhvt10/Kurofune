@@ -18,14 +18,17 @@ const UpdateUser = () => {
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
   };
+
   const onSave = async (values) => {
     await updateUser(values);
   };
+
   React.useEffect(() => {
     if (id) {
       getUser(id);
     }
   }, [id]);
+
   React.useEffect(() => {
     if (resUpdateUser?.status_code === 200) {
       getAllUsers();
@@ -34,6 +37,7 @@ const UpdateUser = () => {
       return;
     }
   }, [resUpdateUser]);
+
   return (
     <div id="update-user">
       {user && (

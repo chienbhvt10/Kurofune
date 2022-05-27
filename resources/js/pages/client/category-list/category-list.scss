@@ -1,0 +1,29 @@
+#category-list {
+  font-size: 13px;
+  .card {
+    padding: 20px;
+    margin: 0 0 24px;
+  }
+  a {
+    text-decoration: none;
+    color: #62a19b;
+    outline: none;
+  }
+  .list_categories {
+    .type-wrapper {
+      .type-name {
+        color: #fff;
+        background-color: #62a19b;
+        padding: 5px 15px;
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+    .card {
+      padding: 20px 10px;
+    }
+  }
+}

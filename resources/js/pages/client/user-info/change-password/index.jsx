@@ -5,18 +5,22 @@ import React, { useState } from "react";
 import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import InputField from "../../../../commons/Form/InputField";
 import useChangePassword from "../../../../hooks/auth/useChangePassword";
+import useLogout from "../../../../hooks/auth/useLogout";
 import "./style.scss";
 
 export const ChangePassword = () => {
   const { i18n, t } = useTranslation();
   const { changePassword, resChangePassword } = useChangePassword();
-  const dispatch = useDispatch();
+  const { getLogout, resLogout } = useLogout();
   const [changePasswordForm] = Form.useForm();
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const navigate = useNavigate();
+  const lang = localStorage.getItem("lang");
   const changePasswordInitValues = {
     current_password: "",
     password: "",
@@ -30,8 +34,14 @@ export const ChangePassword = () => {
 
   const onFinish = async (values) => {
     await changePassword(values);
+    await getLogout();
   };
 
+  React.useEffect(() => {
+    if (resLogout?.status_code === 200) {
+      navigate(`${lang}/login`);
+    }
+  }, [resLogout]);
   return (
     <>
       <Helmet>
@@ -60,6 +70,7 @@ export const ChangePassword = () => {
               type={
                 <Input
                   type={!showCurrentPassword ? "password" : "text"}
+                  className="input-field"
                   addonAfter={
                     <FontAwesomeIcon
                       icon={!showCurrentPassword ? faEyeSlash : faEye}
@@ -86,6 +97,7 @@ export const ChangePassword = () => {
               type={
                 <Input
                   type={!showPassword ? "password" : "text"}
+                  className="input-field"
                   addonAfter={
                     <FontAwesomeIcon
                       icon={!showPassword ? faEyeSlash : faEye}
@@ -128,6 +140,7 @@ export const ChangePassword = () => {
               type={
                 <Input
                   type={!showConfirmPassword ? "password" : "text"}
+                  className="input-field"
                   addonAfter={
                     <FontAwesomeIcon
                       icon={!showConfirmPassword ? faEyeSlash : faEye}

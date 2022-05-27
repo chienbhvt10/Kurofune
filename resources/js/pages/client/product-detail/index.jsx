@@ -1,8 +1,17 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "./product-detail.scss";
+import useProductClient from "../../../hooks/product/useProductClient";
+import { useParams } from "react-router-dom";
 const ProductDetailPage = () => {
   const { t } = useTranslation();
+  const { id } = useParams();
+  const { getProductClient, productClient } = useProductClient();
+  React.useEffect(() => {
+    if (id) {
+      getProductClient({ id: id });
+    }
+  }, [id]);
   return (
     <div id="info-prod" className="card">
       <div className="container-detail-product">

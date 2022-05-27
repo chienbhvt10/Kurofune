@@ -1,5 +1,4 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
-import { useNavigate } from "react-router-dom";
 import { userApis } from "../../services/user-apis";
 
 const userActions = {
@@ -13,7 +12,10 @@ const userActions = {
 export const getUsersAction = createAsyncThunk(
   userActions.getUsers,
   async (payload) => {
-    const res = await userApis.users().then((data) => data);
+    const res = await userApis
+      .users(payload)
+      .then((data) => data)
+      .catch((err) => JSON.parse(err.response.request.response));
     return res;
   }
 );
