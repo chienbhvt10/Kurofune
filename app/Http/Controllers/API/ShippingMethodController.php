@@ -46,8 +46,8 @@ class ShippingMethodController extends Controller
         try {
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
-                'name' => 'string|max:191',
-                'description' =>  'string|max:191',
+                'name' => 'required|string|max:191',
+                'description' =>  'required|string|max:191',
                 'total' => 'numeric'
             ]);
             if ($validator->fails()) {
@@ -115,8 +115,8 @@ class ShippingMethodController extends Controller
                 return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
-                'name' => 'string|max:191',
-                'description' =>  'string|max:191',
+                'name' => 'required|string|max:191',
+                'description' =>  'required|string|max:191',
                 'total' => 'numeric'
             ]);
             if ($validator->fails()) {
