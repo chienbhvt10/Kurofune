@@ -4,26 +4,33 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use App\Rules\Base64Image;
 
 class CategoryController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
-            $cat = Category::paginate($posts_per_page);
+            $relational = 'category_translations';
+            if ($request->name) {
+                $cat = $this->filterWhereHasName(new Category, $relational, $request->name, $posts_per_page);
+            } else {
+                $cat = Category::paginate($posts_per_page);
+            }
 
             return $this->responseData($cat);
         } catch (\Exception $error) {
@@ -47,7 +54,7 @@ class CategoryController extends Controller
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
                 'slug' => 'nullable|string|max:255',
-                'category_image' => 'required|string',
+                'category_image' => ['required', new Base64Image],
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
             ]);
@@ -141,7 +148,7 @@ class CategoryController extends Controller
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
                 'slug' => 'nullable|string|max:255',
-                'category_image' => 'nullable|string',
+                'category_image' => ['nullable', new Base64Image],
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
             ]);
