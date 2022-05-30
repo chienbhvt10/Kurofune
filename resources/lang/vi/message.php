@@ -42,6 +42,12 @@ return [
     'postal_code' => [
         'valid' => 'Vui lòng nhập Zip code hợp lệ.',
     ],
+    'page'=>[
+        'created' =>'Tạo trang thành công',
+        'updated' =>'Cập nhật trang thành công' ,
+        'deleted' =>'Cập nhật trang thành công',
+        'not_exist' =>'Trang không tồn tại',
+    ],
     'password' => [
         'updated' => 'Đã thay đổi mật khẩu thành công.',
         'without_spaces' => 'Passwords must not contain spaces.',

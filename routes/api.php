@@ -51,6 +51,11 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
+        // Page Manage
+        Route::middleware(['permission:manage page'])->group(function () {
+            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
+        });
+
         //Shipping Method Manger
         Route::middleware(['permission:manage shipping method'])->group(function () {
             Route::apiResource('shipping-methods', \App\Http\Controllers\API\ShippingMethodController::class);
@@ -101,6 +106,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
                 Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
             });
+
+            Route::get('get-page-by-slug/{slug}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
 
             Route::get('list-shipping-method', [\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
 

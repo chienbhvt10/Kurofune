@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             PermissionSeeder::class,
             UserAdminSeeder::class,
 //            ShippingMethodSeeder::class,
+//            PageSeeder::class,
 //            VendorProfileSeeder::class,
 //            UserSeeder::class,
 //            ProfileSeeder::class,

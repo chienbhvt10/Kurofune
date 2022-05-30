@@ -4,6 +4,12 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+
+use App\Models\Page;
+
 class PageSeeder extends Seeder
 {
     /**
@@ -13,6 +19,6 @@ class PageSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Page::factory()->count(5)->create();
     }
 }
