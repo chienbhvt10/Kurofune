@@ -18,7 +18,6 @@ const productReducers = createReducer(initialState, (builder) => {
     state.product = actions.payload;
   });
   builder.addCase(getProductClientAction.fulfilled, (state, actions) => {
-    console.log(actions.payload);
     state.productClient = actions.payload;
   });
 });
