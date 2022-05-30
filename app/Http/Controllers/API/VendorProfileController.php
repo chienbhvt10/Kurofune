@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\VendorProfile;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class VendorProfileController extends Controller
 {
@@ -94,5 +95,13 @@ class VendorProfileController extends Controller
         }
 
         return $this->responseData($products);
+    }
+
+    public function searchPharmacy(Request $request){
+        $search = $request->search;
+        $posts = Product::whereHas('product_translations', function ($query) use ($search) {
+            $query->where('name', 'LIKE', "%$search%");
+        })->get();
+        return $this->responseData($posts);
     }
 }
