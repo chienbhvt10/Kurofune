@@ -33,5 +33,8 @@ const productReducers = createReducer(initialState, (builder) => {
   builder.addCase(deleteProductAction.fulfilled, (state, actions) => {
     state.resDeleteProduct = actions.payload;
   });
+  builder.addCase(getProductClientAction.fulfilled, (state, actions) => {
+    state.productClient = actions.payload;
+  });
 });
 export default productReducers;
