@@ -100,6 +100,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
                 // Checkout process
                 Route::post('checkout', [\App\Http\Controllers\API\CartController::class, 'checkout']);
+
+                //view shipping method
+                Route::get('list-shipping-method', [\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {
@@ -108,8 +111,6 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             });
 
             Route::get('get-page-by-slug/{slug}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
-
-            Route::get('list-shipping-method', [\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
 
         });
     });
