@@ -70,5 +70,12 @@ return [
         'updated' => '配送方法を正常に更新',
         'deleted' => '配送方法を正常に削除します',
         'not_exist' => '配送方法がありません'
+    ],
+    'cart' => [
+        'add' => ':product_name has been added to your cart',
+        'no_info' => '買い物かご内の情報はありません。',
+        'deleted' => 'Cart deleted',
+        'updated' => 'Cart updated',
+        'quantity' => '購入内容をご確認ください。'
     ]
 ];
