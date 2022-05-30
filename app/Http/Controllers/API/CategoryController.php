@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
+use App\Rules\Base64Image;
 
 class CategoryController extends Controller
 {
@@ -53,7 +54,7 @@ class CategoryController extends Controller
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
                 'slug' => 'nullable|string|max:255',
-                'category_image' => 'required|string',
+                'category_image' => ['required', new Base64Image],
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
             ]);
@@ -147,7 +148,7 @@ class CategoryController extends Controller
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
                 'slug' => 'nullable|string|max:255',
-                'category_image' => 'nullable|string',
+                'category_image' => ['nullable', new Base64Image],
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
             ]);

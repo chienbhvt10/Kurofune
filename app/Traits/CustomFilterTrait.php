@@ -7,7 +7,7 @@ trait CustomFilterTrait
     public function filterWhereHasName($model, $relational, $request, $paginate)
     {
         $results = $model->whereHas($relational, function ($query) use ($request) {
-            $query->where('name', 'like', '%' . $request . '%');
+            $query->where('name', 'LIKE', '%' . $request . '%');
         })->paginate($paginate);
 
         return $results;
