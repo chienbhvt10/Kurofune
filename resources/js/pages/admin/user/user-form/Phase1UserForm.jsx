@@ -86,13 +86,17 @@ export const UserForm = ({
       submitValues = {
         ...submitValues,
         ...planProfileForm.getFieldsValue(),
-        dob: formatDate(planProfileForm.getFieldValue("dob")),
-        start_date_education: formatDate(
-          planProfileForm.getFieldValue("start_date_education")
-        ),
-        end_date_education: formatDate(
-          planProfileForm.getFieldValue("end_date_education")
-        ),
+        dob: planProfileForm.getFieldValue("dob")
+          ? formatDate(planProfileForm.getFieldValue("dob"))
+          : "",
+        start_date_education: planProfileForm.getFieldValue(
+          "start_date_education"
+        )
+          ? formatDate(planProfileForm.getFieldValue("start_date_education"))
+          : "",
+        end_date_education: planProfileForm.getFieldValue("end_date_education")
+          ? formatDate(planProfileForm.getFieldValue("end_date_education"))
+          : "",
       };
     }
     onSave(submitValues);
@@ -103,7 +107,6 @@ export const UserForm = ({
   const commonAddressInitValues = getCommonAddressInitValues(item);
   const billingAddressInitValues = getBillingAddressInitValues(item);
   const shippingAddressInitValues = getShippingAddressInitValues(item);
-
   React.useEffect(() => {
     userInfoForm.setFieldsValue(userInfoInitValues);
     planProfileForm.setFieldsValue(planInitValues);
@@ -193,7 +196,7 @@ export const UserForm = ({
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 hasFeedback
-                rules={[{ required: true, message: "" }]}
+                rules={[{ required: true, message: "Please select a role" }]}
                 validateStatus={"danger"}
               >
                 <Select
@@ -242,7 +245,16 @@ export const UserForm = ({
                 label="Phone"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[]}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your phone number!",
+                  },
+                  {
+                    pattern: new RegExp(/^[0-9]+$/),
+                    message: "Please input valid phone number!",
+                  },
+                ]}
                 response={response}
                 type={<Input />}
               />

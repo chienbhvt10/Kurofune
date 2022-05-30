@@ -228,13 +228,76 @@
     }
   },
   "admins": {
+    "btn_save": "Save",
+    "btn_cancel": "Cancel",
+    "btn_upload": "Click to upload",
+    "btn_generate_password": "Generate",
     "user": {
       "list": {
         "title": "User List"
       },
+      "switch_tab": "",
+      "form": {
+        "field_role": "Role",
+        "field_name": "Name",
+        "field_email": "Email",
+        "field_phone": "Phone",
+        "field_username": "Username",
+        "field_password": "Password",
+        "field_active": "Active",
+        "field_full_name": "Full name",
+        "field_postal_code": "Postal code/zip",
+        "field_prefecture": "Prefecture",
+        "field_city": "Town / City",
+        "field_street": " Street address",
+        "field_building": "Building",
+        "profile": {
+          "field_dob": "Date of birth",
+          "field_gender": "Gender",
+          "field_facebook": "Facebook",
+          "field_line": "Line",
+          "field_address": "Address",
+          "field_nationality": "Nationality",
+          "field_visa_type": "Visa Type",
+          "field_job_name": "Job Name",
+          "field_company_representative": "Company representative",
+          "field_payment_source": "Payment source",
+          "field_payment": "Payment",
+          "field_insurance_status": "Insurance Status",
+          "field_insurance_support": "Insurance Support",
+          "field_insurance_start_date": "Insurance Start Date",
+          "field_overseas_remittance_status": "Overseas Remittance Status",
+          "field_orientation": "Orientation",
+          "field_start_date_education": "Start Date Education",
+          "field_end_date_education": "End Date Education",
+          "field_education_status": "Japanese language education status",
+          "field_page_registration": "Wabisabi My Page Registration"
+        },
+        "vendor_profile": {
+          "field_locale": "Locale",
+          "field_name": "Name",
+          "field_permit_classification": "Permit classification",
+          "field_founder": "Founder",
+          "field_stated_in_permit": "Items to be stated in the permit",
+          "field_management_pharmacist": "Management pharmacist",
+          "field_registered_seller_working": "Registered Seller Working",
+          "field_drug_handled": "Drugs Handled",
+          "field_distinguishing_by_name": "Distinguishing by name",
+          "field_business_hours": "Business Hours",
+          "field_consulation_hours": "Consultation Hours",
+          "field_contact_information": "Contact Information",
+          "field_current_working": "Currently Working",
+          "field_open_sale_time": "Open Sale Time",
+          "field_time_order_outside": "Time Order Outside",
+          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+        },
+        "option": {
+          "gender": { "male": "Male" }
+        }
+      },
       "create": {
         "title": "Create a new",
-        "breadcrumb":"Create user"
+        "breadcrumb": "Create user"
       },
       "update": {
         "title": "Update a existing"
