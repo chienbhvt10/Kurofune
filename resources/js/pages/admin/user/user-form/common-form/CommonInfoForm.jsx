@@ -22,7 +22,16 @@ const CommonInfoForm = ({ className, form }) => {
             label="Postal code"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
+            rules={[
+              {
+                pattern: new RegExp(/^[0-9]+$/),
+                message: "Please enter number",
+              },
+              {
+                max: 7,
+                message: "Please enter only 7 numbers",
+              },
+            ]}
             response={resCreateUser}
             type={<Input />}
           />
