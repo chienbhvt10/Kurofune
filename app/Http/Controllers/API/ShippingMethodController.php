@@ -135,7 +135,7 @@ class ShippingMethodController extends Controller
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-                'logo' => $shipping_method->logo
+                'logo' => $logo_update ?? $shipping_method->logo
             ];
 
             $shipping_method->update($params_update);
