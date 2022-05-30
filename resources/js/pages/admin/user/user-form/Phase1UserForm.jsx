@@ -46,6 +46,13 @@ export const UserForm = ({
   const [billingAddressForm] = Form.useForm();
   const [shippingAddressForm] = Form.useForm();
 
+  const userInfoInitValues = getUserInfoInitValues(item);
+  const planInitValues = getPlanInitValues(item);
+  const translateInitValues = getTranslateInitValues();
+  const commonAddressInitValues = getCommonAddressInitValues(item);
+  const billingAddressInitValues = getBillingAddressInitValues(item);
+  const shippingAddressInitValues = getShippingAddressInitValues(item);
+
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
@@ -59,6 +66,9 @@ export const UserForm = ({
         ...shippingAddressForm.getFieldsValue(),
       },
     };
+    if (!userInfoForm.getFieldValue("password")) {
+      delete submitValues.password;
+    }
     if (userInfoForm.getFieldValue("role") === "vendor") {
       submitValues = {
         ...submitValues,
@@ -101,12 +111,7 @@ export const UserForm = ({
     }
     onSave(submitValues);
   };
-  const userInfoInitValues = getUserInfoInitValues(item);
-  const planInitValues = getPlanInitValues(item);
-  const translateInitValues = getTranslateInitValues();
-  const commonAddressInitValues = getCommonAddressInitValues(item);
-  const billingAddressInitValues = getBillingAddressInitValues(item);
-  const shippingAddressInitValues = getShippingAddressInitValues(item);
+
   React.useEffect(() => {
     userInfoForm.setFieldsValue(userInfoInitValues);
     planProfileForm.setFieldsValue(planInitValues);
@@ -282,12 +287,19 @@ export const UserForm = ({
                     label="Password"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    rules={[
-                      typeForm === "create" && {
-                        required: true,
-                        message: "Please input your password!",
-                      },
-                    ]}
+                    rules={
+                      typeForm === "create" && [
+                        {
+                          required: true,
+                          message: "Please input your password!",
+                        },
+                        {
+                          min: 8,
+                          message:
+                            "Please input atLeast 8 characters for password!",
+                        },
+                      ]
+                    }
                     response={response}
                     type={<Input />}
                   />

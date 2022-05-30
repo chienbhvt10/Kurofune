@@ -25,9 +25,14 @@ export const UserTable = ({
             className="text-decoration-none d-flex"
           >
             <img
-              src={record.imageUrl}
+              src={record.avatar || "/avatars/default.png"}
               alt=""
-              style={{ width: "25px", height: "25px", marginRight: 10 }}
+              style={{
+                width: "25px",
+                height: "25px",
+                marginRight: 10,
+                objectFit: "cover",
+              }}
             />
             <span>{record.username}</span>
           </Link>
