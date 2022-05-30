@@ -6,16 +6,22 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Page extends Model
+class Page extends Model implements HasMedia
 {
-    use HasFactory, Translatable, SoftDeletes;
+    use HasFactory, Translatable, SoftDeletes,InteractsWithMedia;
 
     protected $fillable = ['id', 'author_id', 'slug', 'image', 'meta_title', 'meta_description', 'meta_keywords'];
 
     public $translatedAttributes = ['title', 'content'];
 
     public $timestamps = true;
+
+    public function getImageAttribute(){
+        return $this->attributes['image'] = get_image_url($this->attributes['image']);
+    }
 
     /*
         |--------------------------------------------------------------------------
