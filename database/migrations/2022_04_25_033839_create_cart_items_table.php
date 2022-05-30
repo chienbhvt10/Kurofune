@@ -14,8 +14,9 @@ class CreateCartItemsTable extends Migration
     public function up()
     {
         Schema::create('cart_items', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('cart_id');
+            $table->string('id');
+            $table->primary('id');
+            $table->string('cart_id');
             $table->unsignedBigInteger('product_id');
             $table->unsignedInteger('quantity');
             $table->tinyInteger('anket_1');
@@ -25,8 +26,8 @@ class CreateCartItemsTable extends Migration
             $table->string('anket_5');
             $table->tinyInteger('anket_6');
             $table->string('anket_7');
-            $table->foreign('cart_id')->references('id')->on('carts');
-            $table->foreign('product_id')->references('id')->on('products');
+            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });
     }

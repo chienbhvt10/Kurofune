@@ -2,22 +2,20 @@
 
 namespace App\Models;
 
+use App\Traits\ProductTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, ProductTrait;
 
     protected $fillable = [
         'id',
         'user_id',
         'vendor_profile_id',
-        'transaction_id',
-        'status',
         'shipping_method_id',
-        'payment_method_id',
         'total',
         'total_tax',
         'shipping_full_name',
@@ -39,4 +37,29 @@ class Order extends Model
     ];
 
     public $timestamps = true;
+
+    protected $appends = ['order_number'];
+
+    public function getOrderNumberAttribute(): string
+    {
+        return $this->get_order_number($this->id);
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
+    {
+        return $this->belongsToMany(Product::class, 'order_product', 'order_id', 'product_id')->withPivot(['quantity', 'anket_1', 'anket_2', 'anket_3', 'anket_4', 'anket_5', 'anket_6', 'anket_7', 'sub_total_tax', 'sub_total', 'total_tax','total']);
+    }
+
+    public function transaction(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Transaction::class, 'order_id', 'id');
+    }
+
+
 }

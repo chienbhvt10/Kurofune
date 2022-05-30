@@ -71,5 +71,12 @@ return [
         'updated' => 'Product updated',
         'deleted' => 'Product deleted',
         'not_exist' => 'Product not exist',
+    ],
+    'cart' => [
+        'add' => ':product_name has been added to your cart',
+        'no_info' => 'There is no information in the shopping cart.',
+        'deleted' => 'Cart deleted',
+        'updated' => 'Cart updated',
+        'quantity' => 'Please check your purchase details.'
     ]
 ];

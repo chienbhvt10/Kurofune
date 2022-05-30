@@ -70,5 +70,12 @@ return [
         'updated' => 'Đã cập nhật danh mục thành công.',
         'deleted' => 'Danh mục đã bị xóa.',
         'not_exist' => 'Danh mục không tồn tại.',
+    ],
+    'cart' => [
+        'add' => ':product_name has been added to your cart',
+        'no_info' => 'Không có thông tin trong giỏ hàng.',
+        'deleted' => 'Cart deleted',
+        'updated' => 'Cart updated',
+        'quantity' => 'Vui lòng kiểm tra thông tin đơn hàng.'
     ]
 ];
