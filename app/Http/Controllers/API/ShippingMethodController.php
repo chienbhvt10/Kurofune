@@ -130,12 +130,12 @@ class ShippingMethodController extends Controller
             $logo_update = $request->logo ?? null;
             if (!empty($logo_update)) {
                 $logo_update = save_base_64_image($logo_update, 'shippingmethods');
+                $shipping_method->logo = $logo_update;
             }
             $params_update = [
                 'name' => $name,
                 'total' => $total,
                 'description' => $description,
-                'logo' => $logo_update ?? $shipping_method->logo
             ];
 
             $shipping_method->update($params_update);
