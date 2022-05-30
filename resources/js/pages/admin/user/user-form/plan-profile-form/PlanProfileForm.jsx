@@ -18,7 +18,7 @@ const PlanProfileForm = ({ form, className }) => {
             <DateField
               field="dob"
               errorField="dob"
-              label="Dob"
+              label="Date of birth"
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -127,7 +127,7 @@ const PlanProfileForm = ({ form, className }) => {
             <InputField
               field="inflow_source"
               errorField="inflow_source"
-              label="Inflow Source"
+              label="Payment source"
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -240,12 +240,12 @@ const PlanProfileForm = ({ form, className }) => {
             <SelectField
               field="education_status"
               errorField="education_status"
-              label="Education Status"
+              label="Japanese language education status"
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select Education Status"
+              placeholder="Please select  Japanese language education status"
               options={userFormOptions.education_status}
             />
           </Col>
@@ -260,6 +260,18 @@ const PlanProfileForm = ({ form, className }) => {
               response={resCreateUser}
               placeholder="Please select Wabisabi My Page Registration"
               options={userFormOptions.wabisabi_my_page_registration}
+            />
+          </Col>
+          <Col span={12}>
+            <InputField
+              field="emailCompany"
+              errorField="emailCompany"
+              label="Company Mail"
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={[]}
+              response={resCreateUser}
+              type={<Input />}
             />
           </Col>
         </Row>

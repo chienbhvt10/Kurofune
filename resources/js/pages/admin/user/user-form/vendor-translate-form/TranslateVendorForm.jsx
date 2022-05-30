@@ -13,27 +13,27 @@ const TranslateVendorForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
       activeTab={activeTab}
     >
       <SubFormUserTranslate
-        lang="EN"
+        lang="en"
         className={`tab ${activeTab === 1 ? "active" : ""}`}
         form={formEN}
       />
       <SubFormUserTranslate
-        lang="JA"
+        lang="ja"
         className={`tab ${activeTab === 2 ? "active" : ""}`}
         form={formJP}
       />
       <SubFormUserTranslate
-        lang="TL"
+        lang="tl"
         className={`tab ${activeTab === 3 ? "active" : ""}`}
         form={formTL}
       />
       <SubFormUserTranslate
-        lang="VI"
+        lang="vi"
         className={`tab ${activeTab === 4 ? "active" : ""}`}
         form={formVI}
       />
       <SubFormUserTranslate
-        lang="ZH"
+        lang="zh"
         className={`tab ${activeTab === 5 ? "active" : ""}`}
         form={formZH}
       />

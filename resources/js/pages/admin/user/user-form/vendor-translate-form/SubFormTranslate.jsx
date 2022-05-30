@@ -5,6 +5,9 @@ import InputField from "../../../../../commons/Form/InputField";
 
 const SubFormUserTranslate = ({ lang, className, form }) => {
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+  React.useEffect(() => {
+    form.setFieldsValue({ ...form.getFieldsValue(), locale: lang });
+  }, [lang]);
   return (
     <Row justify="center">
       <Form className={className} name="common-address-form" form={form}>
@@ -18,7 +21,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              type={<Input.TextArea />}
+              type={<Input disabled />}
             />
           </Col>
           <Col span={12}>
