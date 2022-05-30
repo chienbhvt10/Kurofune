@@ -10,7 +10,6 @@ import UploadDragger from "../../../../commons/UploadDragger/UploadDragger";
 import useRoles from "../../../../hooks/role/useRoles";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
-import { DEFAULT_AVATAR_BASE64 } from "../../../../constants/index";
 import {
   getBillingAddressInitValues,
   getCommonAddressInitValues,
@@ -50,7 +49,7 @@ export const UserForm = ({
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
-      avatar: avatarState.base64Avatar || DEFAULT_AVATAR_BASE64,
+      avatar: avatarState.base64Avatar,
       ...userInfoForm.getFieldsValue(),
       ...commonAddressForm.getFieldsValue(),
       billing_address: {
@@ -153,11 +152,9 @@ export const UserForm = ({
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
   };
-
   React.useEffect(() => {
     setAvatarState({ avatarUrl: item?.avatar || "" });
   }, [item]);
-
   return (
     <div className="user-form">
       <Form
