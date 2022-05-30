@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { NotificationSuccess } from "../../../../commons/Notification/index.jsx";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import useProductDetail from "../../../../hooks/product/useProductDetail";
 import ProductForm from "../product-form/ProductForm";
@@ -8,14 +9,22 @@ import useUpdateProduct from "./../../../../hooks/product/useUpdateProduct";
 const UpdateProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const lang = localStorage.getItem("lang");
 
   const { getProduct, product } = useProductDetail();
-  const { updateProduct } = useUpdateProduct();
+  const { updateProduct, resUpdateProduct } = useUpdateProduct();
   const onCancel = () => {
-    navigate("/admin/product-list");
+    navigate(`${lang}/admin/product-list`);
   };
   const onSave = (data) => {
-    updateProduct(data);
+    const submitData = {
+      ...data,
+      id: id,
+      tax_id: Number(data.tax_id),
+      price: Number(data.price),
+    };
+
+    updateProduct(submitData);
   };
 
   React.useEffect(() => {
@@ -23,6 +32,13 @@ const UpdateProduct = () => {
       getProduct(id);
     }
   }, [id]);
+
+  React.useEffect(() => {
+    if (resUpdateProduct?.status_code === 200) {
+      navigate(`${lang}/admin/product-list`);
+      NotificationSuccess("Thông báo", "Update Product thành công");
+    }
+  }, [resUpdateProduct]);
   return (
     <div id="update-product-page">
       <ProductForm

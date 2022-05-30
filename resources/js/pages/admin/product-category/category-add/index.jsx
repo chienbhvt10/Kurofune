@@ -14,7 +14,7 @@ const AddCategory = () => {
   const onSave = (data) => {
     createAdminCategory(data);
   };
-  console.log(resCreateCategory);
+
   React.useEffect(() => {
     if (resCreateCategory?.status_code === 200) {
       navigate(`${lang}/admin/category-list`);

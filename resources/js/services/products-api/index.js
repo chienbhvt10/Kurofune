@@ -2,9 +2,9 @@ import { ROOT_URL } from "../../constants/api";
 import axiosClient from "../api-caller";
 
 export const productsApis = {
-  products: async () => {
+  products: async (payload) => {
     const url = ROOT_URL + "products";
-    return await axiosClient.get(url);
+    return await axiosClient.get(url, { params: payload });
   },
   product: async (id) => {
     const url = ROOT_URL + "products";

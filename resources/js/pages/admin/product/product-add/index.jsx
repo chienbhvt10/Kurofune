@@ -3,18 +3,27 @@ import { useNavigate } from "react-router-dom";
 import { TYPE_FORM_ADD } from "../../../../constants";
 import ProductForm from "../product-form/ProductForm";
 import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
+import { NotificationSuccess } from "../../../../commons/Notification";
+import useProducts from "../../../../hooks/product/useProducts.js";
 
 const AddProduct = () => {
   const lang = localStorage.getItem("lang");
+  const { getAllProducts, products } = useProducts();
   const { createNewProduct, resCreateProduct } = useCreateProduct();
   const navigate = useNavigate();
   const onCancel = () => {
     navigate(`${lang}/admin/product-list`);
   };
   const onSave = (data) => {
-    // createNewProduct(data);
-    console.log(data);
+    const submitData = {
+      ...data,
+      tax_id: Number(data.tax_id),
+      price: Number(data.price),
+    };
+
+    createNewProduct(submitData);
   };
+
 
   React.useEffect(() => {
     if (resCreateProduct?.status_code === 200) {
@@ -30,6 +39,7 @@ const AddProduct = () => {
         title="Add Product"
         onCancel={onCancel}
         onSave={onSave}
+        response={resCreateProduct}
       />
     </div>
   );

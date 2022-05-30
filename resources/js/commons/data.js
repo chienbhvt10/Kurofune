@@ -810,4 +810,11 @@ export const productFormOptions = {
     { value: 3, label: "developer" },
     { value: 4, label: "thanhvuvan" },
   ],
+  cat_id: [
+    { value: 1, label: "Category EN" },
+    { value: 2, label: "Category JA" },
+    { value: 3, label: "Category VI" },
+    { value: 4, label: "Category TL" },
+    { value: 5, label: "Category ZH" },
+  ],
 };

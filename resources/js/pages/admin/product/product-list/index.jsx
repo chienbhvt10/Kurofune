@@ -10,7 +10,7 @@ import ProductTable from "./ProductTable";
 const ProductList = () => {
   const lang = localStorage.getItem("lang");
   const navigate = useNavigate();
-  const { getAllProducts, products } = useProducts();
+  const { getAllProducts, products, pagination } = useProducts();
   const { deleteProduct, resDeleteProduct } = useDeleteProduct();
 
   const onDelete = (row) => async () => {
@@ -26,12 +26,18 @@ const ProductList = () => {
 
   React.useEffect(() => {
     if (resDeleteProduct?.status_code === 200) {
-      getAllProducts();
-      // NotificationSuccess("Thông báo", "Xoá Product Thành Công!");
+      getAllProducts({ page: 1 });
+      NotificationSuccess("Thông báo", "Xoá Product Thành Công!");
     } else {
       return;
     }
   }, [resDeleteProduct]);
+
+  const onTableChange = (paginationTable, filters, sorter) => {
+    const current = paginationTable.current || 1;
+    const per_page = paginationTable.pageSize || 10;
+    getAllProducts({ page: current, per_page: per_page });
+  };
 
   return (
     <div className="product-container">
@@ -43,8 +49,13 @@ const ProductList = () => {
         ]}
         title="Product"
       />
-
-      <ProductTable items={products} onDelete={onDelete} onEdit={onEdit} />
+      <ProductTable
+        items={products}
+        onDelete={onDelete}
+        onEdit={onEdit}
+        onTableChange={onTableChange}
+        pagination={pagination}
+      />
     </div>
   );
 };

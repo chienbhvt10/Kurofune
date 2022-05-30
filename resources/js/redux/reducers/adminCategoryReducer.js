@@ -4,9 +4,11 @@ import {
   deleteAdminCategoryAction,
   getCategoryAdminAction,
   updateAdminCategoryAction,
+  getAllCategoriesAdminAction,
 } from "../actions/categoryAdminAction.js";
 
 const initialState = {
+  adminCategories: undefined,
   adminCategory: undefined,
   resGetAdminCategory: undefined,
   adminCategoryRes: undefined,
@@ -16,9 +18,20 @@ const initialState = {
 };
 
 const adminCategoryReducers = createReducer(initialState, (builder) => {
+  builder.addCase(getAllCategoriesAdminAction.fulfilled, (state, actions) => {
+    state.adminCategories = actions.payload?.data?.data;
+    state.resDeleteCategory = undefined;
+    state.resCreateCategory = undefined;
+    state.resUpdateCategory = undefined;
+  });
+
+  // Get Category
   builder.addCase(getCategoryAdminAction.fulfilled, (state, actions) => {
     state.adminCategory = actions.payload?.data;
     state.resGetAdminCategory = actions.payload;
+    state.resDeleteCategory = undefined;
+    state.resCreateCategory = undefined;
+    state.resUpdateCategory = undefined;
   });
 
   // Create Category

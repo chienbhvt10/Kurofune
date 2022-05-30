@@ -1,20 +1,20 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { productApis } from "../../services/product-apis/index.js";
 import { productsApis } from "./../../services/products-api/index";
 
 const productActions = {
   getProducts: createAction("GET_PRODUCTS"),
   getProduct: createAction("GET_PRODUCT"),
-
   createProduct: createAction("CREATE_PRODUCT"),
   updateProduct: createAction("UPDATE_PRODUCT"),
   deleteProduct: createAction("DELETE_PRODUCT"),
 };
 
-export const  getAllProductsAction = createAsyncThunk(
+export const getAllProductsAction = createAsyncThunk(
   productActions.getProducts,
-  async () => {
+  async (payload) => {
     const res = await productsApis
-      .products()
+      .products(payload)
       .then((data) => data)
       .catch((errors) => JSON.parse(errors.response.request.response));
     return res;

@@ -1,14 +1,23 @@
-import { Col, Form, Input, Row, InputNumber, Upload, Button } from "antd";
+import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
+import UploadBase64Image from "../../../../commons/Form/UploadBase64Image.jsx";
 import FormHeader from "../../../../commons/FormHeader";
 import SelectField from "./../../../../commons/Form/SelectField";
 import "./product-form.scss";
 import TranslateProductForm from "./TranslateProductForm";
-import { productFormOptions } from "../../../../commons/data.js";
+import UploadDragger from './../../../../commons/UploadDragger/UploadDragger';
 
-const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
+const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = localStorage.getItem("lang");
+  const [productImg, setProductImg] = React.useState([]);
+  const [avatarState, setAvatarState] = React.useState({
+    avatarUrl: undefined,
+    base64Avatar: undefined,
+    loading: false,
+  });
+
   const initialCommonValues = {
     name: item?.name || "",
     slug: item?.slug || "",
@@ -16,13 +25,13 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
     stock_status: item?.stock_status || "",
     price: item?.price || 0,
     status: item?.status || "",
-    product_image: item?.product_image || "",
-    tax: item?.tax_id || 0,
+    product_image: item?.product_image || productImg,
+    tax_id: item?.tax_id || 0,
     meta_title: item?.meta_title || "",
     meta_description: item?.meta_description || "",
     meta_keyword: item?.meta_keywords || "",
     user_id: item?.user_id || 4,
-    id: item?.id || 0,
+    cat_id: item?.cat_id || [],
   };
 
   const initialTranslateValues = {
@@ -47,9 +56,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
 
   const onFinishAll = (values) => {
     const submitInput = {
+      avatar: avatarState.base64Avatar,
       ...productsForm.getFieldsValue(),
-      cat_id: [1],
-      id: item?.id || 0,
+
       ja: {
         ...productProfileFormJP.getFieldsValue(),
       },
@@ -67,8 +76,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
       },
     };
 
-    // console.log(submitInput);
-    onSave(submitInput);
+    console.log(submitInput);
+    // onSave(submitInput);
   };
 
   React.useEffect(() => {
@@ -90,6 +99,13 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
         item?.translations[4] || initialTranslateValues
       );
     }
+  }, [item]);
+
+  const onChangeAvatar = (base64Image) => {
+    setAvatarState({ base64Avatar: base64Image });
+  };
+  React.useEffect(() => {
+    setAvatarState({ avatarUrl: item?.avatar || "" });
   }, [item]);
 
   return (
@@ -124,6 +140,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 type={<Input />}
+                rules={[]}
+                response={response}
               />
             </Col>
             <Col span={12} style={{ padding: "0 30px" }}>
@@ -133,6 +151,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 type={<Input />}
+                rules={[]}
+                response={response}
               />
             </Col>
             <Col span={12} style={{ padding: "0 30px" }}>
@@ -141,16 +161,11 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 label="Sku"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your Sku",
-                  },
-                ]}
+                rules={[]}
+                response={response}
                 type={<Input />}
               />
             </Col>
-
             <Col span={12} style={{ padding: "0 30px" }}>
               <SelectField
                 field="status"
@@ -159,9 +174,10 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 wrapperCol={{ span: 24 }}
                 placeholder="Please select active status"
                 options={productFormOptions.status}
+                rules={[]}
+                response={response}
               />
             </Col>
-
             <Col span={12} style={{ padding: "0 30px" }}>
               <SelectField
                 field="stock_status"
@@ -170,6 +186,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 wrapperCol={{ span: 24 }}
                 placeholder="Please select Category"
                 options={productFormOptions.stock_status}
+                rules={[]}
+                response={response}
               />
             </Col>
             <Col span={12} style={{ padding: "0 30px" }}>
@@ -184,28 +202,44 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     message: "Please input your Price",
                   },
                 ]}
+                response={response}
                 type={<Input type="number" className="input-field" />}
               />
             </Col>
-
             <Col span={12} style={{ padding: "0 30px" }}>
-              <InputField
-                field="product_image"
-                label="Product Image"
+              <SelectField
+                field="cat_id"
+                label="Category"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
+                placeholder="Please select active status"
+                options={productFormOptions.cat_id}
                 rules={[]}
-                type={<Input />}
+                response={response}
+                mode="multiple"
               />
             </Col>
             <Col span={12} style={{ padding: "0 30px" }}>
               <InputField
-                field="tax"
+                field="tax_id"
                 label="Tax"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
+                response={response}
                 type={<Input type="number" className="input-field" />}
+              />
+            </Col>
+            <Col span={12} style={{ padding: "0 30px" }}>
+              <SelectField
+                field="user_id"
+                label="User "
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                placeholder="Please select active status"
+                options={productFormOptions.user_id}
+                rules={[]}
+                response={response}
               />
             </Col>
             <Col span={12} style={{ padding: "0 30px" }}>
@@ -215,6 +249,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
+                response={response}
                 type={<Input />}
               />
             </Col>
@@ -225,6 +260,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
+                response={response}
                 type={<Input />}
               />
             </Col>
@@ -235,20 +271,18 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
+                response={response}
                 type={<Input />}
               />
             </Col>
-
             <Col span={12} style={{ padding: "0 30px" }}>
-              <SelectField
-                field="user_id"
-                label="User "
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                placeholder="Please select active status"
-                options={productFormOptions.user_id}
-              />
+              <Form.Item field=" product_image" label="Product Image" labelCol={{ span: 24 }}>
+                <UploadDragger onChangeImage={onChangeAvatar}
+                  imageUrlProps={avatarState.avatarUrl}
+                  loading={avatarState.loading} />
+              </Form.Item>
             </Col>
+            <Col span={12} style={{ padding: "0 30px" }}></Col>
           </Row>
         </div>
       </Form>

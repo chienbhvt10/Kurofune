@@ -2,14 +2,23 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsAction } from "../../redux/actions/productAction";
 
 const useProducts = () => {
-  const products = useSelector((state) => state.productState.products);
+  const productState = useSelector((state) => state.productState);
   const dispatch = useDispatch();
-  const getAllProducts = () => {
-    dispatch(getAllProductsAction());
+
+  const getAllProducts = (data) => {
+    dispatch(getAllProductsAction(data));
   };
+
   return {
     getAllProducts,
-    products,
+    products: productState.products,
+    pagination: {
+      total: productState.total,
+      from: productState.from,
+      to: productState.to,
+      current_page: productState.current_page,
+      last_page: productState.last_page,
+    },
   };
 };
 

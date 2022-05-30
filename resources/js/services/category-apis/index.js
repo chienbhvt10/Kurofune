@@ -13,18 +13,18 @@ export const categoryApis = {
 
   // Admin
   categoryAdmin: async (id) => {
-    const url = ROOT_URL + "categories";
-    return await axiosClient.get(`${url}/${id}`);
+    const url = ROOT_URL + `categories/${id}`;
+    return await axiosClient.get(url);
   },
 
-  createAdminCategory: async (payload) => {
+  createAdminCategory: async (data) => {
     const url = ROOT_URL + "categories";
-    return await axiosClient.post(url, payload);
+    return await axiosClient.post(url, data);
   },
 
-  updateAdminCategory: async (payload) => {
+  updateAdminCategory: async (data) => {
     const url = ROOT_URL + "categories";
-    return await axiosClient.put(`${url}/${payload.id}`, payload);
+    return await axiosClient.put(`${url}/${data.id}`, data);
   },
 
   deleteAdminCategory: async (id) => {

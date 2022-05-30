@@ -11,6 +11,7 @@ const UpdateUser = () => {
   const { id } = useParams();
   const { getUser, user } = useUser();
   const { getAllUsers } = useUsers();
+  console.log(user?.avatar);
 
   const { updateUser, resUpdateUser } = useUpdateUser();
   const lang = localStorage.getItem("lang");

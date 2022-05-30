@@ -1,1 +1,1 @@
-export const ROOT_URL = `https://kurofune.its-globaltek.com/api/v1/`;
+export const ROOT_URL = `${window.location.protocol}//${window.location.host}/api/v1/`;
