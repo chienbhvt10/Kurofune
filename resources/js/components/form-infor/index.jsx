@@ -183,7 +183,13 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input phone" }]}
+            rules={[
+              {
+                pattern: new RegExp(/^[0-9]+$/),
+                message: "Please enter number",
+              },
+              { required: true, message: "Please input phone" },
+            ]}
             response={response}
             type={<Input className="input-field" />}
           />
