@@ -231,8 +231,8 @@ class UserController extends Controller
                     $errors = $validator_vendor->errors();
                     return $this->errorResponse($errors, 422);
                 }
-                $images_outside = $request->images_outside ?? null;
-                $images_inside = $request->images_inside ?? null;
+                $images_outside = $request->images_outside;
+                $images_inside = $request->images_inside;
                 if ($images_outside) {
                     $vendor_images_outside = save_multiple_image($images_outside, 'vendor');
                 }
