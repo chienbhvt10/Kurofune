@@ -42,6 +42,12 @@ return [
     'postal_code' => [
         'valid' => '有効な郵便番号を入力してください。',
     ],
+    'page'=>[
+        'created' =>'ページを正常に作成',
+        'updated' =>'ページを正常に更新します',
+        'deleted' =>'ページを正常に削除',
+        'not_exist' =>'ページが存在しません',
+    ],
     'password' => [
         'updated' => 'パスワードは正常に変更されました。',
         'without_spaces' => 'パスワードにスペースを含んではいけません。',

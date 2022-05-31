@@ -46,6 +46,13 @@ export const UserForm = ({
   const [billingAddressForm] = Form.useForm();
   const [shippingAddressForm] = Form.useForm();
 
+  const userInfoInitValues = getUserInfoInitValues(item);
+  const planInitValues = getPlanInitValues(item);
+  const translateInitValues = getTranslateInitValues();
+  const commonAddressInitValues = getCommonAddressInitValues(item);
+  const billingAddressInitValues = getBillingAddressInitValues(item);
+  const shippingAddressInitValues = getShippingAddressInitValues(item);
+
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
@@ -59,6 +66,9 @@ export const UserForm = ({
         ...shippingAddressForm.getFieldsValue(),
       },
     };
+    if (!userInfoForm.getFieldValue("password")) {
+      delete submitValues.password;
+    }
     if (userInfoForm.getFieldValue("role") === "vendor") {
       submitValues = {
         ...submitValues,
@@ -86,23 +96,21 @@ export const UserForm = ({
       submitValues = {
         ...submitValues,
         ...planProfileForm.getFieldsValue(),
-        dob: formatDate(planProfileForm.getFieldValue("dob")),
-        start_date_education: formatDate(
-          planProfileForm.getFieldValue("start_date_education")
-        ),
-        end_date_education: formatDate(
-          planProfileForm.getFieldValue("end_date_education")
-        ),
+        dob: planProfileForm.getFieldValue("dob")
+          ? formatDate(planProfileForm.getFieldValue("dob"))
+          : "",
+        start_date_education: planProfileForm.getFieldValue(
+          "start_date_education"
+        )
+          ? formatDate(planProfileForm.getFieldValue("start_date_education"))
+          : "",
+        end_date_education: planProfileForm.getFieldValue("end_date_education")
+          ? formatDate(planProfileForm.getFieldValue("end_date_education"))
+          : "",
       };
     }
     onSave(submitValues);
   };
-  const userInfoInitValues = getUserInfoInitValues(item);
-  const planInitValues = getPlanInitValues(item);
-  const translateInitValues = getTranslateInitValues();
-  const commonAddressInitValues = getCommonAddressInitValues(item);
-  const billingAddressInitValues = getBillingAddressInitValues(item);
-  const shippingAddressInitValues = getShippingAddressInitValues(item);
 
   React.useEffect(() => {
     userInfoForm.setFieldsValue(userInfoInitValues);
@@ -193,7 +201,7 @@ export const UserForm = ({
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 hasFeedback
-                rules={[{ required: true, message: "" }]}
+                rules={[{ required: true, message: "Please select a role" }]}
                 validateStatus={"danger"}
               >
                 <Select
@@ -242,7 +250,16 @@ export const UserForm = ({
                 label="Phone"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[]}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your phone number!",
+                  },
+                  {
+                    pattern: new RegExp(/^[0-9]+$/),
+                    message: "Please input valid phone number!",
+                  },
+                ]}
                 response={response}
                 type={<Input />}
               />
@@ -270,12 +287,19 @@ export const UserForm = ({
                     label="Password"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    rules={[
-                      typeForm === "create" && {
-                        required: true,
-                        message: "Please input your password!",
-                      },
-                    ]}
+                    rules={
+                      typeForm === "create" && [
+                        {
+                          required: true,
+                          message: "Please input your password!",
+                        },
+                        {
+                          min: 8,
+                          message:
+                            "Please input atLeast 8 characters for password!",
+                        },
+                      ]
+                    }
                     response={response}
                     type={<Input />}
                   />

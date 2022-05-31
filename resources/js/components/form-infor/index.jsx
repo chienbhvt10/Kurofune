@@ -2,7 +2,6 @@ import { Button, Col, Form, Input, Row } from "antd";
 import postal_code from "japan-postal-code";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
 import { PREF } from "../../commons/data";
 import InputField from "../../commons/Form/InputField";
 import SelectField from "../../commons/Form/SelectField";
@@ -69,6 +68,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field={typeForm === "profile" ? "name" : "full_name"}
+            errorField={typeForm === "profile" ? "name" : "full_name"}
             label={t("member.change_profile.field_full_name")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -88,19 +88,29 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                 rules={[
                   { required: true, message: "Please input postal code" },
                   { max: 3, message: "Input only 3 number" },
+                  {
+                    pattern: new RegExp(/^[0-9]+$/),
+                    message: "Please enter number",
+                  },
                 ]}
                 response={response}
                 type={<Input className="input-field" />}
               />
             </Col>
-            <span style={{ margin: "0 5px", fontSize: 26 }}>-</span>
+            <span style={{ margin: "15px 5px 0 5px", fontSize: 26 }}>-</span>
             <Col span={8}>
               <InputField
                 field="to_code"
                 label=" "
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[{ max: 4, message: "Input only 4 number" }]}
+                rules={[
+                  { max: 4, message: "Input only 4 number" },
+                  {
+                    pattern: new RegExp(/^[0-9]+$/),
+                    message: "Please enter number",
+                  },
+                ]}
                 response={response}
                 type={<Input className="input-field" />}
               />
@@ -119,6 +129,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <SelectField
             field="prefecture"
+            errorField="prefecture"
             label={t("member.change_profile.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -132,6 +143,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="city"
+            errorField="city"
             label={t("member.change_profile.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -143,6 +155,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="street_address"
+            errorField="street_address"
             label={t("member.change_profile.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -154,6 +167,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="building"
+            errorField="building"
             label={t("member.change_profile.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -165,6 +179,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="phone"
+            errorField="phone"
             label={t("member.change_profile.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -176,10 +191,14 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="email"
+            errorField="email"
             label={t("member.change_profile.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input email" }]}
+            rules={[
+              { required: true, message: "Please input email" },
+              { type: "email", message: "Please input valid email" },
+            ]}
             response={response}
             type={<Input className="input-field" />}
           />

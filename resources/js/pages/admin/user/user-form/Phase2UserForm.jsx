@@ -55,6 +55,7 @@ const Phase2UserForm = ({
       {role === "light plan" || role === "full support plan" ? (
         <div style={{ width: "80%", margin: "auto" }}>
           <PlanProfileForm
+            role={role}
             className={`tab ${activeTab === 2 ? "active" : ""}`}
             form={planProfileForm}
           />

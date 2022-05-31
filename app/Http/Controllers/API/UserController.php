@@ -7,6 +7,7 @@ use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Rules\WithoutSpaces;
+use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -17,10 +18,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
+use App\Rules\Base64Image;
 
 class UserController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
@@ -34,9 +36,14 @@ class UserController extends Controller
             if($role) {
                 $users = User::whereHas('roles', function ($query) use($role) {
                     return $query->where('name', '=', $role);
-                })->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
-            }else {
-                $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
+                })->where('name', 'LIKE', '%' . $request->name . '%')
+                ->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
+            } else {
+                if ($request->name) {
+                    $users = $this->filterScopeName(new User, $request->name)->paginate($posts_per_page);
+                } else {
+                    $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
+                }
             }
             return $this->responseData($users);
         }catch (\Exception $error){
@@ -70,7 +77,7 @@ class UserController extends Controller
                         ->symbols()
                 ],
                 'active' => 'required|boolean',
-                'avatar' => 'nullable|string',
+                'avatar' => ['nullable', new Base64Image],
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
                 'postal_code' => 'nullable|string|max:50',
@@ -108,7 +115,7 @@ class UserController extends Controller
             $active = (boolean)$request->password;
             $role = $request->role;
             $file_avatar = $request->avatar;
-            $filename = save_base_64_image($file_avatar, 'avatar');
+            $filename = $file_avatar ? save_base_64_image($file_avatar, 'avatar') : null;
 
             $data = [
                 'username' => $username,
@@ -424,7 +431,7 @@ class UserController extends Controller
                         ->symbols()
                 ],
                 'active' => 'required|boolean',
-                'avatar' => 'nullable|string',
+                'avatar' => ['nullable', new Base64Image],
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'nullable|string|max:100',
                 'postal_code' => 'nullable|string|max:50',

@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\User;
 use App\Rules\WithoutSpaces;
+use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -15,25 +16,34 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
+use App\Rules\Base64Image;
 
 class ProductController extends Controller
 {
-    use RespondsStatusTrait;
-
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
-            $product = Product::paginate($posts_per_page);
+
+            if ($request->name) {
+                $product = $this->filterScopeName(new Product, $request->name);
+            } else {
+                $product = Product::paginate($posts_per_page);
+            }
             if($roles == UserRole::ROLE_VENDOR) {
-                $product = $user->products()->paginate($posts_per_page);
+                if ($request->name) {
+                    $product = $this->filterScopeName(new Product, $request->name);
+                } else {
+                    $product = $user->products()->paginate($posts_per_page);
+                }
             }
             return $this->responseData($product);
 
@@ -56,7 +66,7 @@ class ProductController extends Controller
                 'slug' => 'nullable|unique:products',
                 'sku' => 'nullable|unique:products',
                 'price' => 'nullable|numeric',
-                'product_image' => 'nullable|string',
+                'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
@@ -210,7 +220,7 @@ class ProductController extends Controller
                 'slug' => 'nullable|unique:products,slug,'.$product->id.',id',
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
                 'price' => 'nullable|numeric',
-                'product_image' => 'nullable|string',
+                'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
@@ -317,10 +327,10 @@ class ProductController extends Controller
                     'manufacturer' => $request->zh['manufacturer'] ?? null,
                 ],
             ];
-            $image_product = $request->product_image ?? null;
+            $image_product = $request->product_image;
             if($image_product) {
-                $image_product = save_base_64_image($image_product, 'products');
-                $data_update['image_product'] = $image_product;
+                $update_image_product = save_base_64_image($image_product, 'products');
+                $data_update['image_product'] = $update_image_product;
             }
             $product->update($data_update);
             $product->categories()->sync($request->cat_id);

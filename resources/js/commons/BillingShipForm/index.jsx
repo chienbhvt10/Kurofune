@@ -30,6 +30,16 @@ const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
             label="Postal code"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
+            rules={[
+              {
+                pattern: new RegExp(/^[0-9]+$/),
+                message: "Please enter number",
+              },
+              {
+                max: 7,
+                message: "Please enter only 7 numbers",
+              },
+            ]}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -88,6 +98,12 @@ const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
+            rules={[
+              {
+                pattern: new RegExp(/^[0-9]+$/),
+                message: "Please input valid phone number!",
+              },
+            ]}
             type={<Input className="input-field" />}
           />
         </Col>
