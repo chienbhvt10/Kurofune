@@ -175,6 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "MUA NGAY",
+      "placeholder_option":"Vui lòng hãy chọn ",
       "label_gender": "Giới tính của bạn là gì ?",
       "label_age": "Bạn bao nhiêu tuổi ?",
       "label_ever_used": "Bạn dùng thuốc này bao giờ chưa ?",
@@ -202,7 +203,10 @@
       "option_other_illnesses9": "Loét dạ dày / tá tràng",
       "option_other_illnesses10": "Bệnh tuyến giáp",
       "option_other_illnesses11": "Bệnh tuyến tiền liệt",
-      "option_other_illnesses12": "Bệnh khác"
+      "option_other_illnesses12": "Bệnh khác",
+      "error_required":" Mục này là mục bắt buộc.",
+      "error_title_requried":"Không thể thêm vào giỏ hàng",
+      "error_msg_requried":"Vui lòng kiểm tra thông tin nhập"
     },
     "list_pharmacies": {
       "title": "Hiệu thuốc Marine Oisotori",
