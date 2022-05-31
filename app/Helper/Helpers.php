@@ -112,3 +112,29 @@ function save_base_64_image($image, $path = null)
     file_put_contents($file_path, $image_base64);
     return 'images_data/' . $path . $file_name;
 }
+
+function save_multiple_image($arr_image = [], $path = null)
+{
+    $multiple_images = [];
+    if ($arr_image) {
+        foreach ($arr_image as $img) {
+            $image_path = save_base_64_image($img, $path);
+            array_push($multiple_images, $image_path);
+        }
+    }
+    return json_encode($multiple_images);
+}
+
+function get_multiple_image($arr_image)
+{
+    $results = [];
+    $multiple_images = json_decode($arr_image);
+    if ($multiple_images) {
+        foreach ($multiple_images as $img) {
+            $image_path = get_image_url($img);
+            array_push($results, $image_path);
+        }
+    }
+
+    return $results;
+}

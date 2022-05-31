@@ -31,9 +31,21 @@ class VendorProfile extends Model implements HasMedia
         'expiration_date_of_drugs',
     ];
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id', 'images_inside', 'images_outside'];
 
     public $timestamps = true;
+
+    public function getImagesOutsideAttribute()
+    {
+        $images_outside = get_multiple_image($this->attributes['images_outside']);
+        return $images_outside;
+    }
+
+    public function getImagesInsideAttribute()
+    {
+        $images_inside = get_multiple_image($this->attributes['images_inside']);
+        return $images_inside;
+    }
 
     /*
     |--------------------------------------------------------------------------
