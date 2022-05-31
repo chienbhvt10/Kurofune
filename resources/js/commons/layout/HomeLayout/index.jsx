@@ -7,12 +7,15 @@ import { Outlet } from "react-router-dom";
 
 const HomeLayout = ({ styleColor, navigateLinkData }) => {
   const [show, setShow] = useState(false);
+
   const toggleSideBar = () => {
     setShow(!show);
   };
+
   const closeSideBar = () => {
     setShow(false);
   };
+
   return (
     <div id="home-layout">
       <div className="block-main">

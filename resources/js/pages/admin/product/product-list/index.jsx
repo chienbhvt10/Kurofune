@@ -3,8 +3,9 @@ import "./product.scss";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import ProductTable from "./ProductTable";
 import { TableHeader } from "../../../../commons/TableHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 const ProductList = () => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const data = [
     {
       id: "1",

@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 const BillingShipInfo = ({ info, title }) => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   return (
     <table>
       <tbody>

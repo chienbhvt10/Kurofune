@@ -7,6 +7,8 @@ import { UserForm } from "../user-form/Phase1UserForm";
 import useUsers from "../../../../hooks/user/useUsers";
 import { useDispatch } from "react-redux";
 import { resetResCRUDAction } from "../../../../redux/actions/userAction";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { TYPE_FORM_UPDATE } from "../../../../constants";
 
 const UpdateUser = () => {
   const navigate = useNavigate();
@@ -17,7 +19,7 @@ const UpdateUser = () => {
   const { getAllUsers, pagination } = useUsers();
 
   const { updateUser, resUpdateUser } = useUpdateUser();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
 
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
@@ -51,7 +53,7 @@ const UpdateUser = () => {
           onSave={onSave}
           item={user}
           title="Update User"
-          typeForm="update"
+          typeForm={TYPE_FORM_UPDATE}
           response={resUpdateUser}
         />
       )}

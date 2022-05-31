@@ -1,6 +1,11 @@
 import { EyeOutlined } from "@ant-design/icons";
 import { Button, message, Modal, Space, Upload } from "antd";
 import React, { useCallback, useRef, useState } from "react";
+import {
+  TYPE_IMAGE_JPEG,
+  TYPE_IMAGE_JPG,
+  TYPE_IMAGE_PNG,
+} from "../../constants";
 import "./upload-dragger.scss";
 
 const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
@@ -16,17 +21,20 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
       reader.onerror = (error) => reject(error);
     });
   };
+
   const beforeUpload = (file) => {
     const isValidImage =
-      file.type === "image/png" ||
-      file.type === "image/jpeg" ||
-      file.type === "image/jpg";
+      file.type === TYPE_IMAGE_PNG ||
+      file.type === TYPE_IMAGE_JPEG ||
+      file.type === TYPE_IMAGE_JPG;
+
     if (!isValidImage) {
       message.error("Ảnh phải là định dạng png/jpeg/jpg/gif");
       throw new Error("Ảnh phải là định dạng png/jpeg/jpg/gif");
     }
     return false;
   };
+
   const handleChange = async (info) => {
     const base64Image = await getBase64(info.file);
     onChangeImage && onChangeImage(base64Image);

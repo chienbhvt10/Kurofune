@@ -2,10 +2,11 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { historyData } from "../../../commons/data";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./order-history.scss";
 const OrderHistoryPage = () => {
   const { i18n, t } = useTranslation();
-  let lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
 
   return (
     <div id="order-history" className="list_order">

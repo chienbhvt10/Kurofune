@@ -1,10 +1,11 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { validateUser } from "../../helper/validateField";
 import { PREF } from "../data";
 import InputField from "../Form/InputField";
 import SelectField from "../Form/SelectField";
 
-const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
+const BillingShipForm = ({ className, form, typeForm, response }) => {
   return (
     <Form
       className={className + " billing-shipping-form"}
@@ -30,16 +31,7 @@ const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
             label="Postal code"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[
-              {
-                pattern: new RegExp(/^[0-9]+$/),
-                message: "Please enter number",
-              },
-              {
-                max: 7,
-                message: "Please enter only 7 numbers",
-              },
-            ]}
+            rules={validateUser.billing_shipping.postal_code}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -98,12 +90,7 @@ const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            rules={[
-              {
-                pattern: new RegExp(/^[0-9]+$/),
-                message: "Please input valid phone number!",
-              },
-            ]}
+            rules={validateUser.billing_shipping.phone}
             type={<Input className="input-field" />}
           />
         </Col>
@@ -115,7 +102,7 @@ const BillingShipForm = ({ lang, className, form, typeForm, response }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            rules={[{ type: "email", message: "Please input valid email!" }]}
+            rules={validateUser.billing_shipping.email}
             type={<Input className="input-field" />}
           />
         </Col>

@@ -4,10 +4,11 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import { cartData } from "../../../commons/data";
 import InputField from "../../../commons/Form/InputField";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./cart.scss";
 const Cart = () => {
   const { i18n, t } = useTranslation();
-  let lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const columns = [
     {
