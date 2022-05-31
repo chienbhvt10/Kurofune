@@ -88,6 +88,10 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                 rules={[
                   { required: true, message: "Please input postal code" },
                   { max: 3, message: "Input only 3 number" },
+                  {
+                    pattern: new RegExp(/^[0-9]+$/),
+                    message: "Please enter number",
+                  },
                 ]}
                 response={response}
                 type={<Input className="input-field" />}
@@ -100,7 +104,13 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                 label=" "
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[{ max: 4, message: "Input only 4 number" }]}
+                rules={[
+                  { max: 4, message: "Input only 4 number" },
+                  {
+                    pattern: new RegExp(/^[0-9]+$/),
+                    message: "Please enter number",
+                  },
+                ]}
                 response={response}
                 type={<Input className="input-field" />}
               />

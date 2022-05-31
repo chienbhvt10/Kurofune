@@ -10,6 +10,7 @@ const SelectField = ({
   response,
   placeholder,
   options,
+  disabled,
 }) => {
   return (
     <Form.Item
@@ -30,7 +31,7 @@ const SelectField = ({
           : ""
       }
     >
-      <Select placeholder={placeholder}>
+      <Select placeholder={placeholder} disabled={disabled}>
         {options?.map((option, index) => (
           <Select.Option key={index} value={option.value}>
             {option.label}

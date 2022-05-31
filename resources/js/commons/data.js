@@ -771,6 +771,10 @@ export const userFormOptions = {
     { value: 4, label: "保険完了" },
     { value: 5, label: "未着手" },
   ],
+  insurance_support: [
+    { value: 0, label: "UNREGISTERED" },
+    { value: 1, label: "REGISTERED" },
+  ],
   overseas_remittance_status: [
     { value: 0, label: "UNREGISTERED" },
     { value: 1, label: "REGISTERED" },
