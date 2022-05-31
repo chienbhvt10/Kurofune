@@ -241,8 +241,8 @@ class UserController extends Controller
                 }
 
                 $data_vendor = [
-                    'images_outside' => $vendor_images_outside ?? $user->vendor->images_outside,
-                    'images_inside' => $vendor_images_inside ?? $user->vendor->images_inside,
+                    'images_outside' => $vendor_images_outside ?? null,
+                    'images_inside' => $vendor_images_inside ?? null,
                     'en' => [
                         'name' => $request->en['name'] ?? null,
                         'permit_classification' => $request->en['permit_classification'] ?? null,
@@ -603,14 +603,14 @@ class UserController extends Controller
                 $images_inside = $request->images_inside ?? null;
                 if ($images_outside) {
                     $vendor_images_outside = save_multiple_image($images_outside, 'vendor');
+                    $data_vendor['images_outside'] = $vendor_images_outside;
                 }
                 if ($images_inside) {
                     $vendor_images_inside = save_multiple_image($images_inside, 'vendor');
+                    $data_vendor['images_inside'] = $vendor_images_inside;
                 }
 
                 $data_vendor = [
-                    'images_outside' => $vendor_images_outside ?? null,
-                    'images_inside' => $vendor_images_inside ?? null,
                     'en' => [
                         'name' => $request->en['name'] ?? null,
                         'permit_classification' => $request->en['permit_classification'] ?? null,
