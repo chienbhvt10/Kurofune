@@ -30,7 +30,11 @@
     "order_history_title": "订单历史",
     "cart_title": "购物篮",
     "billing_address_title": "注册信息",
-    "media_title": "综合首页"
+    "media_title": "综合首页",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
   },
   "member": {
     "dashboard": {
@@ -171,6 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "立即购买",
+      "placeholder_option":"请选择选项",
       "label_gender": "请问您的性别为？",
       "label_age": "请问您的年龄为？",
       "label_ever_used": "过去有使用过这种药品吗？",
@@ -198,7 +203,10 @@
       "option_other_illnesses9": "胃／十二指肠溃疡",
       "option_other_illnesses10": "甲状腺方面疾病",
       "option_other_illnesses11": "前列腺方面疾病",
-      "option_other_illnesses12": "其他"
+      "option_other_illnesses12": "其他",
+      "error_required":"这是必填栏。",
+      "error_title_requried":"无法添加到购物车",
+      "error_msg_requried":"请检查您的输入。"
     },
     "list_pharmacies": {
       "title": "海洋药房大矶",

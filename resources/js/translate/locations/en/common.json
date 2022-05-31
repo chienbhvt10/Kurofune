@@ -175,6 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "BUY NOW",
+      "placeholder_option":"Please select option",
       "label_gender": "What is your gender?",
       "label_age": "How old are you?",
       "label_ever_used": "Have you ever used this medicine?",
@@ -202,7 +203,10 @@
       "option_other_illnesses9": "Gastric / duodenal ulcer",
       "option_other_illnesses10": "Thyroid disease",
       "option_other_illnesses11": "Prostate disease",
-      "option_other_illnesses12": "Other (free description)"
+      "option_other_illnesses12": "Other (free description)",
+      "error_required":"This field is required.",
+      "error_title_requried":"Could not add to shopping cart",
+      "error_msg_requried":"Please check your input."
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",

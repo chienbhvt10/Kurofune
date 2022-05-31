@@ -28,6 +28,10 @@ const CardCategory = ({ cardItems }) => {
                   style={{ objectFit: "cover" }}
                   src={item.images_outside[0] || DEFAULT_IMAGE}
                   alt={item.name}
+                  onError={(e) => {
+                    e.target.onerror = null
+                    e.target.src = '/images/image-default.png'
+                  }}
                 />
               }
             >
