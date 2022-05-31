@@ -7,10 +7,12 @@ use App\Models\VendorProfile;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductTranslation;
+use App\Traits\CustomFilterTrait;
 
 class VendorProfileController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     public function index(): \Illuminate\Http\JsonResponse
     {
         $ids_vendor = VendorProfile::pluck('id')->toArray();
@@ -99,9 +101,19 @@ class VendorProfileController extends Controller
 
     public function searchPharmacy(Request $request){
         $search = $request->search;
-        $posts = Product::whereHas('product_translations', function ($query) use ($search) {
-            $query->where('name', 'LIKE', "%$search%");
-        })->get();
+        $posts_per_page = config('constants.pagination.items_per_page');
+        $lang = $request->header('X-localization');
+        if($search != ""){
+            $posts = Product::with(['translations' => function($query) use($search,$lang) {
+                return $query->where('name','LIKE',"%$search%")->where('locale','=',$lang);
+            }])
+            ->paginate($posts_per_page);
+        }else{
+            $posts = Product::with(['translations' => function($query) use($lang)  {
+                return $query->where('locale', '=',$lang);
+            }])
+            ->paginate($posts_per_page);
+        }
         return $this->responseData($posts);
     }
 }
