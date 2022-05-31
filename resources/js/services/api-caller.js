@@ -1,5 +1,6 @@
 import axios from "axios";
 import { ROOT_URL } from "../constants/api";
+import { getAccessToken, getCurrentLanguage } from "../helper/localStorage";
 
 const axiosClient = axios.create({
   baseURL: ROOT_URL,
@@ -10,8 +11,8 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   async (config) => {
-    const access_token = localStorage.getItem("access_token");
-    const lang = localStorage.getItem("lang");
+    const access_token = getAccessToken();
+    const lang = getCurrentLanguage();
     if (access_token) {
       config.headers = {
         Authorization: `Bearer ${access_token}`,

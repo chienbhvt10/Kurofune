@@ -3,13 +3,14 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useNavigate } from "react-router-dom";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { DEFAULT_LIMIT } from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useDeleteUser from "../../../../hooks/user/useDeleteUser";
 import useUsers from "../../../../hooks/user/useUsers";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
 
 export const UserList = () => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const { getAllUsers, users, pagination } = useUsers();
   const { deleteUser } = useDeleteUser();
 

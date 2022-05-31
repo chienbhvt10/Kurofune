@@ -10,6 +10,8 @@ import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
 import ModalPolicy from "../../../components/Modal/ModalPolicy";
 import ModalTerm from "../../../components/Modal/ModalTerm";
+import { getCurrentLanguage } from "../../../helper/localStorage";
+import { validateAuth } from "../../../helper/validateField";
 import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
 
@@ -19,7 +21,7 @@ export const Login = () => {
   const [show, setShow] = useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
   const { i18n, t } = useTranslation();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const { loginUser } = useLogin();
   const [form] = Form.useForm();
 
@@ -65,10 +67,7 @@ export const Login = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
-                rules={[
-                  { required: true, message: "Please input your email!" },
-                  { type: "email", message: "Please input valid email!" },
-                ]}
+                rules={validateAuth.login.email}
                 className="input-control"
                 type={
                   <Input
@@ -92,16 +91,7 @@ export const Login = () => {
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
                 className="input-control"
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your password!",
-                  },
-                  {
-                    min: 8,
-                    message: "Please input atLeast 8 characters for password!",
-                  },
-                ]}
+                rules={validateAuth.login.password}
                 type={
                   <Input
                     className="input-field"

@@ -4,6 +4,14 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
+import {
+  LANG_CHINESE,
+  LANG_ENGLISH,
+  LANG_JAPANESE,
+  LANG_PHILIPPINES,
+  LANG_VIETNAMESE,
+} from "../constants";
+import { getCurrentLanguage, setCurrentLanguage } from "../helper/localStorage";
 import LogChatBot from "../pages/admin/log-chatbot";
 import LogQuestionnaire from "../pages/admin/log-questionnaire";
 import AddOrder from "../pages/admin/order/order-add";
@@ -47,11 +55,11 @@ const appRouter = () => {
   const { i18n } = useTranslation();
   const langUrl = i18n.language;
   if (
-    langUrl === "vi" ||
-    langUrl === "tl" ||
-    langUrl === "en" ||
-    langUrl === "zh" ||
-    langUrl === "ja"
+    langUrl === LANG_VIETNAMESE ||
+    langUrl === LANG_PHILIPPINES ||
+    langUrl === LANG_ENGLISH ||
+    langUrl === LANG_CHINESE ||
+    langUrl === LANG_JAPANESE
   ) {
     let checkUrl = window.location.pathname;
     if (
@@ -61,14 +69,14 @@ const appRouter = () => {
       checkUrl.indexOf("/zh/") !== -1 ||
       checkUrl.indexOf("/ja/") !== -1
     ) {
-      localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+      setCurrentLanguage(window.location.pathname.slice(0, 3));
     } else {
-      localStorage.setItem("lang", "");
+      setCurrentLanguage("");
     }
   } else {
-    localStorage.setItem("lang", "");
+    setCurrentLanguage("");
   }
-  let lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
 
   return (
     <BrowserRouter>

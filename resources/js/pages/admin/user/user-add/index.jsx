@@ -1,6 +1,8 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { TYPE_FORM_CREATE } from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useCreateUser from "../../../../hooks/user/createUser";
 import useUsers from "../../../../hooks/user/useUsers";
 import { resetResCRUDAction } from "../../../../redux/actions/userAction";
@@ -10,8 +12,9 @@ const AddUser = () => {
   const navigate = useNavigate();
   const { createUser, resCreateUser } = useCreateUser();
   const { getAllUsers, pagination } = useUsers();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const dispatch = useDispatch();
+
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
   };
@@ -30,7 +33,6 @@ const AddUser = () => {
     }
   }, [resCreateUser]);
 
-  console.log(resCreateUser);
   return (
     <div id="add-user">
       <UserForm
@@ -38,7 +40,7 @@ const AddUser = () => {
         onCancel={onCancel}
         onSave={onSave}
         title="Create User"
-        typeForm="create"
+        typeForm={TYPE_FORM_CREATE}
       />
     </div>
   );

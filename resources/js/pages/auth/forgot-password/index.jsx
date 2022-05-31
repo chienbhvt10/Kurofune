@@ -5,12 +5,13 @@ import InputField from "../../../commons/Form/InputField";
 import useForgotPassword from "../../../hooks/auth/useForgotPassword";
 import { useTranslation } from "react-i18next";
 import "./forgot-password.scss";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 
 const { Title } = Typography;
 
 const ForgotPassword = () => {
   const { t } = useTranslation();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { resForgotPassword, getForgotPassword, resetResponse } =
     useForgotPassword();
@@ -74,7 +75,14 @@ const ForgotPassword = () => {
               />
             </Col>
             <Col span={8}>
-              <Button className="w-100" size="large" type="primary" htmlType="submit">メール送信</Button>
+              <Button
+                className="w-100"
+                size="large"
+                type="primary"
+                htmlType="submit"
+              >
+                メール送信
+              </Button>
             </Col>
             <Col span={24}>
               <Row justify="center">

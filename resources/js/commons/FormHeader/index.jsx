@@ -1,7 +1,7 @@
 import React from "react";
 import { Breadcrumb } from "../Breadcrumb";
 import "./form-header.scss";
-const FormHeader = ({ title, breadcrumb, onCancel, children }) => {
+const FormHeader = ({ title, breadcrumb, onCancel }) => {
   return (
     <div className="form-header">
       <Breadcrumb breadcrumb={breadcrumb} title={title} />
