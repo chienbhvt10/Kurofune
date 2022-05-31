@@ -30,7 +30,11 @@
     "order_history_title": "订单历史",
     "cart_title": "购物篮",
     "billing_address_title": "注册信息",
-    "media_title": "综合首页"
+    "media_title": "综合首页",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
   },
   "member": {
     "dashboard": {

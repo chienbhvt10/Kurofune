@@ -30,7 +30,11 @@
     "order_history_title": "Lịch sử mua hàng",
     "cart_title": "Giỏ hàng",
     "billing_address_title": "Thông tin đăng kí",
-    "media_title": "Trang chủ"
+    "media_title": "Trang chủ",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
   },
   "member": {
     "dashboard": {

@@ -22,7 +22,7 @@ const CardCategoryDetail = ({ cardItems }) => {
               cover={
                 <img
                   style={{ objectFit: "cover" }}
-                  src={item.product_image || "images/image-default.png"}
+                  src={item.product_image || "/images/image-default.png"}
                   alt={item.name}
                 />
               }

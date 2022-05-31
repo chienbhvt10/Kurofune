@@ -24,7 +24,7 @@ const CardCategory = ({ cardItems }) => {
               cover={
                 <img
                   style={{ objectFit: "cover" }}
-                  src={item.images_outside[0] || "images/image-default.png"}
+                  src={item.images_outside[0] || "/images/image-default.png"}
                   alt={item.name}
                 />
               }
