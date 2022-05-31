@@ -8,8 +8,10 @@ import {
   deleteUserAction,
   getUserAction,
   getUsersAction,
+  resetResCRUDAction,
   updateUserAction,
 } from "../actions/userAction";
+
 const initialState = {
   users: [],
   user: undefined,
@@ -21,46 +23,65 @@ const initialState = {
   current_page: undefined,
   last_page: undefined,
 };
+
 const userReducers = createReducer(initialState, (builder) => {
   builder.addCase(getUsersAction.fulfilled, (state, actions) => {
-    state.users = actions.payload.data.data;
-    state.resUpdateUser = undefined;
-    state.resCreateUser = undefined;
-    state.total = actions.payload.data.total;
-    state.from = actions.payload.data.from;
-    state.to = actions.payload.data.to;
-    state.current_page = actions.payload.data.current_page;
-    state.last_page = actions.payload.data.last_page;
+    return {
+      ...state,
+      users: actions.payload.data.data,
+      total: actions.payload.data.total,
+      from: actions.payload.data.from,
+      to: actions.payload.data.to,
+      current_page: actions.payload.data.current_page,
+      last_page: actions.payload.data.last_page,
+    };
   });
+
   builder.addCase(getUserAction.fulfilled, (state, actions) => {
-    state.user = actions.payload.data;
-    state.resUpdateUser = undefined;
-    state.resCreateUser = undefined;
+    return {
+      ...state,
+      user: actions.payload.data,
+    };
   });
+
   builder.addCase(createUserAction.fulfilled, (state, actions) => {
     if (actions.payload.status_code === 200) {
-      state.resCreateUser = actions.payload;
       NotificationSuccess("Thông báo", "Tạo mới người dùng thành công");
     } else {
-      state.resCreateUser = actions.payload;
       NotificationError("Thông báo", "Tạo mới người dùng thất bại");
     }
+    return {
+      ...state,
+      resCreateUser: actions.payload,
+    };
   });
+
   builder.addCase(updateUserAction.fulfilled, (state, actions) => {
     if (actions.payload.status_code === 200) {
-      state.resUpdateUser = actions.payload;
       NotificationSuccess("Thông báo", "Cập nhật người dùng thành công");
     } else {
-      state.resUpdateUser = actions.payload;
       NotificationError("Thông báo", "Cập nhật người dùng thất bại");
     }
+    return {
+      ...state,
+      resUpdateUser: actions.payload,
+    };
   });
+
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
     if (actions.payload.status_code === 200) {
       NotificationSuccess("Thông báo", "Xoá người dùng thành công");
     } else {
       NotificationError("Thông báo", "Xoá người dùng thất bại");
     }
+  });
+
+  builder.addCase(resetResCRUDAction.fulfilled, (state, actions) => {
+    return {
+      ...state,
+      resCreateUser: undefined,
+      resUpdateUser: undefined,
+    };
   });
 });
 export default userReducers;

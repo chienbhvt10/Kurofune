@@ -1,9 +1,11 @@
 import { Card, Col, Row } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
+import { DEFAULT_IMAGE } from "../../constants";
+import { getCurrentLanguage } from "../../helper/localStorage";
 import "./card-category-detail.scss";
 const CardCategoryDetail = ({ cardItems }) => {
-  let lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   return (
     <Row gutter={[16, 16]}>
       {cardItems?.map((item, index) => (
@@ -22,7 +24,7 @@ const CardCategoryDetail = ({ cardItems }) => {
               cover={
                 <img
                   style={{ objectFit: "cover" }}
-                  src={item.product_image || "/images/image-default.png"}
+                  src={item.product_image || DEFAULT_IMAGE}
                   alt={item.name}
                 />
               }

@@ -1,15 +1,19 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { TYPE_FORM_CREATE } from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useCreateUser from "../../../../hooks/user/createUser";
 import useUsers from "../../../../hooks/user/useUsers";
-
+import { resetResCRUDAction } from "../../../../redux/actions/userAction";
 import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
   const navigate = useNavigate();
   const { createUser, resCreateUser } = useCreateUser();
-  const { getAllUsers } = useUsers();
-  const lang = localStorage.getItem("lang");
+  const { getAllUsers, pagination } = useUsers();
+  const lang = getCurrentLanguage();
+  const dispatch = useDispatch();
 
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
@@ -17,15 +21,18 @@ const AddUser = () => {
 
   const onSave = async (values) => {
     await createUser(values);
-    await getAllUsers({ page: 1 });
+    await getAllUsers({ page: pagination.current_page });
   };
+
   React.useEffect(() => {
     if (resCreateUser?.status_code === 200) {
       navigate(`${lang}/admin/user-list`);
+      dispatch(resetResCRUDAction());
     } else {
       return;
     }
   }, [resCreateUser]);
+
   return (
     <div id="add-user">
       <UserForm
@@ -33,7 +40,7 @@ const AddUser = () => {
         onCancel={onCancel}
         onSave={onSave}
         title="Create User"
-        typeForm="create"
+        typeForm={TYPE_FORM_CREATE}
       />
     </div>
   );

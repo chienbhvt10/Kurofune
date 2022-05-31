@@ -5,9 +5,10 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import BackButton from "../../commons/BackButton";
 import { Languages } from "../../commons/Languges";
+import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
 const HeaderHome = ({ toggleSideBar }) => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const { i18n, t } = useTranslation();
   return (
     <div id="header-home">

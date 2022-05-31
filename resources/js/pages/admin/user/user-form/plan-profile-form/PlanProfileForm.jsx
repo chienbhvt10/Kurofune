@@ -6,11 +6,14 @@ import { userFormOptions } from "../../../../../commons/data";
 import DateField from "../../../../../commons/Form/DateField";
 import InputField from "../../../../../commons/Form/InputField";
 import SelectField from "../../../../../commons/Form/SelectField";
-
+import {
+  ROLE_FULL_SUPPORT_PLAN,
+  ROLE_LIGHT_PLAN,
+} from "../../../../../constants/index.js";
 const PlanProfileForm = ({ form, className, role }) => {
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
   React.useEffect(() => {
-    if (role === "full support plan") {
+    if (role === ROLE_FULL_SUPPORT_PLAN) {
       form.setFieldsValue({
         ...form.getFieldsValue(),
         insurance_support: 1,
@@ -18,7 +21,7 @@ const PlanProfileForm = ({ form, className, role }) => {
         wabisabi_my_page_registration: 1,
       });
     }
-    if (role === "light plan") {
+    if (role === ROLE_LIGHT_PLAN) {
       form.setFieldsValue({
         ...form.getFieldsValue(),
         insurance_support: 0,
@@ -231,7 +234,7 @@ const PlanProfileForm = ({ form, className, role }) => {
               type={<Input />}
             />
           </Col>
-          {role === "full support plan" && (
+          {role === ROLE_FULL_SUPPORT_PLAN && (
             <>
               <Col span={12}>
                 <DateField

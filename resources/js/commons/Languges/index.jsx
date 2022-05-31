@@ -3,6 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useLocation, Link } from "react-router-dom";
+import {
+  LANG_CHINESE,
+  LANG_ENGLISH,
+  LANG_JAPANESE,
+  LANG_PHILIPPINES,
+  LANG_VIETNAMESE,
+} from "../../constants";
+import { setCurrentLanguage } from "../../helper/localStorage";
 import "./style.scss";
 export const Languages = () => {
   const location = useLocation();
@@ -18,10 +26,10 @@ export const Languages = () => {
     langUrl === "/en/" ||
     langUrl === "/zh/"
   ) {
-    localStorage.setItem("lang", window.location.pathname.slice(0, 3));
+    setCurrentLanguage(window.location.pathname.slice(0, 3));
     var pathName = location.pathname.slice(3);
   } else {
-    localStorage.setItem("lang", "");
+    setCurrentLanguage("");
     var pathName = location.pathname;
   }
   return (
@@ -41,42 +49,42 @@ export const Languages = () => {
           <Link
             className="dropdown-item"
             to={`${pathName}`}
-            onClick={() => changeLanguage("ja")}
+            onClick={() => changeLanguage(LANG_JAPANESE)}
           >
             Japanese - 日本語
           </Link>
           <Link
             className="dropdown-item"
             to={`/en${pathName}`}
-            onClick={() => changeLanguage("en")}
+            onClick={() => changeLanguage(LANG_ENGLISH)}
           >
             English - 英語
           </Link>
           <Link
             className="dropdown-item"
             to={`/vi${pathName}`}
-            onClick={() => changeLanguage("vi")}
+            onClick={() => changeLanguage(LANG_VIETNAMESE)}
           >
             Tiếng Việt - ベトナム語
           </Link>
           <Link
             className="dropdown-item"
             to={`/tl${pathName}`}
-            onClick={() => changeLanguage("tl")}
+            onClick={() => changeLanguage(LANG_PHILIPPINES)}
           >
             Tagalog - タガログ語
           </Link>
           <Link
             className="dropdown-item"
             to={`/zh${pathName}`}
-            onClick={() => changeLanguage("zh")}
+            onClick={() => changeLanguage(LANG_CHINESE)}
           >
             中文 - 中国語
           </Link>
           <Link
             className="dropdown-item"
             to={`/zh${pathName}`}
-            onClick={() => changeLanguage("zh")}
+            onClick={() => changeLanguage(LANG_CHINESE)}
           >
             <FontAwesomeIcon className="icon mr-2" icon={faTimes} size="sm" />
             閉じる

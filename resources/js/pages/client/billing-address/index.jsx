@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FormInfor } from "../../../components/form-infor";
+import { FormInfo } from "../../../components/form-infor";
 import { TabLink } from "../../../components/tabs";
+import { BILLING_INFO_FORM } from "../../../constants";
 import useShowProfile from "../../../hooks/auth/useShowProfile";
 import useUpdateBillingAddress from "../../../hooks/auth/useUpdateBillingAddress";
 import "./style.scss";
@@ -36,10 +37,10 @@ const BillingAddress = () => {
         ]}
       />
       <div className="content-tab">
-        <FormInfor
+        <FormInfo
           item={profile}
           onSave={onSave}
-          typeForm="billing"
+          typeForm={BILLING_INFO_FORM}
           response={resUpdateBillingAddress}
         />
       </div>

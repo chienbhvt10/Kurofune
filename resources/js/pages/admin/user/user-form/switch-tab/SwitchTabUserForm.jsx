@@ -1,4 +1,9 @@
 import React from "react";
+import {
+  ROLE_FULL_SUPPORT_PLAN,
+  ROLE_LIGHT_PLAN,
+  ROLE_VENDOR,
+} from "../../../../../constants";
 import "./switch-tab-user-form.scss";
 const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
   return (
@@ -11,9 +16,9 @@ const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
           >
             Address
           </label>
-          {role === "vendor" ||
-          role === "light plan" ||
-          role === "full support plan" ? (
+          {role === ROLE_VENDOR ||
+          role === ROLE_LIGHT_PLAN ||
+          role === ROLE_FULL_SUPPORT_PLAN ? (
             <label
               className={`switch-label ${activeTab === 2 ? "active" : ""}`}
               onClick={() => onChangeForm(2)}

@@ -5,6 +5,14 @@ import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 import { useSelector } from "react-redux";
+import {
+  BILLING_ADDRESS_FORM,
+  ROLE_FULL_SUPPORT_PLAN,
+  ROLE_LIGHT_PLAN,
+  ROLE_VENDOR,
+  SHIPPING_ADDRESS_FORM,
+  TYPE_FORM_CREATE,
+} from "../../../../constants";
 const Phase2UserForm = ({
   role,
   typeForm,
@@ -38,7 +46,7 @@ const Phase2UserForm = ({
         />
       </div>
 
-      {role === "vendor" ? (
+      {role === ROLE_VENDOR ? (
         <div style={{ width: "80%", margin: "auto" }}>
           <VendorProfileForm
             className={`tab ${activeTab === 2 ? "active" : ""}`}
@@ -52,7 +60,7 @@ const Phase2UserForm = ({
       ) : (
         <></>
       )}
-      {role === "light plan" || role === "full support plan" ? (
+      {role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN ? (
         <div style={{ width: "80%", margin: "auto" }}>
           <PlanProfileForm
             role={role}
@@ -66,17 +74,21 @@ const Phase2UserForm = ({
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
           className={`tab ${activeTab === 3 ? "active" : ""}`}
-          typeForm="billing_address"
+          typeForm={BILLING_ADDRESS_FORM}
           form={billingAddressForm}
-          response={typeForm === "create" ? resCreateUser : resUpdateUser}
+          response={
+            typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+          }
         />
       </div>
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
           className={`tab ${activeTab === 4 ? "active" : ""}`}
-          typeForm="shipping_address"
+          typeForm={SHIPPING_ADDRESS_FORM}
           form={shippingAddressForm}
-          response={typeForm === "create" ? resCreateUser : resUpdateUser}
+          response={
+            typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+          }
         />
       </div>
     </SwitchTabUserForm>
