@@ -241,8 +241,8 @@ class UserController extends Controller
                 }
 
                 $data_vendor = [
-                    'images_outside' => $vendor_images_outside ?? null,
-                    'images_inside' => $vendor_images_inside ?? null,
+                    'images_outside' => $vendor_images_outside ?? $user->vendor->images_outside,
+                    'images_inside' => $vendor_images_inside ?? $user->vendor->images_inside,
                     'en' => [
                         'name' => $request->en['name'] ?? null,
                         'permit_classification' => $request->en['permit_classification'] ?? null,
