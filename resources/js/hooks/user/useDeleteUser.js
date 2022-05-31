@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { deleteUserAction } from "../../redux/actions/userAction";
 
-const usedeleteUser = () => {
+const useDeleteUser = () => {
   const users = useSelector((state) => state.userState.users);
   const dispatch = useDispatch();
   const deleteUser = (payload) => {
@@ -13,4 +13,4 @@ const usedeleteUser = () => {
   };
 };
 
-export default usedeleteUser;
+export default useDeleteUser;

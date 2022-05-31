@@ -47,7 +47,7 @@ export const Login = () => {
       <Col span={12}>
         <PageHead content="Login" title="Login" />
         <Title className="title" level={4}>
-          <span dangerouslySetInnerHTML={createMarkup()}/>
+          <span dangerouslySetInnerHTML={createMarkup()} />
         </Title>
         <Form
           id="loginForm"
@@ -65,6 +65,10 @@ export const Login = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
+                rules={[
+                  { required: true, message: "Please input your email!" },
+                  { type: "email", message: "Please input valid email!" },
+                ]}
                 className="input-control"
                 type={
                   <Input
@@ -88,6 +92,16 @@ export const Login = () => {
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
                 className="input-control"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                  {
+                    min: 8,
+                    message: "Please input atLeast 8 characters for password!",
+                  },
+                ]}
                 type={
                   <Input
                     className="input-field"
@@ -121,7 +135,9 @@ export const Login = () => {
                 <Col>
                   <Form.Item name="remember" label="" className="remember">
                     <Checkbox value="checked">
-                      <Typography type="secondary">{t("login.remember")}</Typography>
+                      <Typography type="secondary">
+                        {t("login.remember")}
+                      </Typography>
                     </Checkbox>
                   </Form.Item>
                 </Col>
@@ -136,7 +152,14 @@ export const Login = () => {
               </Row>
             </Col>
             <Col span={8}>
-              <Button className="w-100" size="large" type="primary" htmlType="submit" >{t("login.login_btn")}</Button>
+              <Button
+                className="w-100"
+                size="large"
+                type="primary"
+                htmlType="submit"
+              >
+                {t("login.login_btn")}
+              </Button>
             </Col>
           </Row>
         </Form>
