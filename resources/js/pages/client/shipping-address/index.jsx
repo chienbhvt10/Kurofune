@@ -1,7 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { FormInfor } from "../../../components/form-infor";
+import { FormInfo } from "../../../components/form-infor";
 import { TabLink } from "../../../components/tabs";
+import { SHIPPING_INFO_FORM } from "../../../constants";
 import useShowProfile from "../../../hooks/auth/useShowProfile";
 import useUpdateShippingAddress from "../../../hooks/auth/useUpdateShippingAddress";
 import "./style.scss";
@@ -33,10 +34,10 @@ const ShippingAddress = () => {
         ]}
       />
       <div className="content-tab">
-        <FormInfor
+        <FormInfo
           item={profile}
           onSave={onSave}
-          typeForm="shipping"
+          typeForm={SHIPPING_INFO_FORM}
           response={resUpdateShippingAddress}
         />
       </div>

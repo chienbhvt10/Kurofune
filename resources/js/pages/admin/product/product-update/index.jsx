@@ -25,6 +25,7 @@ const UpdateProduct = () => {
     };
 
     updateProduct(submitData);
+
   };
 
   React.useEffect(() => {

@@ -11,9 +11,12 @@ const SelectField = ({
   placeholder,
   options,
   mode,
+  disabled,
+  className
 }) => {
   return (
     <Form.Item
+      className={className}
       name={field}
       label={label}
       labelCol={labelCol}
@@ -26,12 +29,12 @@ const SelectField = ({
       }
       validateStatus={
         response?.message?.[errorField] &&
-        response?.message?.[errorField].length
+          response?.message?.[errorField].length
           ? "error"
           : ""
       }
     >
-      <Select placeholder={placeholder} mode={mode}>
+      <Select placeholder={placeholder} disabled={disabled} mode={mode}>
         {options?.map((option, index) => (
           <Select.Option key={index} value={option.value}>
             {option.label}

@@ -30,7 +30,11 @@
     "order_history_title": "History ng order",
     "cart_title": "Listahan ng order",
     "billing_address_title": "Impormasyon ng pagrehistro",
-    "media_title": "Bumalik sa top page"
+    "media_title": "Bumalik sa top page",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
   },
   "member": {
     "dashboard": {
@@ -171,6 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "BUMILI KA NA NGAYON",
+      "placeholder_option":"Mangyaring pumili ng opsyon",
       "label_gender": "Ano ang iyong kasarian?",
       "label_age": "Ilan taon ka na?",
       "label_ever_used": "Nagamit mo na ba itong gamot na ito?",
@@ -198,7 +203,10 @@
       "option_other_illnesses9": "Ulcer",
       "option_other_illnesses10": "Sakit sa Thyroid",
       "option_other_illnesses11": "Sakit sa Prostate",
-      "option_other_illnesses12": "Iba pa"
+      "option_other_illnesses12": "Iba pa",
+      "error_required":"Kinakailangan ang field na ito.",
+      "error_title_requried":"Hindi maidagdag sa shopping cart",
+      "error_msg_requried":"Pakisuri ang iyong input."
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",

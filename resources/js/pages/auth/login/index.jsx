@@ -10,6 +10,8 @@ import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
 import ModalPolicy from "../../../components/Modal/ModalPolicy";
 import ModalTerm from "../../../components/Modal/ModalTerm";
+import { getCurrentLanguage } from "../../../helper/localStorage";
+import { validateAuth } from "../../../helper/validateField";
 import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
 
@@ -19,7 +21,7 @@ export const Login = () => {
   const [show, setShow] = useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
   const { i18n, t } = useTranslation();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const { loginUser } = useLogin();
   const [form] = Form.useForm();
 
@@ -47,7 +49,7 @@ export const Login = () => {
       <Col span={12}>
         <PageHead content="Login" title="Login" />
         <Title className="title" level={4}>
-          <span dangerouslySetInnerHTML={createMarkup()}/>
+          <span dangerouslySetInnerHTML={createMarkup()} />
         </Title>
         <Form
           id="loginForm"
@@ -65,6 +67,7 @@ export const Login = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
+                rules={validateAuth.login.email}
                 className="input-control"
                 type={
                   <Input
@@ -88,6 +91,7 @@ export const Login = () => {
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
                 className="input-control"
+                rules={validateAuth.login.password}
                 type={
                   <Input
                     className="input-field"
@@ -121,7 +125,9 @@ export const Login = () => {
                 <Col>
                   <Form.Item name="remember" label="" className="remember">
                     <Checkbox value="checked">
-                      <Typography type="secondary">{t("login.remember")}</Typography>
+                      <Typography type="secondary">
+                        {t("login.remember")}
+                      </Typography>
                     </Checkbox>
                   </Form.Item>
                 </Col>
@@ -136,7 +142,14 @@ export const Login = () => {
               </Row>
             </Col>
             <Col span={8}>
-              <Button className="w-100" size="large" type="primary" htmlType="submit" >{t("login.login_btn")}</Button>
+              <Button
+                className="w-100"
+                size="large"
+                type="primary"
+                htmlType="submit"
+              >
+                {t("login.login_btn")}
+              </Button>
             </Col>
           </Row>
         </Form>

@@ -7,6 +7,14 @@ import SelectField from "../../../../commons/Form/SelectField";
 import FormHeader from "../../../../commons/FormHeader";
 import { formatDate, generatePassword } from "../../../../commons/string.js";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger";
+import {
+  ROLE_FULL_SUPPORT_PLAN,
+  ROLE_LIGHT_PLAN,
+  ROLE_VENDOR,
+  TYPE_FORM_CREATE,
+} from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { validateUser } from "../../../../helper/validateField";
 import useRoles from "../../../../hooks/role/useRoles";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
@@ -34,7 +42,7 @@ export const UserForm = ({
     base64Avatar: undefined,
     loading: false,
   });
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const [userInfoForm] = Form.useForm();
   const [planProfileForm] = Form.useForm();
   const [vendorProfileFormEN] = Form.useForm();
@@ -45,6 +53,13 @@ export const UserForm = ({
   const [commonAddressForm] = Form.useForm();
   const [billingAddressForm] = Form.useForm();
   const [shippingAddressForm] = Form.useForm();
+
+  const userInfoInitValues = getUserInfoInitValues(item);
+  const planInitValues = getPlanInitValues(item);
+  const translateInitValues = getTranslateInitValues();
+  const commonAddressInitValues = getCommonAddressInitValues(item);
+  const billingAddressInitValues = getBillingAddressInitValues(item);
+  const shippingAddressInitValues = getShippingAddressInitValues(item);
 
   const onFinishAll = () => {
     let submitValues = {
@@ -59,7 +74,10 @@ export const UserForm = ({
         ...shippingAddressForm.getFieldsValue(),
       },
     };
-    if (userInfoForm.getFieldValue("role") === "vendor") {
+    if (!userInfoForm.getFieldValue("password")) {
+      delete submitValues.password;
+    }
+    if (userInfoForm.getFieldValue("role") === ROLE_VENDOR) {
       submitValues = {
         ...submitValues,
         ja: {
@@ -80,8 +98,8 @@ export const UserForm = ({
       };
     }
     if (
-      userInfoForm.getFieldValue("role") === "light plan" ||
-      userInfoForm.getFieldValue("role") === "full support plan"
+      userInfoForm.getFieldValue("role") === ROLE_LIGHT_PLAN ||
+      userInfoForm.getFieldValue("role") === ROLE_FULL_SUPPORT_PLAN
     ) {
       submitValues = {
         ...submitValues,
@@ -101,12 +119,7 @@ export const UserForm = ({
     }
     onSave(submitValues);
   };
-  const userInfoInitValues = getUserInfoInitValues(item);
-  const planInitValues = getPlanInitValues(item);
-  const translateInitValues = getTranslateInitValues();
-  const commonAddressInitValues = getCommonAddressInitValues(item);
-  const billingAddressInitValues = getBillingAddressInitValues(item);
-  const shippingAddressInitValues = getShippingAddressInitValues(item);
+
   React.useEffect(() => {
     userInfoForm.setFieldsValue(userInfoInitValues);
     planProfileForm.setFieldsValue(planInitValues);
@@ -152,9 +165,11 @@ export const UserForm = ({
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
   };
+
   React.useEffect(() => {
     setAvatarState({ avatarUrl: item?.avatar || "" });
   }, [item]);
+
   return (
     <div className="user-form">
       <Form
@@ -196,7 +211,7 @@ export const UserForm = ({
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 hasFeedback
-                rules={[{ required: true, message: "Please select a role" }]}
+                rules={validateUser.role}
                 validateStatus={"danger"}
               >
                 <Select
@@ -218,7 +233,7 @@ export const UserForm = ({
                 label="Name"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[{ required: true, message: "Please input your name!" }]}
+                rules={validateUser.name}
                 response={response}
                 type={<Input />}
               />
@@ -230,10 +245,7 @@ export const UserForm = ({
                 label="Email"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[
-                  { required: true, message: "Please input your email!" },
-                  { type: "email", message: "Please input valid email!" },
-                ]}
+                rules={validateUser.email}
                 response={response}
                 type={<Input />}
               />
@@ -245,16 +257,7 @@ export const UserForm = ({
                 label="Phone"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your phone number!",
-                  },
-                  {
-                    pattern: new RegExp(/^[0-9]+$/),
-                    message: "Please input valid phone number!",
-                  },
-                ]}
+                rules={validateUser.phone}
                 response={response}
                 type={<Input />}
               />
@@ -266,9 +269,7 @@ export const UserForm = ({
                 label="Username"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[
-                  { required: true, message: "Please input your username!" },
-                ]}
+                rules={validateUser.user_name}
                 response={response}
                 type={<Input />}
               />
@@ -282,12 +283,9 @@ export const UserForm = ({
                     label="Password"
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    rules={[
-                      typeForm === "create" && {
-                        required: true,
-                        message: "Please input your password!",
-                      },
-                    ]}
+                    rules={
+                      typeForm === TYPE_FORM_CREATE && validateUser.password
+                    }
                     response={response}
                     type={<Input />}
                   />
@@ -311,9 +309,7 @@ export const UserForm = ({
                 label="Active"
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={[
-                  { required: true, message: "Please select active status!" },
-                ]}
+                rules={validateUser.active}
                 response={response}
                 placeholder="Please select active status"
                 options={userFormOptions.active_status}

@@ -6,9 +6,10 @@ import useProducts from "../../../../hooks/product/useProducts.js";
 import useDeleteProduct from "./../../../../hooks/product/useDeleteProduct";
 import "./product.scss";
 import ProductTable from "./ProductTable";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 
 const ProductList = () => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { getAllProducts, products, pagination } = useProducts();
   const { deleteProduct, resDeleteProduct } = useDeleteProduct();

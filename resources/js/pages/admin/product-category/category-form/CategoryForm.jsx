@@ -4,7 +4,7 @@ import FormHeader from "../../../../commons/FormHeader";
 import InputField from "./../../../../commons/Form/InputField";
 import "./category-form.scss";
 import TranslateCategoryForm from "./TranslateCategoryForm";
-import UploadBase64Image from "../../../../commons/Form/UploadBase64Image.jsx";
+import UploadDragger from "../../../../commons/UploadDragger/UploadDragger.jsx";
 
 const CategoryForm = ({
   item,
@@ -14,11 +14,15 @@ const CategoryForm = ({
   onSave,
   response,
 }) => {
-  const [categoryImage, setCategoryImage] = React.useState("");
+  const [avatarState, setAvatarState] = React.useState({
+    avatarUrl: undefined,
+    base64Avatar: undefined,
+    loading: false,
+  });
   const initialCommonValues = {
     user_id: item?.user_id || "",
     slug: item?.slug || "",
-    category_image: item?.category_image || categoryImage,
+    category_image: item?.category_image || avatarState.base64Avatar,
     type: item?.type || "",
   };
 
@@ -53,7 +57,7 @@ const CategoryForm = ({
       en: {
         ...categoryProfileFormEN.getFieldsValue(),
       },
-      category_image: categoryImage,
+      category_image: avatarState.base64Avatar,
     };
 
     onSave(submitInput);
@@ -81,18 +85,14 @@ const CategoryForm = ({
     }
   }, [item]);
 
-  React.useEffect(() => {
-    const productThumbnail = document.querySelector(
-      ".ant-upload-list-item-thumbnail"
-    );
-    productThumbnail.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
 
-    return productThumbnail.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
-  }, []);
+
+  const onChangeAvatar = (base64Image) => {
+    setAvatarState({ base64Avatar: base64Image });
+  };
+  React.useEffect(() => {
+    setAvatarState({ avatarUrl: item?.category_image || "" });
+  }, [item]);
 
   return (
     <div id="category-form">
@@ -117,7 +117,7 @@ const CategoryForm = ({
 
         <div>
           <Row>
-            <Col span={24} style={{ padding: "0 30px" }}>
+            <Col span={24} className="input-field-space">
               <InputField
                 field="slug"
                 label="Slug"
@@ -132,7 +132,7 @@ const CategoryForm = ({
                 type={<Input />}
               />
             </Col>
-            <Col span={24} style={{ padding: "0 30px" }}>
+            <Col span={24} className="input-field-space">
               <InputField
                 field="type"
                 label="Type"
@@ -150,11 +150,13 @@ const CategoryForm = ({
               />
             </Col>
 
-            <Col span={12} style={{ padding: "0 30px" }}>
-              <UploadBase64Image
-                setBase64Image={setCategoryImage}
-                item={item}
-              />
+            <Col span={12} className="input-field-space">
+              <Form.Item field=" product_image" label="Product Image" labelCol={{ span: 24 }}>
+                <UploadDragger onChangeImage={onChangeAvatar}
+                  imageUrlProps={avatarState.avatarUrl}
+                  loading={avatarState.loading}
+                  mode='multiple' />
+              </Form.Item>
             </Col>
           </Row>
         </div>

@@ -3,14 +3,28 @@ import React from "react";
 import { useSelector } from "react-redux";
 import InputField from "../../../../commons/Form/InputField.jsx";
 
-const SubFormTranslate = ({ lang, className, form }) => {
-  const response = useSelector((state) => state.userState.response);
+const SubFormTranslate = ({ lang, className, form, response }) => {
+
+  // const [resMessage, setResMessage] = React.useState()
+  // React.useEffect(() => {
+  //   if (response && response.status_code === 500) {
+  //     setResMessage({
+  //       ...response,
+  //       message: {
+  //         'name': "dcmdcm"
+  //       }
+  //     })
+  //   }
+  // }, [response])
+  // console.log(resMessage);
+
   return (
     <Row justify="center">
       <Form className={className} name="common-translate-form" form={form}>
         <Row justify="center">
           <Col span={12} className="form-group-col">
             <InputField
+              className="custom-required"
               field="name"
               label={`(${lang}) Name`}
               labelCol={{ span: 24 }}
@@ -18,10 +32,9 @@ const SubFormTranslate = ({ lang, className, form }) => {
               rules={[
                 {
                   required: true,
-                  message: "Please input Name",
-                },
+                  message: "This field is required"
+                }
               ]}
-              response={response}
               type={<Input.TextArea />}
             />
           </Col>

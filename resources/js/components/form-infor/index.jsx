@@ -6,13 +6,21 @@ import { PREF } from "../../commons/data";
 import InputField from "../../commons/Form/InputField";
 import SelectField from "../../commons/Form/SelectField";
 import {
+  BILLING_INFO_FORM,
+  FIELD_USER_FULL_NAME,
+  FIELD_USER_NAME,
+  PROFILE_FORM,
+  SHIPPING_INFO_FORM,
+} from "../../constants";
+import { validateUser } from "../../helper/validateField";
+import {
   getBillingInitValues,
   getProfileInitValues,
   getShippingInitValues,
 } from "./initValues.js";
 import "./style.scss";
 
-export const FormInfor = ({ onSave, item, typeForm, response }) => {
+export const FormInfo = ({ onSave, item, typeForm, response }) => {
   const [formInfo] = Form.useForm();
   const { i18n, t } = useTranslation();
 
@@ -21,11 +29,11 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
   const profileInitValues = getProfileInitValues(item);
 
   React.useEffect(() => {
-    if (typeForm === "billing") {
+    if (typeForm === BILLING_INFO_FORM) {
       formInfo.setFieldsValue(billingInitValues);
-    } else if (typeForm === "shipping") {
+    } else if (typeForm === SHIPPING_INFO_FORM) {
       formInfo.setFieldsValue(shippingInitValues);
-    } else if (typeForm === "profile") {
+    } else if (typeForm === PROFILE_FORM) {
       formInfo.setFieldsValue(profileInitValues);
     }
   }, [item]);
@@ -67,12 +75,16 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
       <Row justify="center">
         <Col span={24}>
           <InputField
-            field={typeForm === "profile" ? "name" : "full_name"}
-            errorField={typeForm === "profile" ? "name" : "full_name"}
+            field={
+              typeForm === PROFILE_FORM ? FIELD_USER_NAME : FIELD_USER_FULL_NAME
+            }
+            errorField={
+              typeForm === PROFILE_FORM ? FIELD_USER_NAME : FIELD_USER_FULL_NAME
+            }
             label={t("member.change_profile.field_full_name")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input full name" }]}
+            rules={validateUser.form_info.full_name}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -85,10 +97,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                 label={t("member.change_profile.field_postal")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[
-                  { required: true, message: "Please input postal code" },
-                  { max: 3, message: "Input only 3 number" },
-                ]}
+                rules={validateUser.form_info.from_postcode}
                 response={response}
                 type={<Input className="input-field" />}
               />
@@ -100,7 +109,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
                 label=" "
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[{ max: 4, message: "Input only 4 number" }]}
+                rules={validateUser.form_info.to_postcode}
                 response={response}
                 type={<Input className="input-field" />}
               />
@@ -123,7 +132,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please select prefecture" }]}
+            rules={validateUser.form_info.prefecture}
             response={response}
             placeholder="Please select prefecture"
             options={PREF}
@@ -137,7 +146,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input city" }]}
+            rules={validateUser.form_info.city}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -149,7 +158,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input street address" }]}
+            rules={validateUser.form_info.street_address}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -173,7 +182,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[{ required: true, message: "Please input phone" }]}
+            rules={validateUser.form_info.phone}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -185,10 +194,7 @@ export const FormInfor = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[
-              { required: true, message: "Please input email" },
-              { type: "email", message: "Please input valid email" },
-            ]}
+            rules={validateUser.form_info.email}
             response={response}
             type={<Input className="input-field" />}
           />

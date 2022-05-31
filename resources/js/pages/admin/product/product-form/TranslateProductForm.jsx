@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import SubFormTranslate from "./SubFormTranslate.jsx";
 
-const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
+const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH, response }) => {
   const [activeTab, setActiveTab] = useState(1);
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
@@ -11,6 +11,7 @@ const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
     <SwitchTabLangForm
       onChangeLanguageForm={onChangeLanguageForm}
       activeTab={activeTab}
+      response={response}
     >
       <SubFormTranslate
         lang="JA"
@@ -21,11 +22,13 @@ const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
         lang="VI"
         className={`tab ${activeTab === 4 ? "active" : ""}`}
         form={formVI}
+        response={response}
       />
       <SubFormTranslate
         lang="ZH"
         className={`tab ${activeTab === 5 ? "active" : ""}`}
         form={formZH}
+        response={response}
       />
       <SubFormTranslate
         lang="TL"
@@ -36,6 +39,7 @@ const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
         lang="EN"
         className={`tab ${activeTab === 1 ? "active" : ""}`}
         form={formEN}
+        response={response}
       />
     </SwitchTabLangForm>
   );

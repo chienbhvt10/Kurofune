@@ -1,9 +1,21 @@
 import React, { useState } from "react";
 import SwitchTabLangForm from "../../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
+import {
+  FIFTH_TAB,
+  FIRST_TAB,
+  FOURTH_TAB,
+  LANG_CHINESE,
+  LANG_ENGLISH,
+  LANG_JAPANESE,
+  LANG_PHILIPPINES,
+  LANG_VIETNAMESE,
+  SECOND_TAB,
+  THIRD_TAB,
+} from "../../../../../constants";
 import SubFormUserTranslate from "./SubFormTranslate";
 
 const TranslateVendorForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = useState(FIRST_TAB);
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
   };
@@ -13,28 +25,28 @@ const TranslateVendorForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
       activeTab={activeTab}
     >
       <SubFormUserTranslate
-        lang="en"
-        className={`tab ${activeTab === 1 ? "active" : ""}`}
+        lang={LANG_ENGLISH}
+        className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
         form={formEN}
       />
       <SubFormUserTranslate
-        lang="ja"
-        className={`tab ${activeTab === 2 ? "active" : ""}`}
+        lang={LANG_JAPANESE}
+        className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
         form={formJP}
       />
       <SubFormUserTranslate
-        lang="tl"
-        className={`tab ${activeTab === 3 ? "active" : ""}`}
+        lang={LANG_PHILIPPINES}
+        className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
         form={formTL}
       />
       <SubFormUserTranslate
-        lang="vi"
-        className={`tab ${activeTab === 4 ? "active" : ""}`}
+        lang={LANG_VIETNAMESE}
+        className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
         form={formVI}
       />
       <SubFormUserTranslate
-        lang="zh"
-        className={`tab ${activeTab === 5 ? "active" : ""}`}
+        lang={LANG_CHINESE}
+        className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
         form={formZH}
       />
     </SwitchTabLangForm>

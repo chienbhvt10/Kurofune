@@ -1,13 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { TYPE_FORM_ADD } from "../../../../constants";
+import { TYPE_FORM_CREATE } from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import ProductForm from "../product-form/ProductForm";
 import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
 import { NotificationSuccess } from "../../../../commons/Notification";
 import useProducts from "../../../../hooks/product/useProducts.js";
 
 const AddProduct = () => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const { getAllProducts, products } = useProducts();
   const { createNewProduct, resCreateProduct } = useCreateProduct();
   const navigate = useNavigate();
@@ -24,6 +25,7 @@ const AddProduct = () => {
     createNewProduct(submitData);
   };
 
+  // console.log(resCreateProduct)
 
   React.useEffect(() => {
     if (resCreateProduct?.status_code === 200) {
@@ -35,7 +37,7 @@ const AddProduct = () => {
   return (
     <div id="add-product-page">
       <ProductForm
-        typeForm={TYPE_FORM_ADD}
+        typeForm={TYPE_FORM_CREATE}
         title="Add Product"
         onCancel={onCancel}
         onSave={onSave}

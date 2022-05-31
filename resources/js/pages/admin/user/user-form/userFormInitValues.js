@@ -46,7 +46,7 @@ export const getPlanInitValues = (item) => {
     inflow_source: item?.profile?.inflow_source || "",
     payment: item?.profile?.payment || undefined,
     insurance_status: item?.profile?.insurance_status || undefined,
-    insurance_support: item?.profile?.insurance_support || "",
+    insurance_support: item?.profile?.insurance_support || undefined,
     insurance_start_date: item?.profile?.insurance_start_date || "",
     overseas_remittance_status:
       item?.profile?.overseas_remittance_status || undefined,

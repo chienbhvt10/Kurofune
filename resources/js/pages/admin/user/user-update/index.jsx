@@ -5,16 +5,21 @@ import useUpdateUser from "../../../../hooks/user/useUpdateUser";
 
 import { UserForm } from "../user-form/Phase1UserForm";
 import useUsers from "../../../../hooks/user/useUsers";
+import { useDispatch } from "react-redux";
+import { resetResCRUDAction } from "../../../../redux/actions/userAction";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { TYPE_FORM_UPDATE } from "../../../../constants";
 
 const UpdateUser = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { getUser, user } = useUser();
-  const { getAllUsers } = useUsers();
-  console.log(user?.avatar);
+  const dispatch = useDispatch();
+
+  const { getAllUsers, pagination } = useUsers();
 
   const { updateUser, resUpdateUser } = useUpdateUser();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
 
   const onCancel = () => {
     navigate(`${lang}/admin/user-list`);
@@ -22,6 +27,7 @@ const UpdateUser = () => {
 
   const onSave = async (values) => {
     await updateUser(values);
+    await getAllUsers({ page: pagination.current_page });
   };
 
   React.useEffect(() => {
@@ -32,8 +38,8 @@ const UpdateUser = () => {
 
   React.useEffect(() => {
     if (resUpdateUser?.status_code === 200) {
-      getAllUsers();
       navigate(`${lang}/admin/user-list`);
+      dispatch(resetResCRUDAction());
     } else {
       return;
     }
@@ -47,7 +53,7 @@ const UpdateUser = () => {
           onSave={onSave}
           item={user}
           title="Update User"
-          typeForm="update"
+          typeForm={TYPE_FORM_UPDATE}
           response={resUpdateUser}
         />
       )}

@@ -4,6 +4,7 @@ import { TYPE_FORM_UPDATE } from "../../../../constants";
 import CategoryForm from "../category-form/CategoryForm";
 import useAdminCategory from "./../../../../hooks/categoryAdmin/useAdminCategory";
 import useUpdateAdminCategory from "./../../../../hooks/categoryAdmin/useUpdateAdminCategory";
+import { NotificationSuccess } from '../../../../commons/Notification';
 
 const UpdateCategory = () => {
   const lang = localStorage.getItem("lang");
@@ -32,7 +33,8 @@ const UpdateCategory = () => {
 
   React.useEffect(() => {
     if (resUpdateCategory?.status_code === 200) {
-      navigate(`${lang}/admin/user-list`);
+      navigate(`${lang}/admin/category-list`);
+      NotificationSuccess('Thông báo', 'Sửa category mới thành công')
     } else return;
   }, [resUpdateCategory]);
 

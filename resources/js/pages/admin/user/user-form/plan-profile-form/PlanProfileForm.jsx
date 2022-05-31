@@ -6,10 +6,30 @@ import { userFormOptions } from "../../../../../commons/data";
 import DateField from "../../../../../commons/Form/DateField";
 import InputField from "../../../../../commons/Form/InputField";
 import SelectField from "../../../../../commons/Form/SelectField";
-
-const PlanProfileForm = ({ form, className }) => {
+import {
+  ROLE_FULL_SUPPORT_PLAN,
+  ROLE_LIGHT_PLAN,
+} from "../../../../../constants/index.js";
+const PlanProfileForm = ({ form, className, role }) => {
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
-
+  React.useEffect(() => {
+    if (role === ROLE_FULL_SUPPORT_PLAN) {
+      form.setFieldsValue({
+        ...form.getFieldsValue(),
+        insurance_support: 1,
+        overseas_remittance_status: 1,
+        wabisabi_my_page_registration: 1,
+      });
+    }
+    if (role === ROLE_LIGHT_PLAN) {
+      form.setFieldsValue({
+        ...form.getFieldsValue(),
+        insurance_support: 0,
+        overseas_remittance_status: 0,
+        wabisabi_my_page_registration: 0,
+      });
+    }
+  }, [role]);
   return (
     <div className={`common-profile-form ${className}`}>
       <Form name="plan-profile-form" form={form}>
@@ -162,7 +182,7 @@ const PlanProfileForm = ({ form, className }) => {
             />
           </Col>
           <Col span={12}>
-            <InputField
+            <SelectField
               field="insurance_support"
               errorField="insurance_support"
               label="Insurance Support"
@@ -171,20 +191,24 @@ const PlanProfileForm = ({ form, className }) => {
               rules={[]}
               response={resCreateUser}
               type={<Input />}
+              options={userFormOptions.insurance_support}
+              disabled={true}
             />
           </Col>
-          <Col span={12}>
-            <InputField
-              field="insurance_start_date"
-              errorField="insurance_start_date"
-              label="Insurance Start Date"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              rules={[]}
-              response={resCreateUser}
-              type={<Input />}
-            />
-          </Col>
+          {role === "full support plan" && (
+            <Col span={12}>
+              <InputField
+                field="insurance_start_date"
+                errorField="insurance_start_date"
+                label="Insurance Start Date"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 22 }}
+                rules={[]}
+                response={resCreateUser}
+                type={<Input />}
+              />
+            </Col>
+          )}
           <Col span={12}>
             <SelectField
               field="overseas_remittance_status"
@@ -194,8 +218,8 @@ const PlanProfileForm = ({ form, className }) => {
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select Overseas Remittance Status"
               options={userFormOptions.overseas_remittance_status}
+              disabled={true}
             />
           </Col>
           <Col span={12}>
@@ -210,31 +234,34 @@ const PlanProfileForm = ({ form, className }) => {
               type={<Input />}
             />
           </Col>
-
-          <Col span={12}>
-            <DateField
-              field="start_date_education"
-              errorField="start_date_education"
-              label="Start Date Education"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              rules={[]}
-              locale={{ lang: { locale: "vi_VN" } }}
-              response={resCreateUser}
-            />
-          </Col>
-          <Col span={12}>
-            <DateField
-              field="end_date_education"
-              errorField="end_date_education"
-              label="End Date Education"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              rules={[]}
-              locale={{ lang: { locale: "vi_VN" } }}
-              response={resCreateUser}
-            />
-          </Col>
+          {role === ROLE_FULL_SUPPORT_PLAN && (
+            <>
+              <Col span={12}>
+                <DateField
+                  field="start_date_education"
+                  errorField="start_date_education"
+                  label="Start Date Education"
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 22 }}
+                  rules={[]}
+                  locale={{ lang: { locale: "vi_VN" } }}
+                  response={resCreateUser}
+                />
+              </Col>
+              <Col span={12}>
+                <DateField
+                  field="end_date_education"
+                  errorField="end_date_education"
+                  label="End Date Education"
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 22 }}
+                  rules={[]}
+                  locale={{ lang: { locale: "vi_VN" } }}
+                  response={resCreateUser}
+                />
+              </Col>
+            </>
+          )}
 
           <Col span={12}>
             <SelectField
@@ -258,8 +285,8 @@ const PlanProfileForm = ({ form, className }) => {
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select Wabisabi My Page Registration"
               options={userFormOptions.wabisabi_my_page_registration}
+              disabled={true}
             />
           </Col>
           <Col span={12}>

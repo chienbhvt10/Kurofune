@@ -8,6 +8,8 @@ const productActions = {
   createProduct: createAction("CREATE_PRODUCT"),
   updateProduct: createAction("UPDATE_PRODUCT"),
   deleteProduct: createAction("DELETE_PRODUCT"),
+  getProductClient: createAction("GET_PRODUCT_CLIENT"),
+  addToCart: createAction("ADD_TO_CART"),
 };
 
 export const getAllProductsAction = createAsyncThunk(
@@ -71,6 +73,16 @@ export const getProductClientAction = createAsyncThunk(
       .productClient(payload)
       .then((data) => data)
       .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+export const addToCartAction = createAsyncThunk(
+  productActions.addToCart,
+  async (payload) => {
+    const res = await productApis
+      .addToCartClient(payload)
+      .then((data) => data)
+      .catch((err) => JSON.parse(err.response.request.response));
     return res;
   }
 );

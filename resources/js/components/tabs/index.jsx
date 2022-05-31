@@ -1,8 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { getCurrentLanguage } from "../../helper/localStorage";
 import "./style.scss";
 export const TabLink = ({ infoTabs }) => {
-  let lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   return (
     <>
       <div className="user-layout-tabs">

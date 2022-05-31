@@ -3,6 +3,7 @@ import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { Link } from "react-router-dom";
 import TableRowAction from "../../../../commons/TableRowAction";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 export const UserTable = ({
   items,
   onEdit,
@@ -10,7 +11,7 @@ export const UserTable = ({
   pagination,
   onTableChange,
 }) => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const columns = [
     {
       key: "username",
@@ -25,9 +26,14 @@ export const UserTable = ({
             className="text-decoration-none d-flex"
           >
             <img
-              src={record.imageUrl}
+              src={record.avatar || "/avatars/default.png"}
               alt=""
-              style={{ width: "25px", height: "25px", marginRight: 10 }}
+              style={{
+                width: "25px",
+                height: "25px",
+                marginRight: 10,
+                objectFit: "cover",
+              }}
             />
             <span>{record.username}</span>
           </Link>

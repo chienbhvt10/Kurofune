@@ -1,10 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
+import { getCurrentLanguage } from "../../helper/localStorage";
 import "./navigate-link.scss";
 const NavigateLink = ({ navigateItems, onClick }) => {
-  let lang = localStorage.getItem("lang");
-  const { i18n, t } = useTranslation();
+  const lang = getCurrentLanguage();
+  const { t } = useTranslation();
 
   return (
     <div className="navbar-main-wrapper">

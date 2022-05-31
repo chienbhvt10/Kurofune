@@ -13,4 +13,40 @@
       padding-bottom: 10px;
     }
   }
+
+  .form-image-custom {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: left;
+
+    .container {
+      width: 120px;
+      height: auto;
+      border: 1px solid #ccc;
+      object-fit: cover;
+      margin: 0;
+
+      .image {
+        max-height: 100px !important;
+        object-fit: cover;
+        overflow: hidden;
+      }
+      .middle {
+        display: none;
+      }
+    }
+
+    .upload {
+      margin-bottom: 10px;
+
+      button {
+        margin-top: 0 !important;
+      }
+    }
+  }
+
+  .input-field-space {
+    padding: 0 30px;
+  }
 }

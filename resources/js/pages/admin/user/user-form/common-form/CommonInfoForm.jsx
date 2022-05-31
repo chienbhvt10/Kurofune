@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { PREF } from "../../../../../commons/data";
 import InputField from "../../../../../commons/Form/InputField";
 import SelectField from "../../../../../commons/Form/SelectField";
+import { validateUser } from "../../../../../helper/validateField";
 
 const CommonInfoForm = ({ className, form }) => {
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
@@ -22,7 +23,7 @@ const CommonInfoForm = ({ className, form }) => {
             label="Postal code"
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
+            rules={validateUser.postal_code}
             response={resCreateUser}
             type={<Input />}
           />
