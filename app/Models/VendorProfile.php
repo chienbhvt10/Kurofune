@@ -5,12 +5,10 @@ namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class VendorProfile extends Model implements HasMedia
+class VendorProfile extends Model
 {
-    use HasFactory, Translatable, InteractsWithMedia;
+    use HasFactory, Translatable;
 
     public $translatedAttributes = [
         'name',
