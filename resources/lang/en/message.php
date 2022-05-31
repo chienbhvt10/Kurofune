@@ -42,6 +42,13 @@ return [
     'postal_code' => [
         'valid' => 'Please enter a valid postal code',
     ],
+
+    'page'=>[
+        'created' =>'Create page successfully',
+        'updated' =>'Update page successfully' ,
+        'deleted' =>'Delete page successfully',
+        'not_exist' =>' Page not exist',
+    ],
     'password' => [
         'updated' => 'Password changed successfully.',
         'without_spaces' => 'Passwords must not contain spaces',

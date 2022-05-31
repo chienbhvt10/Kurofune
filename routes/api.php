@@ -29,7 +29,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('roles', \App\Http\Controllers\API\RoleController::class);
             Route::get('get-permission-by-role/{id}', [\App\Http\Controllers\API\RoleController::class, 'getPermissionByRole']);
             Route::put('update-permission-for-role', [\App\Http\Controllers\API\RoleController::class, 'updatePermissionForRole']);
-            Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class );
+            Route::apiResource('permissions', \App\Http\Controllers\API\PermissionController::class);
         });
 
         // User Manage
@@ -51,6 +51,12 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
+
+        // Page Manage
+        Route::middleware(['permission:manage page'])->group(function () {
+            Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
+        });
+
         // Chat log user manage
         Route::middleware('permission:manage chat log user')->group(function () {
             Route::get('list-chat-log', [\App\Http\Controllers\API\ChatLogUserController::class, 'listChatLog']);
@@ -62,8 +68,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
 
-        Route::middleware(['user.active'])->group(function (){
-            Route::middleware(['permission:user read online pharmacy'])->group(function (){
+        Route::middleware(['user.active'])->group(function () {
+            Route::middleware(['permission:user read online pharmacy'])->group(function () {
                 // View Vendor
                 Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
                 Route::get('detail-pharmacy/{id}', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
@@ -97,6 +103,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::put('user-address', [\App\Http\Controllers\API\UserAddressController::class, 'update']);
                 Route::put('change-password', ['App\Http\Controllers\API\ChangePasswordController', 'changePassword']);
             });
+
+            Route::get('get-page-by-slug/{slug}', [\App\Http\Controllers\API\PageController::class, 'getPageBySlug']);
+
         });
     });
 

@@ -12,22 +12,28 @@ use \Illuminate\Http\JsonResponse;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Support\Facades\DB;
 use App\Models\Tax;
+use App\Traits\CustomFilterTrait;
 
 class TaxsController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $tax = Tax::all();
+            $posts_per_page = config('constants.pagination.items_per_page');
+            if ($request->name) {
+                $tax = $this->filterScopeName(new Tax, $request->name)->paginate($posts_per_page);
+            } else {
+                $tax = Tax::paginate(10);
+            }
             return $this->responseData($tax);
         }catch (\Exception $error){
-            return $this->responseData($tax);
+            return $this->errorResponse($error->getMessage());
         }
     }
 
@@ -73,11 +79,7 @@ class TaxsController extends Controller
     {
         try {
             $tax = Tax::find($id);
-            $response = [
-                'name' =>$tax->name,
-                'value' =>$tax->value,
-            ];
-            return $this->responseData($response);
+            return $this->responseData($tax);
         }
         catch (\Exception $error){
             return $this->errorResponse($error->getMessage());

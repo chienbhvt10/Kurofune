@@ -42,6 +42,12 @@ return [
     'postal_code' => [
         'valid' => 'Mangyaring bigyan ako ng wastong zip code',
     ],
+    'page'=>[
+        'created' =>'Matagumpay na nakagawa ng pahina',
+        'updated' =>'Matagumpay na na-update ang pahina',
+        'deleted' =>'Matagumpay na natanggal ang pahina',
+        'not_exist' =>'Walang pahina',
+    ],
     'password' => [
         'updated' => 'Matagumpay na nabago ang Password.',
         'without_spaces' => 'Passwords must not contain spaces',
