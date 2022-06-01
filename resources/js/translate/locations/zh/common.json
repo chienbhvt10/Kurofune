@@ -175,7 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "立即购买",
-      "placeholder_option":"请选择选项",
+      "placeholder_option": "请选择选项",
       "label_gender": "请问您的性别为？",
       "label_age": "请问您的年龄为？",
       "label_ever_used": "过去有使用过这种药品吗？",
@@ -204,9 +204,9 @@
       "option_other_illnesses10": "甲状腺方面疾病",
       "option_other_illnesses11": "前列腺方面疾病",
       "option_other_illnesses12": "其他",
-      "error_required":"这是必填栏。",
-      "error_title_requried":"无法添加到购物车",
-      "error_msg_requried":"请检查您的输入。"
+      "error_required": "这是必填栏。",
+      "error_title_requried": "无法添加到购物车",
+      "error_msg_requried": "请检查您的输入。"
     },
     "list_pharmacies": {
       "title": "海洋药房大矶",
@@ -241,6 +241,35 @@
       },
       "update": {
         "title": "Update a existing"
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "name_field": "Product Name",
+      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "features_field": "Features",
+      "precautions_field": "Precautions",
+      "efficacy_effect_field": "Efficacy Effect",
+      "usage_does_field": "Usage Does",
+      "active_ingredients_field": "Active ingredients",
+      "additives_field": "Additives",
+      "precautions_storage_handling_field": "Precautions for Storage and Handling",
+      "manufacturer_field": "Manufacturer",
+      "use_manual_field": "Use Manual",
+
+      "error_message": {
+        "required_message": "这是必填栏。"
       }
     }
   }

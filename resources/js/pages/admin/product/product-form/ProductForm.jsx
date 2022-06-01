@@ -4,16 +4,17 @@ import { useTranslation } from "react-i18next";
 import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
 import SelectField from "./../../../../commons/Form/SelectField";
-import { getCurrentLanguage } from "../../../../helper/localStorage";
 import UploadDragger from './../../../../commons/UploadDragger/UploadDragger';
 import "./product-form.scss";
+import { getProductInfoInitValues, getTranslateInitValues } from './productInitValues.js';
 import TranslateProductForm from "./TranslateProductForm";
+import { validateProductForm } from "../../../../helper/validateField.js";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
-  const [productImg, setProductImg] = React.useState([]);
   const { i18n, t } = useTranslation();
   const { getAdminCategories, adminCategories } = useAdminCategories();
   const [avatarState, setAvatarState] = React.useState({
@@ -21,45 +22,18 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     base64Avatar: undefined,
     loading: false,
   });
-
-  const initialCommonValues = {
-    slug: item?.slug || "",
-    sku: item?.sku || "",
-    stock_status: item?.stock_status || "",
-    price: item?.price || 0,
-    status: item?.status || "",
-    product_image: item?.product_image || avatarState.base64Avatar,
-    tax_id: item?.tax_id || 0,
-    meta_title: item?.meta_title || "",
-    meta_description: item?.meta_description || "",
-    meta_keyword: item?.meta_keywords || "",
-    user_id: item?.user_id || 4,
-    cat_id: item?.cat_id || [],
-  };
-
-  const initialTranslateValues = {
-    name: "",
-    classification: "",
-    features: "",
-    precautions: "",
-    efficacy_effect: "",
-    usage_dose: "",
-    activeIngredients: "",
-    additives: "",
-    precautionsStorageHandling: "",
-    manufacturer: "",
-  };
-
+  const initialFormCommonValues = getProductInfoInitValues(item)
+  const initialTranslateValues = getTranslateInitValues()
   const [productsForm] = Form.useForm();
   const [productProfileFormEN] = Form.useForm();
   const [productProfileFormJP] = Form.useForm();
   const [productProfileFormTL] = Form.useForm();
   const [productProfileFormVI] = Form.useForm();
   const [productProfileFormZH] = Form.useForm();
-
   const onFinishAll = (values) => {
     const submitInput = {
       ...productsForm.getFieldsValue(),
+      user_id: 4,
       ja: {
         ...productProfileFormJP.getFieldsValue(),
       },
@@ -80,9 +54,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     productProfileFormEN.validateFields()
     onSave(submitInput);
   };
-
   React.useEffect(() => {
-    productsForm.setFieldsValue(initialCommonValues);
+    productsForm.setFieldsValue(initialFormCommonValues);
     if (item) {
       productProfileFormEN.setFieldsValue(
         item?.translations[0] || initialTranslateValues
@@ -126,7 +99,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         onFinishFailed={onFinishFailed}
         autoComplete="off"
         initialValues={{
-          ...initialCommonValues,
+          ...initialFormCommonValues,
         }}
       >
         <FormHeader
@@ -146,18 +119,17 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             <Col span={12} className="input-field-space">
               <InputField
                 field="slug"
-                label='Slug'
+                label={t("admins.product.slug_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 type={<Input />}
-                rules={[]}
                 response={response}
               />
             </Col>
             <Col span={12} className="input-field-space">
               <InputField
                 field="sku"
-                label="Sku"
+                label={t("admins.product.sku_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
@@ -167,28 +139,34 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             </Col>
             <Col span={12} className="input-field-space">
               <SelectField
-                className='custom-required'
                 field="status"
-                label="Status"
+                label={t("admins.product.status_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 placeholder="Please select active status"
                 options={productFormOptions.status}
-                rules={[]}
+                rules={[{
+                  required: true,
+                  message: t("admins.product.error_message.required_message"),
+                  whiteSpace: true,
+                }]}
                 response={response}
                 errorField='status'
               />
             </Col>
             <Col span={12} className="input-field-space">
               <SelectField
-                className='custom-required'
                 field="stock_status"
-                label="Stock Status"
+                label={t("admins.product.stock_status_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 placeholder="Please select Category"
                 options={productFormOptions.stock_status}
-                rules={[]}
+                rules={[{
+                  required: true,
+                  message: t("admins.product.error_message.required_message"),
+                  whiteSpace: true,
+                }]}
                 response={response}
                 errorField='stock_status'
               />
@@ -196,26 +174,27 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             <Col span={12} className="input-field-space">
               <InputField
                 field="price"
-                label="Price"
+                label={t("admins.product.price_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[
-
-                ]}
+                rules={[]}
                 response={response}
                 type={<Input type="number" className="input-field" />}
               />
             </Col>
             <Col span={12} className="input-field-space">
               <SelectField
-                className='custom-required'
                 field="cat_id"
-                label="Category"
+                label={t("admins.product.category_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 placeholder="Please select active status"
                 options={listCategories}
-                rules={[]}
+                rules={[{
+                  required: true,
+                  message: t("admins.product.error_message.required_message"),
+                  whiteSpace: true,
+                }]}
                 response={response}
                 mode="multiple"
                 errorField='cat_id'
@@ -223,13 +202,19 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             </Col>
             <Col span={12} className="input-field-space">
               <InputField
-                className='custom-required'
                 field="tax_id"
-                label="Tax"
+                label={t("admins.product.tax_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={[
-
+                rules={[{
+                  required: true,
+                  message: t("admins.product.error_message.required_message"),
+                  whiteSpace: true,
+                },
+                {
+                  pattern: new RegExp(/^[1-9][0-9]*$/),
+                  message: "Please input number greater than 0"
+                }
                 ]}
                 response={response}
                 errorField='tax_id'
@@ -237,21 +222,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               />
             </Col>
             <Col span={12} className="input-field-space">
-              <SelectField
-                field="user_id"
-                label="User "
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                placeholder="Please select active status"
-                options={productFormOptions.user_id}
-                rules={[]}
-                response={response}
-              />
-            </Col>
-            <Col span={12} className="input-field-space">
               <InputField
                 field="meta_title"
-                label="meta_title"
+                label={t("admins.product.meta_title_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
@@ -262,7 +235,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             <Col span={12} className="input-field-space">
               <InputField
                 field="meta_description"
-                label="meta_description"
+                label={t("admins.product.meta_description_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
@@ -273,7 +246,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             <Col span={12} className="input-field-space">
               <InputField
                 field="meta_keyword"
-                label="meta_keyword"
+                label={t("admins.product.meta_keyword_field")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={[]}
@@ -282,13 +255,14 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               />
             </Col>
             <Col span={12} className="input-field-space">
-              <Form.Item field="product_image" label="Product Image" labelCol={{ span: 24 }}>
+              <Form.Item field="product_image" label={t("admins.product.product_image_field")} labelCol={{ span: 24 }}>
                 <UploadDragger onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarState.avatarUrl}
                   loading={avatarState.loading} />
 
               </Form.Item>
             </Col>
+            <Col span={12} className="input-field-space"></Col>
           </Row>
         </div>
       </Form>

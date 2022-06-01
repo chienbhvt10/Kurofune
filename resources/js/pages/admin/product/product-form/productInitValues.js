@@ -1,0 +1,31 @@
+export const getProductInfoInitValues = (item) => {
+  return {
+    slug: item?.slug || "",
+    sku: item?.sku || "",
+    stock_status: item?.stock_status || "",
+    price: item?.price || 0,
+    status: item?.status || "",
+    product_image: item?.product_image || "",
+    tax_id: item?.tax_id || 0,
+    meta_title: item?.meta_title || "",
+    meta_description: item?.meta_description || "",
+    meta_keyword: item?.meta_keywords || "",
+    user_id: item?.user_id || 4,
+    cat_id: item?.cat_id || [],
+  };
+};
+
+export const getTranslateInitValues = () => {
+  return {
+    name: "",
+    classification: "",
+    features: "",
+    precautions: "",
+    efficacy_effect: "",
+    usage_dose: "",
+    activeIngredients: "",
+    additives: "",
+    precautionsStorageHandling: "",
+    manufacturer: "",
+  };
+};

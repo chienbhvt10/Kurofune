@@ -1,18 +1,22 @@
-import React, { useState } from "react";
-import BillingShipForm from "../../../../commons/BillingShipForm";
-import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
-import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
-import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
-import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
+import React from "react";
 import { useSelector } from "react-redux";
+import BillingShipForm from "../../../../commons/BillingShipForm";
 import {
   BILLING_ADDRESS_FORM,
+  FIRST_TAB,
+  FOURTH_TAB,
   ROLE_FULL_SUPPORT_PLAN,
   ROLE_LIGHT_PLAN,
   ROLE_VENDOR,
+  SECOND_TAB,
   SHIPPING_ADDRESS_FORM,
+  THIRD_TAB,
   TYPE_FORM_CREATE,
 } from "../../../../constants";
+import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
+import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
+import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
+import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
 const Phase2UserForm = ({
   role,
   typeForm,
@@ -26,7 +30,7 @@ const Phase2UserForm = ({
   billingAddressForm,
   shippingAddressForm,
 }) => {
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
   const resUpdateUser = useSelector((state) => state.userState.resCreateUser);
 
@@ -42,7 +46,7 @@ const Phase2UserForm = ({
       <div style={{ width: "50%", margin: "auto" }}>
         <CommonInfoForm
           form={commonAddressForm}
-          className={`tab ${activeTab === 1 ? "active" : ""}`}
+          className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
         />
       </div>
 
@@ -64,7 +68,7 @@ const Phase2UserForm = ({
         <div style={{ width: "80%", margin: "auto" }}>
           <PlanProfileForm
             role={role}
-            className={`tab ${activeTab === 2 ? "active" : ""}`}
+            className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
             form={planProfileForm}
           />
         </div>
@@ -73,7 +77,7 @@ const Phase2UserForm = ({
       )}
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
-          className={`tab ${activeTab === 3 ? "active" : ""}`}
+          className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
           typeForm={BILLING_ADDRESS_FORM}
           form={billingAddressForm}
           response={
@@ -83,7 +87,7 @@ const Phase2UserForm = ({
       </div>
       <div style={{ width: "50%", margin: "auto" }}>
         <BillingShipForm
-          className={`tab ${activeTab === 4 ? "active" : ""}`}
+          className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
           typeForm={SHIPPING_ADDRESS_FORM}
           form={shippingAddressForm}
           response={

@@ -1,6 +1,7 @@
 import { EyeOutlined } from "@ant-design/icons";
 import { Button, message, Modal, Space, Upload } from "antd";
-import React, { useCallback, useRef, useState } from "react";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   TYPE_IMAGE_JPEG,
   TYPE_IMAGE_JPG,
@@ -9,9 +10,10 @@ import {
 import "./upload-dragger.scss";
 
 const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
-  const ref = useRef();
-  const [previewImage, setPreviewImage] = useState(false);
-  const [imageUrl, setImageUrl] = useState();
+  const { t } = useTranslation();
+  const ref = React.useRef();
+  const [previewImage, setPreviewImage] = React.useState(false);
+  const [imageUrl, setImageUrl] = React.useState();
 
   const getBase64 = (file) => {
     return new Promise((resolve, reject) => {
@@ -91,7 +93,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
 
       >
         <Button type="primary" style={{ marginTop: 10 }} icon={<Upload />}>
-          Click to Upload
+          {t("admins.btn_upload")}
         </Button>
       </Upload>
     </div>

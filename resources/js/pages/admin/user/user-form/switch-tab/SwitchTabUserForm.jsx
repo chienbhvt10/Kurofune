@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   ROLE_FULL_SUPPORT_PLAN,
   ROLE_LIGHT_PLAN,
@@ -6,6 +7,8 @@ import {
 } from "../../../../../constants";
 import "./switch-tab-user-form.scss";
 const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div id="switch-user-form">
@@ -14,7 +17,7 @@ const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
             className={`switch-label ${activeTab === 1 ? "active" : ""}`}
             onClick={() => onChangeForm(1)}
           >
-            Address
+            {t("admins.user.switch_tab.address")}
           </label>
           {role === ROLE_VENDOR ||
           role === ROLE_LIGHT_PLAN ||
@@ -23,7 +26,7 @@ const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
               className={`switch-label ${activeTab === 2 ? "active" : ""}`}
               onClick={() => onChangeForm(2)}
             >
-              Role Info
+              {t("admins.user.switch_tab.role_info")}
             </label>
           ) : (
             <></>
@@ -33,13 +36,13 @@ const SwitchTabUserForm = ({ activeTab, onChangeForm, children, role }) => {
             className={`switch-label ${activeTab === 3 ? "active" : ""}`}
             onClick={() => onChangeForm(3)}
           >
-            Billing address
+            {t("admins.user.switch_tab.billing_address")}
           </label>
           <label
             className={`switch-label ${activeTab === 4 ? "active" : ""}`}
             onClick={() => onChangeForm(4)}
           >
-            Shipping address
+            {t("admins.user.switch_tab.shipping_address")}
           </label>
         </div>
       </div>

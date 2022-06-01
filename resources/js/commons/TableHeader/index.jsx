@@ -1,10 +1,12 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Breadcrumb } from "../../commons/Breadcrumb";
 import "./table-header.scss";
 export const TableHeader = ({ children, title, breadcrumb, addLink }) => {
+  const { t } = useTranslation();
   return (
     <>
       <Breadcrumb title={title} breadcrumb={breadcrumb} />
@@ -16,7 +18,7 @@ export const TableHeader = ({ children, title, breadcrumb, addLink }) => {
             to={addLink}
           >
             <FontAwesomeIcon className="mr-1" icon={faPlus} />
-            Add new
+            {t("admins.btn_add_new")}
           </Link>
         ) : (
           <></>
@@ -27,12 +29,12 @@ export const TableHeader = ({ children, title, breadcrumb, addLink }) => {
             <input
               type="text"
               className="text-input p-1"
-              placeholder="Search username"
+              placeholder={t("admins.user.form.placeholder.search")}
               aria-label="Search username"
               aria-describedby="button-addon2"
             />
             <button className="btn btn-outline-secondary" type="button">
-              Search
+              {t("admins.btn_search")}
             </button>
           </div>
         </div>

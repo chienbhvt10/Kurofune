@@ -175,7 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "買い物かごに入れる",
-      "placeholder_option":"選択してください",
+      "placeholder_option": "選択してください",
       "label_gender": "あなたの性別は何ですか？",
       "label_age": "あなたの年齢を教えてください",
       "label_ever_used": "このお薬を使ったことはありますか？",
@@ -204,10 +204,9 @@
       "option_other_illnesses10": "甲状腺疾患",
       "option_other_illnesses11": "前立腺疾患",
       "option_other_illnesses12": "その他（自由記述）",
-      "error_required":"この項目は必須です。",
-      "error_title_requried":"買い物かごに追加できませんでした",
-      "error_msg_requried":"入力内容をご確認ください。"
-
+      "error_required": "この項目は必須です。",
+      "error_title_requried": "買い物かごに追加できませんでした",
+      "error_msg_requried": "入力内容をご確認ください。"
     },
     "list_pharmacies": {
       "title": "マリン薬局　大磯通店",
@@ -233,14 +232,20 @@
     }
   },
   "admins": {
-    "user": {
+    " user": {
       "list": {
         "title": ""
       },
       "create": {
+<<<<<<< Updated upstream
+        "title": "",
+        "breadcrumb": "",
+        "form_info": {
+=======
         "title": "Create a new",
-        "breadcrumb":"Create user",
-        "form_infor":{
+        "breadcrumb": "Create user",
+        "form_infor": {
+>>>>>>> Stashed changes
           "field_username": "Username",
           "field_password": "Password",
           "field_email": "Email",
@@ -250,7 +255,36 @@
         }
       },
       "update": {
-        "title": "Update a existing"
+        "title": ""
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "medicinal_efficacy_classification_field": "薬効分類",
+      "features_field": "製品の特徴",
+      "precautions_field": "使用上の注意",
+      "efficacy_effect_field": "効能・効果",
+      "usage_does_field": "用法・用量",
+      "active_ingredients_field": "成分分量",
+      "additives_field": "添加物",
+      "precautions_storage_handling_field": "保管及び取扱い上の注意",
+      "manufacturer_field": "製造販売会社",
+      "name_field": "一般名",
+      "use_manual_field": "用量用法",
+
+      "error_message": {
+        "required_message": "この項目は必須です。"
       }
     }
   }

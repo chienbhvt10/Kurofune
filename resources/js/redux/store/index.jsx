@@ -7,7 +7,6 @@ import roleState from "../reducers/roleReducers";
 import pharmacyState from "../reducers/pharmacyReducer";
 import adminCategoryState from "./../reducers/adminCategoryReducer";
 
-import thunk from "redux-thunk";
 export const store = configureStore({
   reducer: {
     userState,
@@ -18,5 +17,4 @@ export const store = configureStore({
     pharmacyState,
     adminCategoryState,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });

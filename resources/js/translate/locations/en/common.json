@@ -175,7 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "BUY NOW",
-      "placeholder_option":"Please select option",
+      "placeholder_option": "Please select option",
       "label_gender": "What is your gender?",
       "label_age": "How old are you?",
       "label_ever_used": "Have you ever used this medicine?",
@@ -204,9 +204,9 @@
       "option_other_illnesses10": "Thyroid disease",
       "option_other_illnesses11": "Prostate disease",
       "option_other_illnesses12": "Other (free description)",
-      "error_required":"This field is required.",
-      "error_title_requried":"Could not add to shopping cart",
-      "error_msg_requried":"Please check your input."
+      "error_required": "This field is required.",
+      "error_title_requried": "Could not add to shopping cart",
+      "error_msg_requried": "Please check your input."
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",
@@ -236,11 +236,26 @@
     "btn_cancel": "Cancel",
     "btn_upload": "Click to upload",
     "btn_generate_password": "Generate",
+    "btn_search": "Search",
+    "btn_add_new": "Add New",
     "user": {
       "list": {
         "title": "User List"
       },
-      "switch_tab": "",
+      "create": {
+        "title": "Create user",
+        "breadcrumb": "Create user"
+      },
+      "update": {
+        "title": "Update user",
+        "breadcrumb": "Update user"
+      },
+      "switch_tab": {
+        "address": "Address",
+        "billing_address": "Billing Address",
+        "shipping_address": "Shipping Address",
+        "role_info": "Role Info"
+      },
       "form": {
         "field_role": "Role",
         "field_name": "Name",
@@ -275,7 +290,8 @@
           "field_start_date_education": "Start Date Education",
           "field_end_date_education": "End Date Education",
           "field_education_status": "Japanese language education status",
-          "field_page_registration": "Wabisabi My Page Registration"
+          "field_page_registration": "Wabisabi My Page Registration",
+          "field_company_mail": "Company Mail"
         },
         "vendor_profile": {
           "field_locale": "Locale",
@@ -288,7 +304,7 @@
           "field_drug_handled": "Drugs Handled",
           "field_distinguishing_by_name": "Distinguishing by name",
           "field_business_hours": "Business Hours",
-          "field_consulation_hours": "Consultation Hours",
+          "field_consultation_hours": "Consultation Hours",
           "field_contact_information": "Contact Information",
           "field_current_working": "Currently Working",
           "field_open_sale_time": "Open Sale Time",
@@ -296,15 +312,99 @@
           "field_expiration_date_of_drug": "Expiration Date Of Drug"
         },
         "option": {
-          "gender": { "male": "Male" }
+          "active": "User active",
+          "inactive": "User inactive",
+          "male": "Male",
+          "female": "Female",
+          "yes": "Yes",
+          "no": "No",
+          "registered": "Unregistered",
+          "unregistered": "Registered",
+          "insurance_status": {
+            "option1": "",
+            "option2": "",
+            "option3": "",
+            "option4": "",
+            "option5": ""
+          },
+          "education_status": {
+            "unregistered": "",
+            "registered": ""
+          }
+        },
+        "placeholder": {
+          "search": "Search username",
+          "select_role": "Please select a role",
+          "select_active_status": "Please select a active status",
+          "select_prefecture": "Please select prefecture",
+          "select_date": "Select date",
+          "select_gender": "Please select gender",
+          "select_payment": "Please select payment",
+          "select_insurance_status": "Please select insurance status",
+          "select_education_status": "Please select japanese language education status"
         }
       },
-      "create": {
-        "title": "Create a new",
-        "breadcrumb": "Create user"
-      },
-      "update": {
-        "title": "Update a existing"
+      "error": {
+        "role_required": "Please select a role!",
+        "name_required": "Please input your name!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "user_name_required": "Please input your username!",
+        "password": {
+          "required": "Please input your password!",
+          "min": "Please input atLeast 8 characters for password!"
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!",
+        "current_password_required": "Please input current password!",
+        "new_password_required": "Please input new password!",
+        "confirm_password_required": "Please input password confirmation!",
+        "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "name_field": "Product Name",
+      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "features_field": "Features",
+      "precautions_field": "Precautions",
+      "efficacy_effect_field": "Efficacy Effect",
+      "usage_does_field": "Usage Does",
+      "active_ingredients_field": "Active ingredients",
+      "additives_field": "Additives",
+      "precautions_storage_handling_field": "Precautions for Storage and Handling",
+      "manufacturer_field": "Manufacturer",
+      "use_manual_field": "Use Manual",
+
+      "error_message": {
+        "required_message": "This field is required."
+        
       }
     }
   }

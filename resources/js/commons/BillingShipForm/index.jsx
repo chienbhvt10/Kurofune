@@ -1,11 +1,23 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { validateUser } from "../../helper/validateField";
 import { PREF } from "../data";
 import InputField from "../Form/InputField";
 import SelectField from "../Form/SelectField";
 
 const BillingShipForm = ({ className, form, typeForm, response }) => {
+  const { t } = useTranslation();
+
+  const renderErrorTranslate = (field) => {
+    return validateUser?.billing_shipping?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <Form
       className={className + " billing-shipping-form"}
@@ -17,7 +29,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="full_name"
             errorField={`${typeForm}.full_name`}
-            label="Full Name"
+            label={t("admins.user.form.field_full_name")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
@@ -28,10 +40,10 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="postal_code"
             errorField={`${typeForm}.postal_code`}
-            label="Postal code"
+            label={t("admins.user.form.field_postal_code")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={validateUser.billing_shipping.postal_code}
+            rules={renderErrorTranslate("postal_code")}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -40,12 +52,11 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <SelectField
             field="prefecture"
             errorField={`${typeForm}.prefecture`}
-            label="Prefecture"
+            label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
             response={response}
-            placeholder="Please select prefecture"
+            placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}
           />
         </Col>
@@ -53,7 +64,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="city"
             errorField={`${typeForm}.city`}
-            label="City"
+            label={t("admins.user.form.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
@@ -64,7 +75,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="street_address"
             errorField={`${typeForm}.street_address`}
-            label="Street address"
+            label={t("admins.user.form.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
@@ -75,7 +86,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="building"
             errorField={`${typeForm}.building`}
-            label="Building"
+            label={t("admins.user.form.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
@@ -86,11 +97,11 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="phone"
             errorField={`${typeForm}.phone`}
-            label="Phone"
+            label={t("admins.user.form.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            rules={validateUser.billing_shipping.phone}
+            rules={renderErrorTranslate("phone")}
             type={<Input className="input-field" />}
           />
         </Col>
@@ -98,11 +109,11 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
           <InputField
             field="email"
             errorField={`${typeForm}.email`}
-            label="Email"
+            label={t("admins.user.form.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             response={response}
-            rules={validateUser.billing_shipping.email}
+            rules={renderErrorTranslate("email")}
             type={<Input className="input-field" />}
           />
         </Col>

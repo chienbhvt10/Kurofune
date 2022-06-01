@@ -1,7 +1,7 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
 import { getCurrentLanguage, getResetMail } from "../../../helper/localStorage";
@@ -11,8 +11,8 @@ import "./reset-password.scss";
 
 const ResetPassword = () => {
   const [param, setParam] = useSearchParams();
-  const [showPassword, setShowPassword] = useState(true);
-  const [showPasswordConfirm, setShowPasswordConfirm] = useState(true);
+  const [showPassword, setShowPassword] = React.useState(true);
+  const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(true);
   const { resResetPassword, getResetPassword, resetResponse } =
     useResetPassword();
   const lang = getCurrentLanguage();
@@ -46,6 +46,16 @@ const ResetPassword = () => {
       navigate(`${lang}/login`);
     }
   };
+
+  const renderErrorTranslate = (field) => {
+    return validateAuth?.reset_password?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <Row justify="center">
       <Col span={12}>
@@ -63,7 +73,7 @@ const ResetPassword = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resResetPassword}
-                rules={validateAuth.reset_password.email}
+                rules={renderErrorTranslate("email")}
                 type={
                   <Input
                     addonBefore={
@@ -84,7 +94,7 @@ const ResetPassword = () => {
                 label="Password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={validateAuth.reset_password.password}
+                rules={renderErrorTranslate("password")}
                 response={resResetPassword}
                 type={
                   <Input
@@ -116,7 +126,7 @@ const ResetPassword = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 dependencies={["password"]}
-                rules={validateAuth.reset_password.password_confirmation}
+                rules={renderErrorTranslate("password_confirmation")}
                 response={resResetPassword}
                 type={
                   <Input

@@ -18,7 +18,7 @@ export const LangAfterReload = () => {
   } else {
     var lang = "/ja";
   }
-  useEffect(() => {
+  React.useEffect(() => {
     i18n.changeLanguage(lang?.slice(1));
   }, []);
   return <></>;

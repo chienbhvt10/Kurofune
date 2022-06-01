@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, Select } from "antd";
+import { useTranslation } from "react-i18next";
 const SelectField = ({
   field,
   errorField,
@@ -14,6 +15,7 @@ const SelectField = ({
   disabled,
   className
 }) => {
+  const { t } = useTranslation();
   return (
     <Form.Item
       className={className}
@@ -37,7 +39,7 @@ const SelectField = ({
       <Select placeholder={placeholder} disabled={disabled} mode={mode}>
         {options?.map((option, index) => (
           <Select.Option key={index} value={option.value}>
-            {option.label}
+            {option.label || t(option.label_translate)}
           </Select.Option>
         ))}
       </Select>
