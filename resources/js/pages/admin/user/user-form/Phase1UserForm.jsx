@@ -12,6 +12,7 @@ import {
   ROLE_LIGHT_PLAN,
   ROLE_VENDOR,
   TYPE_FORM_CREATE,
+  TYPE_FORM_UPDATE,
 } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
@@ -283,7 +284,7 @@ export const UserForm = ({
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("user_name")}
                 response={response}
-                type={<Input />}
+                type={<Input disabled={typeForm === TYPE_FORM_UPDATE} />}
               />
             </Col>
             <Col span={23}>
@@ -309,7 +310,7 @@ export const UserForm = ({
                     htmlType="button"
                     onClick={onGeneratePassword}
                   >
-                    {t("admins.btngenerate_password")}
+                    {t("admins.btn_generate_password")}
                   </Button>
                 </Col>
                 <Col span={24}></Col>
