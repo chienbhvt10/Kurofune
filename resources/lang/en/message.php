@@ -72,6 +72,12 @@ return [
         'deleted' => 'Product deleted',
         'not_exist' => 'Product not exist',
     ],
+    'shipping_method' => [
+        'created' => 'Create shipping method successfully',
+        'updated' => 'Update shipping method successfully',
+        'deleted' => 'Delete shipping method successfully',
+        'not_exist' => 'Shipping method not exist'
+    ],
     'cart' => [
         'add' => ':product_name has been added to your cart',
         'no_info' => 'There is no information in the shopping cart.',

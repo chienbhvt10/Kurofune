@@ -51,10 +51,14 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
-
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
             Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
+        });
+
+        //Shipping Method Manger
+        Route::middleware(['permission:manage shipping method'])->group(function () {
+            Route::apiResource('shipping-methods', \App\Http\Controllers\API\ShippingMethodController::class);
         });
 
         // Chat log user manage
@@ -97,6 +101,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
                 // Checkout process
                 Route::post('checkout', [\App\Http\Controllers\API\CartController::class, 'checkout']);
+
+                //view shipping method
+                Route::get('list-shipping-method', [\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {

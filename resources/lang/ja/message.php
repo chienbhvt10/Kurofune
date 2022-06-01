@@ -71,6 +71,12 @@ return [
         'deleted' => '商品を消除しました。',
         'not_exist' => '商品が存在しません。',
     ],
+    'shipping_method' => [
+        'created' => '配送方法を正常に作成する',
+        'updated' => '配送方法を正常に更新',
+        'deleted' => '配送方法を正常に削除します',
+        'not_exist' => '配送方法がありません'
+    ],
     'cart' => [
         'add' => ':product_name has been added to your cart',
         'no_info' => '買い物かご内の情報はありません。',

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\ShippingMethod;
 use Illuminate\Database\Seeder;
 
 class ShippingMethodSeeder extends Seeder
@@ -13,6 +14,6 @@ class ShippingMethodSeeder extends Seeder
      */
     public function run()
     {
-        //
+        ShippingMethod::factory()->count(15)->create();
     }
 }

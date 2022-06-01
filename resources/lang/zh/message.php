@@ -71,6 +71,12 @@ return [
         'deleted' => '产品删除。',
         'not_exist' => '产品不存在。',
     ],
+    'shipping_method' => [
+        'created' => '成功创建运输方式',
+        'updated' => '成功更新送货方式',
+        'deleted' => '成功删除送货方式',
+        'not_exist' => '配送方式不存在'
+    ],
     'cart' => [
         'add' => ':product_name has been added to your cart',
         'no_info' => '购物车中没有任何信息。',

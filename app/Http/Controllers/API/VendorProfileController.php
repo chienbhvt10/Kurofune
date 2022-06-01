@@ -7,7 +7,6 @@ use App\Models\VendorProfile;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use App\Models\Product;
-use App\Models\ProductTranslation;
 use App\Traits\CustomFilterTrait;
 
 class VendorProfileController extends Controller
@@ -22,8 +21,6 @@ class VendorProfileController extends Controller
             $vendors = [];
             foreach ($ids_vendor as $id){
                 $vendor = VendorProfile::find($id);
-                $images_outside = getMediaImages($vendor, 'images_outside');
-                $images_inside = getMediaImages($vendor, 'images_inside');
                 $items = [
                     'id' => $vendor->id,
                     'user_id' => $vendor->user_id,
@@ -43,8 +40,8 @@ class VendorProfileController extends Controller
                     'open_sale_time' => $vendor->open_sale_time,
                     'time_order_outside' => $vendor->time_order_outside,
                     'expiration_date_of_drugs' => $vendor->expiration_date_of_drugs,
-                    'images_outside' => $images_outside,
-                    'images_inside' => $images_inside,
+                    'images_outside' => $vendor->images_outside,
+                    'images_inside' => $vendor->images_inside,
                 ];
                 $vendors[] = $items;
             }
@@ -56,8 +53,6 @@ class VendorProfileController extends Controller
     {
         $vendor = [];
         $vendor = VendorProfile::find($id);
-        $images_outside = getMediaImages($vendor, 'images_outside');
-        $images_inside = getMediaImages($vendor, 'images_inside');
         $items = [
             'id' => $vendor->id,
             'user_id' => $vendor->user_id,
@@ -77,8 +72,8 @@ class VendorProfileController extends Controller
             'open_sale_time' => $vendor->open_sale_time,
             'time_order_outside' => $vendor->time_order_outside,
             'expiration_date_of_drugs' => $vendor->expiration_date_of_drugs,
-            'images_outside' => $images_outside,
-            'images_inside' => $images_inside,
+            'images_outside' => $vendor->images_outside,
+            'images_inside' => $vendor->images_inside,
         ];
 
         $vendor = $items;
