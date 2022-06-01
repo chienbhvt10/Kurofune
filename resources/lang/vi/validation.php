@@ -107,7 +107,7 @@ return [
     'prohibited_unless' => 'Trường :attribute bị cấm trừ khi :other là một trong :values.',
     'prohibits' => 'Trường :attribute cấm :other từ thời điểm hiện tại.',
     'regex' => 'Trường :attribute có định dạng không hợp lệ.',
-    'required' => 'Trường :attribute không được bỏ trống.',
+    'required' => 'Vui lòng nhập :attribute',
     'required_array_keys' => 'Trường :attribute phải bao gồm các mục nhập cho: :values.',
     'required_if' => 'Trường :attribute không được bỏ trống khi trường :other là :value.',
     'required_unless' => 'Trường :attribute không được bỏ trống trừ khi :other là :values.',
