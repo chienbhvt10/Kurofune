@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Traits\RespondsStatusTrait;
+use App\Traits\CustomFilterTrait;
 
 class PageController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     /**
      * Display a listing of the resource.
      *
@@ -28,7 +29,12 @@ class PageController extends Controller
     {
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
-            $page = Page::paginate($posts_per_page);
+            $relational = 'page_translations';
+            if ($request->name) {
+                $page = $this->filterWhereHasName(new Page, $relational, $request->name, $posts_per_page);
+            } else {
+                $page = Page::paginate($posts_per_page);
+            }
             return $this->responseData($page);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
@@ -57,10 +63,10 @@ class PageController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-            if ($request->slug) {
-                $slug = Str::slug($request->slug);
-            } else {
-                $slug = Str::slug($request->en['title']);
+            $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['title']);
+            $slug_check = check_unique_slug(new Page, $slug);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
             }
             $author_id = $request->author_id;
             $status = $request->status;
@@ -154,10 +160,10 @@ class PageController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-            if ($request->slug) {
-                $slug = Str::slug($request->slug);
-            } else {
-                $slug = Str::slug($request->en['title']);
+            $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['title']);
+            $slug_check = check_unique_slug_update(new Page, $slug, $id);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
             }
             $author_id = $request->author_id ?? null;
             $status = $request->status ?? null;
