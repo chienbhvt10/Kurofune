@@ -38,11 +38,9 @@ export const UserForm = ({
   const { t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const [role, setRole] = React.useState();
-  const [avatarState, setAvatarState] = React.useState({
-    avatarUrl: undefined,
-    base64Avatar: undefined,
-    loading: false,
-  });
+  const [avatarUrl, setAvatarUrl] = React.useState();
+  const [base64Avatar, setBase64Avatar] = React.useState();
+  const [loading, setLoading] = React.useState(false);
   const lang = getCurrentLanguage();
   const [userInfoForm] = Form.useForm();
   const [planProfileForm] = Form.useForm();
@@ -65,7 +63,7 @@ export const UserForm = ({
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
-      avatar: avatarState.base64Avatar,
+      avatar: base64Avatar,
       ...userInfoForm.getFieldsValue(),
       ...commonAddressForm.getFieldsValue(),
       billing_address: {
@@ -164,11 +162,11 @@ export const UserForm = ({
   };
 
   const onChangeAvatar = (base64Image) => {
-    setAvatarState({ base64Avatar: base64Image });
+    setBase64Avatar(base64Image);
   };
 
   React.useEffect(() => {
-    setAvatarState({ avatarUrl: item?.avatar || "" });
+    setAvatarUrl(item?.avatar || "");
   }, [item]);
 
   const renderErrorTranslate = (field) => {
@@ -211,8 +209,8 @@ export const UserForm = ({
           <Col span={8}>
             <UploadDragger
               onChangeImage={onChangeAvatar}
-              imageUrlProps={avatarState.avatarUrl}
-              loading={avatarState.loading}
+              imageUrlProps={avatarUrl}
+              loading={loading}
             />
           </Col>
           <Col span={14}>

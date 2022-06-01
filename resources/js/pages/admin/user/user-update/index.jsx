@@ -27,9 +27,9 @@ const UpdateUser = () => {
     navigate(`${lang}/admin/user-list`);
   };
 
-  const onSave = async (values) => {
-    await updateUser(values);
-    await getAllUsers({ page: pagination.current_page });
+  const onSave = (values) => {
+    updateUser(values);
+    getAllUsers({ page: pagination.current_page });
   };
 
   React.useEffect(() => {
