@@ -5,12 +5,10 @@ namespace App\Models;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
 
-class VendorProfile extends Model implements HasMedia
+class VendorProfile extends Model
 {
-    use HasFactory, Translatable, InteractsWithMedia;
+    use HasFactory, Translatable;
 
     public $translatedAttributes = [
         'name',
@@ -31,9 +29,21 @@ class VendorProfile extends Model implements HasMedia
         'expiration_date_of_drugs',
     ];
 
-    protected $fillable = ['id'];
+    protected $fillable = ['id', 'images_inside', 'images_outside'];
 
     public $timestamps = true;
+
+    public function getImagesOutsideAttribute()
+    {
+        $images_outside = get_multiple_image($this->attributes['images_outside']);
+        return $images_outside;
+    }
+
+    public function getImagesInsideAttribute()
+    {
+        $images_inside = get_multiple_image($this->attributes['images_inside']);
+        return $images_inside;
+    }
 
     /*
     |--------------------------------------------------------------------------

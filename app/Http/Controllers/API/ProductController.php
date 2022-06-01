@@ -32,15 +32,16 @@ class ProductController extends Controller
             $posts_per_page = config('constants.pagination.items_per_page');
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
+            $relational = 'product_translations';
 
             if ($request->name) {
-                $product = $this->filterScopeName(new Product, $request->name);
+                $product = $this->filterWhereHasName(new Product, $relational, $request->name, $posts_per_page);
             } else {
                 $product = Product::paginate($posts_per_page);
             }
             if($roles == UserRole::ROLE_VENDOR) {
                 if ($request->name) {
-                    $product = $this->filterScopeName(new Product, $request->name);
+                    $product = $this->filterWhereHasName($user->products(), $relational, $request->name, $posts_per_page);
                 } else {
                     $product = $user->products()->paginate($posts_per_page);
                 }
