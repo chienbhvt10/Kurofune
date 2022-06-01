@@ -65,5 +65,9 @@
   "Gastric / duodenal ulcer":"Gastric / duodenal ulcer",
   "Thyroid disease": "Thyroid disease",
   "Prostate disease":"Prostate disease",
-  "Other (free description)": "Other (free description)"
+  "Other (free description)": "Other (free description)",
+  "First-class OTC drugs":"First-class OTC drugs",
+  "Specify Second-class OTC drugs":"Specify Second-class OTC drugs",
+  "Second-class OTC drugs":"Second-class OTC drugs"
+  
 }

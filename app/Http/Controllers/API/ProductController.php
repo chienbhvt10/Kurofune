@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Rules\Base64Image;
+use App\Traits\ProductTrait;
 
 class ProductController extends Controller
 {
-    use RespondsStatusTrait, CustomFilterTrait;
+    use RespondsStatusTrait, CustomFilterTrait,ProductTrait;
     /**
      * Display a listing of the resource.
      *
@@ -197,11 +198,8 @@ class ProductController extends Controller
         try {
             $data = Product::find($id);
             $categories = $data->categories;
-            $type = $categories;
             $translations = $data -> translations;
-            foreach($type as $type){
-                $cat_type = $type->type ;
-            }
+            $type = $categories[0]->type;
             $response = [
                 'slug' => $data->slug,
                 'sku' => $data->sku,
@@ -223,7 +221,7 @@ class ProductController extends Controller
                 'additives' => $data->additives,
                 'precautions_storage_handling' => $data->precautions_storage_handling,
                 'manufacturer' => $data->manufacturer,
-                'type' => CAT_TYPE[$cat_type],
+                'type' => __(CAT_TYPE[$type]),
                 'translations' => $translations,
             ];
             return $this->responseData($response);
@@ -399,11 +397,8 @@ class ProductController extends Controller
         try {
             $data = Product::find($id);
             $categories = $data->categories;
-            $type = $categories;
             $translations = $data -> translations;
-            foreach($type as $type){
-                $cat_type = $type->type ;
-            }
+            $type = $categories[0]->type;
             $response = [
                 'slug' => $data->slug,
                 'sku' => $data->sku,
@@ -425,7 +420,7 @@ class ProductController extends Controller
                 'additives' => $data->additives,
                 'precautions_storage_handling' => $data->precautions_storage_handling,
                 'manufacturer' => $data->manufacturer,
-                'type' => CAT_TYPE[$cat_type],
+                'type' => __(CAT_TYPE[$type]),
                 'translations' => $translations,
             ];
             if (empty($data)) {

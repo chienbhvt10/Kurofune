@@ -64,5 +64,8 @@
   "Gastric / duodenal ulcer":"Ulcer",
   "Thyroid disease": "Sakit sa Thyroid",
   "Prostate disease":"Sakit sa Prostate",
-  "Other (free description)": "Iba pa"
+  "Other (free description)": "Iba pa",
+  "First-class OTC drugs":"Unang-class na OTC na gamot",
+  "Specify Second-class OTC drugs":"Tukuyin ang Second-class na mga OTC na gamot",
+  "Second-class OTC drugs":"Pangalawang klase ng mga OTC na gamot"
 }
