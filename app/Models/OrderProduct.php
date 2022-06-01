@@ -22,4 +22,15 @@ class OrderProduct extends Model
     ];
 
     public $timestamps = true;
+
+     /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+
+    public function order(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
 }

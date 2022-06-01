@@ -61,5 +61,10 @@ class Order extends Model
         return $this->hasOne(Transaction::class, 'order_id', 'id');
     }
 
+    public function orderproduct(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(OrderProduct::class, 'order_id', 'id');
+    }
+
 
 }
