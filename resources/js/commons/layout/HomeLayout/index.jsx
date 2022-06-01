@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "./home-layout.scss";
 import SideBar from "../../../components/SideBar";
 import HeaderHome from "../../../components/HeaderHome";
@@ -6,7 +6,7 @@ import Footer from "../../../components/Footer";
 import { Outlet } from "react-router-dom";
 
 const HomeLayout = ({ styleColor, navigateLinkData }) => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = React.useState(false);
 
   const toggleSideBar = () => {
     setShow(!show);

@@ -267,9 +267,9 @@
         "title": ""
       },
       "create": {
-        "title": "Create a new",
-        "breadcrumb":"Create user",
-        "form_infor":{
+        "title": "",
+        "breadcrumb": "",
+        "form_info": {
           "field_username": "Username",
           "field_password": "Password",
           "field_email": "Email",
@@ -279,7 +279,7 @@
         }
       },
       "update": {
-        "title": "Update a existing"
+        "title": ""
       }
     }
   }

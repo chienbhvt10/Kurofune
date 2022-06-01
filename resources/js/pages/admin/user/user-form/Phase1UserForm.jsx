@@ -1,5 +1,5 @@
 import { Button, Col, Form, Input, Row, Select } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { userFormOptions } from "../../../../commons/data";
 import InputField from "../../../../commons/Form/InputField";
@@ -12,6 +12,7 @@ import {
   ROLE_LIGHT_PLAN,
   ROLE_VENDOR,
   TYPE_FORM_CREATE,
+  TYPE_FORM_UPDATE,
 } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
@@ -34,10 +35,10 @@ export const UserForm = ({
   title,
   response,
 }) => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
-  const [role, setRole] = useState();
-  const [avatarState, setAvatarState] = useState({
+  const [role, setRole] = React.useState();
+  const [avatarState, setAvatarState] = React.useState({
     avatarUrl: undefined,
     base64Avatar: undefined,
     loading: false,
@@ -170,6 +171,15 @@ export const UserForm = ({
     setAvatarState({ avatarUrl: item?.avatar || "" });
   }, [item]);
 
+  const renderErrorTranslate = (field) => {
+    return validateUser?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <div className="user-form">
       <Form
@@ -185,7 +195,10 @@ export const UserForm = ({
         <FormHeader
           breadcrumb={[
             { name: "Home", routerLink: "../" },
-            { name: "User List", routerLink: `${lang}/admin/user-list` },
+            {
+              name: t("admins.user.list.title"),
+              routerLink: `${lang}/admin/user-list`,
+            },
             {
               name: title,
               routerLink: "",
@@ -207,15 +220,15 @@ export const UserForm = ({
               <Form.Item
                 name="role"
                 errorField="role"
-                label="Role"
+                label={t("admins.user.form.field_role")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 hasFeedback
-                rules={validateUser.role}
+                rules={renderErrorTranslate("role")}
                 validateStatus={"danger"}
               >
                 <Select
-                  placeholder="Please select a role"
+                  placeholder={t("admins.user.form.placeholder.select_role")}
                   onChange={onChangeRole}
                 >
                   {roles.map((item, index) => (
@@ -230,10 +243,10 @@ export const UserForm = ({
               <InputField
                 field="name"
                 errorField="name"
-                label="Name"
+                label={t("admins.user.form.field_name")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={validateUser.name}
+                rules={renderErrorTranslate("name")}
                 response={response}
                 type={<Input />}
               />
@@ -242,10 +255,10 @@ export const UserForm = ({
               <InputField
                 field="email"
                 errorField="email"
-                label="Email"
+                label={t("admins.user.form.field_email")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={validateUser.email}
+                rules={renderErrorTranslate("email")}
                 response={response}
                 type={<Input />}
               />
@@ -254,10 +267,10 @@ export const UserForm = ({
               <InputField
                 field="phone"
                 errorField="phone"
-                label="Phone"
+                label={t("admins.user.form.field_phone")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={validateUser.phone}
+                rules={renderErrorTranslate("phone")}
                 response={response}
                 type={<Input />}
               />
@@ -266,12 +279,12 @@ export const UserForm = ({
               <InputField
                 field="username"
                 errorField="username"
-                label="Username"
+                label={t("admins.user.form.field_username")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={validateUser.user_name}
+                rules={renderErrorTranslate("user_name")}
                 response={response}
-                type={<Input />}
+                type={<Input disabled={typeForm === TYPE_FORM_UPDATE} />}
               />
             </Col>
             <Col span={23}>
@@ -280,11 +293,12 @@ export const UserForm = ({
                   <InputField
                     field="password"
                     errorField="password"
-                    label="Password"
+                    label={t("admins.user.form.field_password")}
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
                     rules={
-                      typeForm === TYPE_FORM_CREATE && validateUser.password
+                      typeForm === TYPE_FORM_CREATE &&
+                      renderErrorTranslate("password")
                     }
                     response={response}
                     type={<Input />}
@@ -296,7 +310,7 @@ export const UserForm = ({
                     htmlType="button"
                     onClick={onGeneratePassword}
                   >
-                    Generate
+                    {t("admins.btn_generate_password")}
                   </Button>
                 </Col>
                 <Col span={24}></Col>
@@ -306,12 +320,14 @@ export const UserForm = ({
               <SelectField
                 field="active"
                 errorField="active"
-                label="Active"
+                label={t("admins.user.form.field_active")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={validateUser.active}
+                rules={renderErrorTranslate("active")}
                 response={response}
-                placeholder="Please select active status"
+                placeholder={t(
+                  "admins.user.form.placeholder.select_active_status"
+                )}
                 options={userFormOptions.active_status}
               />
             </Col>

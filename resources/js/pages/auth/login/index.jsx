@@ -1,7 +1,7 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Col, Form, Input, Row, Typography } from "antd";
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -18,7 +18,7 @@ import "./style.scss";
 const { Title } = Typography;
 
 export const Login = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = React.useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
   const { i18n, t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -44,6 +44,15 @@ export const Login = () => {
     await loginUser(values);
   };
 
+  const renderErrorTranslate = (field) => {
+    return validateAuth?.login?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <Row justify="center">
       <Col span={12}>
@@ -67,7 +76,7 @@ export const Login = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
-                rules={validateAuth.login.email}
+                rules={renderErrorTranslate("email")}
                 className="input-control"
                 type={
                   <Input
@@ -91,7 +100,7 @@ export const Login = () => {
                 wrapperCol={{ span: 24 }}
                 response={resLogin}
                 className="input-control"
-                rules={validateAuth.login.password}
+                rules={renderErrorTranslate("password")}
                 type={
                   <Input
                     className="input-field"

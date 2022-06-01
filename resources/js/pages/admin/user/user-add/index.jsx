@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { TYPE_FORM_CREATE } from "../../../../constants";
@@ -9,6 +10,7 @@ import { resetResCRUDAction } from "../../../../redux/actions/userAction";
 import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { createUser, resCreateUser } = useCreateUser();
   const { getAllUsers, pagination } = useUsers();
@@ -19,9 +21,9 @@ const AddUser = () => {
     navigate(`${lang}/admin/user-list`);
   };
 
-  const onSave = async (values) => {
-    await createUser(values);
-    await getAllUsers({ page: pagination.current_page });
+  const onSave = (values) => {
+    createUser(values);
+    getAllUsers({ page: pagination.current_page });
   };
 
   React.useEffect(() => {
@@ -39,7 +41,7 @@ const AddUser = () => {
         response={resCreateUser}
         onCancel={onCancel}
         onSave={onSave}
-        title="Create User"
+        title={t("admins.user.create.title")}
         typeForm={TYPE_FORM_CREATE}
       />
     </div>

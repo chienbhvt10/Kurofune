@@ -1,10 +1,9 @@
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Form, Row, Col, Input } from "antd";
-import React, { useState } from "react";
+import { Button, Col, Form, Input, Row } from "antd";
+import React from "react";
 import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import InputField from "../../../../commons/Form/InputField";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
@@ -18,16 +17,18 @@ export const ChangePassword = () => {
   const { changePassword, resChangePassword } = useChangePassword();
   const { getLogout, resLogout } = useLogout();
   const [changePasswordForm] = Form.useForm();
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [showCurrentPassword, setShowCurrentPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = React.useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
+
   const changePasswordInitValues = {
     current_password: "",
     password: "",
     password_confirmation: "",
   };
+
   React.useEffect(() => {
     if (resChangePassword?.status_code === 200) {
       changePasswordForm.setFieldsValue(changePasswordInitValues);
@@ -44,6 +45,16 @@ export const ChangePassword = () => {
       navigate(`${lang}/login`);
     }
   }, [resLogout]);
+
+  const renderErrorTranslate = (field) => {
+    return validateUser?.change_password?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <>
       <Helmet>
@@ -65,7 +76,7 @@ export const ChangePassword = () => {
               label={t("member.change_password.field_old_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
-              rules={validateUser.change_password.current_password}
+              rules={renderErrorTranslate("current_password")}
               response={resChangePassword}
               type={
                 <Input
@@ -92,7 +103,7 @@ export const ChangePassword = () => {
               label={t("member.change_password.field_new_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
-              rules={validateUser.change_password.password}
+              rules={renderErrorTranslate("password")}
               response={resChangePassword}
               type={
                 <Input
@@ -118,7 +129,7 @@ export const ChangePassword = () => {
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
               dependencies={["password"]}
-              rules={validateUser.change_password.password_confirmation}
+              rules={renderErrorTranslate("password_confirmation")}
               response={resChangePassword}
               type={
                 <Input

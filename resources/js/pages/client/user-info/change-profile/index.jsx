@@ -14,9 +14,11 @@ export const ChangeProfile = () => {
       showProfile();
     }
   }, [profile]);
+
   const onSave = async (values) => {
     await updateProfile(values);
   };
+
   return (
     <>
       <Helmet>
