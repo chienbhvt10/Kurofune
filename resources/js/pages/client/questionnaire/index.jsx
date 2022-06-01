@@ -1,15 +1,16 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./style.scss";
 export const Questionnaire = () => {
   const { i18n, t } = useTranslation();
-  const [number, setNumber] = useState(5);
+  const [number, setNumber] = React.useState(5);
   const lang = getCurrentLanguage();
-  useEffect(() => {
+
+  React.useEffect(() => {
     (function () {
       const sc = document.querySelectorAll("script");
       let activeChat = false;

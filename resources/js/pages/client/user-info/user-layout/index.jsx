@@ -1,11 +1,12 @@
-import iconBack from "../../../../../sass/image/icon-back.png";
-import React, { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
-import "./style.scss";
-import { TabLink } from "../../../../components/tabs";
+import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link, Outlet } from "react-router-dom";
+import iconBack from "../../../../../sass/image/icon-back.png";
+import { TabLink } from "../../../../components/tabs";
+import "./style.scss";
 export const UserLayout = () => {
   const { t } = useTranslation();
+
   return (
     <div className="user-layout container-fluid">
       <div className="user-layout-container">

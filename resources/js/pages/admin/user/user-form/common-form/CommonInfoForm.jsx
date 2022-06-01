@@ -1,5 +1,6 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { PREF } from "../../../../../commons/data";
 import InputField from "../../../../../commons/Form/InputField";
@@ -7,7 +8,18 @@ import SelectField from "../../../../../commons/Form/SelectField";
 import { validateUser } from "../../../../../helper/validateField";
 
 const CommonInfoForm = ({ className, form }) => {
+  const { t } = useTranslation();
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+
+  const renderErrorTranslate = (field) => {
+    return validateUser?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <Form
       className={className}
@@ -20,10 +32,10 @@ const CommonInfoForm = ({ className, form }) => {
           <InputField
             field="postal_code"
             errorField="postal_code"
-            label="Postal code"
+            label={t("admins.user.form.field_postal_code")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={validateUser.postal_code}
+            rules={renderErrorTranslate("postal_code")}
             response={resCreateUser}
             type={<Input />}
           />
@@ -32,12 +44,12 @@ const CommonInfoForm = ({ className, form }) => {
           <SelectField
             field="prefecture"
             errorField="prefecture"
-            label="Prefecture"
+            label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
             response={resCreateUser}
-            placeholder="Please select prefecture"
+            placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}
           />
         </Col>
@@ -45,7 +57,7 @@ const CommonInfoForm = ({ className, form }) => {
           <InputField
             field="city"
             errorField="city"
-            label="City"
+            label={t("admins.user.form.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
@@ -57,7 +69,7 @@ const CommonInfoForm = ({ className, form }) => {
           <InputField
             field="street_address"
             errorField="street_address"
-            label="Street address"
+            label={t("admins.user.form.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={[]}
@@ -69,7 +81,7 @@ const CommonInfoForm = ({ className, form }) => {
           <InputField
             field="building"
             errorField="building"
-            label="Building"
+            label={t("admins.user.form.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 23 }}
             rules={[]}

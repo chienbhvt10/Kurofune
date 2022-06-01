@@ -1,104 +1,125 @@
 export const validateUser = {
-  role: [{ required: true, message: "Please select a role" }],
-  name: [{ required: true, message: "Please input your name!" }],
+  role: [{ required: true, message: "admins.user.error.role_required" }],
+  name: [{ required: true, message: "admins.user.error.name_required" }],
   email: [
-    { required: true, message: "Please input your email!" },
-    { type: "email", message: "Please input valid email!" },
+    { required: true, message: "admins.user.error.email.required" },
+    { type: "email", message: "admins.user.error.email.type" },
   ],
   phone: [
     {
       required: true,
-      message: "Please input your phone number!",
+      message: "admins.user.error.phone.required",
     },
     {
       pattern: new RegExp(/^[0-9]+$/),
-      message: "Please input valid phone number!",
+      message: "admins.user.error.phone.pattern",
     },
   ],
-  user_name: [{ required: true, message: "Please input your username!" }],
+  user_name: [
+    { required: true, message: "admins.user.error.user_name_required" },
+  ],
   password: [
     {
       required: true,
-      message: "Please input your password!",
+      message: "admins.user.error.password.required",
     },
     {
       min: 8,
-      message: "Please input atLeast 8 characters for password!",
+      message: "admins.user.error.password.min",
     },
   ],
-  active: [{ required: true, message: "Please select active status!" }],
+  active: [{ required: true, message: "admins.user.error.active_required" }],
   postal_code: [
     {
       pattern: new RegExp(/^[0-9]+$/),
-      message: "Please enter number",
+      message: "admins.user.error.postal_code.pattern",
     },
     {
       max: 7,
-      message: "Please enter only 7 numbers",
+      message: "admins.user.error.postal_code.max_7_number",
     },
   ],
   billing_shipping: {
     postal_code: [
       {
         pattern: new RegExp(/^[0-9]+$/),
-        message: "Please enter number",
+        message: "admins.user.error.postal_code.pattern",
       },
       {
         max: 7,
-        message: "Please enter only 7 numbers",
+        message: "admins.user.error.postal_code.max_7_number",
       },
     ],
     phone: [
       {
         pattern: new RegExp(/^[0-9]+$/),
-        message: "Please input valid phone number!",
+        message: "admins.user.error.phone.pattern",
       },
     ],
-    email: [{ type: "email", message: "Please input valid email!" }],
+    email: [{ type: "email", message: "admins.user.error.email.type" }],
   },
   form_info: {
-    full_name: [{ required: true, message: "Please input full name" }],
+    full_name: [{ required: true, message: "admins.user.error.name_required" }],
     from_postcode: [
-      { required: true, message: "Please input postal code" },
-      { max: 3, message: "Input only 3 number" },
+      { required: true, message: "admins.user.error.postal_code.required" },
+      { max: 3, message: "admins.user.error.postal_code.max_3_number" },
       {
         pattern: new RegExp(/^[0-9]+$/),
-        message: "Please enter number",
+        message: "admins.user.error.postal_code.pattern",
       },
     ],
     to_postcode: [
-      { max: 4, message: "Input only 4 number" },
+      { max: 4, message: "admins.user.error.postal_code.max_4_number" },
       {
         pattern: new RegExp(/^[0-9]+$/),
-        message: "Please enter number",
+        message: "admins.user.error.postal_code.pattern",
       },
     ],
-    prefecture: [{ required: true, message: "Please select prefecture" }],
-    city: [{ required: true, message: "Please input city" }],
+    prefecture: [
+      { required: true, message: "admins.user.error.prefecture_required" },
+    ],
+    city: [{ required: true, message: "admins.user.error.city_required" }],
     street_address: [
-      { required: true, message: "Please input street address" },
+      { required: true, message: "admins.user.error.street_address_required" },
     ],
     phone: [
       {
         pattern: new RegExp(/^[0-9]+$/),
-        message: "Please enter number",
+        message: "admins.user.error.phone.pattern",
       },
-      { required: true, message: "Please input phone" },
+      { required: true, message: "admins.user.error.phone.required" },
     ],
     email: [
-      { required: true, message: "Please input email" },
-      { type: "email", message: "Please input valid email" },
+      { required: true, message: "admins.user.error.email.required" },
+      { type: "email", message: "admins.user.error.email.type" },
     ],
   },
   change_password: {
     current_password: [
-      { required: true, message: "Please input current password" },
-    ],
-    password: [{ required: true, message: "Please input new password" }],
-    password_confirmation: [
+      {
+        min: 8,
+        message: "admins.user.error.password.min",
+      },
       {
         required: true,
-        message: "Please input password confirmation",
+        message: "admins.user.error.current_password_required",
+      },
+    ],
+    password: [
+      {
+        min: 8,
+        message: "admins.user.error.password.min",
+      },
+      { required: true, message: "admins.user.error.new_password_required" },
+    ],
+    password_confirmation: [
+      {
+        min: 8,
+        message: "admins.user.error.password.min",
+      },
+      {
+        required: true,
+        message: "admins.user.error.confirm_password_required",
       },
       ({ getFieldValue }) => ({
         validator(_, value) {
@@ -106,40 +127,57 @@ export const validateUser = {
             return Promise.resolve();
           }
           return Promise.reject(
-            new Error("The two passwords that you entered do not match!")
+            new Error("admins.user.error.not_same_password")
           );
         },
       }),
     ],
   },
 };
+
 export const validateAuth = {
   login: {
     email: [
-      { required: true, message: "Please input your email!" },
-      { type: "email", message: "Please input valid email!" },
+      { required: true, message: "admins.user.error.email.required" },
+      { type: "email", message: "admins.user.error.email.type" },
     ],
     password: [
       {
         required: true,
-        message: "Please input your password!",
+        message: "admins.user.error.password.required",
       },
       {
         min: 8,
-        message: "Please input atLeast 8 characters for password!",
+        message: "admins.user.error.password.min",
       },
+    ],
+  },
+  forgot_password: {
+    email: [
+      { required: true, message: "admins.user.error.email.required" },
+      { type: "email", message: "admins.user.error.email.type" },
     ],
   },
   reset_password: {
     email: [
-      { required: true, message: "Please input your email!" },
-      { type: "email", message: "Please input valid email!" },
+      { required: true, message: "admins.user.error.email.required" },
+      { type: "email", message: "admins.user.error.email.type" },
     ],
-    password: [{ required: true, message: "Please input new password" }],
+    password: [
+      {
+        min: 8,
+        message: "admins.user.error.password.min",
+      },
+      { required: true, message: "admins.user.error.new_password_required" },
+    ],
     password_confirmation: [
       {
+        min: 8,
+        message: "admins.user.error.password.min",
+      },
+      {
         required: true,
-        message: "Please input password confirmation",
+        message: "admins.user.error.confirm_password_required",
       },
       ({ getFieldValue }) => ({
         validator(_, value) {
@@ -147,7 +185,7 @@ export const validateAuth = {
             return Promise.resolve();
           }
           return Promise.reject(
-            new Error("The two passwords that you entered do not match!")
+            new Error("admins.user.error.not_same_password")
           );
         },
       }),

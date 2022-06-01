@@ -1,11 +1,12 @@
-import { Col, Form, Input, Row, Typography, Button } from "antd";
-import React, { useEffect } from "react";
+import { Button, Col, Form, Input, Row, Typography } from "antd";
+import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
-import useForgotPassword from "../../../hooks/auth/useForgotPassword";
-import { useTranslation } from "react-i18next";
-import "./forgot-password.scss";
 import { getCurrentLanguage } from "../../../helper/localStorage";
+import { validateAuth } from "../../../helper/validateField";
+import useForgotPassword from "../../../hooks/auth/useForgotPassword";
+import "./forgot-password.scss";
 
 const { Title } = Typography;
 
@@ -25,7 +26,7 @@ const ForgotPassword = () => {
     await resetResponse();
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (!resForgotPassword || resForgotPassword?.status_code !== 200) {
       return;
     } else {
@@ -38,6 +39,14 @@ const ForgotPassword = () => {
     await getForgotPassword(values.email);
   };
 
+  const renderErrorTranslate = (field) => {
+    return validateAuth?.forgot_password?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
   return (
     <Row justify="center">
       <Col span={16}>
@@ -60,6 +69,7 @@ const ForgotPassword = () => {
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resForgotPassword}
+                rules={renderErrorTranslate("email")}
                 type={
                   <Input
                     className="input-field"

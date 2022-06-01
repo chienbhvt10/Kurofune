@@ -37,6 +37,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
       formInfo.setFieldsValue(profileInitValues);
     }
   }, [item]);
+
   const onCodeJapan = () => {
     if (
       formInfo.getFieldValue("to_code") &&
@@ -65,6 +66,16 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         formInfo.getFieldValue("from_code") + formInfo.getFieldValue("to_code"),
     });
   };
+
+  const renderErrorTranslate = (field) => {
+    return validateUser?.form_info?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
+
   return (
     <Form
       id="form-infor"
@@ -84,7 +95,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_full_name")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={validateUser.form_info.full_name}
+            rules={renderErrorTranslate("full_name")}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -97,7 +108,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
                 label={t("member.change_profile.field_postal")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={validateUser.form_info.from_postcode}
+                rules={renderErrorTranslate("from_postcode")}
                 response={response}
                 type={<Input className="input-field" />}
               />
@@ -109,7 +120,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
                 label=" "
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
-                rules={validateUser.form_info.to_postcode}
+                rules={renderErrorTranslate("to_postcode")}
                 response={response}
                 type={<Input className="input-field" />}
               />
@@ -132,7 +143,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={validateUser.form_info.prefecture}
+            rules={renderErrorTranslate("prefecture")}
             response={response}
             placeholder="Please select prefecture"
             options={PREF}
@@ -146,7 +157,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={validateUser.form_info.city}
+            rules={renderErrorTranslate("city")}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -158,7 +169,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={validateUser.form_info.street_address}
+            rules={renderErrorTranslate("street_address")}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -182,7 +193,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={validateUser.form_info.phone}
+            rules={renderErrorTranslate("phone")}
             response={response}
             type={<Input className="input-field" />}
           />
@@ -194,7 +205,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={validateUser.form_info.email}
+            rules={renderErrorTranslate("email")}
             response={response}
             type={<Input className="input-field" />}
           />

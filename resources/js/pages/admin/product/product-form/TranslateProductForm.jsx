@@ -1,5 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
+import {
+  FIFTH_TAB,
+  FIRST_TAB,
+  FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+} from "../../../../constants";
 import SubFormProductTranslate from "./SubFormTranslate";
 
 const TranslateProductForm = ({
@@ -9,10 +16,12 @@ const TranslateProductForm = ({
   formikEN,
   formikZH,
 }) => {
-  const [activeTab, setActiveTab] = useState(1);
+  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
+
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
   };
+
   return (
     <SwitchTabLangForm
       onChangeLanguageForm={onChangeLanguageForm}
@@ -20,27 +29,27 @@ const TranslateProductForm = ({
     >
       <SubFormProductTranslate
         lang="JA"
-        className={`tab ${activeTab === 1 ? "active" : ""}`}
+        className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
         formik={formikJP}
       />
       <SubFormProductTranslate
         lang="VI"
-        className={`tab ${activeTab === 2 ? "active" : ""}`}
+        className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
         formik={formikVI}
       />
       <SubFormProductTranslate
         lang="ZH"
-        className={`tab ${activeTab === 3 ? "active" : ""}`}
+        className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
         formik={formikZH}
       />
       <SubFormProductTranslate
         lang="TL"
-        className={`tab ${activeTab === 4 ? "active" : ""}`}
+        className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
         formik={formikTL}
       />
       <SubFormProductTranslate
         lang="EN"
-        className={`tab ${activeTab === 5 ? "active" : ""}`}
+        className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
         formik={formikEN}
       />
     </SwitchTabLangForm>

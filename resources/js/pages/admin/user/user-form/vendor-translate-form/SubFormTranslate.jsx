@@ -1,13 +1,18 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import InputField from "../../../../../commons/Form/InputField";
 
 const SubFormUserTranslate = ({ lang, className, form }) => {
+  const { t } = useTranslation();
+
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+
   React.useEffect(() => {
     form.setFieldsValue({ ...form.getFieldsValue(), locale: lang });
   }, [lang]);
+
   return (
     <Row justify="center">
       <Form className={className} name="common-address-form" form={form}>
@@ -16,7 +21,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="locale"
               errorField="locale"
-              label="Locale"
+              label={t("admins.user.form.vendor_profile.field_locale")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -28,7 +33,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="name"
               errorField="name"
-              label="Name"
+              label={t("admins.user.form.vendor_profile.field_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -40,7 +45,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="permit_classification"
               errorField="permit_classification"
-              label="Permit classification"
+              label={t(
+                "admins.user.form.vendor_profile.field_permit_classification"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -52,7 +59,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="founder"
               errorField="founder"
-              label="Founder"
+              label={t("admins.user.form.vendor_profile.field_founder")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -64,7 +71,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="items_stated_permit"
               errorField="items_stated_permit"
-              label="Items to be stated in the permit"
+              label={t(
+                "admins.user.form.vendor_profile.field_stated_in_permit"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -76,7 +85,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="management_pharmacist"
               errorField="management_pharmacist"
-              label="Management pharmacist"
+              label={t(
+                "admins.user.form.vendor_profile.field_management_pharmacist"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -88,7 +99,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="registered_seller_working"
               errorField="registered_seller_working"
-              label="Registered Seller Working"
+              label={t(
+                "admins.user.form.vendor_profile.field_registered_seller_working"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -100,7 +113,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="drugs_handled"
               errorField="drugs_handled"
-              label="Drugs Handled"
+              label={t("admins.user.form.vendor_profile.field_drug_handled")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -112,7 +125,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="distinguishing_by_name"
               errorField="distinguishing_by_name"
-              label="Distinguishing by name"
+              label={t(
+                "admins.user.form.vendor_profile.field_distinguishing_by_name"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -124,7 +139,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="business_hours"
               errorField="business_hours"
-              label="Business Hours"
+              label={t("admins.user.form.vendor_profile.field_business_hours")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -136,7 +151,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="consultation_hours"
               errorField="consultation_hours"
-              label="Consultation Hours"
+              label={t(
+                "admins.user.form.vendor_profile.field_consultation_hours"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -148,7 +165,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="contact_information"
               errorField="contact_information"
-              label="Contact Information"
+              label={t(
+                "admins.user.form.vendor_profile.field_contact_information"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -160,7 +179,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="currently_working"
               errorField="currently_working"
-              label="Currently Working"
+              label={t("admins.user.form.vendor_profile.field_current_working")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -172,7 +191,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="open_sale_time"
               errorField="open_sale_time"
-              label="Open Sale Time"
+              label={t("admins.user.form.vendor_profile.field_open_sale_time")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -184,7 +203,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="time_order_outside"
               errorField="time_order_outside"
-              label="Time Order Outside"
+              label={t(
+                "admins.user.form.vendor_profile.field_time_order_outside"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -196,7 +217,9 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
             <InputField
               field="expiration_date_of_drugs"
               errorField="expiration_date_of_drugs"
-              label="Expiration Date Of Drug"
+              label={t(
+                "admins.user.form.vendor_profile.field_expiration_date_of_drug"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}

@@ -1,6 +1,7 @@
 import { Col, Form, Input, Row } from "antd";
 import React from "react";
 import "react-datepicker/dist/react-datepicker.css";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { userFormOptions } from "../../../../../commons/data";
 import DateField from "../../../../../commons/Form/DateField";
@@ -11,7 +12,10 @@ import {
   ROLE_LIGHT_PLAN,
 } from "../../../../../constants/index.js";
 const PlanProfileForm = ({ form, className, role }) => {
+  const { t } = useTranslation();
+
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+
   React.useEffect(() => {
     if (role === ROLE_FULL_SUPPORT_PLAN) {
       form.setFieldsValue({
@@ -38,7 +42,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <DateField
               field="dob"
               errorField="dob"
-              label="Date of birth"
+              label={t("admins.user.form.profile.field_dob")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -50,12 +54,12 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="gender"
               errorField="gender"
-              label="Gender"
+              label={t("admins.user.form.profile.field_gender")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select gender"
+              placeholder={t("admins.user.form.placeholder.select_gender")}
               options={userFormOptions.gender}
             />
           </Col>
@@ -63,7 +67,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="facebook"
               errorField="facebook"
-              label="Facebook"
+              label={t("admins.user.form.profile.field_facebook")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -75,7 +79,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="line"
               errorField="line"
-              label="Line"
+              label={t("admins.user.form.profile.field_line")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -87,7 +91,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="address"
               errorField="address"
-              label="Address"
+              label={t("admins.user.form.profile.field_address")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -99,7 +103,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="nationality"
               errorField="nationality"
-              label="Nationality"
+              label={t("admins.user.form.profile.field_nationality")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -111,7 +115,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="visa_type"
               errorField="visa_type"
-              label="Visa Type"
+              label={t("admins.user.form.profile.field_visa_type")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -123,7 +127,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="job_name"
               errorField="job_name"
-              label="Job Name"
+              label={t("admins.user.form.profile.field_job_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -135,7 +139,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="company_representative"
               errorField="company_representative"
-              label="Company representative"
+              label={t("admins.user.form.profile.field_company_representative")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -147,7 +151,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="inflow_source"
               errorField="inflow_source"
-              label="Payment source"
+              label={t("admins.user.form.profile.field_payment_source")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -159,12 +163,12 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="payment"
               errorField="payment"
-              label="Payment"
+              label={t("admins.user.form.profile.field_payment")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select payment"
+              placeholder={t("admins.user.form.placeholder.select_payment")}
               options={userFormOptions.payment}
             />
           </Col>
@@ -172,12 +176,14 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="insurance_status"
               errorField="insurance_status"
-              label="Insurance Status"
+              label={t("admins.user.form.profile.field_insurance_status")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select Insurance Status"
+              placeholder={t(
+                "admins.user.form.placeholder.select_insurance_status"
+              )}
               options={userFormOptions.insurance_status}
             />
           </Col>
@@ -185,7 +191,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="insurance_support"
               errorField="insurance_support"
-              label="Insurance Support"
+              label={t("admins.user.form.profile.field_insurance_support")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -200,7 +206,7 @@ const PlanProfileForm = ({ form, className, role }) => {
               <InputField
                 field="insurance_start_date"
                 errorField="insurance_start_date"
-                label="Insurance Start Date"
+                label={t("admins.user.form.profile.field_insurance_start_date")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 22 }}
                 rules={[]}
@@ -213,7 +219,9 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="overseas_remittance_status"
               errorField="overseas_remittance_status"
-              label="Overseas Remittance Status"
+              label={t(
+                "admins.user.form.profile.field_overseas_remittance_status"
+              )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -226,7 +234,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="orientation"
               errorField="orientation"
-              label="Orientation"
+              label={t("admins.user.form.profile.field_orientation")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -240,7 +248,9 @@ const PlanProfileForm = ({ form, className, role }) => {
                 <DateField
                   field="start_date_education"
                   errorField="start_date_education"
-                  label="Start Date Education"
+                  label={t(
+                    "admins.user.form.profile.field_start_date_education"
+                  )}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 22 }}
                   rules={[]}
@@ -252,7 +262,7 @@ const PlanProfileForm = ({ form, className, role }) => {
                 <DateField
                   field="end_date_education"
                   errorField="end_date_education"
-                  label="End Date Education"
+                  label={t("admins.user.form.profile.field_end_date_education")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 22 }}
                   rules={[]}
@@ -267,12 +277,14 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="education_status"
               errorField="education_status"
-              label="Japanese language education status"
+              label={t("admins.user.form.profile.field_education_status")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
               response={resCreateUser}
-              placeholder="Please select  Japanese language education status"
+              placeholder={t(
+                "admins.user.form.placeholder.select_education_status"
+              )}
               options={userFormOptions.education_status}
             />
           </Col>
@@ -280,7 +292,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <SelectField
               field="wabisabi_my_page_registration"
               errorField="wabisabi_my_page_registration"
-              label="Wabisabi My Page Registration"
+              label={t("admins.user.form.profile.field_page_registration")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
@@ -293,7 +305,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="emailCompany"
               errorField="emailCompany"
-              label="Company Mail"
+              label={t("admins.user.form.profile.field_company_mail")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={[]}
