@@ -14,10 +14,9 @@ trait CustomFilterTrait
         return $results;
     }
 
-    public function filterScopeName($model, $request, $lang)
+    public function filterScopeName($model, $request)
     {
-        $results = $model->where('name', 'LIKE', '%' . $request . '%')
-                        ->where('locale', $lang);
+        $results = $model->where('name', 'LIKE', '%' . $request . '%');
 
         return $results;
     }

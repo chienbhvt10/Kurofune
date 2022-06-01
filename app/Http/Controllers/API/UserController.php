@@ -19,6 +19,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
 use App\Rules\Base64Image;
+use Illuminate\Support\Facades\Lang;
 
 class UserController extends Controller
 {
@@ -33,7 +34,6 @@ class UserController extends Controller
         try {
             $role = $request->role ?? null;
             $posts_per_page = config('constants.pagination.items_per_page');
-            $lang = Lang::locale();
             if($role) {
                 $users = User::whereHas('
                 ', function ($query) use($role) {
@@ -42,7 +42,7 @@ class UserController extends Controller
                 ->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
             } else {
                 if ($request->name) {
-                    $users = $this->filterScopeName(new User, $request->name, $lang)->with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
+                    $users = $this->filterScopeName(new User, $request->name)->with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 } else {
                     $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 }
