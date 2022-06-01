@@ -98,17 +98,10 @@ class VendorProfileController extends Controller
         $search = $request->search;
         $posts_per_page = config('constants.pagination.items_per_page');
         $lang = $request->header('X-localization');
-        if($search != ""){
-            $name = Product::with(['translations' => function($query) use($search,$lang) {
-                return $query->where('name','LIKE',"%$search%")->where('locale','=',$lang);
-            }])
-            ->paginate($posts_per_page);
-        }else{
-            $name = Product::with(['translations' => function($query) use($lang) {
-                return $query->where('locale','=',$lang);
-            }])
-            ->paginate($posts_per_page);
-        }
+        $name = Product::with(['translations' => function($query) use($search,$lang) {
+            return $query->where('name','LIKE',"%$search%")->where('locale','=',$lang);
+         }])
+        ->get();
         return $this->responseData($name);
     }
 }
