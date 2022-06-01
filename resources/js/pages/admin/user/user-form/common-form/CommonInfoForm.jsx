@@ -47,7 +47,6 @@ const CommonInfoForm = ({ className, form }) => {
             label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
             response={resCreateUser}
             placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}
@@ -60,7 +59,6 @@ const CommonInfoForm = ({ className, form }) => {
             label={t("admins.user.form.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
             response={resCreateUser}
             type={<Input />}
           />
@@ -72,7 +70,6 @@ const CommonInfoForm = ({ className, form }) => {
             label={t("admins.user.form.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
             response={resCreateUser}
             type={<Input />}
           />
@@ -84,7 +81,6 @@ const CommonInfoForm = ({ className, form }) => {
             label={t("admins.user.form.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 23 }}
-            rules={[]}
             response={resCreateUser}
             type={<Input />}
           />

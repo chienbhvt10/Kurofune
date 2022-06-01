@@ -24,7 +24,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_locale")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input disabled />}
             />
@@ -36,7 +35,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -50,7 +48,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -62,7 +59,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_founder")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -76,7 +72,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -90,7 +85,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -104,7 +98,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -116,7 +109,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_drug_handled")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -130,7 +122,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -142,7 +133,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_business_hours")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -156,7 +146,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -170,7 +159,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -182,7 +170,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_current_working")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -194,7 +181,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_open_sale_time")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -208,7 +194,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />
@@ -222,7 +207,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input.TextArea />}
             />

@@ -55,7 +55,6 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
             label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
-            rules={[]}
             response={response}
             placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}

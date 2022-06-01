@@ -45,7 +45,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_dob")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               locale={{ lang: { locale: "vi_VN" } }}
               response={resCreateUser}
             />
@@ -57,7 +56,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_gender")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               placeholder={t("admins.user.form.placeholder.select_gender")}
               options={userFormOptions.gender}
@@ -70,7 +68,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_facebook")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -82,7 +79,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_line")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -94,7 +90,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_address")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -106,7 +101,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_nationality")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -118,7 +112,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_visa_type")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -130,7 +123,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_job_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -142,7 +134,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_company_representative")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -154,7 +145,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_payment_source")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -166,7 +156,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_payment")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               placeholder={t("admins.user.form.placeholder.select_payment")}
               options={userFormOptions.payment}
@@ -179,7 +168,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_insurance_status")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               placeholder={t(
                 "admins.user.form.placeholder.select_insurance_status"
@@ -194,7 +182,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_insurance_support")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
               options={userFormOptions.insurance_support}
@@ -209,7 +196,6 @@ const PlanProfileForm = ({ form, className, role }) => {
                 label={t("admins.user.form.profile.field_insurance_start_date")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 22 }}
-                rules={[]}
                 response={resCreateUser}
                 type={<Input />}
               />
@@ -224,7 +210,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               options={userFormOptions.overseas_remittance_status}
               disabled={true}
@@ -237,7 +222,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_orientation")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />
@@ -253,7 +237,6 @@ const PlanProfileForm = ({ form, className, role }) => {
                   )}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 22 }}
-                  rules={[]}
                   locale={{ lang: { locale: "vi_VN" } }}
                   response={resCreateUser}
                 />
@@ -265,7 +248,6 @@ const PlanProfileForm = ({ form, className, role }) => {
                   label={t("admins.user.form.profile.field_end_date_education")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 22 }}
-                  rules={[]}
                   locale={{ lang: { locale: "vi_VN" } }}
                   response={resCreateUser}
                 />
@@ -280,7 +262,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_education_status")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               placeholder={t(
                 "admins.user.form.placeholder.select_education_status"
@@ -295,7 +276,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_page_registration")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               options={userFormOptions.wabisabi_my_page_registration}
               disabled={true}
@@ -308,7 +288,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               label={t("admins.user.form.profile.field_company_mail")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
-              rules={[]}
               response={resCreateUser}
               type={<Input />}
             />

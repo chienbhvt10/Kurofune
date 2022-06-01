@@ -181,7 +181,6 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             label={t("member.change_profile.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
-            rules={[]}
             response={response}
             type={<Input className="input-field" />}
           />
