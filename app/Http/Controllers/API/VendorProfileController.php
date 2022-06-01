@@ -8,6 +8,8 @@ use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Traits\CustomFilterTrait;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Response;
 
 class VendorProfileController extends Controller
 {
@@ -98,10 +100,20 @@ class VendorProfileController extends Controller
         $search = $request->search;
         $posts_per_page = config('constants.pagination.items_per_page');
         $lang = $request->header('X-localization');
-        $name = Product::with(['translations' => function($query) use($search,$lang) {
-            return $query->where('name','LIKE',"%$search%")->where('locale','=',$lang);
-         }])
-        ->get();
+        $validator = Validator::make($request->all(), [
+            'search' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->errorResponse($errors, 422);
+        }
+        $name = Product::whereHas('product_translations',function($query) use ($search,$lang){
+            return $query->where('name', 'LIKE','%'.$search.'%')->where('locale', '=', $lang);
+        })
+        ->paginate($posts_per_page);
+        if ($name->isEmpty()) {
+            return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
+        }
         return $this->responseData($name);
     }
 }
