@@ -237,15 +237,9 @@
         "title": ""
       },
       "create": {
-<<<<<<< Updated upstream
-        "title": "",
-        "breadcrumb": "",
-        "form_info": {
-=======
         "title": "Create a new",
         "breadcrumb": "Create user",
         "form_infor": {
->>>>>>> Stashed changes
           "field_username": "Username",
           "field_password": "Password",
           "field_email": "Email",

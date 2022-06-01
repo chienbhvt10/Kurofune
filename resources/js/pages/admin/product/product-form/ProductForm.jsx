@@ -11,11 +11,10 @@ import UploadDragger from './../../../../commons/UploadDragger/UploadDragger';
 import "./product-form.scss";
 import { getProductInfoInitValues, getTranslateInitValues } from './productInitValues.js';
 import TranslateProductForm from "./TranslateProductForm";
-import { validateProductForm } from "../../../../helper/validateField.js";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const { getAdminCategories, adminCategories } = useAdminCategories();
   const [avatarState, setAvatarState] = React.useState({
     avatarUrl: undefined,
@@ -193,7 +192,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[{
                   required: true,
                   message: t("admins.product.error_message.required_message"),
-                  whiteSpace: true,
                 }]}
                 response={response}
                 mode="multiple"
@@ -209,7 +207,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[{
                   required: true,
                   message: t("admins.product.error_message.required_message"),
-                  whiteSpace: true,
                 },
                 {
                   pattern: new RegExp(/^[1-9][0-9]*$/),

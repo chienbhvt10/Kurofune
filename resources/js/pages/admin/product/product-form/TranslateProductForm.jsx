@@ -10,7 +10,7 @@ import {
 } from "../../../../constants"
 
 const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH, response }) => {
-        const [activeTab, setActiveTab] = useState(FIRST_TAB);
+        const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
         const onChangeLanguageForm = (number) => {
                 setActiveTab(number);
         };
