@@ -1,12 +1,12 @@
 import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useState } from "react";
+import React from "react";
 import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
 import { Link } from "react-router-dom";
 
 const CartInfoTable = ({ items }) => {
-  const [activeRefund, setActiveRefund] = useState(false);
-  const [activeToolSecond, setActiveToolSecond] = useState(false);
+  const [activeRefund, setActiveRefund] = React.useState(false);
+  const [activeToolSecond, setActiveToolSecond] = React.useState(false);
 
   const columns = [
     {

@@ -753,45 +753,51 @@ export const PREF = [
 ];
 export const userFormOptions = {
   active_status: [
-    { value: 0, label: "USER_ACTIVE" },
-    { value: 1, label: "USER_INACTIVE" },
+    { value: 0, label_translate: "admins.user.form.option.active" },
+    { value: 1, label_translate: "admins.user.form.option.inactive" },
   ],
   gender: [
-    { value: 0, label: "MALE" },
-    { value: 1, label: "FEMALE" },
+    { value: 0, label_translate: "admins.user.form.option.male" },
+    { value: 1, label_translate: "admins.user.form.option.female" },
   ],
   payment: [
-    { value: 1, label: "Yes" },
-    { value: 0, label: "No" },
+    { value: 1, label_translate: "admins.user.form.option.yes" },
+    { value: 0, label_translate: "admins.user.form.option.no" },
   ],
   insurance_status: [
-    { value: 1, label: "書類の送付/説明会参加/①kurofune着" },
-    { value: 2, label: "書類の送付/説明会参加/②kurofune未着（連絡可）" },
-    { value: 3, label: "書類の送付/説明会参加/②kurofune未着（連絡不可）" },
-    { value: 4, label: "保険完了" },
-    { value: 5, label: "未着手" },
+    { value: 1, label_translate: "書類の送付/説明会参加/①kurofune着" },
+    {
+      value: 2,
+      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡可）",
+    },
+    {
+      value: 3,
+      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡不可）",
+    },
+    { value: 4, label_translate: "保険完了" },
+    { value: 5, label_translate: "未着手" },
   ],
   insurance_support: [
-    { value: 0, label: "UNREGISTERED" },
-    { value: 1, label: "REGISTERED" },
+    { value: 0, label_translate: "admins.user.form.option.unregistered" },
+    { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
   overseas_remittance_status: [
-    { value: 0, label: "UNREGISTERED" },
-    { value: 1, label: "REGISTERED" },
+    { value: 0, label_translate: "admins.user.form.option.unregistered" },
+    { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
   education_status: [
-    { value: 1, label: "N1" },
-    { value: 2, label: "N2" },
-    { value: 3, label: "N3" },
-    { value: 4, label: "N4" },
-    { value: 5, label: "N5" },
-    { value: 6, label: "Nゼロ" },
-    { value: 7, label: "未登録" },
-    { value: 8, label: "登録抹消中" },
+    { value: 1, label_translate: "N1" },
+    { value: 2, label_translate: "N2" },
+    { value: 3, label_translate: "N3" },
+    { value: 4, label_translate: "N4" },
+    { value: 5, label_translate: "N5" },
+    { value: 6, label_translate: "Nゼロ" },
+    { value: 7, label_translate: "未登録" },
+    { value: 8, label_translate: "登録抹消中" },
   ],
   wabisabi_my_page_registration: [
-    { value: 0, label: "UNREGISTERED" },
-    { value: 1, label: "REGISTERED" },
+    { value: 0, label_translate: "admins.user.form.option.unregistered" },
+    { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
 };
 export const PRODUCT_OPTION = {

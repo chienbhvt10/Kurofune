@@ -1,6 +1,7 @@
 import { Table } from "antd";
 import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "../../../../commons/TableRowAction";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
@@ -11,12 +12,13 @@ export const UserTable = ({
   pagination,
   onTableChange,
 }) => {
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const columns = [
     {
       key: "username",
       dataIndex: "username",
-      title: "Username",
+      title: t("admins.user.form.field_username"),
       sort: true,
       width: 350,
       render: (_, record) => {
@@ -43,19 +45,19 @@ export const UserTable = ({
     {
       key: "name",
       dataIndex: "name",
-      title: "Name",
+      title: t("admins.user.form.field_name"),
       width: 250,
     },
     {
       key: "email",
       dataIndex: "email",
-      title: "Email",
+      title: t("admins.user.form.field_email"),
       width: 250,
     },
     {
       key: "role",
       dataIndex: "role",
-      title: "Role",
+      title: t("admins.user.form.field_role"),
       headerStyle: {
         width: 150,
       },
