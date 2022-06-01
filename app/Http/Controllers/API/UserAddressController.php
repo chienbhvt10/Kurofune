@@ -9,6 +9,7 @@ use App\Models\Address;
 use Illuminate\Support\Facades\Validator;
 use App\Traits\RespondsStatusTrait;
 use App\Models\User;
+use App\Rules\PostalCode;
 
 class UserAddressController extends Controller
 {
@@ -24,7 +25,7 @@ class UserAddressController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
-                'postal_code' => 'required|string|max:50',
+                'postal_code' => ['required','string' ,'max:50' , new PostalCode],
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
@@ -34,13 +35,7 @@ class UserAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 442);
-            }
-
-            $check_postcode = checkPostalCode($request->postal_code);
-
-            if ($check_postcode == false) {
-                return $this->errorResponse(__( 'message.postal_code.valid'), 422);
+                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $dataUpdate = [

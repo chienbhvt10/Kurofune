@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use App\Rules\Base64Image;
+use Illuminate\Support\Facades\Lang;
 
 class CategoryController extends Controller
 {
@@ -26,8 +27,9 @@ class CategoryController extends Controller
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $relational = 'category_translations';
+            $lang = Lang::locale();
             if ($request->name) {
-                $cat = $this->filterWhereHasName(new Category, $relational, $request->name, $posts_per_page);
+                $cat = $this->filterWhereHasName(new Category, $relational, $request->name, $posts_per_page, $lang);
             } else {
                 $cat = Category::paginate($posts_per_page);
             }
@@ -61,13 +63,13 @@ class CategoryController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = Category::where('slug', $slug)->first();
-            if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
-                return $this->errorResponse(__('message.slug.unique'));
+            $slug_check = check_unique_slug(new Category, $slug);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
             }
 
             $image = $request->category_image;
@@ -155,13 +157,13 @@ class CategoryController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = Category::where('slug', $slug)->first();
-            if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
-                return $this->errorResponse(__('message.slug.unique'));
+            $slug_check = check_unique_slug_update(new Category, $slug, $id);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
             }
 
             $image_update = $request->category_image;

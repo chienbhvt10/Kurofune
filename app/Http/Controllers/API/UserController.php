@@ -33,14 +33,16 @@ class UserController extends Controller
         try {
             $role = $request->role ?? null;
             $posts_per_page = config('constants.pagination.items_per_page');
+            $lang = Lang::locale();
             if($role) {
-                $users = User::whereHas('roles', function ($query) use($role) {
+                $users = User::whereHas('
+                ', function ($query) use($role) {
                     return $query->where('name', '=', $role);
                 })->where('name', 'LIKE', '%' . $request->name . '%')
                 ->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
             } else {
                 if ($request->name) {
-                    $users = $this->filterScopeName(new User, $request->name)->with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
+                    $users = $this->filterScopeName(new User, $request->name, $lang)->with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 } else {
                     $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 }
