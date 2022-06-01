@@ -14,6 +14,9 @@ class TaxSeeder extends Seeder
      */
     public function run()
     {
-        Tax::factory()->count(5)->create();
+        Tax::create([
+            'name' => 'VAT',
+            'value' => 10
+        ]);
     }
 }
