@@ -19,7 +19,6 @@ use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
 use App\Rules\Base64Image;
-use Illuminate\Support\Facades\Lang;
 
 class UserController extends Controller
 {

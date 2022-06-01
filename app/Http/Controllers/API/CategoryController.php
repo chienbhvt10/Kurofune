@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Illuminate\Support\Str;
 use App\Rules\Base64Image;
-use Illuminate\Support\Facades\Lang;
 
 class CategoryController extends Controller
 {

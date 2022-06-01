@@ -15,7 +15,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Traits\RespondsStatusTrait;
-use Illuminate\Support\Facades\Lang;
 use App\Traits\CustomFilterTrait;
 
 class PageController extends Controller
