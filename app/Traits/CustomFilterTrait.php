@@ -2,10 +2,12 @@
 
 namespace App\Traits;
 
+use Illuminate\Support\Facades\Lang;
 trait CustomFilterTrait
 {
-    public function filterWhereHasName($model, $relational, $request, $paginate, $lang)
+    public function filterWhereHasName($model, $relational, $request, $paginate)
     {
+        $lang = Lang::locale();
         $results = $model->whereHas($relational, function ($query) use ($request, $lang) {
             $query->where('name', 'LIKE', '%' . $request . '%')
                 ->where('locale', $lang);

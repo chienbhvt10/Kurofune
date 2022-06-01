@@ -27,9 +27,8 @@ class CategoryController extends Controller
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $relational = 'category_translations';
-            $lang = Lang::locale();
             if ($request->name) {
-                $cat = $this->filterWhereHasName(new Category, $relational, $request->name, $posts_per_page, $lang);
+                $cat = $this->filterWhereHasName(new Category, $relational, $request->name, $posts_per_page);
             } else {
                 $cat = Category::paginate($posts_per_page);
             }

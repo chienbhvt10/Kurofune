@@ -34,15 +34,14 @@ class ProductController extends Controller
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
             $relational = 'product_translations';
-            $lang = Lang::locale();
             if ($request->name) {
-                $product = $this->filterWhereHasName(new Product, $relational, $request->name, $posts_per_page, $lang);
+                $product = $this->filterWhereHasName(new Product, $relational, $request->name, $posts_per_page);
             } else {
                 $product = Product::paginate($posts_per_page);
             }
             if($roles == UserRole::ROLE_VENDOR) {
                 if ($request->name) {
-                    $product = $this->filterWhereHasName($user->products(), $relational, $request->name, $posts_per_page, $lang);
+                    $product = $this->filterWhereHasName($user->products(), $relational, $request->name, $posts_per_page);
                 } else {
                     $product = $user->products()->paginate($posts_per_page);
                 }
@@ -240,7 +239,7 @@ class ProductController extends Controller
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
-            
+
             $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
             $slug_check = check_unique_slug_update(new Product, $slug, $id);
             if ($slug_check == false) {

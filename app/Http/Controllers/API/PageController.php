@@ -31,9 +31,8 @@ class PageController extends Controller
         try {
             $posts_per_page = config('constants.pagination.items_per_page');
             $relational = 'page_translations';
-            $lang = Lang::locale();
             if ($request->name) {
-                $page = $this->filterWhereHasName(new Page, $relational, $request->name, $posts_per_page, $lang);
+                $page = $this->filterWhereHasName(new Page, $relational, $request->name, $posts_per_page);
             } else {
                 $page = Page::paginate($posts_per_page);
             }
