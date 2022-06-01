@@ -33,7 +33,6 @@ class ProductController extends Controller
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
             $relational = 'product_translations';
-
             if ($request->name) {
                 $product = $this->filterWhereHasName(new Product, $relational, $request->name, $posts_per_page);
             } else {
@@ -75,15 +74,20 @@ class ProductController extends Controller
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $user = auth()->user();
-            $user_id = $user->id;
-            $roles = $user->getRoleNames()->first();
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
+
+            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
+            $slug_check = check_unique_slug(new Product, $slug);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
+            }
+            $user = auth()->user();
+            $user_id = $user->id;
+            $roles = $user->getRoleNames()->first();
 
             if($roles == UserRole::ROLE_ADMIN) {
                 $validator = Validator::make($request->all(), [
@@ -229,15 +233,20 @@ class ProductController extends Controller
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $user = auth()->user();
-            $user_id = $user->id;
-            $roles = $user->getRoleNames()->first();
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
+
+            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
+            $slug_check = check_unique_slug_update(new Product, $slug, $id);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
+            }
+            $user = auth()->user();
+            $user_id = $user->id;
+            $roles = $user->getRoleNames()->first();
 
             if($roles == UserRole::ROLE_ADMIN) {
                 $validator = Validator::make($request->all(), [

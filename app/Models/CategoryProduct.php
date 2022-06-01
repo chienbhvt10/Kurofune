@@ -10,6 +10,8 @@ class CategoryProduct extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $table = 'category_product';
+    
     protected $fillable = ['id', 'prod_id', 'cat_id'];
 
     public $timestamps = true;
