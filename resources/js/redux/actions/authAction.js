@@ -25,7 +25,6 @@ export const login = createAsyncThunk(authActions.login, async (payload) => {
     .login(payload)
     .then((data) => data)
     .catch((errors) => JSON.parse(errors.response.request.response));
-    console.log(res);
   setAccessToken(res.access_token);
   return res;
 });
