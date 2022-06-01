@@ -2,12 +2,13 @@ import { useFormik } from "formik";
 import React from "react";
 import * as Yup from "yup";
 import FormHeader from "../../../../commons/FormHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import "./product-form.scss";
 import TranslateProductForm from "./TranslateProductForm";
 
 const credential = Yup.object().shape({});
 const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const initialCommonValues = {
     name: "",
     sku: "",

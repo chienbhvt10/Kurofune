@@ -2,12 +2,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import CardCategory from "../../../commons/CardCategory";
 import PageHead from "../../../commons/PageHead";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 import useCategories from "../../../hooks/category/useCategories";
 import "./category-list.scss";
 const CategoryListPage = () => {
   const { i18n, t } = useTranslation();
   const { getAllCategories, categories } = useCategories();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   React.useEffect(() => {
     if (!categories) {
       getAllCategories();

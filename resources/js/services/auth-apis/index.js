@@ -1,4 +1,5 @@
 import { ROOT_URL } from "../../constants/api";
+import { getAccessToken } from "../../helper/localStorage";
 import axiosClient from "../api-caller";
 
 export const authApis = {
@@ -11,7 +12,7 @@ export const authApis = {
     return axiosClient.post(url);
   },
   checkLogin: () => {
-    const jwtToken = localStorage.getItem("access_token");
+    const jwtToken = getAccessToken();
     if (jwtToken) {
       return true;
     } else {

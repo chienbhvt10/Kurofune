@@ -7,6 +7,8 @@ import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import InputField from "../../../../commons/Form/InputField";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { validateUser } from "../../../../helper/validateField";
 import useChangePassword from "../../../../hooks/auth/useChangePassword";
 import useLogout from "../../../../hooks/auth/useLogout";
 import "./style.scss";
@@ -20,7 +22,7 @@ export const ChangePassword = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const navigate = useNavigate();
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const changePasswordInitValues = {
     current_password: "",
     password: "",
@@ -63,9 +65,7 @@ export const ChangePassword = () => {
               label={t("member.change_password.field_old_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
-              rules={[
-                { required: true, message: "Please input current password" },
-              ]}
+              rules={validateUser.change_password.current_password}
               response={resChangePassword}
               type={
                 <Input
@@ -92,7 +92,7 @@ export const ChangePassword = () => {
               label={t("member.change_password.field_new_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
-              rules={[{ required: true, message: "Please input new password" }]}
+              rules={validateUser.change_password.password}
               response={resChangePassword}
               type={
                 <Input
@@ -118,24 +118,7 @@ export const ChangePassword = () => {
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
               dependencies={["password"]}
-              rules={[
-                {
-                  required: true,
-                  message: "Please input password confirmation",
-                },
-                ({ getFieldValue }) => ({
-                  validator(_, value) {
-                    if (!value || getFieldValue("password") === value) {
-                      return Promise.resolve();
-                    }
-                    return Promise.reject(
-                      new Error(
-                        "The two passwords that you entered do not match!"
-                      )
-                    );
-                  },
-                }),
-              ]}
+              rules={validateUser.change_password.password_confirmation}
               response={resChangePassword}
               type={
                 <Input

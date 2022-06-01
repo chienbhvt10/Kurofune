@@ -1,9 +1,10 @@
 import React from "react";
 import { TableHeader } from "../../../../commons/TableHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import "./order.scss";
 import OrderTable from "./OrderTable";
 const OrderList = () => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const data = [
     {
       orderNumber: "1",

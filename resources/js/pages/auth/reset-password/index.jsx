@@ -4,6 +4,8 @@ import { Button, Col, Form, Input, Row } from "antd";
 import React, { useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
+import { getCurrentLanguage, getResetMail } from "../../../helper/localStorage";
+import { validateAuth } from "../../../helper/validateField";
 import useResetPassword from "../../../hooks/auth/useResetPassword";
 import "./reset-password.scss";
 
@@ -13,8 +15,8 @@ const ResetPassword = () => {
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(true);
   const { resResetPassword, getResetPassword, resetResponse } =
     useResetPassword();
-  const lang = localStorage.getItem("lang");
-  const resetEmail = localStorage.getItem("reset_email");
+  const lang = getCurrentLanguage();
+  const resetEmail = getResetMail();
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
@@ -47,133 +49,118 @@ const ResetPassword = () => {
   return (
     <Row justify="center">
       <Col span={12}>
-      <Form
-        initialValues={resetPasswordInitValues}
-        name="reset-password-form"
-        onFinish={onResetPassword}
-        autoComplete="off"
-      >
-        <Row justify="center" align="middle" >
-          <Col span={24}>
-            <InputField
-              field="email"
-              label="Email"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
-              response={resResetPassword}
-              rules={[{ required: true, message: "Please input email" }]}
-              type={
-                <Input
-                  addonBefore={
-                    <img
-                      className="icon-input"
-                      src="/images/ic-user.png"
-                      alt=""
-                    />
-                  }
-                  className="input-field"
-                />
-              }
-            />
-          </Col>
-          <Col span={24}>
-            <InputField
-              field="password"
-              label="Password"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
-              rules={[{ required: true, message: "Please input new password" }]}
-              response={resResetPassword}
-              type={
-                <Input
-                  type={!showPassword ? "password" : "text"}
-                  addonBefore={
-                    <img
-                      className="icon-input"
-                      src="/images/ic-key.png"
-                      alt=""
-                    />
-                  }
-                  addonAfter={
-                    <FontAwesomeIcon
-                      icon={!showPassword ? faEyeSlash : faEye}
-                      color="#515151"
-                      size="sm"
-                      style={{ cursor: "pointer" }}
-                      onClick={() => setShowPassword(!showPassword)}
-                    />
-                  }
-                />
-              }
-            />
-          </Col>
-          <Col span={24}>
-            <InputField
-              field="password_confirmation"
-              label="Password confirmation"
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
-              dependencies={["password"]}
-              rules={[
-                {
-                  required: true,
-                  message: "Please input password confirmation",
-                },
-                ({ getFieldValue }) => ({
-                  validator(_, value) {
-                    if (!value || getFieldValue("password") === value) {
-                      return Promise.resolve();
+        <Form
+          initialValues={resetPasswordInitValues}
+          name="reset-password-form"
+          onFinish={onResetPassword}
+          autoComplete="off"
+        >
+          <Row justify="center" align="middle">
+            <Col span={24}>
+              <InputField
+                field="email"
+                label="Email"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                response={resResetPassword}
+                rules={validateAuth.reset_password.email}
+                type={
+                  <Input
+                    addonBefore={
+                      <img
+                        className="icon-input"
+                        src="/images/ic-user.png"
+                        alt=""
+                      />
                     }
-                    return Promise.reject(
-                      new Error(
-                        "The two passwords that you entered do not match!"
-                      )
-                    );
-                  },
-                }),
-              ]}
-              response={resResetPassword}
-              type={
-                <Input
-                  type={!showPasswordConfirm ? "password" : "text"}
-                  className="input-field"
-                  addonBefore={
-                    <img
-                      className="icon-input"
-                      src="/images/ic-key.png"
-                      alt=""
-                    />
-                  }
-                  addonAfter={
-                    <FontAwesomeIcon
-                      icon={!showPasswordConfirm ? faEyeSlash : faEye}
-                      color="#515151"
-                      size="sm"
-                      style={{ cursor: "pointer" }}
-                      onClick={() =>
-                        setShowPasswordConfirm(!showPasswordConfirm)
-                      }
-                    />
-                  }
-                />
-              }
-            />
-          </Col>
-          <Col span={24}>
-          <InputField
-            field="token"
-            label=""
-            labelCol={{ span: 24 }}
-            wrapperCol={{ span: 24 }}
-            response={resResetPassword}
-            type={<Input hidden />}
-          />
-          </Col>
-          <Col span={12}>
-            <Button type="primary" className="w-100" htmlType="submit">Save</Button>
-          </Col>
-        </Row>
-      </Form>
+                    className="input-field"
+                  />
+                }
+              />
+            </Col>
+            <Col span={24}>
+              <InputField
+                field="password"
+                label="Password"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                rules={validateAuth.reset_password.password}
+                response={resResetPassword}
+                type={
+                  <Input
+                    type={!showPassword ? "password" : "text"}
+                    addonBefore={
+                      <img
+                        className="icon-input"
+                        src="/images/ic-key.png"
+                        alt=""
+                      />
+                    }
+                    addonAfter={
+                      <FontAwesomeIcon
+                        icon={!showPassword ? faEyeSlash : faEye}
+                        color="#515151"
+                        size="sm"
+                        style={{ cursor: "pointer" }}
+                        onClick={() => setShowPassword(!showPassword)}
+                      />
+                    }
+                  />
+                }
+              />
+            </Col>
+            <Col span={24}>
+              <InputField
+                field="password_confirmation"
+                label="Password confirmation"
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                dependencies={["password"]}
+                rules={validateAuth.reset_password.password_confirmation}
+                response={resResetPassword}
+                type={
+                  <Input
+                    type={!showPasswordConfirm ? "password" : "text"}
+                    className="input-field"
+                    addonBefore={
+                      <img
+                        className="icon-input"
+                        src="/images/ic-key.png"
+                        alt=""
+                      />
+                    }
+                    addonAfter={
+                      <FontAwesomeIcon
+                        icon={!showPasswordConfirm ? faEyeSlash : faEye}
+                        color="#515151"
+                        size="sm"
+                        style={{ cursor: "pointer" }}
+                        onClick={() =>
+                          setShowPasswordConfirm(!showPasswordConfirm)
+                        }
+                      />
+                    }
+                  />
+                }
+              />
+            </Col>
+            <Col span={24}>
+              <InputField
+                field="token"
+                label=""
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 24 }}
+                response={resResetPassword}
+                type={<Input hidden />}
+              />
+            </Col>
+            <Col span={12}>
+              <Button type="primary" className="w-100" htmlType="submit">
+                Save
+              </Button>
+            </Col>
+          </Row>
+        </Form>
       </Col>
     </Row>
   );

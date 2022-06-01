@@ -1,4 +1,11 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { ACCESS_TOKEN_STORE } from "../../constants";
+import {
+  removeAccessToken,
+  removeResetMail,
+  setAccessToken,
+  setResetMail,
+} from "../../helper/localStorage";
 import { authApis } from "../../services/auth-apis";
 
 const authActions = {
@@ -18,7 +25,7 @@ export const login = createAsyncThunk(authActions.login, async (payload) => {
     .login(payload)
     .then((data) => data)
     .catch((errors) => JSON.parse(errors.response.request.response));
-  localStorage.setItem("access_token", res.access_token);
+  setAccessToken(res.access_token);
   return res;
 });
 
@@ -29,7 +36,7 @@ export const forgotPassword = createAsyncThunk(
       .forgotPassword(payload)
       .then((data) => {
         if (data.status_code === 200) {
-          localStorage.setItem("reset_email", payload);
+          setResetMail(payload);
           return data;
         }
       })
@@ -45,7 +52,7 @@ export const resetPassword = createAsyncThunk(
       .resetPassword(payload)
       .then((data) => {
         if (data.status_code === 200) {
-          localStorage.removeItem("reset_email");
+          removeResetMail();
           return data;
         }
       })
@@ -66,7 +73,7 @@ export const logout = createAsyncThunk(authActions.logout, async () => {
     .logout()
     .then((data) => data)
     .catch((errors) => JSON.parse(errors.response.request.response));
-  localStorage.removeItem("access_token");
+  removeAccessToken();
   return res;
 });
 export const showProfileAction = createAsyncThunk(

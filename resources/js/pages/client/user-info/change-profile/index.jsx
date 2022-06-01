@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
-import { FormInfor } from "../../../../components/form-infor";
+import { FormInfo } from "../../../../components/form-infor";
+import { PROFILE_FORM } from "../../../../constants";
 import useShowProfile from "../../../../hooks/auth/useShowProfile";
 import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
 
@@ -24,10 +25,10 @@ export const ChangeProfile = () => {
         <meta name="description" content="Change profile Page" />
         <meta name="og:title" content="Change profile" />
       </Helmet>
-      <FormInfor
+      <FormInfo
         item={profile}
         onSave={onSave}
-        typeForm="profile"
+        typeForm={PROFILE_FORM}
         response={resUpdateProfile}
       />
     </>

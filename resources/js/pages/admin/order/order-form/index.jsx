@@ -5,9 +5,10 @@ import { useFormik } from "formik";
 import FormHeader from "../../../../commons/FormHeader";
 import CartInfoTable from "./CartInfoTable";
 import BillingShipForm from "../../../../commons/BillingShipForm";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const initialCommonValues = {
     name: "",
     sku: "",
