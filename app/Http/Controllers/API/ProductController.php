@@ -76,6 +76,12 @@ class ProductController extends Controller
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
+            if ($validator->fails()) {
+                DB::rollBack();
+                $errors = $validator->errors();
+                return $this->errorResponse($errors, 422);
+            }
+
             $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
             $slug_check = check_unique_slug(new Product, $slug);
             if ($slug_check == false) {
@@ -84,11 +90,6 @@ class ProductController extends Controller
             $user = auth()->user();
             $user_id = $user->id;
             $roles = $user->getRoleNames()->first();
-            if ($validator->fails()) {
-                DB::rollBack();
-                $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
-            }
 
             if($roles == UserRole::ROLE_ADMIN) {
                 $validator = Validator::make($request->all(), [
@@ -234,6 +235,12 @@ class ProductController extends Controller
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
+            if ($validator->fails()) {
+                DB::rollBack();
+                $errors = $validator->errors();
+                return $this->errorResponse($errors, 422);
+            }
+            
             $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
             $slug_check = check_unique_slug_update(new Product, $slug, $id);
             if ($slug_check == false) {
@@ -242,11 +249,6 @@ class ProductController extends Controller
             $user = auth()->user();
             $user_id = $user->id;
             $roles = $user->getRoleNames()->first();
-            if ($validator->fails()) {
-                DB::rollBack();
-                $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
-            }
 
             if($roles == UserRole::ROLE_ADMIN) {
                 $validator = Validator::make($request->all(), [

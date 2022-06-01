@@ -25,7 +25,7 @@ class UserAddressController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'name' => 'required',
-                'postal_code' => ['required','string' ,'max:50' , new PostalCode],
+                'postal_code' => ['required', 'string', 'max:50', new PostalCode],
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
