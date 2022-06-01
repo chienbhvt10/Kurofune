@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import SwitchTabLangForm from "../../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import {
   FIFTH_TAB,
@@ -15,7 +15,7 @@ import {
 import SubFormUserTranslate from "./SubFormTranslate";
 
 const TranslateVendorForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
-  const [activeTab, setActiveTab] = useState(FIRST_TAB);
+  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
   };

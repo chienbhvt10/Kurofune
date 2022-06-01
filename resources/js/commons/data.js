@@ -753,79 +753,84 @@ export const PREF = [
 ];
 export const userFormOptions = {
   active_status: [
-    { value: 0, label: "USER_ACTIVE" },
-    { value: 1, label: "USER_INACTIVE" },
+    { value: 0, label_translate: "admins.user.form.option.active" },
+    { value: 1, label_translate: "admins.user.form.option.inactive" },
   ],
   gender: [
-    { value: 0, label: "MALE" },
-    { value: 1, label: "FEMALE" },
+    { value: 0, label_translate: "admins.user.form.option.male" },
+    { value: 1, label_translate: "admins.user.form.option.female" },
   ],
   payment: [
-    { value: 1, label: "Yes" },
-    { value: 0, label: "No" },
+    { value: 1, label_translate: "admins.user.form.option.yes" },
+    { value: 0, label_translate: "admins.user.form.option.no" },
   ],
   insurance_status: [
-    { value: 1, label: "書類の送付/説明会参加/①kurofune着" },
-    { value: 2, label: "書類の送付/説明会参加/②kurofune未着（連絡可）" },
-    { value: 3, label: "書類の送付/説明会参加/②kurofune未着（連絡不可）" },
-    { value: 4, label: "保険完了" },
-    { value: 5, label: "未着手" },
+    { value: 1, label_translate: "書類の送付/説明会参加/①kurofune着" },
+    {
+      value: 2,
+      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡可）",
+    },
+    {
+      value: 3,
+      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡不可）",
+    },
+    { value: 4, label_translate: "保険完了" },
+    { value: 5, label_translate: "未着手" },
   ],
   insurance_support: [
-    { value: 0, label: "UNREGISTERED" },
-    { value: 1, label: "REGISTERED" },
+    { value: 0, label_translate: "admins.user.form.option.unregistered" },
+    { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
   overseas_remittance_status: [
-    { value: 0, label: "UNREGISTERED" },
-    { value: 1, label: "REGISTERED" },
+    { value: 0, label_translate: "admins.user.form.option.unregistered" },
+    { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
   education_status: [
-    { value: 1, label: "N1" },
-    { value: 2, label: "N2" },
-    { value: 3, label: "N3" },
-    { value: 4, label: "N4" },
-    { value: 5, label: "N5" },
-    { value: 6, label: "Nゼロ" },
-    { value: 7, label: "未登録" },
-    { value: 8, label: "登録抹消中" },
+    { value: 1, label_translate: "N1" },
+    { value: 2, label_translate: "N2" },
+    { value: 3, label_translate: "N3" },
+    { value: 4, label_translate: "N4" },
+    { value: 5, label_translate: "N5" },
+    { value: 6, label_translate: "Nゼロ" },
+    { value: 7, label_translate: "未登録" },
+    { value: 8, label_translate: "登録抹消中" },
   ],
   wabisabi_my_page_registration: [
-    { value: 0, label: "UNREGISTERED" },
-    { value: 1, label: "REGISTERED" },
+    { value: 0, label_translate: "admins.user.form.option.unregistered" },
+    { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
 };
 export const PRODUCT_OPTION = {
   GENDER: [
-    { value: 0, label: "Male" },
-    { value: 1, label: "Female" },
-    { value: 2, label: "Other" }
+    { value: 0, label: "g_1" },
+    { value: 1, label: "g_2" }
   ],
   USER_STATUS: [
     { value: 0, label: "Inactive" },
     { value: 1, label: "Active" }
   ],
   YEAR_OLD: [
-    { value: 1, label: "Under 15 years old" },
-    { value: 2, label: "15-64 years old" },
-    { value: 3, label: "65 years of age or older" }
+    { value: 1, label: "yo_1" },
+    { value: 2, label: "yo_2" },
+    { value: 3, label: "yo_3" }
   ],
   YES_OR_NO: [
-    { value: 0, label: "Yes" },
-    { value: 1, label: "No" }
+    { value: 0, label: "y_1" },
+    { value: 1, label: "y_2" }
   ],
   CURRENTLY_TREATING: [
-    { value: 1, label: "There is none" },
-    { value: 2, label: "High blood pressure" },
-    { value: 3, label: "Diabetes" },
-    { value: 4, label: "Dyslipidemia" },
-    { value: 5, label: "Asthma" },
-    { value: 6, label: "Liver disease" },
-    { value: 7, label: "Heart disease" },
-    { value: 8, label: "Cerebral infarction" },
-    { value: 9, label: "Gastric / duodenal ulcer" },
-    { value: 10, label: "Thyroid disease" },
-    { value: 11, label: "Prostate disease" },
-    { value: 12, label: "Other (free description)" }
+    { value: 1, label: "c_1" },
+    { value: 2, label: "c_2" },
+    { value: 3, label: "c_3" },
+    { value: 4, label: "c_4" },
+    { value: 5, label: "c_5" },
+    { value: 6, label: "c_6" },
+    { value: 7, label: "c_7" },
+    { value: 8, label: "c_8" },
+    { value: 9, label: "c_9" },
+    { value: 10, label: "c_10" },
+    { value: 11, label: "c_11" },
+    { value: 12, label: "c_12" }
   ],
   LANGUAGES: [
     { value: "en", label: "English - 英語" },

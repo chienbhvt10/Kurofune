@@ -1,5 +1,6 @@
 import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { DEFAULT_LIMIT } from "../../../../constants";
@@ -10,6 +11,7 @@ import "./user-list.scss";
 import { UserTable } from "./UserTable";
 
 export const UserList = () => {
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const { getAllUsers, users, pagination } = useUsers();
   const { deleteUser } = useDeleteUser();
@@ -41,10 +43,10 @@ export const UserList = () => {
     <div className="user-list">
       <TableHeader
         addLink={`${lang}/admin/user-create`}
-        title={"User"}
+        title={t("admins.user.list.title")}
         breadcrumb={[
           { name: "Home", routerLink: "../" },
-          { name: "User List", routerLink: "/users" },
+          { name: t("admins.user.list.title"), routerLink: "/users" },
         ]}
       />
       <UserTable

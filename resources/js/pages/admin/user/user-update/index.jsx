@@ -9,8 +9,10 @@ import { useDispatch } from "react-redux";
 import { resetResCRUDAction } from "../../../../redux/actions/userAction";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
+import { useTranslation } from "react-i18next";
 
 const UpdateUser = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams();
   const { getUser, user } = useUser();
@@ -52,7 +54,7 @@ const UpdateUser = () => {
           onCancel={onCancel}
           onSave={onSave}
           item={user}
-          title="Update User"
+          title={t("admins.user.update.title")}
           typeForm={TYPE_FORM_UPDATE}
           response={resUpdateUser}
         />

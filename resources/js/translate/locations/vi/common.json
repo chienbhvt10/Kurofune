@@ -206,7 +206,36 @@
       "option_other_illnesses12": "Bệnh khác",
       "error_required":" Mục này là mục bắt buộc.",
       "error_title_requried":"Không thể thêm vào giỏ hàng",
-      "error_msg_requried":"Vui lòng kiểm tra thông tin nhập"
+      "error_msg_requried":"Vui lòng kiểm tra thông tin nhập",
+      "option_add_to_cart":{
+        "gender":{
+          "g_1":"Nam",
+          "g_2":"Nữ"
+        },
+        "yes_or_no":{
+          "y_1":"Có ",
+          "y_2":"Không"
+        },
+        "year_old":{
+          "yo_1":"Dưới 15 tuổi ",
+          "yo_2":"15-64 tuổi",
+          "yo_3":"65 tuổi trở lên"
+        },
+        "currently_treating":{
+          "c_1":"Bệnh cao huyềt áp",
+          "c_2":"Bệnh tiểu đường",
+          "c_3":"Rối loạn mỡ máu",
+          "c_4":"Hen suyễn",
+          "c_5":"Bệnh gan",
+          "c_6":"Bệnh tim",
+          "c_7":"Nhồi máu não",
+          "c_8":"Loét dạ dày / tá tràng",
+          "c_9":"Bệnh tuyến giáp",
+          "c_10":"Bệnh tuyến tiền liệt",
+          "c_11":"Bệnh khác",
+          "c_12":"Không"
+        }
+      }
     },
     "list_pharmacies": {
       "title": "Hiệu thuốc Marine Oisotori",
@@ -237,10 +266,10 @@
         "title": ""
       },
       "create": {
-        "title": "Create a new"
+        "title": ""
       },
       "update": {
-        "title": "Update a existing"
+        "title": ""
       }
     }
   }

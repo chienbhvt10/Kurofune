@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, DatePicker } from "antd";
+import { useTranslation } from "react-i18next";
 const DateField = ({
   field,
   errorField,
@@ -11,7 +12,7 @@ const DateField = ({
   response,
 }) => {
   const dateFormat = "YYYY/MM/DD";
-
+  const { t } = useTranslation();
   return (
     <Form.Item
       name={field}
@@ -36,7 +37,7 @@ const DateField = ({
         style={{ width: "100%" }}
         locale={locale}
         format={dateFormat}
-        placeholder="Select date"
+        placeholder={t("admins.user.form.placeholder.select_date")}
       />
     </Form.Item>
   );

@@ -1,12 +1,11 @@
-import React, { useEffect } from 'react'
-import './style.scss'
+import React from "react";
+import "./style.scss";
 export const Service24H = () => {
-  useEffect(() => {
+  React.useEffect(() => {
     (function () {
       const sc = document.querySelectorAll("script");
       let activeChat = false;
       sc.forEach((el) => {
-
         if (
           el.attributes.src?.nodeValue ==
           "https://front.ebot.chat/embed/js/webInit.js"
@@ -36,8 +35,8 @@ export const Service24H = () => {
     };
   }, []);
   return (
-    <div className='Service24H container-fluid'>
+    <div className="Service24H container-fluid">
       <p>Dịch vụ tư vấn 24 giờ</p>
     </div>
-  )
-}
+  );
+};

@@ -206,7 +206,36 @@
       "option_other_illnesses12": "Iba pa",
       "error_required":"Kinakailangan ang field na ito.",
       "error_title_requried":"Hindi maidagdag sa shopping cart",
-      "error_msg_requried":"Pakisuri ang iyong input."
+      "error_msg_requried":"Pakisuri ang iyong input.",
+      "option_add_to_cart":{
+        "gender":{
+          "g_1":"Lalaki",
+          "g_2":"Babae"
+        },
+        "yes_or_no":{
+          "y_1":"Oo",
+          "y_2":"Hindi"
+        },
+        "year_old":{
+          "yo_1":"Wala pang 15 taong gulang",
+          "yo_2":"15-64 taong gulang",
+          "yo_3":"65 taong gulang o mas matanda"
+        },
+        "currently_treating":{
+          "c_1":"High blood",
+          "c_2":"Diabetes",
+          "c_3":"Dyslipidemia",
+          "c_4":"Asthma",
+          "c_5":"Sakit sa atay",
+          "c_6":"Sakit sa puso",
+          "c_7":"Stroke",
+          "c_8":"Ulcer",
+          "c_9":"Sakit sa Thyroid",
+          "c_10":"Sakit sa Prostate",
+          "c_11":"Iba pa",
+          "c_12":"Wala naman"
+        }
+      }
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",

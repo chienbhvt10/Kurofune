@@ -43,9 +43,6 @@ const ProductDetailPage = () => {
       centered:true
     });
   };
-  const isNumeric = (n) => {
-    return (!isNaN(parseFloat(n)) && isFinite(n)) || isNaN(n);
-  };
   return (
     <>
       {productClient && (
@@ -126,7 +123,7 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.GENDER.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {option.label}
+                        {t(`client.product_detail.option_add_to_cart.gender.${option.label}`)}
                       </Select.Option>
                     ))}
                   </Select>
@@ -144,7 +141,7 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.YEAR_OLD.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {option.label}
+                       {t(`client.product_detail.option_add_to_cart.year_old.${option.label}`)}
                       </Select.Option>
                     ))}
                   </Select>
@@ -162,7 +159,7 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {option.label}
+                        {t(`client.product_detail.option_add_to_cart.yes_or_no.${option.label}`)}
                       </Select.Option>
                     ))}
                   </Select>
@@ -180,7 +177,7 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {option.label}
+                        {t(`client.product_detail.option_add_to_cart.yes_or_no.${option.label}`)}
                       </Select.Option>
                     ))}
                   </Select>
@@ -192,18 +189,8 @@ const ProductDetailPage = () => {
                   rules={[
                     {
                       required: true,
-                      message: t("client.product_detail.error_required")
-                    },
-                    {
                       message: t("client.product_detail.error_required"),
-                      validator: (_, value) => {
-                        if (isNumeric(value)) {
-                          return Promise.resolve();
-                        } else {
-                          return Promise.reject("Some message here");
-                        }
-                      },
-                    },
+                      whitespace: true                    }
                   ]}
                 >
                   <Input
@@ -223,7 +210,7 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.CURRENTLY_TREATING.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {option.label}
+                       {t(`client.product_detail.option_add_to_cart.currently_treating.${option.label}`)}
                       </Select.Option>
                     ))}
                   </Select>
@@ -235,18 +222,9 @@ const ProductDetailPage = () => {
                   rules={[
                     {
                       required: true,
-                      message: t("client.product_detail.error_required")
-                    },
-                    {
                       message: t("client.product_detail.error_required"),
-                      validator: (_, value) => {
-                        if (isNumeric(value)) {
-                          return Promise.resolve();
-                        } else {
-                          return Promise.reject("Some message here");
-                        }
-                      },
-                    },
+                      whitespace: true
+                    }
                   ]}
                 >
                   <Input.TextArea

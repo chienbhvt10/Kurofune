@@ -206,7 +206,36 @@
       "option_other_illnesses12": "その他（自由記述）",
       "error_required":"この項目は必須です。",
       "error_title_requried":"買い物かごに追加できませんでした",
-      "error_msg_requried":"入力内容をご確認ください。"
+      "error_msg_requried":"入力内容をご確認ください。",
+      "option_add_to_cart":{
+        "gender":{
+          "g_1":"男",
+          "g_2":"女"
+        },
+        "yes_or_no":{
+          "y_1":"はい",
+          "y_2":"いいえ"
+        },
+        "year_old":{
+          "yo_1":"15歳未満",
+          "yo_2":"15-64歳",
+          "yo_3":"65歳以上"
+        },
+        "currently_treating":{
+          "c_1":"高血圧",
+          "c_2":"糖尿病",
+          "c_3":"脂質異常症",
+          "c_4":"喘息",
+          "c_5":"肝臓病",
+          "c_6":"心疾患",
+          "c_7":"脳梗塞",
+          "c_8":"胃・十二指腸潰瘍",
+          "c_9":"甲状腺疾患",
+          "c_10":"前立腺疾患",
+          "c_11":"その他（自由記述）",
+          "c_12":"ありません"
+        }
+      }
 
     },
     "list_pharmacies": {
@@ -238,9 +267,9 @@
         "title": ""
       },
       "create": {
-        "title": "Create a new",
-        "breadcrumb":"Create user",
-        "form_infor":{
+        "title": "",
+        "breadcrumb": "",
+        "form_info": {
           "field_username": "Username",
           "field_password": "Password",
           "field_email": "Email",
@@ -250,7 +279,7 @@
         }
       },
       "update": {
-        "title": "Update a existing"
+        "title": ""
       }
     }
   }
