@@ -6,12 +6,15 @@ use App\Enums\Base;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\ChangePasswordNotification;
+use App\Notifications\RegisterUserNotification;
 use App\Rules\WithoutSpaces;
 use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -340,6 +343,12 @@ class UserController extends Controller
             }
 
             DB::commit();
+            $data = [
+                'email' => $email,
+                'username' => $username,
+                'password' => $password
+            ];
+            Notification::sendNow($user, new RegisterUserNotification($data));
             return $this->successWithData(__('message.user.created'), $user );
         }catch (\Exception $error){
             DB::rollBack();
@@ -421,14 +430,6 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'email|required',
                 'phone' => 'numeric|required',
-                'password' => [
-                    'string',
-                    new WithoutSpaces,
-                    Password::min(8)
-                        ->mixedCase()
-                        ->numbers()
-                        ->symbols()
-                ],
                 'active' => 'required|boolean',
                 'avatar' => ['nullable', new Base64Image],
                 'role' => ['required', 'string', Rule::in($roles)],
@@ -710,6 +711,14 @@ class UserController extends Controller
                 }
             }
             DB::commit();
+            if($password) {
+                $data = [
+                    'email' => $email,
+                    'password' => $password,
+                    'username' => $user->username
+                ];
+                Notification::sendNow($user, New ChangePasswordNotification($data));
+            }
             return $this->successWithData(__('message.user.updated'), $user);
         }catch (\Exception $error){
             DB::rollBack();
