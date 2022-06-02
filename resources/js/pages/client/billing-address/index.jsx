@@ -18,8 +18,8 @@ const BillingAddress = () => {
     }
   }, [profile]);
 
-  const onSave = async (values) => {
-    await updateBillingAddress(values);
+  const onSave = (values) => {
+    updateBillingAddress(values);
   };
 
   return (

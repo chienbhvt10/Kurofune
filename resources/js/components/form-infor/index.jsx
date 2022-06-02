@@ -89,7 +89,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
             field={
               typeForm === PROFILE_FORM ? FIELD_USER_NAME : FIELD_USER_FULL_NAME
             }
-            errorField={
+            error={
               typeForm === PROFILE_FORM ? FIELD_USER_NAME : FIELD_USER_FULL_NAME
             }
             label={t("member.change_profile.field_full_name")}
@@ -139,7 +139,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <SelectField
             field="prefecture"
-            errorField="prefecture"
+            error="prefecture"
             label={t("member.change_profile.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -153,7 +153,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="city"
-            errorField="city"
+            error="city"
             label={t("member.change_profile.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -165,7 +165,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="street_address"
-            errorField="street_address"
+            error="street_address"
             label={t("member.change_profile.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -177,7 +177,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="building"
-            errorField="building"
+            error="building"
             label={t("member.change_profile.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -188,7 +188,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="phone"
-            errorField="phone"
+            error="phone"
             label={t("member.change_profile.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}
@@ -200,7 +200,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         <Col span={24}>
           <InputField
             field="email"
-            errorField="email"
+            error="email"
             label={t("member.change_profile.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 24 }}

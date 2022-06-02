@@ -175,7 +175,7 @@
     },
     "product_detail": {
       "btn_buy": "BUY NOW",
-      "placeholder_option":"Please select option",
+      "placeholder_option": "Please select option",
       "label_gender": "What is your gender?",
       "label_age": "How old are you?",
       "label_ever_used": "Have you ever used this medicine?",
@@ -204,37 +204,37 @@
       "option_other_illnesses10": "Thyroid disease",
       "option_other_illnesses11": "Prostate disease",
       "option_other_illnesses12": "Other (free description)",
-      "error_required":"This field is required.",
-      "error_title_requried":"Could not add to shopping cart",
-      "error_msg_requried":"Please check your input.",
-      "option_add_to_cart":{
-        "gender":{
-          "g_1":"Male",
-          "g_2":"Female",
-          "g_3":"Other"
+      "error_required": "This field is required.",
+      "error_title_requried": "Could not add to shopping cart",
+      "error_msg_requried": "Please check your input.",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "Male",
+          "g_2": "Female",
+          "g_3": "Other"
         },
-        "yes_or_no":{
-          "y_1":"Yes",
-          "y_2":"No"
+        "yes_or_no": {
+          "y_1": "Yes",
+          "y_2": "No"
         },
-        "year_old":{
-          "yo_1":"Under 15 years old",
-          "yo_2":"15-64 years old",
-          "yo_3":"65 years of age or older"
+        "year_old": {
+          "yo_1": "Under 15 years old",
+          "yo_2": "15-64 years old",
+          "yo_3": "65 years of age or older"
         },
-        "currently_treating":{
-          "c_1":"There is none",
-          "c_2":"High blood pressure",
-          "c_3":"Diabetes",
-          "c_4":"Dyslipidemia",
-          "c_5":"Asthma",
-          "c_6":"Liver disease",
-          "c_7":"Heart disease",
-          "c_8":"Cerebral infarction",
-          "c_9":"Gastric / duodenal ulcer",
-          "c_10":"Thyroid disease",
-          "c_11":"Prostate disease",
-          "c_12":"Other (free description)"
+        "currently_treating": {
+          "c_1": "There is none",
+          "c_2": "High blood pressure",
+          "c_3": "Diabetes",
+          "c_4": "Dyslipidemia",
+          "c_5": "Asthma",
+          "c_6": "Liver disease",
+          "c_7": "Heart disease",
+          "c_8": "Cerebral infarction",
+          "c_9": "Gastric / duodenal ulcer",
+          "c_10": "Thyroid disease",
+          "c_11": "Prostate disease",
+          "c_12": "Other (free description)"
         }
       }
     },
@@ -324,6 +324,8 @@
           "field_company_mail": "Company Mail"
         },
         "vendor_profile": {
+          "field_image_inside": "Image inside",
+          "field_image_outside": "Image outside",
           "field_locale": "Locale",
           "field_name": "Name",
           "field_permit_classification": "Permit classification",

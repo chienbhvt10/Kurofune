@@ -26,6 +26,7 @@ import {
   getShippingAddressInitValues,
   getTranslateInitValues,
   getUserInfoInitValues,
+  getVendorUploadInitValues,
 } from "./userFormInitValues";
 export const UserForm = ({
   item,
@@ -38,14 +39,18 @@ export const UserForm = ({
   const { t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const [role, setRole] = React.useState();
-  const [avatarState, setAvatarState] = React.useState({
-    avatarUrl: undefined,
-    base64Avatar: undefined,
-    loading: false,
-  });
+  const [avatarUrl, setAvatarUrl] = React.useState();
+  const [base64Avatar, setBase64Avatar] = React.useState();
+  const [loading, setLoading] = React.useState(false);
+  const [insideImageUrl, setInsideImageUrl] = React.useState();
+  const [outSideImageUrl, setOutSideImageUrl] = React.useState();
+  const [listBase64ImageInSide, setListBase64ImageInSide] = React.useState();
+  const [listBase64ImageOutSide, setListBase64ImageOutSide] = React.useState();
+
   const lang = getCurrentLanguage();
   const [userInfoForm] = Form.useForm();
   const [planProfileForm] = Form.useForm();
+  const [vendorUploadForm] = Form.useForm();
   const [vendorProfileFormEN] = Form.useForm();
   const [vendorProfileFormJP] = Form.useForm();
   const [vendorProfileFormTL] = Form.useForm();
@@ -61,11 +66,13 @@ export const UserForm = ({
   const commonAddressInitValues = getCommonAddressInitValues(item);
   const billingAddressInitValues = getBillingAddressInitValues(item);
   const shippingAddressInitValues = getShippingAddressInitValues(item);
-
+  const vendorUploadInitValues = getVendorUploadInitValues(item);
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
-      avatar: avatarState.base64Avatar,
+      avatar: base64Avatar,
+      images_inside: listBase64ImageInSide,
+      images_outside: listBase64ImageOutSide,
       ...userInfoForm.getFieldsValue(),
       ...commonAddressForm.getFieldsValue(),
       billing_address: {
@@ -127,6 +134,7 @@ export const UserForm = ({
     billingAddressForm.setFieldsValue(billingAddressInitValues);
     shippingAddressForm.setFieldsValue(shippingAddressInitValues);
     commonAddressForm.setFieldsValue(commonAddressInitValues);
+    vendorUploadForm.setFieldsValue(vendorUploadInitValues);
     vendorProfileFormEN.setFieldsValue(
       item?.vendor_profile?.vendor_translations[0] || translateInitValues
     );
@@ -164,11 +172,20 @@ export const UserForm = ({
   };
 
   const onChangeAvatar = (base64Image) => {
-    setAvatarState({ base64Avatar: base64Image });
+    setBase64Avatar(base64Image);
   };
 
+  const onChangeImageOutside = (listBase64Image) => {
+    setListBase64ImageOutSide(listBase64Image);
+  };
+
+  const onChangeImageInside = (listBase64Image) => {
+    setListBase64ImageInSide(listBase64Image);
+  };
   React.useEffect(() => {
-    setAvatarState({ avatarUrl: item?.avatar || "" });
+    setAvatarUrl(item?.avatar || "");
+    setOutSideImageUrl(item?.images_outside || undefined);
+    setInsideImageUrl(item?.images_inside || undefined);
   }, [item]);
 
   const renderErrorTranslate = (field) => {
@@ -211,15 +228,15 @@ export const UserForm = ({
           <Col span={8}>
             <UploadDragger
               onChangeImage={onChangeAvatar}
-              imageUrlProps={avatarState.avatarUrl}
-              loading={avatarState.loading}
+              imageUrlProps={avatarUrl}
+              loading={loading}
             />
           </Col>
           <Col span={14}>
             <Col span={23}>
               <Form.Item
                 name="role"
-                errorField="role"
+                error="role"
                 label={t("admins.user.form.field_role")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -242,7 +259,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="name"
-                errorField="name"
+                error="name"
                 label={t("admins.user.form.field_name")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -254,7 +271,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="email"
-                errorField="email"
+                error="email"
                 label={t("admins.user.form.field_email")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -266,7 +283,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="phone"
-                errorField="phone"
+                error="phone"
                 label={t("admins.user.form.field_phone")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -278,7 +295,7 @@ export const UserForm = ({
             <Col span={23}>
               <InputField
                 field="username"
-                errorField="username"
+                error="username"
                 label={t("admins.user.form.field_username")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -292,7 +309,7 @@ export const UserForm = ({
                 <Col span={18}>
                   <InputField
                     field="password"
-                    errorField="password"
+                    error="password"
                     label={t("admins.user.form.field_password")}
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
@@ -308,18 +325,18 @@ export const UserForm = ({
                   <Button
                     type="primary"
                     htmlType="button"
+                    className="btn-generate-password"
                     onClick={onGeneratePassword}
                   >
                     {t("admins.btn_generate_password")}
                   </Button>
                 </Col>
-                <Col span={24}></Col>
               </Row>
             </Col>
             <Col span={23}>
               <SelectField
                 field="active"
-                errorField="active"
+                error="active"
                 label={t("admins.user.form.field_active")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
@@ -339,6 +356,7 @@ export const UserForm = ({
         <Phase2UserForm
           role={role}
           typeForm={typeForm}
+          formUpload={vendorUploadForm}
           vendorProfileFormJP={vendorProfileFormJP}
           vendorProfileFormEN={vendorProfileFormEN}
           vendorProfileFormTL={vendorProfileFormTL}
@@ -348,6 +366,10 @@ export const UserForm = ({
           commonAddressForm={commonAddressForm}
           billingAddressForm={billingAddressForm}
           shippingAddressForm={shippingAddressForm}
+          onChangeImageInside={onChangeImageInside}
+          onChangeImageOutside={onChangeImageOutside}
+          insideImageUrl={insideImageUrl}
+          outSideImageUrl={outSideImageUrl}
         />
       </div>
     </div>

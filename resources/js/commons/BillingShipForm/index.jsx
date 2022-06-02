@@ -28,7 +28,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="full_name"
-            errorField={`${typeForm}.full_name`}
+            error={`${typeForm}.full_name`}
             label={t("admins.user.form.field_full_name")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -39,7 +39,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="postal_code"
-            errorField={`${typeForm}.postal_code`}
+            error={`${typeForm}.postal_code`}
             label={t("admins.user.form.field_postal_code")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -51,7 +51,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <SelectField
             field="prefecture"
-            errorField={`${typeForm}.prefecture`}
+            error={`${typeForm}.prefecture`}
             label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -63,7 +63,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="city"
-            errorField={`${typeForm}.city`}
+            error={`${typeForm}.city`}
             label={t("admins.user.form.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -74,7 +74,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="street_address"
-            errorField={`${typeForm}.street_address`}
+            error={`${typeForm}.street_address`}
             label={t("admins.user.form.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -85,7 +85,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="building"
-            errorField={`${typeForm}.building`}
+            error={`${typeForm}.building`}
             label={t("admins.user.form.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -96,7 +96,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="phone"
-            errorField={`${typeForm}.phone`}
+            error={`${typeForm}.phone`}
             label={t("admins.user.form.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -108,7 +108,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field="email"
-            errorField={`${typeForm}.email`}
+            error={`${typeForm}.email`}
             label={t("admins.user.form.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}

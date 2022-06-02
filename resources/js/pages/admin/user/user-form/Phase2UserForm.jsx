@@ -1,21 +1,18 @@
+import { Tabs } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import BillingShipForm from "../../../../commons/BillingShipForm";
 import {
   BILLING_ADDRESS_FORM,
-  FIRST_TAB,
-  FOURTH_TAB,
   ROLE_FULL_SUPPORT_PLAN,
   ROLE_LIGHT_PLAN,
   ROLE_VENDOR,
-  SECOND_TAB,
   SHIPPING_ADDRESS_FORM,
-  THIRD_TAB,
   TYPE_FORM_CREATE,
 } from "../../../../constants";
 import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
-import SwitchTabUserForm from "./switch-tab/SwitchTabUserForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
 const Phase2UserForm = ({
   role,
@@ -29,73 +26,76 @@ const Phase2UserForm = ({
   commonAddressForm,
   billingAddressForm,
   shippingAddressForm,
+  formVendorUpload,
+  onChangeImageOutside,
+  outSideImageUrl,
+  onChangeImageInside,
+  insideImageUrl,
 }) => {
-  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
+  const { t } = useTranslation();
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
   const resUpdateUser = useSelector((state) => state.userState.resCreateUser);
 
-  const onChangeForm = (number) => {
-    setActiveTab(number);
-  };
   return (
-    <SwitchTabUserForm
-      role={role}
-      onChangeForm={onChangeForm}
-      activeTab={activeTab}
-    >
-      <div style={{ width: "50%", margin: "auto" }}>
-        <CommonInfoForm
-          form={commonAddressForm}
-          className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
-        />
-      </div>
-
-      {role === ROLE_VENDOR ? (
-        <div style={{ width: "80%", margin: "auto" }}>
-          <VendorProfileForm
-            className={`tab ${activeTab === 2 ? "active" : ""}`}
-            formJP={vendorProfileFormJP}
-            formEN={vendorProfileFormEN}
-            formTL={vendorProfileFormTL}
-            formVI={vendorProfileFormVI}
-            formZH={vendorProfileFormZH}
-          />
-        </div>
+    <Tabs defaultActiveKey="1" className="switch-tab-form">
+      <Tabs.TabPane tab={t("admins.user.switch_tab.address")} key="1">
+        <CommonInfoForm className="common-info-form" form={commonAddressForm} />
+      </Tabs.TabPane>
+      {role === ROLE_VENDOR ||
+      role === ROLE_LIGHT_PLAN ||
+      role === ROLE_FULL_SUPPORT_PLAN ? (
+        <Tabs.TabPane tab={t("admins.user.switch_tab.role_info")} key="2">
+          {role === ROLE_VENDOR ? (
+            <VendorProfileForm
+              className="vendor-profile-form"
+              formJP={vendorProfileFormJP}
+              formEN={vendorProfileFormEN}
+              formTL={vendorProfileFormTL}
+              formVI={vendorProfileFormVI}
+              formZH={vendorProfileFormZH}
+              formUpload={formVendorUpload}
+              onChangeImageOutside={onChangeImageOutside}
+              outSideImageUrl={outSideImageUrl}
+              onChangeImageInside={onChangeImageInside}
+              insideImageUrl={insideImageUrl}
+            />
+          ) : (
+            <></>
+          )}
+          {role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN ? (
+            <PlanProfileForm
+              role={role}
+              form={planProfileForm}
+              className="plan-profile-form"
+            />
+          ) : (
+            <></>
+          )}
+        </Tabs.TabPane>
       ) : (
         <></>
       )}
-      {role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN ? (
-        <div style={{ width: "80%", margin: "auto" }}>
-          <PlanProfileForm
-            role={role}
-            className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
-            form={planProfileForm}
-          />
-        </div>
-      ) : (
-        <></>
-      )}
-      <div style={{ width: "50%", margin: "auto" }}>
+      <Tabs.TabPane tab={t("admins.user.switch_tab.billing_address")} key="3">
         <BillingShipForm
-          className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
+          className="billing-ship-form"
           typeForm={BILLING_ADDRESS_FORM}
           form={billingAddressForm}
           response={
             typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
           }
         />
-      </div>
-      <div style={{ width: "50%", margin: "auto" }}>
+      </Tabs.TabPane>
+      <Tabs.TabPane tab={t("admins.user.switch_tab.shipping_address")} key="4">
         <BillingShipForm
-          className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
+          className="billing-ship-form"
           typeForm={SHIPPING_ADDRESS_FORM}
           form={shippingAddressForm}
           response={
             typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
           }
         />
-      </div>
-    </SwitchTabUserForm>
+      </Tabs.TabPane>
+    </Tabs>
   );
 };
 
