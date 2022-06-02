@@ -1,10 +1,11 @@
+import { Select } from "antd";
 import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { TableHeader } from "../../../../commons/TableHeader";
-import { DEFAULT_LIMIT } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useRoles from "../../../../hooks/role/useRoles";
 import useDeleteUser from "../../../../hooks/user/useDeleteUser";
 import useUsers from "../../../../hooks/user/useUsers";
 import "./user-list.scss";
@@ -15,22 +16,40 @@ export const UserList = () => {
   const lang = getCurrentLanguage();
   const { getAllUsers, users, pagination } = useUsers();
   const { deleteUser } = useDeleteUser();
+  const { roles, getAllRoles } = useRoles();
 
   const navigate = useNavigate();
   function createMarkup() {
     return { __html: t("login.title") };
   }
+
   React.useEffect(() => {
     if (users.length === 0) {
       getAllUsers();
     }
   }, [users]);
+
+  React.useEffect(() => {
+    if (roles.length === 0) {
+      getAllRoles();
+    }
+  }, [roles]);
+
   const onDelete = (row) => () => {
     deleteUser(row.id);
     getAllUsers({ page: pagination.current_page });
   };
+
   const onEdit = (row) => () => {
     navigate(`${lang}/admin/user-update/${row.id}`);
+  };
+
+  const onChangeRole = (value) => {
+    getAllUsers({ page: pagination.current_page, role: value });
+  };
+
+  const onSearch = (values) => {
+    getAllUsers({ page: pagination.current_page, name: values.name });
   };
 
   const onTableChange = (paginationTable, filters, sorter) => {
@@ -48,7 +67,21 @@ export const UserList = () => {
           { name: "Home", routerLink: "../" },
           { name: t("admins.user.list.title"), routerLink: "/users" },
         ]}
-      />
+        onSearch={onSearch}
+        searchField="name"
+      >
+        <Select
+          placeholder={t("admins.user.form.placeholder.select_role")}
+          onChange={onChangeRole}
+          className="select-role"
+        >
+          {roles.map((item, index) => (
+            <Select.Option key={index} value={item.name}>
+              {item.name}
+            </Select.Option>
+          ))}
+        </Select>
+      </TableHeader>
       <UserTable
         items={users}
         pagination={pagination}
