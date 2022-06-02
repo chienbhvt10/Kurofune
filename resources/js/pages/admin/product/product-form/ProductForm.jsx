@@ -89,9 +89,33 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const onFinishFailed = () => {
     productProfileFormEN.validateFields()
   }
+
+  React.useEffect(() => {
+    const imgPreview = document.querySelector(".image");
+    imgPreview.addEventListener("click", (e) => {
+      e.preventDefault()
+    })
+    return imgPreview.removeEventListener("click", () => {
+      return false
+    })
+  }, [])
+  const formItemLayout = {
+    labelCol: {
+      lg: { span: 24 },
+      xs: { span: 24 },
+      sm: { span: 24 },
+    },
+    wrapperCol: {
+      lg: { span: 24 },
+      xs: { span: 24 },
+      sm: { span: 24 },
+    },
+    labelAlign: 'left',
+  };
   return (
     <div id="product-form">
       <Form
+        {...formItemLayout}
         name="common-product-form"
         form={productsForm}
         onFinish={onFinishAll}
@@ -114,34 +138,29 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           onCancel={onCancel}
         />
         <div>
-          <Row justify="center">
-            <Col span={12} className="input-field-space">
+          <Row justify="center" >
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="slug"
                 label={t("admins.product.slug_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 type={<Input />}
                 response={response}
+              // validateStatus={HasError ? "error" : ""}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="sku"
                 label={t("admins.product.sku_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 rules={[]}
                 response={response}
                 type={<Input />}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <SelectField
                 field="status"
                 label={t("admins.product.status_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 placeholder="Please select active status"
                 options={productFormOptions.status}
                 rules={[{
@@ -153,12 +172,10 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 errorField='status'
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <SelectField
                 field="stock_status"
                 label={t("admins.product.stock_status_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 placeholder="Please select Category"
                 options={productFormOptions.stock_status}
                 rules={[{
@@ -170,23 +187,19 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 errorField='stock_status'
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="price"
                 label={t("admins.product.price_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 rules={[]}
                 response={response}
                 type={<Input type="number" className="input-field" />}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <SelectField
                 field="cat_id"
                 label={t("admins.product.category_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 placeholder="Please select active status"
                 options={listCategories}
                 rules={[{
@@ -198,12 +211,10 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 errorField='cat_id'
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="tax_id"
                 label={t("admins.product.tax_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 rules={[{
                   required: true,
                   message: t("admins.product.error_message.required_message"),
@@ -218,40 +229,34 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 type={<Input type="number" className="input-field" />}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="meta_title"
                 label={t("admins.product.meta_title_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 rules={[]}
                 response={response}
                 type={<Input />}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="meta_description"
                 label={t("admins.product.meta_description_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 rules={[]}
                 response={response}
                 type={<Input />}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="meta_keyword"
                 label={t("admins.product.meta_keyword_field")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 rules={[]}
                 response={response}
                 type={<Input />}
               />
             </Col>
-            <Col span={12} className="input-field-space">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <Form.Item field="product_image" label={t("admins.product.product_image_field")} labelCol={{ span: 24 }}>
                 <UploadDragger onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarState.avatarUrl}
@@ -259,7 +264,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
 
               </Form.Item>
             </Col>
-            <Col span={12} className="input-field-space"></Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space"></Col>
           </Row>
         </div>
       </Form>

@@ -206,7 +206,37 @@
       "option_other_illnesses12": "Other (free description)",
       "error_required": "This field is required.",
       "error_title_requried": "Could not add to shopping cart",
-      "error_msg_requried": "Please check your input."
+      "error_msg_requried": "Please check your input.",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "Male",
+          "g_2": "Female",
+          "g_3": "Other"
+        },
+        "yes_or_no": {
+          "y_1": "Yes",
+          "y_2": "No"
+        },
+        "year_old": {
+          "yo_1": "Under 15 years old",
+          "yo_2": "15-64 years old",
+          "yo_3": "65 years of age or older"
+        },
+        "currently_treating": {
+          "c_1": "There is none",
+          "c_2": "High blood pressure",
+          "c_3": "Diabetes",
+          "c_4": "Dyslipidemia",
+          "c_5": "Asthma",
+          "c_6": "Liver disease",
+          "c_7": "Heart disease",
+          "c_8": "Cerebral infarction",
+          "c_9": "Gastric / duodenal ulcer",
+          "c_10": "Thyroid disease",
+          "c_11": "Prostate disease",
+          "c_12": "Other (free description)"
+        }
+      }
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",
@@ -404,7 +434,6 @@
 
       "error_message": {
         "required_message": "This field is required."
-        
       }
     }
   }

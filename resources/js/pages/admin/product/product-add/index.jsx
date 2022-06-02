@@ -29,7 +29,7 @@ const AddProduct = () => {
 
   React.useEffect(() => {
     if (resCreateProduct?.status_code === 200) {
-      NotificationSuccess("Thông báo", "Thêm Product thành công");
+      NotificationSuccess("Thông báo", resCreateProduct.message);
       navigate(`${lang}/admin/product-list`);
       getAllProducts();
     }

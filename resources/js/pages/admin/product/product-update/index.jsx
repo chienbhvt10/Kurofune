@@ -37,7 +37,7 @@ const UpdateProduct = () => {
   React.useEffect(() => {
     if (resUpdateProduct?.status_code === 200) {
       navigate(`${lang}/admin/product-list`);
-      NotificationSuccess("Thông báo", "Update Product thành công");
+      NotificationSuccess("Thông báo", resUpdateProduct.message);
     }
   }, [resUpdateProduct]);
   return (
