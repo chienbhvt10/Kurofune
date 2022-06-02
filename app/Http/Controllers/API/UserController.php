@@ -368,14 +368,11 @@ class UserController extends Controller
             $vendor_profile_data = null;
             $vendor_profile = $user->vendor_profile;
             if($vendor_profile){
-                $images_outside = getMediaImages($vendor_profile, 'images_outside');
-                $images_inside = getMediaImages($vendor_profile, 'images_inside');
-
                 $vendor_profile_data = [
                     'id' => $vendor_profile->id,
                     'vendor_translations' => $vendor_profile->translations,
-                    'images_outside' => $images_outside,
-                    'images_inside' => $images_inside,
+                    'images_outside' => $vendor_profile->images_outside,
+                    'images_inside' => $vendor_profile->images_inside,
                 ];
             }
 
