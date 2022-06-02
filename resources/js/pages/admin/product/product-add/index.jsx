@@ -6,9 +6,11 @@ import ProductForm from "../product-form/ProductForm";
 import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
 import { NotificationSuccess } from "../../../../commons/Notification";
 import useProducts from "../../../../hooks/product/useProducts.js";
+import { useTranslation } from "react-i18next";
 
 const AddProduct = () => {
   const lang = getCurrentLanguage();
+  const { t } = useTranslation();
   const { getAllProducts, products } = useProducts();
   const { createNewProduct, resCreateProduct } = useCreateProduct();
   const navigate = useNavigate();
@@ -29,7 +31,10 @@ const AddProduct = () => {
 
   React.useEffect(() => {
     if (resCreateProduct?.status_code === 200) {
-      NotificationSuccess("Thông báo", resCreateProduct.message);
+      NotificationSuccess(
+        t("admins.product.notification"),
+        resCreateProduct.message
+      );
       navigate(`${lang}/admin/product-list`);
       getAllProducts();
     }

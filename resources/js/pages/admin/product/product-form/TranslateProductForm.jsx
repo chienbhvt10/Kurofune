@@ -1,55 +1,42 @@
 import React from "react";
-import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import SubFormTranslate from "./SubFormTranslate.jsx";
 import {
-        FIFTH_TAB,
-        FIRST_TAB,
-        FOURTH_TAB,
-        SECOND_TAB,
-        THIRD_TAB,
-} from "../../../../constants"
+  FIFTH_TAB,
+  FIRST_TAB,
+  FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+} from "../../../../constants";
+import { Tabs } from "antd";
+const { TabPane } = Tabs;
 
-const TranslateProductForm = ({ formJP, formVI, formTL, formEN, formZH, response }) => {
-        const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
-        const onChangeLanguageForm = (number) => {
-                setActiveTab(number);
-        };
-        return (
-                <SwitchTabLangForm
-                        onChangeLanguageForm={onChangeLanguageForm}
-                        activeTab={activeTab}
-                        response={response}
-                >
-                        <SubFormTranslate
-                                lang="EN"
-                                className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
-                                form={formEN}
-                                response={response}
-                        />
-                        <SubFormTranslate
-                                lang="JA"
-                                className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
-                                form={formJP}
-                        />
-                        <SubFormTranslate
-                                lang="TL"
-                                className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
-                                form={formTL}
-                        />
-                        <SubFormTranslate
-                                lang="VI"
-                                className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
-                                form={formVI}
-                                response={response}
-                        />
-                        <SubFormTranslate
-                                lang="ZH"
-                                className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
-                                form={formZH}
-                                response={response}
-                        />
-                </SwitchTabLangForm>
-        );
+const TranslateProductForm = ({
+  formJP,
+  formVI,
+  formTL,
+  formEN,
+  formZH,
+  response,
+}) => {
+  return (
+    <Tabs defaultActiveKey={FIRST_TAB} centered>
+      <TabPane tab="English" key={FIRST_TAB}>
+        <SubFormTranslate lang="EN" form={formEN} response={response} />
+      </TabPane>
+      <TabPane tab="Japan" key={SECOND_TAB}>
+        <SubFormTranslate lang="JA" form={formJP} />
+      </TabPane>
+      <TabPane tab="Thailan" key={THIRD_TAB}>
+        <SubFormTranslate lang="TL" form={formTL} />
+      </TabPane>
+      <TabPane tab="Vietnam" key={FOURTH_TAB}>
+        <SubFormTranslate lang="VI" form={formVI} response={response} />
+      </TabPane>
+      <TabPane tab="China" key={FIFTH_TAB}>
+        <SubFormTranslate lang="ZH" form={formZH} response={response} />
+      </TabPane>
+    </Tabs>
+  );
 };
 
 export default TranslateProductForm;

@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import { NotificationSuccess } from "../../../../commons/Notification/index.jsx";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
@@ -10,6 +11,7 @@ const UpdateProduct = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const lang = localStorage.getItem("lang");
+  const { t } = useTranslation();
 
   const { getProduct, product } = useProductDetail();
   const { updateProduct, resUpdateProduct } = useUpdateProduct();
@@ -25,7 +27,6 @@ const UpdateProduct = () => {
     };
 
     updateProduct(submitData);
-
   };
 
   React.useEffect(() => {
@@ -37,7 +38,10 @@ const UpdateProduct = () => {
   React.useEffect(() => {
     if (resUpdateProduct?.status_code === 200) {
       navigate(`${lang}/admin/product-list`);
-      NotificationSuccess("Thông báo", resUpdateProduct.message);
+      NotificationSuccess(
+        t("admins.product.notification"),
+        resUpdateProduct.message
+      );
     }
   }, [resUpdateProduct]);
   return (

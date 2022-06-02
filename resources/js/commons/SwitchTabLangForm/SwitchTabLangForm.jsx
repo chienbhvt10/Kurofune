@@ -7,6 +7,7 @@ import {
   THIRD_TAB,
 } from "../../constants";
 import "./switch-tab-lang-form.scss";
+
 const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
 
   return (

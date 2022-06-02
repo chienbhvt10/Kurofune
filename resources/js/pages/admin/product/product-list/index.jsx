@@ -7,12 +7,14 @@ import useDeleteProduct from "./../../../../hooks/product/useDeleteProduct";
 import "./product.scss";
 import ProductTable from "./ProductTable";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { useTranslation } from "react-i18next";
 
 const ProductList = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { getAllProducts, products, pagination } = useProducts();
   const { deleteProduct, resDeleteProduct } = useDeleteProduct();
+  const { t } = useTranslation();
 
   const onDelete = (row) => async () => {
     deleteProduct(row.id);
@@ -28,7 +30,7 @@ const ProductList = () => {
   React.useEffect(() => {
     if (resDeleteProduct?.status_code === 200) {
       getAllProducts({ page: 1 });
-      NotificationSuccess("Thông báo", resDeleteProduct.message);
+      NotificationSuccess(t("admins.product.notification"), resDeleteProduct.message);
     } else {
       return;
     }

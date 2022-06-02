@@ -16,33 +16,41 @@ const SubFormTranslate = ({ lang, className, form, response }) => {
       xs: { span: 24 },
       sm: { span: 24 },
     },
-    labelAlign: 'left',
+    labelAlign: "left",
   };
   const { i18n, t } = useTranslation();
   return (
     <Row justify="center">
-      <Form {...formItemLayout} className={className} name="common-translate-form" form={form}>
+      <Form
+        {...formItemLayout}
+        className={className}
+        name="common-translate-form"
+        form={form}
+      >
         <Row justify="center">
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field="name"
               label={`(${lang}) ${t("admins.product.name_field")}`}
-              rules={[{
-                required: true,
-                message: t("admins.product.error_message.required_message"),
-                whitespace: true
-              }]}
+              rules={[
+                {
+                  required: true,
+                  message: t("admins.product.error_message.required_message"),
+                  whitespace: true,
+                },
+              ]}
               response={response}
-              errorField='en.name'
+              errorField="en.name"
               type={<Input.TextArea />}
-
             />
           </Col>
 
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field="medicinal_efficacy_classification"
-              label={`(${lang}) ${t("admins.product.medicinal_efficacy_classification_field")}`}
+              label={`(${lang}) ${t(
+                "admins.product.medicinal_efficacy_classification_field"
+              )}`}
               rules={[]}
               response={response}
               rows={4}
@@ -88,7 +96,9 @@ const SubFormTranslate = ({ lang, className, form, response }) => {
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field="active_ingredients"
-              label={`(${lang}) ${t("admins.product.active_ingredients_field")}`}
+              label={`(${lang}) ${t(
+                "admins.product.active_ingredients_field"
+              )}`}
               rules={[]}
               response={response}
               type={<Input.TextArea />}
@@ -106,7 +116,9 @@ const SubFormTranslate = ({ lang, className, form, response }) => {
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field="precautions_storage_handling"
-              label={`(${lang}) ${t("admins.product.precautions_storage_handling_field")}`}
+              label={`(${lang}) ${t(
+                "admins.product.precautions_storage_handling_field"
+              )}`}
               rules={[]}
               response={response}
               type={<Input.TextArea />}

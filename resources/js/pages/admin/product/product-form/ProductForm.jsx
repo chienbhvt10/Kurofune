@@ -7,9 +7,12 @@ import FormHeader from "../../../../commons/FormHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
 import SelectField from "./../../../../commons/Form/SelectField";
-import UploadDragger from './../../../../commons/UploadDragger/UploadDragger';
+import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
-import { getProductInfoInitValues, getTranslateInitValues } from './productInitValues.js';
+import {
+  getProductInfoInitValues,
+  getTranslateInitValues,
+} from "./productInitValues.js";
 import TranslateProductForm from "./TranslateProductForm";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
@@ -21,8 +24,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     base64Avatar: undefined,
     loading: false,
   });
-  const initialFormCommonValues = getProductInfoInitValues(item)
-  const initialTranslateValues = getTranslateInitValues()
+  const initialFormCommonValues = getProductInfoInitValues(item);
+  const initialTranslateValues = getTranslateInitValues();
   const [productsForm] = Form.useForm();
   const [productProfileFormEN] = Form.useForm();
   const [productProfileFormJP] = Form.useForm();
@@ -50,7 +53,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       },
       product_image: avatarState.base64Avatar,
     };
-    productProfileFormEN.validateFields()
+    productProfileFormEN.validateFields();
     onSave(submitInput);
   };
   React.useEffect(() => {
@@ -73,32 +76,34 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       );
     }
     setAvatarState({ avatarUrl: item?.product_image || "" });
-    getAdminCategories()
+    getAdminCategories();
   }, [item]);
 
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
   };
 
-  const listCategories = adminCategories && adminCategories.map((category) => {
-    return {
-      value: category.id,
-      label: category.name
-    }
-  })
+  const listCategories =
+    adminCategories &&
+    adminCategories.map((category) => {
+      return {
+        value: category.id,
+        label: category.name,
+      };
+    });
   const onFinishFailed = () => {
-    productProfileFormEN.validateFields()
-  }
+    productProfileFormEN.validateFields();
+  };
 
   React.useEffect(() => {
     const imgPreview = document.querySelector(".image");
     imgPreview.addEventListener("click", (e) => {
-      e.preventDefault()
-    })
+      e.preventDefault();
+    });
     return imgPreview.removeEventListener("click", () => {
-      return false
-    })
-  }, [])
+      return false;
+    });
+  }, []);
   const formItemLayout = {
     labelCol: {
       lg: { span: 24 },
@@ -110,7 +115,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       xs: { span: 24 },
       sm: { span: 24 },
     },
-    labelAlign: 'left',
+    labelAlign: "left",
   };
   return (
     <div id="product-form">
@@ -138,14 +143,13 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           onCancel={onCancel}
         />
         <div>
-          <Row justify="center" >
+          <Row justify="center">
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="slug"
                 label={t("admins.product.slug_field")}
                 type={<Input />}
                 response={response}
-              // validateStatus={HasError ? "error" : ""}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -163,13 +167,15 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.status_field")}
                 placeholder="Please select active status"
                 options={productFormOptions.status}
-                rules={[{
-                  required: true,
-                  message: t("admins.product.error_message.required_message"),
-                  whiteSpace: true,
-                }]}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                    whiteSpace: true,
+                  },
+                ]}
                 response={response}
-                errorField='status'
+                errorField="status"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -178,13 +184,15 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.stock_status_field")}
                 placeholder="Please select Category"
                 options={productFormOptions.stock_status}
-                rules={[{
-                  required: true,
-                  message: t("admins.product.error_message.required_message"),
-                  whiteSpace: true,
-                }]}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                    whiteSpace: true,
+                  },
+                ]}
                 response={response}
-                errorField='stock_status'
+                errorField="stock_status"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -202,30 +210,33 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.category_field")}
                 placeholder="Please select active status"
                 options={listCategories}
-                rules={[{
-                  required: true,
-                  message: t("admins.product.error_message.required_message"),
-                }]}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                  },
+                ]}
                 response={response}
                 mode="multiple"
-                errorField='cat_id'
+                errorField="cat_id"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="tax_id"
                 label={t("admins.product.tax_field")}
-                rules={[{
-                  required: true,
-                  message: t("admins.product.error_message.required_message"),
-                },
-                {
-                  pattern: new RegExp(/^[1-9][0-9]*$/),
-                  message: "Please input number greater than 0"
-                }
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                  },
+                  {
+                    pattern: new RegExp(/^[1-9][0-9]*$/),
+                    message: "Please input number greater than 0",
+                  },
                 ]}
                 response={response}
-                errorField='tax_id'
+                errorField="tax_id"
                 type={<Input type="number" className="input-field" />}
               />
             </Col>
@@ -257,14 +268,25 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
-              <Form.Item field="product_image" label={t("admins.product.product_image_field")} labelCol={{ span: 24 }}>
-                <UploadDragger onChangeImage={onChangeAvatar}
+              <Form.Item
+                field="product_image"
+                label={t("admins.product.product_image_field")}
+                labelCol={{ span: 24 }}
+              >
+                <UploadDragger
+                  onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarState.avatarUrl}
-                  loading={avatarState.loading} />
-
+                  loading={avatarState.loading}
+                />
               </Form.Item>
             </Col>
-            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space"></Col>
+            <Col
+              lg={12}
+              md={12}
+              sm={24}
+              xs={24}
+              className="input-field-space"
+            ></Col>
           </Row>
         </div>
       </Form>
