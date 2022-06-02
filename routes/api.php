@@ -78,6 +78,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 Route::get('list-of-pharmacies', ['App\Http\Controllers\API\VendorProfileController', 'index']);
                 Route::get('detail-pharmacy/{id}', [\App\Http\Controllers\API\VendorProfileController::class, 'detailPharmacy']);
                 Route::get('product-of-pharmacy/{id}', [\App\Http\Controllers\API\VendorProfileController::class, 'productPharmacy']);
+                Route::get('search-pharmacy', [\App\Http\Controllers\API\VendorProfileController::class, 'searchPharmacy']);
 
                 // Billing, Shipping, Address manager
                 Route::put('billing-address', [\App\Http\Controllers\API\BillingAddressController::class, 'update']);

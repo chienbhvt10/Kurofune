@@ -8,6 +8,7 @@ use Illuminate\Http\Response;
 use App\Models\ShippingAddress;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Support\Facades\Validator;
+use App\Rules\PostalCode;
 
 class ShippingAddressController extends Controller
 {
@@ -21,7 +22,7 @@ class ShippingAddressController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'full_name' => 'required|string|max:100',
-                'postal_code' => 'required|string|max:50',
+                'postal_code' => ['required', 'string', 'max:50', new PostalCode],
                 'city' => 'required|string|max:255',
                 'prefecture' => 'required|string|max:150',
                 'street_address' => 'required|string|max:255',
@@ -31,13 +32,7 @@ class ShippingAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors);
-            }
-
-            $check_postcode = checkPostalCode($request->postal_code);
-
-            if ($check_postcode == false) {
-                return $this->errorResponse(__( 'message.postal_code.valid'));
+                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $dataUpdate = [

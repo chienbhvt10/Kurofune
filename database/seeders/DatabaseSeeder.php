@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
 //            TaxSeeder::class,
 //            CategorySeeder::class,
 //            ProductSeeder::class
+//            CategoryProductSeeder::class
         ]);
     }
 }

@@ -17,10 +17,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Rules\Base64Image;
+use App\Traits\ProductTrait;
 
 class ProductController extends Controller
 {
-    use RespondsStatusTrait, CustomFilterTrait;
+    use RespondsStatusTrait, CustomFilterTrait,ProductTrait;
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +34,6 @@ class ProductController extends Controller
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
             $relational = 'product_translations';
-
             if ($request->name) {
                 $product = $this->filterWhereHasName(new Product, $relational, $request->name, $posts_per_page);
             } else {
@@ -75,15 +75,20 @@ class ProductController extends Controller
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $user = auth()->user();
-            $user_id = $user->id;
-            $roles = $user->getRoleNames()->first();
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
+
+            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
+            $slug_check = check_unique_slug(new Product, $slug);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
+            }
+            $user = auth()->user();
+            $user_id = $user->id;
+            $roles = $user->getRoleNames()->first();
 
             if($roles == UserRole::ROLE_ADMIN) {
                 $validator = Validator::make($request->all(), [
@@ -195,8 +200,35 @@ class ProductController extends Controller
     public function show($id)
     {
         try {
-            $product = Product::find($id);
-            return $this->responseData($product);
+            $data = Product::find($id);
+            $categories = $data->categories;
+            $translations = $data -> translations;
+            $type = $categories[0]->type;
+            $response = [
+                'slug' => $data->slug,
+                'sku' => $data->sku,
+                'stock_status' => $data->stock_status,
+                'price' => $this->get_price_html($data->price),
+                'price_tax' =>  $this->get_price_html($this->get_price_including_tax($data)),
+                'status' => $data->status,
+                'product_image' => $data->product_image,
+                'meta_title' => $data->meta_title,
+                'meta_description' => $data->meta_description,
+                'meta_keywords' => $data->meta_keywords,
+                'name' => $data->name,
+                'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
+                'features' => $data->features,
+                'precautions' => $data->precautions,
+                'efficacy_effect' => $data->efficacy_effect,
+                'usage_dose' => $data->usage_dose,
+                'active_ingredients' => $data->active_ingredients,
+                'additives' => $data->additives,
+                'precautions_storage_handling' => $data->precautions_storage_handling,
+                'manufacturer' => $data->manufacturer,
+                'type' => __(CAT_TYPE[$type]),
+                'translations' => $translations,
+            ];
+            return $this->responseData($response);
         }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
         }
@@ -229,15 +261,20 @@ class ProductController extends Controller
                 'stock_status' => ['required', Rule::in(['instock', 'outofstock'])],
                 'status' => ['required', Rule::in(['publish', 'draft'])],
             ]);
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $user = auth()->user();
-            $user_id = $user->id;
-            $roles = $user->getRoleNames()->first();
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
             }
+
+            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
+            $slug_check = check_unique_slug_update(new Product, $slug, $id);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
+            }
+            $user = auth()->user();
+            $user_id = $user->id;
+            $roles = $user->getRoleNames()->first();
 
             if($roles == UserRole::ROLE_ADMIN) {
                 $validator = Validator::make($request->all(), [
@@ -368,10 +405,37 @@ class ProductController extends Controller
     {
         try {
             $data = Product::find($id);
+            $categories = $data->categories;
+            $translations = $data -> translations;
+            $type = $categories[0]->type;
+            $response = [
+                'slug' => $data->slug,
+                'sku' => $data->sku,
+                'stock_status' => $data->stock_status,
+                'price' => $this->get_price_html($data->price),
+                'price_tax' =>  $this->get_price_html($this->get_price_including_tax($data)),
+                'status' => $data->status,
+                'product_image' => $data->product_image,
+                'meta_title' => $data->meta_title,
+                'meta_description' => $data->meta_description,
+                'meta_keywords' => $data->meta_keywords,
+                'name' => $data->name,
+                'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
+                'features' => $data->features,
+                'precautions' => $data->precautions,
+                'efficacy_effect' => $data->efficacy_effect,
+                'usage_dose' => $data->usage_dose,
+                'active_ingredients' => $data->active_ingredients,
+                'additives' => $data->additives,
+                'precautions_storage_handling' => $data->precautions_storage_handling,
+                'manufacturer' => $data->manufacturer,
+                'type' => __(CAT_TYPE[$type]),
+                'translations' => $translations,
+            ];
             if (empty($data)) {
                 return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            return $this->responseData($data);
+            return $this->responseData($response);
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }

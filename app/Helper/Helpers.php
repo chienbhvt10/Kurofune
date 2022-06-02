@@ -20,39 +20,6 @@ if (!function_exists('formatDate')) {
     }
 }
 
-if (!function_exists('checkPostalCode')) {
-    function checkPostalCode($param)
-    {
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HEADER, false);
-
-        $data = [
-            "codes" => $param,
-            'country' => 'JP'
-        ];
-
-        curl_setopt($ch, CURLOPT_URL, "https://app.zipcodebase.com/api/v1/search?" . http_build_query($data));
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            "Content-Type: application/json",
-            "apikey: cfdd15a0-8fc8-11ec-be6d-7ddcc654de1d",
-        ));
-
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        $result = json_decode($response);
-
-        if (empty($result->results)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-}
-
-
 function getMediaImages(\App\Models\VendorProfile $vendor_profile, $key): array
 {
     $images = [];
@@ -84,7 +51,7 @@ function get_avatar_url($avatar = null) {
 function upload_single_image($image, $path = null): string
 {
     if (!is_dir(public_path('images_data/' . $path))) {
-        File::makeDirectory('images_data/' . $path, 0775, true);
+        File::makeDirectory(public_path('images_data/' . $path), 0775, true);
     }
     $path = $path ? $path.'/' : null;
     $image_name = date('YmdHis').'-'.$image->getClientOriginalName();
@@ -98,8 +65,8 @@ function get_image_url($image = null) {
 
 function save_base_64_image($image, $path = null)
 {
-    if (!is_dir(public_path('images_data/' . $path))) {
-        File::makeDirectory('images_data/' . $path, 0775, true);
+    if (!File::isDirectory(public_path('images_data/' . $path))) {
+        File::makeDirectory(public_path('images_data/' . $path), 0775, true);
     }
     $path = $path ? $path . '/' : null;
     $folder_path = public_path('images_data/' . $path);
@@ -137,4 +104,22 @@ function get_multiple_image($arr_image)
     }
 
     return $results;
+}
+
+function check_unique_slug($model, $slug)
+{
+    $slug_check = $model->where('slug', $slug)->first();
+    if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
+        return false;
+    }
+    return true;
+}
+
+function check_unique_slug_update($model, $slug, $id)
+{
+    $slug_check = $model->where('slug', $slug)->first();
+    if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
+        return false;
+    }
+    return true;
 }
