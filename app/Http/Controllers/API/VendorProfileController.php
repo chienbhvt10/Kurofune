@@ -98,7 +98,7 @@ class VendorProfileController extends Controller
 
     public function searchPharmacy(Request $request){
         $search = $request->search;
-        $posts_per_page = config('constants.pagination.items_per_page');
+        $posts_per_page = get_per_page($request->per_page);
         $lang = $request->header('X-localization');
         $validator = Validator::make($request->all(), [
             'search' => 'required',

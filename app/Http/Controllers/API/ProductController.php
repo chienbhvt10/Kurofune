@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         try {
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
             $relational = 'product_translations';
