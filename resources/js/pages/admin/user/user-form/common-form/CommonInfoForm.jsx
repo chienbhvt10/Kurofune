@@ -31,7 +31,7 @@ const CommonInfoForm = ({ className, form }) => {
         <Col span={12}>
           <InputField
             field="postal_code"
-            errorField="postal_code"
+            error="postal_code"
             label={t("admins.user.form.field_postal_code")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -43,7 +43,7 @@ const CommonInfoForm = ({ className, form }) => {
         <Col span={12}>
           <SelectField
             field="prefecture"
-            errorField="prefecture"
+            error="prefecture"
             label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -55,7 +55,7 @@ const CommonInfoForm = ({ className, form }) => {
         <Col span={12}>
           <InputField
             field="city"
-            errorField="city"
+            error="city"
             label={t("admins.user.form.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -66,7 +66,7 @@ const CommonInfoForm = ({ className, form }) => {
         <Col span={12}>
           <InputField
             field="street_address"
-            errorField="street_address"
+            error="street_address"
             label={t("admins.user.form.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -77,7 +77,7 @@ const CommonInfoForm = ({ className, form }) => {
         <Col span={24}>
           <InputField
             field="building"
-            errorField="building"
+            error="building"
             label={t("admins.user.form.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 23 }}

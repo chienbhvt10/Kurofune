@@ -1,4 +1,4 @@
-import { EyeOutlined } from "@ant-design/icons";
+import { EyeOutlined, UploadOutlined } from "@ant-design/icons";
 import { Button, message, Modal, Space, Upload } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -7,6 +7,7 @@ import {
   TYPE_IMAGE_JPG,
   TYPE_IMAGE_PNG,
 } from "../../constants";
+import { getBase64 } from "../string";
 import "./upload-dragger.scss";
 
 const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
@@ -14,15 +15,6 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
   const ref = React.useRef();
   const [previewImage, setPreviewImage] = React.useState(false);
   const [imageUrl, setImageUrl] = React.useState();
-
-  const getBase64 = (file) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = () => resolve(reader.result);
-      reader.onerror = (error) => reject(error);
-    });
-  };
 
   const beforeUpload = (file) => {
     const isValidImage =
@@ -49,6 +41,14 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
     }
   }, [imageUrlProps]);
 
+  const onCancel = () => {
+    setPreviewImage(false);
+  };
+
+  const openModal = () => {
+    setPreviewImage(true);
+  };
+
   return (
     <div className="form-image-custom">
       <div className="container">
@@ -56,7 +56,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
           visible={previewImage}
           title="Preview"
           footer={null}
-          onCancel={() => setPreviewImage(false)}
+          onCancel={onCancel}
         >
           <img alt="example" style={{ width: "100%" }} src={imageUrl} />
         </Modal>
@@ -76,7 +76,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
               icon={<EyeOutlined style={{ color: "#ffffff" }} />}
               size="middle"
               title="Xem"
-              onClick={() => setPreviewImage(true)}
+              onClick={openModal}
             />
           </Space>
         </div>
@@ -91,7 +91,11 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         showUploadList={false}
         accept="image/*"
       >
-        <Button type="primary" style={{ marginTop: 10 }} icon={<Upload />}>
+        <Button
+          type="primary"
+          className="btn-upload"
+          icon={<UploadOutlined className="icon-upload" />}
+        >
           {t("admins.btn_upload")}
         </Button>
       </Upload>

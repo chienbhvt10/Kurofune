@@ -15,8 +15,8 @@ export const ChangeProfile = () => {
     }
   }, [profile]);
 
-  const onSave = async (values) => {
-    await updateProfile(values);
+  const onSave = (values) => {
+    updateProfile(values);
   };
 
   return (

@@ -40,8 +40,8 @@ export const Login = () => {
     }
   }, [resLogin]);
 
-  const onLogin = async (values) => {
-    await loginUser(values);
+  const onLogin = (values) => {
+    loginUser(values);
   };
 
   const renderErrorTranslate = (field) => {

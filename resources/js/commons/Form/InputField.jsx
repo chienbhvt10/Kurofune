@@ -3,7 +3,7 @@ import React from "react";
 const InputField = ({
   label,
   field,
-  errorField,
+  error,
   labelCol,
   wrapperCol,
   rules,
@@ -25,13 +25,12 @@ const InputField = ({
       value={value}
       hasFeedback
       help={
-        response?.message?.[errorField] &&
-        response?.message?.[errorField].length &&
-        response?.message?.[errorField][0]
+        response?.message?.[error] &&
+        response?.message?.[error].length &&
+        response?.message?.[error][0]
       }
       validateStatus={
-        response?.message?.[errorField] &&
-        response?.message?.[errorField].length
+        response?.message?.[error] && response?.message?.[error].length
           ? "error"
           : ""
       }

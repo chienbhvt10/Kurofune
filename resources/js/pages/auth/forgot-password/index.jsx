@@ -22,8 +22,8 @@ const ForgotPassword = () => {
     email: "",
   };
 
-  const backLogin = async () => {
-    await resetResponse();
+  const backLogin = () => {
+    resetResponse();
   };
 
   React.useEffect(() => {
@@ -35,8 +35,8 @@ const ForgotPassword = () => {
     }
   }, [resForgotPassword]);
 
-  const onResetRequest = async (values) => {
-    await getForgotPassword(values.email);
+  const onResetRequest = (values) => {
+    getForgotPassword(values.email);
   };
 
   const renderErrorTranslate = (field) => {
