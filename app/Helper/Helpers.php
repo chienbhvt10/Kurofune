@@ -123,3 +123,10 @@ function check_unique_slug_update($model, $slug, $id)
     }
     return true;
 }
+
+function get_per_page($number) {
+    if(isset($number) && (int)$number && $number !== 0){
+        return (int)$number;
+    }
+    return config('constants.pagination.items_per_page');
+}
