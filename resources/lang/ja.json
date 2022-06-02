@@ -64,5 +64,8 @@
   "Gastric / duodenal ulcer":"胃・十二指腸潰瘍",
   "Thyroid disease": "甲状腺疾患",
   "Prostate disease":"前立腺疾患",
-  "Other (free description)": "その他（自由記述）"
+  "Other (free description)": "その他（自由記述）",
+  "First-class OTC drugs":"第1類",
+  "Specify Second-class OTC drugs":"指定第2類",
+  "Second-class OTC drugs":"第2類"
 }
