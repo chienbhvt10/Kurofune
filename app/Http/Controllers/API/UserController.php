@@ -34,8 +34,7 @@ class UserController extends Controller
             $role = $request->role ?? null;
             $posts_per_page = config('constants.pagination.items_per_page');
             if($role) {
-                $users = User::whereHas('
-                ', function ($query) use($role) {
+                $users = User::whereHas('roles', function ($query) use($role) {
                     return $query->where('name', '=', $role);
                 })->where('name', 'LIKE', '%' . $request->name . '%')
                 ->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
