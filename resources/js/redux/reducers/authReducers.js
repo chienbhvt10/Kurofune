@@ -30,6 +30,7 @@ const initialState = {
   resForgotPassword: undefined,
   resResetPassword: undefined,
   resResetResponse: undefined,
+  isLoading: true,
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -105,12 +106,24 @@ const authReducers = createReducer(initialState, (builder) => {
       };
     }
   });
-  builder.addCase(showProfileAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      profile: actions.payload.data,
-    };
-  });
+  builder
+    .addCase(showProfileAction.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(showProfileAction.fulfilled, (state, actions) => {
+      return {
+        ...state,
+        isLogin: true,
+        profile: actions.payload.data,
+        isLoading: false,
+      };
+    })
+    .addCase(showProfileAction.rejected, (state, action) => {
+      state.isLogin = false;
+      state.profile = undefined;
+      state.userInfo = undefined;
+      state.isLoading = false;
+    });
   builder.addCase(changePasswordAction.fulfilled, (state, actions) => {
     if (actions.payload.status_code === 200) {
       NotificationSuccess("Thông báo", "Thay đổi mật khẩu thành công");

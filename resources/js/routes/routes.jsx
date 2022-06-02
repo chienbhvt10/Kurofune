@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
@@ -10,6 +10,7 @@ import {
   LANG_JAPANESE,
   LANG_PHILIPPINES,
   LANG_VIETNAMESE,
+  USER_ROLES,
 } from "../constants";
 import { getCurrentLanguage, setCurrentLanguage } from "../helper/localStorage";
 import LogChatBot from "../pages/admin/log-chatbot";
@@ -50,9 +51,13 @@ import { ChangePassword } from "../pages/client/user-info/change-password";
 import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import { UserLayout } from "../pages/client/user-info/user-layout";
 import { NotFound } from "../pages/notFound";
+import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
+import { useSelector } from "react-redux";
+import useShowProfile from "../hooks/auth/useShowProfile";
 
 const appRouter = () => {
   const { i18n } = useTranslation();
+  const { profile } = useSelector((state) => state.authState);
   const langUrl = i18n.language;
   if (
     langUrl === LANG_VIETNAMESE ||
@@ -77,27 +82,36 @@ const appRouter = () => {
     setCurrentLanguage("");
   }
   const lang = getCurrentLanguage();
+  const { showProfile } = useShowProfile();
+  useEffect(() => {
+    showProfile();
+  }, []);
 
+  const isAdminOrVendor = profile?.roles
+    .map((item) => item.name)
+    .some((item) => [USER_ROLES.VENDOR, USER_ROLES.ADMIN].includes(item));
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path={`/`}
-          element={<Navigate to={`${lang}/login`} />}
-          exact={true}
-        />
-        <Route path={`/${lang}/media`} element={<MediaPage />} exact={true} />
+        {isAdminOrVendor && (
+          <Route
+            path={`/`}
+            element={<Navigate to={`${lang}/admin`} />}
+            exact={true}
+          />
+        )}
         <Route
           path={`/${lang}/`}
           element={
-            <HomeLayout
-              navigateLinkData={navigateLinkData}
-              styleColor={"#62A19B"}
-            />
+            <PrivateRoute>
+              <HomeLayout
+                navigateLinkData={navigateLinkData}
+                styleColor={"#62A19B"}
+              />
+            </PrivateRoute>
           }
-          exact={true}
         >
-          <Route path={`member`} element={<MemberPage />} exact={true} />
+          <Route path={""} exact={true} element={<Navigate to="media" />} />
           <Route
             path={`category-list`}
             element={<CategoryListPage />}
@@ -125,6 +139,7 @@ const appRouter = () => {
           />
           <Route path={`cart`} element={<Cart />} exact={true}></Route>
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
+          <Route path={`media`} element={<MediaPage />} exact={true} />
         </Route>
         <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
           <Route path={`login`} element={<Login />} exact={true} />
@@ -144,7 +159,15 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/${lang}/member`} element={<UserLayout />} exact={true}>
+        <Route
+          path={`/${lang}/member`}
+          element={
+            <PrivateRoute>
+              <UserLayout />
+            </PrivateRoute>
+          }
+          exact={true}
+        >
           <Route
             path="change-password"
             element={<ChangePassword />}
@@ -159,10 +182,12 @@ const appRouter = () => {
         <Route
           path={`/${lang}/member`}
           element={
-            <HomeLayout
-              navigateLinkData={navigateLinkData}
-              styleColor={"#62A19B"}
-            />
+            <PrivateRoute>
+              <HomeLayout
+                navigateLinkData={navigateLinkData}
+                styleColor={"#62A19B"}
+              />
+            </PrivateRoute>
           }
           exact={true}
         >
@@ -192,21 +217,24 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route
+        {/* <Route
           path={`${lang}/admin`}
           element={<Navigate to={`user-list`} />}
           exact={true}
-        />
+        /> */}
         <Route
           path={`${lang}/admin`}
           element={
-            <HomeLayout
-              navigateLinkData={navigateLinkAdminData}
-              styleColor={"#2C3338"}
-            />
+            <PrivateRoute roles={[USER_ROLES.ADMIN, USER_ROLES.VENDOR]}>
+              <HomeLayout
+                navigateLinkData={navigateLinkAdminData}
+                styleColor={"#2C3338"}
+              />
+            </PrivateRoute>
           }
           exact={true}
         >
+          <Route path={""} exact={true} element={<Navigate to="user-list" />} />
           <Route path={`user-list`} element={<UserList />} exact={true} />
           <Route path={`user-create`} element={<AddUser />} exact={true} />
           <Route
@@ -248,12 +276,19 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route path={`/${lang}/service-24h`} element={<Service24H />} />
+        <Route
+          path={`/${lang}/service-24h`}
+          element={
+            <PrivateRoute>
+              <Service24H />
+            </PrivateRoute>
+          }
+        />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <LangAfterReload />
     </BrowserRouter>
   );
-};
+};;
 
 export default appRouter;

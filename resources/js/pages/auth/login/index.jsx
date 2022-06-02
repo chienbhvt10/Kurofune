@@ -14,12 +14,13 @@ import { getCurrentLanguage } from "../../../helper/localStorage";
 import { validateAuth } from "../../../helper/validateField";
 import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
-
+import { USER_ROLES } from "../../../constants/index";
 const { Title } = Typography;
 
 export const Login = () => {
   const [show, setShow] = React.useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
+  console.log("🚀 ~ file: index.jsx ~ line 23 ~ Login ~ resLogin", resLogin);
   const { i18n, t } = useTranslation();
   const lang = getCurrentLanguage();
   const { loginUser } = useLogin();
@@ -36,7 +37,13 @@ export const Login = () => {
 
   React.useEffect(() => {
     if (resLogin?.status_code === 200) {
-      navigate(`${lang}/media`);
+      if (
+        [USER_ROLES.ADMIN, USER_ROLES.VENDOR].includes(
+          resLogin?.user.roles.name
+        )
+      )
+        navigate(`${lang}/admin`);
+      else navigate(`${lang}/media`);
     }
   }, [resLogin]);
 
