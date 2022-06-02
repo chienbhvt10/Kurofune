@@ -21,7 +21,7 @@ class ProductFactory extends Factory
             'price' => 12000,
             'status' => $this->faker->randomElement(['publish', 'draft']),
             'product_image' => $this->faker->imageUrl,
-            'tax_id' => null,
+            'tax_id' => 1,
             'meta_title' => $this->faker->text(50),
             'meta_description' => $this->faker->text(100),
             'meta_keywords' => $this->faker->randomElement(['pharmacy', 'medicine', 'panadol']),

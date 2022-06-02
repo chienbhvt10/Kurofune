@@ -61,13 +61,13 @@ class CategoryController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = Category::where('slug', $slug)->first();
-            if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
-                return $this->errorResponse(__('message.slug.unique'));
+            $slug_check = check_unique_slug(new Category, $slug);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
             }
 
             $image = $request->category_image;
@@ -155,13 +155,13 @@ class CategoryController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
             }
 
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = Category::where('slug', $slug)->first();
-            if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
-                return $this->errorResponse(__('message.slug.unique'));
+            $slug_check = check_unique_slug_update(new Category, $slug, $id);
+            if ($slug_check == false) {
+                return $this->errorUniqueSlug();
             }
 
             $image_update = $request->category_image;

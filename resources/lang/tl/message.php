@@ -71,6 +71,12 @@ return [
         'deleted' => 'Tinanggal ang produkto',
         'not_exist' => 'Walang produkto',
     ],
+    'shipping_method' => [
+        'created' => 'Matagumpay na lumikha ng paraan ng pagpapadala',
+        'updated' => 'Matagumpay na na-update ang paraan ng pagpapadala',
+        'deleted' => 'Matagumpay na tanggalin ang paraan ng pagpapadala',
+        'not_exist' => 'Ang paraan ng pagpapadala ay hindi umiiral'
+    ],
     'cart' => [
         'add' => ':product_name has been added to your cart',
         'no_info' => 'Walang impormasyon sa shopping cart.',
