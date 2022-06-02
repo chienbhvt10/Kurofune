@@ -35,7 +35,7 @@ const ProductDetailPage = () => {
   const onFinish = (values) => {
     addToCart({ ...values, product_id: id });
   };
-  const CheckValidation = (val, errorFields) => {
+  const CheckValidation = (val, errors) => {
     Modal.error({
       title: t("client.product_detail.error_title_requried"),
       content: t("client.product_detail.error_msg_requried"),

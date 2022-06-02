@@ -1,13 +1,15 @@
-import { message, Modal, Upload } from "antd";
+import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { Button, Col, message, Modal, Row, Upload } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { getBase64 } from "../string";
-import { PlusOutlined } from "@ant-design/icons";
 import "./upload-list.scss";
-const UploadList = ({ onChangeFileList, fileListProps }) => {
+const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
+  const { t } = useTranslation();
   const [previewImageURL, setPreviewImageURL] = React.useState();
   const [previewVisible, setPreviewVisible] = React.useState(false);
   const [fileList, setFileList] = React.useState();
-
+  const [fileListUrl, setFileListUrl] = React.useState();
   const beforeUpload = (file) => {
     const isValidImage =
       file.type === TYPE_IMAGE_PNG ||
@@ -34,44 +36,63 @@ const UploadList = ({ onChangeFileList, fileListProps }) => {
         return await getBase64(file.originFileObj).then((data) => data);
       })
     );
-
     onChangeFileList && onChangeFileList(listBase64);
     setFileList(info.fileList);
   };
-
-  const uploadButton = (
-    <div>
-      <PlusOutlined />
-      <div style={{ marginTop: 8 }}>Upload</div>
-    </div>
-  );
 
   const onCancel = () => {
     setPreviewVisible(false);
   };
 
+  React.useEffect(() => {
+    if (!fileListUrlProps) {
+      setFileListUrl(
+        fileList?.map((file) => URL.createObjectURL(file.originFileObj))
+      );
+    } else {
+      setFileListUrl(fileListUrlProps);
+    }
+  }, [fileList, fileListUrlProps]);
+
   return (
-    <div className="list-picture">
-      <Upload
-        listType="picture-card"
-        fileList={fileList}
-        beforeUpload={beforeUpload}
-        multiple
-        accept="image/*"
-        onChange={handleChange}
-        onPreview={handlePreview}
-      >
-        {fileList?.length >= 6 ? null : uploadButton}
-      </Upload>
-      <Modal
-        visible={previewVisible}
-        title="Preview"
-        footer={null}
-        onCancel={onCancel}
-      >
-        <img alt="example" style={{ width: "100%" }} src={previewImageURL} />
-      </Modal>
-    </div>
+    <Row justify="center" className="upload-list">
+      <Col className="list-picture">
+        {fileListUrl?.map((url, index) => (
+          <div key={index} className="list-image-preview">
+            <img src={url} alt="Image outside" />
+          </div>
+        ))}
+      </Col>
+      <Col>
+        <Upload
+          listType="picture"
+          className="upload"
+          fileList={fileList}
+          showUploadList={false}
+          beforeUpload={beforeUpload}
+          multiple
+          accept="image/*"
+          onChange={handleChange}
+          onPreview={handlePreview}
+        >
+          <Button
+            type="primary"
+            className="btn-upload"
+            icon={<UploadOutlined className="icon-upload" />}
+          >
+            {t("admins.btn_upload")}
+          </Button>
+        </Upload>
+        <Modal
+          visible={previewVisible}
+          title="Preview"
+          footer={null}
+          onCancel={onCancel}
+        >
+          <img alt="example" style={{ width: "100%" }} src={previewImageURL} />
+        </Modal>
+      </Col>
+    </Row>
   );
 };
 

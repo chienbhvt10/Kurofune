@@ -97,3 +97,9 @@ export const getShippingAddressInitValues = (item) => {
     email: item?.shipping_address?.email || "",
   };
 };
+export const getVendorUploadInitValues = (item) => {
+  return {
+    images_inside: item?.images_inside || "",
+    images_outside: item?.images_outside || undefined,
+  };
+};

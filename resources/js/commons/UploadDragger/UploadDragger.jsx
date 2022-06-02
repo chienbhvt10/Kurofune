@@ -1,4 +1,4 @@
-import { EyeOutlined } from "@ant-design/icons";
+import { EyeOutlined, UploadOutlined } from "@ant-design/icons";
 import { Button, message, Modal, Space, Upload } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -91,7 +91,11 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         showUploadList={false}
         accept="image/*"
       >
-        <Button type="primary" style={{ marginTop: 10 }} icon={<Upload />}>
+        <Button
+          type="primary"
+          className="btn-upload"
+          icon={<UploadOutlined className="icon-upload" />}
+        >
           {t("admins.btn_upload")}
         </Button>
       </Upload>
