@@ -32,15 +32,14 @@ const ProductDetailPage = () => {
 
   const [form] = Form.useForm();
 
-  const onFinish = async (values) => {
-    await addToCart({ ...values, product_id: id });
+  const onFinish = (values) => {
+    addToCart({ ...values, product_id: id });
   };
-  const CheckValidation = (val,errorFields) => {
-    console.log(errorFields,val);
+  const CheckValidation = (val, errors) => {
     Modal.error({
       title: t("client.product_detail.error_title_requried"),
       content: t("client.product_detail.error_msg_requried"),
-      centered:true
+      centered: true,
     });
   };
   return (
@@ -115,7 +114,10 @@ const ProductDetailPage = () => {
                   name="anket_1"
                   label={t("client.product_detail.label_gender")}
                   rules={[
-                    { required: true, message: t("client.product_detail.error_required") },
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
                   ]}
                 >
                   <Select
@@ -123,7 +125,9 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.GENDER.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {t(`client.product_detail.option_add_to_cart.gender.${option.label}`)}
+                        {t(
+                          `client.product_detail.option_add_to_cart.gender.${option.label}`
+                        )}
                       </Select.Option>
                     ))}
                   </Select>
@@ -133,7 +137,10 @@ const ProductDetailPage = () => {
                   name="anket_2"
                   label={t("client.product_detail.label_age")}
                   rules={[
-                    { required: true, message: t("client.product_detail.error_required") },
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
                   ]}
                 >
                   <Select
@@ -141,7 +148,9 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.YEAR_OLD.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                       {t(`client.product_detail.option_add_to_cart.year_old.${option.label}`)}
+                        {t(
+                          `client.product_detail.option_add_to_cart.year_old.${option.label}`
+                        )}
                       </Select.Option>
                     ))}
                   </Select>
@@ -151,7 +160,10 @@ const ProductDetailPage = () => {
                   name="anket_3"
                   label={t("client.product_detail.label_ever_used")}
                   rules={[
-                    { required: true, message: t("client.product_detail.error_required") },
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
                   ]}
                 >
                   <Select
@@ -159,7 +171,9 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {t(`client.product_detail.option_add_to_cart.yes_or_no.${option.label}`)}
+                        {t(
+                          `client.product_detail.option_add_to_cart.yes_or_no.${option.label}`
+                        )}
                       </Select.Option>
                     ))}
                   </Select>
@@ -169,7 +183,10 @@ const ProductDetailPage = () => {
                   name="anket_4"
                   label={t("client.product_detail.label_ever_side_effect")}
                   rules={[
-                    { required: true, message: t("client.product_detail.error_required") },
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
                   ]}
                 >
                   <Select
@@ -177,7 +194,9 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                        {t(`client.product_detail.option_add_to_cart.yes_or_no.${option.label}`)}
+                        {t(
+                          `client.product_detail.option_add_to_cart.yes_or_no.${option.label}`
+                        )}
                       </Select.Option>
                     ))}
                   </Select>
@@ -190,7 +209,11 @@ const ProductDetailPage = () => {
                     {
                       required: true,
                       message: t("client.product_detail.error_required"),
-                      whitespace: true                    }
+                    },
+                    {
+                      message: t("client.product_detail.error_required"),
+                      whitespace: true,
+                    },
                   ]}
                 >
                   <Input
@@ -202,7 +225,10 @@ const ProductDetailPage = () => {
                   name="anket_6"
                   label={t("client.product_detail.label_other_illnesses")}
                   rules={[
-                    { required: true, message: t("client.product_detail.error_required") },
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
                   ]}
                 >
                   <Select
@@ -210,7 +236,9 @@ const ProductDetailPage = () => {
                   >
                     {PRODUCT_OPTION.CURRENTLY_TREATING.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
-                       {t(`client.product_detail.option_add_to_cart.currently_treating.${option.label}`)}
+                        {t(
+                          `client.product_detail.option_add_to_cart.currently_treating.${option.label}`
+                        )}
                       </Select.Option>
                     ))}
                   </Select>
@@ -223,8 +251,8 @@ const ProductDetailPage = () => {
                     {
                       required: true,
                       message: t("client.product_detail.error_required"),
-                      whitespace: true
-                    }
+                      whitespace: true,
+                    },
                   ]}
                 >
                   <Input.TextArea

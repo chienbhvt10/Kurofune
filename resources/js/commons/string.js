@@ -14,3 +14,11 @@ export const generatePassword = (length) => {
 export const formatDate = (date) => {
   return moment(date).format("YYYY-MM-DD");
 };
+export const getBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = (error) => reject(error);
+  });
+};

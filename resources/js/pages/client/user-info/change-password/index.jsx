@@ -35,9 +35,9 @@ export const ChangePassword = () => {
     }
   }, [resChangePassword]);
 
-  const onFinish = async (values) => {
-    await changePassword(values);
-    await getLogout();
+  const onFinish = (values) => {
+    changePassword(values);
+    getLogout();
   };
 
   React.useEffect(() => {

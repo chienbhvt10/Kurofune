@@ -20,7 +20,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="locale"
-              errorField="locale"
+              error="locale"
               label={t("admins.user.form.vendor_profile.field_locale")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -31,7 +31,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="name"
-              errorField="name"
+              error="name"
               label={t("admins.user.form.vendor_profile.field_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -42,7 +42,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="permit_classification"
-              errorField="permit_classification"
+              error="permit_classification"
               label={t(
                 "admins.user.form.vendor_profile.field_permit_classification"
               )}
@@ -55,7 +55,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="founder"
-              errorField="founder"
+              error="founder"
               label={t("admins.user.form.vendor_profile.field_founder")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -66,7 +66,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="items_stated_permit"
-              errorField="items_stated_permit"
+              error="items_stated_permit"
               label={t(
                 "admins.user.form.vendor_profile.field_stated_in_permit"
               )}
@@ -79,7 +79,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="management_pharmacist"
-              errorField="management_pharmacist"
+              error="management_pharmacist"
               label={t(
                 "admins.user.form.vendor_profile.field_management_pharmacist"
               )}
@@ -92,7 +92,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="registered_seller_working"
-              errorField="registered_seller_working"
+              error="registered_seller_working"
               label={t(
                 "admins.user.form.vendor_profile.field_registered_seller_working"
               )}
@@ -105,7 +105,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="drugs_handled"
-              errorField="drugs_handled"
+              error="drugs_handled"
               label={t("admins.user.form.vendor_profile.field_drug_handled")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -116,7 +116,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="distinguishing_by_name"
-              errorField="distinguishing_by_name"
+              error="distinguishing_by_name"
               label={t(
                 "admins.user.form.vendor_profile.field_distinguishing_by_name"
               )}
@@ -129,7 +129,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="business_hours"
-              errorField="business_hours"
+              error="business_hours"
               label={t("admins.user.form.vendor_profile.field_business_hours")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -140,7 +140,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="consultation_hours"
-              errorField="consultation_hours"
+              error="consultation_hours"
               label={t(
                 "admins.user.form.vendor_profile.field_consultation_hours"
               )}
@@ -153,7 +153,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="contact_information"
-              errorField="contact_information"
+              error="contact_information"
               label={t(
                 "admins.user.form.vendor_profile.field_contact_information"
               )}
@@ -166,7 +166,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="currently_working"
-              errorField="currently_working"
+              error="currently_working"
               label={t("admins.user.form.vendor_profile.field_current_working")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -177,7 +177,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="open_sale_time"
-              errorField="open_sale_time"
+              error="open_sale_time"
               label={t("admins.user.form.vendor_profile.field_open_sale_time")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
@@ -188,7 +188,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="time_order_outside"
-              errorField="time_order_outside"
+              error="time_order_outside"
               label={t(
                 "admins.user.form.vendor_profile.field_time_order_outside"
               )}
@@ -201,7 +201,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
           <Col span={12}>
             <InputField
               field="expiration_date_of_drugs"
-              errorField="expiration_date_of_drugs"
+              error="expiration_date_of_drugs"
               label={t(
                 "admins.user.form.vendor_profile.field_expiration_date_of_drug"
               )}
