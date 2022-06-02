@@ -63,3 +63,8 @@ const JOB = [
     '15' => 'Building cleaning',
     '16' => 'other',
 ];
+const CAT_TYPE = [
+    '1' => 'First-class OTC drugs',
+    '2' => 'Specify Second-class OTC drugs',
+    '3' => 'Second-class OTC drugs',
+];

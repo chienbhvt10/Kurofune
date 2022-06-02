@@ -64,5 +64,8 @@
   "Gastric / duodenal ulcer":"Loét dạ dày / tá tràng",
   "Thyroid disease": "Bệnh tuyến giáp",
   "Prostate disease":"Bệnh tuyến tiền liệt",
-  "Other (free description)": "Bệnh khác"
+  "Other (free description)": "Bệnh khác",
+  "First-class OTC drugs":"Thuốc OTC hạng nhất",
+  "Specify Second-class OTC drugs":"Chỉ định thuốc OTC loại thứ hai",
+  "Second-class OTC drugs":"Thuốc OTC hạng hai"
 }
