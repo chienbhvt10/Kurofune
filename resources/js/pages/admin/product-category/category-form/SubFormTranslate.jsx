@@ -1,12 +1,15 @@
 import React from "react";
 import { Col, Form, Input, Row } from "antd";
 import InputField from "../../../../commons/Form/InputField.jsx";
+import { getCategoryFormLayout } from "./categoryInitValues.js";
 
 const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
+  const formItemLayout = getCategoryFormLayout();
   return (
     <>
       <Row justify="center">
         <Form
+          {...formItemLayout}
           className={className}
           name="common-translate-category-form"
           form={form}
@@ -15,15 +18,15 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
             <InputField
               field="name"
               label={`(${lang}) Name`}
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 24 }}
               rules={[
                 {
                   required: true,
                   message: "Please enter your Name",
+                  whitespace: true,
                 },
               ]}
-              // response={response}
+              response={response}
+              errorField="en.name"
               type={<Input />}
             />
           </Col>
@@ -32,15 +35,7 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               <InputField
                 field="locale"
                 label={`(${lang}) Locale`}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter your Locale",
-                  },
-                ]}
-                // response={response}
+                rules={[]}
                 type={<Input />}
               />
             </Col>
@@ -48,15 +43,7 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               <InputField
                 field="cat_id"
                 label={`(${lang}) Category`}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please enter your Category",
-                  },
-                ]}
-                // response={response}
+                rules={[]}
                 type={<Input />}
               />
             </Col>

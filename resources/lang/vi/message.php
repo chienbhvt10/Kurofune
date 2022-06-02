@@ -71,6 +71,12 @@ return [
         'deleted' => 'Danh mục đã bị xóa.',
         'not_exist' => 'Danh mục không tồn tại.',
     ],
+    'shipping_method' => [
+        'created' => 'Tạo phương thức giao hàng thành công',
+        'updated' => 'Cập nhật phương thức giao hàng thành công',
+        'deleted' => 'Xóa phương thức giao hàng thành công',
+        'not_exist' => 'Phương thức vận chuyển không tồn tại'
+    ],
     'cart' => [
         'add' => ':product_name has been added to your cart',
         'no_info' => 'Không có thông tin trong giỏ hàng.',

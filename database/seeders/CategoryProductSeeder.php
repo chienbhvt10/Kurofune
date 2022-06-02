@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Tax;
+use App\Models\CategoryProduct;
 use Illuminate\Database\Seeder;
 
-class TaxSeeder extends Seeder
+class CategoryProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +14,6 @@ class TaxSeeder extends Seeder
      */
     public function run()
     {
-        Tax::create([
-            'name' => 'VAT',
-            'value' => 10
-        ]);
+        CategoryProduct::factory()->count(5)->create();
     }
 }

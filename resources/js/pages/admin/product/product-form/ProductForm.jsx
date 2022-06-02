@@ -12,8 +12,10 @@ import "./product-form.scss";
 import {
   getProductInfoInitValues,
   getTranslateInitValues,
+  getProductFormLayout,
 } from "./productInitValues.js";
 import TranslateProductForm from "./TranslateProductForm";
+import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -24,6 +26,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     base64Avatar: undefined,
     loading: false,
   });
+  const formItemLayout = getProductFormLayout();
   const initialFormCommonValues = getProductInfoInitValues(item);
   const initialTranslateValues = getTranslateInitValues();
   const [productsForm] = Form.useForm();
@@ -56,6 +59,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     productProfileFormEN.validateFields();
     onSave(submitInput);
   };
+  const onFinishFailed = () => {
+    productProfileFormEN.validateFields();
+  };
   React.useEffect(() => {
     productsForm.setFieldsValue(initialFormCommonValues);
     if (item) {
@@ -83,18 +89,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     setAvatarState({ base64Avatar: base64Image });
   };
 
-  const listCategories =
-    adminCategories &&
-    adminCategories.map((category) => {
-      return {
-        value: category.id,
-        label: category.name,
-      };
-    });
-  const onFinishFailed = () => {
-    productProfileFormEN.validateFields();
-  };
-
   React.useEffect(() => {
     const imgPreview = document.querySelector(".image");
     imgPreview.addEventListener("click", (e) => {
@@ -104,19 +98,16 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       return false;
     });
   }, []);
-  const formItemLayout = {
-    labelCol: {
-      lg: { span: 24 },
-      xs: { span: 24 },
-      sm: { span: 24 },
-    },
-    wrapperCol: {
-      lg: { span: 24 },
-      xs: { span: 24 },
-      sm: { span: 24 },
-    },
-    labelAlign: "left",
-  };
+
+  const listCategories =
+    adminCategories &&
+    adminCategories.map((category) => {
+      return {
+        value: category.id,
+        label: category.name,
+      };
+    });
+
   return (
     <div id="product-form">
       <Form
@@ -291,7 +282,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         </div>
       </Form>
 
-      <TranslateProductForm
+      <SwitchTabsLangForm
         formEN={productProfileFormEN}
         formJP={productProfileFormJP}
         formTL={productProfileFormTL}

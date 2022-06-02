@@ -3,7 +3,7 @@ import { Form, DatePicker } from "antd";
 import { useTranslation } from "react-i18next";
 const DateField = ({
   field,
-  errorField,
+  error,
   label,
   labelCol,
   wrapperCol,
@@ -22,13 +22,12 @@ const DateField = ({
       hasFeedback
       rules={rules}
       help={
-        response?.message?.[errorField] &&
-        response?.message?.[errorField].length &&
-        response?.message?.[errorField][0]
+        response?.message?.[error] &&
+        response?.message?.[error].length &&
+        response?.message?.[error][0]
       }
       validateStatus={
-        response?.message?.[errorField] &&
-        response?.message?.[errorField].length
+        response?.message?.[error] && response?.message?.[error].length
           ? "error"
           : ""
       }

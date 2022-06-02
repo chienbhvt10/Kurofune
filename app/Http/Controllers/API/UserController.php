@@ -34,13 +34,14 @@ class UserController extends Controller
             $role = $request->role ?? null;
             $posts_per_page = config('constants.pagination.items_per_page');
             if($role) {
-                $users = User::whereHas('roles', function ($query) use($role) {
+                $users = User::whereHas('
+                ', function ($query) use($role) {
                     return $query->where('name', '=', $role);
                 })->where('name', 'LIKE', '%' . $request->name . '%')
                 ->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
             } else {
                 if ($request->name) {
-                    $users = $this->filterScopeName(new User, $request->name)->paginate($posts_per_page);
+                    $users = $this->filterScopeName(new User, $request->name)->with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 } else {
                     $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 }
@@ -222,19 +223,27 @@ class UserController extends Controller
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_outside.*' => ['string', new Base64Image],
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                    'images_inside.*' => ['string', new Base64Image]
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
                     return $this->errorResponse($errors, 422);
                 }
-                $images_outside = $request->images_outside ?? null;
-                $images_inside = $request->images_inside ?? null;
+                $images_outside = $request->images_outside;
+                $images_inside = $request->images_inside;
+                if ($images_outside) {
+                    $vendor_images_outside = save_multiple_image($images_outside, 'vendor');
+                }
+                if ($images_inside) {
+                    $vendor_images_inside = save_multiple_image($images_inside, 'vendor');
+                }
 
                 $data_vendor = [
+                    'images_outside' => $vendor_images_outside ?? null,
+                    'images_inside' => $vendor_images_inside ?? null,
                     'en' => [
                         'name' => $request->en['name'] ?? null,
                         'permit_classification' => $request->en['permit_classification'] ?? null,
@@ -328,16 +337,6 @@ class UserController extends Controller
                 ];
 
                 $vendor = $user->vendor_profile()->create($data_vendor);
-                if($images_outside) {
-                    $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
-                        $fileAdder->toMediaCollection('images_outside');
-                    });
-                }
-                if($images_inside) {
-                    $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
-                        $fileAdder->toMediaCollection('images_inside');
-                    });
-                }
             }
 
             DB::commit();
@@ -592,9 +591,9 @@ class UserController extends Controller
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_outside.*' => ['string', new Base64Image],
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                    'images_inside.*' => ['string', new Base64Image]
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
@@ -603,6 +602,14 @@ class UserController extends Controller
                 }
                 $images_outside = $request->images_outside ?? null;
                 $images_inside = $request->images_inside ?? null;
+                if ($images_outside) {
+                    $vendor_images_outside = save_multiple_image($images_outside, 'vendor');
+                    $data_vendor['images_outside'] = $vendor_images_outside;
+                }
+                if ($images_inside) {
+                    $vendor_images_inside = save_multiple_image($images_inside, 'vendor');
+                    $data_vendor['images_inside'] = $vendor_images_inside;
+                }
 
                 $data_vendor = [
                     'en' => [
@@ -698,31 +705,8 @@ class UserController extends Controller
                 ];
                 if($user->vendor_profile) {
                     $user->vendor_profile->update($data_vendor);
-                    $vendor = $user->vendor_profile;
-                    if($images_outside) {
-                        $vendor->clearMediaCollection('images_outside');
-                        $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
-                            $fileAdder->toMediaCollection('images_outside');
-                        });
-                    }
-                    if($images_inside) {
-                        $vendor->clearMediaCollection('images_inside');
-                        $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
-                            $fileAdder->toMediaCollection('images_inside');
-                        });
-                    }
                 }else{
-                    $vendor = $user->vendor_profile()->create($data_vendor);
-                    if($images_outside) {
-                        $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
-                            $fileAdder->toMediaCollection('images_outside');
-                        });
-                    }
-                    if($images_inside) {
-                        $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
-                            $fileAdder->toMediaCollection('images_inside');
-                        });
-                    }
+                    $user->vendor_profile()->create($data_vendor);
                 }
             }
             DB::commit();

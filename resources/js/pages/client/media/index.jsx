@@ -26,8 +26,8 @@ const MediaPage = () => {
 
   const { getLogout, resLogout } = useLogout();
 
-  const logout = async () => {
-    await getLogout();
+  const logout = () => {
+    getLogout();
   };
   React.useEffect(() => {
     if (resLogout?.status_code === 200) {

@@ -5,7 +5,12 @@ import InputField from "./../../../../commons/Form/InputField";
 import "./category-form.scss";
 import TranslateCategoryForm from "./TranslateCategoryForm";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger.jsx";
-
+import {
+  getCategoryInitValues,
+  getTranslateCategoryInitValues,
+  getCategoryFormLayout,
+} from "./categoryInitValues.js";
+import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 const CategoryForm = ({
   item,
   typeForm,
@@ -19,19 +24,11 @@ const CategoryForm = ({
     base64Avatar: undefined,
     loading: false,
   });
-  const initialCommonValues = {
-    user_id: item?.user_id || "",
-    slug: item?.slug || "",
-    category_image: item?.category_image || avatarState.base64Avatar,
-    type: item?.type || "",
-  };
-
-  const initialTranslateValues = {
-    cat: "",
-    locale: "",
-    name: "",
-  };
-
+  const lang = getCurrentLanguage();
+  const [errorMessImage, setErrorMessImage] = React.useState("");
+  const formItemLayout = getCategoryFormLayout();
+  const initialCommonValues = getCategoryInitValues(item);
+  const initialTranslateValues = getTranslateCategoryInitValues();
   const [categoryForm] = Form.useForm();
   const [categoryProfileFormEN] = Form.useForm();
   const [categoryProfileFormJP] = Form.useForm();
@@ -63,6 +60,11 @@ const CategoryForm = ({
     onSave(submitInput);
   };
 
+  const onFinishError = () => {
+    categoryProfileFormEN.validateFields();
+    setErrorMessImage(!avatarState.base64Avatar);
+  };
+
   React.useEffect(() => {
     categoryForm.setFieldsValue(initialCommonValues);
     if (item) {
@@ -85,21 +87,21 @@ const CategoryForm = ({
     }
   }, [item]);
 
-
-
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
+    setErrorMessImage("");
   };
   React.useEffect(() => {
     setAvatarState({ avatarUrl: item?.category_image || "" });
   }, [item]);
-
   return (
     <div id="category-form">
       <Form
         name="common-category-form"
+        {...formItemLayout}
         form={categoryForm}
         onFinish={onFinishAll}
+        onFinishFailed={onFinishError}
         autoComplete="off"
         initialValues={{
           ...initialCommonValues,
@@ -108,7 +110,10 @@ const CategoryForm = ({
         <FormHeader
           breadcrumb={[
             { name: "Home", routerLink: "../" },
-            { name: "Category List", routerLink: "/admin/category-list" },
+            {
+              name: "Category List",
+              routerLink: `${lang}/admin/category-list`,
+            },
             { name: "Add", routerLink: "/admin/category/add" },
           ]}
           title={title}
@@ -121,14 +126,9 @@ const CategoryForm = ({
               <InputField
                 field="slug"
                 label="Slug"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                rules={[
-                  {
-                    required: true,
-                    message: "Please input your Slug",
-                  },
-                ]}
+                rules={[]}
+                response={response}
+                error="slug"
                 type={<Input />}
               />
             </Col>
@@ -136,26 +136,33 @@ const CategoryForm = ({
               <InputField
                 field="type"
                 label="Type"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
                 validateStatus={"Please enter your Type"}
                 rules={[
                   {
                     required: true,
-                    message: "Please input your Type!",
+                    message: "Type ",
                   },
                 ]}
                 type={<Input type="number" className="input-field" />}
                 response={response}
+                errorField="type"
               />
             </Col>
 
             <Col span={12} className="input-field-space">
-              <Form.Item field=" product_image" label="Product Image" labelCol={{ span: 24 }}>
-                <UploadDragger onChangeImage={onChangeAvatar}
+              <Form.Item field=" product_image" label="Product Image">
+                <UploadDragger
+                  onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarState.avatarUrl}
                   loading={avatarState.loading}
-                  mode='multiple' />
+                  mode="multiple"
+                />
+                {errorMessImage && (
+                  <span style={{ color: "red", marginLeft: "80px" }}>
+                    {/* {t("admins.category.error_message.error_category_image")} */}
+                    "This field is required"
+                  </span>
+                )}
               </Form.Item>
             </Col>
           </Row>
@@ -167,6 +174,7 @@ const CategoryForm = ({
         formTL={categoryProfileFormTL}
         formVI={categoryProfileFormVI}
         formZH={categoryProfileFormZH}
+        response={response}
       />
     </div>
   );

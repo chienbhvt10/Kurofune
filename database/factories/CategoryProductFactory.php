@@ -2,9 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class ShippingMethodFactory extends Factory
+class CategoryProductFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -14,10 +15,8 @@ class ShippingMethodFactory extends Factory
     public function definition()
     {
         return [
-                'name' => $this->faker->word(),
-                'total' => $this->faker->numerify(),
-                'description' => $this->faker->word(),
-                'logo' => $this->faker->imageUrl(),
+            'prod_id' => Product::pluck('id')->random(),
+            'cat_id' => '1',
         ];
     }
 }

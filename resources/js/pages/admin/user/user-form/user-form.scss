@@ -2,5 +2,35 @@
   background: #fff;
   border-radius: 5px;
   padding: 0;
-  
+  .btn-generate-password {
+    height: 35px;
+    span {
+      line-height: 1;
+      padding: 0;
+    }
+  }
+  .switch-tab-form {
+    .ant-tabs-nav-wrap {
+      margin-top: 20px;
+      justify-content: center;
+    }
+    .common-info-form {
+      width: 50%;
+      margin: auto;
+      padding-bottom: 40px;
+    }
+    .vendor-profile-form {
+      width: 80%;
+      margin: auto;
+    }
+    .plan-profile-form {
+      width: 80%;
+      margin: auto;
+    }
+    .billing-ship-form {
+      width: 50%;
+      margin: auto;
+      padding-bottom: 40px;
+    }
+  }
 }

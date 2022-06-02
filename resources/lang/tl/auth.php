@@ -13,8 +13,8 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
+    'failed'   => 'Ang credentials na ito ay hindi katugma ng nasa rekord namin.',
     'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'throttle' => 'Sobrang daming pagtatangkang mag-login. Pakisubukan ulit sa :segundo segundo.',
 
 ];

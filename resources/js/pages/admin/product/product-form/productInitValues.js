@@ -29,3 +29,19 @@ export const getTranslateInitValues = () => {
     manufacturer: "",
   };
 };
+
+export const getProductFormLayout = () => {
+  return {
+    labelCol: {
+      lg: { span: 24 },
+      xs: { span: 24 },
+      sm: { span: 24 },
+    },
+    wrapperCol: {
+      lg: { span: 24 },
+      xs: { span: 24 },
+      sm: { span: 24 },
+    },
+    labelAlign: "left",
+  };
+};

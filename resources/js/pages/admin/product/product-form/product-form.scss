@@ -51,18 +51,6 @@
     }
   }
 
-  .custom-required {
-    label::before {
-      display: inline-block;
-      margin-right: 4px;
-      color: #ff4d4f;
-      font-size: 11px;
-      font-family: SimSun, sans-serif;
-      line-height: 1;
-      content: "*";
-    }
-  }
-
   .input-field-space {
     padding: 0 30px;
   }

@@ -9,42 +9,46 @@ import {
 import "./switch-tab-lang-form.scss";
 
 const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
-
   return (
     <>
       <div id="switch-lang-form">
         <div className="tab-label">
           <label
-            className={`switch-label ${activeTab === FIRST_TAB ? "active" : ""
-              }`}
+            className={`switch-label ${
+              activeTab === FIRST_TAB ? "active" : ""
+            }`}
             onClick={() => onChangeLanguageForm(FIRST_TAB)}
           >
             English
           </label>
           <label
-            className={`switch-label ${activeTab === SECOND_TAB ? "active" : ""
-              }`}
+            className={`switch-label ${
+              activeTab === SECOND_TAB ? "active" : ""
+            }`}
             onClick={() => onChangeLanguageForm(SECOND_TAB)}
           >
             Japan
           </label>
           <label
-            className={`switch-label ${activeTab === THIRD_TAB ? "active" : ""
-              }`}
+            className={`switch-label ${
+              activeTab === THIRD_TAB ? "active" : ""
+            }`}
             onClick={() => onChangeLanguageForm(THIRD_TAB)}
           >
             Thailand
           </label>
           <label
-            className={`switch-label ${activeTab === FOURTH_TAB ? "active" : ""
-              }`}
+            className={`switch-label ${
+              activeTab === FOURTH_TAB ? "active" : ""
+            }`}
             onClick={() => onChangeLanguageForm(FOURTH_TAB)}
           >
             Vietnam
           </label>
           <label
-            className={`switch-label ${activeTab === FIFTH_TAB ? "active" : ""
-              }`}
+            className={`switch-label ${
+              activeTab === FIFTH_TAB ? "active" : ""
+            }`}
             onClick={() => onChangeLanguageForm(FIFTH_TAB)}
           >
             China
