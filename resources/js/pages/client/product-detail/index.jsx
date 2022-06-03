@@ -67,10 +67,10 @@ const ProductDetailPage = () => {
                     <div className="product-name">{productClient.name}</div>
                     <div className="medicinal_efficacy_block">
                       <div className="medicinal_efficacy_item medicinal_efficacy_label">
-                        {productClient.medicinal_efficacy_classification}
+                      {t("client.product_detail.medicinal_efficacy")}
                       </div>
                       <div className="medicinal_efficacy_item medicinal_efficacy_value">
-                        Antipyretic Analgesic
+                    {productClient.medicinal_efficacy_classification}
                       </div>
                     </div>
                     <div className="block-price flex">
@@ -79,17 +79,14 @@ const ProductDetailPage = () => {
                           <div className="Ybrg9j">
                             <span className="woocommerce-Price-amount amount">
                               <bdi>
-                                {productClient.price} &nbsp;
-                                <span className="woocommerce-Price-currencySymbol">
-                                  (JPY)
-                                </span>
+                                {productClient.price}
                               </bdi>
                             </span>
                           </div>
                         </div>
                       </div>
                       <div className="item-info product-type">
-                        First-class OTC drugs
+                      {productClient.type}
                       </div>
                       <div className="btn-cart-pc item-info block-btn-checkout customs_btn_cart">
                         <div className="cart">

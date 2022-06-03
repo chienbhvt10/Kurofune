@@ -2,14 +2,23 @@ import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../../commons/BackButton";
 import { Languages } from "../../commons/Languges";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
+import { removeAccessToken } from "../../helper/localStorage";
+import useLogout from "../../hooks/auth/useLogout";
 const HeaderHome = ({ toggleSideBar }) => {
   const lang = getCurrentLanguage();
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
+  const { getLogout } = useLogout();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    getLogout();
+    navigate(`${lang}/login`);
+  };
+
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -122,14 +131,20 @@ const HeaderHome = ({ toggleSideBar }) => {
             </div>
 
             <div className="logout-wrap">
-              <Link to={`${lang}/login`} title={t("header.btn_logout")}>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLogout();
+                }}
+                title={t("header.btn_logout")}
+              >
                 {t("header.btn_logout")}
                 <FontAwesomeIcon
                   className="icon"
                   icon={faSignOutAlt}
                   size="sm"
                 />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

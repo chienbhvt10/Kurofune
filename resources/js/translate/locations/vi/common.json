@@ -235,7 +235,8 @@
           "c_11":"Bệnh khác",
           "c_12":"Không"
         }
-      }
+      },
+      "medicinal_efficacy":"Phân loại thuốc theo công dụng"
     },
     "list_pharmacies": {
       "title": "Hiệu thuốc Marine Oisotori",
