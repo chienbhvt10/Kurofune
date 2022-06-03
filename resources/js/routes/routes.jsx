@@ -90,22 +90,24 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {isAdmin(profile?.roles) ||
-          (isVendor(profile?.roles) && (
-            <Route
-              path={`/`}
-              element={
-                <Navigate
-                  to={
-                    isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
-                      ? `${lang}/admin`
-                      : `${lang}/admin/category-list`
-                  }
-                />
-              }
-              exact={true}
-            />
-          ))}
+        {(isAdmin(profile?.roles) ||
+          isAdmin(userInfo?.roles?.name) ||
+          isVendor(profile?.roles) ||
+          isVendor(userInfo?.roles.name)) && (
+          <Route
+            path={`/`}
+            element={
+              <Navigate
+                to={
+                  isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
+                    ? `${lang}/admin`
+                    : `${lang}/admin/category-list`
+                }
+              />
+            }
+            exact={true}
+          />
+        )}
         <Route
           path={`/${lang}/`}
           element={
