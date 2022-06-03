@@ -23,8 +23,8 @@ class OrderController extends Controller
                 $item['total_tax'] = $this->get_price_html($value->total);
                 $item['created_at'] = date("Y/m/d",strtotime($value->created_at));
                 $item['status'] = __($transaction['status']);
-                $item['product_image'] = ($product[0])['product_image'] ?? null;
-                $item['product_name'] = ($product[0])['name'] ?? null;
+                $item['product_image'] = ($product[0])['product_image'];
+                $item['product_name'] = ($product[0])['name'];
                 $data_item[] = $item;  
             }
             return $this->responseData($data_item);
