@@ -34,7 +34,7 @@ const initialState = {
 
 const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(login.fulfilled, (state, actions) => {
-    if (actions.payload.user) {
+    if (actions.payload.status_code === 200) {
       NotificationSuccess("Thông báo", "Đăng nhập thành công");
       return {
         ...state,

@@ -166,7 +166,7 @@ export const Login = () => {
           <Col>
             <ModalTerm text={t("login.term_of_use")} />
           </Col>
-          <Col>
+          <Col style={{ marginLeft: 10 }}>
             <ModalPolicy text={t("login.privacy_policy")} />
           </Col>
         </Row>

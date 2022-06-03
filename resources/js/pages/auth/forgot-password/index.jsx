@@ -51,9 +51,9 @@ const ForgotPassword = () => {
     <Row justify="center">
       <Col span={16}>
         <Title className="title" level={5}>
-          パスワードをお忘れの方は、以下に登録時のメールアドレスを
+          {t("forgot_password.title1")}
           <br />
-          入力して「メール送信」ボタンを押してください。
+          {t("forgot_password.title2")}
         </Title>
         <Form
           form={form}
@@ -91,7 +91,7 @@ const ForgotPassword = () => {
                 type="primary"
                 htmlType="submit"
               >
-                メール送信
+                {t("btn_send_mail")}
               </Button>
             </Col>
             <Col span={24}>
@@ -101,7 +101,7 @@ const ForgotPassword = () => {
                   to={`${lang}/login`}
                   onClick={backLogin}
                 >
-                  BACK
+                  {t("btn_back")}
                 </Link>
               </Row>
             </Col>

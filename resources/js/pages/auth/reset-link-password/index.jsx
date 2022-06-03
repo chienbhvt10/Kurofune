@@ -1,5 +1,6 @@
 import { Row, Typography, Col } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   getCurrentLanguage,
@@ -8,6 +9,7 @@ import {
 import "./reset-link-password.scss";
 
 const ResetLinkPassword = () => {
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
 
   const backLogin = () => {
@@ -20,13 +22,13 @@ const ResetLinkPassword = () => {
         <Row>
           <Col span={24}>
             <Typography.Title className="title" level={4}>
-              Password reset email has been sent.
+              {t("reset_password.reset_password_title")}
             </Typography.Title>
           </Col>
           <Col span={24} className="text-center">
-            The password reissue email has been sent.
+            {t("reset_password.reset_password_message1")}
             <br />
-            Please check your registered email address.
+            {t("reset_password.reset_password_message2")}
           </Col>
           <Col span={24} className="text-center mt-2">
             <Link to={`${lang}/login`} onClick={backLogin}>

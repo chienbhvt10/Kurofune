@@ -1,15 +1,27 @@
 {
+  "btn_send_mail": "RESET PASSWORD",
+  "btn_back": "BACK",
+  "btn_ok": "OK",
   "login": {
     "title": "Association for Supporting Foreign Workers in Japan<br> Life Support Portal Site",
     "email": "Email",
     "password": "Password",
     "remember": "Remember",
     "forgetPassword": "Forgot password",
-    "login_btn": "login",
+    "login_btn": "Login",
     "term_of_use": "Term of use",
     "privacy_policy": "Privacy policy",
     "languages": "Languages",
     "kurofune": "©KUROFUNE"
+  },
+  "forgot_password": {
+    "title1": "Lost your password? Please enter your email address.",
+    "title2": "You will receive a link to create a new password via email."
+  },
+  "reset_password": {
+    "reset_password_title": "Password reset email has been sent.",
+    "reset_password_message1": "The password reissue email has been sent.",
+    "reset_password_message2": "Please check your registered email address."
   },
   "home": "Trang chủ",
   "header": {
