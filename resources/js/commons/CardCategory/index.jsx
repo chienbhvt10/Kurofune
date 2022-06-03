@@ -25,7 +25,7 @@ const CardCategory = ({ cardItems, type }) => {
                   hoverable
                   cover={
                     <img
-                      style={{ objectFit: "cover" }}
+                      style={{ objectFit: "cover" , height:"180px"}}
                       src={item.product_image || DEFAULT_IMAGE}
                       alt={item.name}
                       onError={(e) => {
