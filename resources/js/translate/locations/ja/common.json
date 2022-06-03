@@ -235,7 +235,8 @@
           "c_11":"その他（自由記述）",
           "c_12":"ありません"
         }
-      }
+      },
+      "medicinal_efficacy":"薬効分類"
 
     },
     "list_pharmacies": {
