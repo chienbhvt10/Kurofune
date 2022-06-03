@@ -1,7 +1,6 @@
 import { Col, Form, Row, Tabs, Typography } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import UploadDragger from "../../../../../commons/UploadDragger/UploadDragger";
 import UploadList from "../../../../../commons/UploadList/UploadList";
 import {
   LANG_CHINESE,
