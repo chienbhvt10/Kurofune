@@ -36,26 +36,22 @@ const PharmacyDetail = () => {
                     {t("client.list_pharmacies.inside_image")}
                   </div>
                   <div className="item-info border-none">
+                  {pharmacy?.images_outside.map(item =>
                     <div className="item-image">
                       <img
                         alt="image-vendor"
-                        src="https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_gaikan_1-1.jpeg"
+                        src={item}
                       />
-                    </div>
+                    </div>)}
                   </div>
                   <div className="item-info border-none">
+                    {pharmacy?.images_inside.map(item =>
                     <div className="item-image">
                       <img
                         alt="image-vendor"
-                        src="https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_1-1.jpeg"
+                        src={item}
                       />
-                    </div>
-                    <div className="item-image">
-                      <img
-                        alt="image-vendor"
-                        src="https://member.wabisabi.media/wp-content/uploads/2022/01/marineooiso_naikan_2-1.jpeg"
-                      />
-                    </div>
+                    </div>)}
                   </div>
                 </div>
               </div>

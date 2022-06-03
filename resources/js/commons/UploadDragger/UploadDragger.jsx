@@ -90,6 +90,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         beforeUpload={beforeUpload}
         showUploadList={false}
         accept="image/*"
+
       >
         <Button
           type="primary"

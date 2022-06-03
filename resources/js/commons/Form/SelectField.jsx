@@ -11,11 +11,14 @@ const SelectField = ({
   response,
   placeholder,
   options,
+  mode,
   disabled,
+  className,
 }) => {
   const { t } = useTranslation();
   return (
     <Form.Item
+      className={className}
       name={field}
       label={label}
       labelCol={labelCol}
@@ -32,7 +35,7 @@ const SelectField = ({
           : ""
       }
     >
-      <Select placeholder={placeholder} disabled={disabled}>
+      <Select placeholder={placeholder} disabled={disabled} mode={mode}>
         {options?.map((option, index) => (
           <Select.Option key={index} value={option.value}>
             {option.label || t(option.label_translate)}

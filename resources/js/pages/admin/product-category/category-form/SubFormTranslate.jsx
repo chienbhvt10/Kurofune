@@ -1,55 +1,56 @@
 import React from "react";
+import { Col, Form, Input, Row } from "antd";
+import InputField from "../../../../commons/Form/InputField.jsx";
+import { getCategoryFormLayout } from "./categoryInitValues.js";
 
-const SubFormCategoryTranslate = ({ lang, className, formik }) => {
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
-  };
+const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
+  const formItemLayout = getCategoryFormLayout();
   return (
-    <form className={className}>
-      <div className="form-group">
-        <label>({lang}) Locale </label>
-        <input
-          id=""
-          type="text"
-          name="locale"
-          className=""
-          rows={4}
-          onChange={formik.handleChange}
-          value={formik.values.locale}
-        />
-        {renderErrorMessage("locale")}
-      </div>
-      <div className="form-group">
-        <label>({lang}) Cat</label>
-        <input
-          id=""
-          type="text"
-          name="Cat"
-          className=""
-          rows={4}
-          onChange={formik.handleChange}
-          value={formik.values.cat}
-        />
-        {renderErrorMessage("cat")}
-      </div>
-      <div className="form-group">
-        <label>({lang}) Name</label>
-        <input
-          id=""
-          type="text"
-          name="name"
-          className=""
-          rows={4}
-          onChange={formik.handleChange}
-          value={formik.values.name}
-        />
-        {renderErrorMessage("name")}
-      </div>
-    </form>
+    <>
+      <Row justify="center">
+        <Form
+          {...formItemLayout}
+          className={className}
+          name="common-translate-category-form"
+          form={form}
+        >
+          <Col span={24} className="form-group-col">
+            <InputField
+              field="name"
+              label={`(${lang}) Name`}
+              rules={[
+                {
+                  required: true,
+                  message: "Please enter your Name",
+                  whitespace: true,
+                },
+              ]}
+              response={response}
+              errorField="en.name"
+              type={<Input />}
+            />
+          </Col>
+          <Row justify="center">
+            <Col span={24} className="form-group-col">
+              <InputField
+                field="locale"
+                label={`(${lang}) Locale`}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={24} className="form-group-col">
+              <InputField
+                field="cat_id"
+                label={`(${lang}) Category`}
+                rules={[]}
+                type={<Input />}
+              />
+            </Col>
+          </Row>
+        </Form>
+      </Row>
+    </>
   );
 };
 

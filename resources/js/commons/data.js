@@ -804,23 +804,51 @@ export const userFormOptions = {
     { value: 1, label_translate: "admins.user.form.option.registered" },
   ],
 };
+export const productFormOptions = {
+  stock_status: [
+    { value: "instock", label: "instock" },
+    { value: "outofstock", label: "outofstock" },
+  ],
+  status: [
+    { value: "publish", label: "publish" },
+    { value: "draft", label: "draft" },
+  ],
+  cat_id: [
+    { value: 1, label: "1" },
+    { value: 2, label: "2" },
+    { value: 3, label: "3" },
+  ],
+  user_id: [
+    { value: 1, label: "wabisabimember_admin" },
+    { value: 2, label: "member_admin" },
+    { value: 3, label: "developer" },
+    { value: 4, label: "thanhvuvan" },
+  ],
+  cat_id: [
+    { value: 1, label: "Category EN" },
+    { value: 2, label: "Category JA" },
+    { value: 3, label: "Category VI" },
+    { value: 4, label: "Category TL" },
+    { value: 5, label: "Category ZH" },
+  ],
+};
 export const PRODUCT_OPTION = {
   GENDER: [
     { value: 0, label: "g_1" },
-    { value: 1, label: "g_2" }
+    { value: 1, label: "g_2" },
   ],
   USER_STATUS: [
     { value: 0, label: "Inactive" },
-    { value: 1, label: "Active" }
+    { value: 1, label: "Active" },
   ],
   YEAR_OLD: [
     { value: 1, label: "yo_1" },
     { value: 2, label: "yo_2" },
-    { value: 3, label: "yo_3" }
+    { value: 3, label: "yo_3" },
   ],
   YES_OR_NO: [
     { value: 0, label: "y_1" },
-    { value: 1, label: "y_2" }
+    { value: 1, label: "y_2" },
   ],
   CURRENTLY_TREATING: [
     { value: 1, label: "c_1" },
@@ -834,27 +862,31 @@ export const PRODUCT_OPTION = {
     { value: 9, label: "c_9" },
     { value: 10, label: "c_10" },
     { value: 11, label: "c_11" },
-    { value: 12, label: "c_12" }
+    { value: 12, label: "c_12" },
   ],
   LANGUAGES: [
     { value: "en", label: "English - 英語" },
     { value: "ja", label: "Japanese - 日本語" },
     { value: "tl", label: "Tagalog - タガログ語" },
     { value: "vi", label: "Tiếng Việt - ベトナム語" },
-    { value: "zh", label: "中文 - 中国語" }
+    { value: "zh", label: "中文 - 中国語" },
   ],
   VISA_TYPE: [
     { value: 1, label: "Technical internship" },
     { value: 2, label: "Raw Specific Skills" },
     { value: 3, label: "Specific Skills" },
-    { value: 4, label: "Specially Designated Activities Technical/Humanities/International Services" },
+    {
+      value: 4,
+      label:
+        "Specially Designated Activities Technical/Humanities/International Services",
+    },
     { value: 5, label: "Permanent residence 1" },
     { value: 6, label: "Japanese spouse" },
     { value: 7, label: "Spouse of a permanent resident" },
     { value: 8, label: "Long-term resident" },
     { value: 9, label: "Long-term resident" },
     { value: 10, label: "Studying abroad" },
-    { value: 11, label: "Building cleaning" }
+    { value: 11, label: "Building cleaning" },
   ],
   JOB: [
     { value: 1, label: "Agriculture" },
@@ -874,4 +906,4 @@ export const PRODUCT_OPTION = {
     { value: 15, label: "Building cleaning " },
     { value: 16, label: "other" },
   ],
-}
+};

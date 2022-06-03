@@ -4,47 +4,24 @@ import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
-import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import InputField from "../../../../commons/Form/InputField";
-import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
 import useChangePassword from "../../../../hooks/auth/useChangePassword";
-import useLogout from "../../../../hooks/auth/useLogout";
 import "./style.scss";
 
 export const ChangePassword = () => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
+  const dispatch = useDispatch();
   const { changePassword, resChangePassword } = useChangePassword();
-  const { getLogout, resLogout } = useLogout();
   const [changePasswordForm] = Form.useForm();
   const [showCurrentPassword, setShowCurrentPassword] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
-  const navigate = useNavigate();
-  const lang = getCurrentLanguage();
-
-  const changePasswordInitValues = {
-    current_password: "",
-    password: "",
-    password_confirmation: "",
-  };
-
-  React.useEffect(() => {
-    if (resChangePassword?.status_code === 200) {
-      changePasswordForm.setFieldsValue(changePasswordInitValues);
-    }
-  }, [resChangePassword]);
 
   const onFinish = (values) => {
     changePassword(values);
-    getLogout();
   };
-
-  React.useEffect(() => {
-    if (resLogout?.status_code === 200) {
-      navigate(`${lang}/login`);
-    }
-  }, [resLogout]);
 
   const renderErrorTranslate = (field) => {
     return validateUser?.change_password?.[field].map((item) => {

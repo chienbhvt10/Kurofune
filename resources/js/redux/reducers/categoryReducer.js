@@ -10,7 +10,7 @@ const initialState = {
 
 const categoryReducers = createReducer(initialState, (builder) => {
   builder.addCase(getCategoriesAction.fulfilled, (state, actions) => {
-    state.categories = actions.payload.data.data;
+    state.categories = actions.payload.data;
   });
   builder.addCase(getCategoryAction.fulfilled, (state, actions) => {
     state.category = actions.payload.data;
