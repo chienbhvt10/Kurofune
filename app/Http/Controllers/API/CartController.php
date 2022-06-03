@@ -336,8 +336,6 @@ class CartController extends Controller
 
                     Notification::sendNow($vendor, new VendorNewOrderNotification($order, $user));
                     Notification::sendNow($user, new CustomerProcessingOrderNotification($order, $user));
-                    return $this->responseData($order);
-
                 }
 
                 $this->resetCart($cart);
