@@ -37,7 +37,6 @@ export const UserList = () => {
 
   const onDelete = (row) => () => {
     deleteUser(row.id);
-    getAllUsers({ page: pagination.current_page });
   };
 
   const onEdit = (row) => () => {

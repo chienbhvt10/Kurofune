@@ -1,15 +1,28 @@
 {
+  "notification": "Thông báo",
+  "btn_send_mail": "RESET PASSWORD",
+  "btn_back": "BACK",
+  "btn_ok": "OK",
   "login": {
     "title": "Association for Supporting Foreign Workers in Japan<br> Life Support Portal Site",
     "email": "Email",
     "password": "Password",
     "remember": "Remember",
     "forgetPassword": "Forgot password",
-    "login_btn": "login",
+    "login_btn": "Login",
     "term_of_use": "Term of use",
     "privacy_policy": "Privacy policy",
     "languages": "Languages",
     "kurofune": "©KUROFUNE"
+  },
+  "forgot_password": {
+    "title1": "Lost your password? Please enter your email address.",
+    "title2": "You will receive a link to create a new password via email."
+  },
+  "reset_password": {
+    "reset_password_title": "Password reset email has been sent.",
+    "reset_password_message1": "The password reissue email has been sent.",
+    "reset_password_message2": "Please check your registered email address."
   },
   "home": "Trang chủ",
   "header": {
@@ -409,6 +422,16 @@
         "new_password_required": "Please input new password!",
         "confirm_password_required": "Please input password confirmation!",
         "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Tạo mới người dùng thành công",
+        "create_fail": "Tạo mới người dùng thất bại",
+        "update_success": "Cập nhật người dùng thành công",
+        "update_fail": "Cập nhật người dùng thất bại",
+        "delete_success": "Xoá người dùng thành công",
+        "delete_fail": "Xoá người dùng thất bại"
       }
     }
   }

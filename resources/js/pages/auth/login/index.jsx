@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Col, Form, Input, Row, Typography } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
@@ -24,30 +24,18 @@ export const Login = () => {
   const lang = getCurrentLanguage();
   const { loginUser } = useLogin();
   const [form] = Form.useForm();
-
   function createMarkup() {
     return { __html: t("login.title") };
   }
-  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
   };
 
-  React.useEffect(() => {
-    if (resLogin?.status_code === 200) {
-      if (
-        [USER_ROLES.ADMIN, USER_ROLES.VENDOR].includes(
-          resLogin?.user.roles.name
-        )
-      )
-        navigate(`${lang}/admin`);
-      else navigate(`${lang}/media`);
-    }
-  }, [resLogin]);
 
-  const onLogin = (values) => {
-    loginUser(values);
+
+  const onLogin =  (values) => {
+     loginUser(values);
   };
 
   const renderErrorTranslate = (field) => {
@@ -172,7 +160,7 @@ export const Login = () => {
           <Col>
             <ModalTerm text={t("login.term_of_use")} />
           </Col>
-          <Col>
+          <Col style={{ marginLeft: 10 }}>
             <ModalPolicy text={t("login.privacy_policy")} />
           </Col>
         </Row>

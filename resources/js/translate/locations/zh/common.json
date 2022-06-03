@@ -1,4 +1,8 @@
 {
+  "notification": "Thông báo",
+  "btn_send_mail": "发送电子邮件",
+  "btn_back": "后退",
+  "btn_ok": "Ok",
   "login": {
     "title": "日本综合社团法人外国人劳动者支援协会生活支援门户网站",
     "email": "电子邮件",
@@ -10,6 +14,15 @@
     "privacy_policy": "隐私政策",
     "languages": "语言",
     "kurofune": "©KUROFUNE"
+  },
+  "forgot_password": {
+    "title1": "丢失了密码？请输入您的电子邮件地址。",
+    "title2": "您将通过电子邮件收到一个创建新密码的链接。"
+  },
+  "reset_password": {
+    "reset_password_title": "密码重置邮件已发送。",
+    "reset_password_message1": "密码补发邮件已发送。",
+    "reset_password_message2": "请检查您注册的电子邮件地址。"
   },
   "home": "Trang chủ",
   "header": {
@@ -175,7 +188,7 @@
     },
     "product_detail": {
       "btn_buy": "立即购买",
-      "placeholder_option":"请选择选项",
+      "placeholder_option": "请选择选项",
       "label_gender": "请问您的性别为？",
       "label_age": "请问您的年龄为？",
       "label_ever_used": "过去有使用过这种药品吗？",
@@ -204,36 +217,36 @@
       "option_other_illnesses10": "甲状腺方面疾病",
       "option_other_illnesses11": "前列腺方面疾病",
       "option_other_illnesses12": "其他",
-      "error_required":"这是必填栏。",
-      "error_title_requried":"无法添加到购物车",
-      "error_msg_requried":"请检查您的输入。",
-      "option_add_to_cart":{
-        "gender":{
-          "g_1":"男性",
-          "g_2":"女性"
+      "error_required": "这是必填栏。",
+      "error_title_requried": "无法添加到购物车",
+      "error_msg_requried": "请检查您的输入。",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "男性",
+          "g_2": "女性"
         },
-        "yes_or_no":{
-          "y_1":"是的",
-          "y_2":"不"
+        "yes_or_no": {
+          "y_1": "是的",
+          "y_2": "不"
         },
-        "year_old":{
-          "yo_1":"15岁以下",
-          "yo_2":"15-64岁",
-          "yo_3":"65岁或以上"
+        "year_old": {
+          "yo_1": "15岁以下",
+          "yo_2": "15-64岁",
+          "yo_3": "65岁或以上"
         },
-        "currently_treating":{
-          "c_1":"高血压",
-          "c_2":"糖尿病",
-          "c_3":"高脂血症",
-          "c_4":"气喘",
-          "c_5":"肝脏疾病",
-          "c_6":"心脏疾病",
-          "c_7":"脑部梗塞",
-          "c_8":"胃／十二指肠溃疡",
-          "c_9":"甲状腺方面疾病",
-          "c_10":"前列腺方面疾病",
-          "c_11":"其他",
-          "c_12":"没有"
+        "currently_treating": {
+          "c_1": "高血压",
+          "c_2": "糖尿病",
+          "c_3": "高脂血症",
+          "c_4": "气喘",
+          "c_5": "肝脏疾病",
+          "c_6": "心脏疾病",
+          "c_7": "脑部梗塞",
+          "c_8": "胃／十二指肠溃疡",
+          "c_9": "甲状腺方面疾病",
+          "c_10": "前列腺方面疾病",
+          "c_11": "其他",
+          "c_12": "没有"
         }
       },
       "medicinal_efficacy":"药效分类"
@@ -262,15 +275,161 @@
     }
   },
   "admins": {
+    "btn_save": "Save",
+    "btn_cancel": "Cancel",
+    "btn_upload": "Click to upload",
+    "btn_generate_password": "Generate",
+    "btn_search": "Search",
+    "btn_add_new": "Add New",
     "user": {
       "list": {
-        "title": ""
+        "title": "User List"
       },
       "create": {
-        "title": "Create a new"
+        "title": "Create user",
+        "breadcrumb": "Create user"
       },
       "update": {
-        "title": "Update a existing"
+        "title": "Update user",
+        "breadcrumb": "Update user"
+      },
+      "switch_tab": {
+        "address": "Address",
+        "billing_address": "Billing Address",
+        "shipping_address": "Shipping Address",
+        "role_info": "Role Info"
+      },
+      "form": {
+        "field_role": "用戶角色",
+        "field_name": "全名",
+        "field_email": "电子邮件地址",
+        "field_phone": "电话",
+        "field_username": "Username",
+        "field_password": "密碼",
+        "field_active": "活動狀態",
+        "field_full_name": "全名",
+        "field_postal_code": "邮政编码",
+        "field_prefecture": "州",
+        "field_city": "城镇/城市",
+        "field_street": "街道地址",
+        "field_building": "建造",
+        "profile": {
+          "field_dob": "Date of birth",
+          "field_gender": "Gender",
+          "field_facebook": "Facebook",
+          "field_line": "Line",
+          "field_address": "Address",
+          "field_nationality": "Nationality",
+          "field_visa_type": "Visa Type",
+          "field_job_name": "Job Name",
+          "field_company_representative": "Company representative",
+          "field_payment_source": "Payment source",
+          "field_payment": "Payment",
+          "field_insurance_status": "Insurance Status",
+          "field_insurance_support": "Insurance Support",
+          "field_insurance_start_date": "Insurance Start Date",
+          "field_overseas_remittance_status": "Overseas Remittance Status",
+          "field_orientation": "Orientation",
+          "field_start_date_education": "Start Date Education",
+          "field_end_date_education": "End Date Education",
+          "field_education_status": "Japanese language education status",
+          "field_page_registration": "Wabisabi My Page Registration",
+          "field_company_mail": "Company Mail"
+        },
+        "vendor_profile": {
+          "field_image_inside": "Image inside",
+          "field_image_outside": "Image outside",
+          "field_locale": "Locale",
+          "field_name": "Name",
+          "field_permit_classification": "Permit classification",
+          "field_founder": "Founder",
+          "field_stated_in_permit": "Items to be stated in the permit",
+          "field_management_pharmacist": "Management pharmacist",
+          "field_registered_seller_working": "Registered Seller Working",
+          "field_drug_handled": "Drugs Handled",
+          "field_distinguishing_by_name": "Distinguishing by name",
+          "field_business_hours": "Business Hours",
+          "field_consultation_hours": "Consultation Hours",
+          "field_contact_information": "Contact Information",
+          "field_current_working": "Currently Working",
+          "field_open_sale_time": "Open Sale Time",
+          "field_time_order_outside": "Time Order Outside",
+          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+        },
+        "option": {
+          "active": "User active",
+          "inactive": "User inactive",
+          "male": "Male",
+          "female": "Female",
+          "yes": "Yes",
+          "no": "No",
+          "registered": "Unregistered",
+          "unregistered": "Registered",
+          "insurance_status": {
+            "option1": "",
+            "option2": "",
+            "option3": "",
+            "option4": "",
+            "option5": ""
+          },
+          "education_status": {
+            "unregistered": "",
+            "registered": ""
+          }
+        },
+        "placeholder": {
+          "search": "Search username",
+          "select_role": "Please select a role",
+          "select_active_status": "Please select a active status",
+          "select_prefecture": "Please select prefecture",
+          "select_date": "Select date",
+          "select_gender": "Please select gender",
+          "select_payment": "Please select payment",
+          "select_insurance_status": "Please select insurance status",
+          "select_education_status": "Please select japanese language education status"
+        }
+      },
+      "error": {
+        "role_required": "Please select a role!",
+        "name_required": "Please input your name!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "user_name_required": "Please input your username!",
+        "password": {
+          "required": "Please input your password!",
+          "min": "Please input atLeast 8 characters for password!"
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!",
+        "current_password_required": "Please input current password!",
+        "new_password_required": "Please input new password!",
+        "confirm_password_required": "Please input password confirmation!",
+        "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Tạo mới người dùng thành công",
+        "create_fail": "Tạo mới người dùng thất bại",
+        "update_success": "Cập nhật người dùng thành công",
+        "update_fail": "Cập nhật người dùng thất bại",
+        "delete_success": "Xoá người dùng thành công",
+        "delete_fail": "Xoá người dùng thất bại"
       }
     }
   }
