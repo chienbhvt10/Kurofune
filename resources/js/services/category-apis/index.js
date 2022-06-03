@@ -3,7 +3,7 @@ import axiosClient from "../api-caller";
 
 export const categoryApis = {
   categories: async (data) => {
-    const url = ROOT_URL + "categories";
+    const url = ROOT_URL + "list-category";
     return await axiosClient.get(url, data);
   },
   category: async (data) => {

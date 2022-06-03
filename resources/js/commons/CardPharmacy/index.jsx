@@ -11,6 +11,7 @@ const CardCategory = ({ cardItems }) => {
   return (
     <Row gutter={[16, 16]}>
       {cardItems?.map((item, index) => (
+
         <Col
           xl={{ span: 4 }}
           lg={{ span: 6 }}
@@ -25,7 +26,7 @@ const CardCategory = ({ cardItems }) => {
               hoverable
               cover={
                 <img
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "cover" , height:"180px"}}
                   src={item.images_outside[0] || DEFAULT_IMAGE}
                   alt={item.name}
                   onError={(e) => {
