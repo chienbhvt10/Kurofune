@@ -6,10 +6,14 @@ use App\Http\Controllers\Controller;
 use App\Models\VendorProfile;
 use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Traits\CustomFilterTrait;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Response;
 
 class VendorProfileController extends Controller
 {
-    use RespondsStatusTrait;
+    use RespondsStatusTrait, CustomFilterTrait;
     public function index(): \Illuminate\Http\JsonResponse
     {
         $ids_vendor = VendorProfile::pluck('id')->toArray();
@@ -90,5 +94,26 @@ class VendorProfileController extends Controller
         }
 
         return $this->responseData($products);
+    }
+
+    public function searchPharmacy(Request $request){
+        $search = $request->search;
+        $posts_per_page = get_per_page($request->per_page);
+        $lang = $request->header('X-localization');
+        $validator = Validator::make($request->all(), [
+            'search' => 'required',
+        ]);
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+            return $this->errorResponse($errors, 422);
+        }
+        $name = Product::whereHas('product_translations',function($query) use ($search,$lang){
+            return $query->where('name', 'LIKE','%'.$search.'%')->where('locale', '=', $lang);
+        })
+        ->paginate($posts_per_page);
+        if ($name->isEmpty()) {
+            return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
+        }
+        return $this->responseData($name);
     }
 }

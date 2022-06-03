@@ -24,10 +24,10 @@ class ShippingMethodController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         try {
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             $shipping_method = ShippingMethod::paginate($posts_per_page);
             return $this->responseData($shipping_method);
         } catch (\Exception $error) {

@@ -1,44 +1,73 @@
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Breadcrumb } from "../../commons/Breadcrumb";
 import "./table-header.scss";
-export const TableHeader = ({ children, title, breadcrumb, addLink }) => {
+export const TableHeader = ({
+  children,
+  title,
+  breadcrumb,
+  addLink,
+  onSearch,
+  searchField,
+}) => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
+  const onNavigateCreate = () => {
+    navigate(addLink);
+  };
+
   return (
-    <>
-      <Breadcrumb title={title} breadcrumb={breadcrumb} />
-      <div className="user-tab my-3 d-flex">
-        {addLink ? (
-          <Link
-            className="btn btn-outline-secondary mr-3 "
-            role="button"
-            to={addLink}
-          >
-            <FontAwesomeIcon className="mr-1" icon={faPlus} />
-            {t("admins.btn_add_new")}
-          </Link>
-        ) : (
-          <></>
-        )}
-        {children}
-        <div className="user-search ml-auto">
-          <div className="input-group">
-            <input
-              type="text"
-              className="text-input p-1"
-              placeholder={t("admins.user.form.placeholder.search")}
-              aria-label="Search username"
-              aria-describedby="button-addon2"
-            />
-            <button className="btn btn-outline-secondary" type="button">
-              {t("admins.btn_search")}
-            </button>
-          </div>
-        </div>
-      </div>
-    </>
+    <Row justify="center" className="table-header">
+      <Col span={24}>
+        <Breadcrumb title={title} breadcrumb={breadcrumb} />
+      </Col>
+      <Col span={24}>
+        <Row justify="space-between">
+          <Col>
+            <Row align="middle">
+              <Col>
+                {addLink ? (
+                  <Button type="primary" onClick={onNavigateCreate}>
+                    <FontAwesomeIcon className="mr-1" icon={faPlus} />
+                    {t("admins.btn_add_new")}
+                  </Button>
+                ) : (
+                  <></>
+                )}
+              </Col>
+              <Col className="filter">{children}</Col>
+            </Row>
+          </Col>
+          <Col>
+            <Form onFinish={onSearch} autoComplete="off">
+              <Row align="middle">
+                <Col>
+                  <Form.Item name={searchField} className="search-field">
+                    <Input
+                      type="text"
+                      placeholder={t("admins.user.form.placeholder.search")}
+                    />
+                  </Form.Item>
+                </Col>
+                <Col>
+                  <Button
+                    className="btn-search"
+                    type="primary"
+                    htmlType="submit"
+                  >
+                    {t("admins.btn_search")}
+                  </Button>
+                </Col>
+              </Row>
+            </Form>
+          </Col>
+        </Row>
+      </Col>
+    </Row>
   );
 };

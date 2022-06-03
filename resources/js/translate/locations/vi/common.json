@@ -1,4 +1,8 @@
 {
+  "notification": "Thông báo",
+  "btn_send_mail": "Gửi email",
+  "btn_back": "Trở lại",
+  "btn_ok": "Ok",
   "login": {
     "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN <br> CỔNG HỖ TRỢ",
     "email": "Email",
@@ -10,6 +14,15 @@
     "privacy_policy": "Chính sách bảo mật",
     "languages": "Ngôn ngữ",
     "kurofune": "©KUROFUNE"
+  },
+  "forgot_password": {
+    "title1": "Bạn quên mật khẩu đúng không?",
+    "title2": "Hãy điền địa chỉ email, chúng tôi sẽ gửi một đường dẫn cài đặt lại mật khẩu mới."
+  },
+  "reset_password": {
+    "reset_password_title": "Email đặt lại mật khẩu đã được gửi.",
+    "reset_password_message1": "Email cấp lại mật khẩu đã được gửi.",
+    "reset_password_message2": "Vui lòng kiểm tra địa chỉ email đã đăng ký của bạn."
   },
   "home": "Trang chủ",
   "header": {
@@ -235,7 +248,8 @@
           "c_11": "Bệnh khác",
           "c_12": "Không"
         }
-      }
+      },
+      "medicinal_efficacy":"Phân loại thuốc theo công dụng"
     },
     "list_pharmacies": {
       "title": "Hiệu thuốc Marine Oisotori",
@@ -261,15 +275,161 @@
     }
   },
   "admins": {
+    "btn_save": "Save",
+    "btn_cancel": "Cancel",
+    "btn_upload": "Click to upload",
+    "btn_generate_password": "Generate",
+    "btn_search": "Search",
+    "btn_add_new": "Add New",
     "user": {
       "list": {
-        "title": ""
+        "title": "User List"
       },
       "create": {
-        "title": ""
+        "title": "Create user",
+        "breadcrumb": "Create user"
       },
       "update": {
-        "title": ""
+        "title": "Update user",
+        "breadcrumb": "Update user"
+      },
+      "switch_tab": {
+        "address": "Address",
+        "billing_address": "Billing Address",
+        "shipping_address": "Shipping Address",
+        "role_info": "Role Info"
+      },
+      "form": {
+        "field_role": "Vai trò người dùng",
+        "field_name": "Tên",
+        "field_email": "Địa chỉ email",
+        "field_phone": "Số điện thoại",
+        "field_username": "Tài khoản",
+        "field_password": "Mật khẩu",
+        "field_active": "Trạng thái",
+        "field_full_name": "Họ và tên",
+        "field_postal_code": "Mã bưu điện/ ZIP code",
+        "field_prefecture": "Tỉnh / Thành Phố",
+        "field_city": "Thị trấn / Thành Phố",
+        "field_street": "Địa chỉ khu phố",
+        "field_building": "Tên toà nhà",
+        "profile": {
+          "field_dob": "Date of birth",
+          "field_gender": "Gender",
+          "field_facebook": "Facebook",
+          "field_line": "Line",
+          "field_address": "Address",
+          "field_nationality": "Nationality",
+          "field_visa_type": "Visa Type",
+          "field_job_name": "Job Name",
+          "field_company_representative": "Company representative",
+          "field_payment_source": "Payment source",
+          "field_payment": "Payment",
+          "field_insurance_status": "Insurance Status",
+          "field_insurance_support": "Insurance Support",
+          "field_insurance_start_date": "Insurance Start Date",
+          "field_overseas_remittance_status": "Overseas Remittance Status",
+          "field_orientation": "Orientation",
+          "field_start_date_education": "Start Date Education",
+          "field_end_date_education": "End Date Education",
+          "field_education_status": "Japanese language education status",
+          "field_page_registration": "Wabisabi My Page Registration",
+          "field_company_mail": "Company Mail"
+        },
+        "vendor_profile": {
+          "field_image_inside": "Image inside",
+          "field_image_outside": "Image outside",
+          "field_locale": "Locale",
+          "field_name": "Name",
+          "field_permit_classification": "Permit classification",
+          "field_founder": "Founder",
+          "field_stated_in_permit": "Items to be stated in the permit",
+          "field_management_pharmacist": "Management pharmacist",
+          "field_registered_seller_working": "Registered Seller Working",
+          "field_drug_handled": "Drugs Handled",
+          "field_distinguishing_by_name": "Distinguishing by name",
+          "field_business_hours": "Business Hours",
+          "field_consultation_hours": "Consultation Hours",
+          "field_contact_information": "Contact Information",
+          "field_current_working": "Currently Working",
+          "field_open_sale_time": "Open Sale Time",
+          "field_time_order_outside": "Time Order Outside",
+          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+        },
+        "option": {
+          "active": "User active",
+          "inactive": "User inactive",
+          "male": "Male",
+          "female": "Female",
+          "yes": "Yes",
+          "no": "No",
+          "registered": "Unregistered",
+          "unregistered": "Registered",
+          "insurance_status": {
+            "option1": "",
+            "option2": "",
+            "option3": "",
+            "option4": "",
+            "option5": ""
+          },
+          "education_status": {
+            "unregistered": "",
+            "registered": ""
+          }
+        },
+        "placeholder": {
+          "search": "Search username",
+          "select_role": "Please select a role",
+          "select_active_status": "Please select a active status",
+          "select_prefecture": "Please select prefecture",
+          "select_date": "Select date",
+          "select_gender": "Please select gender",
+          "select_payment": "Please select payment",
+          "select_insurance_status": "Please select insurance status",
+          "select_education_status": "Please select japanese language education status"
+        }
+      },
+      "error": {
+        "role_required": "Please select a role!",
+        "name_required": "Please input your name!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "user_name_required": "Please input your username!",
+        "password": {
+          "required": "Please input your password!",
+          "min": "Please input atLeast 8 characters for password!"
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!",
+        "current_password_required": "Please input current password!",
+        "new_password_required": "Please input new password!",
+        "confirm_password_required": "Please input password confirmation!",
+        "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Tạo mới người dùng thành công",
+        "create_fail": "Tạo mới người dùng thất bại",
+        "update_success": "Cập nhật người dùng thành công",
+        "update_fail": "Cập nhật người dùng thất bại",
+        "delete_success": "Xoá người dùng thành công",
+        "delete_fail": "Xoá người dùng thất bại"
       }
     },
     "product": {

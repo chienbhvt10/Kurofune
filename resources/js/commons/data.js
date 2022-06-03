@@ -434,16 +434,19 @@ export const navigateLinkAdminData = [
     link: "admin/log-chatbot",
     imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "navigate_link.chatbot_title",
+    isAdminOnly: true,
   },
   {
     link: "admin/log-questionnaire",
     imageUrl: "/images/sidebar/Questionnaire-form.png",
     title: "navigate_link.questionnaire_title",
+    isAdminOnly: true,
   },
   {
     link: "admin/category-list",
     imageUrl: "/images/sidebar/medicine-list.png",
     title: "navigate_link.category_title",
+    isAdminOnly: true,
   },
   {
     link: "admin/product-list",
@@ -459,6 +462,7 @@ export const navigateLinkAdminData = [
     link: "admin/user-list",
     imageUrl: "/images/sidebar/Settings.png",
     title: "navigate_link.user_title",
+    isAdminOnly: true,
   },
   {
     link: "media",
