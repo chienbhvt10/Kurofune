@@ -248,7 +248,8 @@
           "c_11": "其他",
           "c_12": "没有"
         }
-      }
+      },
+      "medicinal_efficacy":"药效分类"
     },
     "list_pharmacies": {
       "title": "海洋药房大矶",

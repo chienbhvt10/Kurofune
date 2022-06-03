@@ -25,6 +25,8 @@ const initialState = {
   resChangePassword: undefined,
   resForgotPassword: undefined,
   resResetPassword: undefined,
+  resResetResponse: undefined,
+  isLoading: true,
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -78,12 +80,28 @@ const authReducers = createReducer(initialState, (builder) => {
       resLogout: actions.payload,
     };
   });
-  builder.addCase(showProfileAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      profile: actions.payload.data,
-    };
-  });
+  builder
+    .addCase(showProfileAction.pending, (state) => {
+      state.isLoading = true;
+    })
+    .addCase(showProfileAction.fulfilled, (state, actions) => {
+      if (actions.payload.message === "Unauthenticated.") {
+        state.isLogin = false;
+        state.profile = undefined;
+        state.isLoading = false;
+        state.userInfo = undefined;
+      } else {
+        state.isLogin = true;
+        state.profile = actions.payload.data;
+        state.isLoading = false;
+      }
+    })
+    .addCase(showProfileAction.rejected, (state, action) => {
+      state.isLogin = false;
+      state.profile = undefined;
+      state.userInfo = undefined;
+      state.isLoading = false;
+    });
   builder.addCase(changePasswordAction.fulfilled, (state, actions) => {
     return {
       ...state,

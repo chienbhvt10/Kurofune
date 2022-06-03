@@ -248,7 +248,8 @@
           "c_11": "Iba pa",
           "c_12": "Wala naman"
         }
-      }
+      },
+      "medicinal_efficacy":"Medicinal efficacy classification"
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",

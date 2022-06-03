@@ -28,7 +28,7 @@ class PageController extends Controller
     public function index(Request $request)
     {
         try {
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             $relational = 'page_translations';
             if ($request->name) {
                 $page = $this->filterWhereHasName(new Page, $relational, $request->name, $posts_per_page);

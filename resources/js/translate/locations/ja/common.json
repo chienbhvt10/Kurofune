@@ -250,6 +250,7 @@
         }
       }
     },
+    "medicinal_efficacy": "薬効分類",
     "list_pharmacies": {
       "title": "マリン薬局　大磯通店",
       "outside_image": "薬局又は店舗の主要な外観の写真",

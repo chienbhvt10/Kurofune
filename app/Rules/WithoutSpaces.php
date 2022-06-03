@@ -25,7 +25,7 @@ class WithoutSpaces implements Rule
      */
     public function passes($attribute, $value)
     {
-        return !(bool)preg_match('/\s/',$value);
+        return preg_match('/^\S*$/u', $value);
     }
 
     /**
