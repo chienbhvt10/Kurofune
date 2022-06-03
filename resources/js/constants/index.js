@@ -30,3 +30,7 @@ export const DEFAULT_IMAGE = "images/image-default.png";
 export const TYPE_IMAGE_PNG = "image/png";
 export const TYPE_IMAGE_JPEG = "image/jpeg";
 export const TYPE_IMAGE_JPG = "image/jpg";
+export const USER_ROLES = {
+  ADMIN: "administrator",
+  VENDOR: "vendor",
+};
