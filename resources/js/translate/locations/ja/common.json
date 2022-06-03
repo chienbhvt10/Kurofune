@@ -1,4 +1,8 @@
 {
+  "notification": "Thông báo",
+  "btn_send_mail": "メール送信",
+  "btn_back": "戻る",
+  "btn_ok": "Ok",
   "login": {
     "title": "一般社団法人在日外国人就業者支援協会<br>生活支援ポータルサイト",
     "email": "メールアドレス",
@@ -10,6 +14,15 @@
     "privacy_policy": "プライバシーポリシー",
     "languages": "言語",
     "kurofune": "©KUROFUNE"
+  },
+  "forgot_password": {
+    "title1": "パスワードをお忘れの方は、以下に登録時のメールアドレスを",
+    "title2": "入力して「メール送信」ボタンを押してください。"
+  },
+  "reset_password": {
+    "title": "送信完了",
+    "message1": "パスワード再発行メールが送信されました。",
+    "message2": "ご登録メールアドレスをご確認ください。"
   },
   "home": "Trang chủ",
   "header": {
@@ -175,7 +188,7 @@
     },
     "product_detail": {
       "btn_buy": "買い物かごに入れる",
-      "placeholder_option":"選択してください",
+      "placeholder_option": "選択してください",
       "label_gender": "あなたの性別は何ですか？",
       "label_age": "あなたの年齢を教えてください",
       "label_ever_used": "このお薬を使ったことはありますか？",
@@ -204,41 +217,40 @@
       "option_other_illnesses10": "甲状腺疾患",
       "option_other_illnesses11": "前立腺疾患",
       "option_other_illnesses12": "その他（自由記述）",
-      "error_required":"この項目は必須です。",
-      "error_title_requried":"買い物かごに追加できませんでした",
-      "error_msg_requried":"入力内容をご確認ください。",
-      "option_add_to_cart":{
-        "gender":{
-          "g_1":"男",
-          "g_2":"女"
+      "error_required": "この項目は必須です。",
+      "error_title_requried": "買い物かごに追加できませんでした",
+      "error_msg_requried": "入力内容をご確認ください。",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "男",
+          "g_2": "女"
         },
-        "yes_or_no":{
-          "y_1":"はい",
-          "y_2":"いいえ"
+        "yes_or_no": {
+          "y_1": "はい",
+          "y_2": "いいえ"
         },
-        "year_old":{
-          "yo_1":"15歳未満",
-          "yo_2":"15-64歳",
-          "yo_3":"65歳以上"
+        "year_old": {
+          "yo_1": "15歳未満",
+          "yo_2": "15-64歳",
+          "yo_3": "65歳以上"
         },
-        "currently_treating":{
-          "c_1":"高血圧",
-          "c_2":"糖尿病",
-          "c_3":"脂質異常症",
-          "c_4":"喘息",
-          "c_5":"肝臓病",
-          "c_6":"心疾患",
-          "c_7":"脳梗塞",
-          "c_8":"胃・十二指腸潰瘍",
-          "c_9":"甲状腺疾患",
-          "c_10":"前立腺疾患",
-          "c_11":"その他（自由記述）",
-          "c_12":"ありません"
+        "currently_treating": {
+          "c_1": "高血圧",
+          "c_2": "糖尿病",
+          "c_3": "脂質異常症",
+          "c_4": "喘息",
+          "c_5": "肝臓病",
+          "c_6": "心疾患",
+          "c_7": "脳梗塞",
+          "c_8": "胃・十二指腸潰瘍",
+          "c_9": "甲状腺疾患",
+          "c_10": "前立腺疾患",
+          "c_11": "その他（自由記述）",
+          "c_12": "ありません"
         }
-      },
-      "medicinal_efficacy":"薬効分類"
-
+      }
     },
+    "medicinal_efficacy": "薬効分類",
     "list_pharmacies": {
       "title": "マリン薬局　大磯通店",
       "outside_image": "薬局又は店舗の主要な外観の写真",
@@ -263,24 +275,161 @@
     }
   },
   "admins": {
+    "btn_save": "Save",
+    "btn_cancel": "Cancel",
+    "btn_upload": "Click to upload",
+    "btn_generate_password": "Generate",
+    "btn_search": "Search",
+    "btn_add_new": "Add New",
     "user": {
       "list": {
-        "title": ""
+        "title": "User List"
       },
       "create": {
-        "title": "",
-        "breadcrumb": "",
-        "form_info": {
-          "field_username": "Username",
-          "field_password": "Password",
-          "field_email": "Email",
-          "field_name": "Name",
-          "field_role": "Role",
-          "field_avatar": "Avatar"
-        }
+        "title": "Create user",
+        "breadcrumb": "Create user"
       },
       "update": {
-        "title": ""
+        "title": "Update user",
+        "breadcrumb": "Update user"
+      },
+      "switch_tab": {
+        "address": "Address",
+        "billing_address": "Billing Address",
+        "shipping_address": "Shipping Address",
+        "role_info": "Role Info"
+      },
+      "form": {
+        "field_role": "ユーザーの役割",
+        "field_name": "名前",
+        "field_email": "メールアドレス",
+        "field_phone": "電話番号",
+        "field_username": "Username",
+        "field_password": "パスワード",
+        "field_active": "アクティブステータス",
+        "field_full_name": "氏名",
+        "field_postal_code": "郵便番号",
+        "field_prefecture": "都道府県",
+        "field_city": "市区町村",
+        "field_street": "丁目・番地・号",
+        "field_building": "建物名・部屋番号",
+        "profile": {
+          "field_dob": "Date of birth",
+          "field_gender": "Gender",
+          "field_facebook": "Facebook",
+          "field_line": "Line",
+          "field_address": "Address",
+          "field_nationality": "Nationality",
+          "field_visa_type": "Visa Type",
+          "field_job_name": "Job Name",
+          "field_company_representative": "Company representative",
+          "field_payment_source": "Payment source",
+          "field_payment": "Payment",
+          "field_insurance_status": "Insurance Status",
+          "field_insurance_support": "Insurance Support",
+          "field_insurance_start_date": "Insurance Start Date",
+          "field_overseas_remittance_status": "Overseas Remittance Status",
+          "field_orientation": "Orientation",
+          "field_start_date_education": "Start Date Education",
+          "field_end_date_education": "End Date Education",
+          "field_education_status": "Japanese language education status",
+          "field_page_registration": "Wabisabi My Page Registration",
+          "field_company_mail": "Company Mail"
+        },
+        "vendor_profile": {
+          "field_image_inside": "Image inside",
+          "field_image_outside": "Image outside",
+          "field_locale": "Locale",
+          "field_name": "Name",
+          "field_permit_classification": "Permit classification",
+          "field_founder": "Founder",
+          "field_stated_in_permit": "Items to be stated in the permit",
+          "field_management_pharmacist": "Management pharmacist",
+          "field_registered_seller_working": "Registered Seller Working",
+          "field_drug_handled": "Drugs Handled",
+          "field_distinguishing_by_name": "Distinguishing by name",
+          "field_business_hours": "Business Hours",
+          "field_consultation_hours": "Consultation Hours",
+          "field_contact_information": "Contact Information",
+          "field_current_working": "Currently Working",
+          "field_open_sale_time": "Open Sale Time",
+          "field_time_order_outside": "Time Order Outside",
+          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+        },
+        "option": {
+          "active": "User active",
+          "inactive": "User inactive",
+          "male": "Male",
+          "female": "Female",
+          "yes": "Yes",
+          "no": "No",
+          "registered": "Unregistered",
+          "unregistered": "Registered",
+          "insurance_status": {
+            "option1": "",
+            "option2": "",
+            "option3": "",
+            "option4": "",
+            "option5": ""
+          },
+          "education_status": {
+            "unregistered": "",
+            "registered": ""
+          }
+        },
+        "placeholder": {
+          "search": "Search username",
+          "select_role": "Please select a role",
+          "select_active_status": "Please select a active status",
+          "select_prefecture": "Please select prefecture",
+          "select_date": "Select date",
+          "select_gender": "Please select gender",
+          "select_payment": "Please select payment",
+          "select_insurance_status": "Please select insurance status",
+          "select_education_status": "Please select japanese language education status"
+        }
+      },
+      "error": {
+        "role_required": "Please select a role!",
+        "name_required": "Please input your name!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "user_name_required": "Please input your username!",
+        "password": {
+          "required": "Please input your password!",
+          "min": "Please input atLeast 8 characters for password!"
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!",
+        "current_password_required": "Please input current password!",
+        "new_password_required": "Please input new password!",
+        "confirm_password_required": "Please input password confirmation!",
+        "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Tạo mới người dùng thành công",
+        "create_fail": "Tạo mới người dùng thất bại",
+        "update_success": "Cập nhật người dùng thành công",
+        "update_fail": "Cập nhật người dùng thất bại",
+        "delete_success": "Xoá người dùng thành công",
+        "delete_fail": "Xoá người dùng thất bại"
       }
     }
   }

@@ -2,6 +2,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
 import { getCurrentLanguage, getResetMail } from "../../../helper/localStorage";
@@ -11,14 +12,12 @@ import "./reset-password.scss";
 
 const ResetPassword = () => {
   const [param, setParam] = useSearchParams();
+  const { t } = useTranslation();
   const [showPassword, setShowPassword] = React.useState(true);
   const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(true);
-  const { resResetPassword, getResetPassword, resetResponse } =
-    useResetPassword();
-  const lang = getCurrentLanguage();
+  const { resResetPassword, getResetPassword } = useResetPassword();
   const resetEmail = getResetMail();
   const [form] = Form.useForm();
-  const navigate = useNavigate();
 
   const resetPasswordInitValues = {
     token: param.get("token"),
@@ -28,23 +27,11 @@ const ResetPassword = () => {
   };
 
   React.useEffect(() => {
-    if (!resResetPassword || resResetPassword?.status_code !== 200) {
-      return;
-    } else {
-      navigate(`${lang}/login`);
-      resetResponse();
-    }
-  }, [resResetPassword]);
-
-  React.useEffect(() => {
     form.setFieldsValue(resetPasswordInitValues);
   }, [param]);
 
-  const onResetPassword = async (values) => {
-    await getResetPassword(values);
-    if (resResetPassword.status_code === 200) {
-      navigate(`${lang}/login`);
-    }
+  const onResetPassword = (values) => {
+    getResetPassword(values);
   };
 
   const renderErrorTranslate = (field) => {

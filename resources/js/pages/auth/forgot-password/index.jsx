@@ -1,11 +1,17 @@
 import { Button, Col, Form, Input, Row, Typography } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
+import {
+  NotificationError,
+  NotificationSuccess,
+} from "../../../commons/Notification";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import { validateAuth } from "../../../helper/validateField";
 import useForgotPassword from "../../../hooks/auth/useForgotPassword";
+import { resetAuthResponse } from "../../../redux/actions/authAction";
 import "./forgot-password.scss";
 
 const { Title } = Typography;
@@ -13,27 +19,12 @@ const { Title } = Typography;
 const ForgotPassword = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
-  const navigate = useNavigate();
-  const { resForgotPassword, getForgotPassword, resetResponse } =
-    useForgotPassword();
+  const { resForgotPassword, getForgotPassword } = useForgotPassword();
   const [form] = Form.useForm();
 
   const forgotEmailInitValues = {
     email: "",
   };
-
-  const backLogin = () => {
-    resetResponse();
-  };
-
-  React.useEffect(() => {
-    if (!resForgotPassword || resForgotPassword?.status_code !== 200) {
-      return;
-    } else {
-      navigate(`${lang}/reset-link-password`);
-      backLogin();
-    }
-  }, [resForgotPassword]);
 
   const onResetRequest = (values) => {
     getForgotPassword(values.email);
@@ -47,13 +38,14 @@ const ForgotPassword = () => {
       };
     });
   };
+
   return (
     <Row justify="center">
       <Col span={16}>
         <Title className="title" level={5}>
-          パスワードをお忘れの方は、以下に登録時のメールアドレスを
+          {t("forgot_password.title1")}
           <br />
-          入力して「メール送信」ボタンを押してください。
+          {t("forgot_password.title2")}
         </Title>
         <Form
           form={form}
@@ -91,17 +83,13 @@ const ForgotPassword = () => {
                 type="primary"
                 htmlType="submit"
               >
-                メール送信
+                {t("btn_send_mail")}
               </Button>
             </Col>
             <Col span={24}>
               <Row justify="center">
-                <Link
-                  className="btn btn-back"
-                  to={`${lang}/login`}
-                  onClick={backLogin}
-                >
-                  BACK
+                <Link className="btn btn-back" to={`${lang}/login`}>
+                  {t("btn_back")}
                 </Link>
               </Row>
             </Col>

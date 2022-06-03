@@ -10,6 +10,7 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
   const [previewVisible, setPreviewVisible] = React.useState(false);
   const [fileList, setFileList] = React.useState();
   const [fileListUrl, setFileListUrl] = React.useState();
+
   const beforeUpload = (file) => {
     const isValidImage =
       file.type === TYPE_IMAGE_PNG ||
@@ -19,7 +20,7 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
       message.error("Ảnh phải là định dạng png/jpeg/jpg/gif");
       throw new Error("Ảnh phải là định dạng png/jpeg/jpg/gif");
     }
-    return false;
+    return true;
   };
 
   const handlePreview = async (file) => {
@@ -56,41 +57,49 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
 
   return (
     <Row justify="center" className="upload-list">
-      <Col className="list-picture">
-        {fileListUrl?.map((url, index) => (
-          <div key={index} className="list-image-preview">
-            <img src={url} alt="Image outside" />
-          </div>
-        ))}
-      </Col>
-      <Col>
-        <Upload
-          listType="picture"
-          className="upload"
-          fileList={fileList}
-          showUploadList={false}
-          beforeUpload={beforeUpload}
-          multiple
-          accept="image/*"
-          onChange={handleChange}
-          onPreview={handlePreview}
-        >
-          <Button
-            type="primary"
-            className="btn-upload"
-            icon={<UploadOutlined className="icon-upload" />}
+      <Col span={24}>
+        <Row justify="center">
+          <Upload
+            listType="picture"
+            className="upload"
+            fileList={fileList}
+            showUploadList={false}
+            beforeUpload={beforeUpload}
+            multiple
+            accept="image/*"
+            onChange={handleChange}
+            onPreview={handlePreview}
           >
-            {t("admins.btn_upload")}
-          </Button>
-        </Upload>
-        <Modal
-          visible={previewVisible}
-          title="Preview"
-          footer={null}
-          onCancel={onCancel}
-        >
-          <img alt="example" style={{ width: "100%" }} src={previewImageURL} />
-        </Modal>
+            <Button
+              type="primary"
+              className="btn-upload"
+              icon={<UploadOutlined className="icon-upload" />}
+            >
+              {t("admins.btn_upload")}
+            </Button>
+          </Upload>
+          <Modal
+            visible={previewVisible}
+            title="Preview"
+            footer={null}
+            onCancel={onCancel}
+          >
+            <img
+              alt="example"
+              style={{ width: "100%" }}
+              src={previewImageURL}
+            />
+          </Modal>
+        </Row>
+      </Col>
+      <Col span={24} className="list-picture">
+        <Row justify="center">
+          {fileListUrl?.map((url, index) => (
+            <Col key={index} className="list-image-preview">
+              <img src={url} alt="Image outside" />
+            </Col>
+          ))}
+        </Row>
       </Col>
     </Row>
   );

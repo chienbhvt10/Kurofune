@@ -1,9 +1,4 @@
-import {
-  createAction,
-  createAsyncThunk,
-  isRejectedWithValue,
-} from "@reduxjs/toolkit";
-import { ACCESS_TOKEN_STORE } from "../../constants";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import {
   removeAccessToken,
   removeResetMail,
@@ -16,7 +11,7 @@ const authActions = {
   login: createAction("LOGIN"),
   forgotPassword: createAction("FORGOT_PASSWORD"),
   resetPassword: createAction("RESET_PASSWORD"),
-  resetResponseState: createAction("RESET_RESPONSE_STATE"),
+  resetAuthResponse: createAction("RESET_AUTH_RESPONSE"),
   showProfile: createAction("SHOW_PROFILE"),
   changePassword: createAction("CHANGE_PASSWORD"),
   updateProfile: createAction("UPDATE_PROFILE"),
@@ -65,8 +60,8 @@ export const resetPassword = createAsyncThunk(
   }
 );
 
-export const resetResponseState = createAsyncThunk(
-  authActions.resetResponseState,
+export const resetAuthResponse = createAsyncThunk(
+  authActions.resetAuthResponse,
   async () => {
     return;
   }
