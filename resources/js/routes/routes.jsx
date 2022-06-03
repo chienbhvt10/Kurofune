@@ -223,11 +223,6 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        {/* <Route
-          path={`${lang}/admin`}
-          element={<Navigate to={`user-list`} />}
-          exact={true}
-        /> */}
         <Route
           path={`${lang}/admin`}
           element={
