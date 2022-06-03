@@ -71,7 +71,6 @@ class CartController extends Controller
                 'anket_2' => 'required|integer',
                 'anket_3' => 'required|integer',
                 'anket_4' => 'required|integer',
-                'anket_5' => 'required|string',
                 'anket_6' => 'required|integer',
                 'anket_7' => 'required|string',
             ]);
@@ -79,6 +78,16 @@ class CartController extends Controller
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
+            }
+            if((bool)$request->anket_4) {
+                $validator = Validator::make($request->all(), [
+                    'anket_5' => 'required|string'
+                ]);
+                if ($validator->fails()) {
+                    DB::rollBack();
+                    $errors = $validator->errors();
+                    return $this->errorResponse($errors, 422);
+                }
             }
             $cart = Cart::where('user_id', $user->id)->first();
             if($cart){
@@ -91,9 +100,9 @@ class CartController extends Controller
                         'anket_2' => $request->anket_2,
                         'anket_3' => $request->anket_3,
                         'anket_4' => $request->anket_4,
-                        'anket_5' => $request->anket_5,
+                        'anket_5' => strip_tags($request->anket_5),
                         'anket_6' => $request->anket_6,
-                        'anket_7' => $request->anket_7,
+                        'anket_7' => strip_tags($request->anket_7),
                         ]);
                 }else{
                     $cart->cart_items()->create([
@@ -104,9 +113,9 @@ class CartController extends Controller
                         'anket_2' => $request->anket_2,
                         'anket_3' => $request->anket_3,
                         'anket_4' => $request->anket_4,
-                        'anket_5' => $request->anket_5,
+                        'anket_5' => strip_tags($request->anket_5),
                         'anket_6' => $request->anket_6,
-                        'anket_7' => $request->anket_7,
+                        'anket_7' => strip_tags($request->anket_7),
                     ]);
                 }
             }else{
