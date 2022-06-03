@@ -90,10 +90,7 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {(isAdmin(profile?.roles) ||
-          isAdmin(userInfo?.roles?.name) ||
-          isVendor(profile?.roles) ||
-          isVendor(userInfo?.roles.name)) && (
+        {(profile?.roles || userInfo?.roles?.name) && (
           <Route
             path={`/`}
             element={
@@ -101,7 +98,10 @@ const appRouter = () => {
                 to={
                   isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
                     ? `${lang}/admin`
-                    : `${lang}/admin/product-list`
+                    : isVendor(profile?.roles) ||
+                      isVendor(userInfo?.roles?.name)
+                    ? `${lang}/admin/product-list`
+                    : `${lang}/media`
                 }
               />
             }
@@ -119,7 +119,6 @@ const appRouter = () => {
             </PrivateRoute>
           }
         >
-          <Route path={""} exact={true} element={<Navigate to="media" />} />
           <Route
             path={`category-list`}
             element={<CategoryListPage />}
@@ -147,8 +146,17 @@ const appRouter = () => {
           />
           <Route path={`cart`} element={<Cart />} exact={true}></Route>
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
-          <Route path={`media`} element={<MediaPage />} exact={true} />
         </Route>
+        <Route
+          path={`/${lang}/media`}
+          element={
+            <PrivateRoute>
+              <MediaPage />
+            </PrivateRoute>
+          }
+          exact={true}
+        />
+
         <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
           <Route path={`login`} element={<Login />} exact={true} />
           <Route
@@ -167,26 +175,7 @@ const appRouter = () => {
             exact={true}
           />
         </Route>
-        <Route
-          path={`/${lang}/member`}
-          element={
-            <PrivateRoute>
-              <UserLayout />
-            </PrivateRoute>
-          }
-          exact={true}
-        >
-          <Route
-            path="change-password"
-            element={<ChangePassword />}
-            exact={true}
-          />
-          <Route
-            path="change-profile"
-            element={<ChangeProfile />}
-            exact={true}
-          />
-        </Route>
+
         <Route
           path={`/${lang}/member`}
           element={
@@ -199,6 +188,11 @@ const appRouter = () => {
           }
           exact={true}
         >
+          <Route
+            path={""}
+            exact={true}
+            element={<Navigate to="questionnaire" />}
+          />
           <Route
             path="order-history"
             element={<OrderHistoryPage />}
@@ -222,6 +216,26 @@ const appRouter = () => {
           <Route
             path="questionnaire"
             element={<Questionnaire />}
+            exact={true}
+          />
+        </Route>
+        <Route
+          path={`/${lang}/member`}
+          element={
+            <PrivateRoute>
+              <UserLayout />
+            </PrivateRoute>
+          }
+          exact={true}
+        >
+          <Route
+            path="change-password"
+            element={<ChangePassword />}
+            exact={true}
+          />
+          <Route
+            path="change-profile"
+            element={<ChangeProfile />}
             exact={true}
           />
         </Route>

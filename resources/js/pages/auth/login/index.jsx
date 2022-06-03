@@ -32,8 +32,10 @@ export const Login = () => {
     password: "",
   };
 
-  const onLogin = (values) => {
-    loginUser(values);
+
+
+  const onLogin =  (values) => {
+     loginUser(values);
   };
 
   const renderErrorTranslate = (field) => {
