@@ -101,7 +101,7 @@ const appRouter = () => {
                 to={
                   isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
                     ? `${lang}/admin`
-                    : `${lang}/admin/category-list`
+                    : `${lang}/admin/product-list`
                 }
               />
             }
