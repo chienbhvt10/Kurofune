@@ -10,21 +10,22 @@ use App\Traits\ProductTrait;
 
 class OrderController extends Controller
 {
-     use RespondsStatusTrait,ProductTrait;
-    public function orderHistory(){
+    use RespondsStatusTrait,ProductTrait;
+    public function orderHistory(Request $request){
         try {
-            $posts_per_page = config('constants.pagination.items_per_page');
-            $order =  Order::with(['transaction','products'])->paginate($posts_per_page);
+            $user = auth()->user();
+            $id = $user->id;
+            $posts_per_page = get_per_page($request->per_page);
+            $order =  Order::with(['transaction','products'])->where('user_id',$id)->paginate($posts_per_page);
             foreach ($order as $value){
                 $transaction = $value->transaction;
                 $product = $value->products;
-                $item['id'] = $this->get_order_number($value->id); 
-                $item['total'] = $this->get_price_html($value->total);
-                $item['total_tax'] = $this->get_price_html($value->total);
+                $item['total'] = $value->total;
+                $item['total_tax'] = $value->total_tax;
                 $item['created_at'] = date("Y/m/d",strtotime($value->created_at));
                 $item['status'] = __($transaction['status']);
-                $item['product_image'] = ($product[0])['product_image'];
-                $item['product_name'] = ($product[0])['name'];
+                $item['product_image'] = ($product[0])['product_image'] ;
+                $item['product_name'] = ($product[0])['name'] ;
                 $data_item[] = $item;  
             }
             return $this->responseData($data_item);
