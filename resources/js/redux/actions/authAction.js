@@ -1,4 +1,8 @@
-import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createAction,
+  createAsyncThunk,
+  isRejectedWithValue,
+} from "@reduxjs/toolkit";
 import { ACCESS_TOKEN_STORE } from "../../constants";
 import {
   removeAccessToken,
@@ -78,11 +82,12 @@ export const logout = createAsyncThunk(authActions.logout, async () => {
 });
 export const showProfileAction = createAsyncThunk(
   authActions.showProfile,
-  async (payload) => {
+  async (payload, { rejectWithValue }) => {
     const res = await authApis
       .showProfile(payload)
       .then((data) => data)
       .catch((err) => JSON.parse(err.response.request.response));
+    if (!res) return rejectWithValue("Load Profile failed");
     return res;
   }
 );

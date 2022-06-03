@@ -25,7 +25,7 @@ class TaxsController extends Controller
     public function index(Request $request)
     {
         try {
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             if ($request->name) {
                 $tax = $this->filterScopeName(new Tax, $request->name)->paginate($posts_per_page);
             } else {

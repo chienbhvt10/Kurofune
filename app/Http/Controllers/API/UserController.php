@@ -35,7 +35,7 @@ class UserController extends Controller
     {
         try {
             $role = $request->role ?? null;
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             if($role) {
                 $users = User::whereHas('roles', function ($query) use($role) {
                     return $query->where('name', '=', $role);
@@ -114,8 +114,8 @@ class UserController extends Controller
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $password = $request->password;
-            $active = (boolean)$request->password;
+            $password = trim($request->password);
+            $active = (boolean)$request->active;
             $role = $request->role;
             $file_avatar = $request->avatar;
             $filename = $file_avatar ? save_base_64_image($file_avatar, 'avatar') : null;
@@ -460,7 +460,7 @@ class UserController extends Controller
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $password = $request->password ?? null;
+            $password = trim($request->password) ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
             $file_avatar = $request->avatar ?? null;
