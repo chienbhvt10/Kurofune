@@ -20,12 +20,16 @@ class OrderController extends Controller
             foreach ($order as $value){
                 $transaction = $value->transaction;
                 $product = $value->products;
+                foreach($product as $pro){
+                    $item['product_name'] = $pro->name;
+                    $item['product_image'] = $pro->product_image;
+                    $data_product[] = $item; 
+                }
                 $item['total'] = $value->total;
                 $item['total_tax'] = $value->total_tax;
                 $item['created_at'] = date("Y/m/d",strtotime($value->created_at));
                 $item['status'] = __($transaction['status']);
-                $item['product_image'] = ($product[0])['product_image'] ;
-                $item['product_name'] = ($product[0])['name'] ;
+                $item['product'] = $data_product;
                 $data_item[] = $item;  
             }
             return $this->responseData($data_item);
