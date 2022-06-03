@@ -130,3 +130,8 @@ function get_per_page($number) {
     }
     return config('constants.pagination.items_per_page');
 }
+
+function get_price_html($price): string
+{
+    return number_format($price)." ". __('(JPY)');
+}

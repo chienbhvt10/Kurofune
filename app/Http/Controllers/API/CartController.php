@@ -9,6 +9,9 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\VendorProfile;
+use App\Notifications\VendorNewOrderNotification;
+use App\Notifications\CustomerProcessingOrderNotification;
 use App\Traits\ProductTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
@@ -16,6 +19,7 @@ use Cartalyst\Stripe\Stripe as Stripe;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -317,7 +321,16 @@ class CartController extends Controller
                     if($request->payment_mode == 'cod') {
                         $this->makeTransaction($order);
                     }
+                    $order->load('products');
+                    $order->load('transaction');
+                    $vendor = VendorProfile::find($vendor_profile_id)->user;
+
+                    Notification::sendNow($vendor, new VendorNewOrderNotification($order, $user));
+                    Notification::sendNow($user, new CustomerProcessingOrderNotification($order, $user));
+                    return $this->responseData($order);
+
                 }
+
                 $this->resetCart($cart);
                 DB::commit();
                 return $this->success('success');
