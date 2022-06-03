@@ -424,15 +424,35 @@
         "not_same_password": "The two passwords that you entered do not match!"
       }
     },
-    "crud": {
-      "user": {
-        "create_success": "Tạo mới người dùng thành công",
-        "create_fail": "Tạo mới người dùng thất bại",
-        "update_success": "Cập nhật người dùng thành công",
-        "update_fail": "Cập nhật người dùng thất bại",
-        "delete_success": "Xoá người dùng thành công",
-        "delete_fail": "Xoá người dùng thất bại"
-      }
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "name_field": "Product Name",
+      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "features_field": "Features",
+      "precautions_field": "Precautions",
+      "efficacy_effect_field": "Efficacy Effect",
+      "usage_does_field": "Usage Does",
+      "active_ingredients_field": "Active ingredients",
+      "additives_field": "Additives",
+      "precautions_storage_handling_field": "Precautions for Storage and Handling",
+      "manufacturer_field": "Manufacturer",
+      "use_manual_field": "Use Manual",
+
+      "error_message": {
+        "required_message": "This field is required."
+      },
+      "notification": "notification"
     }
   }
 }

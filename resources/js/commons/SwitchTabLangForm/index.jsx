@@ -1,16 +1,16 @@
+import { Tabs } from "antd";
 import React from "react";
-import SubFormTranslate from "./SubFormTranslate.jsx";
 import {
   FIFTH_TAB,
   FIRST_TAB,
   FOURTH_TAB,
   SECOND_TAB,
   THIRD_TAB,
-} from "../../../../constants";
-import { Tabs } from "antd";
+} from "../../constants/index.js";
+import SubFormTranslate from "../../pages/admin/product/product-form/SubFormTranslate.jsx";
 const { TabPane } = Tabs;
 
-const TranslateProductForm = ({
+const SwitchTabsLangForm = ({
   formJP,
   formVI,
   formTL,
@@ -39,4 +39,4 @@ const TranslateProductForm = ({
   );
 };
 
-export default TranslateProductForm;
+export default SwitchTabsLangForm;

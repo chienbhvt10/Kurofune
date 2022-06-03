@@ -431,6 +431,35 @@
         "delete_success": "Xoá người dùng thành công",
         "delete_fail": "Xoá người dùng thất bại"
       }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
+      "features_field": "Tính năng sản phẩm",
+      "precautions_field": "Lưu ý khi sử dụng",
+      "efficacy_effect_field": "Công dụng / Hiệu quả",
+      "usage_does_field": "Cách dùng / liều lượng",
+      "active_ingredients_field": "Số lượng thành phần",
+      "additives_field": "Phụ gia",
+      "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
+      "manufacturer_field": "Công ty sản xuất và kinh doanh",
+      "name_field": "Tên gọi chung",
+      "use_manual_field": "Cách sử dụng",
+
+      "error_message": {
+        "required_message": " Mục này là mục bắt buộc."
+      }
     }
   }
 }

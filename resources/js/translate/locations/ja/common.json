@@ -275,19 +275,25 @@
     }
   },
   "admins": {
-    "btn_save": "Save",
-    "btn_cancel": "Cancel",
-    "btn_upload": "Click to upload",
-    "btn_generate_password": "Generate",
-    "btn_search": "Search",
-    "btn_add_new": "Add New",
-    "user": {
+    "btn_cancel": "保存",
+    "btn_save": "キャンセル",
+    "btn_add_new": "キャンセル",
+    "btn_search": "キャンセル",
+    " user": {
       "list": {
         "title": "User List"
       },
       "create": {
-        "title": "Create user",
-        "breadcrumb": "Create user"
+        "title": "Create a new",
+        "breadcrumb": "Create user",
+        "form_infor": {
+          "field_username": "Username",
+          "field_password": "Password",
+          "field_email": "Email",
+          "field_name": "Name",
+          "field_role": "Role",
+          "field_avatar": "Avatar"
+        }
       },
       "update": {
         "title": "Update user",
@@ -431,6 +437,36 @@
         "delete_success": "Xoá người dùng thành công",
         "delete_fail": "Xoá người dùng thất bại"
       }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "medicinal_efficacy_classification_field": "薬効分類",
+      "features_field": "製品の特徴",
+      "precautions_field": "使用上の注意",
+      "efficacy_effect_field": "効能・効果",
+      "usage_does_field": "用法・用量",
+      "active_ingredients_field": "成分分量",
+      "additives_field": "添加物",
+      "precautions_storage_handling_field": "保管及び取扱い上の注意",
+      "manufacturer_field": "製造販売会社",
+      "name_field": "一般名",
+      "use_manual_field": "用量用法",
+
+      "error_message": {
+        "required_message": "この項目は必須です。"
+      },
+      "notification": "通知"
     }
   }
 }

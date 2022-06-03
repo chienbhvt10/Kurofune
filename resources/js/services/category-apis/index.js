@@ -10,4 +10,25 @@ export const categoryApis = {
     const url = ROOT_URL + `detail-category/${data}`;
     return await axiosClient.get(url);
   },
+
+  // Admin
+  categoryAdmin: async (id) => {
+    const url = ROOT_URL + `categories/${id}`;
+    return await axiosClient.get(url);
+  },
+
+  createAdminCategory: async (data) => {
+    const url = ROOT_URL + "categories";
+    return await axiosClient.post(url, data);
+  },
+
+  updateAdminCategory: async (data) => {
+    const url = ROOT_URL + "categories";
+    return await axiosClient.put(`${url}/${data.id}`, data);
+  },
+
+  deleteAdminCategory: async (id) => {
+    const url = ROOT_URL + "categories";
+    return await axiosClient.delete(`${url}/${id}`);
+  },
 };
