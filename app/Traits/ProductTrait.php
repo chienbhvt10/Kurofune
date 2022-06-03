@@ -18,7 +18,7 @@ trait ProductTrait
     }
 
     protected function get_price_html($price) {
-        return number_format($price). __(' (JPY)');
+        return number_format($price)." ". __('(JPY)');
     }
 
     protected function get_price_including_tax(Product $product){

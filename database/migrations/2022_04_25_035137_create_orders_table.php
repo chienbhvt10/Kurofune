@@ -18,8 +18,8 @@ class CreateOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('vendor_profile_id');
             $table->unsignedBigInteger('shipping_method_id')->nullable();
-            $table->decimal('total')->nullable()->default(0);
-            $table->decimal('total_tax')->nullable()->default(0);
+//            $table->decimal('total')->nullable()->default(0);
+//            $table->decimal('total_tax')->nullable()->default(0);
             $table->string('shipping_full_name')->nullable();
             $table->string('shipping_postal_code')->nullable();
             $table->string('shipping_city')->nullable();

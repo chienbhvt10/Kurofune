@@ -16,8 +16,6 @@ class Order extends Model
         'user_id',
         'vendor_profile_id',
         'shipping_method_id',
-        'total',
-        'total_tax',
         'shipping_full_name',
         'shipping_postal_code',
         'shipping_city',
@@ -38,11 +36,21 @@ class Order extends Model
 
     public $timestamps = true;
 
-    protected $appends = ['order_number'];
+    protected $appends = ['order_number', 'total', 'total_tax'];
 
     public function getOrderNumberAttribute(): string
     {
         return $this->get_order_number($this->id);
+    }
+
+    public function getTotalAttribute(): string
+    {
+        return $this->get_price_html($this->products->sum('pivot.total'));
+    }
+
+    public function getTotalTaxAttribute(): string
+    {
+        return $this->get_price_html($this->products->sum('pivot.total_tax'));
     }
 
     /*

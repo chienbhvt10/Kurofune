@@ -9,6 +9,9 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\VendorProfile;
+use App\Notifications\VendorNewOrderNotification;
+use App\Notifications\CustomerProcessingOrderNotification;
 use App\Traits\ProductTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
@@ -16,6 +19,7 @@ use Cartalyst\Stripe\Stripe as Stripe;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -67,7 +71,6 @@ class CartController extends Controller
                 'anket_2' => 'required|integer',
                 'anket_3' => 'required|integer',
                 'anket_4' => 'required|integer',
-                'anket_5' => 'required|string',
                 'anket_6' => 'required|integer',
                 'anket_7' => 'required|string',
             ]);
@@ -75,6 +78,16 @@ class CartController extends Controller
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->errorResponse($errors, 422);
+            }
+            if((bool)$request->anket_4) {
+                $validator = Validator::make($request->all(), [
+                    'anket_5' => 'required|string'
+                ]);
+                if ($validator->fails()) {
+                    DB::rollBack();
+                    $errors = $validator->errors();
+                    return $this->errorResponse($errors, 422);
+                }
             }
             $cart = Cart::where('user_id', $user->id)->first();
             if($cart){
@@ -87,9 +100,9 @@ class CartController extends Controller
                         'anket_2' => $request->anket_2,
                         'anket_3' => $request->anket_3,
                         'anket_4' => $request->anket_4,
-                        'anket_5' => $request->anket_5,
+                        'anket_5' => strip_tags($request->anket_5),
                         'anket_6' => $request->anket_6,
-                        'anket_7' => $request->anket_7,
+                        'anket_7' => strip_tags($request->anket_7),
                         ]);
                 }else{
                     $cart->cart_items()->create([
@@ -100,9 +113,9 @@ class CartController extends Controller
                         'anket_2' => $request->anket_2,
                         'anket_3' => $request->anket_3,
                         'anket_4' => $request->anket_4,
-                        'anket_5' => $request->anket_5,
+                        'anket_5' => strip_tags($request->anket_5),
                         'anket_6' => $request->anket_6,
-                        'anket_7' => $request->anket_7,
+                        'anket_7' => strip_tags($request->anket_7),
                     ]);
                 }
             }else{
@@ -317,7 +330,14 @@ class CartController extends Controller
                     if($request->payment_mode == 'cod') {
                         $this->makeTransaction($order);
                     }
+                    $order->load('products');
+                    $order->load('transaction');
+                    $vendor = VendorProfile::find($vendor_profile_id)->user;
+
+                    Notification::sendNow($vendor, new VendorNewOrderNotification($order, $user));
+                    Notification::sendNow($user, new CustomerProcessingOrderNotification($order, $user));
                 }
+
                 $this->resetCart($cart);
                 DB::commit();
                 return $this->success('success');
