@@ -18,13 +18,13 @@ class OrderController extends Controller
             foreach ($order as $value){
                 $transaction = $value->transaction;
                 $product = $value->products;
-                $item['id'] = "OP-".sprintf('%08d',$value->id); 
+                $item['id'] = $this->get_order_number($value->id); 
                 $item['total'] = $this->get_price_html($value->total);
-                $item['total_tax'] =  $this->get_price_html($value->total_tax);
+                $item['total_tax'] = $this->get_price_html($value->total);
                 $item['created_at'] = date("Y/m/d",strtotime($value->created_at));
                 $item['status'] = __($transaction['status']);
-                $item['product_image'] = ($product[0])['product_image'];
-                $item['product_name'] =  ($product[0])['name'];
+                $item['product_image'] = ($product[0])['product_image'] ?? null;
+                $item['product_name'] = ($product[0])['name'] ?? null;
                 $data_item[] = $item;  
             }
             return $this->responseData($data_item);
