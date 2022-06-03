@@ -286,6 +286,8 @@
         "shipping_address": "Shipping Address",
         "role_info": "Role Info"
       },
+      
+
       "form": {
         "field_role": "Role",
         "field_name": "Name",
@@ -407,6 +409,16 @@
         "new_password_required": "Please input new password!",
         "confirm_password_required": "Please input password confirmation!",
         "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "order": {
+      "table":{
+        "field_subOrder":"SubOrder",
+        "field_order":"Order",
+        "field_date":"Date",
+        "field_total":"Total",
+        "field_status":"Status",
+        "field_action":"Action"
       }
     }
   }

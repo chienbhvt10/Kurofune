@@ -271,6 +271,16 @@
       "update": {
         "title": ""
       }
+    },
+    "order": {
+      "table":{
+        "field_subOrder":"SubOrder",
+        "field_order":"Order",
+        "field_date":"Date",
+        "field_total":"Total",
+        "field_status":"Status",
+        "field_action":"Action"
+      }
     }
   }
 }
