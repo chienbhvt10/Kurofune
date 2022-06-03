@@ -1,4 +1,5 @@
 {
+  "notification": "Thông báo",
   "btn_send_mail": "I-RESET ANG PASSWORD",
   "btn_back": "BUMALIK",
   "btn_ok": "Ok",
@@ -418,6 +419,16 @@
         "new_password_required": "Please input new password!",
         "confirm_password_required": "Please input password confirmation!",
         "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Tạo mới người dùng thành công",
+        "create_fail": "Tạo mới người dùng thất bại",
+        "update_success": "Cập nhật người dùng thành công",
+        "update_fail": "Cập nhật người dùng thất bại",
+        "delete_success": "Xoá người dùng thành công",
+        "delete_fail": "Xoá người dùng thất bại"
       }
     }
   }

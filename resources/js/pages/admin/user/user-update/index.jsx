@@ -1,24 +1,17 @@
 import React from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import useUser from "../../../../hooks/user/useUser";
-import useUpdateUser from "../../../../hooks/user/useUpdateUser";
-
-import { UserForm } from "../user-form/Phase1UserForm";
-import useUsers from "../../../../hooks/user/useUsers";
-import { useDispatch } from "react-redux";
-import { resetResCRUDAction } from "../../../../redux/actions/userAction";
-import { getCurrentLanguage } from "../../../../helper/localStorage";
-import { TYPE_FORM_UPDATE } from "../../../../constants";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
+import { TYPE_FORM_UPDATE } from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useUpdateUser from "../../../../hooks/user/useUpdateUser";
+import useUser from "../../../../hooks/user/useUser";
+import { UserForm } from "../user-form/Phase1UserForm";
 
 const UpdateUser = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { id } = useParams();
   const { getUser, user } = useUser();
-  const dispatch = useDispatch();
-
-  const { getAllUsers, pagination } = useUsers();
 
   const { updateUser, resUpdateUser } = useUpdateUser();
   const lang = getCurrentLanguage();
@@ -29,7 +22,6 @@ const UpdateUser = () => {
 
   const onSave = (values) => {
     updateUser(values);
-    getAllUsers({ page: pagination.current_page });
   };
 
   React.useEffect(() => {
@@ -37,15 +29,6 @@ const UpdateUser = () => {
       getUser(id);
     }
   }, [id]);
-
-  React.useEffect(() => {
-    if (resUpdateUser?.status_code === 200) {
-      navigate(`${lang}/admin/user-list`);
-      dispatch(resetResCRUDAction());
-    } else {
-      return;
-    }
-  }, [resUpdateUser]);
 
   return (
     <div id="update-user">

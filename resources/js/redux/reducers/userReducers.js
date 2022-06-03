@@ -17,6 +17,7 @@ const initialState = {
   user: undefined,
   resCreateUser: undefined,
   resUpdateUser: undefined,
+  resDeleteUser: undefined,
   total: undefined,
   from: undefined,
   to: undefined,
@@ -45,11 +46,6 @@ const userReducers = createReducer(initialState, (builder) => {
   });
 
   builder.addCase(createUserAction.fulfilled, (state, actions) => {
-    if (actions.payload.status_code === 200) {
-      NotificationSuccess("Thông báo", "Tạo mới người dùng thành công");
-    } else {
-      NotificationError("Thông báo", "Tạo mới người dùng thất bại");
-    }
     return {
       ...state,
       resCreateUser: actions.payload,
@@ -57,11 +53,6 @@ const userReducers = createReducer(initialState, (builder) => {
   });
 
   builder.addCase(updateUserAction.fulfilled, (state, actions) => {
-    if (actions.payload.status_code === 200) {
-      NotificationSuccess("Thông báo", "Cập nhật người dùng thành công");
-    } else {
-      NotificationError("Thông báo", "Cập nhật người dùng thất bại");
-    }
     return {
       ...state,
       resUpdateUser: actions.payload,
@@ -69,11 +60,10 @@ const userReducers = createReducer(initialState, (builder) => {
   });
 
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
-    if (actions.payload.status_code === 200) {
-      NotificationSuccess("Thông báo", "Xoá người dùng thành công");
-    } else {
-      NotificationError("Thông báo", "Xoá người dùng thất bại");
-    }
+    return {
+      ...state,
+      resDeleteUser: actions.payload,
+    };
   });
 
   builder.addCase(resetResCRUDAction.fulfilled, (state, actions) => {
@@ -81,6 +71,7 @@ const userReducers = createReducer(initialState, (builder) => {
       ...state,
       resCreateUser: undefined,
       resUpdateUser: undefined,
+      resDeleteUser: undefined,
     };
   });
 });
