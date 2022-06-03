@@ -90,10 +90,7 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {(isAdmin(profile?.roles) ||
-          isAdmin(userInfo?.roles?.name) ||
-          isVendor(profile?.roles) ||
-          isVendor(userInfo?.roles.name)) && (
+        {(profile?.roles || userInfo?.roles?.name) && (
           <Route
             path={`/`}
             element={
@@ -101,7 +98,10 @@ const appRouter = () => {
                 to={
                   isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
                     ? `${lang}/admin`
-                    : `${lang}/admin/product-list`
+                    : isVendor(profile?.roles) ||
+                      isVendor(userInfo?.roles?.name)
+                    ? `${lang}/admin/product-list`
+                    : `${lang}/media`
                 }
               />
             }
@@ -119,7 +119,6 @@ const appRouter = () => {
             </PrivateRoute>
           }
         >
-          <Route path={""} exact={true} element={<Navigate to="media" />} />
           <Route
             path={`category-list`}
             element={<CategoryListPage />}
