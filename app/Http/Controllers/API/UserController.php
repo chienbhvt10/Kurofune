@@ -6,12 +6,15 @@ use App\Enums\Base;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\ChangePasswordNotification;
+use App\Notifications\RegisterUserNotification;
 use App\Rules\WithoutSpaces;
 use App\Traits\CustomFilterTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -32,10 +35,9 @@ class UserController extends Controller
     {
         try {
             $role = $request->role ?? null;
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             if($role) {
-                $users = User::whereHas('
-                ', function ($query) use($role) {
+                $users = User::whereHas('roles', function ($query) use($role) {
                     return $query->where('name', '=', $role);
                 })->where('name', 'LIKE', '%' . $request->name . '%')
                 ->with(['roles', 'vendor_profile', 'profile', 'shipping_address', 'billing_address'])->paginate($posts_per_page);
@@ -112,8 +114,8 @@ class UserController extends Controller
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $password = $request->password;
-            $active = (boolean)$request->password;
+            $password = trim($request->password);
+            $active = (boolean)$request->active;
             $role = $request->role;
             $file_avatar = $request->avatar;
             $filename = $file_avatar ? save_base_64_image($file_avatar, 'avatar') : null;
@@ -340,6 +342,12 @@ class UserController extends Controller
             }
 
             DB::commit();
+            $data = [
+                'email' => $email,
+                'username' => $username,
+                'password' => $password
+            ];
+            Notification::sendNow($user, new RegisterUserNotification($data));
             return $this->successWithData(__('message.user.created'), $user );
         }catch (\Exception $error){
             DB::rollBack();
@@ -368,14 +376,11 @@ class UserController extends Controller
             $vendor_profile_data = null;
             $vendor_profile = $user->vendor_profile;
             if($vendor_profile){
-                $images_outside = getMediaImages($vendor_profile, 'images_outside');
-                $images_inside = getMediaImages($vendor_profile, 'images_inside');
-
                 $vendor_profile_data = [
                     'id' => $vendor_profile->id,
                     'vendor_translations' => $vendor_profile->translations,
-                    'images_outside' => $images_outside,
-                    'images_inside' => $images_inside,
+                    'images_outside' => $vendor_profile->images_outside,
+                    'images_inside' => $vendor_profile->images_inside,
                 ];
             }
 
@@ -421,14 +426,6 @@ class UserController extends Controller
                 'name' => 'required',
                 'email' => 'email|required',
                 'phone' => 'numeric|required',
-                'password' => [
-                    'string',
-                    new WithoutSpaces,
-                    Password::min(8)
-                        ->mixedCase()
-                        ->numbers()
-                        ->symbols()
-                ],
                 'active' => 'required|boolean',
                 'avatar' => ['nullable', new Base64Image],
                 'role' => ['required', 'string', Rule::in($roles)],
@@ -463,7 +460,7 @@ class UserController extends Controller
             $name = $request->name;
             $email = $request->email;
             $phone = $request->phone;
-            $password = $request->password ?? null;
+            $password = trim($request->password) ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
             $file_avatar = $request->avatar ?? null;
@@ -710,6 +707,14 @@ class UserController extends Controller
                 }
             }
             DB::commit();
+            if($password) {
+                $data = [
+                    'email' => $email,
+                    'password' => $password,
+                    'username' => $user->username
+                ];
+                Notification::sendNow($user, New ChangePasswordNotification($data));
+            }
             return $this->successWithData(__('message.user.updated'), $user);
         }catch (\Exception $error){
             DB::rollBack();
