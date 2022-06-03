@@ -20,7 +20,6 @@ const { Title } = Typography;
 export const Login = () => {
   const [show, setShow] = React.useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
-  console.log("🚀 ~ file: index.jsx ~ line 23 ~ Login ~ resLogin", resLogin);
   const { i18n, t } = useTranslation();
   const lang = getCurrentLanguage();
   const { loginUser } = useLogin();

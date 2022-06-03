@@ -54,10 +54,10 @@ import { NotFound } from "../pages/notFound";
 import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
 import { useSelector } from "react-redux";
 import useShowProfile from "../hooks/auth/useShowProfile";
-
+import { isAdmin, isVendor } from "../helper/roles";
 const appRouter = () => {
   const { i18n } = useTranslation();
-  const { profile } = useSelector((state) => state.authState);
+  const { profile, userInfo } = useSelector((state) => state.authState);
   const langUrl = i18n.language;
   if (
     langUrl === LANG_VIETNAMESE ||
@@ -87,19 +87,25 @@ const appRouter = () => {
     showProfile();
   }, []);
 
-  const isAdminOrVendor = profile?.roles
-    .map((item) => item.name)
-    .some((item) => [USER_ROLES.VENDOR, USER_ROLES.ADMIN].includes(item));
   return (
     <BrowserRouter>
       <Routes>
-        {isAdminOrVendor && (
-          <Route
-            path={`/`}
-            element={<Navigate to={`${lang}/admin`} />}
-            exact={true}
-          />
-        )}
+        {isAdmin(profile?.roles) ||
+          (isVendor(profile?.roles) && (
+            <Route
+              path={`/`}
+              element={
+                <Navigate
+                  to={
+                    isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
+                      ? `${lang}/admin`
+                      : `${lang}/admin/category-list`
+                  }
+                />
+              }
+              exact={true}
+            />
+          ))}
         <Route
           path={`/${lang}/`}
           element={
@@ -235,11 +241,31 @@ const appRouter = () => {
           exact={true}
         >
           <Route path={""} exact={true} element={<Navigate to="user-list" />} />
-          <Route path={`user-list`} element={<UserList />} exact={true} />
-          <Route path={`user-create`} element={<AddUser />} exact={true} />
+          <Route
+            path={`user-list`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <UserList />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
+          <Route
+            path={`user-create`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <AddUser />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
           <Route
             path={`user-update/:id`}
-            element={<UpdateUser />}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <UpdateUser />
+              </PrivateRoute>
+            }
             exact={true}
           />
           <Route path={`product-list`} element={<ProductList />} exact={true} />
@@ -251,24 +277,50 @@ const appRouter = () => {
           />
           <Route
             path={`category-list`}
-            element={<CategoryList />}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <CategoryList />
+              </PrivateRoute>
+            }
             exact={true}
           />
-          <Route path={`category/add`} element={<AddCategory />} exact={true} />
+          <Route
+            path={`category/add`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <AddCategory />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
           <Route
             path={`category/update`}
-            element={<UpdateCategory />}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <UpdateCategory />
+              </PrivateRoute>
+            }
             exact={true}
           />
-          <Route path={`log-chatbot`} element={<LogChatBot />} exact={true} />
+          <Route
+            path={`log-chatbot`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <LogChatBot />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
           <Route
             path={`log-questionnaire`}
-            element={<LogQuestionnaire />}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <LogQuestionnaire />
+              </PrivateRoute>
+            }
             exact={true}
           />
-
           <Route path={`order-list`} element={<OrderList />} exact={true} />
-
           <Route path={`order-add`} element={<AddOrder />} exact={true} />
           <Route
             path={`order-update/:id`}
@@ -279,7 +331,7 @@ const appRouter = () => {
         <Route
           path={`/${lang}/service-24h`}
           element={
-            <PrivateRoute>
+            <PrivateRoute roles={[USER_ROLES.ADMIN]}>
               <Service24H />
             </PrivateRoute>
           }

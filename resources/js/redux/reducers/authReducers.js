@@ -97,6 +97,7 @@ const authReducers = createReducer(initialState, (builder) => {
         userInfo: undefined,
         token: undefined,
         profile: undefined,
+        isLogin: false,
       };
     } else {
       NotificationError("Thông báo", actions.payload.message);
@@ -111,12 +112,16 @@ const authReducers = createReducer(initialState, (builder) => {
       state.isLoading = true;
     })
     .addCase(showProfileAction.fulfilled, (state, actions) => {
-      return {
-        ...state,
-        isLogin: true,
-        profile: actions.payload.data,
-        isLoading: false,
-      };
+      if (actions.payload.message === "Unauthenticated.") {
+        state.isLogin = false;
+        state.profile = undefined;
+        state.isLoading = false;
+        state.userInfo = undefined;
+      } else {
+        state.isLogin = true;
+        state.profile = actions.payload.data;
+        state.isLoading = false;
+      }
     })
     .addCase(showProfileAction.rejected, (state, action) => {
       state.isLogin = false;
