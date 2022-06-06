@@ -68,7 +68,7 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
 
-        $url = url('reset-password?token='.$token);
+        $url = url('reset-password?token='.$token. '&email=' .$this->email);
 
         $this->notify(new ResetPasswordNotification($url));
     }
