@@ -11,6 +11,7 @@ const NavigateLink = ({ navigateItems, onClick }) => {
   const { t } = useTranslation();
   const { profile, userInfo } = useSelector((state) => state.authState);
 
+
   return (
     <div className="navbar-main-wrapper">
       <ul className="nav navbar-nav">
