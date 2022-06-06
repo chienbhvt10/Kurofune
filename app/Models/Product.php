@@ -66,9 +66,9 @@ class Product extends Model
         return $this->hasOne(CartItem::class, 'product_id', 'id');
     }
 
-    public function tax(): \Illuminate\Database\Eloquent\Relations\HasOne
+    public function tax(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
-        return $this->hasOne(Tax::class, 'tax_id', 'id');
+        return $this->belongsTo(Tax::class, 'tax_id', 'id');
     }
 
     public function product_translations(): \Illuminate\Database\Eloquent\Relations\HasMany
