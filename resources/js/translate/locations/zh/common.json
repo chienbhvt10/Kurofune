@@ -249,7 +249,7 @@
           "c_12": "没有"
         }
       },
-      "medicinal_efficacy":"药效分类"
+      "medicinal_efficacy": "药效分类"
     },
     "list_pharmacies": {
       "title": "海洋药房大矶",
@@ -275,29 +275,30 @@
     }
   },
   "admins": {
-    "btn_save": "Save",
-    "btn_cancel": "Cancel",
-    "btn_upload": "Click to upload",
-    "btn_generate_password": "Generate",
-    "btn_search": "Search",
-    "btn_add_new": "Add New",
+    "btn_save": "节省",
+    "btn_cancel": "取消",
+    "btn_upload": "上传",
+    "btn_generate_password": "パスワード生成",
+    "btn_search": "搜索",
+    "btn_add_new": "添新",
+    "delete_item_message": "您要删除吗。",
     "user": {
       "list": {
-        "title": "User List"
+        "title": "用户列表"
       },
       "create": {
-        "title": "Create user",
-        "breadcrumb": "Create user"
+        "title": "创建用户",
+        "breadcrumb": "创建用户"
       },
       "update": {
-        "title": "Update user",
-        "breadcrumb": "Update user"
+        "title": "更新用户",
+        "breadcrumb": "更新用户"
       },
       "switch_tab": {
-        "address": "Address",
-        "billing_address": "Billing Address",
-        "shipping_address": "Shipping Address",
-        "role_info": "Role Info"
+        "address": "地址",
+        "billing_address": "帐单地址",
+        "shipping_address": "收件地址",
+        "role_info": "角色信息"
       },
       "form": {
         "field_role": "用戶角色",
@@ -314,122 +315,123 @@
         "field_street": "街道地址",
         "field_building": "建造",
         "profile": {
-          "field_dob": "Date of birth",
-          "field_gender": "Gender",
-          "field_facebook": "Facebook",
-          "field_line": "Line",
-          "field_address": "Address",
-          "field_nationality": "Nationality",
-          "field_visa_type": "Visa Type",
-          "field_job_name": "Job Name",
-          "field_company_representative": "Company representative",
-          "field_payment_source": "Payment source",
-          "field_payment": "Payment",
-          "field_insurance_status": "Insurance Status",
-          "field_insurance_support": "Insurance Support",
-          "field_insurance_start_date": "Insurance Start Date",
-          "field_overseas_remittance_status": "Overseas Remittance Status",
-          "field_orientation": "Orientation",
-          "field_start_date_education": "Start Date Education",
-          "field_end_date_education": "End Date Education",
-          "field_education_status": "Japanese language education status",
-          "field_page_registration": "Wabisabi My Page Registration",
-          "field_company_mail": "Company Mail"
+          "field_dob": "出生日期",
+          "field_gender": "性别",
+          "field_facebook": "Facebook帐户",
+          "field_line": "Line帐户",
+          "field_address": "地址",
+          "field_nationality": "国籍",
+          "field_visa_type": "签证类型",
+          "field_job_name": "职位名称",
+          "field_company_representative": "公司代表",
+          "field_payment_source": "付款来源",
+          "field_payment": "支付",
+          "field_insurance_status": "保险状况",
+          "field_insurance_support": "保险支持",
+          "field_insurance_start_date": "保险开始日期",
+          "field_overseas_remittance_status": "海外汇款状况",
+          "field_orientation": "方向",
+          "field_start_date_education": "开始日期教育",
+          "field_end_date_education": "结束日期教育",
+          "field_education_status": "日语教育状况",
+          "field_page_registration": "Wabisabi我的页面注册",
+          "field_company_mail": "公司邮件"
         },
         "vendor_profile": {
-          "field_image_inside": "Image inside",
-          "field_image_outside": "Image outside",
-          "field_locale": "Locale",
-          "field_name": "Name",
-          "field_permit_classification": "Permit classification",
-          "field_founder": "Founder",
-          "field_stated_in_permit": "Items to be stated in the permit",
-          "field_management_pharmacist": "Management pharmacist",
-          "field_registered_seller_working": "Registered Seller Working",
-          "field_drug_handled": "Drugs Handled",
-          "field_distinguishing_by_name": "Distinguishing by name",
-          "field_business_hours": "Business Hours",
-          "field_consultation_hours": "Consultation Hours",
-          "field_contact_information": "Contact Information",
-          "field_current_working": "Currently Working",
-          "field_open_sale_time": "Open Sale Time",
-          "field_time_order_outside": "Time Order Outside",
-          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+          "field_image_inside": "里面的图片",
+          "field_image_outside": "外部图像",
+          "field_locale": "言語",
+          "field_name": "姓名",
+          "field_permit_classification": "许可分类",
+          "field_founder": "创始人",
+          "field_stated_in_permit": "许可证须载明的项目",
+          "field_management_pharmacist": "管理药剂师",
+          "field_registered_seller_working": "在我们药房工作的注册卖家（负责业务）",
+          "field_drug_handled": "处理的非处方药种类",
+          "field_distinguishing_by_name": "通过在这家药店工作的人的姓名标签等来区分",
+          "field_business_hours": "营业时间",
+          "field_consultation_hours": "营业时间以外的咨询时间",
+          "field_contact_information": "咨询和紧急情况的联系信息",
+          "field_current_working": "在职药剂师（主管）",
+          "field_open_sale_time": "开售时间",
+          "field_time_order_outside": "营业时间以外接受药单的时间",
+          "field_expiration_date_of_drug": "特定销售药品的有效期"
         },
         "option": {
-          "active": "User active",
-          "inactive": "User inactive",
-          "male": "Male",
-          "female": "Female",
-          "yes": "Yes",
-          "no": "No",
-          "registered": "Unregistered",
-          "unregistered": "Registered",
+          "active": "用户活跃",
+          "inactive": "用户不活跃",
+          "male": "男性",
+          "female": "女性",
+          "yes": "是的",
+          "no": "不",
+          "registered": "未注册",
+          "unregistered": "挂号的",
+          "remove_registered": "未注册",
           "insurance_status": {
-            "option1": "",
-            "option2": "",
-            "option3": "",
-            "option4": "",
-            "option5": ""
+            "option1": "发送文件/参加说明会/①到达kurofune",
+            "option2": "发送文件/参加说明会/②kurofune未到（可以联系）",
+            "option3": "发送文件/参加说明会/②kurofune未到（无法联系）",
+            "option4": "保险完成",
+            "option5": "还没开始"
           },
           "education_status": {
-            "unregistered": "",
-            "registered": ""
+            "registered": "未注册",
+            "unregistered": "挂号的"
           }
         },
         "placeholder": {
-          "search": "Search username",
-          "select_role": "Please select a role",
-          "select_active_status": "Please select a active status",
-          "select_prefecture": "Please select prefecture",
-          "select_date": "Select date",
-          "select_gender": "Please select gender",
-          "select_payment": "Please select payment",
-          "select_insurance_status": "Please select insurance status",
-          "select_education_status": "Please select japanese language education status"
+          "search": "搜索用户名",
+          "select_role": "请选择一个角色。",
+          "select_active_status": "请选择一个活动状态。",
+          "select_prefecture": "请选择县。",
+          "select_date": "请选择日期。",
+          "select_gender": "请选择性别。",
+          "select_payment": "请选择付款。",
+          "select_insurance_status": "请选择保险状态。",
+          "select_education_status": "请选择日语教育状况。"
         }
       },
       "error": {
-        "role_required": "Please select a role!",
-        "name_required": "Please input your name!",
+        "role_required": "请选择一个角色。",
+        "name_required": "请输入您的姓名。",
         "email": {
-          "required": "Please input your email!",
-          "type": "Please input valid email!"
+          "required": "请输入您的电子邮件。",
+          "type": "请输入有效的电子邮件。"
         },
         "phone": {
-          "required": "Please input your phone!",
-          "pattern": "Please input valid phone number!"
+          "required": "请输入您的手机。",
+          "pattern": "请输入有效的电话号码。"
         },
-        "user_name_required": "Please input your username!",
+        "user_name_required": "请输入您的用户名。",
         "password": {
-          "required": "Please input your password!",
-          "min": "Please input atLeast 8 characters for password!"
+          "required": "请输入您的密码。",
+          "min": "请输入至少 8 个字符作为密码。"
         },
-        "active_required": "Please select active status!",
+        "active_required": "请选择一个活动状态。",
         "postal_code": {
-          "required": "Please input your postal code/zip!",
-          "pattern": "Please enter number",
-          "max_3_number": "Please enter only 3 numbers!",
-          "max_4_number": "Please enter only 4 numbers!",
-          "max_7_number": "Please enter only 7 numbers!"
+          "required": "请输入您的邮政编码/邮编。",
+          "pattern": "请输入号码。",
+          "max_3_number": "请仅输入 3 个数字。",
+          "max_4_number": "请仅输入 4 个数字。",
+          "max_7_number": "请仅输入 7 个数字。"
         },
-        "prefecture_required": "Please select prefecture!",
-        "city_required": "Please input city!",
-        "street_address_required": "Please input street address!",
-        "current_password_required": "Please input current password!",
-        "new_password_required": "Please input new password!",
-        "confirm_password_required": "Please input password confirmation!",
-        "not_same_password": "The two passwords that you entered do not match!"
+        "prefecture_required": "请选择县。",
+        "city_required": "请输入城市。",
+        "street_address_required": "请输入街道地址。",
+        "current_password_required": "请输入当前密码。",
+        "new_password_required": "请输入新密码。",
+        "confirm_password_required": "请输入密码确认。",
+        "not_same_password": "您输入的两个密码不匹配。"
       }
     },
     "crud": {
       "user": {
-        "create_success": "Tạo mới người dùng thành công",
-        "create_fail": "Tạo mới người dùng thất bại",
-        "update_success": "Cập nhật người dùng thành công",
-        "update_fail": "Cập nhật người dùng thất bại",
-        "delete_success": "Xoá người dùng thành công",
-        "delete_fail": "Xoá người dùng thất bại"
+        "create_success": "创建用户成功。",
+        "create_fail": "创建用户失败。",
+        "update_success": "成功更新用户。",
+        "update_fail": "更新用户失败。",
+        "delete_success": "删除用户成功。",
+        "delete_fail": "删除用户失败。"
       }
     },
     "product": {

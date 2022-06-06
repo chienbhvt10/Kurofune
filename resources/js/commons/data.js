@@ -795,9 +795,9 @@ export const userFormOptions = {
     { value: 3, label_translate: "N3" },
     { value: 4, label_translate: "N4" },
     { value: 5, label_translate: "N5" },
-    { value: 6, label_translate: "Nゼロ" },
-    { value: 7, label_translate: "未登録" },
-    { value: 8, label_translate: "登録抹消中" },
+    { value: 6, label_translate: "N0" },
+    { value: 7, label_translate: "admins.user.form.option.registered" },
+    { value: 8, label_translate: "admins.user.form.option.remove_registered" },
   ],
   wabisabi_my_page_registration: [
     { value: 0, label_translate: "admins.user.form.option.unregistered" },
