@@ -275,10 +275,10 @@
     }
   },
   "admins": {
-    "btn_cancel": "保存",
-    "btn_save": "キャンセル",
-    "btn_add_new": "キャンセル",
-    "btn_search": "キャンセル",
+    "btn_cancel": "キャンセル",
+    "btn_save": "保存",
+    "btn_add_new": "新規追加",
+    "btn_search": "検索",
     "btn_upload": "アップロード",
     "btn_generate_password": "パスワード生成",
     "delete_item_message": "これを削除しますか。",
