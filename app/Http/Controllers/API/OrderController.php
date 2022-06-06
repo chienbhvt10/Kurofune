@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Traits\RespondsStatusTrait;
 use App\Models\Order;
+use App\Models\Product;
 use App\Traits\ProductTrait;
 
 class OrderController extends Controller
@@ -21,10 +22,11 @@ class OrderController extends Controller
                 $transaction = $value->transaction;
                 $product = $value->products;
                 foreach($product as $pro){
-                    $item['product_name'] = $pro->name;
-                    $item['product_image'] = $pro->product_image;
-                    $item['price'] = $pro->price;
-                    $data_product[] = $item; 
+                    $item_product['product_name'] = $pro->name;
+                    $item_product['product_image'] = $pro->product_image;
+                    $item_product['price'] = get_price_html($pro->price);
+                    $item_product['quantity'] = $pro->pivot->quantity;
+                    $data_product[] = $item_product; 
                 }
                 $item['total'] = $value->total;
                 $item['total_tax'] = $value->total_tax;
