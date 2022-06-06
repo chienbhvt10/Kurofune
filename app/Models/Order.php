@@ -69,5 +69,8 @@ class Order extends Model
         return $this->hasOne(Transaction::class, 'order_id', 'id');
     }
 
-
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

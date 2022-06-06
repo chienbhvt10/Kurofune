@@ -46,6 +46,6 @@ trait RespondsStatusTrait
             'message' => [
                 'slug' => [__('message.slug.unique')]
             ],
-        ]);
+        ], Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 }
