@@ -757,8 +757,8 @@ export const PREF = [
 ];
 export const userFormOptions = {
   active_status: [
-    { value: 0, label_translate: "admins.user.form.option.active" },
-    { value: 1, label_translate: "admins.user.form.option.inactive" },
+    { value: 1, label_translate: "admins.user.form.option.active" },
+    { value: 0, label_translate: "admins.user.form.option.inactive" },
   ],
   gender: [
     { value: 0, label_translate: "admins.user.form.option.male" },

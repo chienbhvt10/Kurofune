@@ -8,7 +8,7 @@ export const getUserInfoInitValues = (item) => {
     password: item?.password || "",
     phone: item?.phone || "",
     email: item?.email || "",
-    active: item?.active || undefined,
+    active: item?.active || 0,
     avatar: item?.avatar || "",
   };
 };
@@ -35,7 +35,7 @@ export const getTranslateInitValues = (lang) => {
 export const getPlanInitValues = (item) => {
   return {
     dob: (item?.profile?.dob && moment(item?.profile?.dob)) || "",
-    gender: item?.profile?.gender || undefined,
+    gender: item?.profile?.gender || 0,
     facebook: item?.profile?.facebook || "",
     line: item?.profile?.line || "",
     address: item?.profile?.address || "",
@@ -44,7 +44,7 @@ export const getPlanInitValues = (item) => {
     job_name: item?.profile?.job_name || "",
     company_representative: item?.profile?.company_representative || "",
     inflow_source: item?.profile?.inflow_source || "",
-    payment: item?.profile?.payment || undefined,
+    payment: item?.profile?.payment || 0,
     insurance_status: item?.profile?.insurance_status || undefined,
     insurance_support: item?.profile?.insurance_support || undefined,
     insurance_start_date: item?.profile?.insurance_start_date || "",

@@ -30,9 +30,8 @@
           display: flex;
           align-items: center;
           @media screen and (max-width: 570.98px) {
-          display: none;
+            display: none;
           }
-
         }
       }
     }
@@ -41,7 +40,7 @@
         background-color: #fff;
         margin-top: 17px;
         border-radius: 3px;
-        .nav-item{
+        .nav-item {
           display: flex;
         }
         .nav-link.active {
@@ -51,14 +50,13 @@
           -moz-border-radius: 0;
           -ms-border-radius: 0;
           -o-border-radius: 0;
-          color: #4E5260;
+          color: #4e5260;
           &::after {
             opacity: 1;
             width: 100%;
           }
         }
         a {
-          font-family: sans-serif;
           color: #62a19b;
           text-decoration: none;
           display: inline-block;
@@ -101,15 +99,14 @@
     padding: 24px;
   }
 
-
   .show-pass {
     position: absolute;
     right: 20px;
     bottom: 14px;
     cursor: pointer;
   }
-  .copy-right{
-    color: #62A19B;
+  .copy-right {
+    color: #62a19b;
     height: 62px;
     display: flex;
     align-items: center;
