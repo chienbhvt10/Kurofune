@@ -17,22 +17,48 @@ class OrderController extends Controller
             $id = $user->id;
             $posts_per_page = get_per_page($request->per_page);
             $order =  Order::with(['transaction','products'])->where('user_id',$id)->paginate($posts_per_page);
-            foreach ($order as $value){
-                $transaction = $value->transaction;
-                $product = $value->products;
-                foreach($product as $pro){
-                    $item['product_name'] = $pro->name;
-                    $item['product_image'] = $pro->product_image;
-                    $data_product[] = $item; 
+            $response = [];
+            foreach ($order as $order) {
+                $transaction = $order->transaction;
+                $order_item = [
+                    'id' => $order->id,
+                    'order_number' => $order->order_number,
+                    'total'=>$order->total,
+                    'total_tax'=>$order->total_tax,
+                    'date_order' => formatDate($order->created_at),
+                    'billing_full_name' => $order->billing_full_name,
+                    'billing_postal_code' => $order->billing_postal_code,
+                    'billing_city' => $order->billing_city,
+                    'billing_prefecture' => $order->billing_prefecture,
+                    'billing_street_address' => $order->billing_street_address,
+                    'billing_building' => $order->billing_building,
+                    'billing_phone' => $order->billing_phone,
+                    'billing_email' => $order->billing_email,
+                    'shipping_full_name' => $order->shipping_full_name,
+                    'shipping_postal_code' => $order->shipping_postal_code,
+                    'shipping_city' => $order->shipping_city,
+                    'shipping_prefecture' => $order->shipping_prefecture,
+                    'shipping_street_address' => $order->shipping_street_address,
+                    'shipping_building' => $order->shipping_building,
+                    'shipping_phone' => $order->shipping_phone,
+                    'shipping_email' => $order->shipping_email,
+                    'payment_mode' => $transaction->payment_mode,
+                    'payment_mode' => __($transaction->status),
+                    'order_products' => [],
+                ];
+                foreach ($order->products as $prod) {
+                    $product_data = [
+                        'id' => $prod->id,
+                        'name' => $prod->name,
+                        'quantity' => $prod->pivot->quantity,
+                        'price' => get_price_html($prod->price),
+                        'total' => get_price_html($prod->pivot->quantity * $prod->price),
+                    ];
+                    array_push($order_item['order_products'], $product_data);
                 }
-                $item['total'] = $value->total;
-                $item['total_tax'] = $value->total_tax;
-                $item['created_at'] = date("Y/m/d",strtotime($value->created_at));
-                $item['status'] = __($transaction['status']);
-                $item['product'] = $data_product;
-                $data_item[] = $item;  
-            }
-            return $this->responseData($data_item);
+                array_push($response, $order_item);
+            }       
+            return $response;
         } catch (\Exception $error) {
             return $this->errorResponse($error->getMessage());
         }
