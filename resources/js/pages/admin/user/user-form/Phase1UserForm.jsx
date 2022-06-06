@@ -60,8 +60,6 @@ export const UserForm = ({
   const [billingAddressForm] = Form.useForm();
   const [shippingAddressForm] = Form.useForm();
 
-  console.log('aaaaa',userInfoForm,planProfileForm,vendorUploadForm,vendorProfileFormJP,vendorProfileFormTL);
-
   const userInfoInitValues = getUserInfoInitValues(item);
   const planInitValues = getPlanInitValues(item);
   const translateInitValues = getTranslateInitValues();

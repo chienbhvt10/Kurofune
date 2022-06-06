@@ -163,11 +163,11 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         </div>
         <div className="billing-info section-info">
           <p className="title-section">Billing</p>
-          <BillingShipForm form={formBilling} typeForm="billing" onFinish={(value)=>{console.log(value)}} />
+          <BillingShipForm form={formBilling} typeForm="billing" />
         </div>
         <div className="shipping-info section-info">
           <p className="title-section">Shipping</p>
-          <BillingShipForm form={formShipping} typeForm="shipping"  onFinish={(value)=>{console.log(value)}} />
+          <BillingShipForm form={formShipping} typeForm="shipping"/>
         </div>
       </div>
       <div className="cart-info">
