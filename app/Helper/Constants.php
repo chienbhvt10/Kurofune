@@ -68,3 +68,7 @@ const CAT_TYPE = [
     '2' => 'Specify Second-class OTC drugs',
     '3' => 'Second-class OTC drugs',
 ];
+
+const PAY_METHOD = [
+  'cod' => 'Cash on delivery'
+];

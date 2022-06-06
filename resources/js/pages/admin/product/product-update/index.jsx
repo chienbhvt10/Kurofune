@@ -1,87 +1,53 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
+import { NotificationSuccess } from "../../../../commons/Notification/index.jsx";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
+import useProductDetail from "../../../../hooks/product/useProductDetail";
 import ProductForm from "../product-form/ProductForm";
+import useUpdateProduct from "./../../../../hooks/product/useUpdateProduct";
 
 const UpdateProduct = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
+  const lang = localStorage.getItem("lang");
+  const { t } = useTranslation();
+
+  const { getProduct, product } = useProductDetail();
+  const { updateProduct, resUpdateProduct } = useUpdateProduct();
   const onCancel = () => {
-    navigate("/admin/product-list");
+    navigate(`${lang}/admin/product-list`);
   };
-  const onSave = () => {};
-  const item = {
-    name: "",
-    sku: "",
-    stockStatus: "",
-    price: 0,
-    status: "",
-    productImage: "",
-    tax: "",
-    ja: {
-      locale: "ja",
-      classification: "ja",
-      features: "ja",
-      precautions: "ja",
-      efficacyEffect: "ja",
-      usageDoes: "ja",
-      activeIngredients: "ja",
-      additives: "ja",
-      precautionsStorageHandling: "ja",
-      manufacturer: "ja",
-    },
-    vi: {
-      locale: "vi",
-      classification: "vi",
-      features: "vi",
-      precautions: "vi",
-      efficacyEffect: "vi",
-      usageDoes: "vi",
-      activeIngredients: "vi",
-      additives: "vi",
-      precautionsStorageHandling: "vi",
-      manufacturer: "vi",
-    },
-    tl: {
-      locale: "tl",
-      classification: "tl",
-      features: "tl",
-      precautions: "tl",
-      efficacyEffect: "tl",
-      usageDoes: "tl",
-      activeIngredients: "tl",
-      additives: "tl",
-      precautionsStorageHandling: "tl",
-      manufacturer: "tl",
-    },
-    zh: {
-      locale: "zh",
-      classification: "zh",
-      features: "zh",
-      precautions: "zh",
-      efficacyEffect: "zh",
-      usageDoes: "zh",
-      activeIngredients: "zh",
-      additives: "zh",
-      precautionsStorageHandling: "zh",
-      manufacturer: "zh",
-    },
-    en: {
-      locale: "en",
-      classification: "en",
-      features: "en",
-      precautions: "en",
-      efficacyEffect: "en",
-      usageDoes: "en",
-      activeIngredients: "en",
-      additives: "en",
-      precautionsStorageHandling: "en",
-      manufacturer: "en",
-    },
+  const onSave = (data) => {
+    const submitData = {
+      ...data,
+      id: id,
+      tax_id: Number(data.tax_id),
+      price: Number(data.price),
+    };
+
+    updateProduct(submitData);
   };
+
+  React.useEffect(() => {
+    if (id) {
+      getProduct(id);
+    }
+  }, [id]);
+
+  React.useEffect(() => {
+    if (resUpdateProduct?.status_code === 200) {
+      navigate(`${lang}/admin/product-list`);
+      NotificationSuccess(
+        t("admins.product.notification"),
+        resUpdateProduct.message
+      );
+    }
+  }, [resUpdateProduct]);
   return (
     <div id="update-product-page">
       <ProductForm
-        item={item}
+        item={product}
         typeForm={TYPE_FORM_UPDATE}
         title="Update Product"
         onCancel={onCancel}

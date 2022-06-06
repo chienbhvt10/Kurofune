@@ -1,94 +1,126 @@
-import { useFormik } from "formik";
+import { Col, Form, Input, Row } from "antd";
 import React from "react";
-import * as Yup from "yup";
+import { useTranslation } from "react-i18next";
+import { productFormOptions } from "../../../../commons/data.js";
+import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
+import SelectField from "./../../../../commons/Form/SelectField";
+import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
+import {
+  getProductInfoInitValues,
+  getTranslateInitValues,
+  getProductFormLayout,
+} from "./productInitValues.js";
 import TranslateProductForm from "./TranslateProductForm";
+import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
 
-const credential = Yup.object().shape({});
-const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
+const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
-  const initialCommonValues = {
-    name: "",
-    sku: "",
-    stockStatus: "",
-    price: 0,
-    status: "",
-    productImage: "",
-    tax: "",
-    meta_title: "",
-    meta_description: "",
-    meta_keyword: "",
+  const { t } = useTranslation();
+  const { getAdminCategories, adminCategories } = useAdminCategories();
+  const [avatarState, setAvatarState] = React.useState({
+    avatarUrl: undefined,
+    base64Avatar: undefined,
+    loading: false,
+  });
+  const formItemLayout = getProductFormLayout();
+  const initialFormCommonValues = getProductInfoInitValues(item);
+  const initialTranslateValues = getTranslateInitValues();
+  const [productsForm] = Form.useForm();
+  const [productProfileFormEN] = Form.useForm();
+  const [productProfileFormJP] = Form.useForm();
+  const [productProfileFormTL] = Form.useForm();
+  const [productProfileFormVI] = Form.useForm();
+  const [productProfileFormZH] = Form.useForm();
+  const onFinishAll = (values) => {
+    const submitInput = {
+      ...productsForm.getFieldsValue(),
+      user_id: 4,
+      ja: {
+        ...productProfileFormJP.getFieldsValue(),
+      },
+      vi: {
+        ...productProfileFormVI.getFieldsValue(),
+      },
+      tl: {
+        ...productProfileFormTL.getFieldsValue(),
+      },
+      zh: {
+        ...productProfileFormZH.getFieldsValue(),
+      },
+      en: {
+        ...productProfileFormEN.getFieldsValue(),
+      },
+      product_image: avatarState.base64Avatar,
+    };
+    productProfileFormEN.validateFields();
+    onSave(submitInput);
+  };
+  const onFinishFailed = () => {
+    productProfileFormEN.validateFields();
+  };
+  React.useEffect(() => {
+    productsForm.setFieldsValue(initialFormCommonValues);
+    if (item) {
+      productProfileFormEN.setFieldsValue(
+        item?.translations[0] || initialTranslateValues
+      );
+      productProfileFormJP.setFieldsValue(
+        item?.translations[1] || initialTranslateValues
+      );
+      productProfileFormTL.setFieldsValue(
+        item?.translations[2] || initialTranslateValues
+      );
+      productProfileFormVI.setFieldsValue(
+        item?.translations[3] || initialTranslateValues
+      );
+      productProfileFormZH.setFieldsValue(
+        item?.translations[4] || initialTranslateValues
+      );
+    }
+    setAvatarState({ avatarUrl: item?.product_image || "" });
+    getAdminCategories();
+  }, [item]);
+
+  const onChangeAvatar = (base64Image) => {
+    setAvatarState({ base64Avatar: base64Image });
   };
 
-  const formik = useFormik({
-    initialValues: initialCommonValues,
-    validationSchema: credential,
-    onSubmit: () => {
-      const submitInput = {
-        ...formik.values,
-        ja: {
-          ...formikJP.values,
-        },
-        vi: {
-          ...formikVI.values,
-        },
-        tl: {
-          ...formikTL.values,
-        },
-        zh: {
-          ...formikZH.values,
-        },
-        en: {
-          ...formikEN.values,
-        },
+  React.useEffect(() => {
+    const imgPreview = document.querySelector(".image");
+    imgPreview.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+    return imgPreview.removeEventListener("click", () => {
+      return false;
+    });
+  }, []);
+
+  const listCategories =
+    adminCategories &&
+    adminCategories.map((category) => {
+      return {
+        value: category.id,
+        label: category.name,
       };
-    },
-  });
-  const initialTranslateValues = {
-    locale: "",
-    classification: "",
-    features: "",
-    precautions: "",
-    efficacyEffect: "",
-    usageDoes: "",
-    activeIngredients: "",
-    additives: "",
-    precautionsStorageHandling: "",
-    manufacturer: "",
-  };
-  const formikJP = useFormik({
-    initialValues: item?.ja || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikVI = useFormik({
-    initialValues: item?.vi || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikTL = useFormik({
-    initialValues: item?.tl || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikEN = useFormik({
-    initialValues: item?.en || initialTranslateValues,
-    validationSchema: credential,
-  });
-  const formikZH = useFormik({
-    initialValues: item?.zh || initialTranslateValues,
-    validationSchema: credential,
-  });
+    });
 
-  const renderErrorMessage = (field) => {
-    return (
-      formik.touched[field] && (
-        <div className="form-error">{formik.errors[field]}</div>
-      )
-    );
-  };
   return (
     <div id="product-form">
-      <form onSubmit={formik.handleSubmit}>
+      <Form
+        {...formItemLayout}
+        name="common-product-form"
+        form={productsForm}
+        onFinish={onFinishAll}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        initialValues={{
+          ...initialFormCommonValues,
+        }}
+      >
         <FormHeader
           breadcrumb={[
             { name: "Home", routerLink: "../" },
@@ -101,143 +133,162 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave }) => {
           title={title}
           onCancel={onCancel}
         />
-        <div className="separate">
-          <div className="form-group">
-            <label>Name</label>
-            <input
-              id=""
-              type="text"
-              name="name"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.name}
-            />
-            {renderErrorMessage("name")}
-          </div>
-          <div className="form-group">
-            <label>Sku</label>
-            <input
-              id=""
-              type="text"
-              name="sku"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.sku}
-            />
-            {renderErrorMessage("sku")}
-          </div>
+        <div>
+          <Row justify="center">
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="slug"
+                label={t("admins.product.slug_field")}
+                type={<Input />}
+                response={response}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="sku"
+                label={t("admins.product.sku_field")}
+                rules={[]}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <SelectField
+                field="status"
+                label={t("admins.product.status_field")}
+                placeholder="Please select active status"
+                options={productFormOptions.status}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                    whiteSpace: true,
+                  },
+                ]}
+                response={response}
+                errorField="status"
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <SelectField
+                field="stock_status"
+                label={t("admins.product.stock_status_field")}
+                placeholder="Please select Category"
+                options={productFormOptions.stock_status}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                    whiteSpace: true,
+                  },
+                ]}
+                response={response}
+                errorField="stock_status"
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="price"
+                label={t("admins.product.price_field")}
+                rules={[]}
+                response={response}
+                type={<Input type="number" className="input-field" />}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <SelectField
+                field="cat_id"
+                label={t("admins.product.category_field")}
+                placeholder="Please select active status"
+                options={listCategories}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                  },
+                ]}
+                response={response}
+                mode="multiple"
+                errorField="cat_id"
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="tax_id"
+                label={t("admins.product.tax_field")}
+                rules={[
+                  {
+                    required: true,
+                    message: t("admins.product.error_message.required_message"),
+                  },
+                  {
+                    pattern: new RegExp(/^[1-9][0-9]*$/),
+                    message: "Please input number greater than 0",
+                  },
+                ]}
+                response={response}
+                errorField="tax_id"
+                type={<Input type="number" className="input-field" />}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="meta_title"
+                label={t("admins.product.meta_title_field")}
+                rules={[]}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="meta_description"
+                label={t("admins.product.meta_description_field")}
+                rules={[]}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <InputField
+                field="meta_keyword"
+                label={t("admins.product.meta_keyword_field")}
+                rules={[]}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
+              <Form.Item
+                field="product_image"
+                label={t("admins.product.product_image_field")}
+                labelCol={{ span: 24 }}
+              >
+                <UploadDragger
+                  onChangeImage={onChangeAvatar}
+                  imageUrlProps={avatarState.avatarUrl}
+                  loading={avatarState.loading}
+                />
+              </Form.Item>
+            </Col>
+            <Col
+              lg={12}
+              md={12}
+              sm={24}
+              xs={24}
+              className="input-field-space"
+            ></Col>
+          </Row>
         </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Stock Status</label>
-            <input
-              id=""
-              type="text"
-              name="stockStatus"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.stockStatus}
-            />
-            {renderErrorMessage("stockStatus")}
-          </div>
-          <div className="form-group">
-            <label>Price</label>
-            <input
-              id=""
-              type="text"
-              name="price"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.price}
-            />
-            {renderErrorMessage("price")}
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Status</label>
-            <input
-              id=""
-              type="text"
-              name="status"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.status}
-            />
-            {renderErrorMessage("status")}
-          </div>
-          <div className="form-group">
-            <label>Product Image</label>
-            <input
-              id=""
-              type="text"
-              name="productImage"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.productImage}
-            />
-            {renderErrorMessage("productImage")}
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>Tax</label>
-            <input
-              id=""
-              type="text"
-              name="tax"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.tax}
-            />
-            {renderErrorMessage("tax")}
-          </div>
-          <div className="form-group">
-            <label>meta_title</label>
-            <input
-              id=""
-              type="text"
-              name="meta_title"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.meta_title}
-            />
-            {renderErrorMessage("meta_title")}
-          </div>
-        </div>
-        <div className="separate">
-          <div className="form-group">
-            <label>meta_description</label>
-            <input
-              id=""
-              type="text"
-              name="meta_description"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.meta_description}
-            />
-            {renderErrorMessage("meta_description")}
-          </div>
-          <div className="form-group">
-            <label>meta_keyword</label>
-            <input
-              id=""
-              type="text"
-              name="meta_keyword"
-              className=""
-              onChange={formik.handleChange}
-              value={formik.values.meta_keyword}
-            />
-            {renderErrorMessage("meta_keyword")}
-          </div>
-        </div>
-      </form>
-      <TranslateProductForm
-        formikEN={formikEN}
-        formikJP={formikJP}
-        formikTL={formikTL}
-        formikVI={formikVI}
-        formikZH={formikZH}
+      </Form>
+
+      <SwitchTabsLangForm
+        formEN={productProfileFormEN}
+        formJP={productProfileFormJP}
+        formTL={productProfileFormTL}
+        formVI={productProfileFormVI}
+        formZH={productProfileFormZH}
+        response={response}
       />
     </div>
   );

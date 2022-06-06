@@ -1,5 +1,5 @@
 import React from "react";
-import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
+import SubFormTranslate from "./SubFormTranslate.jsx";
 import {
   FIFTH_TAB,
   FIRST_TAB,
@@ -7,52 +7,35 @@ import {
   SECOND_TAB,
   THIRD_TAB,
 } from "../../../../constants";
-import SubFormProductTranslate from "./SubFormTranslate";
+import { Tabs } from "antd";
+const { TabPane } = Tabs;
 
 const TranslateProductForm = ({
-  formikJP,
-  formikVI,
-  formikTL,
-  formikEN,
-  formikZH,
+  formJP,
+  formVI,
+  formTL,
+  formEN,
+  formZH,
+  response,
 }) => {
-  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
-
-  const onChangeLanguageForm = (number) => {
-    setActiveTab(number);
-  };
-
   return (
-    <SwitchTabLangForm
-      onChangeLanguageForm={onChangeLanguageForm}
-      activeTab={activeTab}
-    >
-      <SubFormProductTranslate
-        lang="JA"
-        className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
-        formik={formikJP}
-      />
-      <SubFormProductTranslate
-        lang="VI"
-        className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
-        formik={formikVI}
-      />
-      <SubFormProductTranslate
-        lang="ZH"
-        className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
-        formik={formikZH}
-      />
-      <SubFormProductTranslate
-        lang="TL"
-        className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
-        formik={formikTL}
-      />
-      <SubFormProductTranslate
-        lang="EN"
-        className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
-        formik={formikEN}
-      />
-    </SwitchTabLangForm>
+    <Tabs defaultActiveKey={FIRST_TAB} centered>
+      <TabPane tab="English" key={FIRST_TAB}>
+        <SubFormTranslate lang="EN" form={formEN} response={response} />
+      </TabPane>
+      <TabPane tab="Japan" key={SECOND_TAB}>
+        <SubFormTranslate lang="JA" form={formJP} />
+      </TabPane>
+      <TabPane tab="Thailan" key={THIRD_TAB}>
+        <SubFormTranslate lang="TL" form={formTL} />
+      </TabPane>
+      <TabPane tab="Vietnam" key={FOURTH_TAB}>
+        <SubFormTranslate lang="VI" form={formVI} response={response} />
+      </TabPane>
+      <TabPane tab="China" key={FIFTH_TAB}>
+        <SubFormTranslate lang="ZH" form={formZH} response={response} />
+      </TabPane>
+    </Tabs>
   );
 };
 

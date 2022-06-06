@@ -1,39 +1,30 @@
-import {
-  faSignOutAlt,
-  faTimes,
-  faUserGear,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faUserGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { mediaBoardItemData } from "../../../commons/data";
-import Board from "../../../commons/Board";
-import Footer from "../../../components/Footer";
-import PageHead from "../../../commons/PageHead";
-import "./media.scss";
-import { Languages } from "../../../commons/Languges";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
-import useLogout from "../../../hooks/auth/useLogout";
+import { Link } from "react-router-dom";
+import Board from "../../../commons/Board";
+import { mediaBoardItemData } from "../../../commons/data";
+import { Languages } from "../../../commons/Languges";
+import PageHead from "../../../commons/PageHead";
+import Footer from "../../../components/Footer";
 import { getCurrentLanguage } from "../../../helper/localStorage";
+import useLogout from "../../../hooks/auth/useLogout";
+import "./media.scss";
 
 const MediaPage = () => {
-  const { i18n, t } = useTranslation();
-  const navigate = useNavigate();
+  const { t } = useTranslation();
   function createMarkup() {
     return { __html: t("login.title") };
   }
   const lang = getCurrentLanguage();
 
-  const { getLogout, resLogout } = useLogout();
+  const { getLogout } = useLogout();
 
   const logout = () => {
     getLogout();
   };
-  React.useEffect(() => {
-    if (resLogout?.status_code === 200) {
-      navigate(`${lang}/login`);
-    }
-  }, [resLogout]);
+
   return (
     <>
       <PageHead content={t("login.title")} title={t("login.title")} />

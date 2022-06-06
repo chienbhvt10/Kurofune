@@ -1,68 +1,67 @@
 import React from "react";
-import BootstrapTable from "react-bootstrap-table-next";
 import { Link } from "react-router-dom";
+import { Table } from "antd";
+import TableRowAction from "./../../../../commons/TableRowAction/index";
 
-const CategoryTable = ({ items }) => {
+const CategoryTable = ({ items, onDelete, onEdit }) => {
+  const lang = localStorage.getItem("lang");
+
   const columns = [
     {
-      dataField: "categoryImage",
-      text: (
-        <img className="img-head" src="/images/image.png" alt="" width={20} />
-      ),
+      key: "image",
+      dataIndex: "image",
       align: "center",
       headerAlign: "center",
       headerStyle: {
         width: 50,
       },
-      formatter: (cell, row) => <Link to="/">{row.image}</Link>,
-    },
-    {
-      dataField: "name",
-      text: "Name",
-    },
-    {
-      dataField: "slug",
-      text: "Slug",
-    },
-    {
-      dataField: "type",
-      text: "Type",
-    },
-    {
-      dataField: "jp",
-      text: "",
-      align: "center",
-      headerAlign: "center",
-      headerStyle: {
-        width: 50,
-      },
-      formatter: (cell, row) => (
-        <Link to="/">
-          <img
-            className="img-row"
-            src="/images/editing.png"
-            alt=""
-            width={20}
-          />
+      title: <img className="img-head" src="/images/image.png" alt="" />,
+      render: (_, record) => (
+        <Link to="#">
+          <img src={record.category_image} alt="" width={40} />
         </Link>
       ),
     },
+    {
+      key: "name",
+      dataIndex: "name",
+      title: "Name",
+      render: (_, record) => (
+        <Link
+          to={`${lang}/admin/category/update/${record.id}`}
+          className="text-decoration-none d-flex"
+        >
+          {record.name}
+        </Link>
+      ),
+    },
+    {
+      key: "slug",
+      dataIndex: "slug",
+      title: "Slug",
+      render: (_, record) => <span>{record.slug}</span>,
+    },
+    {
+      key: "type",
+      dataIndex: "type",
+      title: "Type",
+      render: (_, record) => <span>{record.type}</span>,
+    },
+    {
+      key: "tool",
+      dataIndex: "tool",
+      title: <img className="img-head" src="/images/vietnam.png" alt="" />,
+      align: "center",
+      headerAlign: "center",
+      headerStyle: {
+        width: 100,
+      },
+      render: (_, record) => (
+        <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
+      ),
+    },
   ];
-  const defaultSorted = [{ dataField: "name", order: "desc" }];
-  return (
-    <BootstrapTable
-      keyField="id"
-      columns={columns}
-      data={items}
-      defaultSorted={defaultSorted}
-      selectRow={{ mode: "checkbox" }}
-      bootstrap4
-      bordered
-      hover
-      striped
-      tabIndexCell
-    />
-  );
+  return <Table rowKey="id" columns={columns} dataSource={items} bordered />;
 };
 
 export default CategoryTable;

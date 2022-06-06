@@ -123,3 +123,15 @@ function check_unique_slug_update($model, $slug, $id)
     }
     return true;
 }
+
+function get_per_page($number) {
+    if(isset($number) && (int)$number && $number !== 0){
+        return (int)$number;
+    }
+    return config('constants.pagination.items_per_page');
+}
+
+function get_price_html($price): string
+{
+    return number_format($price)." ". __('(JPY)');
+}

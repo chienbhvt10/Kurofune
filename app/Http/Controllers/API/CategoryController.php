@@ -24,7 +24,7 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         try {
-            $posts_per_page = config('constants.pagination.items_per_page');
+            $posts_per_page = get_per_page($request->per_page);
             $relational = 'category_translations';
             if ($request->name) {
                 $cat = $this->filterWhereHasName(new Category, $relational, $request->name, $posts_per_page);

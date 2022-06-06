@@ -1,4 +1,8 @@
 {
+  "notification": "Thông báo",
+  "btn_send_mail": "发送电子邮件",
+  "btn_back": "后退",
+  "btn_ok": "Ok",
   "login": {
     "title": "日本综合社团法人外国人劳动者支援协会生活支援门户网站",
     "email": "电子邮件",
@@ -10,6 +14,15 @@
     "privacy_policy": "隐私政策",
     "languages": "语言",
     "kurofune": "©KUROFUNE"
+  },
+  "forgot_password": {
+    "title1": "丢失了密码？请输入您的电子邮件地址。",
+    "title2": "您将通过电子邮件收到一个创建新密码的链接。"
+  },
+  "reset_password": {
+    "reset_password_title": "密码重置邮件已发送。",
+    "reset_password_message1": "密码补发邮件已发送。",
+    "reset_password_message2": "请检查您注册的电子邮件地址。"
   },
   "home": "Trang chủ",
   "header": {
@@ -175,7 +188,7 @@
     },
     "product_detail": {
       "btn_buy": "立即购买",
-      "placeholder_option":"请选择选项",
+      "placeholder_option": "请选择选项",
       "label_gender": "请问您的性别为？",
       "label_age": "请问您的年龄为？",
       "label_ever_used": "过去有使用过这种药品吗？",
@@ -204,38 +217,39 @@
       "option_other_illnesses10": "甲状腺方面疾病",
       "option_other_illnesses11": "前列腺方面疾病",
       "option_other_illnesses12": "其他",
-      "error_required":"这是必填栏。",
-      "error_title_requried":"无法添加到购物车",
-      "error_msg_requried":"请检查您的输入。",
-      "option_add_to_cart":{
-        "gender":{
-          "g_1":"男性",
-          "g_2":"女性"
+      "error_required": "这是必填栏。",
+      "error_title_requried": "无法添加到购物车",
+      "error_msg_requried": "请检查您的输入。",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "男性",
+          "g_2": "女性"
         },
-        "yes_or_no":{
-          "y_1":"是的",
-          "y_2":"不"
+        "yes_or_no": {
+          "y_1": "是的",
+          "y_2": "不"
         },
-        "year_old":{
-          "yo_1":"15岁以下",
-          "yo_2":"15-64岁",
-          "yo_3":"65岁或以上"
+        "year_old": {
+          "yo_1": "15岁以下",
+          "yo_2": "15-64岁",
+          "yo_3": "65岁或以上"
         },
-        "currently_treating":{
-          "c_1":"高血压",
-          "c_2":"糖尿病",
-          "c_3":"高脂血症",
-          "c_4":"气喘",
-          "c_5":"肝脏疾病",
-          "c_6":"心脏疾病",
-          "c_7":"脑部梗塞",
-          "c_8":"胃／十二指肠溃疡",
-          "c_9":"甲状腺方面疾病",
-          "c_10":"前列腺方面疾病",
-          "c_11":"其他",
-          "c_12":"没有"
+        "currently_treating": {
+          "c_1": "高血压",
+          "c_2": "糖尿病",
+          "c_3": "高脂血症",
+          "c_4": "气喘",
+          "c_5": "肝脏疾病",
+          "c_6": "心脏疾病",
+          "c_7": "脑部梗塞",
+          "c_8": "胃／十二指肠溃疡",
+          "c_9": "甲状腺方面疾病",
+          "c_10": "前列腺方面疾病",
+          "c_11": "其他",
+          "c_12": "没有"
         }
-      }
+      },
+      "medicinal_efficacy": "药效分类"
     },
     "list_pharmacies": {
       "title": "海洋药房大矶",
@@ -261,15 +275,192 @@
     }
   },
   "admins": {
+    "btn_save": "节省",
+    "btn_cancel": "取消",
+    "btn_upload": "上传",
+    "btn_generate_password": "パスワード生成",
+    "btn_search": "搜索",
+    "btn_add_new": "添新",
+    "delete_item_message": "您要删除吗。",
     "user": {
       "list": {
-        "title": ""
+        "title": "用户列表"
       },
       "create": {
-        "title": "Create a new"
+        "title": "创建用户",
+        "breadcrumb": "创建用户"
       },
       "update": {
-        "title": "Update a existing"
+        "title": "更新用户",
+        "breadcrumb": "更新用户"
+      },
+      "switch_tab": {
+        "address": "地址",
+        "billing_address": "帐单地址",
+        "shipping_address": "收件地址",
+        "role_info": "角色信息"
+      },
+      "form": {
+        "field_role": "用戶角色",
+        "field_name": "全名",
+        "field_email": "电子邮件地址",
+        "field_phone": "电话",
+        "field_username": "Username",
+        "field_password": "密碼",
+        "field_active": "活動狀態",
+        "field_full_name": "全名",
+        "field_postal_code": "邮政编码",
+        "field_prefecture": "州",
+        "field_city": "城镇/城市",
+        "field_street": "街道地址",
+        "field_building": "建造",
+        "profile": {
+          "field_dob": "出生日期",
+          "field_gender": "性别",
+          "field_facebook": "Facebook帐户",
+          "field_line": "Line帐户",
+          "field_address": "地址",
+          "field_nationality": "国籍",
+          "field_visa_type": "签证类型",
+          "field_job_name": "职位名称",
+          "field_company_representative": "公司代表",
+          "field_payment_source": "付款来源",
+          "field_payment": "支付",
+          "field_insurance_status": "保险状况",
+          "field_insurance_support": "保险支持",
+          "field_insurance_start_date": "保险开始日期",
+          "field_overseas_remittance_status": "海外汇款状况",
+          "field_orientation": "方向",
+          "field_start_date_education": "开始日期教育",
+          "field_end_date_education": "结束日期教育",
+          "field_education_status": "日语教育状况",
+          "field_page_registration": "Wabisabi我的页面注册",
+          "field_company_mail": "公司邮件"
+        },
+        "vendor_profile": {
+          "field_image_inside": "里面的图片",
+          "field_image_outside": "外部图像",
+          "field_locale": "言語",
+          "field_name": "姓名",
+          "field_permit_classification": "许可分类",
+          "field_founder": "创始人",
+          "field_stated_in_permit": "许可证须载明的项目",
+          "field_management_pharmacist": "管理药剂师",
+          "field_registered_seller_working": "在我们药房工作的注册卖家（负责业务）",
+          "field_drug_handled": "处理的非处方药种类",
+          "field_distinguishing_by_name": "通过在这家药店工作的人的姓名标签等来区分",
+          "field_business_hours": "营业时间",
+          "field_consultation_hours": "营业时间以外的咨询时间",
+          "field_contact_information": "咨询和紧急情况的联系信息",
+          "field_current_working": "在职药剂师（主管）",
+          "field_open_sale_time": "开售时间",
+          "field_time_order_outside": "营业时间以外接受药单的时间",
+          "field_expiration_date_of_drug": "特定销售药品的有效期"
+        },
+        "option": {
+          "active": "用户活跃",
+          "inactive": "用户不活跃",
+          "male": "男性",
+          "female": "女性",
+          "yes": "是的",
+          "no": "不",
+          "registered": "未注册",
+          "unregistered": "挂号的",
+          "remove_registered": "未注册",
+          "insurance_status": {
+            "option1": "发送文件/参加说明会/①到达kurofune",
+            "option2": "发送文件/参加说明会/②kurofune未到（可以联系）",
+            "option3": "发送文件/参加说明会/②kurofune未到（无法联系）",
+            "option4": "保险完成",
+            "option5": "还没开始"
+          },
+          "education_status": {
+            "registered": "未注册",
+            "unregistered": "挂号的"
+          }
+        },
+        "placeholder": {
+          "search": "搜索用户名",
+          "select_role": "请选择一个角色。",
+          "select_active_status": "请选择一个活动状态。",
+          "select_prefecture": "请选择县。",
+          "select_date": "请选择日期。",
+          "select_gender": "请选择性别。",
+          "select_payment": "请选择付款。",
+          "select_insurance_status": "请选择保险状态。",
+          "select_education_status": "请选择日语教育状况。"
+        }
+      },
+      "error": {
+        "role_required": "请选择一个角色。",
+        "name_required": "请输入您的姓名。",
+        "email": {
+          "required": "请输入您的电子邮件。",
+          "type": "请输入有效的电子邮件。"
+        },
+        "phone": {
+          "required": "请输入您的手机。",
+          "pattern": "请输入有效的电话号码。"
+        },
+        "user_name_required": "请输入您的用户名。",
+        "password": {
+          "required": "请输入您的密码。",
+          "min": "请输入至少 8 个字符作为密码。"
+        },
+        "active_required": "请选择一个活动状态。",
+        "postal_code": {
+          "required": "请输入您的邮政编码/邮编。",
+          "pattern": "请输入号码。",
+          "max_3_number": "请仅输入 3 个数字。",
+          "max_4_number": "请仅输入 4 个数字。",
+          "max_7_number": "请仅输入 7 个数字。"
+        },
+        "prefecture_required": "请选择县。",
+        "city_required": "请输入城市。",
+        "street_address_required": "请输入街道地址。",
+        "current_password_required": "请输入当前密码。",
+        "new_password_required": "请输入新密码。",
+        "confirm_password_required": "请输入密码确认。",
+        "not_same_password": "您输入的两个密码不匹配。"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "创建用户成功。",
+        "create_fail": "创建用户失败。",
+        "update_success": "成功更新用户。",
+        "update_fail": "更新用户失败。",
+        "delete_success": "删除用户成功。",
+        "delete_fail": "删除用户失败。"
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword": "Meta Keyword",
+      "product_image_field": "Product Image",
+
+      "name_field": "Product Name",
+      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "features_field": "Features",
+      "precautions_field": "Precautions",
+      "efficacy_effect_field": "Efficacy Effect",
+      "usage_does_field": "Usage Does",
+      "active_ingredients_field": "Active ingredients",
+      "additives_field": "Additives",
+      "precautions_storage_handling_field": "Precautions for Storage and Handling",
+      "manufacturer_field": "Manufacturer",
+      "use_manual_field": "Use Manual",
+
+      "error_message": {
+        "required_message": "这是必填栏。"
       }
     },
     "order": {

@@ -7,9 +7,15 @@ import BackButton from "../../commons/BackButton";
 import { Languages } from "../../commons/Languges";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
+import useLogout from "../../hooks/auth/useLogout";
 const HeaderHome = ({ toggleSideBar }) => {
   const lang = getCurrentLanguage();
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
+  const { getLogout } = useLogout();
+  const handleLogout = () => {
+    getLogout();
+  };
+
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -122,14 +128,20 @@ const HeaderHome = ({ toggleSideBar }) => {
             </div>
 
             <div className="logout-wrap">
-              <Link to={`${lang}/login`} title={t("header.btn_logout")}>
+              <a
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleLogout();
+                }}
+                title={t("header.btn_logout")}
+              >
                 {t("header.btn_logout")}
                 <FontAwesomeIcon
                   className="icon"
                   icon={faSignOutAlt}
                   size="sm"
                 />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

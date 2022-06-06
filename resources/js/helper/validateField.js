@@ -207,3 +207,20 @@ export const validateAuth = {
     ],
   },
 };
+
+export const validateProductForm = {
+  status: [{ required: true, message: "Please select a status" }],
+  stock_status: [{ required: true, message: "Please select a stock status" }],
+  category: [{ required: true, message: "Please select category" }],
+  tax_id: [
+    {
+      pattern: new RegExp(/^[0-9]+$/),
+      message: "Please enter number",
+    },
+    {
+      require: true,
+      message: "Please input your tax number",
+    },
+  ],
+  en_name: [{ required: true, message: "Please input your product name" }],
+};

@@ -10,11 +10,12 @@ import {
 import SubFormCategoryTranslate from "./SubFormTranslate";
 
 const TranslateCategoryForm = ({
-  formikJP,
-  formikVI,
-  formikTL,
-  formikEN,
-  formikZH,
+  formJP,
+  formVI,
+  formTL,
+  formEN,
+  formZH,
+  response,
 }) => {
   const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
 
@@ -29,28 +30,33 @@ const TranslateCategoryForm = ({
     >
       <SubFormCategoryTranslate
         lang="JA"
-        className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
-        formik={formikJP}
+        className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
+        form={formJP}
+        response={response}
       />
       <SubFormCategoryTranslate
         lang="VI"
-        className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
-        formik={formikVI}
+        className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
+        form={formVI}
+        response={response}
       />
       <SubFormCategoryTranslate
         lang="ZH"
-        className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
-        formik={formikZH}
+        className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
+        form={formZH}
+        response={response}
       />
       <SubFormCategoryTranslate
         lang="TL"
-        className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
-        formik={formikTL}
+        className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
+        form={formTL}
+        response={response}
       />
       <SubFormCategoryTranslate
         lang="EN"
-        className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
-        formik={formikEN}
+        className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
+        form={formEN}
+        response={response}
       />
     </SwitchTabLangForm>
   );

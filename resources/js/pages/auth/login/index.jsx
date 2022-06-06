@@ -3,8 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Col, Form, Input, Row, Typography } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
@@ -14,32 +14,33 @@ import { getCurrentLanguage } from "../../../helper/localStorage";
 import { validateAuth } from "../../../helper/validateField";
 import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
-
+import { resetAuthResponse } from "../../../redux/actions/authAction";
 const { Title } = Typography;
-
+import { NotificationSuccess } from "../../../commons/Notification";
 export const Login = () => {
   const [show, setShow] = React.useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
-  const { i18n, t } = useTranslation();
+  const resLogout = useSelector((state) => state.authState.resLogout);
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   const lang = getCurrentLanguage();
   const { loginUser } = useLogin();
   const [form] = Form.useForm();
-
   function createMarkup() {
     return { __html: t("login.title") };
   }
-  const navigate = useNavigate();
   const initialValues = {
     email: "",
     password: "",
   };
 
   React.useEffect(() => {
-    if (resLogin?.status_code === 200) {
-      navigate(`${lang}/media`);
+    if (resLogout?.status_code === 200) {
+      NotificationSuccess(t("notification"), resLogout?.message);
+      dispatch(resetAuthResponse());
     }
-  }, [resLogin]);
-
+  }, [resLogout, dispatch]);
   const onLogin = (values) => {
     loginUser(values);
   };
@@ -166,7 +167,7 @@ export const Login = () => {
           <Col>
             <ModalTerm text={t("login.term_of_use")} />
           </Col>
-          <Col>
+          <Col style={{ marginLeft: 10 }}>
             <ModalPolicy text={t("login.privacy_policy")} />
           </Col>
         </Row>

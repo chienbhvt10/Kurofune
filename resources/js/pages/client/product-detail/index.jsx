@@ -24,16 +24,21 @@ const ProductDetailPage = () => {
   const location = useLocation();
   const { getProductClient, productClient } = useProductClient();
   const { addToCart, resAddToCart } = useCartProduct();
+  const [productSideEfectSelect, setProductSideEffectSelect] = useState(null);
   React.useEffect(() => {
     if (id) {
       getProductClient({ id: id });
     }
   }, [id, location]);
-
   const [form] = Form.useForm();
-
   const onFinish = (values) => {
-    addToCart({ ...values, product_id: id });
+    const requestObj = values;
+    Object.keys(requestObj).forEach(
+      (key) =>
+        (requestObj[key] === undefined || requestObj[key] === null) &&
+        delete requestObj[key]
+    );
+    addToCart({ ...requestObj, product_id: id });
   };
   const CheckValidation = (val, errors) => {
     Modal.error({
@@ -67,10 +72,10 @@ const ProductDetailPage = () => {
                     <div className="product-name">{productClient.name}</div>
                     <div className="medicinal_efficacy_block">
                       <div className="medicinal_efficacy_item medicinal_efficacy_label">
-                        {productClient.medicinal_efficacy_classification}
+                        {t("client.product_detail.medicinal_efficacy")}
                       </div>
                       <div className="medicinal_efficacy_item medicinal_efficacy_value">
-                        Antipyretic Analgesic
+                        {productClient.medicinal_efficacy_classification}
                       </div>
                     </div>
                     <div className="block-price flex">
@@ -78,18 +83,13 @@ const ProductDetailPage = () => {
                         <div className="no-sale">
                           <div className="Ybrg9j">
                             <span className="woocommerce-Price-amount amount">
-                              <bdi>
-                                {productClient.price} &nbsp;
-                                <span className="woocommerce-Price-currencySymbol">
-                                  (JPY)
-                                </span>
-                              </bdi>
+                              <bdi>{productClient.price}</bdi>
                             </span>
                           </div>
                         </div>
                       </div>
                       <div className="item-info product-type">
-                        First-class OTC drugs
+                        {productClient.type}
                       </div>
                       <div className="btn-cart-pc item-info block-btn-checkout customs_btn_cart">
                         <div className="cart">
@@ -191,6 +191,7 @@ const ProductDetailPage = () => {
                 >
                   <Select
                     placeholder={t("client.product_detail.placeholder_option")}
+                    onChange={(value) => setProductSideEffectSelect(value)}
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
@@ -205,9 +206,10 @@ const ProductDetailPage = () => {
                 <Form.Item
                   name="anket_5"
                   label={t("client.product_detail.label_using_medicine")}
+                  dependencies={["anket_4"]}
                   rules={[
                     {
-                      required: true,
+                      required: productSideEfectSelect === 0,
                       message: t("client.product_detail.error_required"),
                     },
                     {
@@ -217,6 +219,7 @@ const ProductDetailPage = () => {
                   ]}
                 >
                   <Input
+                    disabled={productSideEfectSelect !== 0}
                     placeholder={t("client.product_detail.placeholder_text")}
                   />
                 </Form.Item>
@@ -374,6 +377,6 @@ const ProductDetailPage = () => {
       )}
     </>
   );
-};
+};;
 
 export default ProductDetailPage;

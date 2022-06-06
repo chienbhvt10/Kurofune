@@ -8,7 +8,6 @@ import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
 export const ChangeProfile = () => {
   const { showProfile, profile } = useShowProfile();
   const { updateProfile, resUpdateProfile } = useUpdateProfile();
-
   React.useEffect(() => {
     if (!profile) {
       showProfile();
