@@ -47,23 +47,18 @@ const OrderTable = ({ items }) => {
                 borderRadius: 3,
                 width: 8,
               }}
-              onClick={()=>{handleShowDetail(record.orderNumber)}}
             />
           </Link>
         ) : null,
     },
   ];
   
-  const handleShowDetail=(key) =>{
-    // navigate(`/order-update/${key}`);
 
-  }
-
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
-  };
+  // const onChange = (pagination, filters, sorter, extra) => {
+   
+  // };
   return (
-    <Table columns={column} dataSource={items} onChange={onChange} />
+    <Table columns={column} dataSource={items}  />
 
   );
 };

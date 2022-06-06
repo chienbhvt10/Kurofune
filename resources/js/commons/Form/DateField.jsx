@@ -10,6 +10,8 @@ const DateField = ({
   rules,
   locale,
   response,
+  className,
+  type
 }) => {
   const dateFormat = "YYYY/MM/DD";
   const { t } = useTranslation();
@@ -21,6 +23,7 @@ const DateField = ({
       wrapperCol={wrapperCol}
       hasFeedback
       rules={rules}
+      className={className}
       help={
         response?.message?.[error] &&
         response?.message?.[error].length &&
@@ -32,12 +35,14 @@ const DateField = ({
           : ""
       }
     >
-      <DatePicker
+      {type ? type : <DatePicker
         style={{ width: "100%" }}
         locale={locale}
         format={dateFormat}
         placeholder={t("admins.user.form.placeholder.select_date")}
       />
+      }
+
     </Form.Item>
   );
 };

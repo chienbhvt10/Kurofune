@@ -2,7 +2,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Breadcrumb } from "../Breadcrumb";
 import "./form-header.scss";
-const FormHeader = ({ title, breadcrumb, onCancel }) => {
+const FormHeader = ({ title, breadcrumb, onCancel,onSubmit }) => {
   const { t } = useTranslation();
   return (
     <div className="form-header">
@@ -11,7 +11,7 @@ const FormHeader = ({ title, breadcrumb, onCancel }) => {
         <button type="button" className="header-btn cancel" onClick={onCancel}>
           {t("admins.btn_cancel")}
         </button>
-        <button type="submit" className="header-btn save">
+        <button type="submit" className="header-btn save"  onClick={onSubmit}>
           {t("admins.btn_save")}
         </button>
       </div>

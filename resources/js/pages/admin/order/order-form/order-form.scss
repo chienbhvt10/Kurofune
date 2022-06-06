@@ -41,8 +41,8 @@
         font-weight: bold;
       }
       input {
-        border-radius: 4px;
-        border: 1px solid #8c8f94;
+        // border-radius: 4px;
+        // border: 1px solid #8c8f94;
       }
     }
     .general-info {
@@ -153,4 +153,15 @@
       }
     }
   }
+  .marginUnset{
+    margin: 0;
+  }
+  .selectLabel,
+  .field-label{
+    color:  #777;
+    font-size: 13px;
+    line-height: 1.5;
+  }
 }
+
+

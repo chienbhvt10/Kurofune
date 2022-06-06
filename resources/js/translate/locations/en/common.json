@@ -286,8 +286,6 @@
         "shipping_address": "Shipping Address",
         "role_info": "Role Info"
       },
-      
-
       "form": {
         "field_role": "Role",
         "field_name": "Name",
@@ -324,6 +322,26 @@
           "field_education_status": "Japanese language education status",
           "field_page_registration": "Wabisabi My Page Registration",
           "field_company_mail": "Company Mail"
+        },
+        "order": {
+          "field_date_create":"Date created:",
+          "field_customer":"Customer:",
+          "field_action":"Action",
+          "field_status":"Status:",
+          "field_first_name":"First Name",
+          "field_last_name":"Last Name",
+          "field_company":"Company",
+          "field_address_line_1":"Address Line 1",
+          "field_address_line_2":"Address Line 2",
+          "field_city":"City",
+          "field_postal_code":"Postal Code",
+          "field_country_region":"Country/Region",
+          "field_email":"Email",
+          "field_phone":"Phone",
+          "field_payment_method":"Payment Method",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"Customer Provided Note",
+          "field_state_county":"State/County"
         },
         "vendor_profile": {
           "field_image_inside": "Image inside",
@@ -381,6 +399,11 @@
       "error": {
         "role_required": "Please select a role!",
         "name_required": "Please input your name!",
+        "first_name_required": "Please input your first name!",
+        "last_name_required": "Please input your last name!",
+        "company_required": "Please input your company!",
+        "country_region_required": "Please input your Country/Region!",
+        "state_county_required": "Please input your State/Country!",
         "email": {
           "required": "Please input your email!",
           "type": "Please input valid email!"
@@ -417,8 +440,9 @@
         "field_order":"Order",
         "field_date":"Date",
         "field_total":"Total",
-        "field_status":"Status",
-        "field_action":"Action"
+        "field_action":"Action",
+        "field_status":"Status"
+
       }
     }
   }
