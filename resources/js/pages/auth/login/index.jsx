@@ -14,13 +14,16 @@ import { getCurrentLanguage } from "../../../helper/localStorage";
 import { validateAuth } from "../../../helper/validateField";
 import useLogin from "../../../hooks/auth/useLogin";
 import "./style.scss";
-import { USER_ROLES } from "../../../constants/index";
+import { resetAuthResponse } from "../../../redux/actions/authAction";
 const { Title } = Typography;
-
+import { NotificationSuccess } from "../../../commons/Notification";
 export const Login = () => {
   const [show, setShow] = React.useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
-  const { i18n, t } = useTranslation();
+  const resLogout = useSelector((state) => state.authState.resLogout);
+  const dispatch = useDispatch();
+  const { t } = useTranslation();
+
   const lang = getCurrentLanguage();
   const { loginUser } = useLogin();
   const [form] = Form.useForm();
@@ -32,10 +35,14 @@ export const Login = () => {
     password: "",
   };
 
-
-
-  const onLogin =  (values) => {
-     loginUser(values);
+  React.useEffect(() => {
+    if (resLogout?.status_code === 200) {
+      NotificationSuccess(t("notification"), resLogout?.message);
+      dispatch(resetAuthResponse());
+    }
+  }, [resLogout, dispatch]);
+  const onLogin = (values) => {
+    loginUser(values);
   };
 
   const renderErrorTranslate = (field) => {

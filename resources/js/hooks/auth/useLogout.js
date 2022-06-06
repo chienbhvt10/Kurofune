@@ -11,6 +11,7 @@ import { logout, resetAuthResponse } from "../../redux/actions/authAction";
 
 const useLogout = () => {
   const { resLogout } = useSelector((state) => state.authState);
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
@@ -23,7 +24,6 @@ const useLogout = () => {
     if (resLogout?.status_code === 200) {
       NotificationSuccess(t("notification"), resLogout.message);
       navigate(`${lang}/login`);
-      dispatch(resetAuthResponse());
     }
     if (resLogout && resLogout.status_code !== 200) {
       NotificationError(t("notification"), resLogout.message);
