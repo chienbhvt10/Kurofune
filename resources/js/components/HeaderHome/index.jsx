@@ -2,21 +2,18 @@ import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BackButton from "../../commons/BackButton";
 import { Languages } from "../../commons/Languges";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
-import { removeAccessToken } from "../../helper/localStorage";
 import useLogout from "../../hooks/auth/useLogout";
 const HeaderHome = ({ toggleSideBar }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const { getLogout } = useLogout();
-  const navigate = useNavigate();
   const handleLogout = () => {
     getLogout();
-    navigate(`${lang}/login`);
   };
 
   return (

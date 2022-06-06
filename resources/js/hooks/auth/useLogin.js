@@ -18,7 +18,6 @@ const useLogin = () => {
   };
   React.useEffect(() => {
     if (resLogin?.status_code === 200) {
-      dispatch(resetAuthResponse());
       if (resLogin?.user.roles.name === USER_ROLES.ADMIN)
         navigate(`${lang}/admin`);
       else if (resLogin?.user.roles.name === USER_ROLES.VENDOR)
