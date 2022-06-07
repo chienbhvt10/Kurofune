@@ -29,13 +29,13 @@ const useCreateUser = () => {
 
   React.useEffect(() => {
     if (resUpdateUser?.status_code === 200) {
+      getAllUsers({ page: pagination.current_page });
       setLoadingUpdateUser(false);
       NotificationSuccess(
         t("notification"),
         t("admins.crud.user.update_success")
       );
       navigate(`${lang}/admin/user-list`);
-      getAllUsers({ page: pagination.current_page });
       dispatch(resetResCRUDAction());
     }
     if (resUpdateUser && resUpdateUser.status_code !== 200) {

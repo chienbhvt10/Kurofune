@@ -11,6 +11,7 @@ import {
   createUserAction,
   resetResCRUDAction,
 } from "../../redux/actions/userAction";
+import useUsers from "./useUsers";
 
 const useCreateUser = () => {
   const { resCreateUser, user } = useSelector((state) => state.userState);
@@ -18,6 +19,8 @@ const useCreateUser = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { getAllUsers, pagination } = useUsers();
+
   const [loadingCreateUser, setLoadingCreateUser] = useState(false);
 
   const createUser = (payload) => {
@@ -27,6 +30,7 @@ const useCreateUser = () => {
 
   React.useEffect(() => {
     if (resCreateUser?.status_code === 200) {
+      getAllUsers({ page: pagination.current_page });
       setLoadingCreateUser(false);
       NotificationSuccess(
         t("notification"),

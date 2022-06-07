@@ -67,6 +67,7 @@ export const UserForm = ({
   const billingAddressInitValues = getBillingAddressInitValues(item);
   const shippingAddressInitValues = getShippingAddressInitValues(item);
   const vendorUploadInitValues = getVendorUploadInitValues(item);
+
   const onFinishAll = () => {
     let submitValues = {
       id: userInfoInitValues.id,
@@ -176,10 +177,11 @@ export const UserForm = ({
   const onChangeImageInside = (listBase64Image) => {
     setListBase64ImageInSide(listBase64Image);
   };
+
   React.useEffect(() => {
     setAvatarUrl(item?.avatar || "");
-    setOutSideImageUrl(item?.images_outside || undefined);
-    setInsideImageUrl(item?.images_inside || undefined);
+    setOutSideImageUrl(item?.vendor_profile?.images_outside || undefined);
+    setInsideImageUrl(item?.vendor_profile?.images_inside || undefined);
   }, [item]);
 
   const renderErrorTranslate = (field) => {
@@ -190,6 +192,7 @@ export const UserForm = ({
       };
     });
   };
+  const getDepend = () => document.querySelector("#role-select");
 
   return (
     <div className="user-form">
@@ -227,7 +230,7 @@ export const UserForm = ({
             />
           </Col>
           <Col span={14}>
-            <Col span={23}>
+            <Col span={23} id="role-select">
               <Form.Item
                 name="role"
                 error="role"
@@ -241,6 +244,7 @@ export const UserForm = ({
                 <Select
                   placeholder={t("admins.user.form.placeholder.select_role")}
                   onChange={onChangeRole}
+                  getPopupContainer={getDepend}
                 >
                   {roles.map((item, index) => (
                     <Select.Option key={index} value={item.name}>
