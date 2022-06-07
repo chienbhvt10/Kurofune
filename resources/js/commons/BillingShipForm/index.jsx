@@ -58,6 +58,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
             response={response}
             placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}
+            dependId={`${typeForm}-prefecture`}
           />
         </Col>
         <Col span={12}>
