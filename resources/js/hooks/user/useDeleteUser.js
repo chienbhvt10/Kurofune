@@ -20,11 +20,11 @@ const useDeleteUser = () => {
 
   React.useEffect(() => {
     if (resDeleteUser?.status_code === 200) {
+      getAllUsers({ page: pagination.current_page });
       NotificationSuccess(
         t("notification"),
         t("admins.crud.user.delete_success")
       );
-      getAllUsers({ page: pagination.current_page });
       dispatch(resetResCRUDAction());
     }
     if (resDeleteUser && resDeleteUser.status_code !== 200) {

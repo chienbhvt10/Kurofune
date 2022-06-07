@@ -5,11 +5,13 @@ import CategoryForm from "../category-form/CategoryForm";
 import useAdminCategory from "./../../../../hooks/categoryAdmin/useAdminCategory";
 import useUpdateAdminCategory from "./../../../../hooks/categoryAdmin/useUpdateAdminCategory";
 import { NotificationSuccess } from "../../../../commons/Notification";
+import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 
 const UpdateCategory = () => {
   const lang = localStorage.getItem("lang");
   const navigate = useNavigate();
   const { id } = useParams();
+  const { getAdminCategories, adminCategories } = useAdminCategories();
   const { getAdminCategory, adminCategory } = useAdminCategory();
   const { updateAdminCategory, resUpdateCategory } = useUpdateAdminCategory();
 
@@ -33,9 +35,13 @@ const UpdateCategory = () => {
 
   React.useEffect(() => {
     if (resUpdateCategory?.status_code === 200) {
+      getAdminCategories();
       navigate(`${lang}/admin/category-list`);
-      NotificationSuccess("Thông báo", "Sửa category mới thành công");
-    } else return;
+      NotificationSuccess("Thông báo", "Sửa category thành công");
+    }
+    if (resUpdateCategory && resUpdateCategory?.status_code !== 200) {
+      NotificationSuccess("Thông báo", "Sửa category thất bại");
+    }
   }, [resUpdateCategory]);
 
   return (
