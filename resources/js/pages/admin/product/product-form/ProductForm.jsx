@@ -212,7 +212,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
-              <InputField
+              <SelectField
                 field="tax_id"
                 label={t("admins.product.tax_field")}
                 rules={[
@@ -227,7 +227,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 ]}
                 response={response}
                 errorField="tax_id"
-                type={<Input type="number" className="input-field" />}
+                options={[{ label: "VAT", value: "1" }]}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
