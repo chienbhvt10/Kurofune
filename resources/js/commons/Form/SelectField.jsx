@@ -14,11 +14,12 @@ const SelectField = ({
   mode,
   disabled,
   className,
+  dependId,
 }) => {
   const { t } = useTranslation();
-  const getDepend = () => document.querySelector(`#${field}-select`);
+  const getDepend = () => document.querySelector(`#${dependId}-select`);
   return (
-    <div id={`${field}-select`} style={{ position: "relative" }}>
+    <div id={`${dependId || field}-select`} style={{ position: "relative" }}>
       <Form.Item
         className={className}
         name={field}
