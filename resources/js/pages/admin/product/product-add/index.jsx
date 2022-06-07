@@ -27,8 +27,6 @@ const AddProduct = () => {
     createNewProduct(submitData);
   };
 
-  // console.log(resCreateProduct)
-
   React.useEffect(() => {
     if (resCreateProduct?.status_code === 200) {
       NotificationSuccess(

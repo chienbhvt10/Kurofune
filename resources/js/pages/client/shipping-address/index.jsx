@@ -9,8 +9,11 @@ import "./style.scss";
 const ShippingAddress = () => {
   const { i18n, t } = useTranslation();
   const { showProfile, profile } = useShowProfile();
-  const { updateShippingAddress, resUpdateShippingAddress } =
-    useUpdateShippingAddress();
+  const {
+    updateShippingAddress,
+    resUpdateShippingAddress,
+    loadingUpdateShipping,
+  } = useUpdateShippingAddress();
 
   React.useEffect(() => {
     if (!profile) {
@@ -38,6 +41,7 @@ const ShippingAddress = () => {
       />
       <div className="content-tab">
         <FormInfo
+          loading={loadingUpdateShipping}
           item={profile}
           onSave={onSave}
           typeForm={SHIPPING_INFO_FORM}

@@ -14,26 +14,14 @@ import { UserTable } from "./UserTable";
 export const UserList = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
-  const { getAllUsers, users, pagination } = useUsers();
+  const { getAllUsers, users, pagination, loadingListUser } = useUsers();
   const { deleteUser } = useDeleteUser();
-  const { roles, getAllRoles } = useRoles();
+  const { roles } = useRoles();
 
   const navigate = useNavigate();
   function createMarkup() {
     return { __html: t("login.title") };
   }
-
-  React.useEffect(() => {
-    if (users.length === 0) {
-      getAllUsers();
-    }
-  }, [users]);
-
-  React.useEffect(() => {
-    if (roles.length === 0) {
-      getAllRoles();
-    }
-  }, [roles]);
 
   const onDelete = (row) => () => {
     deleteUser(row.id);
@@ -84,6 +72,7 @@ export const UserList = () => {
       <UserTable
         items={users}
         pagination={pagination}
+        loading={loadingListUser}
         onDelete={onDelete}
         onEdit={onEdit}
         onTableChange={onTableChange}

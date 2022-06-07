@@ -14,20 +14,24 @@ import useLogout from "./useLogout";
 
 const useChangePassword = () => {
   const { resChangePassword } = useSelector((state) => state.authState);
+  const [loadingChangePassword, setLoadingChangePassword] = React.useState();
   const { getLogout, resLogout } = useLogout();
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const dispatch = useDispatch();
   const changePassword = (payload) => {
+    setLoadingChangePassword(true);
     dispatch(changePasswordAction(payload));
   };
   React.useEffect(() => {
     if (resChangePassword?.status_code === 200) {
+      setLoadingChangePassword(false);
       NotificationSuccess(t("notification"), resChangePassword.message);
       getLogout();
       dispatch(resetAuthResponse());
     }
     if (resChangePassword && resChangePassword.status_code !== 200) {
+      setLoadingChangePassword(false);
       NotificationError(t("notification"), resChangePassword.message);
     }
   }, [resChangePassword]);
@@ -49,6 +53,8 @@ const useChangePassword = () => {
   return {
     resChangePassword,
     changePassword,
+    loadingChangePassword,
+    setLoadingChangePassword,
   };
 };
 

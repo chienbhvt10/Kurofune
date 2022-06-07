@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -20,26 +20,35 @@ const useCreateUser = () => {
   const navigate = useNavigate();
   const { getAllUsers, pagination } = useUsers();
   const { t } = useTranslation();
+  const [loadingUpdateUser, setLoadingUpdateUser] = useState();
 
   const updateUser = (payload) => {
+    setLoadingUpdateUser(true);
     dispatch(updateUserAction(payload));
   };
 
   React.useEffect(() => {
     if (resUpdateUser?.status_code === 200) {
-      NotificationSuccess(t("notification"), t("admins.crud.update_success"));
+      setLoadingUpdateUser(false);
+      NotificationSuccess(
+        t("notification"),
+        t("admins.crud.user.update_success")
+      );
       navigate(`${lang}/admin/user-list`);
       getAllUsers({ page: pagination.current_page });
       dispatch(resetResCRUDAction());
     }
     if (resUpdateUser && resUpdateUser.status_code !== 200) {
-      NotificationError(t("notification"), t("admins.crud.update_fail"));
+      NotificationError(t("notification"), t("admins.crud.user.update_fail"));
     }
   }, [resUpdateUser]);
+
   return {
     users,
     resUpdateUser,
     updateUser,
+    loadingUpdateUser,
+    setLoadingUpdateUser,
   };
 };
 
