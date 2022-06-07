@@ -19,8 +19,8 @@ class Tax extends Model
     |--------------------------------------------------------------------------
     */
     
-    public function product(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    public function product(): \Illuminate\Database\Eloquent\Relations\HasOne
     {
-        return $this->belongsTo(Product::class, 'tax_id', 'id');
+        return $this->hasOne(Product::class, 'tax_id', 'id');
     }
 }
