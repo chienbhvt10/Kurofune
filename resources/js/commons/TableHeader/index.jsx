@@ -43,7 +43,7 @@ export const TableHeader = ({
               <Col className="filter">{children}</Col>
             </Row>
           </Col>
-          <Col>
+          {searchField && <Col>
             <Form onFinish={onSearch} autoComplete="off">
               <Row align="middle">
                 <Col>
@@ -65,7 +65,8 @@ export const TableHeader = ({
                 </Col>
               </Row>
             </Form>
-          </Col>
+          </Col>}
+
         </Row>
       </Col>
     </Row>

@@ -1,31 +1,107 @@
-import React from "react";
-import LogTable from "./LogTable";
+import React, { useState } from "react";
 import "./log.scss";
 import { Link } from "react-router-dom";
 import { TableHeader } from "../../../commons/TableHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { Table, Button, Modal } from "antd";
+import useListChat from "../../../hooks/logChat/useListChat";
+import { HistoryChat } from "./history-chat";
+import useDetailChat from "../../../hooks/logChat/useDetailChat";
+
 const LogChatBot = () => {
-  const items = [
+  const [page, setPage] = React.useState(1);
+  const { getListChat, listChat } = useListChat();
+  const { getDetailChat, detailChat } = useDetailChat();
+  const [visible, setVisible] = useState(false);
+  const [langChat, setLangChat] = useState("");
+  const [idChat, setIdChat] = useState();
+
+  React.useEffect(() => {
+    if (!listChat) {
+      getListChat();
+    }
+  }, [listChat]);
+
+  const columns = [
     {
-      no: "1",
-      id: "1",
-      username: "chien",
-      createdAt: "12/4",
+      title: "No.",
+      dataIndex: "no",
+      render: (value, item, index) => (page - 1) * 10 + index,
     },
     {
-      no: "2",
-      id: "2",
-      username: "chien2",
-      createdAt: "12/4",
+      title: "ID",
+      dataIndex: "id",
     },
     {
-      no: "3",
-      id: "4",
-      username: "chien3",
-      createdAt: "12/4",
+      title: "ユーザーID",
+      dataIndex: "user_id",
+    },
+    {
+      title: "ユーザー名",
+      dataIndex: "name_user",
+    },
+    {
+      title: "チャット履歴",
+      dataIndex: "id",
+      render: (id) => (
+        <Button type="primary" onClick={() => openModalHistory(id, "message")}>
+          表示
+        </Button>
+      ),
+    },
+    {
+      title: "チャット履歴 (日本語）",
+      dataIndex: "id",
+      render: (id) => (
+        <Button
+          type="primary"
+          onClick={() => openModalHistory(id, "message_ja")}
+        >
+          日本語で表示
+        </Button>
+      ),
+    },
+    {
+      title: "作成日",
+      dataIndex: "create_date",
+    },
+    {
+      title: "ダウンロード",
+      dataIndex: "id",
+      render: (id) => (
+        <Link to="/" className="btn-download-csv">
+          <FontAwesomeIcon
+            icon={faDownload}
+            className=""
+            style={{ color: "#62a19b" }}
+          />
+        </Link>
+      ),
+    },
+    {
+      title: "ダウンロード(日本語）",
+      dataIndex: "id",
+      render: (id) => (
+        <Link to="/" className="btn-download-csv">
+          <FontAwesomeIcon
+            icon={faDownload}
+            className=""
+            style={{ color: "#62a19b" }}
+          />
+        </Link>
+      ),
     },
   ];
+  const openModalHistory = (id, langChat) => {
+    console.log(idChat !== id, !detailChat && idChat !== id, id, idChat);
+    if (!detailChat || idChat !== id) {
+      getDetailChat(id);
+      setIdChat(id);
+    }
+    setLangChat(langChat);
+    setVisible(true);
+  };
   return (
     <div className="log-container">
       <TableHeader
@@ -35,26 +111,42 @@ const LogChatBot = () => {
         ]}
         title="Chatbot List"
       >
-        <div className="btn-group">
-          <Link to="/" className="btn-show">
+        <div>
+          <Button type="primary">
             <FontAwesomeIcon
               icon={faDownload}
               className=""
               style={{ color: "white" }}
             />
             <span> CSVダウンロード</span>
-          </Link>
-          <Link to="/" className="btn-show">
+          </Button>
+          <Button className="ml-2" type="primary">
             <FontAwesomeIcon
               icon={faDownload}
               className=""
               style={{ color: "white" }}
             />
             <span> CSVダウンロード (日本語）</span>
-          </Link>
+          </Button>
         </div>
       </TableHeader>
-      <LogTable items={items} />
+      <Table
+        columns={columns}
+        dataSource={listChat}
+        pagination={{
+          onChange(current) {
+            setPage(current);
+          },
+        }}
+      />
+      <Modal
+        title="History chatbot"
+        visible={visible}
+        onCancel={() => setVisible(false)}
+        width={"1000"}
+      >
+        <HistoryChat data={detailChat} langChat={langChat} />
+      </Modal>
     </div>
   );
 };

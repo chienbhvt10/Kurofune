@@ -5,11 +5,14 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./style.scss";
+import { useSelector } from 'react-redux';
 export const Questionnaire = () => {
   const { i18n, t } = useTranslation();
   const [number, setNumber] = React.useState(5);
   const lang = getCurrentLanguage();
-
+  const { isLogin, userInfo, profile, isLoading } = useSelector(
+    (state) => state.authState
+  );
   React.useEffect(() => {
     (function () {
       const sc = document.querySelectorAll("script");
@@ -45,7 +48,7 @@ export const Questionnaire = () => {
   }, []);
   return (
     <div className="questionnaire-container">
-      <input type="hidden" id="sys_userid" value="1" />
+      <input type="hidden" id="sys_userid" value={profile?.id} />
       <div className="card">
         <div className="search-wrap">
           <div className="input-group">

@@ -121,3 +121,7 @@ video {
 ::-webkit-scrollbar-thumb:hover {
   background: #62a19b;
 }
+.ant-modal-close-x{
+  display: flex !important;
+  align-items: center;
+}

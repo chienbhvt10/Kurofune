@@ -6,6 +6,7 @@ import categoryState from "../reducers/categoryReducer";
 import roleState from "../reducers/roleReducers";
 import pharmacyState from "../reducers/pharmacyReducer";
 import adminCategoryState from "./../reducers/adminCategoryReducer";
+import logChatState from './../reducers/logChatReducer';
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     categoryState,
     pharmacyState,
     adminCategoryState,
+    logChatState
   },
 });
