@@ -84,5 +84,8 @@ return [
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',
         'quantity' => 'Please check your purchase details.'
+    ],
+    'order' => [
+        'no_info' => 'There is no order'
     ]
 ];
