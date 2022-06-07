@@ -25,7 +25,7 @@ return [
     'before' => ':attributeには、:dateより前の日付を指定してください。',
     'before_or_equal' => ':attributeには、:date以前の日付を指定してください。',
     'between' => [
-        'numeric' => 'The :attribute must be between :min and :max.',
+        'numeric' => ':attributeには、:minから、:maxまでの数字を指定してください。',
         'file' => ':attributeには、:min KBから:max KBまでのサイズのファイルを指定してください。',
         'string' => ':attributeには、:minから、:maxまでの数字を指定してください。',
         'array' => ':attributeの項目は、:min個から:max個にしてください。',
@@ -150,8 +150,7 @@ return [
         ],
         'password' => [
             'different' => '新しいパスワードを現在のパスワードと同じにすることはできません',
-            'regex' => 'パスワードが形式と一致しません',
-            'min' => 'The :attribute must be at least :min characters.'
+            'regex' => 'パスワードが形式と一致しません'
         ],
         'anket_1' => [
             'required' => 'この項目は必須です。'
