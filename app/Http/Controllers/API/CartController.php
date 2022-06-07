@@ -33,7 +33,7 @@ class CartController extends Controller
             $user = auth()->user();
             $cart = Cart::where('user_id', $user->id)->first();
             if(!$cart){
-                return $this->response_error(__('message.cart.no_info'), 404);
+                return $this->response_message_success(__('message.cart.no_info'));
             }else{
                 $key = $cart->key;
                 $cart_items = $cart->cart_items;
