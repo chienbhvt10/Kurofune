@@ -46,7 +46,7 @@ class ResetPasswordController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'token' => 'required',
-                'email' => 'required|emailsss',
+                'email' => 'required|email',
                 'password' => [
                     'required',
                     'string',
