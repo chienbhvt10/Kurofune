@@ -427,6 +427,7 @@
     },
     "product": {
       "slug_field": "Slug",
+      "vendor_field": "Vendor",
       "sku_field": "Sku",
       "status_field": "Status",
       "stock_status_field": "Stock Status",

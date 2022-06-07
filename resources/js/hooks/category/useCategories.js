@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCategoriesAction } from "../../redux/actions/categoryAction";
+import {
+  getCategoriesAction,
+  getCategoriesClientAction,
+} from "../../redux/actions/categoryAction";
 
 const useCategories = () => {
   const categoryState = useSelector((state) => state.categoryState);
@@ -10,9 +13,15 @@ const useCategories = () => {
     dispatch(getCategoriesAction());
   };
 
+  const getCategoriesClient = () => {
+    dispatch(getCategoriesClientAction());
+  };
+
   return {
     categories: categoryState.categories,
+    categoriesClient: categoryState.categoriesClient,
     getAllCategories,
+    getCategoriesClient,
   };
 };
 
