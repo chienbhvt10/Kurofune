@@ -25,7 +25,9 @@ const CategoryList = () => {
   };
 
   React.useEffect(() => {
-    getAdminCategories();
+    if (!adminCategories) {
+      getAdminCategories();
+    }
   }, [adminCategories]);
 
   React.useEffect(() => {
