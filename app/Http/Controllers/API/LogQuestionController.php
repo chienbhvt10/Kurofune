@@ -173,7 +173,7 @@ class LogQuestionController extends Controller
                 'order_products' => [],
             ];
             foreach ($order->products as $prod) {
-                if ($prod->pivot->anket_6 == '11') {
+                if ($prod->pivot->anket_6 == '12') {
                     $anket_6 = $prod->pivot->anket_7;
                 } else {
                     $anket_6 = __(_CURRENTLY_TREATING[$prod->pivot->anket_6]);
@@ -189,7 +189,7 @@ class LogQuestionController extends Controller
                     'anket_4' => __(_YES_OR_NO[$prod->pivot->anket_4]),
                     'anket_5' => $prod->pivot->anket_5,
                     'anket_6' => $anket_6,
-                    'anket_7' => $prod->pivot->anket_7,
+                    'anket_8' => $prod->pivot->anket_8,
                 ];
                 array_push($order_item['order_products'], $product_data);
             }
