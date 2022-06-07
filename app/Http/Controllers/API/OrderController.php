@@ -13,14 +13,15 @@ use App\Traits\ProductTrait;
 class OrderController extends Controller
 {
     use RespondsStatusTrait,ProductTrait;
-    public function orderHistoryDetail(Request $request){
+    public function orderHistoryDetail(Request $request) : \Illuminate\Http\JsonResponse
+    {
         try {
             $user = auth()->user();
             $id = $user->id;
             $posts_per_page = get_per_page($request->per_page);
             $order =  Order::with(['transaction','products'])->where('user_id',$id)->paginate($posts_per_page);
             $response = [];
-        foreach ($order as $order) {
+            foreach ($order as $order) {
             $transaction = $order->transaction;
             $order_item = [
                 'id' => $order->id,
@@ -63,10 +64,10 @@ class OrderController extends Controller
                 array_push($order_item['order_products'], $product_data);
             }
             array_push($response, $order_item);
-        }       
-        return $this->responseData(null,$response,null.null.null,Response::HTTP_OK);
+        }
+        return $this->response_data_success($response);
         } catch (\Exception $error) {
-            return $this->response_data(null, null, true, null, null, 500);
+            return $this->response_exception();
         }
     }
 }
