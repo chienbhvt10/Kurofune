@@ -14,22 +14,26 @@ import {
 
 const useResetPassword = () => {
   const { resResetPassword } = useSelector((state) => state.authState);
+  const [loadingResetPassword, setLoadingResetPassword] = React.useState();
   const dispatch = useDispatch();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
   const getResetPassword = (params) => {
+    setLoadingResetPassword(true);
     dispatch(resetPassword(params));
   };
 
   React.useEffect(() => {
     if (resResetPassword?.status_code === 200) {
+      setLoadingResetPassword(false);
       NotificationSuccess(t("notification"), resResetPassword.message);
       navigate(`${lang}/login`, { replace: true });
       resetAuthResponse();
     }
     if (resResetPassword && resResetPassword.status_code !== 200) {
+      setLoadingResetPassword(false);
       NotificationError(t("notification"), resResetPassword.message);
     }
   }, [resResetPassword]);
@@ -37,6 +41,8 @@ const useResetPassword = () => {
   return {
     resResetPassword,
     getResetPassword,
+    loadingResetPassword,
+    setLoadingResetPassword,
   };
 };
 

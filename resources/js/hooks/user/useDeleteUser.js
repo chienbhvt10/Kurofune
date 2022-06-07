@@ -20,12 +20,15 @@ const useDeleteUser = () => {
 
   React.useEffect(() => {
     if (resDeleteUser?.status_code === 200) {
-      NotificationSuccess(t("notification"), t("admins.crud.delete_success"));
+      NotificationSuccess(
+        t("notification"),
+        t("admins.crud.user.delete_success")
+      );
       getAllUsers({ page: pagination.current_page });
       dispatch(resetResCRUDAction());
     }
     if (resDeleteUser && resDeleteUser.status_code !== 200) {
-      NotificationError(t("notification"), t("admins.crud.delete_fail"));
+      NotificationError(t("notification"), t("admins.crud.user.delete_fail"));
     }
   }, [resDeleteUser]);
 

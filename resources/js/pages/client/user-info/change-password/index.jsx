@@ -13,7 +13,8 @@ import "./style.scss";
 export const ChangePassword = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
-  const { changePassword, resChangePassword } = useChangePassword();
+  const { changePassword, resChangePassword, loadingChangePassword } =
+    useChangePassword();
   const [changePasswordForm] = Form.useForm();
   const [showCurrentPassword, setShowCurrentPassword] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
@@ -130,7 +131,11 @@ export const ChangePassword = () => {
         </Row>
         <Col span={24}>
           <Row justify="end">
-            <Button className="btn-save" htmlType="submit">
+            <Button
+              loading={loadingChangePassword}
+              className="btn-save"
+              htmlType="submit"
+            >
               {t("member.user_profile.btn_save")}
             </Button>
           </Row>
