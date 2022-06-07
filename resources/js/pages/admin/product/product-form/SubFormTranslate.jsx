@@ -2,6 +2,7 @@ import { Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import InputField from "../../../../commons/Form/InputField.jsx";
+import { LANG_ENGLISH } from "../../../../constants/index.js";
 import { getProductFormLayout } from "./productInitValues.js";
 
 const SubFormTranslate = ({ lang, className, form, response }) => {
@@ -21,7 +22,7 @@ const SubFormTranslate = ({ lang, className, form, response }) => {
               field="name"
               label={`(${lang}) ${t("admins.product.name_field")}`}
               rules={[
-                {
+                lang === "EN" && {
                   required: true,
                   message: t("admins.product.error_message.required_message"),
                   whitespace: true,

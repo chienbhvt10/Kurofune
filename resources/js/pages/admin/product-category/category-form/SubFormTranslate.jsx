@@ -19,7 +19,7 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               field="name"
               label={`(${lang}) Name`}
               rules={[
-                {
+                lang === "EN" && {
                   required: true,
                   message: "Please enter your Name",
                   whitespace: true,
