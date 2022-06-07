@@ -52,8 +52,8 @@ class OrderController extends Controller
                         'id' => $prod->id,
                         'name' => $prod->name,
                         'quantity' => $prod->pivot->quantity,
-                        'price' => get_price_html($prod->price),
-                        'total' => get_price_html($prod->pivot->quantity * $prod->price),
+                        'price' => $prod->price,
+                        'total' => $prod->pivot->quantity * $prod->price,
                     ];
                     array_push($order_item['order_products'], $product_data);
                 }
