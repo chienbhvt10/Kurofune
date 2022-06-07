@@ -24,7 +24,7 @@ class ResetPasswordController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_data(null, null, true, $errors, null, 422);
             }
 
             $status = Password::sendResetLink(
@@ -32,12 +32,12 @@ class ResetPasswordController extends Controller
             );
 
             if ($status == Password::RESET_LINK_SENT) {
-                return $this->success(__('message.password.reset_link_sent'));
+                return $this->response_data(__('message.password.reset_link_sent'));
             }else{
-                return $this->errorResponse(__($status));
+                return $this->response_data(null, null, true, __($status), null,422);
             }
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_data(null, null, true, null, null, 500);
         }
     }
 
@@ -46,7 +46,7 @@ class ResetPasswordController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'token' => 'required',
-                'email' => 'required|email',
+                'email' => 'required|emailsss',
                 'password' => [
                     'required',
                     'string',
@@ -60,7 +60,7 @@ class ResetPasswordController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_data(null, null, true, null, $errors, 422);
             }
 
             $status = Password::reset(
@@ -77,11 +77,11 @@ class ResetPasswordController extends Controller
             );
 
             if ($status == Password::PASSWORD_RESET) {
-                return $this->success(__($status));
+                return $this->response_data(__($status));
             }
             return $this->errorResponse(__($status));
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_data(null, null, true, null, null, 500);
         }
     }
 }
