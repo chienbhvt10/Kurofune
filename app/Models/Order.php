@@ -61,7 +61,7 @@ class Order extends Model
 
     public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'order_product', 'order_id', 'product_id')->withPivot(['quantity', 'anket_1', 'anket_2', 'anket_3', 'anket_4', 'anket_5', 'anket_6', 'anket_7', 'sub_total_tax', 'sub_total', 'total_tax','total']);
+        return $this->belongsToMany(Product::class, 'order_product', 'order_id', 'product_id')->withPivot(['quantity', 'anket_1', 'anket_2', 'anket_3', 'anket_4', 'anket_5', 'anket_6', 'anket_7', 'anket_8', 'sub_total_tax', 'sub_total', 'total_tax','total']);
     }
 
     public function transaction(): \Illuminate\Database\Eloquent\Relations\HasOne
@@ -74,5 +74,13 @@ class Order extends Model
         return $this->hasMany(OrderProduct::class, 'order_id', 'id');
     }
 
+    public function vendor_profile(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(VendorProfile::class, 'vendor_profile_id', 'id');
+    }
 
+    public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

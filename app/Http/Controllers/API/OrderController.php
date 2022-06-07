@@ -58,10 +58,10 @@ class OrderController extends Controller
                     array_push($order_item['order_products'], $product_data);
                 }
                 array_push($response, $order_item);
-            }       
-            return $this->response_data(null,$response,false,null,null,Response::HTTP_OK);
+            } 
+            return $this->response_data_success($response);
         } catch (\Exception $error) {
-            return $this->response_data(null, null, true, null, null, 500);
+            return $this->response_exception();
         }
     }
 }
