@@ -14,7 +14,7 @@ const CategoryList = () => {
   const { deleteAdminCategory, resDeleteCategory } = useDeleteAdminCategory();
   const navigate = useNavigate();
 
-  const lang =getCurrentLanguage()
+  const lang = getCurrentLanguage();
 
   const onDelete = (row) => () => {
     deleteAdminCategory(row.id);
@@ -26,19 +26,17 @@ const CategoryList = () => {
 
   React.useEffect(() => {
     getAdminCategories();
-  }, []);
+  }, [adminCategories]);
 
   React.useEffect(() => {
     if (resDeleteCategory?.status_code === 200) {
       getAdminCategories();
       NotificationSuccess("Thông báo", "Xoá Category Thành Công!");
-
     }
-    return () => { };
+    return () => {};
   }, [resDeleteCategory]);
 
   return (
-    
     <div className="category-container">
       <TableHeader
         addLink={`${lang}/admin/category/add`}
@@ -48,7 +46,11 @@ const CategoryList = () => {
         ]}
         title="Product Category"
       />
-      <CategoryTable items={adminCategories} onDelete={onDelete} onEdit={onEdit} />
+      <CategoryTable
+        items={adminCategories}
+        onDelete={onDelete}
+        onEdit={onEdit}
+      />
     </div>
   );
 };

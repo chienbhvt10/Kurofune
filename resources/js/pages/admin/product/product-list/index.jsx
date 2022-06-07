@@ -30,7 +30,10 @@ const ProductList = () => {
   React.useEffect(() => {
     if (resDeleteProduct?.status_code === 200) {
       getAllProducts({ page: 1 });
-      NotificationSuccess(t("admins.product.notification"), resDeleteProduct.message);
+      NotificationSuccess(
+        t("admins.product.notification"),
+        resDeleteProduct.message
+      );
     } else {
       return;
     }

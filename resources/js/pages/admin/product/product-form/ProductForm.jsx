@@ -4,18 +4,17 @@ import { useTranslation } from "react-i18next";
 import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
+import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
 import SelectField from "./../../../../commons/Form/SelectField";
 import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
 import {
+  getProductFormLayout,
   getProductInfoInitValues,
   getTranslateInitValues,
-  getProductFormLayout,
 } from "./productInitValues.js";
-import TranslateProductForm from "./TranslateProductForm";
-import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -251,7 +250,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
-                field="meta_keyword"
+                field="meta_keywords"
                 label={t("admins.product.meta_keyword_field")}
                 rules={[]}
                 response={response}
