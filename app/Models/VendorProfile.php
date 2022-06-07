@@ -60,4 +60,9 @@ class VendorProfile extends Model
     {
         return $this->hasMany(VendorProfileTranslation::class, 'vendor_profile_id', 'id');
     }
+
+    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Order::class, 'vendor_profile_id', 'id');
+    }
 }

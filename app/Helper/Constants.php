@@ -1,10 +1,6 @@
 <?php
 const USER_STATUS = ['inactive', 'active'];
 const GENDER = ['male', 'female', 'other'];
-const _GENDER_ORDER = [
-    "1" => "Male",
-    "2" => "Female",
-];
 const _YEAR_OLD = [
     "1" => "Under 15 years old",
     "2" => "15-64 years old",

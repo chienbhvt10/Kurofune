@@ -13,17 +13,17 @@ class LogQuestionController extends Controller
 
     public function listLogQuestion()
     {
-        $orders = Order::with('users', 'products')->get();
+        $orders = Order::with('user', 'products')->get();
         $response = $this->getDataOrder($orders);
 
-        return $this->responseData($response);
+        return $this->response_data_success($response);
     }
 
     public function exportLogQuestion(Request $request)
     {
         $order_id = $request->order_id;
         $export = $request->export;
-        $orders = Order::with('users', 'products')->get();
+        $orders = Order::with('user', 'products')->get();
         $file_name = "chat_log_questionnaire_" . date("Y_m_d") . ".csv";
         $csv_header = [
             "ユーザ名",
@@ -77,7 +77,7 @@ class LogQuestionController extends Controller
                         $prod['anket_4'],
                         $prod['anket_5'],
                         $prod['anket_6'],
-                        $prod['anket_7'],
+                        $prod['anket_8'],
                         $item['billing_full_name'],
                         $item['billing_postal_code'],
                         $item['billing_city'],
@@ -117,7 +117,7 @@ class LogQuestionController extends Controller
                                 $prod['anket_4'],
                                 $prod['anket_5'],
                                 $prod['anket_6'],
-                                $prod['anket_7'],
+                                $prod['anket_8'],
                                 $item['billing_full_name'],
                                 $item['billing_postal_code'],
                                 $item['billing_city'],
@@ -151,8 +151,8 @@ class LogQuestionController extends Controller
             $order_item = [
                 'id' => $order->id,
                 'order_number' => $order->order_number,
-                'name' => $order->users->name,
-                'user_email' => $order->users->email,
+                'name' => $order->user->name,
+                'user_email' => $order->user->email,
                 'date_order' => formatDate($order->created_at),
                 'billing_full_name' => $order->billing_full_name,
                 'billing_postal_code' => $order->billing_postal_code,
@@ -173,17 +173,22 @@ class LogQuestionController extends Controller
                 'order_products' => [],
             ];
             foreach ($order->products as $prod) {
+                if ($prod->pivot->anket_6 == '11') {
+                    $anket_6 = $prod->pivot->anket_7;
+                } else {
+                    $anket_6 = __(_CURRENTLY_TREATING[$prod->pivot->anket_6]);
+                }
                 $product_data = [
                     'id' => $prod->id,
                     'name' => $prod->name,
                     'quantity' => $prod->pivot->quantity,
                     'total' => $prod->pivot->quantity * $prod->price,
-                    'anket_1' => __(_GENDER_ORDER[$prod->pivot->anket_1]),
+                    'anket_1' => __(GENDER[$prod->pivot->anket_1]),
                     'anket_2' => __(_YEAR_OLD[$prod->pivot->anket_2]),
                     'anket_3' => __(_YES_OR_NO[$prod->pivot->anket_3]),
                     'anket_4' => __(_YES_OR_NO[$prod->pivot->anket_4]),
                     'anket_5' => $prod->pivot->anket_5,
-                    'anket_6' => __(_CURRENTLY_TREATING[$prod->pivot->anket_6]),
+                    'anket_6' => $anket_6,
                     'anket_7' => $prod->pivot->anket_7,
                 ];
                 array_push($order_item['order_products'], $product_data);
