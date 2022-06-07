@@ -56,11 +56,6 @@ class Product extends Model
         return $this->belongsToMany(Category::class, 'category_product', 'prod_id', 'cat_id');
     }
 
-    public function order(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(Order::class, 'order_product','order_id','product_id');
-    }
-
     public function user(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
