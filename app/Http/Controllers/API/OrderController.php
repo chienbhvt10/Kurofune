@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Traits\RespondsStatusTrait;
 use App\Models\Order;
+use Illuminate\Http\Response;
 use App\Traits\ProductTrait;
 
 class OrderController extends Controller
@@ -58,9 +59,9 @@ class OrderController extends Controller
                 }
                 array_push($response, $order_item);
             }       
-            return $response;
+            return $this->response_data(null,$response,false,null,null,Response::HTTP_OK);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_data(null, null, true, null, null, 500);
         }
     }
 }
