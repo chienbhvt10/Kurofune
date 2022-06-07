@@ -83,5 +83,8 @@ return [
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',
         'quantity' => 'Pakisuri ang mga detalye ng pagbili.'
+    ],
+    'order' => [
+        'no_info' => 'Walang kaayusan'
     ]
 ];
