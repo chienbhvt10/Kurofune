@@ -22,9 +22,10 @@ class CreateOrderProductTable extends Migration
             $table->tinyInteger('anket_2');
             $table->tinyInteger('anket_3');
             $table->tinyInteger('anket_4');
-            $table->string('anket_5');
+            $table->string('anket_5')->nullable()->default(null);
             $table->tinyInteger('anket_6');
-            $table->string('anket_7');
+            $table->string('anket_7')->nullable()->default(null);
+            $table->string('anket_8');
             $table->decimal('sub_total')->nullable()->default(0);
             $table->decimal('sub_total_tax')->nullable()->default(0);
             $table->decimal('total_tax')->nullable()->default(0);
