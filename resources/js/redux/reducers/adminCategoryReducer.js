@@ -19,7 +19,7 @@ const initialState = {
 
 const adminCategoryReducers = createReducer(initialState, (builder) => {
   builder.addCase(getAllCategoriesAdminAction.fulfilled, (state, actions) => {
-    state.adminCategories = actions.payload?.data;
+    state.adminCategories = actions.payload?.data?.data;
     state.resDeleteCategory = undefined;
     state.resCreateCategory = undefined;
     state.resUpdateCategory = undefined;

@@ -6,6 +6,11 @@ export const categoryApis = {
     const url = ROOT_URL + "list-category";
     return await axiosClient.get(url, data);
   },
+
+  categoriesAdmin: async (data) => {
+    const url = ROOT_URL + "categories";
+    return await axiosClient.get(url, data);
+  },
   category: async (data) => {
     const url = ROOT_URL + `detail-category/${data}`;
     return await axiosClient.get(url);
