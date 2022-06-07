@@ -22,6 +22,8 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
     date: moment(new Date(), 'YYYY-MM-DD') ,
     hours:0,
     second:0,
+    customer: 0,
+    status: 0,
    
   };
   const initialBillingValue = {};
@@ -84,10 +86,10 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       <div className="order-info">
         <div className="general-info section-info">
           <p className="title-section">General</p>
-          <Form form={formGeneral} name="formGeneral">
+          <Form form={formGeneral} name="formGeneral" onFinish={(value)=>{console.log('value',value)}}>
             <div className="form-group">
               <div>
-                <label>{t("admins.user.form.order.field_date_create")}:</label>
+                <label className="label-for">{t("admins.user.form.order.field_date_create")}</label>
                 <div style={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
                   <DateField
                     field="date"
@@ -133,7 +135,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     }
                   />
                 </div>
-                <Form.Item name="Status:">
+                <Form.Item name="Status">
                   <SelectFieldSearch
                     field="status"
                     label={t("admins.user.form.order.field_status")}
@@ -145,9 +147,9 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     disabled={false}
                   />
                 </Form.Item>
-                <Form.Item name="Customer:">
+                <Form.Item name="Customer">
                   <SelectFieldSearch
-                    field="Customer"
+                    field="customer"
                     label={t("admins.user.form.order.field_customer")}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}

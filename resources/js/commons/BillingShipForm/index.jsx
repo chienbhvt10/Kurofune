@@ -19,7 +19,6 @@ const BillingShipForm = ({ className, form, typeForm, response,onFinish }) => {
       };
     });
   };
-
   return (
     <Form
       className={className + " billing-shipping-form"}

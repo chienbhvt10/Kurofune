@@ -54,6 +54,8 @@ export const validateUser = {
       {
         pattern: new RegExp(/^[0-9]+$/),
         message: "admins.user.error.phone.pattern",
+        
+
       },
     ],
     email: [{ type: "email", message: "admins.user.error.email.type",required: true, message: "admins.user.error.email.required"  }],

@@ -38,7 +38,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const onFinishAll = (values) => {
     const submitInput = {
       ...productsForm.getFieldsValue(),
-      user_id: 4,
       ja: {
         ...productProfileFormJP.getFieldsValue(),
       },
