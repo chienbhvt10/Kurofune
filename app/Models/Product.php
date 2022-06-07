@@ -76,8 +76,4 @@ class Product extends Model
         return $this->hasMany(ProductTranslation::class, 'product_id', 'id');
     }
 
-    public function order(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
-    {
-        return $this->belongsToMany(Order::class, 'order_product','order_id','product_id');
-    }
 }

@@ -9,10 +9,80 @@ use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Response;
 use App\Traits\ProductTrait;
+use App\Enums\UserRole;
 
 class OrderController extends Controller
 {
     use RespondsStatusTrait,ProductTrait;
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function index(Request $request)
+    {
+        try {
+            $posts_per_page = get_per_page($request->per_page);
+            $user = auth()->user();
+            $roles = $user->getRoleNames()->first();
+            $orders = Order::with(['products', 'transaction'])->paginate($posts_per_page);
+            if($roles == UserRole::ROLE_VENDOR) {
+                $orders = $user->vendor_profile->orders;
+                $orders->load('products');
+                $orders->load('transaction');
+            }
+            return $this->responseData($orders);
+
+        }catch (\Exception $error){
+            return $this->errorResponse($error->getMessage());
+        }
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
+
     public function orderHistoryDetail(Request $request) : \Illuminate\Http\JsonResponse
     {
         try {
@@ -20,7 +90,10 @@ class OrderController extends Controller
             $id = $user->id;
             $posts_per_page = get_per_page($request->per_page);
             $order =  Order::with(['transaction','products'])->where('user_id',$id)->paginate($posts_per_page);
-            $response = [];
+            if($order->isEmpty()){
+                return $this->response_error(__('message.order.no_info'), 404);
+            }else{
+                $response = [];
             foreach ($order as $order) {
             $transaction = $order->transaction;
             $order_item = [
@@ -66,6 +139,7 @@ class OrderController extends Controller
             array_push($response, $order_item);
         }
         return $this->response_data_success($response);
+            }  
         } catch (\Exception $error) {
             return $this->response_exception();
         }

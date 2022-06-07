@@ -67,6 +67,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::get('detail-chat-log/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'detailChatLog']);
             Route::get('export-chat-log-all', [\App\Http\Controllers\API\ChatLogUserController::class, 'allExportCsv']);
             Route::get('export-chat-log-user/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'chatLogUser']);
+
+            Route::get('list-log-question', [\App\Http\Controllers\API\LogQuestionController::class, 'listLogQuestion']);
+            Route::get('export-log-question', [\App\Http\Controllers\API\LogQuestionController::class, 'exportLogQuestion']);
         });
 
         // View Profile

@@ -69,11 +69,6 @@ class Order extends Model
         return $this->hasOne(Transaction::class, 'order_id', 'id');
     }
 
-    public function orderproduct(): \Illuminate\Database\Eloquent\Relations\HasMany
-    {
-        return $this->hasMany(OrderProduct::class, 'order_id', 'id');
-    }
-
     public function vendor_profile(): \Illuminate\Database\Eloquent\Relations\BelongsTo
     {
         return $this->belongsTo(VendorProfile::class, 'vendor_profile_id', 'id');
