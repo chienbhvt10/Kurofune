@@ -93,6 +93,7 @@ export const UserTable = ({
         showSizeChanger: true,
         showPrevNextJumpers: false,
         pageSizeOptions: ["5", "10", "20", "50", "100"],
+        current: pagination.current_page,
         total: pagination.total,
         pageSize: pagination.per_page,
         showTotal: () => `Total ${pagination.total} items`,

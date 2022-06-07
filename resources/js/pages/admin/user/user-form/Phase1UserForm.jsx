@@ -176,10 +176,11 @@ export const UserForm = ({
   const onChangeImageInside = (listBase64Image) => {
     setListBase64ImageInSide(listBase64Image);
   };
+
   React.useEffect(() => {
     setAvatarUrl(item?.avatar || "");
-    setOutSideImageUrl(item?.images_outside || undefined);
-    setInsideImageUrl(item?.images_inside || undefined);
+    setOutSideImageUrl(item?.vendor_profile?.images_outside || undefined);
+    setInsideImageUrl(item?.vendor_profile?.images_inside || undefined);
   }, [item]);
 
   const renderErrorTranslate = (field) => {

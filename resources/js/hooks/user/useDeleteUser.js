@@ -5,7 +5,10 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
-import { deleteUserAction } from "../../redux/actions/userAction";
+import {
+  deleteUserAction,
+  resetResCRUDAction,
+} from "../../redux/actions/userAction";
 import useUsers from "./useUsers";
 
 const useDeleteUser = () => {
