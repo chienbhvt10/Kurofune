@@ -24,7 +24,7 @@ class ResetPasswordController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->response_data(null, null, true, $errors, 422);
+                return $this->response_data(null, null, true, $errors, null, 422);
             }
 
             $status = Password::sendResetLink(
@@ -34,10 +34,10 @@ class ResetPasswordController extends Controller
             if ($status == Password::RESET_LINK_SENT) {
                 return $this->response_data(__('message.password.reset_link_sent'));
             }else{
-                return $this->response_data(null, null, true, __($status), 422);
+                return $this->response_data(null, null, true, __($status), null,422);
             }
         }catch (\Exception $error){
-            return $this->response_data(null, null, true, null, 500);
+            return $this->response_data(null, null, true, null, null, 500);
         }
     }
 
