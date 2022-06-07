@@ -1,5 +1,5 @@
 import { EyeOutlined, UploadOutlined } from "@ant-design/icons";
-import { Button, message, Modal, Space, Upload } from "antd";
+import { Button, message, Modal, Space, Spin, Upload } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -10,7 +10,7 @@ import {
 import { getBase64 } from "../string";
 import "./upload-dragger.scss";
 
-const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
+const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
   const { t } = useTranslation();
   const ref = React.useRef();
   const [previewImage, setPreviewImage] = React.useState(false);
@@ -58,7 +58,11 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
           footer={null}
           onCancel={onCancel}
         >
-          <img alt="example" style={{ width: "100%" }} src={imageUrl} />
+          <img
+            alt="example"
+            style={{ width: "100%" }}
+            src={imageUrl || "/avatars/default.png"}
+          />
         </Modal>
         <input
           type="image"
@@ -90,7 +94,6 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, loading }) => {
         beforeUpload={beforeUpload}
         showUploadList={false}
         accept="image/*"
-
       >
         <Button
           type="primary"

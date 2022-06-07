@@ -20,7 +20,7 @@ import {
 } from "./initValues.js";
 import "./style.scss";
 
-export const FormInfo = ({ onSave, item, typeForm, response }) => {
+export const FormInfo = ({ onSave, item, typeForm, response, loading }) => {
   const [formInfo] = Form.useForm();
   const { i18n, t } = useTranslation();
 
@@ -211,7 +211,7 @@ export const FormInfo = ({ onSave, item, typeForm, response }) => {
         </Col>
         <Col span={24}>
           <Row justify="end">
-            <Button className="btn-save" htmlType="submit">
+            <Button loading={loading} className="btn-save" htmlType="submit">
               {t("member.user_profile.btn_save")}
             </Button>
           </Row>

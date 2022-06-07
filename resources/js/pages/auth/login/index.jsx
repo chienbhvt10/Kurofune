@@ -25,7 +25,7 @@ export const Login = () => {
   const { t } = useTranslation();
 
   const lang = getCurrentLanguage();
-  const { loginUser } = useLogin();
+  const { loginUser, loadingLogin } = useLogin();
   const [form] = Form.useForm();
   function createMarkup() {
     return { __html: t("login.title") };
@@ -41,6 +41,7 @@ export const Login = () => {
       dispatch(resetAuthResponse());
     }
   }, [resLogout, dispatch]);
+
   const onLogin = (values) => {
     loginUser(values);
   };
@@ -153,6 +154,7 @@ export const Login = () => {
             </Col>
             <Col span={8}>
               <Button
+                loading={loadingLogin}
                 className="w-100"
                 size="large"
                 type="primary"

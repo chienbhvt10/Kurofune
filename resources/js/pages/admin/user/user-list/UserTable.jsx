@@ -11,6 +11,7 @@ export const UserTable = ({
   onDelete,
   pagination,
   onTableChange,
+  loading,
 }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -87,6 +88,7 @@ export const UserTable = ({
       dataSource={items}
       bordered
       onChange={onTableChange}
+      loading={loading}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,

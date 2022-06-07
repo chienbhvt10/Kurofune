@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
@@ -10,7 +11,7 @@ import { UserForm } from "../user-form/Phase1UserForm";
 const AddUser = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const { createUser, resCreateUser } = useCreateUser();
+  const { createUser, resCreateUser, loadingCreateUser } = useCreateUser();
   const { getAllUsers, pagination } = useUsers();
   const lang = getCurrentLanguage();
 
@@ -26,6 +27,7 @@ const AddUser = () => {
   return (
     <div id="add-user">
       <UserForm
+        loading={loadingCreateUser}
         response={resCreateUser}
         onCancel={onCancel}
         onSave={onSave}

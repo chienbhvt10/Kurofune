@@ -35,13 +35,13 @@ export const UserForm = ({
   onSave,
   title,
   response,
+  loading,
 }) => {
   const { t } = useTranslation();
   const { roles, getAllRoles } = useRoles();
   const [role, setRole] = React.useState();
   const [avatarUrl, setAvatarUrl] = React.useState();
   const [base64Avatar, setBase64Avatar] = React.useState();
-  const [loading, setLoading] = React.useState(false);
   const [insideImageUrl, setInsideImageUrl] = React.useState();
   const [outSideImageUrl, setOutSideImageUrl] = React.useState();
   const [listBase64ImageInSide, setListBase64ImageInSide] = React.useState();
@@ -153,12 +153,6 @@ export const UserForm = ({
   }, [item]);
 
   React.useEffect(() => {
-    if (roles.length === 0) {
-      getAllRoles();
-    }
-  }, [roles]);
-
-  React.useEffect(() => {
     setRole(userInfoForm.getFieldValue("role"));
   }, [item]);
 
@@ -223,13 +217,13 @@ export const UserForm = ({
           ]}
           title={title}
           onCancel={onCancel}
+          loading={loading}
         />
         <Row justify="center" style={{ marginTop: 30 }}>
           <Col span={8}>
             <UploadDragger
               onChangeImage={onChangeAvatar}
               imageUrlProps={avatarUrl}
-              loading={loading}
             />
           </Col>
           <Col span={14}>

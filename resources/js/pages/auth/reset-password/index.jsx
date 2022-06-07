@@ -15,7 +15,8 @@ const ResetPassword = () => {
   const { t } = useTranslation();
   const [showPassword, setShowPassword] = React.useState(true);
   const [showPasswordConfirm, setShowPasswordConfirm] = React.useState(true);
-  const { resResetPassword, getResetPassword } = useResetPassword();
+  const { resResetPassword, getResetPassword, loadingResetPassword } =
+    useResetPassword();
   const resetEmail = getResetMail();
   const [form] = Form.useForm();
 
@@ -152,7 +153,12 @@ const ResetPassword = () => {
               />
             </Col>
             <Col span={12}>
-              <Button type="primary" className="w-100" htmlType="submit">
+              <Button
+                loading={loadingResetPassword}
+                type="primary"
+                className="w-100"
+                htmlType="submit"
+              >
                 Save
               </Button>
             </Col>
