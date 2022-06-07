@@ -128,7 +128,6 @@ export const UserForm = ({
     onSave(submitValues);
   };
 
-  console.log(vendorUploadForm.getFieldsValue());
   React.useEffect(() => {
     userInfoForm.setFieldsValue(userInfoInitValues);
     planProfileForm.setFieldsValue(planInitValues);
