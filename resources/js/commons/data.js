@@ -919,8 +919,8 @@ export const PRODUCT_OPTION = {
 
 export const CATEGORY_OPTIONS = {
   CATEGORY_TYPES: [
-    { value: 1, label: "第1類医薬品" },
-    { value: 2, label: "指定第2類医薬品" },
-    { value: 3, label: "第2類医薬品" },
+    { value: 1, label_translate: "admins.category.type.option1" },
+    { value: 2, label_translate: "admins.category.type.option2" },
+    { value: 3, label_translate: "admins.category.type.option3" },
   ],
 };

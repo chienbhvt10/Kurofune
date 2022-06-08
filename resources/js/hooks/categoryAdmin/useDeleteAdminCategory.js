@@ -13,6 +13,7 @@ const useDeleteAdminCategory = () => {
   return {
     deleteAdminCategory,
     resDeleteCategory: adminCategoryState.resDeleteCategory,
+    resCreateCategory: adminCategoryState.resCreateCategory,
   };
 };
 

@@ -28,7 +28,7 @@ const AddProduct = () => {
   };
 
   React.useEffect(() => {
-    if (resCreateProduct?.status_code === 200) {
+    if (resCreateProduct?.error_code === "NO_ERROR") {
       NotificationSuccess(
         t("admins.product.notification"),
         resCreateProduct.message

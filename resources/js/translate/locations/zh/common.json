@@ -471,7 +471,12 @@
       "type_field": "Type",
       "product_image_field": "Product Image",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category"
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "第1类",
+        "option2": "指定的第2类",
+        "option3": "第2类"
+      }
     }
   }
 }
