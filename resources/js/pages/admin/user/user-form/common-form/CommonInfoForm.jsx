@@ -50,6 +50,7 @@ const CommonInfoForm = ({ className, form }) => {
             response={resCreateUser}
             placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}
+            dependId="prefecture"
           />
         </Col>
         <Col span={12}>

@@ -19,7 +19,7 @@ const useCreateUser = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { t } = useTranslation();
-  const { getAllUsers } = useUsers();
+  const { getAllUsers, pagination } = useUsers();
 
   const [loadingCreateUser, setLoadingCreateUser] = useState(false);
 

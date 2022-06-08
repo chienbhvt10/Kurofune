@@ -25,6 +25,7 @@ class CartItem extends Model
         'anket_5',
         'anket_6',
         'anket_7',
+        'anket_8',
     ];
 
     public $timestamps = true;

@@ -12,7 +12,6 @@ const AddUser = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { createUser, resCreateUser, loadingCreateUser } = useCreateUser();
-  const { getAllUsers, pagination } = useUsers();
   const lang = getCurrentLanguage();
 
   const onCancel = () => {
@@ -21,7 +20,6 @@ const AddUser = () => {
 
   const onSave = (values) => {
     createUser(values);
-    getAllUsers({ page: pagination.current_page });
   };
 
   return (

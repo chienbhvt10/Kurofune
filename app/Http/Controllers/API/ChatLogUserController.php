@@ -41,6 +41,7 @@ class ChatLogUserController extends Controller
             $chat_log->data_log = json_decode($chat_log->data_log) ?? null;
             $response = [
                 'user_name' => $chat_log->users->name ?? null,
+                'user_avatar' => $chat_log->users->avatar ?? null,
                 'data_log' => $chat_log->data_log
             ];
 
