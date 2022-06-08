@@ -56,6 +56,7 @@ export const UserList = () => {
         ]}
         onSearch={onSearch}
         searchField="name"
+        searchPlaceHolder={t("admins.user.form.placeholder.search")}
       >
         <Select
           placeholder={t("admins.user.form.placeholder.select_role")}
