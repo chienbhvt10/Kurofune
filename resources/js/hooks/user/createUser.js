@@ -40,8 +40,8 @@ const useCreateUser = () => {
       dispatch(resetResCRUDAction());
     }
     if (resCreateUser && resCreateUser.status_code !== 200) {
-      setLoadingCreateUser(false);
       NotificationError(t("notification"), t("admins.crud.user.create_fail"));
+      setLoadingCreateUser(false);
     }
   }, [resCreateUser]);
 

@@ -40,6 +40,7 @@ const useCreateUser = () => {
     }
     if (resUpdateUser && resUpdateUser.status_code !== 200) {
       NotificationError(t("notification"), t("admins.crud.user.update_fail"));
+      setLoadingUpdateUser(false);
     }
   }, [resUpdateUser]);
 
