@@ -147,7 +147,7 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'slug' => 'nullable|string|unique:categories,slug' . $cat->id . ',id',
+                'slug' => 'nullable|string',
                 'category_image' => ['nullable', new Base64Image],
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
