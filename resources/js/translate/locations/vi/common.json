@@ -446,6 +446,7 @@
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
 
       "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
       "features_field": "Tính năng sản phẩm",
@@ -462,6 +463,14 @@
       "error_message": {
         "required_message": " Mục này là mục bắt buộc."
       }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Tên",
+      "type_field": "Type",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category"
     }
   }
 }

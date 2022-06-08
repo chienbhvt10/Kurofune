@@ -437,6 +437,7 @@
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
 
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
@@ -464,6 +465,14 @@
         "delete_success": "Delete user successfully!",
         "delete_fail": "Delete user fail!"
       }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Name",
+      "type_field": "Type",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category"
     }
   }
 }

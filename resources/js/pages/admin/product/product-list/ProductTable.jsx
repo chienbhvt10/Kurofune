@@ -62,7 +62,6 @@ const ProductTable = ({
     {
       key: "vi",
       dataIndex: "vi",
-      title: <img className="img-head" src="/images/vietnam.png" alt="" />,
       align: "center",
       headerAlign: "center",
       headerStyle: {

@@ -15,6 +15,7 @@ const SelectField = ({
   disabled,
   className,
   dependId,
+  children,
 }) => {
   const { t } = useTranslation();
   const getDepend = () =>
@@ -45,11 +46,13 @@ const SelectField = ({
           mode={mode}
           getPopupContainer={getDepend}
         >
-          {options?.map((option, index) => (
-            <Select.Option key={index} value={option.value}>
-              {option.label || t(option.label_translate)}
-            </Select.Option>
-          ))}
+          {children
+            ? children
+            : options?.map((option, index) => (
+                <Select.Option key={index} value={option.value}>
+                  {option.label || t(option.label_translate)}
+                </Select.Option>
+              ))}
         </Select>
       </Form.Item>
     </div>

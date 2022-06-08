@@ -446,6 +446,7 @@
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
 
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
@@ -463,6 +464,14 @@
         "required_message": "この項目は必須です。"
       },
       "notification": "通知"
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "名前",
+      "type_field": "Type",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category"
     }
   }
 }

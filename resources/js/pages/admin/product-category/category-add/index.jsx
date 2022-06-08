@@ -21,7 +21,7 @@ const AddCategory = () => {
   };
 
   React.useEffect(() => {
-    if (resCreateCategory?.status_code === 200) {
+    if (resCreateCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess("Thông báo", "Thêm category mới thành công");
       navigate(`${lang}/admin/category-list`);
