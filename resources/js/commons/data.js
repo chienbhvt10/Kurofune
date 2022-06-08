@@ -916,3 +916,11 @@ export const PRODUCT_OPTION = {
     { value: 16, label: "other" },
   ],
 };
+
+export const CATEGORY_OPTIONS = {
+  CATEGORY_TYPES: [
+    { value: 1, label_translate: "admins.category.type.option1" },
+    { value: 2, label_translate: "admins.category.type.option2" },
+    { value: 3, label_translate: "admins.category.type.option3" },
+  ],
+};

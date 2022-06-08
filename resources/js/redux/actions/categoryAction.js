@@ -4,6 +4,7 @@ import { categoryApis } from "../../services/category-apis";
 const categoryActions = {
   getCategories: createAction("GET_CATEGORIES"),
   getCategory: createAction("GET_CATEGORY"),
+  getCetegoriesClient: createAction("GET_CATEGORIES_CLIENT"),
 };
 
 export const getCategoriesAction = createAsyncThunk(
@@ -26,4 +27,16 @@ export const getCategoryAction = createAsyncThunk(
     return res;
   }
 );
+
+export const getCategoriesClientAction = createAsyncThunk(
+  categoryActions.getCetegoriesClient,
+  async () => {
+    const res = await categoryApis
+      .categories()
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+
 export default categoryActions;

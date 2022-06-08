@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getUsersAction } from "../../redux/actions/userAction";
+import {
+  getUsersAction,
+  resetResCRUDAction,
+} from "../../redux/actions/userAction";
 
 const useUsers = () => {
   const { users, total, from, to, current_page, last_page } = useSelector(
@@ -18,6 +21,7 @@ const useUsers = () => {
     if (users.length === 0) {
       getAllUsers();
     }
+    dispatch(resetResCRUDAction());
   }, [users]);
 
   React.useEffect(() => {

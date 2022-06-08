@@ -26,7 +26,7 @@ const SwitchTabsLangForm = ({
       <TabPane tab="Japan" key={SECOND_TAB}>
         <SubFormTranslate lang="JA" form={formJP} />
       </TabPane>
-      <TabPane tab="Thailan" key={THIRD_TAB}>
+      <TabPane tab="Tagalog" key={THIRD_TAB}>
         <SubFormTranslate lang="TL" form={formTL} />
       </TabPane>
       <TabPane tab="Vietnam" key={FOURTH_TAB}>

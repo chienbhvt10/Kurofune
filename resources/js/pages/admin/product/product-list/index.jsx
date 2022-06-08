@@ -28,7 +28,7 @@ const ProductList = () => {
   }, []);
 
   React.useEffect(() => {
-    if (resDeleteProduct?.status_code === 200) {
+    if (resDeleteProduct?.error_code === "NO_ERROR") {
       getAllProducts({ page: 1 });
       NotificationSuccess(
         t("admins.product.notification"),
@@ -54,6 +54,7 @@ const ProductList = () => {
           { name: "Product List", routerLink: `${lang}/product-list` },
         ]}
         title="Product"
+        textSearch={t("admins.product.placeholder_seach")}
       />
       <ProductTable
         items={products}

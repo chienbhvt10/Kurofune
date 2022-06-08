@@ -34,7 +34,7 @@ const UpdateCategory = () => {
   }, [id]);
 
   React.useEffect(() => {
-    if (resUpdateCategory?.status_code === 200) {
+    if (resUpdateCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       navigate(`${lang}/admin/category-list`);
       NotificationSuccess("Thông báo", "Sửa category thành công");
