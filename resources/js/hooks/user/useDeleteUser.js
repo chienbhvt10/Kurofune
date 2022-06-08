@@ -13,11 +13,13 @@ import useUsers from "./useUsers";
 
 const useDeleteUser = () => {
   const { resDeleteUser } = useSelector((state) => state.userState);
+  const [loadingDeleteUser, setLoadingDeleteUser] = React.useState(false);
   const dispatch = useDispatch();
   const { getAllUsers, pagination } = useUsers();
   const { t } = useTranslation();
 
   const deleteUser = (payload) => {
+    setLoadingDeleteUser(true);
     dispatch(deleteUserAction(payload));
   };
 
@@ -28,9 +30,11 @@ const useDeleteUser = () => {
         t("notification"),
         t("admins.crud.user.delete_success")
       );
+      setLoadingDeleteUser(false);
       dispatch(resetResCRUDAction());
     }
     if (resDeleteUser && resDeleteUser.status_code !== 200) {
+      setLoadingDeleteUser(false);
       NotificationError(t("notification"), t("admins.crud.user.delete_fail"));
     }
   }, [resDeleteUser]);
@@ -38,6 +42,8 @@ const useDeleteUser = () => {
   return {
     resDeleteUser,
     deleteUser,
+    loadingDeleteUser,
+    setLoadingDeleteUser,
   };
 };
 

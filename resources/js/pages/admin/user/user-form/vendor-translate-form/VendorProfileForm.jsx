@@ -16,7 +16,6 @@ const VendorProfileForm = ({
   formTL,
   formVI,
   formZH,
-  formUpload,
   className,
   onChangeImageOutside,
   onChangeImageInside,
@@ -26,42 +25,40 @@ const VendorProfileForm = ({
   const { t } = useTranslation();
   return (
     <div className={`vendor-profile-form ${className}`}>
-      <Form form={formUpload}>
-        <Row justify="center" className="control-image">
-          <Col span={12}>
-            <Row justify="center">
-              <Col span={24}>
-                <Typography.Title level={5} style={{ textAlign: "center" }}>
-                  {t("admins.user.form.vendor_profile.field_image_inside")}
-                </Typography.Title>
-              </Col>
-              <Col span={24}>
+      <Row justify="center" className="control-image">
+        <Col span={12}>
+          <Row justify="center">
+            <Col span={24}>
+              <Typography.Title level={5} style={{ textAlign: "center" }}>
+                {t("admins.user.form.vendor_profile.field_image_inside")}
+              </Typography.Title>
+            </Col>
+            <Col span={24}>
+              <UploadList
+                onChangeFileList={onChangeImageInside}
+                fileListUrlProps={insideImageUrl}
+              />
+            </Col>
+          </Row>
+        </Col>
+        <Col span={12}>
+          <Row justify="center">
+            <Col span={24}>
+              <Typography.Title level={5} style={{ textAlign: "center" }}>
+                {t("admins.user.form.vendor_profile.field_image_outside")}
+              </Typography.Title>
+            </Col>
+            <Col span={24}>
+              <Row justify="center">
                 <UploadList
-                  onChangeFileList={onChangeImageInside}
-                  fileListUrlProps={insideImageUrl}
+                  onChangeFileList={onChangeImageOutside}
+                  fileListUrlProps={outSideImageUrl}
                 />
-              </Col>
-            </Row>
-          </Col>
-          <Col span={12}>
-            <Row justify="center">
-              <Col span={24}>
-                <Typography.Title level={5} style={{ textAlign: "center" }}>
-                  {t("admins.user.form.vendor_profile.field_image_outside")}
-                </Typography.Title>
-              </Col>
-              <Col span={24}>
-                <Row justify="center">
-                  <UploadList
-                    onChangeFileList={onChangeImageOutside}
-                    fileListUrlProps={outSideImageUrl}
-                  />
-                </Row>
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-      </Form>
+              </Row>
+            </Col>
+          </Row>
+        </Col>
+      </Row>
       <Tabs defaultActiveKey="1" className="switch-tab-form">
         <Tabs.TabPane tab="English" key="1">
           <SubFormUserTranslate lang={LANG_ENGLISH} form={formEN} />
