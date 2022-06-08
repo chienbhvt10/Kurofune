@@ -88,10 +88,14 @@ trait RespondsStatusTrait
     protected function errorUniqueSlug(): \Illuminate\Http\JsonResponse
     {
         return response()->json([
-            'status_code' => Response::HTTP_UNPROCESSABLE_ENTITY,
-            'message' => [
+            'status_code' => 200,
+            'message' => '',
+            'error_code' => 'ERROR',
+            'error_message' => '',
+            'error_data' => [
                 'slug' => [__('message.slug.unique')]
             ],
+            'data' => '',
         ], Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 }
