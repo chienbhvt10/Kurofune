@@ -7,6 +7,7 @@ import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategori
 import useDeleteAdminCategory from "../../../../hooks/categoryAdmin/useDeleteAdminCategory.js";
 import "./category.scss";
 import CategoryTable from "./CategoryTable";
+import { useTranslation } from "react-i18next";
 
 const CategoryList = () => {
   // const lang = localStorage.getItem("lang");
@@ -15,6 +16,7 @@ const CategoryList = () => {
   const navigate = useNavigate();
 
   const lang = getCurrentLanguage();
+  const { t } = useTranslation();
 
   const onDelete = (row) => () => {
     deleteAdminCategory(row.id);
@@ -31,7 +33,7 @@ const CategoryList = () => {
   }, [adminCategories]);
 
   React.useEffect(() => {
-    if (resDeleteCategory?.status_code === 200) {
+    if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess("Thông báo", "Xoá Category Thành Công!");
     }
@@ -47,6 +49,7 @@ const CategoryList = () => {
           { name: "Category List", routerLink: "/category-list" },
         ]}
         title="Product Category"
+        textSearch={t("admins.category.placeholder_seach")}
       />
       <CategoryTable
         items={adminCategories}

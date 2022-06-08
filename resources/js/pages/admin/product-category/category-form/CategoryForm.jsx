@@ -1,15 +1,18 @@
-import { Col, Form, Input, InputNumber, Row, Upload, Button } from "antd";
+import { Col, Form, Input, Select, Row } from "antd";
 import React from "react";
 import FormHeader from "../../../../commons/FormHeader";
 import InputField from "./../../../../commons/Form/InputField";
+import SelectField from "../../../../commons/Form/SelectField";
 import "./category-form.scss";
 import TranslateCategoryForm from "./TranslateCategoryForm";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger.jsx";
+import { CATEGORY_OPTIONS } from "../../../../commons/data";
 import {
   getCategoryInitValues,
   getTranslateCategoryInitValues,
   getCategoryFormLayout,
 } from "./categoryInitValues.js";
+import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 const CategoryForm = ({
   item,
@@ -24,6 +27,8 @@ const CategoryForm = ({
     base64Avatar: undefined,
     loading: false,
   });
+
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const [errorMessImage, setErrorMessImage] = React.useState("");
   const formItemLayout = getCategoryFormLayout();
@@ -125,32 +130,44 @@ const CategoryForm = ({
             <Col span={24} className="input-field-space">
               <InputField
                 field="slug"
-                label="Slug"
-                rules={[]}
+                label={t("admins.category.slug_field")}
+                // rules={[]}
                 response={response}
                 error="slug"
+                placeholder={t("admins.category.placeholder_text")}
                 type={<Input />}
               />
             </Col>
             <Col span={24} className="input-field-space">
-              <InputField
+              <SelectField
                 field="type"
-                label="Type"
+                label={t("admins.category.type_field")}
                 validateStatus={"Please enter your Type"}
                 rules={[
                   {
                     required: true,
-                    message: "Type ",
+                    message: t("admins.category.placeholder_text"),
                   },
                 ]}
                 type={<Input type="number" className="input-field" />}
                 response={response}
                 errorField="type"
-              />
+              >
+                {CATEGORY_OPTIONS.CATEGORY_TYPES.map((option, index) => (
+                  <Select.Option key={index} value={option.value}>
+                    {option.label}
+                  </Select.Option>
+                ))}
+              </SelectField>
             </Col>
 
-            <Col span={12} className="input-field-space">
-              <Form.Item field=" product_image" label="Product Image">
+            <Col span={24} className="input-field-space">
+              <Form.Item
+                field=" product_image"
+                className="required"
+                label={t("admins.category.product_image_field")}
+                required={true}
+              >
                 <UploadDragger
                   onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarState.avatarUrl}
@@ -158,7 +175,7 @@ const CategoryForm = ({
                   mode="multiple"
                 />
                 {errorMessImage && (
-                  <span style={{ color: "red", marginLeft: "80px" }}>
+                  <span style={{ color: "red" }}>
                     {/* {t("admins.category.error_message.error_category_image")} */}
                     "This field is required"
                   </span>

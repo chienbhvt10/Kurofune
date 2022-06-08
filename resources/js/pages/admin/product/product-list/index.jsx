@@ -54,6 +54,7 @@ const ProductList = () => {
           { name: "Product List", routerLink: `${lang}/product-list` },
         ]}
         title="Product"
+        textSearch={t("admins.product.placeholder_seach")}
       />
       <ProductTable
         items={products}

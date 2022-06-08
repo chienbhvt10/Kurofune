@@ -13,6 +13,7 @@ export const TableHeader = ({
   addLink,
   onSearch,
   searchField,
+  textSearch,
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -48,10 +49,7 @@ export const TableHeader = ({
               <Row align="middle">
                 <Col>
                   <Form.Item name={searchField} className="search-field">
-                    <Input
-                      type="text"
-                      placeholder={t("admins.user.form.placeholder.search")}
-                    />
+                    <Input type="text" placeholder={textSearch} />
                   </Form.Item>
                 </Col>
                 <Col>

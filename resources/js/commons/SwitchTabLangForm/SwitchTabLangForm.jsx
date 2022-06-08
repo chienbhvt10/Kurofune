@@ -35,7 +35,7 @@ const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
             }`}
             onClick={() => onChangeLanguageForm(THIRD_TAB)}
           >
-            Thailand
+            Tagalog
           </label>
           <label
             className={`switch-label ${

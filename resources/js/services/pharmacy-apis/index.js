@@ -10,4 +10,8 @@ export const pharmacyApi = {
     const url = ROOT_URL + `detail-pharmacy/${data}`;
     return await axiosClient.get(url);
   },
+  pharmaciesAdmin: async () => {
+    const url = ROOT_URL + "users?role=vendor";
+    return await axiosClient.get(url);
+  },
 };

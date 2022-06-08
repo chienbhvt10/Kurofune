@@ -916,3 +916,11 @@ export const PRODUCT_OPTION = {
     { value: 16, label: "other" },
   ],
 };
+
+export const CATEGORY_OPTIONS = {
+  CATEGORY_TYPES: [
+    { value: 1, label: "第1類医薬品" },
+    { value: 2, label: "指定第2類医薬品" },
+    { value: 3, label: "第2類医薬品" },
+  ],
+};

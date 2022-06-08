@@ -436,6 +436,7 @@
     },
     "product": {
       "slug_field": "Slug",
+      "vendor_field": "Vendor",
       "sku_field": "Sku",
       "status_field": "Status",
       "stock_status_field": "Stock Status",
@@ -446,6 +447,7 @@
       "meta_description_field": "Meta Description",
       "meta_keyword": "Meta Keyword",
       "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
 
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
@@ -462,6 +464,14 @@
       "error_message": {
         "required_message": "这是必填栏。"
       }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "姓名",
+      "type_field": "Type",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category"
     }
   }
 }
