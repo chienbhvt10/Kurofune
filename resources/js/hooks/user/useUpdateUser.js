@@ -39,8 +39,8 @@ const useCreateUser = () => {
       dispatch(resetResCRUDAction());
     }
     if (resUpdateUser && resUpdateUser.status_code !== 200) {
-      NotificationError(t("notification"), t("admins.crud.user.update_fail"));
       setLoadingUpdateUser(false);
+      NotificationError(t("notification"), t("admins.crud.user.update_fail"));
     }
   }, [resUpdateUser]);
 
