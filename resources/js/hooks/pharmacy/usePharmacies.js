@@ -1,5 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getPharmaciesAction } from "../../redux/actions/pharmacyAction";
+import {
+  getPharmaciesAction,
+  getPharmaciesAdminAction,
+} from "../../redux/actions/pharmacyAction";
 
 const usePharmacies = () => {
   const pharmacyState = useSelector((state) => state.pharmacyState);
@@ -8,10 +11,15 @@ const usePharmacies = () => {
   const getAllPharmacies = () => {
     dispatch(getPharmaciesAction());
   };
+  const getAllPharmaciesAdmin = () => {
+    dispatch(getPharmaciesAdminAction());
+  };
 
   return {
     pharmacies: pharmacyState.pharmacies,
+    pharmaciesAdmin: pharmacyState.pharmaciesAdmin,
     getAllPharmacies,
+    getAllPharmaciesAdmin,
   };
 };
 

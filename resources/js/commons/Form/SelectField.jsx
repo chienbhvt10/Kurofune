@@ -14,6 +14,7 @@ const SelectField = ({
   mode,
   disabled,
   className,
+  children,
   dependId,
   children,
 }) => {
