@@ -222,7 +222,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.price_field")}
                 rules={[]}
                 response={response}
-                type={<Input type="number" className="input-field" />}
+                error="price"
+                type={<Input className="input-field" />}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -241,7 +242,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 errorField="cat_id"
               >
                 {categoriesClient?.map((category, index) => (
-                  <Select.Option key={index} value={category.user_id}>
+                  <Select.Option key={index} value={category.id}>
                     {category.name}
                   </Select.Option>
                 ))}

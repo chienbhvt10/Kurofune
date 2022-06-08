@@ -14,6 +14,8 @@ import {
 } from "./categoryInitValues.js";
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
+import { useSelector } from "react-redux";
+import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 const CategoryForm = ({
   item,
   typeForm,
@@ -40,6 +42,8 @@ const CategoryForm = ({
   const [categoryProfileFormTL] = Form.useForm();
   const [categoryProfileFormVI] = Form.useForm();
   const [categoryProfileFormZH] = Form.useForm();
+
+  const { getAdminCategories, adminCategories } = useAdminCategories();
 
   const onFinishAll = (values) => {
     const submitInput = {
@@ -92,13 +96,32 @@ const CategoryForm = ({
     }
   }, [item]);
 
+  React.useEffect(() => {
+    const image = document.querySelector(".image");
+    image.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+
+    return image.removeEventListener("click", () => {
+      return false;
+    });
+  }, []);
+
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
     setErrorMessImage("");
   };
+
   React.useEffect(() => {
     setAvatarState({ avatarUrl: item?.category_image || "" });
   }, [item]);
+
+  React.useEffect(() => {
+    if (!adminCategories) {
+      getAdminCategories();
+    }
+  }, [adminCategories]);
+
   return (
     <div id="category-form">
       <Form
@@ -152,10 +175,22 @@ const CategoryForm = ({
                 type={<Input type="number" className="input-field" />}
                 response={response}
                 errorField="type"
+                options={CATEGORY_OPTIONS.CATEGORY_TYPES}
+              />
+            </Col>
+
+            <Col span={24} className="input-field-space">
+              <SelectField
+                field="type"
+                label="papa catagory"
+                validateStatus={"Please enter your parent catogory"}
+                type={<Input type="number" className="input-field" />}
+                response={response}
+                errorField="type"
               >
-                {CATEGORY_OPTIONS.CATEGORY_TYPES.map((option, index) => (
-                  <Select.Option key={index} value={option.value}>
-                    {option.label}
+                {adminCategories?.map((option, index) => (
+                  <Select.Option key={index} value={option.name}>
+                    {option.name}
                   </Select.Option>
                 ))}
               </SelectField>

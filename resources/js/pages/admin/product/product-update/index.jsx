@@ -38,7 +38,7 @@ const UpdateProduct = () => {
   }, [id]);
 
   React.useEffect(() => {
-    if (resUpdateProduct?.status_code === 200) {
+    if (resUpdateProduct?.error_code === "NO_ERROR") {
       navigate(`${lang}/admin/product-list`);
       NotificationSuccess(
         t("admins.product.notification"),

@@ -471,7 +471,12 @@
       "type_field": "Type",
       "product_image_field": "Product Image",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category"
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "Unang-class na OTC na gamot",
+        "option2": "Tukuyin ang Second-class na mga OTC na gamot",
+        "option3": "Pangalawang klase ng mga OTC na gamot"
+      }
     }
   }
 }

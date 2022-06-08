@@ -10,6 +10,7 @@ const ProductTable = ({
   onTableChange,
 }) => {
   const lang = localStorage.getItem("lang");
+  console.log(items);
   const columns = [
     {
       key: "image",
@@ -41,6 +42,13 @@ const ProductTable = ({
       key: "categories",
       dataIndex: "categories",
       title: "Categories",
+      render: (_, record) => (
+        <div>
+          <span>Published: </span>
+          <br />
+          {record.cat_id}
+        </div>
+      ),
     },
     {
       key: "date",

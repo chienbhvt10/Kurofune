@@ -3,7 +3,7 @@ export const getProductInfoInitValues = (item) => {
     slug: item?.slug || "",
     sku: item?.sku || "",
     stock_status: item?.stock_status || "",
-    price: item?.price || 0,
+    price: item?.price || undefined,
     status: item?.status || undefined,
     product_image: item?.product_image || "",
     tax_id: item?.tax_id || 1,
@@ -11,7 +11,7 @@ export const getProductInfoInitValues = (item) => {
     meta_description: item?.meta_description || "",
     meta_keywords: item?.meta_keywords || "",
     user_id: item?.user_id || undefined,
-    cat_id: item?.cat_id || [],
+    cat_id: item?.cat_arr || undefined,
   };
 };
 

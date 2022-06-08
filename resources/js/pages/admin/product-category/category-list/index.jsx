@@ -11,8 +11,10 @@ import { useTranslation } from "react-i18next";
 
 const CategoryList = () => {
   // const lang = localStorage.getItem("lang");
-  const { getAdminCategories, adminCategories } = useAdminCategories();
-  const { deleteAdminCategory, resDeleteCategory } = useDeleteAdminCategory();
+  const { getAdminCategories, adminCategories, pagination } =
+    useAdminCategories();
+  const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
+    useDeleteAdminCategory();
   const navigate = useNavigate();
 
   const lang = getCurrentLanguage();
@@ -24,6 +26,12 @@ const CategoryList = () => {
 
   const onEdit = (row) => () => {
     navigate(`${lang}/admin/category/update/${row.id}`);
+  };
+
+  const onTableChange = (paginationTable, filters, sorter) => {
+    const current = paginationTable.current || 1;
+    const per_page = paginationTable.pageSize || 10;
+    getAllUsers({ page: current, per_page: per_page });
   };
 
   React.useEffect(() => {
@@ -40,6 +48,10 @@ const CategoryList = () => {
     return () => {};
   }, [resDeleteCategory]);
 
+  React.useEffect(() => {
+    getAdminCategories();
+  }, [resCreateCategory]);
+
   return (
     <div className="category-container">
       <TableHeader
@@ -55,6 +67,8 @@ const CategoryList = () => {
         items={adminCategories}
         onDelete={onDelete}
         onEdit={onEdit}
+        onTableChange={onTableChange}
+        pagination={pagination}
       />
     </div>
   );
