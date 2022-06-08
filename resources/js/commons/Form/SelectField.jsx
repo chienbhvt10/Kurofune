@@ -16,7 +16,6 @@ const SelectField = ({
   className,
   children,
   dependId,
-  children,
 }) => {
   const { t } = useTranslation();
   const getDepend = () =>
