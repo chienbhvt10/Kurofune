@@ -105,15 +105,16 @@ class VendorProfileController extends Controller
         ]);
         if ($validator->fails()) {
             $errors = $validator->errors();
-            return $this->errorResponse($errors, 422);
+            return $this->response_validate($errors);
         }
         $name = Product::whereHas('product_translations',function($query) use ($search,$lang){
             return $query->where('name', 'LIKE','%'.$search.'%')->where('locale', '=', $lang);
         })
         ->paginate($posts_per_page);
         if ($name->isEmpty()) {
-            return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
+            return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
         }
-        return $this->responseData($name);
+        return $this->response_data_success($name);
     }
+
 }
