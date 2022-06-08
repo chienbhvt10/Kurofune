@@ -1,4 +1,4 @@
-import { PlusOutlined, UploadOutlined } from "@ant-design/icons";
+import { UploadOutlined } from "@ant-design/icons";
 import { Button, Col, message, Modal, Row, Upload } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -46,15 +46,17 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
   };
 
   React.useEffect(() => {
+    const newArr = fileList?.map((file) =>
+      URL.createObjectURL(file.originFileObj)
+    );
     if (!fileListUrlProps) {
-      setFileListUrl(
-        fileList?.map((file) => URL.createObjectURL(file.originFileObj))
-      );
+      setFileListUrl(newArr);
     } else {
-      setFileListUrl(fileListUrlProps);
+      setFileListUrl(
+        newArr ? fileListUrlProps?.concat(newArr) : fileListUrlProps
+      );
     }
   }, [fileList, fileListUrlProps]);
-
   return (
     <Row justify="center" className="upload-list">
       <Col span={24}>

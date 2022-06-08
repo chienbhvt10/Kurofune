@@ -15,7 +15,7 @@ export const UserList = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const { getAllUsers, users, pagination, loadingListUser } = useUsers();
-  const { deleteUser } = useDeleteUser();
+  const { deleteUser, loadingDeleteUser } = useDeleteUser();
   const { roles } = useRoles();
 
   const navigate = useNavigate();
@@ -76,6 +76,7 @@ export const UserList = () => {
         onDelete={onDelete}
         onEdit={onEdit}
         onTableChange={onTableChange}
+        loadingDeleteUser={loadingDeleteUser}
       />
     </div>
   );

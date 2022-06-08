@@ -12,6 +12,7 @@ export const UserTable = ({
   pagination,
   onTableChange,
   loading,
+  loadingDeleteUser,
 }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -76,7 +77,12 @@ export const UserTable = ({
         width: 100,
       },
       render: (cell, row) => (
-        <TableRowAction record={row} onDelete={onDelete} onEdit={onEdit} />
+        <TableRowAction
+          confirmLoading={loadingDeleteUser}
+          record={row}
+          onDelete={onDelete}
+          onEdit={onEdit}
+        />
       ),
     },
   ];
