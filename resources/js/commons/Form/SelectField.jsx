@@ -17,7 +17,8 @@ const SelectField = ({
   dependId,
 }) => {
   const { t } = useTranslation();
-  const getDepend = () => document.querySelector(`#${dependId}-select`);
+  const getDepend = () =>
+    document.querySelector(`#${dependId || field}-select`);
   return (
     <div id={`${dependId || field}-select`} style={{ position: "relative" }}>
       <Form.Item

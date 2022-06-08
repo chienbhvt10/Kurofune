@@ -5,29 +5,15 @@ import { userFormOptions } from "../../../../commons/data";
 import InputField from "../../../../commons/Form/InputField";
 import SelectField from "../../../../commons/Form/SelectField";
 import FormHeader from "../../../../commons/FormHeader";
-import { formatDate, generatePassword } from "../../../../commons/string.js";
+import { generatePassword } from "../../../../commons/string.js";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger";
-import {
-  ROLE_FULL_SUPPORT_PLAN,
-  ROLE_LIGHT_PLAN,
-  ROLE_VENDOR,
-  TYPE_FORM_CREATE,
-  TYPE_FORM_UPDATE,
-} from "../../../../constants";
+import { TYPE_FORM_CREATE, TYPE_FORM_UPDATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
 import useRoles from "../../../../hooks/role/useRoles";
+import useHandleForm from "../hooks/useHandleForm";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
-import {
-  getBillingAddressInitValues,
-  getCommonAddressInitValues,
-  getPlanInitValues,
-  getShippingAddressInitValues,
-  getTranslateInitValues,
-  getUserInfoInitValues,
-  getVendorUploadInitValues,
-} from "./userFormInitValues";
 export const UserForm = ({
   item,
   typeForm,
@@ -38,120 +24,31 @@ export const UserForm = ({
   loading,
 }) => {
   const { t } = useTranslation();
-  const { roles, getAllRoles } = useRoles();
+  const { roles } = useRoles();
   const [role, setRole] = React.useState();
   const [avatarUrl, setAvatarUrl] = React.useState();
-  const [base64Avatar, setBase64Avatar] = React.useState();
   const [insideImageUrl, setInsideImageUrl] = React.useState();
   const [outSideImageUrl, setOutSideImageUrl] = React.useState();
-  const [listBase64ImageInSide, setListBase64ImageInSide] = React.useState();
-  const [listBase64ImageOutSide, setListBase64ImageOutSide] = React.useState();
+
+  const {
+    billingAddressForm,
+    commonAddressForm,
+    onFinishAll,
+    onChangeAvatar,
+    onChangeImageInside,
+    onChangeImageOutside,
+    shippingAddressForm,
+    userInfoForm,
+    vendorProfileFormEN,
+    vendorProfileFormJP,
+    vendorProfileFormTL,
+    vendorProfileFormVI,
+    vendorProfileFormZH,
+    userInfoInitValues,
+    planProfileForm,
+  } = useHandleForm(item, onSave);
 
   const lang = getCurrentLanguage();
-  const [userInfoForm] = Form.useForm();
-  const [planProfileForm] = Form.useForm();
-  const [vendorUploadForm] = Form.useForm();
-  const [vendorProfileFormEN] = Form.useForm();
-  const [vendorProfileFormJP] = Form.useForm();
-  const [vendorProfileFormTL] = Form.useForm();
-  const [vendorProfileFormVI] = Form.useForm();
-  const [vendorProfileFormZH] = Form.useForm();
-  const [commonAddressForm] = Form.useForm();
-  const [billingAddressForm] = Form.useForm();
-  const [shippingAddressForm] = Form.useForm();
-
-  const userInfoInitValues = getUserInfoInitValues(item);
-  const planInitValues = getPlanInitValues(item);
-  const translateInitValues = getTranslateInitValues();
-  const commonAddressInitValues = getCommonAddressInitValues(item);
-  const billingAddressInitValues = getBillingAddressInitValues(item);
-  const shippingAddressInitValues = getShippingAddressInitValues(item);
-  const vendorUploadInitValues = getVendorUploadInitValues(item);
-
-  const onFinishAll = () => {
-    let submitValues = {
-      id: userInfoInitValues.id,
-      avatar: base64Avatar,
-      images_inside: listBase64ImageInSide,
-      images_outside: listBase64ImageOutSide,
-      ...userInfoForm.getFieldsValue(),
-      ...commonAddressForm.getFieldsValue(),
-      billing_address: {
-        ...billingAddressForm.getFieldsValue(),
-      },
-      shipping_address: {
-        ...shippingAddressForm.getFieldsValue(),
-      },
-    };
-    if (!userInfoForm.getFieldValue("password")) {
-      delete submitValues.password;
-    }
-    if (userInfoForm.getFieldValue("role") === ROLE_VENDOR) {
-      submitValues = {
-        ...submitValues,
-        ja: {
-          ...vendorProfileFormJP.getFieldsValue(),
-        },
-        en: {
-          ...vendorProfileFormEN.getFieldsValue(),
-        },
-        zh: {
-          ...vendorProfileFormZH.getFieldsValue(),
-        },
-        tl: {
-          ...vendorProfileFormTL.getFieldsValue(),
-        },
-        vi: {
-          ...vendorProfileFormVI.getFieldsValue(),
-        },
-      };
-    }
-    if (
-      userInfoForm.getFieldValue("role") === ROLE_LIGHT_PLAN ||
-      userInfoForm.getFieldValue("role") === ROLE_FULL_SUPPORT_PLAN
-    ) {
-      submitValues = {
-        ...submitValues,
-        ...planProfileForm.getFieldsValue(),
-        dob: planProfileForm.getFieldValue("dob")
-          ? formatDate(planProfileForm.getFieldValue("dob"))
-          : "",
-        start_date_education: planProfileForm.getFieldValue(
-          "start_date_education"
-        )
-          ? formatDate(planProfileForm.getFieldValue("start_date_education"))
-          : "",
-        end_date_education: planProfileForm.getFieldValue("end_date_education")
-          ? formatDate(planProfileForm.getFieldValue("end_date_education"))
-          : "",
-      };
-    }
-    onSave(submitValues);
-  };
-
-  React.useEffect(() => {
-    userInfoForm.setFieldsValue(userInfoInitValues);
-    planProfileForm.setFieldsValue(planInitValues);
-    billingAddressForm.setFieldsValue(billingAddressInitValues);
-    shippingAddressForm.setFieldsValue(shippingAddressInitValues);
-    commonAddressForm.setFieldsValue(commonAddressInitValues);
-    vendorUploadForm.setFieldsValue(vendorUploadInitValues);
-    vendorProfileFormEN.setFieldsValue(
-      item?.vendor_profile?.vendor_translations[0] || translateInitValues
-    );
-    vendorProfileFormJP.setFieldsValue(
-      item?.vendor_profile?.vendor_translations[1] || translateInitValues
-    );
-    vendorProfileFormTL.setFieldsValue(
-      item?.vendor_profile?.vendor_translations[2] || translateInitValues
-    );
-    vendorProfileFormVI.setFieldsValue(
-      item?.vendor_profile?.vendor_translations[3] || translateInitValues
-    );
-    vendorProfileFormZH.setFieldsValue(
-      item?.vendor_profile?.vendor_translations[4] || translateInitValues
-    );
-  }, [item]);
 
   React.useEffect(() => {
     setRole(userInfoForm.getFieldValue("role"));
@@ -164,18 +61,6 @@ export const UserForm = ({
 
   const onChangeRole = (values) => {
     setRole(values);
-  };
-
-  const onChangeAvatar = (base64Image) => {
-    setBase64Avatar(base64Image);
-  };
-
-  const onChangeImageOutside = (listBase64Image) => {
-    setListBase64ImageOutSide(listBase64Image);
-  };
-
-  const onChangeImageInside = (listBase64Image) => {
-    setListBase64ImageInSide(listBase64Image);
   };
 
   React.useEffect(() => {
@@ -354,7 +239,6 @@ export const UserForm = ({
         <Phase2UserForm
           role={role}
           typeForm={typeForm}
-          formUpload={vendorUploadForm}
           vendorProfileFormJP={vendorProfileFormJP}
           vendorProfileFormEN={vendorProfileFormEN}
           vendorProfileFormTL={vendorProfileFormTL}
