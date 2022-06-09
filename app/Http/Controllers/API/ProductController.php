@@ -422,7 +422,6 @@ class ProductController extends Controller
                 return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
         } catch (\Exception $error) {
-            dd($error->getMessage());
             return $this->response_exception();
         }
     }
