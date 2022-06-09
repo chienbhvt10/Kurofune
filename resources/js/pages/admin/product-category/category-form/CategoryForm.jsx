@@ -14,7 +14,6 @@ import {
 } from "./categoryInitValues.js";
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
-import { useSelector } from "react-redux";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 const CategoryForm = ({
   item,
@@ -65,7 +64,7 @@ const CategoryForm = ({
       },
       category_image: avatarState.base64Avatar,
     };
-
+    setErrorMessImage(!avatarState.base64Avatar);
     onSave(submitInput);
   };
 
@@ -122,6 +121,10 @@ const CategoryForm = ({
     }
   }, [adminCategories]);
 
+  React.useEffect(() => {
+    getAdminCategories();
+  }, [lang]);
+
   return (
     <div id="category-form">
       <Form
@@ -149,54 +152,17 @@ const CategoryForm = ({
         />
 
         <div>
-          <Row>
-            <Col span={24} className="input-field-space">
-              <InputField
-                field="slug"
-                label={t("admins.category.slug_field")}
-                // rules={[]}
-                response={response}
-                error="slug"
-                placeholder={t("admins.category.placeholder_text")}
-                type={<Input />}
-              />
-            </Col>
-            <Col span={24} className="input-field-space">
-              <SelectField
-                field="type"
-                label={t("admins.category.type_field")}
-                validateStatus={"Please enter your Type"}
-                rules={[
-                  {
-                    required: true,
-                    message: t("admins.category.placeholder_text"),
-                  },
-                ]}
-                type={<Input type="number" className="input-field" />}
-                response={response}
-                errorField="type"
-                options={CATEGORY_OPTIONS.CATEGORY_TYPES}
-              />
-            </Col>
+          <TranslateCategoryForm
+            formEN={categoryProfileFormEN}
+            formJP={categoryProfileFormJP}
+            formTL={categoryProfileFormTL}
+            formVI={categoryProfileFormVI}
+            formZH={categoryProfileFormZH}
+            response={response}
+          />
 
-            <Col span={24} className="input-field-space">
-              <SelectField
-                field="type"
-                label="papa catagory"
-                validateStatus={"Please enter your parent catogory"}
-                type={<Input type="number" className="input-field" />}
-                response={response}
-                errorField="type"
-              >
-                {adminCategories?.map((option, index) => (
-                  <Select.Option key={index} value={option.name}>
-                    {option.name}
-                  </Select.Option>
-                ))}
-              </SelectField>
-            </Col>
-
-            <Col span={24} className="input-field-space">
+          <Row className="mb-30">
+            <Col span={12} className="input-field-space">
               <Form.Item
                 field=" product_image"
                 className="required"
@@ -208,26 +174,65 @@ const CategoryForm = ({
                   imageUrlProps={avatarState.avatarUrl}
                   loading={avatarState.loading}
                   mode="multiple"
+                  className="form-image-custom"
                 />
                 {errorMessImage && (
                   <span style={{ color: "red" }}>
-                    {/* {t("admins.category.error_message.error_category_image")} */}
-                    "This field is required"
+                    {t("admins.category.error_message.error_category_image")}
                   </span>
                 )}
               </Form.Item>
             </Col>
+
+            <Col span={12} className="mb-30">
+              <Col span={24} className="input-field-space">
+                <InputField
+                  field="slug"
+                  label={t("admins.category.slug_field")}
+                  // rules={[]}
+                  response={response}
+                  error="slug"
+                  placeholder={t("admins.category.placeholder_text")}
+                  type={<Input />}
+                />
+              </Col>
+              <Col span={24} className="input-field-space">
+                <SelectField
+                  field="type"
+                  label={t("admins.category.type_field")}
+                  validateStatus={"Please enter your Type"}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("admins.category.placeholder_text"),
+                    },
+                  ]}
+                  type={<Input type="number" className="input-field" />}
+                  response={response}
+                  errorField="type"
+                  options={CATEGORY_OPTIONS.CATEGORY_TYPES}
+                />
+              </Col>
+
+              <Col span={24} className="input-field-space">
+                <SelectField
+                  field="parent_id"
+                  label={t("admins.category.parent_category_field")}
+                  // validateStatus={"Please enter your parent catogory"}
+                  response={response}
+                  errorField="parent_id"
+                >
+                  {adminCategories?.map((option, index) => (
+                    <Select.Option key={index} value={option.id}>
+                      {option.name || option.translations[0].name}
+                    </Select.Option>
+                  ))}
+                </SelectField>
+              </Col>
+            </Col>
           </Row>
         </div>
       </Form>
-      <TranslateCategoryForm
-        formEN={categoryProfileFormEN}
-        formJP={categoryProfileFormJP}
-        formTL={categoryProfileFormTL}
-        formVI={categoryProfileFormVI}
-        formZH={categoryProfileFormZH}
-        response={response}
-      />
     </div>
   );
 };

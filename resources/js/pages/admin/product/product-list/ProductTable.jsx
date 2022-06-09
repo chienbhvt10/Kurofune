@@ -10,7 +10,6 @@ const ProductTable = ({
   onTableChange,
 }) => {
   const lang = localStorage.getItem("lang");
-  console.log(items);
   const columns = [
     {
       key: "image",

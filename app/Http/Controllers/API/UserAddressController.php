@@ -35,7 +35,7 @@ class UserAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
+                return $this->response_validate($errors);
             }
 
             $dataUpdate = [
@@ -55,9 +55,9 @@ class UserAddressController extends Controller
             $dataUser->update($dataUserUpdate);
             $dataUser->address()->update($dataUpdate);
 
-            return $this->successWithData(__('message.address.updated'), $data->first(), 200);
+            return $this->response_message_data_success(__('message.address.updated'), $data->first());
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }
