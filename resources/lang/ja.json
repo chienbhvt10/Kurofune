@@ -805,7 +805,7 @@
   "Thyroid disease": "甲状腺疾患",
   "Prostate disease":"前立腺疾患",
   "Other (free description)": "その他（自由記述）",
-  "First-class OTC drugs":"第1類",
-  "Specify Second-class OTC drugs":"指定第2類",
-  "Second-class OTC drugs":"第2類"
+  "First-class OTC drugs":"第1類医薬品",
+  "Specify Second-class OTC drugs":"指定第2類医薬品",
+  "Second-class OTC drugs":"第2類医薬品"
 }
