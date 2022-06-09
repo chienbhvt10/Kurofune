@@ -1,87 +1,318 @@
-import { faPenToSquare, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
 import React from "react";
-import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
-import { Link } from "react-router-dom";
+import { debounce, pick, groupBy, unionBy } from "lodash";
+
+const EditableCell = ({
+  editing,
+  dataIndex,
+  title,
+  inputType,
+  record,
+  index,
+  children,
+  total,
+  key,
+  ...restProps
+}) => {
+
+  return (
+    <td {...restProps}>
+      {editing ? (
+        <Form.Item
+          shouldUpdate={(prevValues, currentValues) => {
+            {
+              return prevValues !== currentValues
+            }
+          }}
+        >
+          {({ getFieldValue, setFieldsValue }) => {
+            const handleChange = () => {
+              if (dataIndex === 'quantity' || dataIndex === 'cost') {
+                let quantity = Number(getFieldValue(`quantity-${record['key']}`));
+                let cost = Number(getFieldValue(`cost-${record['key']}`))
+                setFieldsValue({
+                  [`total-${record['key']}`]: quantity * cost
+                })
+              }
+            }
+            return (
+              <Form.Item
+                name={record ? `${dataIndex}-${record['key']}` : dataIndex}
+                shouldUpdate={(prevValues, currentValues) => { prevValues !== currentValues }}
+                style={{
+                  margin: 0,
+                }}
+                // rules={[
+                //   {
+                //     required: true,
+                //     message: `Please Input ${title}!`,
+                //   },
+                // ]}
+                initialValue={title === 'Total' ? total : record && record[dataIndex]}
+              >
+                {inputType === 'number' ? <InputNumber min={0} readOnly={title === 'Total' ? true : false} onChange={handleChange} /> : <Input onChange={handleChange} />}
+              </Form.Item>
+            )
+          }}
+        </Form.Item>
+      ) : (
+        children
+      )}
+    </td>
+  );
+};
 
 const CartInfoTable = ({ items }) => {
   const [activeRefund, setActiveRefund] = React.useState(false);
   const [activeToolSecond, setActiveToolSecond] = React.useState(false);
+  const originData = [];
+  for (let i = 0; i < 8; i++) {
+    originData.push({
+      key: i.toString(),
+      image: '',
+      nameProduct: `Product ${i.toString()} `,
+      cost: 15580,
+      quantity: 1,
+      VAT: 1558,
+    });
+  }
+  const [form] = Form.useForm();
+  const [data, setData] = React.useState(originData);
+  const [fee, setFee] = React.useState(0);
+  const [shipping, setShipping] = React.useState(0);
+  const [orderTotal, setOrderTotal] = React.useState(0);
+  
+  const [editingKey, setEditingKey] = React.useState('');
+  const [editAll, setEditAll] = React.useState(false);
 
+  const isEditing = (record) => record.key === editingKey;
+
+  const edit = (record) => {
+    form.setFieldsValue({
+      cost: 0,
+      quantity: 0,
+      nameProduct: '',
+      VAT: 0,
+      total: 0,
+      ...record,
+    });
+    setEditingKey(record.key);
+  };
+
+  const cancel = () => {
+    setEditingKey('');
+  };
+
+  const handleDelete = (key,) => {
+    const newData = data.filter((item) => item.key !== key);
+    setData(newData);
+  };
+  let reverseObectRecord = (object) => {
+    const newObject = Object.fromEntries(
+      Object.entries(object).map(([key, value]) =>
+        [`${key.split("-", 1)}`, value]
+      )
+    )
+    return newObject
+  }
+  const save = async (key) => {
+    try {
+      const row = await form.validateFields()
+      const newObject = reverseObectRecord(row)
+      const newData = [...data];
+      const index = newData.findIndex((item) => key === item.key);
+      if(newObject.total) {
+        if (index > -1) {
+          const item = newData[index];
+          newData.splice(index, 1, { ...item, ...newObject });
+          setData(newData);
+          setEditingKey('')
+        } else {
+          newData.push(row);
+          setData(newData);
+          setEditingKey('')
+        }
+      }else if (newObject.total<=0){
+        const newData = data.filter((item) => item.key !== key);
+        setData(newData);
+      }
+      
+    } catch (errInfo) {
+      console.log('Validate Failed:', errInfo);
+    }
+  };
+  const saveAll = (valueSaveAll) => {
+    try {
+      const newData = [...data];
+      let arrayResult = newData.map((item) => {
+        let objectpick = pick(valueSaveAll, [`VAT-${item.key}`, `cost-${item.key}`, `quantity-${item.key}`])
+        let objectNewSave = reverseObectRecord(objectpick)
+
+        if(objectNewSave) {
+          console.log('objectNewSave',objectNewSave);
+        }
+        return { ...item, ...objectNewSave }
+      })
+      setData(arrayResult);
+      setEditingKey('')
+    } catch (errInfo) {
+      console.log('Validate Failed:', errInfo);
+    }
+  };
   const columns = [
     {
-      dataField: "product",
-      text: "Product",
+      title: 'Product',
+      width: '60%',
+      editable: false,
+      render: (_, record) => {
+        return (
+          <div style={{ display: 'flex' }}>
+            <div style={{ marginRight: 15 }}>
+              <img src="https://imge.com/wp-content/uploads/2019/02/imge-new.png" alt="Flowers in Chania" width="35" height="35" />
+            </div>
+            <div>
+              {record.nameProduct}
+            </div>
+          </div>
+        )
+      }
     },
     {
-      dataField: "cost",
-      text: "Cost",
-      formatter: (cell, row) => <span> {row.cost} (JPY)</span>,
+      title: 'Cost',
+      dataIndex: 'cost',
+      editable: true,
     },
     {
-      dataField: "quantity",
-      text: "Quantity",
+      title: 'Qty',
+      dataIndex: 'quantity',
+      editable: true,
+      render: (_, record) => {
+        return (
+          <span id={`quantity-${record.key}`}>{record.quantity}</span>
+        )
+      }
     },
     {
-      dataField: "total",
-      text: "Total",
-      formatter: (cell, row) => <span> {row.cost} (JPY)</span>,
+      title: 'Total',
+      dataIndex: 'total',
+      editable: true,
+      render: (_, record) => {
+        return (
+          <span>{record.quantity * record.cost}</span>
+        )
+      }
     },
-    { dataField: "vat", text: "VAT" },
     {
-      dataField: "action",
-      text: "",
-      style: {
-        textAlign: "center",
+      title: 'VAT',
+      dataIndex: 'VAT',
+      editable: true,
+    },
+    {
+      render: (_, record, _action) => {
+        const editable = isEditing(record);
+        return editable ? (
+          <span>
+            <Typography.Link
+              onClick={() => save(record.key)}
+              style={{
+                marginRight: 8,
+              }}
+            >
+              Save
+            </Typography.Link>
+            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
+              <a>Cancel</a>
+            </Popconfirm>
+          </span>
+        ) : (
+          <>
+            <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+              <a>Delete </a>
+            </Popconfirm>
+            <Typography.Link onClick={() => edit(record)}>
+              Edit
+            </Typography.Link>
+          </>
+        );
       },
-
-      formatter: (cell, row) => (
-        <>
-          <Link to="/">
-            <FontAwesomeIcon
-              icon={faPenToSquare}
-              style={{
-                width: 20,
-                color: "#62a19b",
-              }}
-            />
-          </Link>
-          <Link to="/">
-            <FontAwesomeIcon
-              icon={faXmark}
-              style={{
-                width: 20,
-                color: "#62a19b",
-              }}
-            />
-          </Link>
-        </>
-      ),
     },
   ];
-  const defaultSorted = [{ dataField: "name", order: "desc" }];
-
+  const mergedColumns = columns.map((col) => {
+    if (!col.editable) {
+      return col;
+    }
+    let arrayTypeNumber = ['quantity', 'VAT', 'cost', 'total']
+    if (editAll) {
+      return {
+        ...col,
+        onCell: (record) => ({
+          record,
+          inputType: arrayTypeNumber.includes(col.dataIndex) ? 'number' : 'text',
+          dataIndex: col.dataIndex,
+          title: col.title,
+          editing: true,
+          key: record.key,
+          total: (record.quantity * record.cost)
+        }),
+      };
+    }
+    return {
+      ...col,
+      onCell: (record) => ({
+        record,
+        inputType: arrayTypeNumber.includes(col.dataIndex) ? 'number' : 'text',
+        dataIndex: col.dataIndex,
+        title: col.title,
+        editing: isEditing(record),
+        key: record.key,
+        total: (record.quantity * record.cost)
+      }),
+    };
+  });
   const onToggleToolSecond = () => {
     setActiveToolSecond(!activeToolSecond);
   };
   const onToggleRefund = () => {
     setActiveRefund(!activeRefund);
+    if (editAll) {
+      form.submit();
+    }
+    setEditAll(!editAll);
   };
+  const totalMemo = React.useMemo(() => {
+    let total = data.reduce((total, item) => {
+      return total + (item.quantity * item.cost)
+    }, 0)
+    return total
+  }, [data]);
+
+  const maxValueVAT = React.useMemo(() => {
+    let array = data.map(item => {
+      return item.VAT
+    })
+    return Math.max(...array)
+  }, [data]);
   return (
     <>
       <div className="cart-product">
-        <BootstrapTable
-          keyField="id"
-          columns={columns}
-          data={items}
-          defaultSorted={defaultSorted}
-          //   selectRow={{ mode: "checkbox" }}
-          bootstrap4
-          bordered
-          hover
-          striped
-          tabIndexCell
-        />
+        <Form form={form} component={false}
+          onFinish={(value) => {
+            saveAll(value)
+          }}
+        >
+          <Table
+            components={{
+              body: {
+                cell: EditableCell,
+              },
+            }}
+            bordered
+            dataSource={data}
+            columns={mergedColumns}
+            rowClassName="editable-row"
+            pagination={false}
+          />
+        </Form>
       </div>
       <div className="cart-container">
         <div className={activeRefund ? "cart-total" : "cart-total active"}>
@@ -94,11 +325,11 @@ const CartInfoTable = ({ items }) => {
               <p>OrderTotal:</p>
             </div>
             <div className="cal-total">
-              <p>1,944 (JPY)</p>
-              <p>12 (JPY)</p>
-              <p>0 (JPY)</p>
-              <p>194 (JPY)</p>
-              <p>2,138 (JPY)</p>
+              <p>{totalMemo} (JPY)</p>
+              <p>{fee} (JPY)</p>
+              <p>{shipping} (JPY)</p>
+              <p>{maxValueVAT} (JPY)</p>
+              <p>{totalMemo+fee+shipping+maxValueVAT} (JPY)</p>
             </div>
           </div>
           <div className="tool-container">
@@ -123,11 +354,11 @@ const CartInfoTable = ({ items }) => {
                   Refund
                 </button>
               </div>
-              <div className="tool-right">
+              {/* <div className="tool-right">
                 <button className="recalculate-btn tool-btn" type="button">
                   Recalculate
                 </button>
-              </div>
+              </div> */}
             </div>
             <div
               className={
@@ -138,7 +369,7 @@ const CartInfoTable = ({ items }) => {
             >
               <div className="tool-left"></div>
               <div className="tool-right">
-                <button className="add-btn tool-btn" type="button">
+                <button className="add-btn tool-btn" type="button" onClick={() => { console.log('onClick') }}>
                   Add product(s)
                 </button>
                 <button className="add-btn tool-btn" type="button">
@@ -164,7 +395,7 @@ const CartInfoTable = ({ items }) => {
             </div>
           </div>
         </div>
-        <div
+        {/* <div
           className={
             activeRefund
               ? "cart-total-refund cart-total active"
@@ -206,7 +437,7 @@ const CartInfoTable = ({ items }) => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

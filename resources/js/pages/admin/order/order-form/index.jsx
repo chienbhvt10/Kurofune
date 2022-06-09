@@ -21,7 +21,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const initialGeneralValues = {
     date: moment(new Date(), 'YYYY-MM-DD') ,
     hours:0,
-    second:0,
+    minute:0,
     customer: 0,
     status: 0,
    
@@ -103,7 +103,6 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                   @ 
                   <InputField
                     field="hours"
-                    // rules={[{ required: true, message: 'Please input your username!' }]}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
                     style={{margin: 0}}
@@ -119,7 +118,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                   /> 
                   :
                   <InputField
-                    field="second"
+                    field="minute"
                     // rules={[{ required: true, message: 'Please input your username!' }]}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
