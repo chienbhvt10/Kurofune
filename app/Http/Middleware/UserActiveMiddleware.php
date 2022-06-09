@@ -2,12 +2,14 @@
 
 namespace App\Http\Middleware;
 
+use App\Traits\RespondsStatusTrait;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserActiveMiddleware
 {
+    use RespondsStatusTrait;
     /**
      * Handle an incoming request.
      *
@@ -20,7 +22,7 @@ class UserActiveMiddleware
         if(auth()->user()->active) {
             return $next($request);
         }else{
-            return response()->json(__('message.user.inactive'));
+            return $this->response_error(__('message.user.inactive'));
         }
     }
 }
