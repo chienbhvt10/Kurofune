@@ -31,7 +31,7 @@ class BillingAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
+                return $this->response_validate($errors);
             }
 
             $dataUpdate = [
@@ -47,9 +47,9 @@ class BillingAddressController extends Controller
 
             $user->billing_address->update($dataUpdate);
 
-            return $this->successWithData(__('message.billing.updated'), $data);
+            return $this->response_message_data_success(__('message.billing.updated'), $data);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception($error->getMessage());
         }
     }
 }
