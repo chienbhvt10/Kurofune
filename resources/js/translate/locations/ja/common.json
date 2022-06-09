@@ -527,8 +527,7 @@
 
       "error_message": {
         "required_message": "この項目は必須です。"
-      },
-      "notification": "通知"
+      }
     },
     "category": {
       "slug_field": "Slug",

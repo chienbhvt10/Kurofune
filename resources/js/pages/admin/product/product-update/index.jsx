@@ -40,10 +40,7 @@ const UpdateProduct = () => {
   React.useEffect(() => {
     if (resUpdateProduct?.error_code === "NO_ERROR") {
       navigate(`${lang}/admin/product-list`);
-      NotificationSuccess(
-        t("admins.product.notification"),
-        resUpdateProduct.message
-      );
+      NotificationSuccess(t("notification"), resUpdateProduct.message);
       getAllProducts();
     }
   }, [resUpdateProduct]);
