@@ -4,8 +4,8 @@ import { TableHeader } from "../../../commons/TableHeader";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Table, Button, Modal } from "antd";
-import useListChat from "../../../hooks/logChat/useListChat";
 import { HistoryChat } from "./history-chat";
+import useListChat from "../../../hooks/logChat/useListChat";
 import useDetailChat from "../../../hooks/logChat/useDetailChat";
 import useExportCsv from "../../../hooks/logChat/useExportCSV";
 import useExportCsvAll from "../../../hooks/logChat/useExportCSVAll";
@@ -14,6 +14,7 @@ const LogChatBot = () => {
   const [visible, setVisible] = useState(false);
   const [langChat, setLangChat] = useState();
   const [idChat, setIdChat] = useState();
+  const [contentCSV, setContentCSV] = useState();
   const { listChat, getListChat } = useListChat();
   const { detailChat, getDetailChat } = useDetailChat();
   const { csvUser, exportCsvUser } = useExportCsv();
@@ -108,93 +109,27 @@ const LogChatBot = () => {
       ),
     },
   ];
-  const exportHistoryChatBot = (data) => {
-    let content = `No.,ユーザーID,ユーザー名,チャット履歴,作成日,更新日
-    1,1,"wabisabi admin","[{date: '2022/05/04', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    2,1,"wabisabi admin","[{date: '2022/05/11', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    3,1,"wabisabi admin","[{date: '2022/05/11', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    4,1,"wabisabi admin","[{date: '2022/05/12', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    5,1,"wabisabi admin","[{date: '2022/05/13', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    6,1,"wabisabi admin","[{date: '2022/05/13', question: '言語を選択ください。'}
-    {date: '2022/05/13', answer: 'ベトナム語'}
-    {date: '2022/05/13', question: '①チャットボットを通じていただいた情報を基に最適なお薬を提供します。 対面で情報をいただく場合とお薬が変わることがあります。<br> ②薬剤師の判断で販売できない場合があります。<br>③薬剤師の注意事項に承認いただかないと販売できない場合があります。'}
-    {date: '2022/05/13', answer: '同意'}
-    {date: '2022/05/13', question: 'Bạn có đang mang thai không ? '}
-    {date: '2022/05/13', answer: 'はい '}
-    {date: '2022/05/13', question: '本サービスは妊娠されいてる方はご利用いただけません。'}
-    {date: '2022/05/13', answer: 'いいえ'}
-    {date: '2022/05/13', question: '今飲んでいる薬はありますか？'}
-    {date: '2022/05/13', answer: 'ない'}
-    {date: '2022/05/13', question: 'どのような症状ですか？'}
-    {date: '2022/05/13', answer: '咳を止めたい'}
-    {date: '2022/05/13', question: ' Bạn có sốt không ?'}
-    {date: '2022/05/13', answer: 'いいえ'}
-    {date: '2022/05/13', question: '基礎疾患はありますか？'}
-    {date: '2022/05/13', answer: 'ない'}
-    {date: '2022/05/13', question: 'おすすめのお薬はこちらです。'}
-    {date: '2022/05/13', question: 'https://member.wabisabi.media/wp-content/uploads/2021/12/7_benzablock_premium-l-1.jpg'}]",2022/05/17,2022/05/17
-    7,1,"wabisabi admin","[{date: '2022/05/13', question: '言語を選択ください。'}
-    {date: '2022/05/13', answer: 'ベトナム語'}
-    {date: '2022/05/13', question: '①チャットボットを通じていただいた情報を基に最適なお薬を提供します。 対面で情報をいただく場合とお薬が変わることがあります。<br> ②薬剤師の判断で販売できない場合があります。<br>③薬剤師の注意事項に承認いただかないと販売できない場合があります。'}
-    {date: '2022/05/13', answer: '日本語'}
-    {date: '2022/05/13', answer: '同意しない'}
-    {date: '2022/05/13', question: '本サービスは同意いただけないとご利用いただけません。'}
-    {date: '2022/05/13', answer: '最初に戻る'}
-    {date: '2022/05/13', question: '言語を選択ください。'}
-    {date: '2022/05/13', answer: '日本語'}
-    {date: '2022/05/13', question: '①チャットボットを通じていただいた情報を基に最適なお薬を提供します。 対面で情報をいただく場合とお薬が変わることがあります。<br> ②薬剤師の判断で販売できない場合があります。<br>③薬剤師の注意事項に承認いただかないと販売できない場合があります。'}
-    {date: '2022/05/13', answer: '同意'}
-    {date: '2022/05/13', question: '現在妊娠していますか？'}
-    {date: '2022/05/13', answer: 'いいえ'}
-    {date: '2022/05/13', question: '今飲んでいる薬はありますか？'}
-    {date: '2022/05/13', answer: '最初に戻る'}
-    {date: '2022/05/13', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    8,2,"KUROFUNE ADMIN","[{date: '2022/05/16', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    9,1,"wabisabi admin","[{date: '2022/05/16', answer: '最初に戻る'}
-    {date: '2022/05/16', question: '言語を選択ください。'}
-    {date: '2022/05/16', answer: 'ベトナム語'}
-    {date: '2022/05/16', question: '①チャットボットを通じていただいた情報を基に最適なお薬を提供します。 対面で情報をいただく場合とお薬が変わることがあります。<br> ②薬剤師の判断で販売できない場合があります。<br>③薬剤師の注意事項に承認いただかないと販売できない場合があります。'}
-    {date: '2022/05/16', answer: '同意しない'}
-    {date: '2022/05/16', question: '本サービスは同意いただけないとご利用いただけません。'}
-    {date: '2022/05/16', answer: '同意'}
-    {date: '2022/05/16', question: 'Bạn có đang mang thai không ? '}
-    {date: '2022/05/16', answer: 'はい '}
-    {date: '2022/05/16', question: '本サービスは妊娠されいてる方はご利用いただけません。'}
-    {date: '2022/05/16', answer: 'いいえ'}
-    {date: '2022/05/16', question: '今飲んでいる薬はありますか？'}
-    {date: '2022/05/16', answer: 'ある'}
-    {date: '2022/05/16', question: 'あなたはサービスの条件に満たしておりません。'}
-    {date: '2022/05/16', answer: 'ない'}
-    {date: '2022/05/16', question: 'どのような症状ですか？'}
-    {date: '2022/05/16', answer: '痛みをなくしたい'}
-    {date: '2022/05/16', question: '痛いのはどこですか？'}
-    {date: '2022/05/16', answer: 'お腹'}
-    {date: '2022/05/16', question: 'おすすめのお薬はこちらです。'}
-    {date: '2022/05/16', question: 'https://member.wabisabi.media/wp-content/uploads/2022/02/3_gaster10.jpeg'}
-    {date: '2022/05/16', answer: '頭'}
-    {date: '2022/05/16', question: 'おすすめのお薬はこちらです。'}
-    {date: '2022/05/16', question: 'https://member.wabisabi.media/wp-content/uploads/2021/12/1_loxonin-s-1.jpg'}
-    {date: '2022/05/16', answer: '腰'}
-    {date: '2022/05/16', question: 'おすすめのお薬はこちらです。'}
-    {date: '2022/05/16', question: 'https://member.wabisabi.media/wp-content/uploads/2021/12/2_loxonin-s_tape.jpg'}]",2022/05/17,2022/05/17
-    10,1,"wabisabi admin","[{date: '2022/05/16', question: '言語を選択ください。'}
-    {date: '2022/05/16', answer: '最初に戻る'}
-    {date: '2022/05/16', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
-    11,1,"wabisabi admin","[{date: '2022/05/16', question: '言語を選択ください。'}
-    {date: '2022/05/16', answer: 'ベトナム語'}
-    {date: '2022/05/16', question: '①チャットボットを通じていただいた情報を基に最適なお薬を提供します。 対面で情報をいただく場合とお薬が変わることがあります。<br> ②薬剤師の判断で販売できない場合があります。<br>③薬剤師の注意事項に承認いただかないと販売できない場合があります。'}]",2022/05/17,2022/05/17
-    12,1,"wabisabi admin","[{date: '2022/05/16', question: '言語を選択ください。'}]",2022/05/17,2022/05/17`;
-    if (data.id) {
-      exportCsvUser(data);
-      content = csvUser;
-    } else {
-      exportCsvAll(data);
-      content = csvAllUser;
+  React.useEffect(() => {
+    if (!csvUser || !csvAllUser || contentCSV) {
+      if (contentCSV?.id) {
+        exportCsvUser(contentCSV);
+      } else {
+        exportCsvAll(contentCSV);
+      }
     }
+  }, [contentCSV]);
 
-    downloadBlob(content, data.id);
+  React.useEffect(() => {
+    if (csvUser || csvAllUser) {
+      contentCSV?.id
+        ? downloadBlob(csvUser, contentCSV?.id)
+        : downloadBlob(csvAllUser);
+    }
+  }, [csvUser, csvAllUser, contentCSV]);
+
+  const exportHistoryChatBot = (data) => {
+    setContentCSV(data);
   };
-
   const openModalHistory = (id, langChat) => {
     if (!detailChat || idChat !== id) {
       getDetailChat(id);

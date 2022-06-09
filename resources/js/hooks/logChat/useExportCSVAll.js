@@ -8,7 +8,6 @@ const useExportCsvAll = () => {
   const exportCsvAll = (payload) => {
     dispatch(exportCsvAllAction(payload));
   };
-
   return {
     csvAllUser: logChatState.csvAllUser,
     exportCsvAll,
