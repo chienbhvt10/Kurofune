@@ -1,15 +1,31 @@
 import { Button, Col, Form, Input, Row, Table, Typography } from "antd";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
-import { cartData } from "../../../commons/data";
 import InputField from "../../../commons/Form/InputField";
 import { getCurrentLanguage } from "../../../helper/localStorage";
+import { useSelector } from "react-redux";
 import "./cart.scss";
+import useCart from "../../../hooks/cart/useCart";
 const Cart = () => {
   const { i18n, t } = useTranslation();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
+  const [cartItemState, setCartItemState] = useState([]);
+  const { cartInfo, updateCart, deleteCart } = useCart();
+  useEffect(() => {
+    setCartItemState(cartInfo?.cart_item.length > 0 ? cartInfo.cart_item : []);
+  }, [cartInfo]);
+  const handleUpdateCart = () => {
+    const cart_items = cartItemState.map(({ id, quantity }) => ({
+      id,
+      quantity,
+    }));
+    updateCart({ cart_items });
+  };
+  const handleDeleteAllCart = () => {
+    deleteCart();
+  };
   const columns = [
     {
       key: "name",
@@ -21,12 +37,16 @@ const Cart = () => {
           <Row>
             <Col span={4}>
               <Row justify="center">
-                <img alt="image-prod-Cart" width={40} src={record.imageUrl} />
+                <img
+                  alt="image-prod-Cart"
+                  width={40}
+                  src={record?.product_image}
+                />
               </Row>
             </Col>
             <Col span={20}>
               <Row justify="start">
-                <div className="name">{record.name}</div>
+                <div className="name">{record?.name}</div>
               </Row>
             </Col>
           </Row>
@@ -37,7 +57,7 @@ const Cart = () => {
       key: "price",
       dataIndex: "price",
       title: t("client.cart.th_product_price"),
-      render: (_, record) => <span>{record.price}(JPY)</span>,
+      render: (_, record) => <span>{record.price_tax}</span>,
       align: "center",
       width: 230,
     },
@@ -48,13 +68,19 @@ const Cart = () => {
       width: 120,
       align: "center",
       render: (_, record) => (
-        <InputField
-          field="quantity"
-          label=""
-          value={record.quantity}
-          labelCol={{ span: 24 }}
-          wrapperCol={{ span: 22 }}
-          type={<Input type="number" className="input-field" />}
+        <Input
+          type="number"
+          className="input-field"
+          defaultValue={record.quantity}
+          onChange={(e) =>
+            setCartItemState((prev) =>
+              prev.map((item) =>
+                item.id === record.id
+                  ? { ...item, quantity: Number(e.target.value) }
+                  : item
+              )
+            )
+          }
         />
       ),
     },
@@ -130,8 +156,8 @@ const Cart = () => {
                 <Row justify="end">
                   <Button
                     type="primary"
-                    htmlType="submit"
                     className="btn btn-primary btn-update"
+                    onClick={handleUpdateCart}
                   >
                     {t("client.cart.btn_update")}
                   </Button>
@@ -176,7 +202,7 @@ const Cart = () => {
                 <Table
                   rowKey="id"
                   columns={columns}
-                  dataSource={cartData}
+                  dataSource={cartItemState}
                   bordered
                 />
               </div>
@@ -187,7 +213,11 @@ const Cart = () => {
       <Row justify="center" style={{ padding: "20px 0" }}>
         <Col span={23}>
           <Row justify="space-between">
-            <Button type="primary" className="btn btn-primary btn-remove-all">
+            <Button
+              type="primary"
+              className="btn btn-primary btn-remove-all"
+              onClick={handleDeleteAllCart}
+            >
               {t("client.cart.btn_empty")}
             </Button>
             <Button

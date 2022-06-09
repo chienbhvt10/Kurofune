@@ -131,11 +131,7 @@ const appRouter = () => {
             element={<CategoryListDetail />}
             exact={true}
           />
-          <Route
-            path={`product-detail/:id`}
-            element={<ProductDetailPage />}
-            exact={true}
-          />
+          <Route path={`product-detail/:id`} element={<ProductDetailPage />} />
           <Route
             path={`list-of-pharmacies`}
             element={<PharmacyList />}
@@ -146,7 +142,7 @@ const appRouter = () => {
             element={<PharmacyDetail />}
             exact={true}
           />
-          <Route path={`cart`} element={<Cart />} exact={true}></Route>
+          <Route path={`cart`} element={<Cart />} />
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
         </Route>
         <Route
@@ -159,7 +155,7 @@ const appRouter = () => {
           exact={true}
         />
 
-        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
+        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true} ƒc>
           <Route path={`login`} element={<Login />} exact={true} />
           <Route
             path={`forgot-password`}

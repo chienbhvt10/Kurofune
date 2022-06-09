@@ -5,8 +5,7 @@ import useProductClient from "../../../hooks/product/useProductClient";
 import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
 import { PRODUCT_OPTION } from "../../../commons/data";
-import useCartProduct from "../../../hooks/product/userCartProduct";
-
+import useCart from "../../../hooks/cart/useCart";
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -23,8 +22,8 @@ const ProductDetailPage = () => {
   const { id } = useParams();
   const location = useLocation();
   const { getProductClient, productClient } = useProductClient();
-  const { addToCart, resAddToCart } = useCartProduct();
   const [productSideEfectSelect, setProductSideEffectSelect] = useState(null);
+  const { addToCart } = useCart();
   React.useEffect(() => {
     if (id) {
       getProductClient({ id: id });
@@ -32,12 +31,16 @@ const ProductDetailPage = () => {
   }, [id, location]);
   const [form] = Form.useForm();
   const onFinish = (values) => {
+    console.log("ok");
     const requestObj = values;
     Object.keys(requestObj).forEach(
       (key) =>
-        (requestObj[key] === undefined || requestObj[key] === null) &&
+        (requestObj[key] === undefined ||
+          requestObj[key] === null ||
+          (productSideEfectSelect === 1 && key === "anket_5")) &&
         delete requestObj[key]
     );
+
     addToCart({ ...requestObj, product_id: id });
   };
   const CheckValidation = (val, errors) => {
@@ -377,6 +380,6 @@ const ProductDetailPage = () => {
       )}
     </>
   );
-};;
+};;;;
 
 export default ProductDetailPage;
