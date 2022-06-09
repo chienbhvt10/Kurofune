@@ -1,5 +1,5 @@
 {
-  "notification": "Thông báo",
+  "notification": "Abiso",
   "btn_send_mail": "I-RESET ANG PASSWORD",
   "btn_back": "BUMALIK",
   "btn_ok": "Ok",
@@ -249,7 +249,7 @@
           "c_12": "Wala naman"
         }
       },
-      "medicinal_efficacy":"Medicinal efficacy classification"
+      "medicinal_efficacy": "Medicinal efficacy classification"
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",
@@ -275,33 +275,34 @@
     }
   },
   "admins": {
-    "btn_save": "Save",
-    "btn_cancel": "Cancel",
-    "btn_upload": "Click to upload",
-    "btn_generate_password": "Generate",
-    "btn_search": "Search",
-    "btn_add_new": "Add New",
+    "btn_save": "I-save",
+    "btn_cancel": "Kanselahin",
+    "btn_upload": "Mag-upload",
+    "btn_generate_password": "Pagbuo ng password",
+    "btn_search": "Maghanap",
+    "btn_add_new": "Magdagdag ng bago",
+    "delete_item_message": "Gusto mong tanggalin?",
     "user": {
       "list": {
-        "title": "User List"
+        "title": "Listahan ng Gumagamit"
       },
       "create": {
-        "title": "Create user",
-        "breadcrumb": "Create user"
+        "title": "Lumikha ng user",
+        "breadcrumb": "Lumikha ng user"
       },
       "update": {
-        "title": "Update user",
-        "breadcrumb": "Update user"
+        "title": "I-update ang user",
+        "breadcrumb": "I-update ang user"
       },
       "switch_tab": {
-        "address": "Address",
-        "billing_address": "Billing Address",
-        "shipping_address": "Shipping Address",
-        "role_info": "Role Info"
+        "address": "Tirahan",
+        "billing_address": "Address ng Pagsingil",
+        "shipping_address": "Address ng Pagpapadala",
+        "role_info": "Impormasyon sa Tungkulin"
       },
       "form": {
         "field_role": "Tungkulin ng user",
-        "field_name": "pangalan",
+        "field_name": "Pangalan",
         "field_email": "Email address",
         "field_phone": "Telepono",
         "field_username": "Username",
@@ -314,126 +315,128 @@
         "field_street": "Address ng kalye",
         "field_building": "Gusali",
         "profile": {
-          "field_dob": "Date of birth",
-          "field_gender": "Gender",
-          "field_facebook": "Facebook",
-          "field_line": "Line",
-          "field_address": "Address",
-          "field_nationality": "Nationality",
-          "field_visa_type": "Visa Type",
-          "field_job_name": "Job Name",
-          "field_company_representative": "Company representative",
-          "field_payment_source": "Payment source",
-          "field_payment": "Payment",
-          "field_insurance_status": "Insurance Status",
-          "field_insurance_support": "Insurance Support",
-          "field_insurance_start_date": "Insurance Start Date",
+          "field_dob": "Araw ng kapanganakan",
+          "field_gender": "Kasarian",
+          "field_facebook": "Facebook account",
+          "field_line": "LINE account",
+          "field_address": "Tirahan",
+          "field_nationality": "Nasyonalidad",
+          "field_visa_type": "Uri ng Visa",
+          "field_job_name": "Pangalan ng trabaho",
+          "field_company_representative": "Kinatawan ng kumpanya",
+          "field_payment_source": "Pinagmulan ng pagbabayad",
+          "field_payment": "Pagbabayad",
+          "field_insurance_status": "Katayuan ng Insurance",
+          "field_insurance_support": "Suporta sa Seguro",
+          "field_insurance_start_date": "Petsa ng Pagsisimula ng Insurance",
           "field_overseas_remittance_status": "Overseas Remittance Status",
-          "field_orientation": "Orientation",
-          "field_start_date_education": "Start Date Education",
-          "field_end_date_education": "End Date Education",
-          "field_education_status": "Japanese language education status",
+          "field_orientation": "Oryentasyon",
+          "field_start_date_education": "Petsa ng Pagsisimula ng Edukasyon",
+          "field_end_date_education": "Petsa ng Pagtatapos ng Edukasyon",
+          "field_education_status": "Katayuan ng edukasyon sa wikang Hapon",
           "field_page_registration": "Wabisabi My Page Registration",
-          "field_company_mail": "Company Mail"
+          "field_company_mail": "Mail ng Kumpanya"
         },
         "vendor_profile": {
-          "field_image_inside": "Image inside",
-          "field_image_outside": "Image outside",
-          "field_locale": "Locale",
-          "field_name": "Name",
-          "field_permit_classification": "Permit classification",
-          "field_founder": "Founder",
-          "field_stated_in_permit": "Items to be stated in the permit",
-          "field_management_pharmacist": "Management pharmacist",
-          "field_registered_seller_working": "Registered Seller Working",
-          "field_drug_handled": "Drugs Handled",
-          "field_distinguishing_by_name": "Distinguishing by name",
-          "field_business_hours": "Business Hours",
-          "field_consultation_hours": "Consultation Hours",
-          "field_contact_information": "Contact Information",
-          "field_current_working": "Currently Working",
-          "field_open_sale_time": "Open Sale Time",
-          "field_time_order_outside": "Time Order Outside",
-          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+          "field_image_inside": "Mga larawan sa loob ng botika",
+          "field_image_outside": "Mga larawan sa labas ng botika",
+          "field_locale": "Wika",
+          "field_name": "Pangalan",
+          "field_permit_classification": "Pag-uuri ng permit",
+          "field_founder": "Tagapagtatag",
+          "field_stated_in_permit": "Mga bagay na dapat isaad sa permit",
+          "field_management_pharmacist": "Pamamahala ng parmasyutiko",
+          "field_registered_seller_working": "Nakarehistrong nagbebenta na nagtatrabaho sa aming parmasya (negosyo na namamahala)",
+          "field_drug_handled": "Mga uri ng over-the-counter na gamot na pinangangasiwaan",
+          "field_distinguishing_by_name": "Pagkilala sa pamamagitan ng name tag atbp. ng taong nagtatrabaho sa botikang ito",
+          "field_business_hours": "Oras ng trabaho",
+          "field_consultation_hours": "Mga oras ng konsultasyon sa labas ng oras ng negosyo",
+          "field_contact_information": "Impormasyon sa pakikipag-ugnayan para sa konsultasyon at emerhensiya",
+          "field_current_working": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
+          "field_open_sale_time": "Buksan ang Oras ng Pagbebenta",
+          "field_time_order_outside": "Time Order sa Labas",
+          "field_expiration_date_of_drug": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta"
         },
         "option": {
-          "active": "User active",
-          "inactive": "User inactive",
-          "male": "Male",
-          "female": "Female",
-          "yes": "Yes",
-          "no": "No",
-          "registered": "Unregistered",
-          "unregistered": "Registered",
+          "active": "Aktibo ang user",
+          "inactive": "Hindi aktibo ang user",
+          "male": "Lalaki",
+          "female": "Babae",
+          "yes": "Oo",
+          "no": "Hindi",
+          "registered": "Hindi nakarehistro",
+          "unregistered": "Nakarehistro",
+          "remove_registered": "Hindi nakarehistro.",
           "insurance_status": {
-            "option1": "",
-            "option2": "",
-            "option3": "",
-            "option4": "",
-            "option5": ""
+            "option1": "Pagpapadala ng mga dokumento / Pagsali sa briefing session / ① Pagdating sa kurofune",
+            "option2": "Pagpapadala ng mga dokumento / Pagsali sa briefing session / ② hindi pa dumating ang kurofune (posible ang contact)",
+            "option3": "Pagpapadala ng mga dokumento / Pagsali sa briefing session / ② hindi dumating ang kurofune (hindi makontak)",
+            "option4": "Nakumpleto ang insurance",
+            "option5": "Hindi pa nagsisimula"
           },
           "education_status": {
-            "unregistered": "",
-            "registered": ""
+            "registered": "Hindi nakarehistro",
+            "unregistered": "Nakarehistro"
           }
         },
         "placeholder": {
-          "search": "Search username",
-          "select_role": "Please select a role",
-          "select_active_status": "Please select a active status",
-          "select_prefecture": "Please select prefecture",
-          "select_date": "Select date",
-          "select_gender": "Please select gender",
-          "select_payment": "Please select payment",
-          "select_insurance_status": "Please select insurance status",
-          "select_education_status": "Please select japanese language education status"
+          "search": "Maghanap ng username",
+          "select_role": "Mangyaring pumili ng isang tungkulin.",
+          "select_active_status": "Mangyaring pumili ng aktibong katayuan.",
+          "select_prefecture": "Mangyaring pumili ng prefecture.",
+          "select_date": "Mangyaring pumili ng petsa.",
+          "select_gender": "Mangyaring pumili ng kasarian.",
+          "select_payment": "Mangyaring pumili ng pagbabayad.",
+          "select_insurance_status": "Mangyaring pumili ng katayuan ng seguro.",
+          "select_education_status": "Mangyaring pumili ng katayuan sa edukasyon ng wikang Hapon."
         }
       },
       "error": {
-        "role_required": "Please select a role!",
-        "name_required": "Please input your name!",
+        "role_required": "Mangyaring pumili ng isang tungkulin.",
+        "name_required": "Pakilagay ang iyong pangalan.",
         "email": {
-          "required": "Please input your email!",
-          "type": "Please input valid email!"
+          "required": "Mangyaring ipasok ang iyong email.",
+          "type": "Mangyaring maglagay ng wastong email."
         },
         "phone": {
-          "required": "Please input your phone!",
-          "pattern": "Please input valid phone number!"
+          "required": "Mangyaring ipasok ang iyong telepono.",
+          "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
         },
-        "user_name_required": "Please input your username!",
+        "user_name_required": "Mangyaring ipasok ang iyong username.",
         "password": {
-          "required": "Please input your password!",
-          "min": "Please input atLeast 8 characters for password!"
+          "required": "Mangyaring ipasok ang iyong password.",
+          "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
         },
         "active_required": "Please select active status!",
         "postal_code": {
-          "required": "Please input your postal code/zip!",
-          "pattern": "Please enter number",
-          "max_3_number": "Please enter only 3 numbers!",
-          "max_4_number": "Please enter only 4 numbers!",
-          "max_7_number": "Please enter only 7 numbers!"
+          "required": "Pakilagay ang iyong postal code/zip.",
+          "pattern": "Pakilagay ang numero.",
+          "max_3_number": "Mangyaring magpasok lamang ng 3 numero.",
+          "max_4_number": "Mangyaring magpasok lamang ng 4 numero.",
+          "max_7_number": "Mangyaring magpasok lamang ng 7 numero."
         },
-        "prefecture_required": "Please select prefecture!",
-        "city_required": "Please input city!",
-        "street_address_required": "Please input street address!",
-        "current_password_required": "Please input current password!",
-        "new_password_required": "Please input new password!",
-        "confirm_password_required": "Please input password confirmation!",
-        "not_same_password": "The two passwords that you entered do not match!"
+        "prefecture_required": "Mangyaring pumili ng prefecture.",
+        "city_required": "Mangyaring ipasok ang lungsod.",
+        "street_address_required": "Mangyaring ipasok ang address ng kalye.",
+        "current_password_required": "Mangyaring ipasok ang kasalukuyang password.",
+        "new_password_required": "Mangyaring maglagay ng bagong password.",
+        "confirm_password_required": "Mangyaring ipasok ang kumpirmasyon ng password.",
+        "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay."
       }
     },
     "crud": {
       "user": {
-        "create_success": "Tạo mới người dùng thành công",
-        "create_fail": "Tạo mới người dùng thất bại",
-        "update_success": "Cập nhật người dùng thành công",
-        "update_fail": "Cập nhật người dùng thất bại",
-        "delete_success": "Xoá người dùng thành công",
-        "delete_fail": "Xoá người dùng thất bại"
+        "create_success": "Matagumpay na nalikha ang bagong user.",
+        "create_fail": "Nabigo ang paggawa ng bagong user.",
+        "update_success": "Matagumpay ang pag-update ng user.",
+        "update_fail": "Nabigo ang pag-update ng user.",
+        "delete_success": "Matagumpay na tanggalin ang user.",
+        "delete_fail": "Nabigo ang pagtanggal ng user."
       }
     },
     "product": {
       "slug_field": "Slug",
+      "vendor_field": "Vendor",
       "sku_field": "Sku",
       "status_field": "Status",
       "stock_status_field": "Stock Status",
@@ -444,6 +447,7 @@
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
 
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
@@ -459,6 +463,19 @@
 
       "error_message": {
         "required_message": "Kinakailangan ang field na ito."
+      }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Pangalan",
+      "type_field": "Type",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "Unang-class na OTC na gamot",
+        "option2": "Tukuyin ang Second-class na mga OTC na gamot",
+        "option3": "Pangalawang klase ng mga OTC na gamot"
       }
     }
   }

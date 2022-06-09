@@ -9,6 +9,9 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Models\VendorProfile;
+use App\Notifications\VendorNewOrderNotification;
+use App\Notifications\CustomerProcessingOrderNotification;
 use App\Traits\ProductTrait;
 use App\Traits\RespondsStatusTrait;
 use Carbon\Carbon;
@@ -16,6 +19,7 @@ use Cartalyst\Stripe\Stripe as Stripe;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 
@@ -29,7 +33,7 @@ class CartController extends Controller
             $user = auth()->user();
             $cart = Cart::where('user_id', $user->id)->first();
             if(!$cart){
-                return $this->success(__('message.cart.no_info'));
+                return $this->response_message_success(__('message.cart.no_info'));
             }else{
                 $key = $cart->key;
                 $cart_items = $cart->cart_items;
@@ -39,8 +43,8 @@ class CartController extends Controller
                     $item['id'] = $value->id;
                     $item['name'] = $product->name;
                     $item['quantity'] = $value->quantity;
-                    $item['price'] = $this->get_price_html($product->price);
-                    $item['price_tax'] = $this->get_price_html($this->get_price_including_tax($product));
+                    $item['price'] = (float)$product->price;
+                    $item['price_tax'] = $this->get_price_including_tax($product);
                     $item['product_image'] = $product->product_image;
                     $data_item[] = $item;
                 }
@@ -49,10 +53,10 @@ class CartController extends Controller
                     'total' => $cart_items->count(),
                     'cart_item' => $data_item
                 ];
-                return $this->responseData($data);
+                return $this->response_data_success($data);
             }
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -67,14 +71,24 @@ class CartController extends Controller
                 'anket_2' => 'required|integer',
                 'anket_3' => 'required|integer',
                 'anket_4' => 'required|integer',
-                'anket_5' => 'required|string',
                 'anket_6' => 'required|integer',
-                'anket_7' => 'required|string',
+                'anket_7' => 'nullable|string',
+                'anket_8' => 'required|string',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
+            }
+            if((bool)$request->anket_4) {
+                $validator = Validator::make($request->all(), [
+                    'anket_5' => 'required|string'
+                ]);
+                if ($validator->fails()) {
+                    DB::rollBack();
+                    $errors = $validator->errors();
+                    return $this->response_validate($errors);
+                }
             }
             $cart = Cart::where('user_id', $user->id)->first();
             if($cart){
@@ -87,9 +101,10 @@ class CartController extends Controller
                         'anket_2' => $request->anket_2,
                         'anket_3' => $request->anket_3,
                         'anket_4' => $request->anket_4,
-                        'anket_5' => $request->anket_5,
+                        'anket_5' => strip_tags($request->anket_5),
                         'anket_6' => $request->anket_6,
-                        'anket_7' => $request->anket_7,
+                        'anket_7' => strip_tags($request->anket_7),
+                        'anket_8' => strip_tags($request->anket_8),
                         ]);
                 }else{
                     $cart->cart_items()->create([
@@ -100,9 +115,10 @@ class CartController extends Controller
                         'anket_2' => $request->anket_2,
                         'anket_3' => $request->anket_3,
                         'anket_4' => $request->anket_4,
-                        'anket_5' => $request->anket_5,
+                        'anket_5' => strip_tags($request->anket_5),
                         'anket_6' => $request->anket_6,
-                        'anket_7' => $request->anket_7,
+                        'anket_7' => strip_tags($request->anket_7),
+                        'anket_8' => strip_tags($request->anket_8),
                     ]);
                 }
             }else{
@@ -126,14 +142,15 @@ class CartController extends Controller
                     'anket_5' => $request->anket_5,
                     'anket_6' => $request->anket_6,
                     'anket_7' => $request->anket_7,
+                    'anket_8' => $request->anket_8,
                 ]);
             }
             $product = Product::find($request->product_id);
             DB::commit();
-            return $this->successWithData(__('message.cart.add', ['product_name' => $product->name ]), $cart);
+            return $this->response_message_data_success(__('message.cart.add', ['product_name' => $product->name ]), $cart);
         }catch (\Exception $error){
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -147,10 +164,7 @@ class CartController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->response_validate($errors);
             }
 
             $user = auth()->user();
@@ -166,12 +180,12 @@ class CartController extends Controller
                     $cart_item->save();
                 }
                 DB::commit();
-                return $this->success(__('message.cart.updated'));
+                return $this->response_message_success(__('message.cart.updated'));
             }
-            return $this->errorResponse(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
+            return $this->response_error(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
         }catch (\Exception $error){
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -189,15 +203,15 @@ class CartController extends Controller
                         $cart->delete();
                     }
                     DB::commit();
-                    return $this->success(__('message.cart.deleted'));
+                    return $this->response_message_success(__('message.cart.deleted'));
                 }else{
-                    return $this->errorResponse(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
+                    return $this->response_error(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
                 }
             }
-            return $this->errorResponse(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
+            return $this->response_error(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
         }catch (\Exception $error){
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -208,11 +222,11 @@ class CartController extends Controller
             $cart = Cart::where('user_id', $user->id)->first();
             if($cart){
                 $cart->delete();
-                return $this->success(__('Delete cart success'));
+                return $this->response_message_success(__('Delete cart success'));
             }
-            return $this->errorResponse(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
+            return $this->response_error(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -251,12 +265,12 @@ class CartController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 
             $cart = Cart::where('user_id', $user->id)->first();
             if(empty($cart)) {
-                return $this->errorResponse(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.cart.no_info'), \Illuminate\Http\Response::HTTP_NOT_FOUND);
             }else{
                 $cart_items = $cart->cart_items;
                 $cart_data_with_shop = [];
@@ -278,6 +292,7 @@ class CartController extends Controller
                         'anket_5' => $item->anket_5,
                         'anket_6' => $item->anket_6,
                         'anket_7' => $item->anket_7,
+                        'anket_8' => $item->anket_8,
                         'sub_total_tax' => (float)$price_tax,
                         'sub_total' => (float)$price,
                         'total_tax' => (float) $price_tax * $quantity,
@@ -317,10 +332,17 @@ class CartController extends Controller
                     if($request->payment_mode == 'cod') {
                         $this->makeTransaction($order);
                     }
+                    $order->load('products');
+                    $order->load('transaction');
+                    $vendor = VendorProfile::find($vendor_profile_id)->user;
+
+                    Notification::sendNow($vendor, new VendorNewOrderNotification($order, $user));
+                    Notification::sendNow($user, new CustomerProcessingOrderNotification($order, $user));
                 }
+
                 $this->resetCart($cart);
                 DB::commit();
-                return $this->success('success');
+                return $this->response_message_success('success');
             }
 //            $stripe = Stripe::make(env('STRIPE_KEY'));
 //            $token = $stripe->tokens()->create([
@@ -348,7 +370,7 @@ class CartController extends Controller
 //            return $this->responseData($charge['status']);
         }catch (\Exception $e) {
             DB::rollBack();
-            return $this->errorResponse($e->getMessage());
+            return $this->response_exception();
         }
     }
 }

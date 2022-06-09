@@ -75,10 +75,22 @@ const authReducers = createReducer(initialState, (builder) => {
     };
   });
   builder.addCase(logout.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      resLogout: actions.payload,
-    };
+    if (actions.payload.status_code === 200) {
+      return {
+        ...state,
+        resLogout: actions.payload,
+        resLogin: undefined,
+        userInfo: undefined,
+        token: undefined,
+        profile: undefined,
+        isLogin: false,
+      };
+    } else {
+      return {
+        ...state,
+        resLogout: actions.payload,
+      };
+    }
   });
   builder
     .addCase(showProfileAction.pending, (state) => {

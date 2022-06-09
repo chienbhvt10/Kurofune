@@ -3,7 +3,7 @@
     background-color: #fff;
     margin-top: 17px;
     border-radius: 3px;
-    .nav-item{
+    .nav-item {
       display: flex;
     }
     .nav-link.active {
@@ -13,14 +13,13 @@
       -moz-border-radius: 0;
       -ms-border-radius: 0;
       -o-border-radius: 0;
-      color: #4E5260;
+      color: #4e5260;
       &::after {
         opacity: 1;
         width: 100%;
       }
     }
     a {
-      font-family: sans-serif;
       color: #62a19b;
       text-decoration: none;
       display: inline-block;

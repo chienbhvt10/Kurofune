@@ -95,6 +95,7 @@ class CronDataChatLog extends Command
                                     'admin' => true,
                                     'message' => $message,
                                     'message_ja' => $message_ja,
+                                    'type' => '',
                                     'time' => $log->time_of_message
                                 );
                             }
@@ -118,6 +119,7 @@ class CronDataChatLog extends Command
                                                 'admin' => true,
                                                 'message' => $message,
                                                 'message_ja' => $message_ja,
+                                                'type' => '',
                                                 'time' => $log->time_of_message
                                             );
                                         }
@@ -139,6 +141,7 @@ class CronDataChatLog extends Command
                                         'admin' => false,
                                         'message' => $log->message->text,
                                         'message_ja' => $log->message_ja->text,
+                                        'type' => '',
                                         'time' => $log->time_of_message
                                     );
                                 } else {
@@ -150,6 +153,7 @@ class CronDataChatLog extends Command
                                             'admin' => false,
                                             'message' => $message,
                                             'message_ja' => $message_ja,
+                                            'type' => '',
                                             'time' => $log->time_of_message
                                         );
                                     }

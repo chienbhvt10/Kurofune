@@ -12,15 +12,18 @@ import {
 
 const useUpdateBillingAddress = () => {
   const { resUpdateBillingAddress } = useSelector((state) => state.authState);
+  const [loadingUpdateBilling, setLoadingUpdateBillings] = React.useState();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const updateBillingAddress = (payload) => {
+    setLoadingUpdateBillings(true);
     dispatch(updateBillingAddressAction(payload));
   };
 
   React.useEffect(() => {
     if (resUpdateBillingAddress?.status_code === 200) {
+      setLoadingUpdateBillings(false);
       NotificationSuccess(t("notification"), resUpdateBillingAddress.message);
       dispatch(resetAuthResponse());
     }
@@ -28,6 +31,7 @@ const useUpdateBillingAddress = () => {
       resUpdateBillingAddress &&
       resUpdateBillingAddress.status_code !== 200
     ) {
+      setLoadingUpdateBillings(false);
       NotificationError(t("notification"), resUpdateBillingAddress.message);
     }
   }, [resUpdateBillingAddress]);
@@ -35,6 +39,8 @@ const useUpdateBillingAddress = () => {
   return {
     resUpdateBillingAddress,
     updateBillingAddress,
+    loadingUpdateBilling,
+    setLoadingUpdateBillings,
   };
 };
 

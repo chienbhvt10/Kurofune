@@ -1,5 +1,5 @@
 {
-  "notification": "Thông báo",
+  "notification": "Notification",
   "btn_send_mail": "RESET PASSWORD",
   "btn_back": "BACK",
   "btn_ok": "OK",
@@ -250,8 +250,7 @@
           "c_12": "Other (free description)"
         }
       },
-      "medicinal_efficacy":"Medicinal efficacy classification"
-
+      "medicinal_efficacy": "Medicinal efficacy classification"
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",
@@ -283,6 +282,7 @@
     "btn_generate_password": "Generate",
     "btn_search": "Search",
     "btn_add_new": "Add New",
+    "delete_item_message": "You want to delete?",
     "user": {
       "list": {
         "title": "User List"
@@ -336,7 +336,7 @@
           "field_end_date_education": "End Date Education",
           "field_education_status": "Japanese language education status",
           "field_page_registration": "Wabisabi My Page Registration",
-          "field_company_mail": "Company Mail"
+          "field_company_mail": "Company representative mail"
         },
         "vendor_profile": {
           "field_image_inside": "Image inside",
@@ -365,18 +365,19 @@
           "female": "Female",
           "yes": "Yes",
           "no": "No",
-          "registered": "Unregistered",
-          "unregistered": "Registered",
+          "registered": "Registered",
+          "unregistered": "Unregistered",
+          "remove_registered": "Unsubscribing",
           "insurance_status": {
-            "option1": "",
-            "option2": "",
-            "option3": "",
-            "option4": "",
-            "option5": ""
+            "option1": "Attachment / Attending the Presentation / ①kurofune",
+            "option2": "Attachment / Attending the Presentation / ②kurofune (can be contacted)",
+            "option3": "Attachment / Attending the Presentation / ②kurofune (Cannot be contacted)",
+            "option4": "Insurance completed",
+            "option5": "Not started yet"
           },
           "education_status": {
-            "unregistered": "",
-            "registered": ""
+            "registered": "Registered",
+            "unregistered": "Unregistered"
           }
         },
         "placeholder": {
@@ -426,6 +427,7 @@
     },
     "product": {
       "slug_field": "Slug",
+      "vendor_field": "Vendor",
       "sku_field": "Sku",
       "status_field": "Status",
       "stock_status_field": "Stock Status",
@@ -436,6 +438,7 @@
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
 
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
@@ -453,6 +456,29 @@
         "required_message": "This field is required."
       },
       "notification": "notification"
+    },
+    "crud": {
+      "user": {
+        "create_success": "Create user successfully!",
+        "create_fail": "Create user fail!",
+        "update_success": "Update user successfully!",
+        "update_fail": "Update user fail!",
+        "delete_success": "Delete user successfully!",
+        "delete_fail": "Delete user fail!"
+      }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Name",
+      "type_field": "Type",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "First-class OTC drugs",
+        "option2": "Specify Second-class OTC drugs",
+        "option3": "Second-class OTC drugs"
+      }
     }
   }
 }

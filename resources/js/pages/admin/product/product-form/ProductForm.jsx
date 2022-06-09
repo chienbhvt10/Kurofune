@@ -1,26 +1,31 @@
-import { Col, Form, Input, Row } from "antd";
+import { Col, Form, Input, Row, Select } from "antd";
 import React from "react";
+import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
 import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
+import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
-import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
 import SelectField from "./../../../../commons/Form/SelectField";
 import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
 import {
+  getProductFormLayout,
   getProductInfoInitValues,
   getTranslateInitValues,
-  getProductFormLayout,
 } from "./productInitValues.js";
-import TranslateProductForm from "./TranslateProductForm";
-import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
+import useCategories from "../../../../hooks/category/useCategories.js";
+import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
-  const { getAdminCategories, adminCategories } = useAdminCategories();
+
+  const { pharmaciesAdmin, getAllPharmaciesAdmin } = usePharmacies();
+  const { userInfo, profile } = useSelector((state) => state.authState);
+  const { categoriesClient, getCategoriesClient } = useCategories();
+
   const [avatarState, setAvatarState] = React.useState({
     avatarUrl: undefined,
     base64Avatar: undefined,
@@ -38,7 +43,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const onFinishAll = (values) => {
     const submitInput = {
       ...productsForm.getFieldsValue(),
-      user_id: 4,
       ja: {
         ...productProfileFormJP.getFieldsValue(),
       },
@@ -82,8 +86,12 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       );
     }
     setAvatarState({ avatarUrl: item?.product_image || "" });
-    getAdminCategories();
   }, [item]);
+
+  React.useEffect(() => {
+    getCategoriesClient();
+    getAllPharmaciesAdmin();
+  }, []);
 
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
@@ -98,15 +106,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       return false;
     });
   }, []);
-
-  const listCategories =
-    adminCategories &&
-    adminCategories.map((category) => {
-      return {
-        value: category.id,
-        label: category.name,
-      };
-    });
 
   return (
     <div id="product-form">
@@ -135,6 +134,37 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         />
         <div>
           <Row justify="center">
+            {profile?.roles[0]?.id === 1 && (
+              <Col
+                lg={12}
+                md={12}
+                sm={24}
+                xs={24}
+                className="input-field-space"
+              >
+                <SelectField
+                  field="user_id"
+                  label={t("admins.product.vendor_field")}
+                  placeholder="Please select vendor"
+                  rules={[
+                    {
+                      required: true,
+                      message: t(
+                        "admins.product.error_message.required_message"
+                      ),
+                    },
+                  ]}
+                  response={response}
+                  error="user_id"
+                >
+                  {pharmaciesAdmin?.map((pharamacy, index) => (
+                    <Select.Option key={index} value={pharamacy.id}>
+                      {pharamacy.name}
+                    </Select.Option>
+                  ))}
+                </SelectField>
+              </Col>
+            )}
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
                 field="slug"
@@ -192,7 +222,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.price_field")}
                 rules={[]}
                 response={response}
-                type={<Input type="number" className="input-field" />}
+                error="price"
+                type={<Input className="input-field" />}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -200,7 +231,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 field="cat_id"
                 label={t("admins.product.category_field")}
                 placeholder="Please select active status"
-                options={listCategories}
                 rules={[
                   {
                     required: true,
@@ -210,10 +240,16 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 response={response}
                 mode="multiple"
                 errorField="cat_id"
-              />
+              >
+                {categoriesClient?.map((category, index) => (
+                  <Select.Option key={index} value={category.id}>
+                    {category.name}
+                  </Select.Option>
+                ))}
+              </SelectField>
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
-              <InputField
+              <SelectField
                 field="tax_id"
                 label={t("admins.product.tax_field")}
                 rules={[
@@ -228,7 +264,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 ]}
                 response={response}
                 errorField="tax_id"
-                type={<Input type="number" className="input-field" />}
+                options={[{ label: "VAT", value: "1" }]}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -251,7 +287,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
-                field="meta_keyword"
+                field="meta_keywords"
                 label={t("admins.product.meta_keyword_field")}
                 rules={[]}
                 response={response}

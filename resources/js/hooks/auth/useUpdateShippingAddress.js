@@ -12,15 +12,18 @@ import {
 
 const useUpdateShippingAddress = () => {
   const { resUpdateShippingAddress } = useSelector((state) => state.authState);
+  const [loadingUpdateShipping, setLoadingUpdateShipping] = React.useState();
   const dispatch = useDispatch();
   const { t } = useTranslation();
 
   const updateShippingAddress = (payload) => {
+    setLoadingUpdateShipping(true);
     dispatch(updateShippingAddressAction(payload));
   };
 
   React.useEffect(() => {
     if (resUpdateShippingAddress?.status_code === 200) {
+      setLoadingUpdateShipping(false);
       NotificationSuccess(t("notification"), resUpdateShippingAddress.message);
       dispatch(resetAuthResponse());
     }
@@ -28,12 +31,15 @@ const useUpdateShippingAddress = () => {
       resUpdateShippingAddress &&
       resUpdateShippingAddress.status_code !== 200
     ) {
+      setLoadingUpdateShipping(false);
       NotificationError(t("notification"), resUpdateShippingAddress.message);
     }
   }, [resUpdateShippingAddress]);
   return {
     resUpdateShippingAddress,
     updateShippingAddress,
+    loadingUpdateShipping,
+    setLoadingUpdateShipping,
   };
 };
 

@@ -7,19 +7,19 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
   const formItemLayout = getCategoryFormLayout();
   return (
     <>
-      <Row justify="center">
-        <Form
-          {...formItemLayout}
-          className={className}
-          name="common-translate-category-form"
-          form={form}
-        >
-          <Col span={24} className="form-group-col">
+      <Form
+        {...formItemLayout}
+        className={className}
+        name="common-translate-category-form"
+        form={form}
+      >
+        <Row justify="center" className="input-field-space">
+          <Col span={24}>
             <InputField
               field="name"
               label={`(${lang}) Name`}
               rules={[
-                {
+                lang === "EN" && {
                   required: true,
                   message: "Please enter your Name",
                   whitespace: true,
@@ -30,26 +30,17 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               type={<Input />}
             />
           </Col>
-          <Row justify="center">
-            <Col span={24} className="form-group-col">
-              <InputField
-                field="locale"
-                label={`(${lang}) Locale`}
-                rules={[]}
-                type={<Input />}
-              />
-            </Col>
-            <Col span={24} className="form-group-col">
-              <InputField
-                field="cat_id"
-                label={`(${lang}) Category`}
-                rules={[]}
-                type={<Input />}
-              />
-            </Col>
-          </Row>
-        </Form>
-      </Row>
+
+          <Col span={24}>
+            <InputField
+              field="locale"
+              label={`(${lang}) Locale`}
+              rules={[]}
+              type={<Input />}
+            />
+          </Col>
+        </Row>
+      </Form>
     </>
   );
 };

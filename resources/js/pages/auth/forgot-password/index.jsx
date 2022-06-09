@@ -19,7 +19,8 @@ const { Title } = Typography;
 const ForgotPassword = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
-  const { resForgotPassword, getForgotPassword } = useForgotPassword();
+  const { resForgotPassword, getForgotPassword, loadingForgotPassword } =
+    useForgotPassword();
   const [form] = Form.useForm();
 
   const forgotEmailInitValues = {
@@ -78,6 +79,7 @@ const ForgotPassword = () => {
             </Col>
             <Col span={8}>
               <Button
+                loading={loadingForgotPassword}
                 className="w-100"
                 size="large"
                 type="primary"

@@ -9,7 +9,7 @@ const _YEAR_OLD = [
 ];
 const _YES_OR_NO = [
     "1" => "Yes",
-    "2" => "No"
+    "0" => "No"
 ];
 const _CURRENTLY_TREATING = [
     "1" => "There is none",
@@ -67,4 +67,8 @@ const CAT_TYPE = [
     '1' => 'First-class OTC drugs',
     '2' => 'Specify Second-class OTC drugs',
     '3' => 'Second-class OTC drugs',
+];
+
+const PAY_METHOD = [
+  'cod' => 'Cash on delivery'
 ];

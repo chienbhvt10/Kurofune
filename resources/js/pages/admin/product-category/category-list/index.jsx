@@ -7,14 +7,18 @@ import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategori
 import useDeleteAdminCategory from "../../../../hooks/categoryAdmin/useDeleteAdminCategory.js";
 import "./category.scss";
 import CategoryTable from "./CategoryTable";
+import { useTranslation } from "react-i18next";
 
 const CategoryList = () => {
   // const lang = localStorage.getItem("lang");
-  const { getAdminCategories, adminCategories } = useAdminCategories();
-  const { deleteAdminCategory, resDeleteCategory } = useDeleteAdminCategory();
+  const { getAdminCategories, adminCategories, pagination } =
+    useAdminCategories();
+  const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
+    useDeleteAdminCategory();
   const navigate = useNavigate();
 
-  const lang =getCurrentLanguage()
+  const lang = getCurrentLanguage();
+  const { t } = useTranslation();
 
   const onDelete = (row) => () => {
     deleteAdminCategory(row.id);
@@ -24,21 +28,31 @@ const CategoryList = () => {
     navigate(`${lang}/admin/category/update/${row.id}`);
   };
 
-  React.useEffect(() => {
-    getAdminCategories();
-  }, []);
+  const onTableChange = (paginationTable, filters, sorter) => {
+    const current = paginationTable.current || 1;
+    const per_page = paginationTable.pageSize || 10;
+    getAllUsers({ page: current, per_page: per_page });
+  };
 
   React.useEffect(() => {
-    if (resDeleteCategory?.status_code === 200) {
+    if (!adminCategories) {
+      getAdminCategories();
+    }
+  }, [adminCategories]);
+
+  React.useEffect(() => {
+    if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess("Thông báo", "Xoá Category Thành Công!");
-
     }
-    return () => { };
+    return () => {};
   }, [resDeleteCategory]);
 
+  React.useEffect(() => {
+    getAdminCategories();
+  }, [resCreateCategory]);
+
   return (
-    
     <div className="category-container">
       <TableHeader
         addLink={`${lang}/admin/category/add`}
@@ -47,8 +61,15 @@ const CategoryList = () => {
           { name: "Category List", routerLink: "/category-list" },
         ]}
         title="Product Category"
+        textSearch={t("admins.category.placeholder_seach")}
       />
-      <CategoryTable items={adminCategories} onDelete={onDelete} onEdit={onEdit} />
+      <CategoryTable
+        items={adminCategories}
+        onDelete={onDelete}
+        onEdit={onEdit}
+        onTableChange={onTableChange}
+        pagination={pagination}
+      />
     </div>
   );
 };

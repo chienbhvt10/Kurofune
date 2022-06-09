@@ -757,8 +757,8 @@ export const PREF = [
 ];
 export const userFormOptions = {
   active_status: [
-    { value: 0, label_translate: "admins.user.form.option.active" },
-    { value: 1, label_translate: "admins.user.form.option.inactive" },
+    { value: 1, label_translate: "admins.user.form.option.active" },
+    { value: 0, label_translate: "admins.user.form.option.inactive" },
   ],
   gender: [
     { value: 0, label_translate: "admins.user.form.option.male" },
@@ -769,17 +769,26 @@ export const userFormOptions = {
     { value: 0, label_translate: "admins.user.form.option.no" },
   ],
   insurance_status: [
-    { value: 1, label_translate: "書類の送付/説明会参加/①kurofune着" },
+    {
+      value: 1,
+      label_translate: "admins.user.form.option.insurance_status.option1",
+    },
     {
       value: 2,
-      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡可）",
+      label_translate: "admins.user.form.option.insurance_status.option2",
     },
     {
       value: 3,
-      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡不可）",
+      label_translate: "admins.user.form.option.insurance_status.option3",
     },
-    { value: 4, label_translate: "保険完了" },
-    { value: 5, label_translate: "未着手" },
+    {
+      value: 4,
+      label_translate: "admins.user.form.option.insurance_status.option4",
+    },
+    {
+      value: 5,
+      label_translate: "admins.user.form.option.insurance_status.option5",
+    },
   ],
   insurance_support: [
     { value: 0, label_translate: "admins.user.form.option.unregistered" },
@@ -795,9 +804,9 @@ export const userFormOptions = {
     { value: 3, label_translate: "N3" },
     { value: 4, label_translate: "N4" },
     { value: 5, label_translate: "N5" },
-    { value: 6, label_translate: "Nゼロ" },
-    { value: 7, label_translate: "未登録" },
-    { value: 8, label_translate: "登録抹消中" },
+    { value: 6, label_translate: "N0" },
+    { value: 7, label_translate: "admins.user.form.option.registered" },
+    { value: 8, label_translate: "admins.user.form.option.remove_registered" },
   ],
   wabisabi_my_page_registration: [
     { value: 0, label_translate: "admins.user.form.option.unregistered" },
@@ -905,5 +914,13 @@ export const PRODUCT_OPTION = {
     { value: 14, label: "IT engineer" },
     { value: 15, label: "Building cleaning " },
     { value: 16, label: "other" },
+  ],
+};
+
+export const CATEGORY_OPTIONS = {
+  CATEGORY_TYPES: [
+    { value: 1, label_translate: "admins.category.type.option1" },
+    { value: 2, label_translate: "admins.category.type.option2" },
+    { value: 3, label_translate: "admins.category.type.option3" },
   ],
 };

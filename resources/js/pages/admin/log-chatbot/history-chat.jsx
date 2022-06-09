@@ -21,7 +21,7 @@ export const HistoryChat = ({ data, langChat }) => {
                   src={
                     item.admin
                       ? "https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/bot-avatar.png"
-                      : "https://secure.gravatar.com/avatar/907826aed3a2f5304136e2442fd82153?s=48&d=mm&r=g"
+                      : data.user_avatar
                   }
                   alt=""
                 />

@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getRoles } from "../../redux/actions/roleAction";
 
@@ -7,6 +8,13 @@ const useRoles = () => {
   const getAllRoles = () => {
     dispatch(getRoles());
   };
+
+  React.useEffect(() => {
+    if (roles.length === 0) {
+      getAllRoles();
+    }
+  }, [roles]);
+
   return {
     roles,
     getAllRoles,

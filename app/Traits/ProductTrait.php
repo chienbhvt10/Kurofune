@@ -18,7 +18,7 @@ trait ProductTrait
     }
 
     protected function get_price_html($price) {
-        return number_format($price). __(' (JPY)');
+        return number_format($price)." ". __('(JPY)');
     }
 
     protected function get_price_including_tax(Product $product){
@@ -27,7 +27,7 @@ trait ProductTrait
             $value_tax = Tax::find($tax_id)->value ?? null;
             return $product->price + $product->price*$value_tax/100;
         }
-        return $product->price;
+        return (float)$product->price;
     }
 
     public function get_order_number($id)
