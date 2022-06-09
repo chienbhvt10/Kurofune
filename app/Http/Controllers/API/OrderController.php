@@ -140,7 +140,6 @@ class OrderController extends Controller
             return $this->response_data_success($response);
             }         
         } catch (\Exception $error) {
-            dd($error->getMessage());
             return $this->response_exception();
         }
     }
