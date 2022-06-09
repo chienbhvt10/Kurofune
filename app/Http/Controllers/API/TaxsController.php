@@ -31,9 +31,9 @@ class TaxsController extends Controller
             } else {
                 $tax = Tax::paginate(10);
             }
-            return $this->responseData($tax);
+            return $this->response_data_success($tax);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -53,19 +53,19 @@ class TaxsController extends Controller
 
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 442);
+                return $this->response_validate($errors);
             }
 
-            $tax = [
+            $tax_params = [
                 'name' => $request->name,
                 'value' => $request->value,
             ];
 
-            $tax = Tax::create($tax);
-            return $this->successWithData(__('message.tax.created'), $tax->first(), 200);
+            $tax = Tax::create($tax_params);
+            return $this->response_message_data_success(__('message.tax.created'), $tax->first());
 
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -79,10 +79,10 @@ class TaxsController extends Controller
     {
         try {
             $tax = Tax::find($id);
-            return $this->responseData($tax);
+            return $this->response_data_success($tax);
         }
         catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -103,17 +103,17 @@ class TaxsController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 
             $tax = Tax::find($id);
             $tax->name = $request->name;
             $tax->value = $request->value;
             $tax->save();
-            return $this->successWithData(__('message.tax.update'), $tax);
+            return $this->response_message_data_success(__('message.tax.update'), $tax);
 
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -128,9 +128,9 @@ class TaxsController extends Controller
         try {
             $tax = Tax::find($id);
             $tax->delete();
-            return $this->success(__('message.tax.delete'));
+            return $this->response_message_success(__('message.tax.delete'));
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }

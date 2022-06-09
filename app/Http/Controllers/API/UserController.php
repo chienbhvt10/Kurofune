@@ -48,9 +48,9 @@ class UserController extends Controller
                     $users = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->paginate($posts_per_page);
                 }
             }
-            return $this->responseData($users);
+            return $this->response_data_success($users);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -108,7 +108,7 @@ class UserController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
             $username = $request->username;
             $name = $request->name;
@@ -178,7 +178,7 @@ class UserController extends Controller
                 if ($validator_profile->fails()) {
                     DB::rollBack();
                     $errors = $validator_profile->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $dob = $request->dob ?? null;
                 $gender = (boolean)$request->gender;
@@ -232,7 +232,7 @@ class UserController extends Controller
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $images_outside = $request->images_outside;
                 $images_inside = $request->images_inside;
@@ -348,10 +348,10 @@ class UserController extends Controller
                 'password' => $password
             ];
             Notification::sendNow($user, new RegisterUserNotification($data));
-            return $this->successWithData(__('message.user.created'), $user );
+            return $this->response_message_data_success(__('message.user.created'), $user);
         }catch (\Exception $error){
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -366,7 +366,7 @@ class UserController extends Controller
         try {
             $user = User::with(['roles','vendor_profile', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
             if(!$user) {
-                return $this->errorResponse(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $role = $user->roles;
             $profile = $user->profile;
@@ -400,9 +400,9 @@ class UserController extends Controller
                 'billing_address' => $billing_address,
                 'shipping_address' => $shipping_address,
             ];
-            return $this->responseData($response);
+            return $this->response_data_success($response);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -419,7 +419,7 @@ class UserController extends Controller
             DB::beginTransaction();
             $user = User::find($id);
             if(!$user) {
-                return $this->errorResponse(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $roles = Role::all()->pluck('name')->toArray();
             $validator = Validator::make($request->all(), [
@@ -455,7 +455,7 @@ class UserController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
             $name = $request->name;
             $email = $request->email;
@@ -487,7 +487,7 @@ class UserController extends Controller
                 if ($validator->fails()) {
                     DB::rollBack();
                     $errors = $validator->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $user->password = Hash::make($password);
             }
@@ -541,7 +541,7 @@ class UserController extends Controller
                 if ($validator_profile->fails()) {
                     DB::rollBack();
                     $errors = $validator_profile->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $dob = $request->dob ?? null;
                 $gender = (boolean)$request->gender;
@@ -595,7 +595,7 @@ class UserController extends Controller
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $images_outside = $request->images_outside ?? null;
                 $images_inside = $request->images_inside ?? null;
@@ -715,10 +715,10 @@ class UserController extends Controller
                 ];
                 Notification::sendNow($user, New ChangePasswordNotification($data));
             }
-            return $this->successWithData(__('message.user.updated'), $user);
+            return $this->response_message_data_success(__('message.user.updated'), $user);
         }catch (\Exception $error){
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -733,9 +733,9 @@ class UserController extends Controller
         try {
             $user = User::find($id);
             $user->delete();
-            return $this->success(__('message.user.deleted'));
+            return $this->response_message_success(__('message.user.deleted'));
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -744,9 +744,9 @@ class UserController extends Controller
         try {
             $id = $request->user()->id;
             $user = User::with(['roles', 'profile', 'address', 'billing_address', 'shipping_address'])->find($id);
-            return $this->responseData($user);
+            return $this->response_data_success($user);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }
