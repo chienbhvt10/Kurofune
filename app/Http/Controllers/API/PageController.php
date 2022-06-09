@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Traits\RespondsStatusTrait;
 use App\Traits\CustomFilterTrait;
+use App\Rules\Base64Image;
 
 class PageController extends Controller
 {
@@ -35,9 +36,9 @@ class PageController extends Controller
             } else {
                 $page = Page::paginate($posts_per_page);
             }
-            return $this->responseData($page);
+            return $this->response_data_success($page);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -55,13 +56,13 @@ class PageController extends Controller
             $validator = Validator::make($request->all(), [
                 'slug' => 'nullable|string|max:255',
                 'status' =>  [Rule::in(['publish', 'draft']), 'required'],
+                'image' =>  new Base64Image,
                 'en.title' => 'required|string'
             ]);
             if ($validator->fails()) {
-                $errors = $validator->errors();
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['title']);
             $slug_check = check_unique_slug(new Page, $slug);
@@ -110,10 +111,10 @@ class PageController extends Controller
 
             $page = Page::create($data);
             DB::commit();
-            return $this->successWithData(__('message.page.created'), $page);
+            return $this->response_message_data_success(__('message.page.created'), $page);
         } catch (\Exception $error) {
             DB::rollback();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -128,11 +129,11 @@ class PageController extends Controller
         try {
             $page = Page::find($id);
             if (!$page) {
-                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            return $this->responseData($page);
+            return $this->response_data_success($page);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -149,16 +150,17 @@ class PageController extends Controller
             DB::beginTransaction();
             $page = Page::find($id);
             if (!$page) {
-                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
                 'slug' => 'nullable|string|max:255',
                 'status' =>  [Rule::in(['publish', 'draft']), 'required'],
+                'image' =>  new Base64Image,
                 'en.title' => 'required|string'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['title']);
             $slug_check = check_unique_slug_update(new Page, $slug, $id);
@@ -205,10 +207,10 @@ class PageController extends Controller
             ]);
 
             DB::commit();
-            return $this->successWithData(__('message.page.updated'), $page);
+            return $this->response_message_data_success(__('message.page.updated'), $page);
         } catch (\Exception $error) {
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -223,9 +225,9 @@ class PageController extends Controller
         try {
             $page = page::find($id);
             $page->delete();
-            return $this->success(__('message.page.deleted'));
+            return $this->response_message_success(__('message.page.deleted'));
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -234,11 +236,11 @@ class PageController extends Controller
         try {
             $page = Page::where('slug', $slug)->first();
             if (!$page) {
-                return $this->errorResponse(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.page.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            return $this->responseData($page);
+            return $this->response_data_success($page);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }
