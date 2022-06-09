@@ -391,7 +391,6 @@ class ProductController extends Controller
             if($data){
                 $categories = $data->categories;
                 $translations = $data -> translations;
-                $type = $categories[0]->type;
                 $response = [
                     'slug' => $data->slug,
                     'sku' => $data->sku,
@@ -413,7 +412,7 @@ class ProductController extends Controller
                     'additives' => $data->additives,
                     'precautions_storage_handling' => $data->precautions_storage_handling,
                     'manufacturer' => $data->manufacturer,
-                    'type' => $type,
+                    'categories' => $categories,
                     'translations' => $translations,
                 ];
                 return $this->response_data_success($response);
