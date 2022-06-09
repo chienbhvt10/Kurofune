@@ -17,13 +17,13 @@ import {
 } from "./productInitValues.js";
 import useCategories from "../../../../hooks/category/useCategories.js";
 import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
+import { isAdmin } from "../../../../helper/roles";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
 
   const { pharmaciesAdmin, getAllPharmaciesAdmin } = usePharmacies();
-  const { userInfo, profile } = useSelector((state) => state.authState);
   const { categoriesClient, getCategoriesClient } = useCategories();
 
   const [avatarState, setAvatarState] = React.useState({
@@ -91,7 +91,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   React.useEffect(() => {
     getCategoriesClient();
     getAllPharmaciesAdmin();
-  }, []);
+  }, [lang]);
 
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
@@ -134,7 +134,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         />
         <div>
           <Row justify="center">
-            {profile?.roles[0]?.id === 1 && (
+            {isAdmin && (
               <Col
                 lg={12}
                 md={12}

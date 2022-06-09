@@ -41,6 +41,10 @@ const CategoryList = () => {
   }, [adminCategories]);
 
   React.useEffect(() => {
+    getAdminCategories();
+  }, [lang]);
+
+  React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess("Thông báo", "Xoá Category Thành Công!");
@@ -61,7 +65,7 @@ const CategoryList = () => {
           { name: "Category List", routerLink: "/category-list" },
         ]}
         title="Product Category"
-        textSearch={t("admins.category.placeholder_seach")}
+        searchPlaceHolder={t("admins.category.placeholder_seach")}
       />
       <CategoryTable
         items={adminCategories}

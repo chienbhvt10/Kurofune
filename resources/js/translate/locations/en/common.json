@@ -471,6 +471,7 @@
       "slug_field": "Slug",
       "name_field": "Name",
       "type_field": "Type",
+      "parent_category_field": "Parent category",
       "product_image_field": "Product Image",
       "placeholder_text": "Please enter text",
       "placeholder_seach": "Please enter name category",
@@ -478,6 +479,9 @@
         "option1": "First-class OTC drugs",
         "option2": "Specify Second-class OTC drugs",
         "option3": "Second-class OTC drugs"
+      },
+      "error_message": {
+        "error_category_image": "The category image field is required."
       }
     }
   }

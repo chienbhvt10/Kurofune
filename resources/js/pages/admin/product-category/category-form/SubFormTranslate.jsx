@@ -30,15 +30,6 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               type={<Input />}
             />
           </Col>
-
-          <Col span={24}>
-            <InputField
-              field="locale"
-              label={`(${lang}) Locale`}
-              rules={[]}
-              type={<Input />}
-            />
-          </Col>
         </Row>
       </Form>
     </>
