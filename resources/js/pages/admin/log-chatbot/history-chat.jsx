@@ -3,15 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 export const HistoryChat = ({ data, langChat }) => {
-  console.log("====================================");
-  console.log("History", data);
-  console.log("====================================");
   return (
     <>
       {data && (
         <div className="list-chat-container">
-          {data.data_log.map((item) => (
+          {data.data_log.map((item, index) => (
             <div
+              key={index}
               className={`chat-item__bot d-flex ${
                 item.admin
                   ? " justify-content-start"
@@ -29,12 +27,21 @@ export const HistoryChat = ({ data, langChat }) => {
                 />
                 <p>{item.admin ? "BOT" : data.user_name}</p>
               </div>
-              <div
-                className="content-chat"
-                dangerouslySetInnerHTML={{
-                  __html: item[langChat],
-                }}
-              />
+              <div className="content-chat">
+                {!item.type ? (
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html: item[langChat],
+                    }}
+                  />
+                ) : item.type === "image" ? (
+                  <img style={{maxWidth:'100%'}} src={item.url_image} alt="" />
+                ) : (
+                  <a className="url_Chat" href={item.url} target="_blank">
+                    {item[langChat]}
+                  </a>
+                )}
+              </div>
               <div className="date-icon">
                 <div className="date-chat">
                   {moment(item.time).format("YYYY/MM/DD")}

@@ -143,10 +143,20 @@
     .date-icon {
       display: flex;
       align-self: center;
-      .icon_checkCircle{
+
+      .icon_checkCircle {
         display: flex;
-    align-items: center;
+        align-items: center;
       }
     }
+  }
+}
+
+.url_Chat {
+  color: revert;
+
+  &:hover {
+    text-decoration: underline;
+    color: revert;
   }
 }

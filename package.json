@@ -46,6 +46,7 @@
         "password-generator": "^2.3.2",
         "path-to-regexp": "^6.2.0",
         "react-bootstrap-table-next": "^4.0.3",
+        "react-csv": "^2.2.2",
         "react-datepicker": "^4.7.0",
         "react-helmet": "^6.1.0",
         "react-i18next": "^11.16.6",
