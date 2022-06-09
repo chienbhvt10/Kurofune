@@ -3,15 +3,16 @@ import { useTranslation } from "react-i18next";
 import { Link, Outlet } from "react-router-dom";
 import iconBack from "../../../../../sass/image/icon-back.png";
 import { TabLink } from "../../../../components/tabs";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import "./style.scss";
 export const UserLayout = () => {
   const { t } = useTranslation();
-
+  const lang = getCurrentLanguage();
   return (
     <div className="user-layout container-fluid">
       <div className="user-layout-container">
         <div className="user-layout-back">
-          <Link to={"."} className="d-flex">
+          <Link to={`${lang}/media`} className="d-flex">
             <img className="icon-back" src={iconBack} alt="" />
             <span className="ml-2">{t("member.user_profile.text_back")}</span>
           </Link>

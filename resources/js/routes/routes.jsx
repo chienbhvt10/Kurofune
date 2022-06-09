@@ -55,6 +55,7 @@ import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
 import { useSelector } from "react-redux";
 import useShowProfile from "../hooks/auth/useShowProfile";
 import { isAdmin, isVendor } from "../helper/roles";
+import QAPage from "../pages/client/Q&A";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const { profile, userInfo } = useSelector((state) => state.authState);
@@ -108,6 +109,7 @@ const appRouter = () => {
             exact={true}
           />
         )}
+        <Route path={`/${lang}/qa`} element={<QAPage />} exact={true} />
         <Route
           path={`/${lang}/`}
           element={
