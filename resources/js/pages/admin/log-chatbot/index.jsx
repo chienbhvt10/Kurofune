@@ -108,7 +108,6 @@ const LogChatBot = () => {
       ),
     },
   ];
-
   const exportHistoryChatBot = (data) => {
     let content = `No.,ユーザーID,ユーザー名,チャット履歴,作成日,更新日
     1,1,"wabisabi admin","[{date: '2022/05/04', question: '言語を選択ください。'}]",2022/05/17,2022/05/17
@@ -214,7 +213,7 @@ const LogChatBot = () => {
     let dow = document.createElement("a");
     dow.href = url;
     const fileName = `${idUser ? "User" + idUser + "_" : ""}chat_log_export_${
-      dateExported.toISOString().split("T")[0] 
+      dateExported.toISOString().split("T")[0]
     }.csv`;
     dow.setAttribute("download", fileName);
     dow.click();
