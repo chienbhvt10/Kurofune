@@ -59,6 +59,7 @@
   "Other (free description)": "Other (free description)",
   "First-class OTC drugs":"First-class OTC drugs",
   "Specify Second-class OTC drugs":"Specify Second-class OTC drugs",
-  "Second-class OTC drugs":"Second-class OTC drugs"
-
+  "Second-class OTC drugs":"Second-class OTC drugs",
+  "(JPY)":"(JPY)",
+  "cod":"Cash on delivery"
 }
