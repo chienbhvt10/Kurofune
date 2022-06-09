@@ -2,11 +2,13 @@
 
 namespace App\Exceptions;
 
+use App\Traits\RespondsStatusTrait;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    use RespondsStatusTrait;
     /**
      * A list of the exception types that are not reported.
      *
@@ -39,10 +41,7 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (\Spatie\Permission\Exceptions\UnauthorizedException $e, $request) {
-            return response()->json([
-                'status_code'  => 403,
-                'message' => __('permission.not_permission'),
-            ]);
+            return $this->response_error(__('permission.not_permission'), 403);
         });
     }
 }
