@@ -85,13 +85,12 @@ class OrderController extends Controller
     }
 
 
-    public function orderHistoryDetail(Request $request) : \Illuminate\Http\JsonResponse
+    public function orderHistoryDetail(Request $request ,$order_id) : \Illuminate\Http\JsonResponse
     {
         try {
             $user = auth()->user();
             $id = $user->id;
-            $posts_per_page = get_per_page($request->per_page);
-            $order =  Order::with(['transaction','products'])->where('user_id',$id)->paginate($posts_per_page);
+            $order =  Order::with(['transaction','products'])->where('user_id',$id)->find($order_id);
             if($order->isEmpty()){
                 return $this->response_error(__('message.order.no_info'), 404);
             }else{
