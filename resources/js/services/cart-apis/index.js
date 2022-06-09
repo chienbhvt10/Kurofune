@@ -17,4 +17,8 @@ export const cartApis = {
     const url = "add-to-cart";
     return await axiosClient.post(url, data);
   },
+  deleteCartItem: async (id) => {
+    const url = `delete-cart-item/${id}`;
+    return await axiosClient.delete(url);
+  },
 };

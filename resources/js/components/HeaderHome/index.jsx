@@ -16,7 +16,7 @@ const HeaderHome = ({ toggleSideBar }) => {
   const handleLogout = () => {
     getLogout();
   };
-  const { cartInfo } = useCart();
+  const { cartInfo, deleteCartItem } = useCart();
   const totalQuantity = cartInfo?.cart_item
     ? cartInfo.cart_item.reduce(
         (prev, currentItem) => prev + currentItem.quantity,
@@ -83,16 +83,16 @@ const HeaderHome = ({ toggleSideBar }) => {
                         <ul className="cart_list product_list_widget ">
                           {cartInfo.cart_item.map((item) => (
                             <li className="mini_cart_item" key={item.id}>
-                              <Link
-                                to="#"
+                              <button
                                 className="remove remove_from_cart_button_cus"
                                 aria-label="Xóa sản phẩm này"
                                 data-product_id="851"
                                 data-item-key="92fb0c6d1758261f10d052e6e2c1123c"
                                 data-product_sku=""
+                                onClick={() => deleteCartItem(item.id)}
                               >
                                 ×
-                              </Link>{" "}
+                              </button>{" "}
                               <span className="quantity">
                                 {item?.quantity} ×{" "}
                                 <span className="amount">

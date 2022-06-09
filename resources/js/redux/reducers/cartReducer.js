@@ -4,6 +4,7 @@ import {
   updateCart,
   deleteCart,
   addToCart,
+  deleteCartItem,
 } from "../actions/cartAction";
 import {
   NotificationSuccess,
@@ -57,6 +58,18 @@ const cartSlice = createSlice({
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Delete cart failed");
+        }
+      });
+    builder
+      .addCase(deleteCartItem.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteCartItem.fulfilled, (state, action) => {
+        state.isLoading = false;
+        if (action.payload.status_code === 200) {
+          NotificationSuccess("", action.payload.message);
+        } else {
+          NotificationError("", "Delete cart item failed");
         }
       });
   },
