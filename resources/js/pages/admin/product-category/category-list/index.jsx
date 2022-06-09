@@ -44,15 +44,11 @@ const CategoryList = () => {
   }, [adminCategories]);
 
   React.useEffect(() => {
-    getAdminCategories();
-  }, [lang]);
-
-  React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess(t("notification"), resDeleteCategory.message);
     }
-    return () => {};
+    return () => { };
   }, [resDeleteCategory]);
 
   React.useEffect(() => {

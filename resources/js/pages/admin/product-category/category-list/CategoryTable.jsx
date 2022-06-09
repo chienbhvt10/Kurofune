@@ -1,9 +1,9 @@
-import React from "react";
-import { Link } from "react-router-dom";
 import { Table } from "antd";
-import TableRowAction from "./../../../../commons/TableRowAction/index";
+import React from "react";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-router-dom";
+import TableRowAction from "./../../../../commons/TableRowAction/index";
+import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 const CategoryTable = ({
   items,
   onDelete,
@@ -13,7 +13,11 @@ const CategoryTable = ({
 }) => {
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
+  const { getAdminCategories } = useAdminCategories()
 
+  const handleOffsetChange = (page, per_page) => {
+    getAdminCategories({ page, per_page })
+  }
   const columns = [
     {
       key: "image",
@@ -34,14 +38,15 @@ const CategoryTable = ({
       key: "name",
       dataIndex: "name",
       title: t("admins.category.name_field"),
-      render: (_, record) => (
-        <Link
+      render: (_, record) => {
+        let _lang = lang || '/ja'
+        return <Link
           to={`${lang}/admin/category/update/${record.id}`}
           className="text-decoration-none d-flex"
         >
-          {record.name || record.translations[0].name}
+          {record.translations.find((item) => _lang.includes(item.locale))?.name}
         </Link>
-      ),
+      },
     },
     {
       key: "slug",
@@ -82,6 +87,7 @@ const CategoryTable = ({
         pageSize: pagination.per_page,
         total: pagination.total,
         showTotal: () => `Total ${pagination.total} items`,
+        onChange: handleOffsetChange
       }}
     />
   );
