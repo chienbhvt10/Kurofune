@@ -388,37 +388,38 @@ class ProductController extends Controller
     {
         try {
             $data = Product::find($id);
-            $categories = $data->categories;
-            $translations = $data -> translations;
-            $type = $categories[0]->type;
-            $response = [
-                'slug' => $data->slug,
-                'sku' => $data->sku,
-                'stock_status' => $data->stock_status,
-                'price' => $this->get_price_html($data->price),
-                'price_tax' =>  $this->get_price_html($this->get_price_including_tax($data)),
-                'status' => $data->status,
-                'product_image' => $data->product_image,
-                'meta_title' => $data->meta_title,
-                'meta_description' => $data->meta_description,
-                'meta_keywords' => $data->meta_keywords,
-                'name' => $data->name,
-                'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
-                'features' => $data->features,
-                'precautions' => $data->precautions,
-                'efficacy_effect' => $data->efficacy_effect,
-                'usage_dose' => $data->usage_dose,
-                'active_ingredients' => $data->active_ingredients,
-                'additives' => $data->additives,
-                'precautions_storage_handling' => $data->precautions_storage_handling,
-                'manufacturer' => $data->manufacturer,
-                'type' => __(CAT_TYPE[$type]),
-                'translations' => $translations,
-            ];
-            if (empty($data)) {
+            if($data){
+                $categories = $data->categories;
+                $translations = $data -> translations;
+                $response = [
+                    'slug' => $data->slug,
+                    'sku' => $data->sku,
+                    'stock_status' => $data->stock_status,
+                    'price' => $data->price,
+                    'price_tax' =>  $this->get_price_including_tax($data),
+                    'status' => $data->status,
+                    'product_image' => $data->product_image,
+                    'meta_title' => $data->meta_title,
+                    'meta_description' => $data->meta_description,
+                    'meta_keywords' => $data->meta_keywords,
+                    'name' => $data->name,
+                    'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
+                    'features' => $data->features,
+                    'precautions' => $data->precautions,
+                    'efficacy_effect' => $data->efficacy_effect,
+                    'usage_dose' => $data->usage_dose,
+                    'active_ingredients' => $data->active_ingredients,
+                    'additives' => $data->additives,
+                    'precautions_storage_handling' => $data->precautions_storage_handling,
+                    'manufacturer' => $data->manufacturer,
+                    'categories' => $categories,
+                    'translations' => $translations,
+                ];
+                return $this->response_data_success($response);
+            }       
+            else{
                 return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            return $this->response_data_success($response);
         } catch (\Exception $error) {
             return $this->response_exception();
         }

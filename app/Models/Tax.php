@@ -12,4 +12,15 @@ class Tax extends Model
     protected $fillable = ['id', 'name', 'value'];
     protected $table = 'taxes';
     public $timestamps = true;
+
+     /*
+    |--------------------------------------------------------------------------
+    | RELATIONS
+    |--------------------------------------------------------------------------
+    */
+    
+    public function product(): \Illuminate\Database\Eloquent\Relations\HasOne
+    {
+        return $this->hasOne(Product::class, 'tax_id', 'id');
+    }
 }

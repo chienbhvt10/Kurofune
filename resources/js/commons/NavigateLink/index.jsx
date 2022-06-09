@@ -5,7 +5,6 @@ import { getCurrentLanguage } from "../../helper/localStorage";
 import "./navigate-link.scss";
 import { useSelector } from "react-redux";
 import { isAdmin } from "../../helper/roles";
-import { USER_ROLES } from "../../constants/index";
 const NavigateLink = ({ navigateItems, onClick }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
