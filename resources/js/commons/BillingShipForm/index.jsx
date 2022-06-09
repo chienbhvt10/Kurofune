@@ -56,18 +56,11 @@ const BillingShipForm = ({ className, form, typeForm, response,onFinish }) => {
             error={`${typeForm}.company`}
             label={t("admins.user.form.order.field_company")}
             labelCol={{ span: 24 }}
-<<<<<<< HEAD
-            wrapperCol={{ span: 23 }}
-            rules={renderErrorTranslate("company")}
-            // response={response}
-            type={<Input className="input-field" />}
-=======
             wrapperCol={{ span: 22 }}
             response={response}
             placeholder={t("admins.user.form.placeholder.select_prefecture")}
             options={PREF}
             dependId={`${typeForm}-prefecture`}
->>>>>>> 83ee5c551ff399031b31c7d90ebef896b2949f6b
           />
         </Col>
         <Col span={12}>
