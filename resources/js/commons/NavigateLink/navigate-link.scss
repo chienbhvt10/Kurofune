@@ -1,19 +1,22 @@
 .navbar-nav {
-    .menu-item {
-        position: relative;
-        color: #ffffff;
-        &:hover{
-            background-color: #58918B;
-        }
+  .menu-item {
+    position: relative;
+    color: #ffffff;
+    &:hover {
+      background-color: #58918b;
     }
-    .nav-link {
-        position: relative;
-        overflow: hidden;
-        z-index: 0;
-        cursor: pointer;
-        padding: 5px 15px;
-        color: #ffffff;
-        display: flex;
-        align-items: center;
+  }
+  .nav-link {
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    cursor: pointer;
+    padding: 5px 15px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    &.active {
+      background-color: #58918b;
     }
+  }
 }
