@@ -83,5 +83,8 @@ return [
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',
         'quantity' => '请查看购买详情'
+    ],
+    'order' => [
+        'no_info' => '无订单'
     ]
 ];
