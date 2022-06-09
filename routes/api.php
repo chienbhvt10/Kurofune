@@ -51,6 +51,11 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
+        // Order Manage
+        Route::middleware(['permission:manage order'])->group(function () {
+            Route::apiResource('orders', \App\Http\Controllers\API\OrderController::class)->except(['store']);
+        });
+
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
             Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);

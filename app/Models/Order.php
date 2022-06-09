@@ -6,6 +6,7 @@ use App\Traits\ProductTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Scopes\OrderByCreatedAtScope;
 
 class Order extends Model
 {
@@ -38,6 +39,16 @@ class Order extends Model
 
     protected $appends = ['order_number', 'total', 'total_tax'];
 
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
+    }
+
     public function getOrderNumberAttribute(): string
     {
         return $this->get_order_number($this->id);
@@ -51,6 +62,24 @@ class Order extends Model
     public function getTotalTaxAttribute(): string
     {
         return $this->get_price_html($this->products->sum('pivot.total_tax'));
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | SCOPES
+    |--------------------------------------------------------------------------
+    */
+
+    public function scopeStatus($query, $request)
+    {
+        if ($request->has('status')) {
+            $query->whereHas('transaction', function ($q) use ($request) {
+                $q->select(['status']);
+                $q->where('status', '=', $request->status);
+            });
+        }
+//        dd($query->toSql());
+        return $query;
     }
 
     /*
