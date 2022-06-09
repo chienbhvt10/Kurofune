@@ -27,3 +27,6 @@ export const isRoleMember = (role) => {
 export const isRolePlan = (role) => {
   return role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN;
 };
+export const isRoleVendor = (role) => {
+  return role === ROLE_VENDOR;
+};
