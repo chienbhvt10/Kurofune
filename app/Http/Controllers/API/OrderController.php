@@ -26,13 +26,13 @@ class OrderController extends Controller
             $posts_per_page = get_per_page($request->per_page);
             $user = auth()->user();
             $roles = $user->getRoleNames()->first();
-            $orders = Order::with(['products', 'transaction'])->paginate($posts_per_page);
+
             if($roles == UserRole::ROLE_VENDOR) {
-                $orders = $user->vendor_profile->orders;
-                $orders->load('products');
-                $orders->load('transaction');
+                $order = $user->vendor_profile->orders()->with(['user', 'transaction'])->status($request)->paginate($posts_per_page);
+            }else{
+                $order = Order::query()->with(['user', 'transaction'])->status($request)->paginate($posts_per_page);
             }
-            return $this->responseData($orders);
+            return $this->response_data_success($order);
 
         }catch (\Exception $error){
             return $this->errorResponse($error->getMessage());
