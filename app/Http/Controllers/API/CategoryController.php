@@ -32,10 +32,10 @@ class CategoryController extends Controller
                 $cat = Category::paginate($posts_per_page);
             }
 
-            return $this->responseData($cat);
+            return $this->response_data_success($cat);
         } catch (\Exception $error) {
             DB::rollback();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -61,7 +61,7 @@ class CategoryController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
+                return $this->response_validate($errors);
             }
 
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
@@ -98,10 +98,10 @@ class CategoryController extends Controller
             $cat = $user->categories()->create($params);
             DB::commit();
 
-            return $this->successWithData(__('message.category.created'), $cat);
+            return $this->response_message_data_success(__('message.category.created'), $cat);
         } catch (\Exception $error) {
             DB::rollback();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -117,12 +117,12 @@ class CategoryController extends Controller
             $cat = Category::find($id);
 
             if (empty($cat)) {
-                return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
-            return $this->responseData($cat);
+            return $this->response_data_success($cat);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -142,12 +142,12 @@ class CategoryController extends Controller
             $params_update = [];
 
             if (empty($cat)) {
-                return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'slug' => 'nullable|string|max:255',
+                'slug' => 'nullable|string',
                 'category_image' => ['nullable', new Base64Image],
                 'type' => 'required|numeric',
                 'en.name' => 'required|string'
@@ -155,19 +155,13 @@ class CategoryController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
+                return $this->response_validate($errors);
             }
 
             $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
             $slug_check = check_unique_slug_update(new Category, $slug, $id);
             if ($slug_check == false) {
                 return $this->errorUniqueSlug();
-            }
-
-            $image_update = $request->category_image;
-            if ($image_update) {
-                $image_path = save_base_64_image($image_update, 'category');
-                $params_update['category_image'] = $image_path;
             }
 
             $params_update = [
@@ -191,12 +185,18 @@ class CategoryController extends Controller
                 ]
             ];
 
+            $image_update = $request->category_image;
+            if ($image_update) {
+                $image_path = save_base_64_image($image_update, 'category');
+                $params_update['category_image'] = $image_path;
+            }
+
             $cat->update($params_update);
             DB::commit();
-            return $this->successWithData(__('message.category.updated'), $cat, Response::HTTP_OK);
+            return $this->response_message_data_success(__('message.category.updated'), $cat);
         } catch (\Exception $error) {
             DB::rollback();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -211,9 +211,9 @@ class CategoryController extends Controller
         try {
             $cat = Category::find($id);
             $cat->delete();
-            return $this->success(__('message.category.deleted'));
+            return $this->response_message_success(__('message.category.deleted'));
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -231,12 +231,12 @@ class CategoryController extends Controller
             }
 
             if ($dataList->first()) {
-                return $this->responseData($dataList);
+                return $this->response_data_success($dataList);
             } else {
-                return $this->errorResponse(__('message.medicine.not_found'));
+                return $this->response_error(__('message.medicine.not_found'));
             }
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -246,14 +246,14 @@ class CategoryController extends Controller
             $cat = Category::find($id);
 
             if (empty($cat)) {
-                return $this->errorResponse(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.category.not_exist'), Response::HTTP_NOT_FOUND);
             }
 
             $products = $cat->products()->where('status', 'publish')->with('categories')->get();
 
-            return $this->responseData($products);
+            return $this->response_data_success($products);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }
