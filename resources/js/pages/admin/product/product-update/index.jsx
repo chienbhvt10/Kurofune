@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { NotificationSuccess } from "../../../../commons/Notification/index.jsx";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import useProductDetail from "../../../../hooks/product/useProductDetail";
+import useProducts from "../../../../hooks/product/useProducts.js";
 import ProductForm from "../product-form/ProductForm";
 import useUpdateProduct from "./../../../../hooks/product/useUpdateProduct";
 
@@ -12,6 +13,7 @@ const UpdateProduct = () => {
   const navigate = useNavigate();
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
+  const { getAllProducts } = useProducts();
 
   const { getProduct, product } = useProductDetail();
   const { updateProduct, resUpdateProduct } = useUpdateProduct();
@@ -36,12 +38,10 @@ const UpdateProduct = () => {
   }, [id]);
 
   React.useEffect(() => {
-    if (resUpdateProduct?.status_code === 200) {
+    if (resUpdateProduct?.error_code === "NO_ERROR") {
       navigate(`${lang}/admin/product-list`);
-      NotificationSuccess(
-        t("admins.product.notification"),
-        resUpdateProduct.message
-      );
+      NotificationSuccess(t("notification"), resUpdateProduct.message);
+      getAllProducts();
     }
   }, [resUpdateProduct]);
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -11,6 +11,7 @@ import {
   createUserAction,
   resetResCRUDAction,
 } from "../../redux/actions/userAction";
+import useUsers from "./useUsers";
 
 const useCreateUser = () => {
   const { resCreateUser, user } = useSelector((state) => state.userState);
@@ -18,17 +19,29 @@ const useCreateUser = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const { getAllUsers, pagination } = useUsers();
+
+  const [loadingCreateUser, setLoadingCreateUser] = useState(false);
+
   const createUser = (payload) => {
+    setLoadingCreateUser(true);
     dispatch(createUserAction(payload));
   };
+
   React.useEffect(() => {
     if (resCreateUser?.status_code === 200) {
-      NotificationSuccess(t("notification"), t("admins.crud.create_success"));
+      getAllUsers({ page: pagination.current_page });
+      setLoadingCreateUser(false);
+      NotificationSuccess(
+        t("notification"),
+        t("admins.crud.user.create_success")
+      );
       navigate(`${lang}/admin/user-list`);
       dispatch(resetResCRUDAction());
     }
     if (resCreateUser && resCreateUser.status_code !== 200) {
-      NotificationError(t("notification"), t("admins.crud.create_fail"));
+      setLoadingCreateUser(false);
+      NotificationError(t("notification"), t("admins.crud.user.create_fail"));
     }
   }, [resCreateUser]);
 
@@ -36,6 +49,8 @@ const useCreateUser = () => {
     user,
     resCreateUser,
     createUser,
+    setLoadingCreateUser,
+    loadingCreateUser,
   };
 };
 

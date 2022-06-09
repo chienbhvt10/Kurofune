@@ -7,7 +7,9 @@ import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
 
 export const ChangeProfile = () => {
   const { showProfile, profile } = useShowProfile();
-  const { updateProfile, resUpdateProfile } = useUpdateProfile();
+  const { updateProfile, resUpdateProfile, loadingUpdateProfile } =
+    useUpdateProfile();
+
   React.useEffect(() => {
     if (!profile) {
       showProfile();
@@ -27,6 +29,7 @@ export const ChangeProfile = () => {
         <meta name="og:title" content="Change profile" />
       </Helmet>
       <FormInfo
+        loading={loadingUpdateProfile}
         item={profile}
         onSave={onSave}
         typeForm={PROFILE_FORM}

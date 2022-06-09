@@ -46,10 +46,10 @@ class ProductController extends Controller
                     $product = $user->products()->paginate($posts_per_page);
                 }
             }
-            return $this->responseData($product);
+            return $this->response_data_success($product);
 
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -78,7 +78,7 @@ class ProductController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 
             $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
@@ -97,13 +97,13 @@ class ProductController extends Controller
                 if ($validator->fails()) {
                     DB::rollBack();
                     $errors = $validator->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $userVendor = User::whereHas('roles', function ($query){
                     return $query->where('name', '=', UserRole::ROLE_VENDOR);
                 })->find($request->user_id);
                 if(!$userVendor) {
-                    return $this->errorResponse(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
+                    return $this->response_error(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
                 }
                 $user_id = $userVendor->id;
 
@@ -183,11 +183,11 @@ class ProductController extends Controller
             ]);
             $product->categories()->sync($request->cat_id);
             DB::commit();
-            return $this->successWithData(__('message.product.created'), $product);
+            return $this->response_message_data_success(__('message.product.created'), $product);
 
         } catch (\Exception $error) {
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -201,36 +201,19 @@ class ProductController extends Controller
     {
         try {
             $data = Product::find($id);
-            $categories = $data->categories;
-            $translations = $data -> translations;
-            $type = $categories[0]->type;
-            $response = [
-                'slug' => $data->slug,
-                'sku' => $data->sku,
-                'stock_status' => $data->stock_status,
-                'price' => $this->get_price_html($data->price),
-                'price_tax' =>  $this->get_price_html($this->get_price_including_tax($data)),
-                'status' => $data->status,
-                'product_image' => $data->product_image,
-                'meta_title' => $data->meta_title,
-                'meta_description' => $data->meta_description,
-                'meta_keywords' => $data->meta_keywords,
-                'name' => $data->name,
-                'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
-                'features' => $data->features,
-                'precautions' => $data->precautions,
-                'efficacy_effect' => $data->efficacy_effect,
-                'usage_dose' => $data->usage_dose,
-                'active_ingredients' => $data->active_ingredients,
-                'additives' => $data->additives,
-                'precautions_storage_handling' => $data->precautions_storage_handling,
-                'manufacturer' => $data->manufacturer,
-                'type' => __(CAT_TYPE[$type]),
-                'translations' => $translations,
-            ];
-            return $this->responseData($response);
+            if (empty($data)) {
+                return $this->response_error(__('message.product.not_exist'), 404);
+            }
+            $data_cat = [];
+            foreach ($data->categories as $item) {
+                $cat_id = $item->id;
+                array_push($data_cat, $cat_id);
+            }
+            $data['cat_arr'] = $data_cat;
+
+            return $this->response_data_success($data);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -247,7 +230,7 @@ class ProductController extends Controller
             DB::beginTransaction();
             $product = Product::findOrFail($id);
             if(!$product) {
-                return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
                 'slug' => 'nullable|unique:products,slug,'.$product->id.',id',
@@ -264,7 +247,7 @@ class ProductController extends Controller
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 
             $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
@@ -283,13 +266,13 @@ class ProductController extends Controller
                 if ($validator->fails()) {
                     DB::rollBack();
                     $errors = $validator->errors();
-                    return $this->errorResponse($errors, 422);
+                    return $this->response_validate($errors);
                 }
                 $userVendor = User::whereHas('roles', function ($query){
                     return $query->where('name', '=', UserRole::ROLE_VENDOR);
                 })->find($request->user_id);
                 if(!$userVendor) {
-                    return $this->errorResponse(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
+                    return $this->response_error(__('message.user.not_exist'), Response::HTTP_NOT_FOUND);
                 }
                 $user_id = $userVendor->id;
             }
@@ -368,16 +351,16 @@ class ProductController extends Controller
             $image_product = $request->product_image;
             if($image_product) {
                 $update_image_product = save_base_64_image($image_product, 'products');
-                $data_update['image_product'] = $update_image_product;
+                $data_update['product_image'] = $update_image_product;
             }
             $product->update($data_update);
             $product->categories()->sync($request->cat_id);
             DB::commit();
-            return $this->successWithData(__('message.product.updated'), $product);
+            return $this->response_message_data_success(__('message.product.updated'), $product);
 
         } catch (\Exception $error) {
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -392,12 +375,12 @@ class ProductController extends Controller
         try {
             $product = Product::find($id);
             if(!$product) {
-                return $this->errorResponse(__('message.product.not_exist'));
+                return $this->response_error(__('message.product.not_exist'));
             }
             $product->delete();
-            return $this->success(__('message.product.deleted'));
+            return $this->response_message_success(__('message.product.deleted'));
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -405,39 +388,40 @@ class ProductController extends Controller
     {
         try {
             $data = Product::find($id);
-            $categories = $data->categories;
-            $translations = $data -> translations;
-            $type = $categories[0]->type;
-            $response = [
-                'slug' => $data->slug,
-                'sku' => $data->sku,
-                'stock_status' => $data->stock_status,
-                'price' => $this->get_price_html($data->price),
-                'price_tax' =>  $this->get_price_html($this->get_price_including_tax($data)),
-                'status' => $data->status,
-                'product_image' => $data->product_image,
-                'meta_title' => $data->meta_title,
-                'meta_description' => $data->meta_description,
-                'meta_keywords' => $data->meta_keywords,
-                'name' => $data->name,
-                'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
-                'features' => $data->features,
-                'precautions' => $data->precautions,
-                'efficacy_effect' => $data->efficacy_effect,
-                'usage_dose' => $data->usage_dose,
-                'active_ingredients' => $data->active_ingredients,
-                'additives' => $data->additives,
-                'precautions_storage_handling' => $data->precautions_storage_handling,
-                'manufacturer' => $data->manufacturer,
-                'type' => __(CAT_TYPE[$type]),
-                'translations' => $translations,
-            ];
-            if (empty($data)) {
-                return $this->errorResponse(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
+            if($data){
+                $categories = $data->categories;
+                $translations = $data -> translations;
+                $response = [
+                    'slug' => $data->slug,
+                    'sku' => $data->sku,
+                    'stock_status' => $data->stock_status,
+                    'price' => $data->price,
+                    'price_tax' =>  $this->get_price_including_tax($data),
+                    'status' => $data->status,
+                    'product_image' => $data->product_image,
+                    'meta_title' => $data->meta_title,
+                    'meta_description' => $data->meta_description,
+                    'meta_keywords' => $data->meta_keywords,
+                    'name' => $data->name,
+                    'medicinal_efficacy_classification' => $data->medicinal_efficacy_classification,
+                    'features' => $data->features,
+                    'precautions' => $data->precautions,
+                    'efficacy_effect' => $data->efficacy_effect,
+                    'usage_dose' => $data->usage_dose,
+                    'active_ingredients' => $data->active_ingredients,
+                    'additives' => $data->additives,
+                    'precautions_storage_handling' => $data->precautions_storage_handling,
+                    'manufacturer' => $data->manufacturer,
+                    'categories' => $categories,
+                    'translations' => $translations,
+                ];
+                return $this->response_data_success($response);
+            }       
+            else{
+                return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            return $this->responseData($response);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }

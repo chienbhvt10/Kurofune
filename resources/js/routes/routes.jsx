@@ -55,6 +55,7 @@ import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
 import { useSelector } from "react-redux";
 import useShowProfile from "../hooks/auth/useShowProfile";
 import { isAdmin, isVendor } from "../helper/roles";
+import QAPage from "../pages/client/Q&A";
 const appRouter = () => {
   const { i18n } = useTranslation();
   const { profile, userInfo } = useSelector((state) => state.authState);
@@ -108,6 +109,7 @@ const appRouter = () => {
             exact={true}
           />
         )}
+        <Route path={`/${lang}/qa`} element={<QAPage />} exact={true} />
         <Route
           path={`/${lang}/`}
           element={
@@ -129,11 +131,7 @@ const appRouter = () => {
             element={<CategoryListDetail />}
             exact={true}
           />
-          <Route
-            path={`product-detail/:id`}
-            element={<ProductDetailPage />}
-            exact={true}
-          />
+          <Route path={`product-detail/:id`} element={<ProductDetailPage />} />
           <Route
             path={`list-of-pharmacies`}
             element={<PharmacyList />}
@@ -144,7 +142,7 @@ const appRouter = () => {
             element={<PharmacyDetail />}
             exact={true}
           />
-          <Route path={`cart`} element={<Cart />} exact={true}></Route>
+          <Route path={`cart`} element={<Cart />} />
           <Route path={`checkout`} element={<CheckoutPage />} exact={true} />
         </Route>
         <Route
@@ -157,7 +155,7 @@ const appRouter = () => {
           exact={true}
         />
 
-        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true}>
+        <Route path={`/${lang}/`} element={<AuthLayout />} exact={true} ƒc>
           <Route path={`login`} element={<Login />} exact={true} />
           <Route
             path={`forgot-password`}
@@ -282,7 +280,7 @@ const appRouter = () => {
           <Route path={`product-list`} element={<ProductList />} exact={true} />
           <Route path={`product/add`} element={<AddProduct />} exact={true} />
           <Route
-            path={`product/update`}
+            path={`product/update/:id`}
             element={<UpdateProduct />}
             exact={true}
           />
@@ -305,7 +303,7 @@ const appRouter = () => {
             exact={true}
           />
           <Route
-            path={`category/update`}
+            path={`category/update/:id`}
             element={
               <PrivateRoute roles={[USER_ROLES.ADMIN]}>
                 <UpdateCategory />
@@ -352,6 +350,6 @@ const appRouter = () => {
       <LangAfterReload />
     </BrowserRouter>
   );
-};;
+};
 
 export default appRouter;

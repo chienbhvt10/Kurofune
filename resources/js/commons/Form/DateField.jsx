@@ -11,39 +11,42 @@ const DateField = ({
   locale,
   response,
   className,
-  type
+  type,
+  dependId,
 }) => {
   const dateFormat = "YYYY/MM/DD";
   const { t } = useTranslation();
+  const getDepend = () =>
+    document.querySelector(`#${dependId || field}-pick-date`);
   return (
-    <Form.Item
-      name={field}
-      label={label}
-      labelCol={labelCol}
-      wrapperCol={wrapperCol}
-      hasFeedback
-      rules={rules}
-      className={className}
-      help={
-        response?.message?.[error] &&
-        response?.message?.[error].length &&
-        response?.message?.[error][0]
-      }
-      validateStatus={
-        response?.message?.[error] && response?.message?.[error].length
-          ? "error"
-          : ""
-      }
-    >
-      {type ? type : <DatePicker
-        style={{ width: "100%" }}
-        locale={locale}
-        format={dateFormat}
-        placeholder={t("admins.user.form.placeholder.select_date")}
-      />
-      }
-
-    </Form.Item>
+    <div id={`${dependId || field}-pick-date`} style={{ position: "relative" }}>
+      <Form.Item
+        name={field}
+        label={label}
+        labelCol={labelCol}
+        wrapperCol={wrapperCol}
+        hasFeedback
+        rules={rules}
+        help={
+          response?.message?.[error] &&
+          response?.message?.[error].length &&
+          response?.message?.[error][0]
+        }
+        validateStatus={
+          response?.message?.[error] && response?.message?.[error].length
+            ? "error"
+            : ""
+        }
+      >
+        {type ? type : <DatePicker
+          style={{ width: "100%" }}
+          locale={locale}
+          format={dateFormat}
+          placeholder={t("admins.user.form.placeholder.select_date")}
+        />
+        }
+      </Form.Item>
+    </div>
   );
 };
 

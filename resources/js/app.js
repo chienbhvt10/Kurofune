@@ -12,15 +12,15 @@ require("./bootstrap");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import "antd/dist/antd.css";
 import React from "react";
 import { render } from "react-dom";
 import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import { store } from "./redux/store";
+import "../less/app.less";
+import store from "./redux/store";
 import Routes from "./routes/routes";
 import i18n from "./translate/i18n";
-import "antd/dist/antd.css";
-import "../less/app.less";
 
 let composeEnhancers = null;
 if (
@@ -33,9 +33,9 @@ if (
 }
 render(
   <Provider store={store}>
-    <I18nextProvider i18n={i18n}>
-      <Routes />
-    </I18nextProvider>
+      <I18nextProvider i18n={i18n}>
+        <Routes />
+      </I18nextProvider>
   </Provider>,
   document.getElementById("app")
 );

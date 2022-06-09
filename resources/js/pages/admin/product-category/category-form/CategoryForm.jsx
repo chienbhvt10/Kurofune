@@ -1,16 +1,20 @@
-import { Col, Form, Input, InputNumber, Row, Upload, Button } from "antd";
+import { Col, Form, Input, Select, Row } from "antd";
 import React from "react";
 import FormHeader from "../../../../commons/FormHeader";
 import InputField from "./../../../../commons/Form/InputField";
+import SelectField from "../../../../commons/Form/SelectField";
 import "./category-form.scss";
 import TranslateCategoryForm from "./TranslateCategoryForm";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger.jsx";
+import { CATEGORY_OPTIONS } from "../../../../commons/data";
 import {
   getCategoryInitValues,
   getTranslateCategoryInitValues,
   getCategoryFormLayout,
 } from "./categoryInitValues.js";
+import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
+import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 const CategoryForm = ({
   item,
   typeForm,
@@ -24,6 +28,8 @@ const CategoryForm = ({
     base64Avatar: undefined,
     loading: false,
   });
+
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const [errorMessImage, setErrorMessImage] = React.useState("");
   const formItemLayout = getCategoryFormLayout();
@@ -35,6 +41,8 @@ const CategoryForm = ({
   const [categoryProfileFormTL] = Form.useForm();
   const [categoryProfileFormVI] = Form.useForm();
   const [categoryProfileFormZH] = Form.useForm();
+
+  const { getAdminCategories, adminCategories } = useAdminCategories();
 
   const onFinishAll = (values) => {
     const submitInput = {
@@ -56,7 +64,7 @@ const CategoryForm = ({
       },
       category_image: avatarState.base64Avatar,
     };
-
+    setErrorMessImage(!avatarState.base64Avatar);
     onSave(submitInput);
   };
 
@@ -87,13 +95,36 @@ const CategoryForm = ({
     }
   }, [item]);
 
+  React.useEffect(() => {
+    const image = document.querySelector(".image");
+    image.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+
+    return image.removeEventListener("click", () => {
+      return false;
+    });
+  }, []);
+
   const onChangeAvatar = (base64Image) => {
     setAvatarState({ base64Avatar: base64Image });
     setErrorMessImage("");
   };
+
   React.useEffect(() => {
     setAvatarState({ avatarUrl: item?.category_image || "" });
   }, [item]);
+
+  React.useEffect(() => {
+    if (!adminCategories) {
+      getAdminCategories();
+    }
+  }, [adminCategories]);
+
+  React.useEffect(() => {
+    getAdminCategories();
+  }, [lang]);
+
   return (
     <div id="category-form">
       <Form
@@ -121,61 +152,87 @@ const CategoryForm = ({
         />
 
         <div>
-          <Row>
-            <Col span={24} className="input-field-space">
-              <InputField
-                field="slug"
-                label="Slug"
-                rules={[]}
-                response={response}
-                error="slug"
-                type={<Input />}
-              />
-            </Col>
-            <Col span={24} className="input-field-space">
-              <InputField
-                field="type"
-                label="Type"
-                validateStatus={"Please enter your Type"}
-                rules={[
-                  {
-                    required: true,
-                    message: "Type ",
-                  },
-                ]}
-                type={<Input type="number" className="input-field" />}
-                response={response}
-                errorField="type"
-              />
-            </Col>
+          <TranslateCategoryForm
+            formEN={categoryProfileFormEN}
+            formJP={categoryProfileFormJP}
+            formTL={categoryProfileFormTL}
+            formVI={categoryProfileFormVI}
+            formZH={categoryProfileFormZH}
+            response={response}
+          />
 
+          <Row className="mb-30">
             <Col span={12} className="input-field-space">
-              <Form.Item field=" product_image" label="Product Image">
+              <Form.Item
+                field=" product_image"
+                className="required"
+                label={t("admins.category.product_image_field")}
+                required={true}
+              >
                 <UploadDragger
                   onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarState.avatarUrl}
                   loading={avatarState.loading}
                   mode="multiple"
+                  className="form-image-custom"
                 />
                 {errorMessImage && (
-                  <span style={{ color: "red", marginLeft: "80px" }}>
-                    {/* {t("admins.category.error_message.error_category_image")} */}
-                    "This field is required"
+                  <span style={{ color: "red" }}>
+                    {t("admins.category.error_message.error_category_image")}
                   </span>
                 )}
               </Form.Item>
             </Col>
+
+            <Col span={12} className="mb-30">
+              <Col span={24} className="input-field-space">
+                <InputField
+                  field="slug"
+                  label={t("admins.category.slug_field")}
+                  // rules={[]}
+                  response={response}
+                  error="slug"
+                  placeholder={t("admins.category.placeholder_text")}
+                  type={<Input />}
+                />
+              </Col>
+              <Col span={24} className="input-field-space">
+                <SelectField
+                  field="type"
+                  label={t("admins.category.type_field")}
+                  validateStatus={"Please enter your Type"}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("admins.category.placeholder_text"),
+                    },
+                  ]}
+                  type={<Input type="number" className="input-field" />}
+                  response={response}
+                  errorField="type"
+                  options={CATEGORY_OPTIONS.CATEGORY_TYPES}
+                />
+              </Col>
+
+              <Col span={24} className="input-field-space">
+                <SelectField
+                  field="parent_id"
+                  label={t("admins.category.parent_category_field")}
+                  // validateStatus={"Please enter your parent catogory"}
+                  response={response}
+                  errorField="parent_id"
+                >
+                  {adminCategories?.map((option, index) => (
+                    <Select.Option key={index} value={option.id}>
+                      {option.name || option.translations[0].name}
+                    </Select.Option>
+                  ))}
+                </SelectField>
+              </Col>
+            </Col>
           </Row>
         </div>
       </Form>
-      <TranslateCategoryForm
-        formEN={categoryProfileFormEN}
-        formJP={categoryProfileFormJP}
-        formTL={categoryProfileFormTL}
-        formVI={categoryProfileFormVI}
-        formZH={categoryProfileFormZH}
-        response={response}
-      />
     </div>
   );
 };

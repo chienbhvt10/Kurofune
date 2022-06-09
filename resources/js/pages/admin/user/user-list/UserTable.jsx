@@ -11,6 +11,8 @@ export const UserTable = ({
   onDelete,
   pagination,
   onTableChange,
+  loading,
+  loadingDeleteUser,
 }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -75,7 +77,12 @@ export const UserTable = ({
         width: 100,
       },
       render: (cell, row) => (
-        <TableRowAction record={row} onDelete={onDelete} onEdit={onEdit} />
+        <TableRowAction
+          confirmLoading={loadingDeleteUser}
+          record={row}
+          onDelete={onDelete}
+          onEdit={onEdit}
+        />
       ),
     },
   ];
@@ -87,10 +94,12 @@ export const UserTable = ({
       dataSource={items}
       bordered
       onChange={onTableChange}
+      loading={loading}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,
         pageSizeOptions: ["5", "10", "20", "50", "100"],
+        current: pagination.current_page,
         total: pagination.total,
         pageSize: pagination.per_page,
         showTotal: () => `Total ${pagination.total} items`,

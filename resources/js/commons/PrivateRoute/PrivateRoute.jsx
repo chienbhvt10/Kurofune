@@ -12,7 +12,6 @@ const PrivateRoute = ({ children, roles }) => {
   const currentUserRole = roles
     ? profile?.roles.map((item) => item.name) || [userInfo?.roles?.name]
     : [];
-
   const userHasRequiredRole = roles?.some((item) =>
     currentUserRole.includes(item)
   );

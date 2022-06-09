@@ -5,33 +5,45 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
-import { deleteUserAction } from "../../redux/actions/userAction";
+import {
+  deleteUserAction,
+  resetResCRUDAction,
+} from "../../redux/actions/userAction";
 import useUsers from "./useUsers";
 
 const useDeleteUser = () => {
   const { resDeleteUser } = useSelector((state) => state.userState);
+  const [loadingDeleteUser, setLoadingDeleteUser] = React.useState(false);
   const dispatch = useDispatch();
   const { getAllUsers, pagination } = useUsers();
   const { t } = useTranslation();
 
   const deleteUser = (payload) => {
+    setLoadingDeleteUser(true);
     dispatch(deleteUserAction(payload));
   };
 
   React.useEffect(() => {
     if (resDeleteUser?.status_code === 200) {
-      NotificationSuccess(t("notification"), t("admins.crud.delete_success"));
       getAllUsers({ page: pagination.current_page });
+      NotificationSuccess(
+        t("notification"),
+        t("admins.crud.user.delete_success")
+      );
+      setLoadingDeleteUser(false);
       dispatch(resetResCRUDAction());
     }
     if (resDeleteUser && resDeleteUser.status_code !== 200) {
-      NotificationError(t("notification"), t("admins.crud.delete_fail"));
+      setLoadingDeleteUser(false);
+      NotificationError(t("notification"), t("admins.crud.user.delete_fail"));
     }
   }, [resDeleteUser]);
 
   return {
     resDeleteUser,
     deleteUser,
+    loadingDeleteUser,
+    setLoadingDeleteUser,
   };
 };
 

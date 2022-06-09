@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
-import userState from "../reducers/userReducers";
-import productState from "../reducers/productReducers";
 import authState from "../reducers/authReducers";
 import categoryState from "../reducers/categoryReducer";
-import roleState from "../reducers/roleReducers";
 import pharmacyState from "../reducers/pharmacyReducer";
+import productState from "../reducers/productReducers";
+import roleState from "../reducers/roleReducers";
+import userState from "../reducers/userReducers";
 import adminCategoryState from "./../reducers/adminCategoryReducer";
+import cartState from "../reducers/cartReducer";
+import logChatState from "./../reducers/logChatReducer";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +18,9 @@ export const store = configureStore({
     categoryState,
     pharmacyState,
     adminCategoryState,
+    logChatState,
+    cartState
   },
 });
+
+export default store;

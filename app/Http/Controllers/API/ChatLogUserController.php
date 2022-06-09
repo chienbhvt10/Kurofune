@@ -41,6 +41,7 @@ class ChatLogUserController extends Controller
             $chat_log->data_log = json_decode($chat_log->data_log) ?? null;
             $response = [
                 'user_name' => $chat_log->users->name ?? null,
+                'user_avatar' => $chat_log->users->avatar ?? null,
                 'data_log' => $chat_log->data_log
             ];
 
@@ -58,48 +59,55 @@ class ChatLogUserController extends Controller
         if (empty($results)) {
             return $this->errorResponse(__('Not found data'));
         }
-
         $file_name = "chat_log_export_" . date("Y_m_d") . ".csv";
-        // headers for download
-        header('Content-Encoding: UTF-8');
-        header("Content-Disposition: attachment; filename=\"$file_name\"");
-        header("Content-Type: text/csv;charset=UTF-8");
-        $af = fopen('php://output', 'w');
-        // fix utf 8 error when using fputcsv function
-        fprintf($af, chr(0xEF) . chr(0xBB) . chr(0xBF));
-        $csvHeader = [ 'No.', "ユーザーID", "ユーザー名", "チャット履歴", "作成日", "更新日"];
-        fputcsv($af, $csvHeader, ',', '"');
-        $i = 0;
-        foreach ($results as $item) {
-            $i++;
-            $data = [];
-            $user_id = $item->user_id;
-            $data_logs = json_decode($item->data_log);
-            $user_name = $item->users->name ?? null;
-            $log = [];
-            foreach ($data_logs as $item_log) {
-                $label = ($item_log->admin) ? "question:" : "answer:";
-                if (isset($item_log->type) && $item_log->type == "image") {
-                    $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->image . "'}";
-                } else {
-                    if (!empty($export_ja) && ($export_ja == 'true')) {
-                        $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message_ja . "'}";
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Encoding" => "sjis-win",
+            "Content-Disposition" => "attachment; filename=$file_name",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+        $csv_header = ['No.', "ユーザーID", "ユーザー名", "チャット履歴", "作成日", "更新日"];
+
+        $callback = function () use ($csv_header, $results, $export_ja) {
+            $file = fopen('php://output', 'w');
+            fputs($file, "\xEF\xBB\xBF");
+            fputcsv($file, $csv_header);
+            $i = 0;
+            foreach ($results as $item) {
+                $i++;
+                $data = [];
+                $user_id = $item->user_id;
+                $data_logs = json_decode($item->data_log);
+                $user_name = $item->users->name ?? null;
+                $log = [];
+                foreach ($data_logs as $item_log) {
+                    $label = ($item_log->admin) ? "question:" : "answer:";
+                    if (isset($item_log->type) && $item_log->type == "image") {
+                        $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->image . "'}";
                     } else {
-                        $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message . "'}";
+                        if (!empty($export_ja) && ($export_ja == 'true')) {
+                            $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message_ja . "'}";
+                        } else {
+                            $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message . "'}";
+                        }
                     }
+                    $log[] = $str;
                 }
-                $log[] = $str;
+                $data[] = $i;
+                $data[] = $user_id;
+                $data[] = $user_name;
+                $data[] = "[" . implode("\r\n", $log) . "]";
+                $data[] = date('Y/m/d', strtotime($item->created_at));
+                $data[] = date('Y/m/d', strtotime($item->updated_at));
+                fputcsv($file, $data, ',', '"');
             }
-            $data[] = $i;
-            $data[] = $user_id;
-            $data[] = $user_name;
-            $data[] = "[" . implode("\r\n", $log) . "]";
-            $data[] = date('Y/m/d', strtotime($item->created_at));
-            $data[] = date('Y/m/d', strtotime($item->updated_at));
-            fputcsv($af, $data, ',', '"');
-        }
-        fclose($af);
-        exit();
+            fclose($file);
+        };
+        $headers = ['Content-Type: application/csv'];
+
+        return response()->stream($callback, 200, $headers);
     }
 
     public function chatLogUser(Request $request, $id)
@@ -113,40 +121,47 @@ class ChatLogUserController extends Controller
         $user = User::find($results->user_id);
         $data_logs = json_decode($results->data_log);
 
-        $file_name = "User_".$id."_chat_log_export_" . date("Y_m_d") . ".csv";
-        // headers for download
-        header('Content-Encoding: UTF-8');
-        header("Content-Disposition: attachment; filename=\"$file_name\"");
-        header("Content-Type: text/csv;charset=UTF-8");
-        $df = fopen( 'php://output', 'w' );
-        // fix utf 8 error when using fputcsv function
-        fprintf($df, chr(0xEF).chr(0xBB).chr(0xBF));
-        $csvHeader = [ 'No.', "ユーザーID", "ユーザー名", "チャット履歴", "作成日", "更新日"];
+        $file_name = "User_" . $id . "_chat_log_export_" . date("Y_m_d") . ".csv";
+        $csv_header = ['No.', "ユーザーID", "ユーザー名", "チャット履歴", "作成日", "更新日"];
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Encoding" => "sjis-win",
+            "Content-Disposition" => "attachment; filename=$file_name",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
         $log = [];
-        foreach ($data_logs as $item_log){
-            $label = ($item_log->admin) ? "question:" : "answer:";
-            if(isset($item_log->type) && $item_log->type == "image"){
-                $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->image . "'}";
-            }else{
-                if (!empty($export_ja) && ($export_ja == 'true')) {
-                    $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message_ja . "'}";
+
+        $callback = function () use ($id, $csv_header, $data_logs, $results, $user, $log, $export_ja) {
+            $file = fopen('php://output', 'w');
+            fputs($file, "\xEF\xBB\xBF");
+            fputcsv($file, $csv_header);
+            foreach ($data_logs as $item_log) {
+                $label = ($item_log->admin) ? "question:" : "answer:";
+                if (isset($item_log->type) && $item_log->type == "image") {
+                    $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->image . "'}";
                 } else {
-                    $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message . "'}";
+                    if (!empty($export_ja) && ($export_ja == 'true')) {
+                        $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message_ja . "'}";
+                    } else {
+                        $str = "{date: '" . date('Y/m/d', strtotime($item_log->time)) . "', $label '" . $item_log->message . "'}";
+                    }
                 }
+                $log[] = $str;
             }
-            $log[] = $str;
-        }
-        fputcsv($df, $csvHeader, ',', '"');
-        $i = 0;
-        $data = [];
-        $data[] = $i;
-        $data[] = $id;
-        $data[] = $user->name ?? '';
-        $data[] = "[".implode("\r\n",$log)."]";
-        $data[] = date( 'Y/m/d', strtotime($results->created_at));
-        $data[] = date( 'Y/m/d', strtotime($results->updated_at));
-        fputcsv($df, $data, ',', '"');
-        fclose($df);
-        exit();
+            $i = 0;
+            $data = [];
+            $data[] = $i;
+            $data[] = $id;
+            $data[] = $user->name ?? '';
+            $data[] = "[" . implode("\r\n", $log) . "]";
+            $data[] = date('Y/m/d', strtotime($results->created_at));
+            $data[] = date('Y/m/d', strtotime($results->updated_at));
+            fputcsv($file, $data, ',', '"');
+            fclose($file);
+        };
+        $headers = ['Content-Type: application/csv'];
+        return response()->stream($callback, 200, $headers);
     }
 }

@@ -14,11 +14,14 @@ const SelectField = ({
   mode,
   disabled,
   className,
+  children,
+  dependId,
 }) => {
   const { t } = useTranslation();
-  const getDepend = () => document.querySelector(`#${field}-select`);
+  const getDepend = () =>
+    document.querySelector(`#${dependId || field}-select`);
   return (
-    <div id={`${field}-select`} style={{ position: "relative" }}>
+    <div id={`${dependId || field}-select`} style={{ position: "relative" }}>
       <Form.Item
         className={className}
         name={field}
@@ -43,11 +46,13 @@ const SelectField = ({
           mode={mode}
           getPopupContainer={getDepend}
         >
-          {options?.map((option, index) => (
-            <Select.Option key={index} value={option.value}>
-              {option.label || t(option.label_translate)}
-            </Select.Option>
-          ))}
+          {children
+            ? children
+            : options?.map((option, index) => (
+                <Select.Option key={index} value={option.value}>
+                  {option.label || t(option.label_translate)}
+                </Select.Option>
+              ))}
         </Select>
       </Form.Item>
     </div>

@@ -10,30 +10,19 @@ import useDeleteUser from "../../../../hooks/user/useDeleteUser";
 import useUsers from "../../../../hooks/user/useUsers";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
+import { isAdmin, isVendor } from "../../../../helper/roles.js";
 
 export const UserList = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
-  const { getAllUsers, users, pagination } = useUsers();
-  const { deleteUser } = useDeleteUser();
-  const { roles, getAllRoles } = useRoles();
+  const { getAllUsers, users, pagination, loadingListUser } = useUsers();
+  const { deleteUser, loadingDeleteUser } = useDeleteUser();
+  const { roles } = useRoles();
 
   const navigate = useNavigate();
   function createMarkup() {
     return { __html: t("login.title") };
   }
-
-  React.useEffect(() => {
-    if (users.length === 0) {
-      getAllUsers();
-    }
-  }, [users]);
-
-  React.useEffect(() => {
-    if (roles.length === 0) {
-      getAllRoles();
-    }
-  }, [roles]);
 
   const onDelete = (row) => () => {
     deleteUser(row.id);
@@ -68,6 +57,7 @@ export const UserList = () => {
         ]}
         onSearch={onSearch}
         searchField="name"
+        searchPlaceHolder={t("admins.user.form.placeholder.search")}
       >
         <Select
           placeholder={t("admins.user.form.placeholder.select_role")}
@@ -84,9 +74,11 @@ export const UserList = () => {
       <UserTable
         items={users}
         pagination={pagination}
+        loading={loadingListUser}
         onDelete={onDelete}
         onEdit={onEdit}
         onTableChange={onTableChange}
+        loadingDeleteUser={loadingDeleteUser}
       />
     </div>
   );

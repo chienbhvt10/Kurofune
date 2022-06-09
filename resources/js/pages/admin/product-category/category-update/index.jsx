@@ -5,13 +5,17 @@ import CategoryForm from "../category-form/CategoryForm";
 import useAdminCategory from "./../../../../hooks/categoryAdmin/useAdminCategory";
 import useUpdateAdminCategory from "./../../../../hooks/categoryAdmin/useUpdateAdminCategory";
 import { NotificationSuccess } from "../../../../commons/Notification";
+import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
+import { useTranslation } from "react-i18next";
 
 const UpdateCategory = () => {
   const lang = localStorage.getItem("lang");
   const navigate = useNavigate();
   const { id } = useParams();
+  const { getAdminCategories, adminCategories } = useAdminCategories();
   const { getAdminCategory, adminCategory } = useAdminCategory();
   const { updateAdminCategory, resUpdateCategory } = useUpdateAdminCategory();
+  const { t } = useTranslation();
 
   const onCancel = () => {
     navigate(`${lang}/admin/category-list`);
@@ -32,10 +36,14 @@ const UpdateCategory = () => {
   }, [id]);
 
   React.useEffect(() => {
-    if (resUpdateCategory?.status_code === 200) {
+    if (resUpdateCategory?.error_code === "NO_ERROR") {
+      getAdminCategories();
       navigate(`${lang}/admin/category-list`);
-      NotificationSuccess("Thông báo", "Sửa category mới thành công");
-    } else return;
+      NotificationSuccess(t("notification"), resUpdateCategory.message);
+    }
+    if (resUpdateCategory && resUpdateCategory?.status_code !== 200) {
+      NotificationSuccess(t("notification"), resUpdateCategory.message);
+    }
   }, [resUpdateCategory]);
 
   return (

@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { Breadcrumb } from "../../commons/Breadcrumb";
 import "./table-header.scss";
 export const TableHeader = ({
@@ -13,6 +13,7 @@ export const TableHeader = ({
   addLink,
   onSearch,
   searchField,
+  searchPlaceHolder,
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -43,15 +44,12 @@ export const TableHeader = ({
               <Col className="filter">{children}</Col>
             </Row>
           </Col>
-          <Col>
+          {searchField && <Col>
             <Form onFinish={onSearch} autoComplete="off">
               <Row align="middle">
                 <Col>
                   <Form.Item name={searchField} className="search-field">
-                    <Input
-                      type="text"
-                      placeholder={t("admins.user.form.placeholder.search")}
-                    />
+                    <Input type="text" placeholder={searchPlaceHolder} />
                   </Form.Item>
                 </Col>
                 <Col>
@@ -65,7 +63,8 @@ export const TableHeader = ({
                 </Col>
               </Row>
             </Form>
-          </Col>
+          </Col>}
+
         </Row>
       </Col>
     </Row>

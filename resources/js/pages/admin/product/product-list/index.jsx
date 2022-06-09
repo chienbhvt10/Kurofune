@@ -22,25 +22,28 @@ const ProductList = () => {
   const onEdit = (row) => () => {
     navigate(`${lang}/admin/product/update/${row.id}`);
   };
-
-  React.useEffect(() => {
-    getAllProducts();
-  }, []);
-
-  React.useEffect(() => {
-    if (resDeleteProduct?.status_code === 200) {
-      getAllProducts({ page: 1 });
-      NotificationSuccess(t("admins.product.notification"), resDeleteProduct.message);
-    } else {
-      return;
-    }
-  }, [resDeleteProduct]);
+  const onSearch = (values) => {
+    getAllProducts({ page: pagination.current_page, name: values.name });
+  };
 
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
     getAllProducts({ page: current, per_page: per_page });
   };
+
+  React.useEffect(() => {
+    getAllProducts();
+  }, [lang]);
+
+  React.useEffect(() => {
+    if (resDeleteProduct?.error_code === "NO_ERROR") {
+      getAllProducts({ page: 1 });
+      NotificationSuccess(t("notification"), resDeleteProduct.message);
+    } else {
+      return;
+    }
+  }, [resDeleteProduct]);
 
   return (
     <div className="product-container">
@@ -51,6 +54,9 @@ const ProductList = () => {
           { name: "Product List", routerLink: `${lang}/product-list` },
         ]}
         title="Product"
+        searchField="name"
+        onSearch={onSearch}
+        searchPlaceHolder={t("admins.product.placeholder_seach")}
       />
       <ProductTable
         items={products}

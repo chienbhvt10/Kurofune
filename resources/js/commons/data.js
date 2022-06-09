@@ -769,17 +769,26 @@ export const userFormOptions = {
     { value: 0, label_translate: "admins.user.form.option.no" },
   ],
   insurance_status: [
-    { value: 1, label_translate: "書類の送付/説明会参加/①kurofune着" },
+    {
+      value: 1,
+      label_translate: "admins.user.form.option.insurance_status.option1",
+    },
     {
       value: 2,
-      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡可）",
+      label_translate: "admins.user.form.option.insurance_status.option2",
     },
     {
       value: 3,
-      label_translate: "書類の送付/説明会参加/②kurofune未着（連絡不可）",
+      label_translate: "admins.user.form.option.insurance_status.option3",
     },
-    { value: 4, label_translate: "保険完了" },
-    { value: 5, label_translate: "未着手" },
+    {
+      value: 4,
+      label_translate: "admins.user.form.option.insurance_status.option4",
+    },
+    {
+      value: 5,
+      label_translate: "admins.user.form.option.insurance_status.option5",
+    },
   ],
   insurance_support: [
     { value: 0, label_translate: "admins.user.form.option.unregistered" },
@@ -836,6 +845,7 @@ export const PRODUCT_OPTION = {
   GENDER: [
     { value: 0, label: "g_1" },
     { value: 1, label: "g_2" },
+    { value: 2, label: "g_3" },
   ],
   USER_STATUS: [
     { value: 0, label: "Inactive" },
@@ -847,8 +857,8 @@ export const PRODUCT_OPTION = {
     { value: 3, label: "yo_3" },
   ],
   YES_OR_NO: [
-    { value: 0, label: "y_1" },
-    { value: 1, label: "y_2" },
+    { value: 1, label: "y_1" },
+    { value: 0, label: "y_2" },
   ],
   CURRENTLY_TREATING: [
     { value: 1, label: "c_1" },
@@ -905,5 +915,13 @@ export const PRODUCT_OPTION = {
     { value: 14, label: "IT engineer" },
     { value: 15, label: "Building cleaning " },
     { value: 16, label: "other" },
+  ],
+};
+
+export const CATEGORY_OPTIONS = {
+  CATEGORY_TYPES: [
+    { value: 1, label_translate: "admins.category.type.option1" },
+    { value: 2, label_translate: "admins.category.type.option2" },
+    { value: 3, label_translate: "admins.category.type.option3" },
   ],
 };

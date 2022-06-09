@@ -27,14 +27,9 @@ const AddProduct = () => {
     createNewProduct(submitData);
   };
 
-  // console.log(resCreateProduct)
-
   React.useEffect(() => {
-    if (resCreateProduct?.status_code === 200) {
-      NotificationSuccess(
-        t("admins.product.notification"),
-        resCreateProduct.message
-      );
+    if (resCreateProduct?.error_code === "NO_ERROR") {
+      NotificationSuccess(t("notification"), resCreateProduct.message);
       navigate(`${lang}/admin/product-list`);
       getAllProducts();
     }

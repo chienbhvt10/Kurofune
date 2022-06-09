@@ -1,0 +1,95 @@
+#QA-page {
+  background-color: #e5e5e5;
+  padding: 40px 0 80px 0;
+  .qa-container {
+    max-width: 900px;
+    .btn-back {
+      background: #fff;
+      width: fit-content;
+      padding: 0 10px;
+      border: 2px solid #62a19b;
+      margin-top: 16px;
+      margin-bottom: 16px;
+      a {
+        text-decoration: none;
+        color: #62a19b;
+        font-size: 13px;
+        font-weight: 700;
+        line-height: 19.5px;
+        text-align: left;
+        .icon-back {
+          width: 35px;
+          height: 35px;
+          padding: 3px;
+        }
+        span {
+          display: flex;
+          align-items: center;
+          @media screen and (max-width: 570.98px) {
+            display: none;
+          }
+        }
+      }
+    }
+    .qa {
+      padding: 50px 25px;
+      background-color: white;
+      margin: 10px 0;
+      border-radius: 15px;
+      .qa-content {
+        padding-left: 20px;
+      }
+      .q {
+        color: #62a19b;
+        margin-bottom: 10px;
+      }
+      .a {
+        .sub-a-link {
+          color: #62a19b;
+          margin-top: 10px;
+        }
+        .sub-a-danger {
+          color: red;
+          margin-top: 20px;
+        }
+        .frame {
+          width: 560px;
+          height: 314px;
+          margin: 10px 0;
+          iframe {
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+    .qa1,
+    .qa6,
+    .qa8,
+    .qa12,
+    .qa15 {
+      .a {
+        .qa-content {
+          .sub-a {
+            margin-bottom: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+@media (max-width: 900px) {
+  #QA-page {
+    padding: 20px !important;
+  }
+}
+@media (max-width: 500px) {
+  #QA-page {
+    .qa {
+      padding: 25px !important;
+    }
+    .frame {
+      max-height: 200px;
+    }
+  }
+}

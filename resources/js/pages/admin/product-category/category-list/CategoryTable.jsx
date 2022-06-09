@@ -2,9 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
+import { useTranslation } from "react-i18next";
 
-const CategoryTable = ({ items, onDelete, onEdit }) => {
+const CategoryTable = ({
+  items,
+  onDelete,
+  onEdit,
+  pagination,
+  onTableChange,
+}) => {
   const lang = localStorage.getItem("lang");
+  const { t } = useTranslation();
 
   const columns = [
     {
@@ -25,20 +33,20 @@ const CategoryTable = ({ items, onDelete, onEdit }) => {
     {
       key: "name",
       dataIndex: "name",
-      title: "Name",
+      title: t("admins.category.name_field"),
       render: (_, record) => (
         <Link
           to={`${lang}/admin/category/update/${record.id}`}
           className="text-decoration-none d-flex"
         >
-          {record.name}
+          {record.name || record.translations[0].name}
         </Link>
       ),
     },
     {
       key: "slug",
       dataIndex: "slug",
-      title: "Slug",
+      title: t("admins.category.slug_field"),
       render: (_, record) => <span>{record.slug}</span>,
     },
     {
@@ -50,7 +58,6 @@ const CategoryTable = ({ items, onDelete, onEdit }) => {
     {
       key: "tool",
       dataIndex: "tool",
-      title: <img className="img-head" src="/images/vietnam.png" alt="" />,
       align: "center",
       headerAlign: "center",
       headerStyle: {
@@ -61,7 +68,23 @@ const CategoryTable = ({ items, onDelete, onEdit }) => {
       ),
     },
   ];
-  return <Table rowKey="id" columns={columns} dataSource={items} bordered />;
+  return (
+    <Table
+      rowKey="id"
+      columns={columns}
+      dataSource={items}
+      bordered
+      onChange={onTableChange}
+      pagination={{
+        showSizeChanger: true,
+        showPrevNextJumpers: false,
+        pageSizeOptions: ["5", "10", "20", "50", "100"],
+        pageSize: pagination.per_page,
+        total: pagination.total,
+        showTotal: () => `Total ${pagination.total} items`,
+      }}
+    />
+  );
 };
 
 export default CategoryTable;

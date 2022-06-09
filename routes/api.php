@@ -51,6 +51,11 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
         });
 
+        // Order Manage
+        Route::middleware(['permission:manage order'])->group(function () {
+            Route::apiResource('orders', \App\Http\Controllers\API\OrderController::class)->except(['store']);
+        });
+
         // Page Manage
         Route::middleware(['permission:manage page'])->group(function () {
             Route::apiResource('pages', \App\Http\Controllers\API\PageController::class);
@@ -67,6 +72,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::get('detail-chat-log/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'detailChatLog']);
             Route::get('export-chat-log-all', [\App\Http\Controllers\API\ChatLogUserController::class, 'allExportCsv']);
             Route::get('export-chat-log-user/{id}', [\App\Http\Controllers\API\ChatLogUserController::class, 'chatLogUser']);
+
+            Route::get('list-log-question', [\App\Http\Controllers\API\LogQuestionController::class, 'listLogQuestion']);
+            Route::get('export-log-question', [\App\Http\Controllers\API\LogQuestionController::class, 'exportLogQuestion']);
         });
 
         // View Profile
@@ -104,6 +112,10 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
                 //view shipping method
                 Route::get('list-shipping-method', [\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
+
+                 //view order
+                Route::get('order-history-detail/{id}', [\App\Http\Controllers\API\OrderController::class, 'orderHistoryDetail']);
+                Route::get('order-history', [\App\Http\Controllers\API\OrderController::class, 'orderHistory']);
             });
 
             Route::middleware(['permission:user change profile'])->group(function () {

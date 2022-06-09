@@ -11,6 +11,11 @@ import {
   SHIPPING_ADDRESS_FORM,
   TYPE_FORM_CREATE,
 } from "../../../../constants";
+import {
+  isRoleMember,
+  isRolePlan,
+  isRoleVendor,
+} from "../../../../helper/roles";
 import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
@@ -26,24 +31,22 @@ const Phase2UserForm = ({
   commonAddressForm,
   billingAddressForm,
   shippingAddressForm,
-  formVendorUpload,
   onChangeImageOutside,
   outSideImageUrl,
   onChangeImageInside,
   insideImageUrl,
 }) => {
   const { t } = useTranslation();
-  const resCreateUser = useSelector((state) => state.userState.resCreateUser);
-  const resUpdateUser = useSelector((state) => state.userState.resCreateUser);
+  const { resCreateUser, resUpdateUser } = useSelector(
+    (state) => state.userState
+  );
 
   return (
     <Tabs defaultActiveKey="1" className="switch-tab-form">
       <Tabs.TabPane tab={t("admins.user.switch_tab.address")} key="1">
         <CommonInfoForm className="common-info-form" form={commonAddressForm} />
       </Tabs.TabPane>
-      {role === ROLE_VENDOR ||
-      role === ROLE_LIGHT_PLAN ||
-      role === ROLE_FULL_SUPPORT_PLAN ? (
+      {isRoleMember(role) ? (
         <Tabs.TabPane tab={t("admins.user.switch_tab.role_info")} key="2">
           {role === ROLE_VENDOR ? (
             <VendorProfileForm
@@ -53,7 +56,6 @@ const Phase2UserForm = ({
               formTL={vendorProfileFormTL}
               formVI={vendorProfileFormVI}
               formZH={vendorProfileFormZH}
-              formUpload={formVendorUpload}
               onChangeImageOutside={onChangeImageOutside}
               outSideImageUrl={outSideImageUrl}
               onChangeImageInside={onChangeImageInside}
@@ -62,7 +64,7 @@ const Phase2UserForm = ({
           ) : (
             <></>
           )}
-          {role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN ? (
+          {isRolePlan(role) ? (
             <PlanProfileForm
               role={role}
               form={planProfileForm}
@@ -75,26 +77,36 @@ const Phase2UserForm = ({
       ) : (
         <></>
       )}
-      <Tabs.TabPane tab={t("admins.user.switch_tab.billing_address")} key="3">
-        <BillingShipForm
-          className="billing-ship-form"
-          typeForm={BILLING_ADDRESS_FORM}
-          form={billingAddressForm}
-          response={
-            typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
-          }
-        />
-      </Tabs.TabPane>
-      <Tabs.TabPane tab={t("admins.user.switch_tab.shipping_address")} key="4">
-        <BillingShipForm
-          className="billing-ship-form"
-          typeForm={SHIPPING_ADDRESS_FORM}
-          form={shippingAddressForm}
-          response={
-            typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
-          }
-        />
-      </Tabs.TabPane>
+      {!isRoleVendor(role) && (
+        <>
+          <Tabs.TabPane
+            tab={t("admins.user.switch_tab.billing_address")}
+            key="3"
+          >
+            <BillingShipForm
+              className="billing-ship-form"
+              typeForm={BILLING_ADDRESS_FORM}
+              form={billingAddressForm}
+              response={
+                typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+              }
+            />
+          </Tabs.TabPane>
+          <Tabs.TabPane
+            tab={t("admins.user.switch_tab.shipping_address")}
+            key="4"
+          >
+            <BillingShipForm
+              className="billing-ship-form"
+              typeForm={SHIPPING_ADDRESS_FORM}
+              form={shippingAddressForm}
+              response={
+                typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+              }
+            />
+          </Tabs.TabPane>
+        </>
+      )}
     </Tabs>
   );
 };

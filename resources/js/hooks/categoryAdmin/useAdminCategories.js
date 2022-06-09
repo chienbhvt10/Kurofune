@@ -3,6 +3,9 @@ import { getAllCategoriesAdminAction } from "../../redux/actions/categoryAdminAc
 
 const useAdminCategories = () => {
   const categoryState = useSelector((state) => state.adminCategoryState);
+  const { from, total, to, current_page, last_page } = useSelector(
+    (state) => state.adminCategoryState
+  );
   const dispatch = useDispatch();
 
   const getAdminCategories = (payload) => {
@@ -11,6 +14,13 @@ const useAdminCategories = () => {
 
   return {
     adminCategories: categoryState.adminCategories,
+    pagination: {
+      from,
+      to,
+      total,
+      current_page,
+      last_page,
+    },
     getAdminCategories,
   };
 };

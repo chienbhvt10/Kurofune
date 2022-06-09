@@ -13,7 +13,7 @@ export const getAllCategoriesAdminAction = createAsyncThunk(
   categoryAdminActions.getAdminCategories,
   async (payload) => {
     const res = await categoryApis
-      .categories(payload)
+      .categoriesAdmin(payload)
       .then((data) => data)
       .catch((errors) => JSON.parse(errors.response.request.response));
     return res;

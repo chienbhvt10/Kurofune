@@ -10,8 +10,11 @@ import "./style.scss";
 const BillingAddress = () => {
   const { i18n, t } = useTranslation();
   const { showProfile, profile } = useShowProfile();
-  const { updateBillingAddress, resUpdateBillingAddress } =
-    useUpdateBillingAddress();
+  const {
+    updateBillingAddress,
+    resUpdateBillingAddress,
+    loadingUpdateBilling,
+  } = useUpdateBillingAddress();
   React.useEffect(() => {
     if (!profile) {
       showProfile();
@@ -38,6 +41,7 @@ const BillingAddress = () => {
       />
       <div className="content-tab">
         <FormInfo
+          loading={loadingUpdateBilling}
           item={profile}
           onSave={onSave}
           typeForm={BILLING_INFO_FORM}

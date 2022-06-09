@@ -63,14 +63,6 @@ const productReducers = createReducer(initialState, (builder) => {
   builder.addCase(getProductClientAction.fulfilled, (state, actions) => {
     state.productClient = actions.payload.data;
   });
-  builder.addCase(addToCartAction.fulfilled, (state, actions) => {
-    if (actions.payload.status_code === 200) {
-      state.resAddToCart = actions.payload;
-      NotificationSuccess("", actions.payload.message);
-    } else {
-      state.resAddToCart = actions.payload;
-      NotificationError("", actions.payload.message);
-    }
-  });
+
 });
 export default productReducers;

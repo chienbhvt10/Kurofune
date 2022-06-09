@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Traits\RespondsStatusTrait;
+use App\Rules\Base64Image;
 
 class ShippingMethodController extends Controller
 {
@@ -29,9 +30,9 @@ class ShippingMethodController extends Controller
         try {
             $posts_per_page = get_per_page($request->per_page);
             $shipping_method = ShippingMethod::paginate($posts_per_page);
-            return $this->responseData($shipping_method);
+            return $this->response_data_success($shipping_method);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -48,12 +49,13 @@ class ShippingMethodController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string|max:191',
                 'description' =>  'required|string|max:191',
+                'image' =>  new Base64Image,
                 'total' => 'numeric'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
                 DB::rollBack();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 
             $name = $request->name ?? null;
@@ -72,10 +74,10 @@ class ShippingMethodController extends Controller
 
             $shipping_method = ShippingMethod::create($data);
             DB::commit();
-            return $this->successWithData(__('message.shipping_method.created'), $shipping_method);
+            return $this->response_message_data_success(__('message.shipping_method.created'), $shipping_method);
         } catch (\Exception $error) {
             DB::rollback();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -90,11 +92,11 @@ class ShippingMethodController extends Controller
         try {
             $shipping_method = ShippingMethod::find($id);
             if (!$shipping_method) {
-                return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
-            return $this->responseData($shipping_method);
+            return $this->response_data_success($shipping_method);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -112,16 +114,17 @@ class ShippingMethodController extends Controller
             $shipping_method = ShippingMethod::find($id);
             $params_update = [];
             if (!$shipping_method) {
-                return $this->errorResponse(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
+                return $this->response_error(__('message.shipping_method.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string|max:191',
                 'description' =>  'required|string|max:191',
+                'image' =>  new Base64Image,
                 'total' => 'numeric'
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 
             $name = $request->name ?? null;
@@ -140,10 +143,10 @@ class ShippingMethodController extends Controller
 
             $shipping_method->update($params_update);
             DB::commit();
-            return $this->successWithData(__('message.shipping_method.updated'), $shipping_method);
+            return $this->response_message_data_success(__('message.shipping_method.updated'), $shipping_method);
         } catch (\Exception $error) {
             DB::rollBack();
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -158,9 +161,9 @@ class ShippingMethodController extends Controller
         try {
             $shipping_method = ShippingMethod::find($id);
             $shipping_method->delete();
-            return $this->success(__('message.shipping_method.deleted'));
+            return $this->response_message_success(__('message.shipping_method.deleted'));
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -168,9 +171,9 @@ class ShippingMethodController extends Controller
     {
         try {
             $shipping_method = ShippingMethod::all();
-            return $this->responseData($shipping_method);
+            return $this->response_data_success($shipping_method);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception($error->getMessage());
         }
     }
 }

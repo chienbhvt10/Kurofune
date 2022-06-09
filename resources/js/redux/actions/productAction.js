@@ -76,14 +76,5 @@ export const getProductClientAction = createAsyncThunk(
     return res;
   }
 );
-export const addToCartAction = createAsyncThunk(
-  productActions.addToCart,
-  async (payload) => {
-    const res = await productApis
-      .addToCartClient(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
-  }
-);
+
 export default productActions;

@@ -27,7 +27,7 @@ mix
                 "primary-color": "#62a19b",
                 "secondary-color": "#62a19b",
                 "heading-color": "#62a19b",
-                "btn-border-radius-base": "5px",
+                "btn-border-radius-base": "2px",
                 "table-bg": "#F5F5F5",
                 "table-header-bg": "#62a19b",
                 "table-header-color": "#FFF",

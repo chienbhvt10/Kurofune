@@ -5,8 +5,7 @@ import useProductClient from "../../../hooks/product/useProductClient";
 import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
 import { PRODUCT_OPTION } from "../../../commons/data";
-import useCartProduct from "../../../hooks/product/userCartProduct";
-
+import useCart from "../../../hooks/cart/useCart";
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -23,21 +22,26 @@ const ProductDetailPage = () => {
   const { id } = useParams();
   const location = useLocation();
   const { getProductClient, productClient } = useProductClient();
-  const { addToCart, resAddToCart } = useCartProduct();
   const [productSideEfectSelect, setProductSideEffectSelect] = useState(null);
+  const [currentTreating, setCurrentTreating] = useState(null);
+  const { addToCart } = useCart();
   React.useEffect(() => {
     if (id) {
       getProductClient({ id: id });
     }
   }, [id, location]);
   const [form] = Form.useForm();
+
   const onFinish = (values) => {
     const requestObj = values;
     Object.keys(requestObj).forEach(
       (key) =>
-        (requestObj[key] === undefined || requestObj[key] === null) &&
-        delete requestObj[key]
+        requestObj[key] === undefined ||
+        requestObj[key] === null ||
+        (productSideEfectSelect === 0 && key === "anket_5") ||
+        (currentTreating === 12 && key === "anket_7" && delete requestObj[key])
     );
+
     addToCart({ ...requestObj, product_id: id });
   };
   const CheckValidation = (val, errors) => {
@@ -191,7 +195,10 @@ const ProductDetailPage = () => {
                 >
                   <Select
                     placeholder={t("client.product_detail.placeholder_option")}
-                    onChange={(value) => setProductSideEffectSelect(value)}
+                    onChange={(value) => {
+                      if (value === 0) form.resetFields(["anket_5"]);
+                      setProductSideEffectSelect(value);
+                    }}
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
@@ -209,7 +216,7 @@ const ProductDetailPage = () => {
                   dependencies={["anket_4"]}
                   rules={[
                     {
-                      required: productSideEfectSelect === 0,
+                      required: productSideEfectSelect === 1,
                       message: t("client.product_detail.error_required"),
                     },
                     {
@@ -219,7 +226,7 @@ const ProductDetailPage = () => {
                   ]}
                 >
                   <Input
-                    disabled={productSideEfectSelect !== 0}
+                    disabled={productSideEfectSelect !== 1}
                     placeholder={t("client.product_detail.placeholder_text")}
                   />
                 </Form.Item>
@@ -236,6 +243,7 @@ const ProductDetailPage = () => {
                 >
                   <Select
                     placeholder={t("client.product_detail.placeholder_option")}
+                    onChange={(value) => setCurrentTreating(value)}
                   >
                     {PRODUCT_OPTION.CURRENTLY_TREATING.map((option, index) => (
                       <Select.Option key={index} value={option.value}>
@@ -246,9 +254,25 @@ const ProductDetailPage = () => {
                     ))}
                   </Select>
                 </Form.Item>
-
+                {currentTreating === 12 && (
+                  <Form.Item
+                    name="anket_7"
+                    label=" "
+                    rules={[
+                      {
+                        required: true,
+                        message: t("client.product_detail.error_required"),
+                      },
+                    ]}
+                  >
+                    <Input.TextArea
+                      maxLength={256}
+                      placeholder={t("client.product_detail.placeholder_text")}
+                    />
+                  </Form.Item>
+                )}
                 <Form.Item
-                  name="anket_7"
+                  name="anket_8"
                   label={t("client.product_detail.label_other_question")}
                   rules={[
                     {
@@ -377,6 +401,6 @@ const ProductDetailPage = () => {
       )}
     </>
   );
-};;
+};;;;
 
 export default ProductDetailPage;

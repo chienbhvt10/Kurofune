@@ -1,24 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Pagination, Table } from "antd";
+import moment from "moment";
+import { Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
+import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 const ProductTable = ({
   items,
   onEdit,
   onDelete,
   pagination,
   onTableChange,
+  loading,
 }) => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const columns = [
     {
       key: "image",
       dataIndex: "image",
+      align: "center",
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
-        <Link to="#">
-          <img src={record.product_image} alt="" height={50} width={50} />
-        </Link>
+        <img src={record.product_image} alt="" height={50} width={50} />
       ),
     },
     {
@@ -32,6 +34,18 @@ const ProductTable = ({
       ),
     },
     {
+      key: "sku",
+      dataIndex: "sku",
+      title: "SKU",
+      render: (_, record) => <span>{record.sku || "-"}</span>,
+    },
+    {
+      key: "stock",
+      dataIndex: "stock",
+      title: "Stock",
+      render: (_, record) => <span>{record.stock}</span>,
+    },
+    {
       key: "price",
       dataIndex: "price",
       title: "Price",
@@ -41,28 +55,28 @@ const ProductTable = ({
       key: "categories",
       dataIndex: "categories",
       title: "Categories",
+      render: (_, record) => <span>{record.categories}</span>,
     },
     {
       key: "date",
       dataIndex: "date",
       title: "Date",
       render: (_, record) => (
-        <div>
-          <span>Published: </span>
-          <br />
-          {record.created_at}
-        </div>
+        <span>
+          Published {moment(record.created_at).format("YYYY/MM/DD")} at{" "}
+          {moment(record.created_at).format("LT")}
+        </span>
       ),
     },
     {
       key: "store",
       dataIndex: "store",
       title: "Store",
+      render: (_, record) => <span>{record.store}</span>,
     },
     {
       key: "vi",
       dataIndex: "vi",
-      title: <img className="img-head" src="/images/vietnam.png" alt="" />,
       align: "center",
       headerAlign: "center",
       headerStyle: {
@@ -79,12 +93,14 @@ const ProductTable = ({
       rowKey="id"
       columns={columns}
       dataSource={items}
-      bordered={true}
+      bordered
       onChange={onTableChange}
+      loading={loading}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,
         pageSizeOptions: ["5", "10", "20", "50", "100"],
+        current: pagination.current_page,
         total: pagination.total,
         pageSize: pagination.per_page,
         showTotal: () => `Total ${pagination.total} items`,
