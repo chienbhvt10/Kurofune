@@ -118,7 +118,7 @@ class OrderController extends Controller
                     'shipping_building' => $order->shipping_building,
                     'shipping_phone' => $order->shipping_phone,
                     'shipping_email' => $order->shipping_email,
-                    'payment_mode' => $transaction->payment_mode,
+                    'payment_mode' => __($transaction->payment_mode),
                     'status' => __($transaction->status),
                     'order_products' => [],
                 ];
@@ -178,7 +178,7 @@ class OrderController extends Controller
                         'shipping_building' => $order->shipping_building,
                         'shipping_phone' => $order->shipping_phone,
                         'shipping_email' => $order->shipping_email,
-                        'payment_mode' => $transaction->payment_mode,
+                        'payment_mode' => __($transaction->payment_mode),
                         'status' => __($transaction->status),
                         'order_products' => [],
                     ];
