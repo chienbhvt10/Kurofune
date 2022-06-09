@@ -113,7 +113,8 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
                 //view shipping method
                 Route::get('list-shipping-method', [\App\Http\Controllers\API\ShippingMethodController::class, 'listShippingmethod']);
 
-                //view order
+                 //view order
+                Route::get('order-history-detail/{id}', [\App\Http\Controllers\API\OrderController::class, 'orderHistoryDetail']);
                 Route::get('order-history', [\App\Http\Controllers\API\OrderController::class, 'orderHistory']);
             });
 

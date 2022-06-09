@@ -805,5 +805,7 @@
   "Other (free description)": "Bệnh khác",
   "First-class OTC drugs":"Thuốc OTC hạng nhất",
   "Specify Second-class OTC drugs":"Chỉ định thuốc OTC loại thứ hai",
-  "Second-class OTC drugs":"Thuốc OTC hạng hai"
+  "Second-class OTC drugs":"Thuốc OTC hạng hai",
+  "(JPY)":"(JPY)",
+  "cod":"Thanh toán khi giao hàng"
 }

@@ -32,7 +32,7 @@ class ShippingAddressController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, Response::HTTP_UNPROCESSABLE_ENTITY);
+                return $this->response_validate($errors);
             }
 
             $dataUpdate = [
@@ -48,9 +48,9 @@ class ShippingAddressController extends Controller
 
             $user->shipping_address->update($dataUpdate);
 
-            return $this->successWithData(__('message.shipping.updated'), $data);
+            return $this->response_message_data_success(__('message.shipping.updated'), $data);
         } catch (\Exception $error) {
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 }

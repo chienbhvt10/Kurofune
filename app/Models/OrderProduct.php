@@ -22,4 +22,5 @@ class OrderProduct extends Model
     ];
 
     public $timestamps = true;
+
 }
