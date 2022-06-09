@@ -10,12 +10,14 @@ const ProductTable = ({
   onDelete,
   pagination,
   onTableChange,
+  loading,
 }) => {
   const lang = getCurrentLanguage();
   const columns = [
     {
       key: "image",
       dataIndex: "image",
+      align: "center",
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
         <img src={record.product_image} alt="" height={50} width={50} />
@@ -32,6 +34,18 @@ const ProductTable = ({
       ),
     },
     {
+      key: "sku",
+      dataIndex: "sku",
+      title: "SKU",
+      render: (_, record) => <span>{record.sku || "-"}</span>,
+    },
+    {
+      key: "stock",
+      dataIndex: "stock",
+      title: "Stock",
+      render: (_, record) => <span>{record.stock}</span>,
+    },
+    {
       key: "price",
       dataIndex: "price",
       title: "Price",
@@ -41,13 +55,7 @@ const ProductTable = ({
       key: "categories",
       dataIndex: "categories",
       title: "Categories",
-      render: (_, record) => (
-        <div>
-          <span>Published: </span>
-          <br />
-          {record.cat_id}
-        </div>
-      ),
+      render: (_, record) => <span>{record.categories}</span>,
     },
     {
       key: "date",
@@ -64,6 +72,7 @@ const ProductTable = ({
       key: "store",
       dataIndex: "store",
       title: "Store",
+      render: (_, record) => <span>{record.store}</span>,
     },
     {
       key: "vi",
@@ -84,12 +93,14 @@ const ProductTable = ({
       rowKey="id"
       columns={columns}
       dataSource={items}
-      bordered={true}
+      bordered
       onChange={onTableChange}
+      loading={loading}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,
         pageSizeOptions: ["5", "10", "20", "50", "100"],
+        current: pagination.current_page,
         total: pagination.total,
         pageSize: pagination.per_page,
         showTotal: () => `Total ${pagination.total} items`,
