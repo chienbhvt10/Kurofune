@@ -15,7 +15,6 @@ const AddCategory = () => {
   const navigate = useNavigate();
   const { getAdminCategories, adminCategories } = useAdminCategories();
   const { createAdminCategory, resCreateCategory } = useCreateAdminCategory();
-  const { t } = useTranslation();
   const onCancel = () => {
     navigate(`${lang}/admin/category-list`);
   };
