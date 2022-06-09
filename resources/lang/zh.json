@@ -806,5 +806,7 @@
   "Other (free description)": "其他",
   "First-class OTC drugs":"第1类",
   "Specify Second-class OTC drugs":"指定的第2类",
-  "Second-class OTC drugs":"第2类"
+  "Second-class OTC drugs":"第2类",
+  "(JPY)":"(JPY)",
+  "cod":"货到付款"
 }
