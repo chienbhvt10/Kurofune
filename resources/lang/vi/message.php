@@ -83,5 +83,8 @@ return [
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',
         'quantity' => 'Vui lòng kiểm tra thông tin đơn hàng.'
+    ],
+    'order' => [
+        'no_info' => 'Không có order nào'
     ]
 ];

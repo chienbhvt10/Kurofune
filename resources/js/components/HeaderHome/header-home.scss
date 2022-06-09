@@ -51,6 +51,11 @@
           left: 0;
           background: #ffffff;
           border: 1px solid #ddd;
+          .empty-cart-text{
+            text-align: center;
+            color: rgb(98, 161, 155);
+            font-size: 16px;
+          }
           .cart_block_list {
             padding: 10px;
             .checkout-btn {
@@ -58,7 +63,7 @@
             }
             .buttons {
               text-align: right;
-              margin: 0;
+              margin-bottom: 8px;
               a {
                 cursor: pointer;
                 position: relative;
@@ -105,33 +110,41 @@
                 margin: 0;
                 list-style: none;
                 font-size: 13px;
-                height: 25px;
+                display: flex;
+                align-items: center;
+                button.remove {
+                  display: block;
+                  font-size: 18px;
+                  border-radius: 9999px;
+                  width: 18px;
+                  height: 18px;
+                  line-height: 100%;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  color: red;
+                  text-decoration: none;
+                  font-weight: 700;
+                  border: 0;
+                  background: transparent;
+                  outline:none;
+                  margin-right: 4px;
+                  padding: 0;
+                  &:hover {
+                    color: #fff;
+                    background: red;
+                  }
+                }
                 a {
                   display: block;
                   font-weight: 700;
                   line-height: 15px;
                   transition: all 0.3s ease;
-                  &.remove {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    display: block;
-                    font-size: 20px;
-                    height: 18px;
-                    width: 18px;
-                    text-align: center;
-                    border-radius: 100%;
-                    color: red !important;
-                    text-decoration: none;
-                    font-weight: 700;
-                    border: 0;
-                    &:hover {
-                      color: #fff !important;
-                      background: red;
-                    }
+                
+                  &.item-img{
+                    margin-left: auto;
                   }
                   img {
-                    float: right;
                     margin-left: 4px;
                     margin-top: 4px;
                     width: 32px;
@@ -139,11 +152,7 @@
                     box-shadow: none;
                   }
                 }
-                .quantity {
-                  position: absolute;
-                  left: 30px;
-                  top: -1px;
-                }
+      
               }
             }
           }

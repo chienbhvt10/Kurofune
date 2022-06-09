@@ -845,6 +845,7 @@ export const PRODUCT_OPTION = {
   GENDER: [
     { value: 0, label: "g_1" },
     { value: 1, label: "g_2" },
+    { value: 2, label: "g_3" },
   ],
   USER_STATUS: [
     { value: 0, label: "Inactive" },
@@ -856,8 +857,8 @@ export const PRODUCT_OPTION = {
     { value: 3, label: "yo_3" },
   ],
   YES_OR_NO: [
-    { value: 0, label: "y_1" },
-    { value: 1, label: "y_2" },
+    { value: 1, label: "y_1" },
+    { value: 0, label: "y_2" },
   ],
   CURRENTLY_TREATING: [
     { value: 1, label: "c_1" },

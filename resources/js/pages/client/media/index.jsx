@@ -1,5 +1,6 @@
 import { faSignOutAlt, faUserGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Col, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -41,10 +42,17 @@ const MediaPage = () => {
           <div className="service_dashboard">
             <Board boardItems={mediaBoardItemData} />
             <div className="switch">
-              <Languages />
+              <div>
+                <Languages />
+                <div className="option-btn QA">
+                  <Link to={`${lang}/qa`} title="">
+                    <span>Q&A</span>
+                  </Link>
+                </div>
+              </div>
 
               <div className="option">
-                <div className="settings-wrap">
+                <div className="option-btn settings-wrap">
                   <Link to={`${lang}/member/change-profile`} title="">
                     <FontAwesomeIcon
                       className="icon"
@@ -55,7 +63,7 @@ const MediaPage = () => {
                   </Link>
                 </div>
                 <div className="logout-wrap pc">
-                  <a title="Thoát" onClick={logout}>
+                  <a onClick={logout}>
                     {t("client.media.btn_logout")}
                     <FontAwesomeIcon
                       className="icon"
@@ -66,18 +74,18 @@ const MediaPage = () => {
                 </div>
               </div>
             </div>
-            {/* <div className="switch-lang sp">
+            <div className="switch-lang sp">
               <div className="logout-wrap">
-                <Link to={`${lang}/login`} title="Thoát">
+                <a onClick={logout}>
                   {t("client.media.btn_logout")}
                   <FontAwesomeIcon
                     className="icon"
                     icon={faSignOutAlt}
                     size="sm"
                   />
-                </Link>
+                </a>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
         <Footer />
