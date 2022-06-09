@@ -11,7 +11,7 @@ import { useTranslation } from "react-i18next";
 
 const CategoryList = () => {
   // const lang = localStorage.getItem("lang");
-  const { getAdminCategories, adminCategories, pagination } =
+  const { getAdminCategories, adminCategories, pagination,isLoading } =
     useAdminCategories();
   const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
     useDeleteAdminCategory();
@@ -39,10 +39,9 @@ const CategoryList = () => {
       getAdminCategories();
     }
   }, [adminCategories]);
-
-  React.useEffect(() => {
-    getAdminCategories();
-  }, [lang]);
+  // React.useEffect(() => {
+  //   getAdminCategories();
+  // }, [lang]);
 
   React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
@@ -54,7 +53,7 @@ const CategoryList = () => {
 
   React.useEffect(() => {
     getAdminCategories();
-  }, [resCreateCategory]);
+  }, []);
 
   return (
     <div className="category-container">
@@ -66,6 +65,7 @@ const CategoryList = () => {
         ]}
         title="Product Category"
         searchPlaceHolder={t("admins.category.placeholder_seach")}
+        searchField={'name'}
       />
       <CategoryTable
         items={adminCategories}
@@ -73,6 +73,7 @@ const CategoryList = () => {
         onEdit={onEdit}
         onTableChange={onTableChange}
         pagination={pagination}
+        isLoading={isLoading}
       />
     </div>
   );

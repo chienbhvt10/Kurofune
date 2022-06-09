@@ -59,6 +59,7 @@ const ProductList = () => {
         ]}
         title="Product"
         searchPlaceHolder={t("admins.product.placeholder_seach")}
+        searchField={'name'}
       />
       <ProductTable
         items={products}

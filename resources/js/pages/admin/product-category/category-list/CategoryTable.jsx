@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Table } from "antd";
+import { Spin, Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { useTranslation } from "react-i18next";
 
-const CategoryTable = ({ items, onDelete, onEdit, pagination }) => {
+const CategoryTable = ({ items, onDelete, onEdit, pagination,isLoading }) => {
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
 
@@ -17,17 +17,17 @@ const CategoryTable = ({ items, onDelete, onEdit, pagination }) => {
       headerStyle: {
         width: 50,
       },
-      title: <img className="img-head" src="/images/image.png" alt="" />,
+      title: <img className="img-head" src="/images/image.png" alt=""  width={20} height={20}/>,
       render: (_, record) => (
         <Link to="#">
-          <img src={record.category_image} alt="" width={40} />
+          <img src={record.category_image} alt="" width={40} height={40}/>
         </Link>
       ),
     },
     {
       key: "name",
       dataIndex: "name",
-      title: t("admins.category.name_field"),
+      title: <span className='title-header-category'>{t("admins.category.name_field")}</span>,
       render: (_, record) => (
         <Link
           to={`${lang}/admin/category/update/${record.id}`}
@@ -40,13 +40,13 @@ const CategoryTable = ({ items, onDelete, onEdit, pagination }) => {
     {
       key: "slug",
       dataIndex: "slug",
-      title: t("admins.category.slug_field"),
+      title:  <span className='title-header-category'>{t("admins.category.slug_field")}</span>,
       render: (_, record) => <span>{record.slug}</span>,
     },
     {
       key: "type",
       dataIndex: "type",
-      title: "Type",
+      title:  <div className='title-header-category'>Type</div>,
       render: (_, record) => <span>{record.type}</span>,
     },
     {
@@ -62,6 +62,7 @@ const CategoryTable = ({ items, onDelete, onEdit, pagination }) => {
       ),
     },
   ];
+  
   return (
     <Table
       rowKey="id"
@@ -75,6 +76,7 @@ const CategoryTable = ({ items, onDelete, onEdit, pagination }) => {
         current: pagination.current_page,
         pageSize: pagination.per_page,
       }}
+      // loading={{ indicator: <div><Spin /></div>, spinning:isLoading}}
     />
   );
 };

@@ -3,7 +3,7 @@ import { getAllCategoriesAdminAction } from "../../redux/actions/categoryAdminAc
 
 const useAdminCategories = () => {
   const categoryState = useSelector((state) => state.adminCategoryState);
-  const { from, to, current_page, last_page } = useSelector(
+  const { from, to, current_page, last_page, isLoading } = useSelector(
     (state) => state.adminCategoryState
   );
   const dispatch = useDispatch();
@@ -20,8 +20,7 @@ const useAdminCategories = () => {
       current_page,
       last_page,
     },
-    getAdminCategories,
-  };
+    getAdminCategories};
 };
 
 export default useAdminCategories;
