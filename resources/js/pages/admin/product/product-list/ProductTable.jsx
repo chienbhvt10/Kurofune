@@ -43,7 +43,7 @@ const ProductTable = ({
       key: "stock",
       dataIndex: "stock",
       title: "Stock",
-      render: (_, record) => <span>{record.stock}</span>,
+      render: (_, record) => <span>{record.stock_status}</span>,
     },
     {
       key: "price",
