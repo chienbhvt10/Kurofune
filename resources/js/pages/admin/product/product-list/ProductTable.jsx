@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Pagination, Table } from "antd";
+import moment from "moment";
+import { Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
+import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 const ProductTable = ({
   items,
   onEdit,
@@ -9,16 +11,14 @@ const ProductTable = ({
   pagination,
   onTableChange,
 }) => {
-  const lang = localStorage.getItem("lang");
+  const lang = getCurrentLanguage();
   const columns = [
     {
       key: "image",
       dataIndex: "image",
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
-        <Link to="#">
-          <img src={record.product_image} alt="" height={50} width={50} />
-        </Link>
+        <img src={record.product_image} alt="" height={50} width={50} />
       ),
     },
     {
@@ -54,11 +54,10 @@ const ProductTable = ({
       dataIndex: "date",
       title: "Date",
       render: (_, record) => (
-        <div>
-          <span>Published: </span>
-          <br />
-          {record.created_at}
-        </div>
+        <span>
+          Published {moment(record.created_at).format("YYYY/MM/DD")} at{" "}
+          {moment(record.created_at).format("LT")}
+        </span>
       ),
     },
     {
