@@ -39,6 +39,10 @@ const ProductList = () => {
     }
   }, [resDeleteProduct]);
 
+  React.useEffect(() => {
+    getAllProducts();
+  }, [lang]);
+
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
@@ -54,7 +58,7 @@ const ProductList = () => {
           { name: "Product List", routerLink: `${lang}/product-list` },
         ]}
         title="Product"
-        textSearch={t("admins.product.placeholder_seach")}
+        searchPlaceHolder={t("admins.product.placeholder_seach")}
       />
       <ProductTable
         items={products}

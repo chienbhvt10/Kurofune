@@ -469,6 +469,7 @@
       "slug_field": "Slug",
       "name_field": "Tên",
       "type_field": "Type",
+      "parent_category_field": "Parent category",
       "product_image_field": "Product Image",
       "placeholder_text": "Please enter text",
       "placeholder_seach": "Please enter name category",
@@ -476,6 +477,9 @@
         "option1": "Thuốc OTC hạng nhất",
         "option2": "Chỉ định thuốc OTC loại thứ hai",
         "option3": "Thuốc OTC hạng hai"
+      },
+      "error_message": {
+        "error_category_image": "Vui lòng nhập category image"
       }
     }
   }

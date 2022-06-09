@@ -469,6 +469,7 @@
       "slug_field": "Slug",
       "name_field": "Pangalan",
       "type_field": "Type",
+      "parent_category_field": "Parent category",
       "product_image_field": "Product Image",
       "placeholder_text": "Please enter text",
       "placeholder_seach": "Please enter name category",
@@ -476,6 +477,9 @@
         "option1": "Unang-class na OTC na gamot",
         "option2": "Tukuyin ang Second-class na mga OTC na gamot",
         "option3": "Pangalawang klase ng mga OTC na gamot"
+      },
+      "error_message": {
+        "error_category_image": "Ang category image ay isang kinakailangang."
       }
     }
   }
