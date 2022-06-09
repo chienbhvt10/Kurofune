@@ -391,8 +391,8 @@
           "field_payment_source": "流入元",
           "field_payment": "入金",
           "field_insurance_status": "保険ステータス",
-          "field_insurance_support": "保険開始日",
-          "field_insurance_start_date": "海外送金ステータス",
+          "field_insurance_support": "保険対応",
+          "field_insurance_start_date": "保険開始日",
           "field_overseas_remittance_status": "海外送金ステータス",
           "field_orientation": "オリエンテーション",
           "field_start_date_education": "日本語教育開始日",
@@ -527,8 +527,7 @@
 
       "error_message": {
         "required_message": "この項目は必須です。"
-      },
-      "notification": "通知"
+      }
     },
     "category": {
       "slug_field": "Slug",

@@ -4,7 +4,13 @@ import { Spin, Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { useTranslation } from "react-i18next";
 
-const CategoryTable = ({ items, onDelete, onEdit, pagination,isLoading }) => {
+const CategoryTable = ({
+  items,
+  onDelete,
+  onEdit,
+  pagination,
+  onTableChange,
+}) => {
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
 
@@ -33,7 +39,7 @@ const CategoryTable = ({ items, onDelete, onEdit, pagination,isLoading }) => {
           to={`${lang}/admin/category/update/${record.id}`}
           className="text-decoration-none d-flex"
         >
-          {record.name}
+          {record.name || record.translations[0].name}
         </Link>
       ),
     },
@@ -69,14 +75,15 @@ const CategoryTable = ({ items, onDelete, onEdit, pagination,isLoading }) => {
       columns={columns}
       dataSource={items}
       bordered
+      onChange={onTableChange}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,
-        pageSizeOptions: ["5", "10"],
-        current: pagination.current_page,
+        pageSizeOptions: ["5", "10", "20", "50", "100"],
         pageSize: pagination.per_page,
+        total: pagination.total,
+        showTotal: () => `Total ${pagination.total} items`,
       }}
-      // loading={{ indicator: <div><Spin /></div>, spinning:isLoading}}
     />
   );
 };
