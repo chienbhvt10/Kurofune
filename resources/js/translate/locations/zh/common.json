@@ -469,6 +469,7 @@
       "slug_field": "Slug",
       "name_field": "姓名",
       "type_field": "Type",
+      "parent_category_field": "Parent category",
       "product_image_field": "Product Image",
       "placeholder_text": "Please enter text",
       "placeholder_seach": "Please enter name category",
@@ -476,6 +477,9 @@
         "option1": "第1类",
         "option2": "指定的第2类",
         "option3": "第2类"
+      },
+      "error_message": {
+        "error_category_image": "category image 不能留空。"
       }
     }
   }

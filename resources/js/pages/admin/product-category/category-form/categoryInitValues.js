@@ -3,7 +3,8 @@ export const getCategoryInitValues = (item) => {
     user_id: item?.user_id || "",
     slug: item?.slug || "",
     category_image: item?.category_image || "",
-    type: item?.type || "",
+    type: item?.type || undefined,
+    parent_id: item?.parent_id || undefined,
   };
 };
 

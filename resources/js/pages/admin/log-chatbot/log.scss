@@ -2,25 +2,31 @@
   background-color: white;
   padding: 20px;
   border-radius: 5px;
+
   table {
     th {
       &:not(:first-child) {
         padding: 20px 20px;
       }
+
       text-align: center;
       vertical-align: middle;
     }
+
     td {
       &:not(:first-child) {
         padding: 10px 20px;
       }
+
       text-align: center;
       vertical-align: middle;
     }
+
     th {
       color: #212529 !important;
     }
   }
+
   .btn-download-csv {
     img {
       width: 20px;
@@ -34,13 +40,16 @@
     border: 1px solid #62a19b;
     padding: 10px 20px;
     display: inline-block;
+
     &:nth-child(2) {
       margin-left: 5px;
     }
+
     span {
       color: white;
     }
   }
+
   .btn-show-custom {
     background-color: #62a19b;
     text-decoration: none;
@@ -48,8 +57,106 @@
     display: inline-block;
     padding: 5px 15px;
     text-align: center;
+
     span {
       color: white;
     }
+  }
+}
+
+.list-chat-container {
+  background: #eee;
+  padding: 15px;
+
+  .chat-item__bot {
+    &:not(:first-child) {
+      margin-top: 50px;
+    }
+
+    div {
+      margin-inline: 8px;
+    }
+
+    .image-chat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+
+      p {
+        margin-bottom: 0;
+        font-size: .75rem;
+        color: #999;
+        text-align: center;
+        font-weight: 700;
+      }
+    }
+
+    .content-chat {
+      padding: 0.4rem 1rem;
+      -webkit-border-radius: 4px;
+      -moz-border-radius: 4px;
+      border-radius: 4px;
+      background: #fff;
+      font-weight: 300;
+      line-height: 150%;
+      position: relative;
+      // height: fit-content;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        top: 10px;
+        border: 10px solid;
+      }
+    }
+
+    &.justify-content-start {
+      .content-chat {
+        &::before {
+          left: -20px;
+          border-color: transparent #fff transparent transparent;
+        }
+      }
+    }
+
+    &.flex-row-reverse {
+      .content-chat {
+        &::before {
+          right: -20px;
+          border-color: transparent transparent transparent #fff;
+        }
+      }
+    }
+
+    .date-icon {
+      display: flex;
+      align-self: center;
+
+      .icon_checkCircle {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
+
+.url_Chat {
+  color: revert;
+
+  &:hover {
+    text-decoration: underline;
+    color: revert;
   }
 }
