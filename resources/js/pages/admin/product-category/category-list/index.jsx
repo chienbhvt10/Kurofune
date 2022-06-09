@@ -10,7 +10,6 @@ import CategoryTable from "./CategoryTable";
 import { useTranslation } from "react-i18next";
 
 const CategoryList = () => {
-  // const lang = localStorage.getItem("lang");
   const { getAdminCategories, adminCategories, pagination } =
     useAdminCategories();
   const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
@@ -47,7 +46,7 @@ const CategoryList = () => {
   React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
-      NotificationSuccess("Thông báo", "Xoá Category Thành Công!");
+      NotificationSuccess(t("notification"), resDeleteCategory.message);
     }
     return () => {};
   }, [resDeleteCategory]);

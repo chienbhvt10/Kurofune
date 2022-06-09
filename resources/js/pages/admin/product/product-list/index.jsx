@@ -30,10 +30,7 @@ const ProductList = () => {
   React.useEffect(() => {
     if (resDeleteProduct?.error_code === "NO_ERROR") {
       getAllProducts({ page: 1 });
-      NotificationSuccess(
-        t("admins.product.notification"),
-        resDeleteProduct.message
-      );
+      NotificationSuccess(t("notification"), resDeleteProduct.message);
     } else {
       return;
     }

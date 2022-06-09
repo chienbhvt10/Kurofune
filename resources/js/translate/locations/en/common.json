@@ -454,8 +454,7 @@
 
       "error_message": {
         "required_message": "This field is required."
-      },
-      "notification": "notification"
+      }
     },
     "crud": {
       "user": {
