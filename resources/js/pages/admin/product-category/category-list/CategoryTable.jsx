@@ -1,9 +1,8 @@
+import { Table } from "antd";
 import React from "react";
-import { Link } from "react-router-dom";
-import { Spin, Table } from "antd";
-import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-router-dom";
+import TableRowAction from "./../../../../commons/TableRowAction/index";
 const CategoryTable = ({
   items,
   onDelete,
@@ -13,7 +12,6 @@ const CategoryTable = ({
 }) => {
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
-
   const columns = [
     {
       key: "image",
@@ -23,10 +21,10 @@ const CategoryTable = ({
       headerStyle: {
         width: 50,
       },
-      title: <img className="img-head" src="/images/image.png" alt=""  width={20} height={20}/>,
+      title: <img className="img-head" src="/images/image.png" alt="" width={20} height={20} />,
       render: (_, record) => (
         <Link to="#">
-          <img src={record.category_image} alt="" width={40} height={40}/>
+          <img src={record.category_image} alt="" width={40} height={40} />
         </Link>
       ),
     },
@@ -34,25 +32,28 @@ const CategoryTable = ({
       key: "name",
       dataIndex: "name",
       title: <span className='title-header-category'>{t("admins.category.name_field")}</span>,
-      render: (_, record) => (
-        <Link
-          to={`${lang}/admin/category/update/${record.id}`}
-          className="text-decoration-none d-flex"
-        >
-          {record.name || record.translations[0].name}
-        </Link>
-      ),
+      render: (_, record) => {
+        let _lang = lang || '/ja'
+        return (
+          <Link
+            to={`${lang}/admin/category/update/${record.id}`}
+            className="text-decoration-none d-flex"
+          >
+            {record.translations.find((item) => _lang.includes(item.locale))?.name}
+          </Link>
+        )
+      },
     },
     {
       key: "slug",
       dataIndex: "slug",
-      title:  <span className='title-header-category'>{t("admins.category.slug_field")}</span>,
+      title: <span className='title-header-category'>{t("admins.category.slug_field")}</span>,
       render: (_, record) => <span>{record.slug}</span>,
     },
     {
       key: "type",
       dataIndex: "type",
-      title:  <div className='title-header-category'>Type</div>,
+      title: <div className='title-header-category'>Type</div>,
       render: (_, record) => <span>{record.type}</span>,
     },
     {
@@ -68,7 +69,7 @@ const CategoryTable = ({
       ),
     },
   ];
-  
+
   return (
     <Table
       rowKey="id"
