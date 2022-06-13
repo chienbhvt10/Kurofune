@@ -4,6 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import AccessDenied from "../../commons/AccessDenied";
 const PrivateRoute = ({ children, roles }) => {
+  console.log(roles);
   const { isLogin, userInfo, profile, isLoading } = useSelector(
     (state) => state.authState
   );

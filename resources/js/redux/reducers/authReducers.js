@@ -31,12 +31,13 @@ const initialState = {
 
 const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(login.fulfilled, (state, actions) => {
+    console.log(actions.payload);
     if (actions.payload.status_code === 200) {
       return {
         ...state,
         resLogin: actions.payload,
-        userInfo: actions.payload.user,
-        token: actions.payload.access_token,
+        userInfo: actions.payload.data.user,
+        token: actions.payload.data.access_token,
         isLogin: true,
       };
     } else {
