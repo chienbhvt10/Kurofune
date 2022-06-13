@@ -85,6 +85,8 @@ return [
         'quantity' => 'Pakisuri ang mga detalye ng pagbili.'
     ],
     'order' => [
-        'no_info' => 'Walang kaayusan'
+        'no_info' => 'Walang kaayusan',
+        'deleted' => 'Order deleted',
+        'updated' => 'Order updated',
     ]
 ];

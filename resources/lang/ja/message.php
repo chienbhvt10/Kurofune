@@ -85,6 +85,8 @@ return [
         'quantity' => '購入内容をご確認ください。'
     ],
     'order' => [
-        'no_info' => '注文なし'
+        'no_info' => '注文なし',
+        'deleted' => 'Order deleted',
+        'updated' => 'Order updated',
     ]
 ];

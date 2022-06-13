@@ -14,6 +14,7 @@ class Order extends Model
 
     protected $fillable = [
         'id',
+        'order_number',
         'user_id',
         'vendor_profile_id',
         'shipping_method_id',
@@ -49,10 +50,10 @@ class Order extends Model
         static::addGlobalScope(new OrderByCreatedAtScope);
     }
 
-    public function getOrderNumberAttribute(): string
-    {
-        return $this->get_order_number($this->id);
-    }
+//    public function getOrderNumberAttribute(): string
+//    {
+//        return $this->get_order_number($this->id);
+//    }
 
     public function getTotalAttribute(): string
     {
@@ -77,6 +78,14 @@ class Order extends Model
                 $q->select(['status']);
                 $q->where('status', '=', $request->status);
             });
+        }
+        return $query;
+    }
+
+    public function scopeOrderNumber($query, $request)
+    {
+        if($request->has('order_number')) {
+            $query->where('order_number', $request->order_number);
         }
 //        dd($query->toSql());
         return $query;

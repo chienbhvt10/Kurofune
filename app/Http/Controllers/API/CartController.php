@@ -307,26 +307,15 @@ class CartController extends Controller
                     $vendor_profile_id = $key;
                     $product_items = $value['product_items'];
 
-                    $order = Order::create([
-                        'user_id' => $user->id,
-                        'vendor_profile_id' => $vendor_profile_id,
-                        'shipping_full_name' => $request->shipping_full_name,
-                        'shipping_postal_code' => $request->shipping_postal_code,
-                        'shipping_city' => $request->shipping_city,
-                        'shipping_prefecture' => $request->shipping_prefecture,
-                        'shipping_street_address' => $request->shipping_street_address,
-                        'shipping_building' => $request->shipping_building,
-                        'shipping_phone' => $request->shipping_phone,
-                        'shipping_email' => $request->shipping_email,
-                        'billing_full_name' => $request->billing_full_name,
-                        'billing_postal_code' => $request->shipping_postal_code,
-                        'billing_city' => $request->shipping_city,
-                        'billing_prefecture' => $request->shipping_prefecture,
-                        'billing_street_address' => $request->shipping_street_address,
-                        'billing_building' => $request->shipping_building,
-                        'billing_phone' => $request->shipping_phone,
-                        'billing_email' => $request->shipping_email,
-                    ]);
+                    $params = $request->all();
+                    $params['user_id'] = $user->id;
+                    $params['vendor_profile_id'] = $vendor_profile_id;
+
+                    $order = Order::create($params);
+                    $order_number = $this->get_order_number($order->id);
+                    $order->update(['order_number' => $order_number]);
+                    $order->save();
+
                     $order->products()->attach($product_items);
 
                     if($request->payment_mode == 'cod') {
