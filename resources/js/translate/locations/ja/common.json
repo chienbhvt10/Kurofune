@@ -555,7 +555,22 @@
       "error_message": {
         "error_category_image": "category image を入力してください。"
       }
+    },
+    "log_chatbot":{
+      "no": "No.",
+      "id": "ID",
+      "btn_export": "CSVダウンロード",
+      "btn_export_ja": "CSVダウンロード (日本語）",
+      "btn_show": "表示",
+      "btn_show_ja": "日本語で表示",
+      "username_id":"ユーザーID",
+      "username":"ユーザー名",
+      "show_history": "チャット履歴",
+      "show_history_ja": "チャット履歴(日本語）",
+      "created_at": "作成日",
+      "dow_history": "ダウンロード ",
+      "dow_history_ja": "ダウンロード(日本語）"
     }
-    
+
   }
 }

@@ -553,6 +553,21 @@
       "error_message": {
         "error_category_image": "category image 不能留空。"
       }
+    },
+    "log_chatbot":{
+      "no": "",
+      "id": "",
+      "btn_export": "下载 CSV",
+      "btn_export_ja": "下载 CSV（日语）",
+      "btn_show": "展示",
+      "btn_show_ja": "日语显示",
+      "username_id":"身份证用户",
+      "username":"用户名",
+      "show_history": "聊天记录",
+      "show_history_ja": "聊天记录（日语）",
+      "created_at": "创建日期",
+      "dow_history": "下载 ",
+      "dow_history_ja": "下载（日语）"
     }
   }
 }

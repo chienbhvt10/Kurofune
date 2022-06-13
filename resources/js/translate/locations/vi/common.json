@@ -553,6 +553,21 @@
       "error_message": {
         "error_category_image": "Vui lòng nhập category image"
       }
+    },
+    "log_chatbot":{
+      "no": "",
+      "id": "",
+      "btn_export": "Tải xuống CSV",
+      "btn_export_ja": "Tải xuống CSV (tiếng Nhật)",
+      "btn_show": "Hiển thị",
+      "btn_show_ja": "Hiển thị bằng tiếng Nhật",
+      "username_id":"ID user",
+      "username":"Tên tài khoản",
+      "show_history": "Lịch sử trò chuyện",
+      "show_history_ja": "Lịch sử trò chuyện (Tiếng Nhật)",
+      "created_at": "Ngày tạo",
+      "dow_history": "Tải xuống ",
+      "dow_history_ja": "Tải xuống (tiếng Nhật)"
     }
   }
 }

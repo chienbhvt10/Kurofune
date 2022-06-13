@@ -9,6 +9,7 @@ import useListChat from "../../../hooks/logChat/useListChat";
 import useDetailChat from "../../../hooks/logChat/useDetailChat";
 import useExportCsv from "../../../hooks/logChat/useExportCSV";
 import useExportCsvAll from "../../../hooks/logChat/useExportCSVAll";
+import { useTranslation } from "react-i18next";
 const LogChatBot = () => {
   const [page, setPage] = useState(1);
   const [visible, setVisible] = useState(false);
@@ -19,7 +20,7 @@ const LogChatBot = () => {
   const { detailChat, getDetailChat } = useDetailChat();
   const { csvUser, exportCsvUser } = useExportCsv();
   const { csvAllUser, exportCsvAll } = useExportCsvAll();
-
+  const { t } = useTranslation();
   React.useEffect(() => {
     if (!listChat) {
       getListChat();
@@ -39,7 +40,7 @@ const LogChatBot = () => {
       key: "id",
     },
     {
-      title: "ユーザーID",
+      title:t("admin.log_chatbot.btn_export"),
       dataIndex: "user_id",
       key: "user_id",
     },
