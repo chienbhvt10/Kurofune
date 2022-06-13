@@ -17,10 +17,10 @@ const logChatReducer = createReducer(initialState, (builder) => {
     state.detailChat = actions.payload.data;
   });
   builder.addCase(exportCsvUserAction.fulfilled, (state, actions) => {
-    state.csvUser = actions.payload.data;
+    state.csvUser = actions.payload;
   });
   builder.addCase(exportCsvAllAction.fulfilled, (state, actions) => {
-    state.csvAllUser = actions.payload.data;
+    state.csvAllUser = actions.payload;
   });
 });
 
