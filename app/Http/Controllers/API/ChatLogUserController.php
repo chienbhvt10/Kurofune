@@ -28,9 +28,9 @@ class ChatLogUserController extends Controller
                 array_push($response, $log_item);
             }
 
-            return $this->responseData($response);
+            return $this->response_data_success($response);
         } else {
-            return $this->errorResponse(__('Not found data'));
+            return $this->response_error(__('Not found data'), 404);
         }
     }
 
@@ -45,9 +45,9 @@ class ChatLogUserController extends Controller
                 'data_log' => $chat_log->data_log
             ];
 
-            return $this->responseData($response);
+            return $this->response_data_success($response);
         } else {
-            return $this->errorResponse(__('Not found data'));
+            return $this->response_error(__('Not found data'), 404);
         }
     }
 
@@ -57,11 +57,10 @@ class ChatLogUserController extends Controller
 
         $results = ChatLogUser::all();
         if (empty($results)) {
-            return $this->errorResponse(__('Not found data'));
+            return $this->response_error(__('Not found data'), 404);
         }
         $file_name = "chat_log_export_" . date("Y_m_d") . ".csv";
         $headers = array(
-            "Content-type"        => "text/csv",
             "Content-Encoding" => "sjis-win",
             "Content-Disposition" => "attachment; filename=$file_name",
             "Pragma"              => "no-cache",
@@ -116,7 +115,7 @@ class ChatLogUserController extends Controller
 
         $results = ChatLogUser::find($id);
         if (empty($results)) {
-            return $this->errorResponse(__('Not found data'));
+            return $this->response_error(__('Not found data'), 404);
         }
         $user = User::find($results->user_id);
         $data_logs = json_decode($results->data_log);

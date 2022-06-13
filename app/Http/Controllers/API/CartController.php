@@ -173,7 +173,7 @@ class CartController extends Controller
                 $cart_items = $request->cart_items;
                 foreach ($cart_items as $item){
                     if(!isset($item['quantity']) || !isset($item['id']) || !is_integer($item['quantity']) || $item['quantity'] < 1 ) {
-                        return $this->errorResponse(__('message.cart.quantity'));
+                        return $this->response_error(__('message.cart.quantity'));
                     }
                     $cart_item = CartItem::find($item['id']);
                     $cart_item->quantity = $item['quantity'];
