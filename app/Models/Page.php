@@ -6,6 +6,7 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Scopes\OrderByCreatedAtScope;
 
 class Page extends Model
 {
@@ -16,6 +17,11 @@ class Page extends Model
     public $translatedAttributes = ['title', 'content'];
 
     public $timestamps = true;
+    
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
+    }
 
     public function getImageAttribute(){
         return $this->attributes['image'] = get_image_url($this->attributes['image']);

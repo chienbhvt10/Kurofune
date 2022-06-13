@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use App\Scopes\OrderByCreatedAtScope;
 
 class ChatLogUser extends Model
 {
@@ -13,6 +14,11 @@ class ChatLogUser extends Model
     protected $fillable = ['id', 'cpid', 'user_id', 'data_log'];
 
     public $timestamps = true;
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
+    }
 
     public function users()
     {
