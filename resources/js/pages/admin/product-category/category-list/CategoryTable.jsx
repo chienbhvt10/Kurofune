@@ -3,7 +3,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
-import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 const CategoryTable = ({
   items,
   onDelete,
@@ -13,11 +12,6 @@ const CategoryTable = ({
 }) => {
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
-  const { getAdminCategories } = useAdminCategories()
-
-  const handleOffsetChange = (page, per_page) => {
-    getAdminCategories({ page, per_page })
-  }
   const columns = [
     {
       key: "image",
@@ -87,7 +81,6 @@ const CategoryTable = ({
         pageSize: pagination.per_page,
         total: pagination.total,
         showTotal: () => `Total ${pagination.total} items`,
-        onChange: handleOffsetChange
       }}
     />
   );
