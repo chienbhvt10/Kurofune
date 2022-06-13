@@ -24,10 +24,6 @@ class Category extends Model
         return $this->attributes['category_image'] = get_image_url($this->attributes['category_image']);
     }
 
-    public function getTypeAttribute() {
-        return $this->attributes['type'] = __(CAT_TYPE[$this->attributes['type']]);
-    }
-
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
