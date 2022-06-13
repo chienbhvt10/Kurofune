@@ -1,7 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import { NotificationSuccess } from "../../../../commons/Notification/index.jsx";
+import { NotificationError, NotificationSuccess } from "../../../../commons/Notification/index.jsx";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import useProductDetail from "../../../../hooks/product/useProductDetail";
 import useProducts from "../../../../hooks/product/useProducts.js";
@@ -42,6 +42,11 @@ const UpdateProduct = () => {
       navigate(`${lang}/admin/product-list`);
       NotificationSuccess(t("notification"), resUpdateProduct.message);
       getAllProducts();
+    }
+    if (resUpdateProduct?.error_code === "ERROR") {
+      const { sku, slug } = resUpdateProduct?.error_data
+      slug && NotificationError(t("notification"), slug);
+      sku && NotificationError(t("notification"), sku);
     }
   }, [resUpdateProduct]);
   return (

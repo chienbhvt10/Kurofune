@@ -35,7 +35,7 @@ export const getTranslateInitValues = (lang) => {
 export const getPlanInitValues = (item) => {
   return {
     dob: (item?.profile?.dob && moment(item?.profile?.dob)) || "",
-    gender: item?.profile?.gender || 0,
+    gender: item?.profile?.gender || undefined,
     facebook: item?.profile?.facebook || "",
     line: item?.profile?.line || "",
     address: item?.profile?.address || "",
