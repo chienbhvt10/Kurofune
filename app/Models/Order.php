@@ -38,7 +38,7 @@ class Order extends Model
 
     public $timestamps = true;
 
-    protected $appends = ['order_number', 'total', 'total_tax'];
+    protected $appends = ['total', 'total_tax'];
 
     /**
      * The "booted" method of the model.
