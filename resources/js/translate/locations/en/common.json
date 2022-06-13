@@ -403,7 +403,7 @@
           "field_company_mail": "Company representative mail"
         },
         "order": {
-          "field_date_create":"Date created:",
+          "field_date_create":"Created date:",
           "field_customer":"Customer:",
           "field_action":"Action",
           "field_status":"Status:",
@@ -431,16 +431,16 @@
           "field_founder": "Founder",
           "field_stated_in_permit": "Items to be stated in the permit",
           "field_management_pharmacist": "Management pharmacist",
-          "field_registered_seller_working": "Registered Seller Working",
-          "field_drug_handled": "Drugs Handled",
-          "field_distinguishing_by_name": "Distinguishing by name",
+          "field_registered_seller_working": "Registered seller working at our pharmacy (business in charge)",
+          "field_drug_handled": "Types of over-the-counter drugs handled",
+          "field_distinguishing_by_name": "Distinguishing by name tag etc. of the person who works at this pharmacy",
           "field_business_hours": "Business Hours",
-          "field_consultation_hours": "Consultation Hours",
-          "field_contact_information": "Contact Information",
-          "field_current_working": "Currently Working",
+          "field_consultation_hours": "Consultation hours outside business hours",
+          "field_contact_information": "Contact information for consultation and emergencies",
+          "field_current_working": "Currently working pharmacist(in charge)",
           "field_open_sale_time": "Open Sale Time",
-          "field_time_order_outside": "Time Order Outside",
-          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+          "field_time_order_outside": "Time to accept drug orders outside business hours",
+          "field_expiration_date_of_drug": "Expiration date of drugs for specific sale"
         },
         "option": {
           "active": "User active",

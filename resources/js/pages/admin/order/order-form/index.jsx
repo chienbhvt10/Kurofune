@@ -1,18 +1,16 @@
-import React from "react";
-import "./order-form.scss";
-import * as Yup from "yup";
-import { useFormik } from "formik";
-import FormHeader from "../../../../commons/FormHeader";
-import CartInfoTable from "./CartInfoTable";
-import BillingShipForm from "../../../../commons/BillingShipForm";
-import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { DatePicker, Form, Input, InputNumber, Select, Typography } from "antd";
-import InputField from "../../../../commons/Form/InputField";
-import DateField from "../../../../commons/Form/DateField";
 import { t } from "i18next";
-import SelectField from "../../../../commons/Form/SelectField";
-import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
 import moment from "moment";
+import React from "react";
+import * as Yup from "yup";
+import DateField from "../../../../commons/Form/DateField";
+import InputField from "../../../../commons/Form/InputField";
+import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
+import FormHeader from "../../../../commons/FormHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
+import BillingShipFormOrder from "./BillingShipFormOrder";
+import CartInfoTable from "./CartInfoTable";
+import "./order-form.scss";
 const { Option } = Select;
 const { Title } = Typography;
 const credential = Yup.object().shape({});
@@ -40,15 +38,6 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const [formGeneral]= Form.useForm();
   const [formBilling] = Form.useForm();
   const [formShipping] = Form.useForm();
-   // const [formGeneral]= Form.useForm({
-  //   initialValues:initialGeneraValues
-  // });
-  // const [formBilling] = Form.useForm({
-  //   initialValues:initialBillingValue
-  // });
-  // const [formShipping] = Form.useForm({
-  //   initialValues:initialShippingValue
-  // });
   const renderErrorMessage = (field) => {
     return (
       formik.touched[field] && (
@@ -164,11 +153,11 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         </div>
         <div className="billing-info section-info">
           <p className="title-section">Billing</p>
-          <BillingShipForm form={formBilling} typeForm="billing" />
+          <BillingShipFormOrder form={formBilling} typeForm="billing" />
         </div>
         <div className="shipping-info section-info">
           <p className="title-section">Shipping</p>
-          <BillingShipForm form={formShipping} typeForm="shipping"/>
+          <BillingShipFormOrder form={formShipping} typeForm="shipping"/>
         </div>
       </div>
       <div className="cart-info">

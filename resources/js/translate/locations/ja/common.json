@@ -401,6 +401,26 @@
           "field_page_registration": "WABISABIマイページ登録",
           "field_company_mail": "企業のメールアドレス"
         },
+        "order": {
+          "field_date_create":"作成日:",
+          "field_customer":"カスタマー:",
+          "field_action":"操作",
+          "field_status":"ステータス:",
+          "field_first_name":"姓",
+          "field_last_name":"名",
+          "field_company":"企業",
+          "field_address_line_1":"丁目・番地・号",
+          "field_address_line_2":"建物名・部屋番号",
+          "field_city":"市区町村",
+          "field_postal_code":"郵便番号",
+          "field_country_region":"国/地域",
+          "field_email":"メールアドレス",
+          "field_phone":"電話番号",
+          "field_payment_method":"決済方法",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"注文メモ",
+          "field_state_county":"都道府県"
+        },
         "vendor_profile": {
           "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
           "field_image_outside": "薬局又は店舗の主要な外観の写真",
