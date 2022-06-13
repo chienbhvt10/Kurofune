@@ -22,11 +22,13 @@ const useLogin = () => {
   React.useEffect(() => {
     if (resLogin?.error_code === NO_ERROR) {
       setLoadingLogin(false);
-      if (resLogin?.user.roles.name === USER_ROLES.ADMIN)
+      if (resLogin?.data?.user?.roles?.name === USER_ROLES.ADMIN) {
         navigate(`${lang}/admin`);
-      else if (resLogin?.user.roles.name === USER_ROLES.VENDOR)
+      } else if (resLogin?.data?.user?.roles?.name === USER_ROLES.VENDOR) {
         navigate(`${lang}/admin/product-list`);
-      else navigate(`${lang}/media`);
+      } else {
+        navigate(`${lang}/media`);
+      }
     }
     if (resLogin && resLogin.error_code === ERROR) {
       setLoadingLogin(false);

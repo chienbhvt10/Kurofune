@@ -22,7 +22,7 @@ class AuthController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return $this->errorResponse($errors, 422);
+                return $this->response_validate($errors);
             }
 //            $credentials = request(['email', 'password']);
 //
@@ -36,7 +36,7 @@ class AuthController extends Controller
             $user = User::where('email', $request->email)->first();
 
             if (!$user || !Hash::check($request->password, $user->password)) {
-                return $this->errorResponse(__('auth.failed'), 401);
+                return $this->response_error(__('auth.failed'), 401);
             }
 
             $tokenResult = $user->createToken('authToken')->plainTextToken;
@@ -59,21 +59,20 @@ class AuthController extends Controller
                 ]
             ];
 
-            return response()->json([
-                'status_code' => 200,
+            return $this->response_data_success([
                 'access_token' => $tokenResult,
                 'token_type' => 'Bearer',
                 'user' => $user,
             ]);
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
 
     }
 
     public function logout(Request $request) {
         $request->user()->tokens()->delete();
-        return $this->success(__('message.user.logout'));
+        return $this->response_message_success(__('message.user.logout'));
     }
 
     public function register(Request $request) {

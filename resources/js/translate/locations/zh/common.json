@@ -401,6 +401,26 @@
           "field_page_registration": "Wabisabi我的页面注册",
           "field_company_mail": "公司邮件"
         },
+        "order": {
+          "field_date_create":"创建日期:",
+          "field_customer":"顾客:",
+          "field_action":"手术",
+          "field_status":"地位:",
+          "field_first_name":"姓",
+          "field_last_name":"名",
+          "field_company":"公司",
+          "field_address_line_1":"丁目/地址/号码",
+          "field_address_line_2":"楼名、房间号",
+          "field_city":"直辖市",
+          "field_postal_code":"邮编",
+          "field_country_region":"国家/地区",
+          "field_email":"电子邮件",
+          "field_phone":"电话",
+          "field_payment_method":"付款方式",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"订单备忘录",
+          "field_state_county":"省/市"
+        },
         "vendor_profile": {
           "field_image_inside": "里面的图片",
           "field_image_outside": "外部图像",

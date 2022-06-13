@@ -35,8 +35,8 @@ const authReducers = createReducer(initialState, (builder) => {
       return {
         ...state,
         resLogin: actions.payload,
-        userInfo: actions.payload.user,
-        token: actions.payload.access_token,
+        userInfo: actions.payload.data.user,
+        token: actions.payload.data.access_token,
         isLogin: true,
       };
     } else {

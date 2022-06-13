@@ -35,7 +35,7 @@ class OrderController extends Controller
             return $this->response_data_success($order);
 
         }catch (\Exception $error){
-            return $this->errorResponse($error->getMessage());
+            return $this->response_exception();
         }
     }
 
@@ -138,12 +138,12 @@ class OrderController extends Controller
                 }
                 array_push($response, $order_item);
             return $this->response_data_success($response);
-            }         
+            }
         } catch (\Exception $error) {
             return $this->response_exception();
         }
     }
-    
+
     public function orderHistory(Request $request){
         try {
             $user = auth()->user();
@@ -194,7 +194,7 @@ class OrderController extends Controller
                         array_push($order_item['order_products'], $product_data);
                     }
                     array_push($response, $order_item);
-                } 
+                }
                 return $this->response_data_success($response);
             }
         } catch (\Exception $error) {

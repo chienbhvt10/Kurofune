@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -10,6 +11,7 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionController extends Controller
 {
+    use RespondsStatusTrait;
     /**
      * Display a listing of the resource.
      *
@@ -19,15 +21,9 @@ class PermissionController extends Controller
     {
         try {
             $permissions = Permission::all();
-            return response()->json([
-                'status_code' => 200,
-                'data' => $permissions
-            ]);
+            return $this->response_data_success($permissions);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -45,23 +41,13 @@ class PermissionController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->response_validate($errors);
             }
 
             $permission = Permission::findOrCreate($request->permission_name, 'api');
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.permission.created'),
-                'data' => $permission
-            ]);
+            return $this->response_message_data_success(__('message.permission.created'), $permission);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -75,15 +61,9 @@ class PermissionController extends Controller
     {
         try {
             $permission = Permission::findById($id, 'api');
-            return response()->json([
-                'status_code' => 200,
-                'data' => $permission
-            ]);
+            return $this->response_data_success($permission);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -102,25 +82,15 @@ class PermissionController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->response_validate($errors);
             }
 
             $permission = Permission::findById($id, 'api');
             $permission->name = $request->permission_name;
             $permission->save();
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.permission.updated'),
-                'data' => $permission
-            ]);
+            return $this->response_message_data_success(__('message.permission.updated'), $permission);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -135,15 +105,9 @@ class PermissionController extends Controller
         try {
             $permission = Permission::findById($id, 'api');
             $permission->delete();
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.permission.deleted')
-            ]);
+            return $this->response_message_success(__('message.permission.deleted'));
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 }
