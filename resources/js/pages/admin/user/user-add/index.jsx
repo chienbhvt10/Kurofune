@@ -19,6 +19,7 @@ const AddUser = () => {
   };
 
   const onSave = (values) => {
+    console.log("asdsasf");
     createUser(values);
   };
 
