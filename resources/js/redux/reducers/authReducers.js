@@ -31,7 +31,6 @@ const initialState = {
 
 const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(login.fulfilled, (state, actions) => {
-    console.log(actions.payload);
     if (actions.payload.status_code === 200) {
       return {
         ...state,
