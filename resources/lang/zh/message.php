@@ -85,6 +85,8 @@ return [
         'quantity' => '请查看购买详情'
     ],
     'order' => [
-        'no_info' => '无订单'
+        'no_info' => '无订单',
+        'deleted' => 'Order deleted',
+        'updated' => 'Order updated',
     ]
 ];
