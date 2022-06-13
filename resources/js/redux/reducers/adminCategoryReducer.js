@@ -28,7 +28,7 @@ const adminCategoryReducers = createReducer(initialState, (builder) => {
     state.resDeleteCategory = undefined;
     state.resCreateCategory = undefined;
     state.resUpdateCategory = undefined;
-    state.total = actions.payload.data.total;
+    state.total = actions.payload.data?.total;
     state.from = actions.payload.data.from;
     state.to = actions.payload.data.to;
     state.current_page = actions.payload.data.current_page;
