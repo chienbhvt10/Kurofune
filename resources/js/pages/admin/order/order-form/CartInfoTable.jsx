@@ -1,4 +1,4 @@
-import { Form, Input, InputNumber, Popconfirm, Table, Typography } from 'antd';
+import { Form, Input, InputNumber, Popconfirm, Table, Typography } from "antd";
 import React from "react";
 import { debounce, pick, groupBy, unionBy } from "lodash";
 
@@ -14,31 +14,34 @@ const EditableCell = ({
   key,
   ...restProps
 }) => {
-
   return (
     <td {...restProps}>
       {editing ? (
         <Form.Item
           shouldUpdate={(prevValues, currentValues) => {
             {
-              return prevValues !== currentValues
+              return prevValues !== currentValues;
             }
           }}
         >
           {({ getFieldValue, setFieldsValue }) => {
             const handleChange = () => {
-              if (dataIndex === 'quantity' || dataIndex === 'cost') {
-                let quantity = Number(getFieldValue(`quantity-${record['key']}`));
-                let cost = Number(getFieldValue(`cost-${record['key']}`))
+              if (dataIndex === "quantity" || dataIndex === "cost") {
+                let quantity = Number(
+                  getFieldValue(`quantity-${record["key"]}`)
+                );
+                let cost = Number(getFieldValue(`cost-${record["key"]}`));
                 setFieldsValue({
-                  [`total-${record['key']}`]: quantity * cost
-                })
+                  [`total-${record["key"]}`]: quantity * cost,
+                });
               }
-            }
+            };
             return (
               <Form.Item
-                name={record ? `${dataIndex}-${record['key']}` : dataIndex}
-                shouldUpdate={(prevValues, currentValues) => { prevValues !== currentValues }}
+                name={record ? `${dataIndex}-${record["key"]}` : dataIndex}
+                shouldUpdate={(prevValues, currentValues) => {
+                  prevValues !== currentValues;
+                }}
                 style={{
                   margin: 0,
                 }}
@@ -48,11 +51,21 @@ const EditableCell = ({
                 //     message: `Please Input ${title}!`,
                 //   },
                 // ]}
-                initialValue={title === 'Total' ? total : record && record[dataIndex]}
+                initialValue={
+                  title === "Total" ? total : record && record[dataIndex]
+                }
               >
-                {inputType === 'number' ? <InputNumber min={0} readOnly={title === 'Total' ? true : false} onChange={handleChange} /> : <Input onChange={handleChange} />}
+                {inputType === "number" ? (
+                  <InputNumber
+                    min={0}
+                    readOnly={title === "Total" ? true : false}
+                    onChange={handleChange}
+                  />
+                ) : (
+                  <Input onChange={handleChange} />
+                )}
               </Form.Item>
-            )
+            );
           }}
         </Form.Item>
       ) : (
@@ -69,7 +82,7 @@ const CartInfoTable = ({ items }) => {
   for (let i = 0; i < 8; i++) {
     originData.push({
       key: i.toString(),
-      image: '',
+      image: "",
       nameProduct: `Product ${i.toString()} `,
       cost: 15580,
       quantity: 1,
@@ -81,8 +94,8 @@ const CartInfoTable = ({ items }) => {
   const [fee, setFee] = React.useState(0);
   const [shipping, setShipping] = React.useState(0);
   const [orderTotal, setOrderTotal] = React.useState(0);
-  
-  const [editingKey, setEditingKey] = React.useState('');
+
+  const [editingKey, setEditingKey] = React.useState("");
   const [editAll, setEditAll] = React.useState(false);
 
   const isEditing = (record) => record.key === editingKey;
@@ -91,7 +104,7 @@ const CartInfoTable = ({ items }) => {
     form.setFieldsValue({
       cost: 0,
       quantity: 0,
-      nameProduct: '',
+      nameProduct: "",
       VAT: 0,
       total: 0,
       ...record,
@@ -100,111 +113,113 @@ const CartInfoTable = ({ items }) => {
   };
 
   const cancel = () => {
-    setEditingKey('');
+    setEditingKey("");
   };
 
-  const handleDelete = (key,) => {
+  const handleDelete = (key) => {
     const newData = data.filter((item) => item.key !== key);
     setData(newData);
   };
   let reverseObectRecord = (object) => {
     const newObject = Object.fromEntries(
-      Object.entries(object).map(([key, value]) =>
-        [`${key.split("-", 1)}`, value]
-      )
-    )
-    return newObject
-  }
+      Object.entries(object).map(([key, value]) => [
+        `${key.split("-", 1)}`,
+        value,
+      ])
+    );
+    return newObject;
+  };
   const save = async (key) => {
     try {
-      const row = await form.validateFields()
-      const newObject = reverseObectRecord(row)
+      const row = await form.validateFields();
+      const newObject = reverseObectRecord(row);
       const newData = [...data];
       const index = newData.findIndex((item) => key === item.key);
-      if(newObject.total) {
+      if (newObject.total) {
         if (index > -1) {
           const item = newData[index];
           newData.splice(index, 1, { ...item, ...newObject });
           setData(newData);
-          setEditingKey('')
+          setEditingKey("");
         } else {
           newData.push(row);
           setData(newData);
-          setEditingKey('')
+          setEditingKey("");
         }
-      }else if (newObject.total<=0){
+      } else if (newObject.total <= 0) {
         const newData = data.filter((item) => item.key !== key);
         setData(newData);
       }
-      
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.log("Validate Failed:", errInfo);
     }
   };
   const saveAll = (valueSaveAll) => {
     try {
       const newData = [...data];
       let arrayResult = newData.map((item) => {
-        let objectpick = pick(valueSaveAll, [`VAT-${item.key}`, `cost-${item.key}`, `quantity-${item.key}`])
-        let objectNewSave = reverseObectRecord(objectpick)
+        let objectpick = pick(valueSaveAll, [
+          `VAT-${item.key}`,
+          `cost-${item.key}`,
+          `quantity-${item.key}`,
+        ]);
+        let objectNewSave = reverseObectRecord(objectpick);
 
-        if(objectNewSave) {
-          console.log('objectNewSave',objectNewSave);
+        if (objectNewSave) {
         }
-        return { ...item, ...objectNewSave }
-      })
+        return { ...item, ...objectNewSave };
+      });
       setData(arrayResult);
-      setEditingKey('')
+      setEditingKey("");
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.log("Validate Failed:", errInfo);
     }
   };
   const columns = [
     {
-      title: 'Product',
-      width: '60%',
+      title: "Product",
+      width: "60%",
       editable: false,
       render: (_, record) => {
         return (
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: "flex" }}>
             <div style={{ marginRight: 15 }}>
-              <img src="https://imge.com/wp-content/uploads/2019/02/imge-new.png" alt="Flowers in Chania" width="35" height="35" />
+              <img
+                src="https://imge.com/wp-content/uploads/2019/02/imge-new.png"
+                alt="Flowers in Chania"
+                width="35"
+                height="35"
+              />
             </div>
-            <div>
-              {record.nameProduct}
-            </div>
+            <div>{record.nameProduct}</div>
           </div>
-        )
-      }
+        );
+      },
     },
     {
-      title: 'Cost',
-      dataIndex: 'cost',
+      title: "Cost",
+      dataIndex: "cost",
       editable: true,
     },
     {
-      title: 'Qty',
-      dataIndex: 'quantity',
-      editable: true,
-      render: (_, record) => {
-        return (
-          <span id={`quantity-${record.key}`}>{record.quantity}</span>
-        )
-      }
-    },
-    {
-      title: 'Total',
-      dataIndex: 'total',
+      title: "Qty",
+      dataIndex: "quantity",
       editable: true,
       render: (_, record) => {
-        return (
-          <span>{record.quantity * record.cost}</span>
-        )
-      }
+        return <span id={`quantity-${record.key}`}>{record.quantity}</span>;
+      },
     },
     {
-      title: 'VAT',
-      dataIndex: 'VAT',
+      title: "Total",
+      dataIndex: "total",
+      editable: true,
+      render: (_, record) => {
+        return <span>{record.quantity * record.cost}</span>;
+      },
+    },
+    {
+      title: "VAT",
+      dataIndex: "VAT",
       editable: true,
     },
     {
@@ -226,12 +241,13 @@ const CartInfoTable = ({ items }) => {
           </span>
         ) : (
           <>
-            <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            <Popconfirm
+              title="Sure to delete?"
+              onConfirm={() => handleDelete(record.key)}
+            >
               <a>Delete </a>
             </Popconfirm>
-            <Typography.Link onClick={() => edit(record)}>
-              Edit
-            </Typography.Link>
+            <Typography.Link onClick={() => edit(record)}>Edit</Typography.Link>
           </>
         );
       },
@@ -241,18 +257,20 @@ const CartInfoTable = ({ items }) => {
     if (!col.editable) {
       return col;
     }
-    let arrayTypeNumber = ['quantity', 'VAT', 'cost', 'total']
+    let arrayTypeNumber = ["quantity", "VAT", "cost", "total"];
     if (editAll) {
       return {
         ...col,
         onCell: (record) => ({
           record,
-          inputType: arrayTypeNumber.includes(col.dataIndex) ? 'number' : 'text',
+          inputType: arrayTypeNumber.includes(col.dataIndex)
+            ? "number"
+            : "text",
           dataIndex: col.dataIndex,
           title: col.title,
           editing: true,
           key: record.key,
-          total: (record.quantity * record.cost)
+          total: record.quantity * record.cost,
         }),
       };
     }
@@ -260,12 +278,12 @@ const CartInfoTable = ({ items }) => {
       ...col,
       onCell: (record) => ({
         record,
-        inputType: arrayTypeNumber.includes(col.dataIndex) ? 'number' : 'text',
+        inputType: arrayTypeNumber.includes(col.dataIndex) ? "number" : "text",
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),
         key: record.key,
-        total: (record.quantity * record.cost)
+        total: record.quantity * record.cost,
       }),
     };
   });
@@ -281,23 +299,25 @@ const CartInfoTable = ({ items }) => {
   };
   const totalMemo = React.useMemo(() => {
     let total = data.reduce((total, item) => {
-      return total + (item.quantity * item.cost)
-    }, 0)
-    return total
+      return total + item.quantity * item.cost;
+    }, 0);
+    return total;
   }, [data]);
 
   const maxValueVAT = React.useMemo(() => {
-    let array = data.map(item => {
-      return item.VAT
-    })
-    return Math.max(...array)
+    let array = data.map((item) => {
+      return item.VAT;
+    });
+    return Math.max(...array);
   }, [data]);
   return (
     <>
       <div className="cart-product">
-        <Form form={form} component={false}
+        <Form
+          form={form}
+          component={false}
           onFinish={(value) => {
-            saveAll(value)
+            saveAll(value);
           }}
         >
           <Table
@@ -329,7 +349,7 @@ const CartInfoTable = ({ items }) => {
               <p>{fee} (JPY)</p>
               <p>{shipping} (JPY)</p>
               <p>{maxValueVAT} (JPY)</p>
-              <p>{totalMemo+fee+shipping+maxValueVAT} (JPY)</p>
+              <p>{totalMemo + fee + shipping + maxValueVAT} (JPY)</p>
             </div>
           </div>
           <div className="tool-container">
@@ -369,7 +389,11 @@ const CartInfoTable = ({ items }) => {
             >
               <div className="tool-left"></div>
               <div className="tool-right">
-                <button className="add-btn tool-btn" type="button" onClick={() => { console.log('onClick') }}>
+                <button
+                  className="add-btn tool-btn"
+                  type="button"
+                  onClick={() => {}}
+                >
                   Add product(s)
                 </button>
                 <button className="add-btn tool-btn" type="button">
