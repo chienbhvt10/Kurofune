@@ -403,7 +403,7 @@
           "field_company_mail": "Company representative mail"
         },
         "order": {
-          "field_date_create":"Date created:",
+          "field_date_create":"Created date:",
           "field_customer":"Customer:",
           "field_action":"Action",
           "field_status":"Status:",
