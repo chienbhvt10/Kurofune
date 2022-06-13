@@ -53,7 +53,7 @@ const CategoryList = () => {
 
   React.useEffect(() => {
     getAdminCategories();
-  }, [resCreateCategory]);
+  }, []);
 
   return (
     <div className="category-container">
@@ -67,6 +67,7 @@ const CategoryList = () => {
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.category.placeholder_seach")}
+
       />
       <CategoryTable
         items={adminCategories}

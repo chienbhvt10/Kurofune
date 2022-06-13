@@ -1,7 +1,7 @@
 import React from "react";
+import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
-import moment from "moment";
 export const HistoryChat = ({ data, langChat }) => {
   return (
     <>

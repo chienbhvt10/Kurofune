@@ -5,6 +5,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import {
   updateProfileAction,
   resetAuthResponse,
@@ -21,14 +22,14 @@ const useUpdateProfile = () => {
   };
 
   React.useEffect(() => {
-    if (resUpdateProfile?.status_code === 200) {
+    if (resUpdateProfile?.error_code === NO_ERROR) {
       setLoadingUpdateProfile(false);
-      NotificationSuccess(t("notification"), resUpdateProfile.message);
+      NotificationSuccess(t("notification"), resUpdateProfile.error_message);
       dispatch(resetAuthResponse());
     }
-    if (resUpdateProfile && resUpdateProfile.status_code !== 200) {
+    if (resUpdateProfile && resUpdateProfile.error_code === ERROR) {
       setLoadingUpdateProfile(false);
-      NotificationError(t("notification"), resUpdateProfile.message);
+      NotificationError(t("notification"), resUpdateProfile.error_message);
     }
   }, [resUpdateProfile]);
   return {

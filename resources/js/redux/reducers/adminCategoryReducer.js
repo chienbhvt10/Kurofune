@@ -35,13 +35,15 @@ const adminCategoryReducers = createReducer(initialState, (builder) => {
     state.last_page = actions.payload.data.last_page;
   });
 
-  // Get Category
+
+  // Get Category successs
   builder.addCase(getCategoryAdminAction.fulfilled, (state, actions) => {
     state.adminCategory = actions.payload?.data;
     state.resGetAdminCategory = actions.payload;
     state.resDeleteCategory = undefined;
     state.resCreateCategory = undefined;
     state.resUpdateCategory = undefined;
+    state.isLoading = false
   });
 
   // Create Category

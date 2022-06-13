@@ -6,20 +6,25 @@ import FormHeader from "../../../../commons/FormHeader";
 import CartInfoTable from "./CartInfoTable";
 import BillingShipForm from "../../../../commons/BillingShipForm";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { DatePicker, Form, Input, InputNumber, Select, Typography } from "antd";
+import InputField from "../../../../commons/Form/InputField";
+import DateField from "../../../../commons/Form/DateField";
+import { t } from "i18next";
+import SelectField from "../../../../commons/Form/SelectField";
+import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
+import moment from "moment";
+const { Option } = Select;
+const { Title } = Typography;
 const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const lang = getCurrentLanguage();
-  const initialCommonValues = {
-    name: "",
-    sku: "",
-    stockStatus: "",
-    price: 0,
-    status: "",
-    productImage: "",
-    tax: "",
-    meta_title: "",
-    meta_description: "",
-    meta_keyword: "",
+  const initialGeneralValues = {
+    date: moment(new Date(), 'YYYY-MM-DD') ,
+    hours:0,
+    minute:0,
+    customer: 0,
+    status: 0,
+   
   };
   const initialBillingValue = {};
   const initialShippingValue = {};
@@ -32,21 +37,18 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       vat: "1",
     },
   ];
-  const formik = useFormik({
-    initialValues: initialCommonValues,
-    validationSchema: credential,
-    onSubmit: () => {
-      const submitInput = {};
-    },
-  });
-  const formikBilling = useFormik({
-    initialValues: initialBillingValue,
-    validationSchema: credential,
-  });
-  const formikShipping = useFormik({
-    initialValues: initialBillingValue,
-    validationSchema: credential,
-  });
+  const [formGeneral]= Form.useForm();
+  const [formBilling] = Form.useForm();
+  const [formShipping] = Form.useForm();
+   // const [formGeneral]= Form.useForm({
+  //   initialValues:initialGeneraValues
+  // });
+  // const [formBilling] = Form.useForm({
+  //   initialValues:initialBillingValue
+  // });
+  // const [formShipping] = Form.useForm({
+  //   initialValues:initialShippingValue
+  // });
   const renderErrorMessage = (field) => {
     return (
       formik.touched[field] && (
@@ -54,6 +56,17 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       )
     );
   };
+  const  handleSubmit =()=>{
+    formGeneral.submit()
+    formBilling.submit()
+    formShipping.submit()
+  }
+  React.useEffect(() => {
+    formGeneral.setFieldsValue({
+      ...initialGeneralValues
+    });
+  }, []);
+
   return (
     <div id="order-form">
       <FormHeader
@@ -67,79 +80,95 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         ]}
         title={title}
         onCancel={onCancel}
+        onSubmit={handleSubmit}
       />
       <p className="order-detail-title">Order #1723 details</p>
       <div className="order-info">
         <div className="general-info section-info">
           <p className="title-section">General</p>
-          <form onSubmit={formik.handleSubmit}>
+          <Form form={formGeneral} name="formGeneral" onFinish={(value)=>{console.log('value',value)}}>
             <div className="form-group">
-              <label>Date created:</label>
               <div>
-                <input
-                  id=""
-                  type="text"
-                  name="classification"
-                  className=""
-                  onChange={formik.handleChange}
-                  value={formik.values.classification}
-                />
-                @
-                <input
-                  id=""
-                  type="number"
-                  name="classification"
-                  className=""
-                  onChange={formik.handleChange}
-                  value={formik.values.classification}
-                />
-                :
-                <input
-                  id=""
-                  type="number"
-                  name="classification"
-                  className=""
-                  onChange={formik.handleChange}
-                  value={formik.values.classification}
-                />
+                <label className="label-for">{t("admins.user.form.order.field_date_create")}</label>
+                <div style={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
+                  <DateField
+                    field="date"
+                    rules={[{ required: true, message: 'Please input your username!'}]}
+                    labelCol={{ span: 24 }}
+                    wrapperCol={{ span: 24 }}
+                    locale={{ lang: { locale: "vi_VN" }}}
+                    className='marginUnset'
+                    type={<DatePicker />}
+                  /> 
+                  @ 
+                  <InputField
+                    field="hours"
+                    labelCol={{ span: 24 }}
+                    wrapperCol={{ span: 22 }}
+                    style={{margin: 0}}
+                    className='marginUnset'
+                    type={
+                      <InputNumber
+                        min={0}
+                        max={23} 
+                        defaultValue={0}
+                        style={{margin:'0 8px'}}
+                      />
+                    }
+                  /> 
+                  :
+                  <InputField
+                    field="minute"
+                    // rules={[{ required: true, message: 'Please input your username!' }]}
+                    labelCol={{ span: 24 }}
+                    wrapperCol={{ span: 22 }}
+                    style={{margin: 0}}
+                    className='marginUnset'
+                    type={
+                      <InputNumber
+                        min={0}
+                        max={60}
+                        defaultValue={0}
+                        style={{margin:'0 8px'}}
+                      />
+                    }
+                  />
+                </div>
+                <Form.Item name="Status">
+                  <SelectFieldSearch
+                    field="status"
+                    label={t("admins.user.form.order.field_status")}
+                    labelCol={{ span: 24 }}
+                    wrapperCol={{ span: 22 }}
+                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    type={<Input />}
+                    options={[{ value: 1, label: 1 }, { value: 2, label: 2 }, { value: 3, label: 3 }]}
+                    disabled={false}
+                  />
+                </Form.Item>
+                <Form.Item name="Customer">
+                  <SelectFieldSearch
+                    field="customer"
+                    label={t("admins.user.form.order.field_customer")}
+                    labelCol={{ span: 24 }}
+                    wrapperCol={{ span: 22 }}
+                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    type={<Input />}
+                    options={[{ value: 1, label: 1 }, { value: 2, label: 2 }, { value: 3, label: 3 }]}
+                    disabled={false}
+                  />
+                </Form.Item>
               </div>
-              {renderErrorMessage("classification")}
             </div>
-            <div className="form-group">
-              <label>Status:</label>
-              <input
-                id=""
-                type="text"
-                name="classification"
-                className=""
-                rows={4}
-                onChange={formik.handleChange}
-                value={formik.values.classification}
-              />
-              {renderErrorMessage("classification")}
-            </div>
-            <div className="form-group">
-              <label>Customer:</label>
-              <input
-                id=""
-                type="text"
-                name="classification"
-                className=""
-                rows={4}
-                onChange={formik.handleChange}
-                value={formik.values.classification}
-              />
-              {renderErrorMessage("classification")}
-            </div>
-          </form>
+          </Form>
         </div>
         <div className="billing-info section-info">
           <p className="title-section">Billing</p>
-          <BillingShipForm formik={formikBilling} typeForm="billing" />
+          <BillingShipForm form={formBilling} typeForm="billing" />
         </div>
         <div className="shipping-info section-info">
           <p className="title-section">Shipping</p>
-          <BillingShipForm formik={formikShipping} typeForm="shipping" />
+          <BillingShipForm form={formShipping} typeForm="shipping"/>
         </div>
       </div>
       <div className="cart-info">

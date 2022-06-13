@@ -10,6 +10,8 @@ const DateField = ({
   rules,
   locale,
   response,
+  className,
+  type,
   dependId,
 }) => {
   const dateFormat = "YYYY/MM/DD";
@@ -36,13 +38,13 @@ const DateField = ({
             : ""
         }
       >
-        <DatePicker
-          getPopupContainer={getDepend}
+        {type ? type : <DatePicker
           style={{ width: "100%" }}
           locale={locale}
           format={dateFormat}
           placeholder={t("admins.user.form.placeholder.select_date")}
         />
+        }
       </Form.Item>
     </div>
   );
