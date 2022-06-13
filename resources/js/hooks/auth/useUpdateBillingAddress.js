@@ -5,6 +5,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import {
   resetAuthResponse,
   updateBillingAddressAction,
@@ -22,17 +23,23 @@ const useUpdateBillingAddress = () => {
   };
 
   React.useEffect(() => {
-    if (resUpdateBillingAddress?.status_code === 200) {
+    if (resUpdateBillingAddress?.error_code === NO_ERROR) {
       setLoadingUpdateBillings(false);
-      NotificationSuccess(t("notification"), resUpdateBillingAddress.message);
+      NotificationSuccess(
+        t("notification"),
+        resUpdateBillingAddress.error_message
+      );
       dispatch(resetAuthResponse());
     }
     if (
       resUpdateBillingAddress &&
-      resUpdateBillingAddress.status_code !== 200
+      resUpdateBillingAddress.error_code === ERROR
     ) {
       setLoadingUpdateBillings(false);
-      NotificationError(t("notification"), resUpdateBillingAddress.message);
+      NotificationError(
+        t("notification"),
+        resUpdateBillingAddress.error_message
+      );
     }
   }, [resUpdateBillingAddress]);
 
