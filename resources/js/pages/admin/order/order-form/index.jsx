@@ -17,12 +17,11 @@ const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const lang = getCurrentLanguage();
   const initialGeneralValues = {
-    date: moment(new Date(), 'YYYY-MM-DD') ,
-    hours:0,
-    minute:0,
+    date: moment(new Date(), "YYYY-MM-DD"),
+    hours: 0,
+    minute: 0,
     customer: 0,
     status: 0,
-   
   };
   const initialBillingValue = {};
   const initialShippingValue = {};
@@ -35,7 +34,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       vat: "1",
     },
   ];
-  const [formGeneral]= Form.useForm();
+  const [formGeneral] = Form.useForm();
   const [formBilling] = Form.useForm();
   const [formShipping] = Form.useForm();
   const renderErrorMessage = (field) => {
@@ -45,14 +44,14 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       )
     );
   };
-  const  handleSubmit =()=>{
-    formGeneral.submit()
-    formBilling.submit()
-    formShipping.submit()
-  }
+  const handleSubmit = () => {
+    formGeneral.submit();
+    formBilling.submit();
+    formShipping.submit();
+  };
   React.useEffect(() => {
     formGeneral.setFieldsValue({
-      ...initialGeneralValues
+      ...initialGeneralValues,
     });
   }, []);
 
@@ -75,50 +74,63 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       <div className="order-info">
         <div className="general-info section-info">
           <p className="title-section">General</p>
-          <Form form={formGeneral} name="formGeneral" onFinish={(value)=>{console.log('value',value)}}>
+          <Form form={formGeneral} name="formGeneral" onFinish={(value) => {}}>
             <div className="form-group">
               <div>
-                <label className="label-for">{t("admins.user.form.order.field_date_create")}</label>
-                <div style={{display: 'flex', flexDirection: 'row',alignItems: 'center'}}>
+                <label className="label-for">
+                  {t("admins.user.form.order.field_date_create")}
+                </label>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
                   <DateField
                     field="date"
-                    rules={[{ required: true, message: 'Please input your username!'}]}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                    ]}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 24 }}
-                    locale={{ lang: { locale: "vi_VN" }}}
-                    className='marginUnset'
+                    locale={{ lang: { locale: "vi_VN" } }}
+                    className="marginUnset"
                     type={<DatePicker />}
-                  /> 
-                  @ 
+                  />
+                  @
                   <InputField
                     field="hours"
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
-                    style={{margin: 0}}
-                    className='marginUnset'
+                    style={{ margin: 0 }}
+                    className="marginUnset"
                     type={
                       <InputNumber
                         min={0}
-                        max={23} 
+                        max={23}
                         defaultValue={0}
-                        style={{margin:'0 8px'}}
+                        style={{ margin: "0 8px" }}
                       />
                     }
-                  /> 
+                  />
                   :
                   <InputField
                     field="minute"
                     // rules={[{ required: true, message: 'Please input your username!' }]}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
-                    style={{margin: 0}}
-                    className='marginUnset'
+                    style={{ margin: 0 }}
+                    className="marginUnset"
                     type={
                       <InputNumber
                         min={0}
                         max={60}
                         defaultValue={0}
-                        style={{margin:'0 8px'}}
+                        style={{ margin: "0 8px" }}
                       />
                     }
                   />
@@ -129,9 +141,18 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     label={t("admins.user.form.order.field_status")}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                    ]}
                     type={<Input />}
-                    options={[{ value: 1, label: 1 }, { value: 2, label: 2 }, { value: 3, label: 3 }]}
+                    options={[
+                      { value: 1, label: 1 },
+                      { value: 2, label: 2 },
+                      { value: 3, label: 3 },
+                    ]}
                     disabled={false}
                   />
                 </Form.Item>
@@ -141,9 +162,18 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     label={t("admins.user.form.order.field_customer")}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
-                    rules={[{ required: true, message: 'Please input your username!' }]}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                    ]}
                     type={<Input />}
-                    options={[{ value: 1, label: 1 }, { value: 2, label: 2 }, { value: 3, label: 3 }]}
+                    options={[
+                      { value: 1, label: 1 },
+                      { value: 2, label: 2 },
+                      { value: 3, label: 3 },
+                    ]}
                     disabled={false}
                   />
                 </Form.Item>
@@ -157,7 +187,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         </div>
         <div className="shipping-info section-info">
           <p className="title-section">Shipping</p>
-          <BillingShipFormOrder form={formShipping} typeForm="shipping"/>
+          <BillingShipFormOrder form={formShipping} typeForm="shipping" />
         </div>
       </div>
       <div className="cart-info">
