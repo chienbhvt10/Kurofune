@@ -512,7 +512,6 @@
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
-
       "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
       "features_field": "Tính năng sản phẩm",
       "precautions_field": "Lưu ý khi sử dụng",
@@ -524,9 +523,18 @@
       "manufacturer_field": "Công ty sản xuất và kinh doanh",
       "name_field": "Tên gọi chung",
       "use_manual_field": "Cách sử dụng",
-
       "error_message": {
         "required_message": " Mục này là mục bắt buộc."
+      }
+    },
+    "order": {
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_status": "Status",
+        "field_action": "Action"
       }
     },
     "category": {
