@@ -22,8 +22,8 @@ import { isAdmin } from "../../../../helper/roles";
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
-
-  const { pharmaciesAdmin, getAllPharmaciesAdmin } = usePharmacies();
+  const { profile, userInfo } = useSelector((state) => state.authState);
+  const { pharmacies, getAllPharmacies } = usePharmacies();
   const { categoriesClient, getCategoriesClient } = useCategories();
 
   const [avatarState, setAvatarState] = React.useState({
@@ -90,7 +90,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
 
   React.useEffect(() => {
     getCategoriesClient();
-    getAllPharmaciesAdmin();
+    getAllPharmacies();
   }, [lang]);
 
   const onChangeAvatar = (base64Image) => {
@@ -134,7 +134,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         />
         <div>
           <Row justify="center">
-            {isAdmin && (
+            {(isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)) && (
               <Col
                 lg={12}
                 md={12}
@@ -157,8 +157,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   response={response}
                   error="user_id"
                 >
-                  {pharmaciesAdmin?.map((pharamacy, index) => (
-                    <Select.Option key={index} value={pharamacy.id}>
+                  {pharmacies?.map((pharamacy, index) => (
+                    <Select.Option key={index} value={pharamacy.user_id}>
                       {pharamacy.name}
                     </Select.Option>
                   ))}
