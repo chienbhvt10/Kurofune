@@ -2,7 +2,6 @@ import { Table } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Spin, Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 const CategoryTable = ({
   items,
