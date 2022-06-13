@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Table, Button, Modal } from "antd";
 import { HistoryChat } from "./history-chat";
+import { useTranslation } from "react-i18next";
 import useListChat from "../../../hooks/logChat/useListChat";
 import useDetailChat from "../../../hooks/logChat/useDetailChat";
 import useExportCsv from "../../../hooks/logChat/useExportCSV";
 import useExportCsvAll from "../../../hooks/logChat/useExportCSVAll";
-import { useTranslation } from "react-i18next";
 const LogChatBot = () => {
   const [page, setPage] = useState(1);
   const [visible, setVisible] = useState(false);
@@ -40,27 +40,27 @@ const LogChatBot = () => {
       key: "id",
     },
     {
-      title:t("admin.log_chatbot.btn_export"),
+      title: t("admins.log_chatbot.username_id"),
       dataIndex: "user_id",
       key: "user_id",
     },
     {
-      title: "ユーザー名",
+      title: t("admins.log_chatbot.username"),
       dataIndex: "name_user",
       key: "name_user",
     },
     {
-      title: "チャット履歴",
+      title: t("admins.log_chatbot.show_history"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
         <Button type="primary" onClick={() => openModalHistory(id, "message")}>
-          表示
+          {t("admins.log_chatbot.btn_show")}
         </Button>
       ),
     },
     {
-      title: "チャット履歴 (日本語）",
+      title: t("admins.log_chatbot.show_history_ja"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
@@ -68,17 +68,17 @@ const LogChatBot = () => {
           type="primary"
           onClick={() => openModalHistory(id, "message_ja")}
         >
-          日本語で表示
+          {t("admins.log_chatbot.btn_show_ja")}
         </Button>
       ),
     },
     {
-      title: "作成日",
+      title: t("admins.log_chatbot.created_at"),
       dataIndex: "create_date",
       key: "create_date",
     },
     {
-      title: "ダウンロード",
+      title: t("admins.log_chatbot.dow_history"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
@@ -94,7 +94,7 @@ const LogChatBot = () => {
       ),
     },
     {
-      title: "ダウンロード(日本語）",
+      title: t("admins.log_chatbot.dow_history_ja"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
@@ -173,7 +173,7 @@ const LogChatBot = () => {
               className="mr-2"
               style={{ color: "white" }}
             />
-            <span> CSVダウンロード</span>
+            <span>{t("admins.log_chatbot.btn_export")}</span>
           </Button>
           <Button
             className="ml-2"
@@ -185,7 +185,7 @@ const LogChatBot = () => {
               className="mr-2"
               style={{ color: "white" }}
             />
-            <span> CSVダウンロード (日本語）</span>
+            <span>{t("admins.log_chatbot.btn_export_ja")}</span>
           </Button>
         </div>
       </TableHeader>
@@ -200,7 +200,7 @@ const LogChatBot = () => {
         }}
       />
       <Modal
-        title="History chatbot"
+        title= {t("admins.log_chatbot.show_history")}
         visible={visible}
         onCancel={() => setVisible(false)}
         width={"1000"}
