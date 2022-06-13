@@ -401,6 +401,26 @@
           "field_page_registration": "Wabisabi My Page Registration",
           "field_company_mail": "Mail ng Kumpanya"
         },
+        "order": {
+          "field_date_create":"Nagawa ang petsa:",
+          "field_customer":"Customer:",
+          "field_action":"Operasyon",
+          "field_status":"Katayuan:",
+          "field_first_name":"Apelyido",
+          "field_last_name":"Pangalan",
+          "field_company":"Kumpanya",
+          "field_address_line_1":"Chome / address / numero",
+          "field_address_line_2":"Pangalan ng gusali, numero ng silid",
+          "field_city":"Mga munisipalidad",
+          "field_postal_code":"Postal code",
+          "field_country_region":"Bansa / Rehiyon",
+          "field_email":"Email",
+          "field_phone":"Telepono",
+          "field_payment_method":"Paraan ng Pagbayad",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"Mag-order ng memo",
+          "field_state_county":"Lalawigan/Lungsod"
+        },
         "vendor_profile": {
           "field_image_inside": "Mga larawan sa loob ng botika",
           "field_image_outside": "Mga larawan sa labas ng botika",
