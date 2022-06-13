@@ -18,7 +18,7 @@ class VendorProfileController extends Controller
     {
         $ids_vendor = VendorProfile::pluck('id')->toArray();
         if(empty($ids_vendor)) {
-            return $this->errorResponse(__('message.user.vendor.not_data'), 404);
+            return $this->response_error(__('message.user.vendor.not_data'), 404);
         }else{
             $vendors = [];
             foreach ($ids_vendor as $id){
@@ -47,7 +47,7 @@ class VendorProfileController extends Controller
                 ];
                 $vendors[] = $items;
             }
-            return $this->responseData($vendors);
+            return $this->response_data_success($vendors);
         }
     }
 
@@ -80,7 +80,7 @@ class VendorProfileController extends Controller
 
         $vendor = $items;
 
-        return $this->responseData($vendor);
+        return $this->response_data_success($vendor);
     }
 
     public function productPharmacy($id)
@@ -90,10 +90,10 @@ class VendorProfileController extends Controller
         if (!empty($vendor)) {
             $products = $vendor->user->products()->get();
         } else {
-            return $this->errorResponse(__('Not found data'));
+            return $this->response_error(__('Not found data'), 404);
         }
 
-        return $this->responseData($products);
+        return $this->response_data_success($products);
     }
 
     public function searchPharmacy(Request $request){
