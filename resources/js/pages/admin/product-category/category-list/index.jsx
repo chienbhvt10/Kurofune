@@ -42,10 +42,9 @@ const CategoryList = () => {
       getAdminCategories();
     }
   }, [adminCategories]);
-
-  React.useEffect(() => {
-    getAdminCategories();
-  }, [lang]);
+  // React.useEffect(() => {
+  //   getAdminCategories();
+  // }, [lang]);
 
   React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
@@ -57,7 +56,7 @@ const CategoryList = () => {
 
   React.useEffect(() => {
     getAdminCategories();
-  }, [resCreateCategory]);
+  }, []);
 
   return (
     <div className="category-container">
@@ -71,13 +70,14 @@ const CategoryList = () => {
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.category.placeholder_seach")}
+
       />
       <CategoryTable
         items={adminCategories}
         onDelete={onDelete}
         onEdit={onEdit}
         onTableChange={onTableChange}
-        pagination={pagination}
+        pagination={pagination}        
       />
     </div>
   );
