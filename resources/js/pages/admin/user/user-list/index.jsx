@@ -1,4 +1,4 @@
-import { Select } from "antd";
+import { Form, Select } from "antd";
 import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useTranslation } from "react-i18next";
@@ -17,6 +17,9 @@ export const UserList = () => {
   const lang = getCurrentLanguage();
   const { getAllUsers, users, pagination, loadingListUser } = useUsers();
   const { deleteUser, loadingDeleteUser } = useDeleteUser();
+  const [filterRole, setFilterRole] = React.useState();
+  const [searchValue, setSearchValue] = React.useState();
+
   const { roles } = useRoles();
 
   const navigate = useNavigate();
@@ -33,18 +36,27 @@ export const UserList = () => {
   };
 
   const onChangeRole = (value) => {
+    setFilterRole(value);
     getAllUsers({ page: pagination.current_page, role: value });
   };
 
   const onSearch = (values) => {
+    setSearchValue(values);
     getAllUsers({ page: pagination.current_page, name: values.name });
   };
 
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
-    getAllUsers({ page: current, per_page: per_page });
+    getAllUsers({
+      page: current,
+      per_page: per_page,
+      role: filterRole || "",
+      name: searchValue,
+    });
   };
+
+  const getDepend = () => document.querySelector("#role-select");
 
   return (
     <div className="user-list">
@@ -59,17 +71,20 @@ export const UserList = () => {
         searchField="name"
         searchPlaceHolder={t("admins.user.form.placeholder.search")}
       >
-        <Select
-          placeholder={t("admins.user.form.placeholder.select_role")}
-          onChange={onChangeRole}
-          className="select-role"
-        >
-          {roles.map((item, index) => (
-            <Select.Option key={index} value={item.name}>
-              {item.name}
-            </Select.Option>
-          ))}
-        </Select>
+        <div id="role-select">
+          <Select
+            placeholder={t("admins.user.form.placeholder.select_role")}
+            onChange={onChangeRole}
+            className="select-role"
+            getPopupContainer={getDepend}
+          >
+            {roles.map((item, index) => (
+              <Select.Option key={index} value={item.name}>
+                {item.name}
+              </Select.Option>
+            ))}
+          </Select>
+        </div>
       </TableHeader>
       <UserTable
         items={users}
