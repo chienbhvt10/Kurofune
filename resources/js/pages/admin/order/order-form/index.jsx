@@ -45,11 +45,13 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       )
     );
   };
+  
   const  handleSubmit =()=>{
     formGeneral.submit()
     formBilling.submit()
     formShipping.submit()
   }
+
   React.useEffect(() => {
     formGeneral.setFieldsValue({
       ...initialGeneralValues
@@ -104,7 +106,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                         style={{margin:'0 8px'}}
                       />
                     }
-                  /> 
+                  />  
                   :
                   <InputField
                     field="minute"
@@ -123,7 +125,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     }
                   />
                 </div>
-                <Form.Item name="Status">
+                <Form.Item name="status">
                   <SelectFieldSearch
                     field="status"
                     label={t("admins.user.form.order.field_status")}
@@ -134,8 +136,9 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     options={[{ value: 1, label: 1 }, { value: 2, label: 2 }, { value: 3, label: 3 }]}
                     disabled={false}
                   />
+                    
                 </Form.Item>
-                <Form.Item name="Customer">
+                <Form.Item name="customer">
                   <SelectFieldSearch
                     field="customer"
                     label={t("admins.user.form.order.field_customer")}
