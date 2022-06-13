@@ -56,7 +56,6 @@ class CartController extends Controller
                 return $this->response_data_success($data);
             }
         }catch (\Exception $error){
-            dd($error);
             return $this->response_exception();
         }
     }
