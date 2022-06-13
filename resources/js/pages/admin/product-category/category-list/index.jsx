@@ -42,16 +42,13 @@ const CategoryList = () => {
       getAdminCategories();
     }
   }, [adminCategories]);
-  // React.useEffect(() => {
-  //   getAdminCategories();
-  // }, [lang]);
 
   React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess(t("notification"), resDeleteCategory.message);
     }
-    return () => {};
+    return () => { };
   }, [resDeleteCategory]);
 
   React.useEffect(() => {
@@ -77,7 +74,7 @@ const CategoryList = () => {
         onDelete={onDelete}
         onEdit={onEdit}
         onTableChange={onTableChange}
-        pagination={pagination}        
+        pagination={pagination}
       />
     </div>
   );
