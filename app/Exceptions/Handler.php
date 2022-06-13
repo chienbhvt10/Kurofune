@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use App\Traits\RespondsStatusTrait;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
 
@@ -41,7 +42,13 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (\Spatie\Permission\Exceptions\UnauthorizedException $e, $request) {
-            return $this->response_error(__('permission.not_permission'), 403);
+            return $this->response_error(__('permission.not_permission'), 401);
+        });
+
+        $this->renderable(function (AuthenticationException $e, $request) {
+            if ($request->is('api/*')) {
+                return $this->response_error(__('Unauthenticated'), 401);
+            }
         });
     }
 }
