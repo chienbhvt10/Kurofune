@@ -38,7 +38,6 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
   React.useEffect(() => {
     if (imageUrlProps) {
       setImageUrl(imageUrlProps);
-      console.log('imageUrlProps',imageUrlProps);
     }
   }, [imageUrlProps]);
 

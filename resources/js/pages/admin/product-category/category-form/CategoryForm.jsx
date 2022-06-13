@@ -66,11 +66,10 @@ const CategoryForm = ({
       category_image: avatarState.base64Avatar,
     };
     if (typeForm === TYPE_FORM_UPDATE) {
-      setErrorMessImage('');
+      setErrorMessImage(!avatarState.base64Avatar);
     }else{
       setErrorMessImage(!avatarState.base64Avatar);
     }
-
     onSave(submitInput);
   };
 
