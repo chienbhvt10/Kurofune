@@ -15,7 +15,6 @@ export const LogChatApi = {
     return await axiosClient.get(url,{ params: { export_ja : data.export_ja } });
   },
    exportCsvUser: async ({id,export_ja}) => {
-     console.log({id,export_ja});
     const url = ROOT_URL + `export-chat-log-user/${id}`;
     return await axiosClient.get(url,{ params: { export_ja } });
   },

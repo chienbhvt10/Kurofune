@@ -21,8 +21,7 @@ const useAdminCategories = () => {
       current_page,
       last_page,
     },
-    getAdminCategories,
-  };
+    getAdminCategories};
 };
 
 export default useAdminCategories;

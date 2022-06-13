@@ -512,7 +512,6 @@
       "meta_keyword": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
-
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
       "features_field": "Features",
@@ -524,9 +523,18 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
-
       "error_message": {
         "required_message": "这是必填栏。"
+      }
+    },
+    "order": {
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_status": "Status",
+        "field_action": "Action"
       }
     },
     "category": {

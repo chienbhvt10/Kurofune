@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Breadcrumb } from "../Breadcrumb";
 import "./form-header.scss";
-const FormHeader = ({ title, breadcrumb, onCancel, loading }) => {
+const FormHeader = ({ title, breadcrumb, onCancel, loading,onSubmit }) => {
   const { t } = useTranslation();
   return (
     <div className="form-header">
@@ -12,7 +12,7 @@ const FormHeader = ({ title, breadcrumb, onCancel, loading }) => {
         <Button type="button" className="header-btn cancel" onClick={onCancel}>
           {t("admins.btn_cancel")}
         </Button>
-        <Button loading={loading} htmlType="submit" className="header-btn save">
+        <Button type="submit" className="header-btn save"  onClick={onSubmit}>
           {t("admins.btn_save")}
         </Button>
       </div>
