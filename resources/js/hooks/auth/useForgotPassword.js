@@ -6,6 +6,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import {
   forgotPassword,
@@ -26,15 +27,15 @@ const useForgotPassword = () => {
   };
 
   React.useEffect(() => {
-    if (resForgotPassword?.status_code === 200) {
+    if (resForgotPassword?.error_code === NO_ERROR) {
       setLoadingForgotPassword(false);
-      NotificationSuccess(t("notification"), resForgotPassword.message);
+      NotificationSuccess(t("notification"), resForgotPassword.error_message);
       navigate(`${lang}/reset-link-password`);
       dispatch(resetAuthResponse());
     }
-    if (resForgotPassword && resForgotPassword.status_code !== 200) {
+    if (resForgotPassword && resForgotPassword.error_code === ERROR) {
       setLoadingForgotPassword(false);
-      NotificationError(t("notification"), resForgotPassword.message);
+      NotificationError(t("notification"), resForgotPassword.error_message);
     }
   }, [resForgotPassword]);
 

@@ -10,6 +10,7 @@ import useDeleteUser from "../../../../hooks/user/useDeleteUser";
 import useUsers from "../../../../hooks/user/useUsers";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
+import { isAdmin, isVendor } from "../../../../helper/roles.js";
 
 export const UserList = () => {
   const { t } = useTranslation();

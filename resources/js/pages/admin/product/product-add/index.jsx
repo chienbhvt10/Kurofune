@@ -29,10 +29,7 @@ const AddProduct = () => {
 
   React.useEffect(() => {
     if (resCreateProduct?.error_code === "NO_ERROR") {
-      NotificationSuccess(
-        t("admins.product.notification"),
-        resCreateProduct.message
-      );
+      NotificationSuccess(t("notification"), resCreateProduct.message);
       navigate(`${lang}/admin/product-list`);
       getAllProducts();
     }
