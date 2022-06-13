@@ -1,6 +1,10 @@
 {
+  "notification": "Abiso",
+  "btn_send_mail": "I-RESET ANG PASSWORD",
+  "btn_back": "BUMALIK",
+  "btn_ok": "Ok",
   "login": {
-    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "title": "Association for Supporting Foreign Workers in Japan <br> Life Support Portal Site",
     "email": "Email",
     "password": "password",
     "remember": "Tandaan",
@@ -11,5 +15,564 @@
     "languages": "Wika",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "forgot_password": {
+    "title1": "Nawala ang iyong password? Pakilagay ang iyong email address.",
+    "title2": "Makakatanggap ka ng link para gumawa ng bagong password sa pamamagitan ng email."
+  },
+  "reset_password": {
+    "reset_password_title": "Naipadala na ang email sa pag-reset ng password.",
+    "reset_password_message1": "Naipadala na ang email sa muling pag-isyu ng password.",
+    "reset_password_message2": "Pakisuri ang iyong nakarehistrong email address."
+  },
+  "home": "Trang chủ",
+  "header": {
+    "btn_back1": "Bumalik sa listahan ng gamot",
+    "btn_back2": "Bumalik sa listahan ng order",
+    "btn_back3": "Bumalik sa cart",
+    "btn_logout": "Mag-logout",
+    "btn_view_cart": "TINGNAN ANG CART",
+    "btn_buy": "PARA SA PAMAMARAAN NG PAGBILI",
+    "cart_empty": "Walang impormasyon sa shopping cart.",
+    "cart_title": "Tingnan ang iyong shopping cart"
+  },
+  "navigate_link": {
+    "title": "Online pharmacy",
+    "questionnaire_title": "Bumili ng gamot gamit ang chatbot",
+    "pharmacies_title": "Impormasyon sa Pharmacy",
+    "medicine_title": "Impormasyon ng mga gamot",
+    "order_history_title": "History ng order",
+    "cart_title": "Listahan ng order",
+    "billing_address_title": "Impormasyon ng pagrehistro",
+    "media_title": "Bumalik sa top page",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
+  },
+  "member": {
+    "dashboard": {
+      "questionnaire": "Bumili ng gamot gamit ang chatbot",
+      "pharmacy": "Impormasyon sa Pharmacy",
+      "drug": "Impormasyon ng mga gamot",
+      "order_history": "History ng order",
+      "order_list": "Listahan ng order",
+      "registration_info": "Impormasyon ng pagrehistro"
+    },
+    "user_profile": {
+      "btn_save": "I-save",
+      "text_back": "Bumalik sa tuktok na pahina",
+      "tab_user_info": "User Information",
+      "tab_password": "Impormasyon ng password"
+    },
+    "change_password": {
+      "title": "change password",
+      "field_old_password": "Lumang password",
+      "field_new_password": "Bagong password ",
+      "field_confirm_password": "Kumpirmahin ang password"
+    },
+    "change_profile": {
+      "btn_search": "Maghanap",
+      "title": "change profile",
+      "field_full_name": "Buong pangalan",
+      "field_postal": "Postal code/zip ",
+      "field_prefecture": "Prefecture",
+      "field_city": "Bayan / Lungsod",
+      "field_street": "Address ng kalye ",
+      "field_building": "Gusali",
+      "field_phone": "Telepono",
+      "field_email": "Email address"
+    }
+  },
+  "tab_address": {
+    "tab_ship": "Address ng pagpapadala",
+    "tab_bill": "Billing address"
+  },
+  "client": {
+    "qa": {
+      "q": {
+        "q1": "どのようなサービスがあるのか教えてください",
+        "q2": "プランを変更したい",
+        "q3": "登録している情報（住所など）を変更したい",
+        "q4": "利用回数に制限はありますか？",
+        "q5": "家族や友人の方が利用することはできますか？",
+        "q6": "①どのように薬を購入したらいいですか？",
+        "q7": "①オンライン薬局サービスで決済はどのようにすればいいですか？",
+        "q8": "①現在販売している以外の薬が欲しい場合はどうしたらいいですか？",
+        "q9": "①定期的に薬を届けて欲しい",
+        "q10": "①薬を海外に届けることはできますか？",
+        "q11": "①薬の請求先や届け先を変更できますか？",
+        "q12": "②知りたい情報がチャットボットでは見つからない",
+        "q13": "③海外送金サービスのパスワードを忘れた",
+        "q14": "④日本語教育サービスのパスワードを忘れた",
+        "q15": "④e-ラーニング（オンライン日本語教育）の日本語のコースを変更したい",
+        "q16": "⑤所得補償保険の詳細情報を知りたい",
+        "q17": "現在の所得補償保険のステータスを知りたい",
+        "q18": "⑤どのような場合に所得補償保険が支給されますか",
+        "q19": "⑤ What should I do if I take a leave of absence due to injury or illness?",
+        "q20": "退職した場合はサービスは使えますか？",
+        "q21": "一般社団法人在日外国人就業者支援協会について教えてください。",
+        "q22": "サービスの利用期間はありますか？"
+      },
+      "a": {
+        "a1": {
+          "a11": "プランによってサービスの内容が異なります。",
+          "a12": "ライトプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービスの2つのサービスを使うことができます。",
+          "a13": "フルサポートプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービス ③海外送金 ④e-ラーニング（オンライン日本語教育） ⑤所得補償保険の5つのサービスを使うことができます。",
+          "a14": "サービスの詳細はオリエンテーション動画をご覧ください"
+        },
+        "a2": "プランを変更するには、現在働いている企業から申し込みする必要があります。そのため、働いている企業の担当者の方に一度相談してみてください。",
+        "a3": "トップページにある「ユーザー情報」をクリックして変更したい部分を修正してください。",
+        "a4": "制限はありません。何度でも利用することができます。",
+        "a5": "利用することはできません。登録したユーザー以外が利用することはできません。もし不正に利用していることを発見した場合、退会処分になる可能性もあります。",
+        "a6": {
+          "a61": "まずは問診票の質問に答えて自分が欲しい薬を選んでください。その後、買い物かごに入った薬を確認して、購入手続きを進めてください。薬局から購入した薬についての質問のメールが届きますので、その情報を確認して回答したら購入完了となります。",
+          "a62": "購入完了後に、指定した住所に薬局から薬が届きます。"
+        },
+        "a7": "現在は代引き決済のみとなります。自宅に薬が届くタイミングでお金を支払います。",
+        "a8": "欲しい薬が見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a9": "お手数ですが、毎回購入していただきますようお願いいたします。",
+        "a10": "大変申し訳ございません。日本国内での郵送のみとなっております。",
+        "a11": "可能です。オンライン薬局のトップページの登録情報にて住所を変更すれば大丈夫です。",
+        "a12": "チャットボットでは見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a13": "「既存アカウントにログイン」をクリックして、その後に「パスワードを忘れた方」をクリックして再発行手続きを進めてください。",
+        "a14": "「パスワードを忘れました？」のボタンをクリックして再発行手続きを進めてください。",
+        "a15": "コースを変更したい場合は、弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+        "a16": {
+          "a161": "WABISABI Mediaのこちらのページを参考にしてください。",
+          "a162": "（KUROFUNEスタッフ注意：各国の言語に変更してください）"
+        },
+        "a17": "トップページから所得補償保険のところをクリックして現在のステータスをご確認ください。",
+        "a18": "告知された免責期間を超えて怪我や病気により休業した際に支給対象となります。しかし場合によっては支給対象とならない可能性もあるのでご了承ください。",
+        "a19": {
+          "a191": "所得補償保険の対象になるかを判断して手続きを進めていきます。弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+          "a192": "（保険専用問い合わせメールアドレス）"
+        },
+        "a20": "退職した場合はこれらのサービスは利用できなくなります。",
+        "a21": "日本に住んでいる外国人が、日本にて働きやすい・住みやすいと感じられるような支援を行っている団体となります。",
+        "a22": "申込から1 年間利用できます。"
+      }
+    },
+    "questionnaire": {
+      "placeholder": "Ilagay ang pangalan ng gamot",
+      "btn_search": "Ipasa",
+      "title_number_results": "Mga resulta ng paghahanap:",
+      "description_number": " kaso sa kabuuan"
+    },
+    "media": {
+      "title": "Association for Supporting Foreign Workers in Japan<br>Life Support Portal Site",
+      "card_pharmacy": "Online pharmacy",
+      "card_consultation": "24 na oras na serbisyo sa konsultasyon",
+      "card_remittance": "Magpadala ng pera",
+      "card_e_leaning": "e-learning",
+      "card_insurance": "Income Compensation Insurance",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "User Information",
+      "btn_logout": "Mag-logout"
+    },
+    "cart": {
+      "title_cart": "Basket ng pamimili",
+      "title_cart_empty": "Kasalukuyang walang laman ang iyong basket.",
+      "cart_description1": "Pakisuri ang mga detalye ng pagbili.",
+      "cart_description2": "Pakisuri at i-click ang pindutang　\"TUMULOY SA PAG-CHECKOUT\".",
+      "th_product_name": "Produkto",
+      "th_product_price": "Halaga",
+      "th_product_quantity": "Dami",
+      "btn_delete": "TANGGALIN",
+      "btn_checkout": "TUMULOY SA PAG-CHECKOUT",
+      "btn_empty": "ALISAN ANG LAMAN NG SHOPPING CART",
+      "btn_update": "I-UPDATE ANG IYONG SHOPPING CART",
+      "btn_return": "Bumalik sa tindahan"
+    },
+    "checkout": {
+      "title_confirm": "Pagkumpirma ng pagbili",
+      "confirm_description1": "Pakisuri ang mga detalye ng pagbili.",
+      "confirm_description2": "Pakisuri ang mga tuntunin ng paggamit at i-click ang button na \"Bumili\".",
+      "th_product_name": "Produkto",
+      "th_product_price": "Halaga",
+      "th_product_quantity": "Dami",
+      "th_product_total": "SubTotal",
+      "td_total": "Kabuuang bayad",
+      "title_billing": "Impormasyon sa pagsingil",
+      "field_full_name": "Buong pangalan",
+      "field_zip_code": "Postal code/zip",
+      "field_prefecture": "Prefecture",
+      "field_town_city": "Bayan / Lungsod",
+      "field_street": "Address ng kalye",
+      "field_house": "Gusali",
+      "field_phone": "Telepono",
+      "field_email": "Email address",
+      "title_ship": "Impormasyon ng Pagpapadala",
+      "accept_term": "Bumili pagkatapos sumang-ayon sa mga tuntunin ng paggamit.",
+      "btn_text_buy": "BUMILI"
+    },
+    "order-history": {
+      "th_order_date": "Petsa ng Order",
+      "th_order_ID": "Order ID",
+      "th_order_status": "Katayuan ng Order",
+      "th_order_price": "Halaga",
+      "th_purchase_product": "Binili na Produkto",
+      "btn_view": "Tingnan",
+      "btn_next": "Next",
+      "btn_prev": "Previous",
+      "about_status": "Tungkol sa katayuan ng order",
+      "status_step_1": "Naghihintay ng kumpirmasyon",
+      "status_step_2": "Pag-iimpake",
+      "status_step_3": "Paghahatid",
+      "status_step_4": "Pagpapadala",
+      "status_step_5": "Nakumpleto"
+    },
+    "order-detail": {
+      "title": "Mga detalye ng order",
+      "th_order_date": "【Petsa ng Order】",
+      "th_order_ID": "【Order ID】",
+      "th_order_status": "【Katayuan ng Order】",
+      "th_product_name": "Produkto",
+      "th_product_quantity": "Dami",
+      "th_unit_price": "Presyo ng isang piraso",
+      "th_product_total": "SubTotal",
+      "td_total": "Kabuuang bayad",
+      "th_tax": "Buwis",
+      "title_billing": "Impormasyon sa pagsingil",
+      "field_full_name": "Buong pangalan",
+      "field_postal": "Postal code/zip ",
+      "field_prefecture": "Prefecture",
+      "field_city": "Bayan / Lungsod",
+      "field_house": "Gusali",
+      "field_street": "Address ng kalye",
+      "field_phone": "Telepono",
+      "field_email": "Email address",
+      "title_ship": "Impormasyon ng Pagpapadala",
+      "payment": "Mga paraan ng pagbabayad",
+      "payment_method": "Cash on delivery"
+    },
+    "medicine_list": {
+      "type_name1": "First-class OTC drugs",
+      "type_name2": "Specify Second-class OTC drugs",
+      "type_name3": "Second-class OTC drugs"
+    },
+    "product_detail": {
+      "btn_buy": "BUMILI KA NA NGAYON",
+      "placeholder_option": "Mangyaring pumili ng opsyon",
+      "label_gender": "Ano ang iyong kasarian?",
+      "label_age": "Ilan taon ka na?",
+      "label_ever_used": "Nagamit mo na ba itong gamot na ito?",
+      "label_ever_side_effect": "May gamot ka bang nainom na mayroon side effect sa iyo?",
+      "label_using_medicine": "Anong gamot iyon?",
+      "label_other_illnesses": "Mayroon ka bang kasalukuyang karamdaman?",
+      "label_other_question": "Mayroon ka bang nais isangguni?",
+      "placeholder_select": "Mangyaring pumili ng opsyon",
+      "placeholder_text": "Mangyaring magpasok ng teksto",
+      "option_yes": "Oo",
+      "option_no": "Hindi",
+      "option_gender1": "Lalaki",
+      "option_gender2": "Babae",
+      "option_age1": "Wala pang 15 taong gulang",
+      "option_age2": "15-64 taong gulang",
+      "option_age3": "65 taong gulang o mas matanda",
+      "option_other_illnesses1": "Wala naman",
+      "option_other_illnesses2": "High blood",
+      "option_other_illnesses3": "Diabetes",
+      "option_other_illnesses4": "Dyslipidemia",
+      "option_other_illnesses5": "Asthma",
+      "option_other_illnesses6": "Sakit sa atay",
+      "option_other_illnesses7": "Sakit sa puso",
+      "option_other_illnesses8": "Stroke",
+      "option_other_illnesses9": "Ulcer",
+      "option_other_illnesses10": "Sakit sa Thyroid",
+      "option_other_illnesses11": "Sakit sa Prostate",
+      "option_other_illnesses12": "Iba pa",
+      "error_required": "Kinakailangan ang field na ito.",
+      "error_title_requried": "Hindi maidagdag sa shopping cart",
+      "error_msg_requried": "Pakisuri ang iyong input.",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "Lalaki",
+          "g_2": "Babae"
+        },
+        "yes_or_no": {
+          "y_1": "Oo",
+          "y_2": "Hindi"
+        },
+        "year_old": {
+          "yo_1": "Wala pang 15 taong gulang",
+          "yo_2": "15-64 taong gulang",
+          "yo_3": "65 taong gulang o mas matanda"
+        },
+        "currently_treating": {
+          "c_1": "High blood",
+          "c_2": "Diabetes",
+          "c_3": "Dyslipidemia",
+          "c_4": "Asthma",
+          "c_5": "Sakit sa atay",
+          "c_6": "Sakit sa puso",
+          "c_7": "Stroke",
+          "c_8": "Ulcer",
+          "c_9": "Sakit sa Thyroid",
+          "c_10": "Sakit sa Prostate",
+          "c_11": "Iba pa",
+          "c_12": "Wala naman"
+        }
+      },
+      "medicinal_efficacy": "Medicinal efficacy classification"
+    },
+    "list_pharmacies": {
+      "title": "Marine Pharmacy Oisotori",
+      "outside_image": "Mga larawan ng pangunahing panlabas ng isang parmasya o tindahan",
+      "inside_image": "Larawang nagpapakita ng katayuan sa pagpapakita ng mga over-the-counter na gamot",
+      "title_concerning_management": "Mga bagay tungkol sa pamamahala at operasyon",
+      "title_classification": "Pag-uuri ng permit",
+      "title_founder": "Tagapagtatag",
+      "title_permit": "Mga bagay na isasaad sa permit",
+      "title_management_pharmacist": "Pamamahala ng parmasyutiko",
+      "title_working_pharmacies": "Pharmacist na nagtatrabaho sa aming botika (namumuno)",
+      "title_register_seller": "Nakarehistrong nagbebenta na nagtatrabaho sa aming parmasya (negosyo na namamahala)",
+      "title_over_the_counter_drugs_handle": "Mga uri ng over-the-counter na gamot na pinangangasiwaan",
+      "title_distinguishing": "Pagkilala sa pamamagitan ng name tag atbp. ng taong nagtatrabaho sa botikang ito",
+      "title_business_hours": "Mga oras ng negosyo",
+      "title_consultation_outside": "Mga oras ng konsultasyon sa labas ng mga oras ng negosyo",
+      "title_contact": "Impormasyon sa pakikipag-ugnayan para sa konsultasyon at emerhensiya",
+      "title_current_working_pharmacies": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
+      "title_specific_sale_time": "Kapag ang oras ng pagbubukas at ang tiyak na oras ng pagbebenta ay magkaiba",
+      "title_time_accept_order": "Oras na para tanggapin ang mga order ng gamot sa labas ng oras ng negosyo",
+      "title_expiration_date": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
+      "title_problem": "Mga usapin tungkol sa sistema para sa pagbebenta ng mga gamot na nangangailangan ng gabay at mga gamot na nabibili nang walang reseta"
+    }
+  },
+  "admins": {
+    "btn_save": "I-save",
+    "btn_cancel": "Kanselahin",
+    "btn_upload": "Mag-upload",
+    "btn_generate_password": "Pagbuo ng password",
+    "btn_search": "Maghanap",
+    "btn_add_new": "Magdagdag ng bago",
+    "delete_item_message": "Gusto mong tanggalin?",
+    "user": {
+      "list": {
+        "title": "Listahan ng Gumagamit"
+      },
+      "create": {
+        "title": "Lumikha ng user",
+        "breadcrumb": "Lumikha ng user"
+      },
+      "update": {
+        "title": "I-update ang user",
+        "breadcrumb": "I-update ang user"
+      },
+      "switch_tab": {
+        "address": "Tirahan",
+        "billing_address": "Address ng Pagsingil",
+        "shipping_address": "Address ng Pagpapadala",
+        "role_info": "Impormasyon sa Tungkulin"
+      },
+      "form": {
+        "field_role": "Tungkulin ng user",
+        "field_name": "Pangalan",
+        "field_email": "Email address",
+        "field_phone": "Telepono",
+        "field_username": "Username",
+        "field_password": "Password",
+        "field_active": "Aktibong katayuan",
+        "field_full_name": "Buong pangalan",
+        "field_postal_code": "Postal code/zip",
+        "field_prefecture": "Prefecture",
+        "field_city": "Bayan / Lungsod",
+        "field_street": "Address ng kalye",
+        "field_building": "Gusali",
+        "profile": {
+          "field_dob": "Araw ng kapanganakan",
+          "field_gender": "Kasarian",
+          "field_facebook": "Facebook account",
+          "field_line": "LINE account",
+          "field_address": "Tirahan",
+          "field_nationality": "Nasyonalidad",
+          "field_visa_type": "Uri ng Visa",
+          "field_job_name": "Pangalan ng trabaho",
+          "field_company_representative": "Kinatawan ng kumpanya",
+          "field_payment_source": "Pinagmulan ng pagbabayad",
+          "field_payment": "Pagbabayad",
+          "field_insurance_status": "Katayuan ng Insurance",
+          "field_insurance_support": "Suporta sa Seguro",
+          "field_insurance_start_date": "Petsa ng Pagsisimula ng Insurance",
+          "field_overseas_remittance_status": "Overseas Remittance Status",
+          "field_orientation": "Oryentasyon",
+          "field_start_date_education": "Petsa ng Pagsisimula ng Edukasyon",
+          "field_end_date_education": "Petsa ng Pagtatapos ng Edukasyon",
+          "field_education_status": "Katayuan ng edukasyon sa wikang Hapon",
+          "field_page_registration": "Wabisabi My Page Registration",
+          "field_company_mail": "Mail ng Kumpanya"
+        },
+        "order": {
+          "field_date_create":"Nagawa ang petsa:",
+          "field_customer":"Customer:",
+          "field_action":"Operasyon",
+          "field_status":"Katayuan:",
+          "field_first_name":"Apelyido",
+          "field_last_name":"Pangalan",
+          "field_company":"Kumpanya",
+          "field_address_line_1":"Chome / address / numero",
+          "field_address_line_2":"Pangalan ng gusali, numero ng silid",
+          "field_city":"Mga munisipalidad",
+          "field_postal_code":"Postal code",
+          "field_country_region":"Bansa / Rehiyon",
+          "field_email":"Email",
+          "field_phone":"Telepono",
+          "field_payment_method":"Paraan ng Pagbayad",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"Mag-order ng memo",
+          "field_state_county":"Lalawigan/Lungsod"
+        },
+        "vendor_profile": {
+          "field_image_inside": "Mga larawan sa loob ng botika",
+          "field_image_outside": "Mga larawan sa labas ng botika",
+          "field_locale": "Wika",
+          "field_name": "Pangalan",
+          "field_permit_classification": "Pag-uuri ng permit",
+          "field_founder": "Tagapagtatag",
+          "field_stated_in_permit": "Mga bagay na dapat isaad sa permit",
+          "field_management_pharmacist": "Pamamahala ng parmasyutiko",
+          "field_registered_seller_working": "Nakarehistrong nagbebenta na nagtatrabaho sa aming parmasya (negosyo na namamahala)",
+          "field_drug_handled": "Mga uri ng over-the-counter na gamot na pinangangasiwaan",
+          "field_distinguishing_by_name": "Pagkilala sa pamamagitan ng name tag atbp. ng taong nagtatrabaho sa botikang ito",
+          "field_business_hours": "Oras ng trabaho",
+          "field_consultation_hours": "Mga oras ng konsultasyon sa labas ng oras ng negosyo",
+          "field_contact_information": "Impormasyon sa pakikipag-ugnayan para sa konsultasyon at emerhensiya",
+          "field_current_working": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
+          "field_open_sale_time": "Buksan ang Oras ng Pagbebenta",
+          "field_time_order_outside": "Time Order sa Labas",
+          "field_expiration_date_of_drug": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta"
+        },
+        "option": {
+          "active": "Aktibo ang user",
+          "inactive": "Hindi aktibo ang user",
+          "male": "Lalaki",
+          "female": "Babae",
+          "yes": "Oo",
+          "no": "Hindi",
+          "registered": "Hindi nakarehistro",
+          "unregistered": "Nakarehistro",
+          "remove_registered": "Hindi nakarehistro.",
+          "insurance_status": {
+            "option1": "Pagpapadala ng mga dokumento / Pagsali sa briefing session / ① Pagdating sa kurofune",
+            "option2": "Pagpapadala ng mga dokumento / Pagsali sa briefing session / ② hindi pa dumating ang kurofune (posible ang contact)",
+            "option3": "Pagpapadala ng mga dokumento / Pagsali sa briefing session / ② hindi dumating ang kurofune (hindi makontak)",
+            "option4": "Nakumpleto ang insurance",
+            "option5": "Hindi pa nagsisimula"
+          },
+          "education_status": {
+            "registered": "Hindi nakarehistro",
+            "unregistered": "Nakarehistro"
+          }
+        },
+        "placeholder": {
+          "search": "Maghanap ng username",
+          "select_role": "Mangyaring pumili ng isang tungkulin.",
+          "select_active_status": "Mangyaring pumili ng aktibong katayuan.",
+          "select_prefecture": "Mangyaring pumili ng prefecture.",
+          "select_date": "Mangyaring pumili ng petsa.",
+          "select_gender": "Mangyaring pumili ng kasarian.",
+          "select_payment": "Mangyaring pumili ng pagbabayad.",
+          "select_insurance_status": "Mangyaring pumili ng katayuan ng seguro.",
+          "select_education_status": "Mangyaring pumili ng katayuan sa edukasyon ng wikang Hapon."
+        }
+      },
+      "error": {
+        "role_required": "Mangyaring pumili ng isang tungkulin.",
+        "name_required": "Pakilagay ang iyong pangalan.",
+        "email": {
+          "required": "Mangyaring ipasok ang iyong email.",
+          "type": "Mangyaring maglagay ng wastong email."
+        },
+        "phone": {
+          "required": "Mangyaring ipasok ang iyong telepono.",
+          "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
+        },
+        "user_name_required": "Mangyaring ipasok ang iyong username.",
+        "password": {
+          "required": "Mangyaring ipasok ang iyong password.",
+          "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Pakilagay ang iyong postal code/zip.",
+          "pattern": "Pakilagay ang numero.",
+          "max_3_number": "Mangyaring magpasok lamang ng 3 numero.",
+          "max_4_number": "Mangyaring magpasok lamang ng 4 numero.",
+          "max_7_number": "Mangyaring magpasok lamang ng 7 numero."
+        },
+        "prefecture_required": "Mangyaring pumili ng prefecture.",
+        "city_required": "Mangyaring ipasok ang lungsod.",
+        "street_address_required": "Mangyaring ipasok ang address ng kalye.",
+        "current_password_required": "Mangyaring ipasok ang kasalukuyang password.",
+        "new_password_required": "Mangyaring maglagay ng bagong password.",
+        "confirm_password_required": "Mangyaring ipasok ang kumpirmasyon ng password.",
+        "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay."
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Matagumpay na nalikha ang bagong user.",
+        "create_fail": "Nabigo ang paggawa ng bagong user.",
+        "update_success": "Matagumpay ang pag-update ng user.",
+        "update_fail": "Nabigo ang pag-update ng user.",
+        "delete_success": "Matagumpay na tanggalin ang user.",
+        "delete_fail": "Nabigo ang pagtanggal ng user."
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "vendor_field": "Vendor",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
+      "name_field": "Product Name",
+      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "features_field": "Features",
+      "precautions_field": "Precautions",
+      "efficacy_effect_field": "Efficacy Effect",
+      "usage_does_field": "Usage Does",
+      "active_ingredients_field": "Active ingredients",
+      "additives_field": "Additives",
+      "precautions_storage_handling_field": "Precautions for Storage and Handling",
+      "manufacturer_field": "Manufacturer",
+      "use_manual_field": "Use Manual",
+      "error_message": {
+        "required_message": "Kinakailangan ang field na ito."
+      }
+    },
+    "order": {
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_status": "Status",
+        "field_action": "Action"
+      }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Pangalan",
+      "type_field": "Type",
+      "parent_category_field": "Parent category",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "Unang-class na OTC na gamot",
+        "option2": "Tukuyin ang Second-class na mga OTC na gamot",
+        "option3": "Pangalawang klase ng mga OTC na gamot"
+      },
+      "error_message": {
+        "error_category_image": "Ang category image ay isang kinakailangang."
+      }
+    }
+  }
 }

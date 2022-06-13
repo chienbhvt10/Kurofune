@@ -1,6 +1,10 @@
 {
+  "notification": "通知",
+  "btn_send_mail": "メール送信",
+  "btn_back": "戻る",
+  "btn_ok": "Ok",
   "login": {
-    "title": "一般社団法人在日外国人就業者支援協会生活支援ポータルサイト",
+    "title": "一般社団法人在日外国人就業者支援協会<br>生活支援ポータルサイト",
     "email": "メールアドレス",
     "password": "パスワード",
     "remember": "保存する",
@@ -11,5 +15,567 @@
     "languages": "言語",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "forgot_password": {
+    "title1": "パスワードをお忘れの方は、以下に登録時のメールアドレスを",
+    "title2": "入力して「メール送信」ボタンを押してください。"
+  },
+  "reset_password": {
+    "reset_password_title": "送信完了",
+    "reset_password_message1": "パスワード再発行メールが送信されました。",
+    "reset_password_message2": "ご登録メールアドレスをご確認ください。"
+  },
+  "home": "Trang chủ",
+  "header": {
+    "btn_back1": "薬剤一覧へ戻る",
+    "btn_back2": "注文履歴一覧へ戻る",
+    "btn_back3": "買い物かごに戻る",
+    "btn_logout": "ログアウト",
+    "btn_view_cart": "買い物かごを表示",
+    "btn_buy": "購入手続きへ",
+    "cart_empty": "购物车中没有任何信息。",
+    "cart_title": "カートを見る"
+  },
+  "navigate_link": {
+    "title": "オンライン薬局",
+    "questionnaire_title": "問診票",
+    "pharmacies_title": "薬局情報",
+    "medicine_title": "薬剤情報",
+    "order_history_title": "注文履歴",
+    "cart_title": "買い物かご",
+    "billing_address_title": "登録情報",
+    "media_title": "総合トップページ",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
+  },
+  "member": {
+    "dashboard": {
+      "questionnaire": "問診票",
+      "pharmacy": "薬局情報",
+      "drug": "薬剤情報",
+      "order_history": "注文履歴",
+      "order_list": "買い物かご",
+      "registration_info": "登録情報"
+    },
+    "user_profile": {
+      "btn_save": "変更を保存する",
+      "text_back": "総合トップページへ戻る",
+      "tab_user_info": "ユーザー情報",
+      "tab_password": "パスワード情報"
+    },
+    "change_password": {
+      "title": "Change Password",
+      "field_old_password": "旧パスワード",
+      "field_new_password": "新しいパスワード",
+      "field_confirm_password": "パスワード確認"
+    },
+    "change_profile": {
+      "btn_search": "住所検索",
+      "title": "Change Profile",
+      "field_full_name": "氏名",
+      "field_postal": "郵便番号",
+      "field_prefecture": "都道府県",
+      "field_city": "市区町村",
+      "field_street": "丁目・番地・号",
+      "field_building": " 建物名・部屋番号",
+      "field_phone": " 電話番号",
+      "field_email": "メールアドレス"
+    }
+  },
+  "tab_address": {
+    "tab_ship": "お届け先情報",
+    "tab_bill": "請求先情報"
+  },
+  "client": {
+    "qa": {
+      "q": {
+        "q1": "どのようなサービスがあるのか教えてください",
+        "q2": "プランを変更したい",
+        "q3": "登録している情報（住所など）を変更したい",
+        "q4": "利用回数に制限はありますか？",
+        "q5": "家族や友人の方が利用することはできますか？",
+        "q6": "①どのように薬を購入したらいいですか？",
+        "q7": "①オンライン薬局サービスで決済はどのようにすればいいですか？",
+        "q8": "①現在販売している以外の薬が欲しい場合はどうしたらいいですか？",
+        "q9": "①定期的に薬を届けて欲しい",
+        "q10": "①薬を海外に届けることはできますか？",
+        "q11": "①薬の請求先や届け先を変更できますか？",
+        "q12": "②知りたい情報がチャットボットでは見つからない",
+        "q13": "③海外送金サービスのパスワードを忘れた",
+        "q14": "④日本語教育サービスのパスワードを忘れた",
+        "q15": "④e-ラーニング（オンライン日本語教育）の日本語のコースを変更したい",
+        "q16": "⑤所得補償保険の詳細情報を知りたい",
+        "q17": "現在の所得補償保険のステータスを知りたい",
+        "q18": "⑤どのような場合に所得補償保険が支給されますか",
+        "q19": "⑤ What should I do if I take a leave of absence due to injury or illness?",
+        "q20": "退職した場合はサービスは使えますか？",
+        "q21": "一般社団法人在日外国人就業者支援協会について教えてください。",
+        "q22": "サービスの利用期間はありますか？"
+      },
+      "a": {
+        "a1": {
+          "a11": "プランによってサービスの内容が異なります。",
+          "a12": "ライトプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービスの2つのサービスを使うことができます。",
+          "a13": "フルサポートプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービス ③海外送金 ④e-ラーニング（オンライン日本語教育） ⑤所得補償保険の5つのサービスを使うことができます。",
+          "a14": "サービスの詳細はオリエンテーション動画をご覧ください"
+        },
+        "a2": "プランを変更するには、現在働いている企業から申し込みする必要があります。そのため、働いている企業の担当者の方に一度相談してみてください。",
+        "a3": "トップページにある「ユーザー情報」をクリックして変更したい部分を修正してください。",
+        "a4": "制限はありません。何度でも利用することができます。",
+        "a5": "利用することはできません。登録したユーザー以外が利用することはできません。もし不正に利用していることを発見した場合、退会処分になる可能性もあります。",
+        "a6": {
+          "a61": "まずは問診票の質問に答えて自分が欲しい薬を選んでください。その後、買い物かごに入った薬を確認して、購入手続きを進めてください。薬局から購入した薬についての質問のメールが届きますので、その情報を確認して回答したら購入完了となります。",
+          "a62": "購入完了後に、指定した住所に薬局から薬が届きます。"
+        },
+        "a7": "現在は代引き決済のみとなります。自宅に薬が届くタイミングでお金を支払います。",
+        "a8": "欲しい薬が見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a9": "お手数ですが、毎回購入していただきますようお願いいたします。",
+        "a10": "大変申し訳ございません。日本国内での郵送のみとなっております。",
+        "a11": "可能です。オンライン薬局のトップページの登録情報にて住所を変更すれば大丈夫です。",
+        "a12": "チャットボットでは見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a13": "「既存アカウントにログイン」をクリックして、その後に「パスワードを忘れた方」をクリックして再発行手続きを進めてください。",
+        "a14": "「パスワードを忘れました？」のボタンをクリックして再発行手続きを進めてください。",
+        "a15": "コースを変更したい場合は、弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+        "a16": {
+          "a161": "WABISABI Mediaのこちらのページを参考にしてください。",
+          "a162": "（KUROFUNEスタッフ注意：各国の言語に変更してください）"
+        },
+        "a17": "トップページから所得補償保険のところをクリックして現在のステータスをご確認ください。",
+        "a18": "告知された免責期間を超えて怪我や病気により休業した際に支給対象となります。しかし場合によっては支給対象とならない可能性もあるのでご了承ください。",
+        "a19": {
+          "a191": "所得補償保険の対象になるかを判断して手続きを進めていきます。弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+          "a192": "（保険専用問い合わせメールアドレス）"
+        },
+        "a20": "退職した場合はこれらのサービスは利用できなくなります。",
+        "a21": "日本に住んでいる外国人が、日本にて働きやすい・住みやすいと感じられるような支援を行っている団体となります。",
+        "a22": "申込から1 年間利用できます。"
+      }
+    },
+    "questionnaire": {
+      "placeholder": "薬剤名入力",
+      "btn_search": "検索する",
+      "title_number_results": "検索結果:",
+      "description_number": "件"
+    },
+    "media": {
+      "title": "一般社団法人在日外国人就業者支援協会<br>生活支援ポータルサイト",
+      "card_pharmacy": "オンライン薬局",
+      "card_consultation": "24時間サービス",
+      "card_remittance": "海外送金",
+      "card_e_leaning": "eラーニング",
+      "card_insurance": "所得補償保険",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "ユーザー情報",
+      "btn_logout": "ログアウト"
+    },
+    "cart": {
+      "title_cart": "買い物かご",
+      "title_cart_empty": "買い物かご内の情報はありません。",
+      "cart_description1": "購入内容をご確認ください。",
+      "cart_description2": "ご確認のうえ「購入手続きへ」ボタンを押してください。",
+      "th_product_name": "商品",
+      "th_product_price": "金額",
+      "th_product_quantity": "個数",
+      "btn_delete": "削除",
+      "btn_checkout": "購入手続きへ",
+      "btn_empty": "買い物かごを空にする",
+      "btn_update": "買い物かごを更新する",
+      "btn_return": "薬剤一覧へ戻る"
+    },
+    "checkout": {
+      "title_confirm": "購入確認",
+      "confirm_description1": "購入内容をご確認ください。",
+      "confirm_description2": "利用規約をご確認のうえ「購入する」ボタンを押してください。",
+      "th_product_name": "商品",
+      "th_product_price": "金額",
+      "th_product_quantity": "個数",
+      "th_product_total": "小計",
+      "td_total": "お支払い合計",
+      "title_billing": "請求先情報",
+      "field_full_name": "氏名",
+      "field_zip_code": "郵便番号",
+      "field_prefecture": "都道府県",
+      "field_town_city": "市区町村",
+      "field_street": "丁目・番地・号",
+      "field_house": "建物名・部屋番号",
+      "field_phone": "電話番号",
+      "field_email": "メールアドレス",
+      "title_ship": "お届け先情報",
+      "accept_term": "利用規約に同意した上で、購入します。",
+      "btn_text_buy": "購入する"
+    },
+    "order-history": {
+      "th_order_date": "注文日",
+      "th_order_ID": "注文番号",
+      "th_order_status": "ステータス",
+      "th_order_price": "金額",
+      "th_purchase_product": "注文商品",
+      "btn_view": "詳細",
+      "btn_next": "次",
+      "btn_prev": "前",
+      "about_status": "【ステータスについて】",
+      "status_step_1": "薬剤師からのメール確認",
+      "status_step_2": "商品発送準備",
+      "status_step_3": "商品発送済み",
+      "status_step_4": "商品受け取り＆支払い",
+      "status_step_5": "商品受け取り完了"
+    },
+    "order-detail": {
+      "title": "注文履歴詳細",
+      "th_order_date": "【注文日】",
+      "th_order_ID": "【注文番号】",
+      "th_order_status": "【ステータス】",
+      "th_product_name": "商品",
+      "th_product_quantity": "個数",
+      "th_unit_price": "単価（税抜",
+      "th_product_total": "小計",
+      "td_total": "お支払い合計",
+      "th_tax": "税率",
+      "title_billing": "請求先情報",
+      "field_full_name": "氏名",
+      "field_postal": "郵便番号",
+      "field_prefecture": "都道府県",
+      "field_city": "市区町村",
+      "field_house": "建物名・部屋番号",
+      "field_street": "丁目・番地・号",
+      "field_phone": "電話番号",
+      "field_email": "メールアドレス",
+      "title_ship": "お届け先情報",
+      "payment": "お支払い方法",
+      "payment_method": "代金引換"
+    },
+    "medicine_list": {
+      "type_name1": "第1類",
+      "type_name2": "指定第2類",
+      "type_name3": "第2類"
+    },
+    "product_detail": {
+      "btn_buy": "買い物かごに入れる",
+      "placeholder_option": "選択してください",
+      "label_gender": "あなたの性別は何ですか？",
+      "label_age": "あなたの年齢を教えてください",
+      "label_ever_used": "このお薬を使ったことはありますか？",
+      "label_ever_side_effect": "今までにお薬を飲んで副作用を起こしたことはありますか？",
+      "label_using_medicine": "その時に使っていたお薬の名前はなんですか？",
+      "label_other_illnesses": "現在治療中の病気はありますか？",
+      "label_other_question": "何か相談したいことはありますか？",
+      "placeholder_select": "選択してください",
+      "placeholder_text": "記入してください",
+      "option_yes": "はい",
+      "option_no": "いいえ",
+      "option_gender1": "男",
+      "option_gender2": "女",
+      "option_age1": "15歳未満",
+      "option_age2": "15-64歳",
+      "option_age3": "65歳以上",
+      "option_other_illnesses1": "ありません",
+      "option_other_illnesses2": "高血圧",
+      "option_other_illnesses3": "糖尿病",
+      "option_other_illnesses4": "脂質異常症",
+      "option_other_illnesses5": "喘息",
+      "option_other_illnesses6": "肝臓病",
+      "option_other_illnesses7": "心疾患",
+      "option_other_illnesses8": "脳梗塞",
+      "option_other_illnesses9": "胃・十二指腸潰瘍",
+      "option_other_illnesses10": "甲状腺疾患",
+      "option_other_illnesses11": "前立腺疾患",
+      "option_other_illnesses12": "その他（自由記述）",
+      "error_required": "この項目は必須です。",
+      "error_title_requried": "買い物かごに追加できませんでした",
+      "error_msg_requried": "入力内容をご確認ください。",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "男",
+          "g_2": "女"
+        },
+        "yes_or_no": {
+          "y_1": "はい",
+          "y_2": "いいえ"
+        },
+        "year_old": {
+          "yo_1": "15歳未満",
+          "yo_2": "15-64歳",
+          "yo_3": "65歳以上"
+        },
+        "currently_treating": {
+          "c_1": "高血圧",
+          "c_2": "糖尿病",
+          "c_3": "脂質異常症",
+          "c_4": "喘息",
+          "c_5": "肝臓病",
+          "c_6": "心疾患",
+          "c_7": "脳梗塞",
+          "c_8": "胃・十二指腸潰瘍",
+          "c_9": "甲状腺疾患",
+          "c_10": "前立腺疾患",
+          "c_11": "その他（自由記述）",
+          "c_12": "ありません"
+        }
+      },
+      "medicinal_efficacy": "薬効分類"
+    },
+    "list_pharmacies": {
+      "title": "マリン薬局　大磯通店",
+      "outside_image": "薬局又は店舗の主要な外観の写真",
+      "inside_image": "一般用医薬品の陳列の状況を示す写真",
+      "title_concerning_management": "管理および運営に関する事項",
+      "title_classification": "許可の区分",
+      "title_founder": "開設者",
+      "title_permit": "許可証の記載事項",
+      "title_management_pharmacist": "管理薬剤師",
+      "title_working_pharmacies": "当薬局に勤務する薬剤師（担当業務）",
+      "title_register_seller": "当薬局に勤務する登録販売者（担当業務）",
+      "title_over_the_counter_drugs_handle": "取り扱う一般用医薬品等の種別",
+      "title_distinguishing": "当薬局に勤務する者の名札等による区別",
+      "title_business_hours": "営業時間",
+      "title_consultation_outside": "営業時間外における相談時間",
+      "title_contact": "相談時及び緊急時の連絡先",
+      "title_current_working_pharmacies": "現在勤務している薬剤師（担当業務）",
+      "title_specific_sale_time": "開店時間と特定販売を行う時間が異なる場合",
+      "title_time_accept_order": "営業時間外で医薬品の注文を受理する時間",
+      "title_expiration_date": "特定販売を行う医薬品の使用期限",
+      "title_problem": "要指導医薬品及び一般用医薬品の販売に関する制度に関する事項"
+    }
+  },
+  "admins": {
+    "btn_cancel": "キャンセル",
+    "btn_save": "保存",
+    "btn_add_new": "新規追加",
+    "btn_search": "検索",
+    "btn_upload": "アップロード",
+    "btn_generate_password": "パスワード生成",
+    "delete_item_message": "これを削除しますか。",
+    "user": {
+      "list": {
+        "title": "ユーザー一覧"
+      },
+      "create": {
+        "title": "新規ユーザーを追加",
+        "breadcrumb": "新規ユーザーを追加"
+      },
+      "update": {
+        "title": "ユーザーを更新",
+        "breadcrumb": "ユーザーを更新"
+      },
+      "switch_tab": {
+        "address": "住所",
+        "billing_address": "請求先情報",
+        "shipping_address": "お届け先情報",
+        "role_info": "ユーザーロール情報"
+      },
+      "form": {
+        "field_role": "ロール",
+        "field_name": "名前",
+        "field_email": "メールアドレス",
+        "field_phone": "電話番号",
+        "field_username": "ユーザー名",
+        "field_password": "パスワード",
+        "field_active": "アクティブステータス",
+        "field_full_name": "氏名",
+        "field_postal_code": "郵便番号",
+        "field_prefecture": "都道府県",
+        "field_city": "市区町村",
+        "field_street": "丁目・番地・号",
+        "field_building": "建物名・部屋番号",
+        "profile": {
+          "field_dob": "生年月日",
+          "field_gender": "性別",
+          "field_facebook": "Facebookアカウント",
+          "field_line": "LINEアカウント",
+          "field_address": "住所",
+          "field_nationality": "国籍",
+          "field_visa_type": "ビザの種類",
+          "field_job_name": "職種名",
+          "field_company_representative": "企業担当者",
+          "field_payment_source": "流入元",
+          "field_payment": "入金",
+          "field_insurance_status": "保険ステータス",
+          "field_insurance_support": "保険対応",
+          "field_insurance_start_date": "保険開始日",
+          "field_overseas_remittance_status": "海外送金ステータス",
+          "field_orientation": "オリエンテーション",
+          "field_start_date_education": "日本語教育開始日",
+          "field_end_date_education": "日本語教育終了日",
+          "field_education_status": "日本語教育ステータス",
+          "field_page_registration": "WABISABIマイページ登録",
+          "field_company_mail": "企業のメールアドレス"
+        },
+        "order": {
+          "field_date_create":"作成日:",
+          "field_customer":"カスタマー:",
+          "field_action":"操作",
+          "field_status":"ステータス:",
+          "field_first_name":"姓",
+          "field_last_name":"名",
+          "field_company":"企業",
+          "field_address_line_1":"丁目・番地・号",
+          "field_address_line_2":"建物名・部屋番号",
+          "field_city":"市区町村",
+          "field_postal_code":"郵便番号",
+          "field_country_region":"国/地域",
+          "field_email":"メールアドレス",
+          "field_phone":"電話番号",
+          "field_payment_method":"決済方法",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"注文メモ",
+          "field_state_county":"都道府県"
+        },
+        "vendor_profile": {
+          "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
+          "field_image_outside": "薬局又は店舗の主要な外観の写真",
+          "field_locale": "言語",
+          "field_name": "名前",
+          "field_permit_classification": "許可の区分",
+          "field_founder": "開設者",
+          "field_stated_in_permit": "許可証の記載事項",
+          "field_management_pharmacist": "管理薬剤師",
+          "field_registered_seller_working": "当薬局に勤務する登録販売者（担当業務）",
+          "field_drug_handled": "取り扱う一般用医薬品等の種別",
+          "field_distinguishing_by_name": "当薬局に勤務する者の名札等による区別",
+          "field_business_hours": "営業時間",
+          "field_consultation_hours": "営業時間外における相談時間",
+          "field_contact_information": "相談時及び緊急時の連絡先",
+          "field_current_working": "現在勤務している薬剤師（担当業務）",
+          "field_open_sale_time": "開店時間",
+          "field_time_order_outside": "営業時間外で医薬品の注文を受理する時間",
+          "field_expiration_date_of_drug": "特定販売を行う医薬品の使用期限"
+        },
+        "option": {
+          "active": "アクティブユーザー",
+          "inactive": "非アクティブユーザー",
+          "male": "男性",
+          "female": "女性",
+          "yes": "はい",
+          "no": "いいえ",
+          "registered": "登録済み",
+          "unregistered": "未登録",
+          "remove_registered": "登録抹消中",
+          "insurance_status": {
+            "option1": "書類の送付/説明会参加/①kurofune着",
+            "option2": "書類の送付/説明会参加/②kurofune未着（連絡可）",
+            "option3": "書類の送付/説明会参加/②kurofune未着（連絡不可）",
+            "option4": "保険完了 ",
+            "option5": "未着手"
+          },
+          "education_status": {
+            "unregistered": "未登録",
+            "registered": "登録済み"
+          }
+        },
+        "placeholder": {
+          "search": "ユーザー名で検索する",
+          "select_role": "ユーザーロールを選択してください。",
+          "select_active_status": "アクティブステータスを選択してください。",
+          "select_prefecture": "都道府県を選択してください。",
+          "select_date": "日付を選択してください。",
+          "select_gender": "性別を選択してください。",
+          "select_payment": "入金を選択してください。",
+          "select_insurance_status": "保険ステータスを選択してください。",
+          "select_education_status": "日本語能力のレベルを選択してください。"
+        }
+      },
+      "error": {
+        "role_required": "ユーザーロールを選択してください。",
+        "name_required": "名前を入力してください。",
+        "email": {
+          "required": "メールを入力してください。",
+          "type": "有効なメールアドレスを入力してください。"
+        },
+        "phone": {
+          "required": "電話番号を入力してください。",
+          "pattern": "有効な電話番号を入力してください。"
+        },
+        "user_name_required": "ユーザー名を入力してください。",
+        "password": {
+          "required": "パスワードを入力してください。",
+          "min": "8文字以上のパスワードを入力してください。"
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "郵便番号を入力してください。",
+          "pattern": "数字で入力してください。",
+          "max_3_number": "3数字以内入力してください。",
+          "max_4_number": "4数字以内入力してください。",
+          "max_7_number": "7数字以内入力してください。"
+        },
+        "prefecture_required": "都道府県を入力してください。",
+        "city_required": "市区町村を入力してください。",
+        "street_address_required": "市区町村を入力してください。",
+        "current_password_required": "現在のパスワードを入力してください。",
+        "new_password_required": "新パスワードを入力してください。",
+        "confirm_password_required": "新パスワード（確認）の入力してください。",
+        "not_same_password": "新パスワードと再入力パスワードが一致しません。"
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "新規ユーザーの登録に成功しました。",
+        "create_fail": "新規ユーザーの登録に失敗しました。",
+        "update_success": "ユーザーの編集に成功しました。",
+        "update_fail": "ユーザーの編集に失敗しました。",
+        "delete_success": "ユーザの削除に成功しました。",
+        "delete_fail": "ユーザの削除に失敗しました。"
+      }
+    },
+    "order": {
+      "table":{
+        "field_subOrder":"SubOrder",
+        "field_order":"Order",
+        "field_date":"Date",
+        "field_total":"Total",
+        "field_status":"Status",
+        "field_action":"Action"
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "vendor_field": "Vendor",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
+
+      "medicinal_efficacy_classification_field": "薬効分類",
+      "features_field": "製品の特徴",
+      "precautions_field": "使用上の注意",
+      "efficacy_effect_field": "効能・効果",
+      "usage_does_field": "用法・用量",
+      "active_ingredients_field": "成分分量",
+      "additives_field": "添加物",
+      "precautions_storage_handling_field": "保管及び取扱い上の注意",
+      "manufacturer_field": "製造販売会社",
+      "name_field": "一般名",
+      "use_manual_field": "用量用法",
+
+      "error_message": {
+        "required_message": "この項目は必須です。"
+      }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "名前",
+      "type_field": "Type",
+      "parent_category_field": "Parent category",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "第1類医薬品",
+        "option2": "指定第2類医薬品",
+        "option3": "第2類医薬品"
+      },
+      "error_message": {
+        "error_category_image": "category image を入力してください。"
+      }
+    }
+    
+  }
 }

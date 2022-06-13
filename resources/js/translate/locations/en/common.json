@@ -1,15 +1,586 @@
 {
+  "notification": "Notification",
+  "btn_send_mail": "RESET PASSWORD",
+  "btn_back": "BACK",
+  "btn_ok": "OK",
   "login": {
-    "title": "Association for Supporting Foreign Workers in Japan Life Support Portal Site",
+    "title": "Association for Supporting Foreign Workers in Japan<br> Life Support Portal Site",
     "email": "Email",
     "password": "Password",
     "remember": "Remember",
     "forgetPassword": "Forgot password",
-    "login_btn": "login",
+    "login_btn": "Login",
     "term_of_use": "Term of use",
     "privacy_policy": "Privacy policy",
     "languages": "Languages",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "forgot_password": {
+    "title1": "Lost your password? Please enter your email address.",
+    "title2": "You will receive a link to create a new password via email."
+  },
+  "reset_password": {
+    "reset_password_title": "Password reset email has been sent.",
+    "reset_password_message1": "The password reissue email has been sent.",
+    "reset_password_message2": "Please check your registered email address."
+  },
+  "home": "Trang chủ",
+  "header": {
+    "btn_back1": "Return to drug list",
+    "btn_back2": "Return to order list",
+    "btn_back3": "Return to cart",
+    "btn_logout": "Logout",
+    "btn_view_cart": "VIEW CART",
+    "btn_buy": "CHECKOUT",
+    "cart_empty": "There is no information in the shopping cart.",
+    "cart_title": "View your shopping cart"
+  },
+  "navigate_link": {
+    "title": "Online pharmacy",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category",
+    "questionnaire_title": "Log Questionnaire",
+    "pharmacies_title": "Pharmacy information",
+    "medicine_title": "Drug information",
+    "order_history_title": "Order history",
+    "cart_title": "Order list",
+    "billing_address_title": "Registration information",
+    "media_title": "Home"
+  },
+  "member": {
+    "dashboard": {
+      "questionnaire": "Questionnaire",
+      "pharmacy": "Pharmacy information",
+      "drug": "Drug information",
+      "order_history": "Order history",
+      "order_list": "Order list",
+      "registration_info": "Registration information"
+    },
+    "user_profile": {
+      "btn_save": "Save",
+      "text_back": "Return to the top page",
+      "tab_user_info": "User information",
+      "tab_password": "Password information"
+    },
+    "change_password": {
+      "title": "Change Password",
+      "field_old_password": "Old password",
+      "field_new_password": "New password",
+      "field_confirm_password": "Confirm password"
+    },
+    "change_profile": {
+      "btn_search": "Search",
+      "title": "Change Profile",
+      "field_full_name": "Full name",
+      "field_postal": "Postal code/zip",
+      "field_prefecture": "Prefecture",
+      "field_city": "Town / City ",
+      "field_street": " Street address",
+      "field_building": " Building ",
+      "field_phone": " Phone",
+      "field_email": "Email address "
+    }
+  },
+  "tab_address": {
+    "tab_ship": "Shipping address",
+    "tab_bill": "Billing address"
+  },
+  "client": {
+    "qa": {
+      "q": {
+        "q1": "どのようなサービスがあるのか教えてください",
+        "q2": "プランを変更したい",
+        "q3": "登録している情報（住所など）を変更したい",
+        "q4": "利用回数に制限はありますか？",
+        "q5": "家族や友人の方が利用することはできますか？",
+        "q6": "①どのように薬を購入したらいいですか？",
+        "q7": "①オンライン薬局サービスで決済はどのようにすればいいですか？",
+        "q8": "①現在販売している以外の薬が欲しい場合はどうしたらいいですか？",
+        "q9": "①定期的に薬を届けて欲しい",
+        "q10": "①薬を海外に届けることはできますか？",
+        "q11": "①薬の請求先や届け先を変更できますか？",
+        "q12": "②知りたい情報がチャットボットでは見つからない",
+        "q13": "③海外送金サービスのパスワードを忘れた",
+        "q14": "④日本語教育サービスのパスワードを忘れた",
+        "q15": "④e-ラーニング（オンライン日本語教育）の日本語のコースを変更したい",
+        "q16": "⑤所得補償保険の詳細情報を知りたい",
+        "q17": "現在の所得補償保険のステータスを知りたい",
+        "q18": "⑤どのような場合に所得補償保険が支給されますか",
+        "q19": "⑤ What should I do if I take a leave of absence due to injury or illness?",
+        "q20": "退職した場合はサービスは使えますか？",
+        "q21": "一般社団法人在日外国人就業者支援協会について教えてください。",
+        "q22": "サービスの利用期間はありますか？"
+      },
+      "a": {
+        "a1": {
+          "a11": "プランによってサービスの内容が異なります。",
+          "a12": "ライトプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービスの2つのサービスを使うことができます。",
+          "a13": "フルサポートプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービス ③海外送金 ④e-ラーニング（オンライン日本語教育） ⑤所得補償保険の5つのサービスを使うことができます。",
+          "a14": "サービスの詳細はオリエンテーション動画をご覧ください"
+        },
+        "a2": "プランを変更するには、現在働いている企業から申し込みする必要があります。そのため、働いている企業の担当者の方に一度相談してみてください。",
+        "a3": "トップページにある「ユーザー情報」をクリックして変更したい部分を修正してください。",
+        "a4": "制限はありません。何度でも利用することができます。",
+        "a5": "利用することはできません。登録したユーザー以外が利用することはできません。もし不正に利用していることを発見した場合、退会処分になる可能性もあります。",
+        "a6": {
+          "a61": "まずは問診票の質問に答えて自分が欲しい薬を選んでください。その後、買い物かごに入った薬を確認して、購入手続きを進めてください。薬局から購入した薬についての質問のメールが届きますので、その情報を確認して回答したら購入完了となります。",
+          "a62": "購入完了後に、指定した住所に薬局から薬が届きます。"
+        },
+        "a7": "現在は代引き決済のみとなります。自宅に薬が届くタイミングでお金を支払います。",
+        "a8": "欲しい薬が見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a9": "お手数ですが、毎回購入していただきますようお願いいたします。",
+        "a10": "大変申し訳ございません。日本国内での郵送のみとなっております。",
+        "a11": "可能です。オンライン薬局のトップページの登録情報にて住所を変更すれば大丈夫です。",
+        "a12": "チャットボットでは見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a13": "「既存アカウントにログイン」をクリックして、その後に「パスワードを忘れた方」をクリックして再発行手続きを進めてください。",
+        "a14": "「パスワードを忘れました？」のボタンをクリックして再発行手続きを進めてください。",
+        "a15": "コースを変更したい場合は、弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+        "a16": {
+          "a161": "WABISABI Mediaのこちらのページを参考にしてください。",
+          "a162": "（KUROFUNEスタッフ注意：各国の言語に変更してください）"
+        },
+        "a17": "トップページから所得補償保険のところをクリックして現在のステータスをご確認ください。",
+        "a18": "告知された免責期間を超えて怪我や病気により休業した際に支給対象となります。しかし場合によっては支給対象とならない可能性もあるのでご了承ください。",
+        "a19": {
+          "a191": "所得補償保険の対象になるかを判断して手続きを進めていきます。弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+          "a192": "（保険専用問い合わせメールアドレス）"
+        },
+        "a20": "退職した場合はこれらのサービスは利用できなくなります。",
+        "a21": "日本に住んでいる外国人が、日本にて働きやすい・住みやすいと感じられるような支援を行っている団体となります。",
+        "a22": "申込から1 年間利用できます。"
+      }
+    },
+    "questionnaire": {
+      "placeholder": "Enter drug name",
+      "btn_search": "Submit",
+      "title_number_results": "Search results:",
+      "description_number": " cases in total"
+    },
+    "media": {
+      "title": "Association for Supporting Foreign Workers in Japan<br>Life Support Portal Site",
+      "card_pharmacy": "Online pharmacy",
+      "card_consultation": "24-hour consultation service",
+      "card_remittance": "Overseas remittance",
+      "card_e_leaning": "e-learning",
+      "card_insurance": "Income Compensation Insurance",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "User information",
+      "btn_logout": "Logout"
+    },
+    "cart": {
+      "title_cart": "Shopping basket",
+      "title_cart_empty": "Your basket is currently empty.",
+      "cart_description1": "Please check the purchase details.",
+      "cart_description2": "After checking, please click the \"PROCEED CHECKOUT\" button.",
+      "th_product_name": "Product",
+      "th_product_price": "Amount",
+      "th_product_quantity": "Quantity",
+      "btn_delete": "DELETE",
+      "btn_checkout": "PROCEED CHECKOUT",
+      "btn_empty": "EMPTY THE SHOPPING CART",
+      "btn_update": "UPDATE YOUR SHOPPING CART",
+      "btn_return": "Return to shop"
+    },
+    "checkout": {
+      "title_confirm": "Purchase confirmation",
+      "confirm_description1": "Please check the purchase details.",
+      "confirm_description2": "Please check the terms of use and click the \"Purchase\" button.",
+      "th_product_name": "Product",
+      "th_product_price": "Amount",
+      "th_product_quantity": "Quantity",
+      "th_product_total": "SubTotal",
+      "td_total": "Total payment",
+      "title_billing": "Billing information",
+      "field_full_name": "Full name",
+      "field_zip_code": "Postal code/zip",
+      "field_prefecture": "Prefecture",
+      "field_town_city": "Town / City",
+      "field_street": "Street address",
+      "field_house": "Building",
+      "field_phone": "Phone",
+      "field_email": "Email address",
+      "title_ship": "Shipping information",
+      "accept_term": "Purchase after agreeing to the terms of use.",
+      "btn_text_buy": "BUY"
+    },
+    "order-history": {
+      "th_order_date": "Order Date",
+      "th_order_ID": "Order ID",
+      "th_order_status": "Order Status",
+      "th_order_price": "Amount",
+      "th_purchase_product": "Purchased Product",
+      "btn_view": "View",
+      "btn_next": "Next",
+      "btn_prev": "Previous",
+      "about_status": "About order status",
+      "status_step_1": "Awaiting confirm",
+      "status_step_2": "Packing",
+      "status_step_3": "Delivery",
+      "status_step_4": "Shipping",
+      "status_step_5": "Completed"
+    },
+    "order-detail": {
+      "title": "Order details",
+      "th_order_date": "【Order Date】",
+      "th_order_ID": "【Order ID】",
+      "th_order_status": "【Order Status】",
+      "th_product_name": "Product",
+      "th_product_quantity": "Quantity",
+      "th_unit_price": "Unit Price",
+      "th_product_total": "SubTotal",
+      "td_total": "Total payment",
+      "th_tax": "Tax",
+      "title_billing": "Billing information",
+      "field_full_name": "Full name",
+      "field_postal": "Postal code/zip",
+      "field_prefecture": "Prefecture",
+      "field_city": "Town / City ",
+      "field_house": "Building",
+      "field_street": " Street address",
+      "field_phone": " Phone",
+      "field_email": "Email address ",
+      "title_ship": "Shipping information",
+      "payment": "Payment method",
+      "payment_method": "Cash on delivery"
+    },
+    "medicine_list": {
+      "type_name1": "First-class OTC drugs",
+      "type_name2": "Specify Second-class OTC drugs",
+      "type_name3": "Second-class OTC drugs"
+    },
+    "product_detail": {
+      "btn_buy": "BUY NOW",
+      "placeholder_option": "Please select option",
+      "label_gender": "What is your gender?",
+      "label_age": "How old are you?",
+      "label_ever_used": "Have you ever used this medicine?",
+      "label_ever_side_effect": "Have you ever taken any medicine and had side effects?",
+      "label_using_medicine": "What is the name of the medicine you were using at that time?",
+      "label_other_illnesses": "Are there any illnesses you are currently treating?",
+      "label_other_question": "Do you have any questions?",
+      "placeholder_select": "Please select option",
+      "placeholder_text": "Please enter text",
+      "option_yes": "Yes",
+      "option_no": "No",
+      "option_gender1": "Male",
+      "option_gender2": "Female",
+      "option_age1": "Under 15 years old",
+      "option_age2": "15-64 years old",
+      "option_age3": "65 years of age or older",
+      "option_other_illnesses1": "There is none",
+      "option_other_illnesses2": "High blood pressure",
+      "option_other_illnesses3": "Diabetes",
+      "option_other_illnesses4": "Dyslipidemia",
+      "option_other_illnesses5": "Asthma",
+      "option_other_illnesses6": "Liver disease",
+      "option_other_illnesses7": "Heart disease",
+      "option_other_illnesses8": "Cerebral infarction",
+      "option_other_illnesses9": "Gastric / duodenal ulcer",
+      "option_other_illnesses10": "Thyroid disease",
+      "option_other_illnesses11": "Prostate disease",
+      "option_other_illnesses12": "Other (free description)",
+      "error_required": "This field is required.",
+      "error_title_requried": "Could not add to shopping cart",
+      "error_msg_requried": "Please check your input.",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "Male",
+          "g_2": "Female",
+          "g_3": "Other"
+        },
+        "yes_or_no": {
+          "y_1": "Yes",
+          "y_2": "No"
+        },
+        "year_old": {
+          "yo_1": "Under 15 years old",
+          "yo_2": "15-64 years old",
+          "yo_3": "65 years of age or older"
+        },
+        "currently_treating": {
+          "c_1": "There is none",
+          "c_2": "High blood pressure",
+          "c_3": "Diabetes",
+          "c_4": "Dyslipidemia",
+          "c_5": "Asthma",
+          "c_6": "Liver disease",
+          "c_7": "Heart disease",
+          "c_8": "Cerebral infarction",
+          "c_9": "Gastric / duodenal ulcer",
+          "c_10": "Thyroid disease",
+          "c_11": "Prostate disease",
+          "c_12": "Other (free description)"
+        }
+      },
+      "medicinal_efficacy": "Medicinal efficacy classification"
+    },
+    "list_pharmacies": {
+      "title": "Marine Pharmacy Oisotori",
+      "outside_image": "Photographs of the main exterior of a pharmacy or store",
+      "inside_image": "Photograph showing the display status of over-the-counter drugs",
+      "title_concerning_management": "Matters concerning management and operation",
+      "title_classification": "Permit classification",
+      "title_founder": "Founder",
+      "title_permit": "Items to be stated in the permit",
+      "title_management_pharmacist": "Management pharmacist",
+      "title_working_pharmacies": "Pharmacist working at our pharmacy (in charge)",
+      "title_register_seller": "Registered seller working at our pharmacy (business in charge)",
+      "title_over_the_counter_drugs_handle": "Types of over-the-counter drugs handled",
+      "title_distinguishing": "Distinguishing by name tag etc. of the person who works at this pharmacy",
+      "title_business_hours": "Business hours",
+      "title_consultation_outside": "Consultation hours outside business hours",
+      "title_contact": "Contact information for consultation and emergencies",
+      "title_current_working_pharmacies": "Currently working pharmacist (in charge)",
+      "title_specific_sale_time": "When the opening time and the specific sales time are different",
+      "title_time_accept_order": "Time to accept drug orders outside business hours",
+      "title_expiration_date": "Expiration date of drugs for specific sale",
+      "title_problem": "Matters concerning the system for sales of drugs requiring guidance and over-the-counter drugs"
+    }
+  },
+  "admins": {
+    "btn_save": "Save",
+    "btn_cancel": "Cancel",
+    "btn_upload": "Click to upload",
+    "btn_generate_password": "Generate",
+    "btn_search": "Search",
+    "btn_add_new": "Add New",
+    "delete_item_message": "You want to delete?",
+    "user": {
+      "list": {
+        "title": "User List"
+      },
+      "create": {
+        "title": "Create user",
+        "breadcrumb": "Create user"
+      },
+      "update": {
+        "title": "Update user",
+        "breadcrumb": "Update user"
+      },
+      "switch_tab": {
+        "address": "Address",
+        "billing_address": "Billing Address",
+        "shipping_address": "Shipping Address",
+        "role_info": "Role Info"
+      },
+      "form": {
+        "field_role": "Role",
+        "field_name": "Name",
+        "field_email": "Email",
+        "field_phone": "Phone",
+        "field_username": "Username",
+        "field_password": "Password",
+        "field_active": "Active",
+        "field_full_name": "Full name",
+        "field_postal_code": "Postal code/zip",
+        "field_prefecture": "Prefecture",
+        "field_city": "Town / City",
+        "field_street": " Street address",
+        "field_building": "Building",
+        "profile": {
+          "field_dob": "Date of birth",
+          "field_gender": "Gender",
+          "field_facebook": "Facebook",
+          "field_line": "Line",
+          "field_address": "Address",
+          "field_nationality": "Nationality",
+          "field_visa_type": "Visa Type",
+          "field_job_name": "Job Name",
+          "field_company_representative": "Company representative",
+          "field_payment_source": "Payment source",
+          "field_payment": "Payment",
+          "field_insurance_status": "Insurance Status",
+          "field_insurance_support": "Insurance Support",
+          "field_insurance_start_date": "Insurance Start Date",
+          "field_overseas_remittance_status": "Overseas Remittance Status",
+          "field_orientation": "Orientation",
+          "field_start_date_education": "Start Date Education",
+          "field_end_date_education": "End Date Education",
+          "field_education_status": "Japanese language education status",
+          "field_page_registration": "Wabisabi My Page Registration",
+          "field_company_mail": "Company representative mail"
+        },
+        "order": {
+          "field_date_create":"Created date:",
+          "field_customer":"Customer:",
+          "field_action":"Action",
+          "field_status":"Status:",
+          "field_first_name":"First Name",
+          "field_last_name":"Last Name",
+          "field_company":"Company",
+          "field_address_line_1":"Address Line 1",
+          "field_address_line_2":"Address Line 2",
+          "field_city":"City",
+          "field_postal_code":"Postal code/zip",
+          "field_country_region":"Country/Region",
+          "field_email":"Email",
+          "field_phone":"Phone",
+          "field_payment_method":"Payment Method",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"Customer Provided Note",
+          "field_state_county":"State/County"
+        },
+        "vendor_profile": {
+          "field_image_inside": "Image inside",
+          "field_image_outside": "Image outside",
+          "field_locale": "Locale",
+          "field_name": "Name",
+          "field_permit_classification": "Permit classification",
+          "field_founder": "Founder",
+          "field_stated_in_permit": "Items to be stated in the permit",
+          "field_management_pharmacist": "Management pharmacist",
+          "field_registered_seller_working": "Registered seller working at our pharmacy (business in charge)",
+          "field_drug_handled": "Types of over-the-counter drugs handled",
+          "field_distinguishing_by_name": "Distinguishing by name tag etc. of the person who works at this pharmacy",
+          "field_business_hours": "Business Hours",
+          "field_consultation_hours": "Consultation hours outside business hours",
+          "field_contact_information": "Contact information for consultation and emergencies",
+          "field_current_working": "Currently working pharmacist(in charge)",
+          "field_open_sale_time": "Open Sale Time",
+          "field_time_order_outside": "Time to accept drug orders outside business hours",
+          "field_expiration_date_of_drug": "Expiration date of drugs for specific sale"
+        },
+        "option": {
+          "active": "User active",
+          "inactive": "User inactive",
+          "male": "Male",
+          "female": "Female",
+          "yes": "Yes",
+          "no": "No",
+          "registered": "Registered",
+          "unregistered": "Unregistered",
+          "remove_registered": "Unsubscribing",
+          "insurance_status": {
+            "option1": "Attachment / Attending the Presentation / ①kurofune",
+            "option2": "Attachment / Attending the Presentation / ②kurofune (can be contacted)",
+            "option3": "Attachment / Attending the Presentation / ②kurofune (Cannot be contacted)",
+            "option4": "Insurance completed",
+            "option5": "Not started yet"
+          },
+          "education_status": {
+            "registered": "Registered",
+            "unregistered": "Unregistered"
+          }
+        },
+        "placeholder": {
+          "search": "Search username",
+          "select_role": "Please select a role",
+          "select_active_status": "Please select a active status",
+          "select_prefecture": "Please select prefecture",
+          "select_date": "Select date",
+          "select_gender": "Please select gender",
+          "select_payment": "Please select payment",
+          "select_insurance_status": "Please select insurance status",
+          "select_education_status": "Please select japanese language education status"
+        }
+      },
+      "error": {
+        "role_required": "Please select a role!",
+        "name_required": "Please input your name!",
+        "first_name_required": "Please input your first name!",
+        "last_name_required": "Please input your last name!",
+        "company_required": "Please input your company!",
+        "country_region_required": "Please input your Country/Region!",
+        "state_county_required": "Please input your State/Country!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "user_name_required": "Please input your username!",
+        "password": {
+          "required": "Please input your password!",
+          "min": "Please input atLeast 8 characters for password!"
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!",
+        "current_password_required": "Please input current password!",
+        "new_password_required": "Please input new password!",
+        "confirm_password_required": "Please input password confirmation!",
+        "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "order": {
+      "table":{
+        "field_subOrder":"SubOrder",
+        "field_order":"Order",
+        "field_date":"Date",
+        "field_total":"Total",
+        "field_action":"Action",
+        "field_status":"Status"
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "vendor_field": "Vendor",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
+
+      "name_field": "Product Name",
+      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "features_field": "Features",
+      "precautions_field": "Precautions",
+      "efficacy_effect_field": "Efficacy Effect",
+      "usage_does_field": "Usage Does",
+      "active_ingredients_field": "Active ingredients",
+      "additives_field": "Additives",
+      "precautions_storage_handling_field": "Precautions for Storage and Handling",
+      "manufacturer_field": "Manufacturer",
+      "use_manual_field": "Use Manual",
+
+      "error_message": {
+        "required_message": "This field is required."
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Create user successfully!",
+        "create_fail": "Create user fail!",
+        "update_success": "Update user successfully!",
+        "update_fail": "Update user fail!",
+        "delete_success": "Delete user successfully!",
+        "delete_fail": "Delete user fail!"
+      }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Name",
+      "type_field": "Type",
+      "parent_category_field": "Parent category",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "First-class OTC drugs",
+        "option2": "Specify Second-class OTC drugs",
+        "option3": "Second-class OTC drugs"
+      },
+      "error_message": {
+        "error_category_image": "The category image field is required."
+      }
+    }
+  }
 }

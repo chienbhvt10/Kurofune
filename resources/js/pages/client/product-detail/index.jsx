@@ -1,380 +1,406 @@
-import React from "react";
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./product-detail.scss";
+import useProductClient from "../../../hooks/product/useProductClient";
+import { useLocation, useParams } from "react-router-dom";
+import { Form, Input, Select, Button, Modal } from "antd";
+import { PRODUCT_OPTION } from "../../../commons/data";
+import useCart from "../../../hooks/cart/useCart";
+const formItemLayout = {
+  labelCol: {
+    xs: { span: 24 },
+    sm: { span: 12 },
+  },
+  wrapperCol: {
+    xs: { span: 24 },
+    sm: { span: 16 },
+  },
+};
+
 const ProductDetailPage = () => {
+  const { t } = useTranslation();
+  const { id } = useParams();
+  const location = useLocation();
+  const { getProductClient, productClient } = useProductClient();
+  const [productSideEfectSelect, setProductSideEffectSelect] = useState(null);
+  const [currentTreating, setCurrentTreating] = useState(null);
+  const { addToCart } = useCart();
+  React.useEffect(() => {
+    if (id) {
+      getProductClient({ id: id });
+    }
+  }, [id, location]);
+  const [form] = Form.useForm();
+
+  const onFinish = (values) => {
+    const requestObj = values;
+    Object.keys(requestObj).forEach(
+      (key) =>
+        requestObj[key] === undefined ||
+        requestObj[key] === null ||
+        (productSideEfectSelect === 0 && key === "anket_5") ||
+        (currentTreating === 12 && key === "anket_7" && delete requestObj[key])
+    );
+
+    addToCart({ ...requestObj, product_id: id });
+  };
+  const CheckValidation = (val, errors) => {
+    Modal.error({
+      title: t("client.product_detail.error_title_requried"),
+      content: t("client.product_detail.error_msg_requried"),
+      centered: true,
+    });
+  };
   return (
-    <div id="info-prod" className="card">
-      <div className="container-detail-product">
-        <div className="wrap-detail-product">
-          <div className="item-prod image-prod">
-            <img
-              alt="Loxonin S (12 tablets)"
-              src="https://member.wabisabi.media/wp-content/uploads/2021/12/1_loxonin-s-1.jpg"
-            />
-          </div>
-          <div className="item-prod summary-prod">
-            <div className="summary-detail">
-              <div className="product-name">Loxonin S (12 tablets)</div>
-              <div className="medicinal_efficacy_block">
-                <div className="medicinal_efficacy_item medicinal_efficacy_label">
-                  Medicinal efficacy classification
+    <>
+      {productClient && (
+        <div id="info-prod" className="card">
+          <div className="container-detail-product">
+            <Form
+              {...formItemLayout}
+              form={form}
+              name="register"
+              onFinish={onFinish}
+              scrollToFirstError
+              onFinishFailed={CheckValidation}
+            >
+              <div className="wrap-detail-product">
+                <div className="item-prod image-prod">
+                  <img
+                    alt={productClient.name}
+                    src={productClient.product_image}
+                  />
                 </div>
-                <div className="medicinal_efficacy_item medicinal_efficacy_value">
-                  Antipyretic Analgesic
-                </div>
-              </div>
-              <div className="block-price flex">
-                <div className="item-info price-info flex flex-column">
-                  <div className="no-sale">
-                    <div className="Ybrg9j">
-                      <span className="woocommerce-Price-amount amount">
-                        <bdi>
-                          713&nbsp;
-                          <span className="woocommerce-Price-currencySymbol">
-                            (JPY)
-                          </span>
-                        </bdi>
-                      </span>
+                <div className="item-prod summary-prod">
+                  <div className="summary-detail">
+                    <div className="product-name">{productClient.name}</div>
+                    <div className="medicinal_efficacy_block">
+                      <div className="medicinal_efficacy_item medicinal_efficacy_label">
+                        {t("client.product_detail.medicinal_efficacy")}
+                      </div>
+                      <div className="medicinal_efficacy_item medicinal_efficacy_value">
+                        {productClient.medicinal_efficacy_classification}
+                      </div>
+                    </div>
+                    <div className="block-price flex">
+                      <div className="item-info price-info flex flex-column">
+                        <div className="no-sale">
+                          <div className="Ybrg9j">
+                            <span className="woocommerce-Price-amount amount">
+                              <bdi>{productClient.price}</bdi>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="item-info product-type">
+                        {productClient.type}
+                      </div>
+                      <div className="btn-cart-pc item-info block-btn-checkout customs_btn_cart">
+                        <div className="cart">
+                          <Form.Item>
+                            <Button
+                              type="primary"
+                              htmlType="submit"
+                              className="single_add_to_cart_button button alt actived"
+                            >
+                              {t("client.product_detail.btn_buy")}
+                            </Button>
+                          </Form.Item>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
-                <div className="item-info product-type">
-                  First-class OTC drugs
-                </div>
-                <div className="btn-cart-pc item-info block-btn-checkout customs_btn_cart">
-                  <form
-                    className="cart"
-                    action="https://member.wabisabi.media/en/product/loxonin-s-12-tablets"
-                    method="post"
-                    encType="multipart/form-data"
-                  >
-                    <div className="quantity">
-                      <label
-                        className="screen-reader-text"
-                        htmlFor="quantity_6257eb17c8348"
-                      >
-                        Loxonin S (12 tablets) quantity
-                      </label>
-                      <input
-                        type="number"
-                        id="quantity_6257eb17c8348"
-                        className="input-text qty text"
-                        step="1"
-                        min="1"
-                        max=""
-                        name="quantity"
-                        value="1"
-                        title="Qty"
-                        size="4"
-                        placeholder=""
-                        inputMode="numeric"
-                      />
-                    </div>
+              </div>
 
+              <div className="list-questions-wrap">
+                <Form.Item
+                  name="anket_1"
+                  label={t("client.product_detail.label_gender")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
+                  ]}
+                >
+                  <Select
+                    placeholder={t("client.product_detail.placeholder_option")}
+                  >
+                    {PRODUCT_OPTION.GENDER.map((option, index) => (
+                      <Select.Option key={index} value={option.value}>
+                        {t(
+                          `client.product_detail.option_add_to_cart.gender.${option.label}`
+                        )}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  name="anket_2"
+                  label={t("client.product_detail.label_age")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
+                  ]}
+                >
+                  <Select
+                    placeholder={t("client.product_detail.placeholder_option")}
+                  >
+                    {PRODUCT_OPTION.YEAR_OLD.map((option, index) => (
+                      <Select.Option key={index} value={option.value}>
+                        {t(
+                          `client.product_detail.option_add_to_cart.year_old.${option.label}`
+                        )}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  name="anket_3"
+                  label={t("client.product_detail.label_ever_used")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
+                  ]}
+                >
+                  <Select
+                    placeholder={t("client.product_detail.placeholder_option")}
+                  >
+                    {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
+                      <Select.Option key={index} value={option.value}>
+                        {t(
+                          `client.product_detail.option_add_to_cart.yes_or_no.${option.label}`
+                        )}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  name="anket_4"
+                  label={t("client.product_detail.label_ever_side_effect")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
+                  ]}
+                >
+                  <Select
+                    placeholder={t("client.product_detail.placeholder_option")}
+                    onChange={(value) => {
+                      if (value === 0) form.resetFields(["anket_5"]);
+                      setProductSideEffectSelect(value);
+                    }}
+                  >
+                    {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
+                      <Select.Option key={index} value={option.value}>
+                        {t(
+                          `client.product_detail.option_add_to_cart.yes_or_no.${option.label}`
+                        )}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+
+                <Form.Item
+                  name="anket_5"
+                  label={t("client.product_detail.label_using_medicine")}
+                  dependencies={["anket_4"]}
+                  rules={[
+                    {
+                      required: productSideEfectSelect === 1,
+                      message: t("client.product_detail.error_required"),
+                    },
+                    {
+                      message: t("client.product_detail.error_required"),
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input
+                    disabled={productSideEfectSelect !== 1}
+                    placeholder={t("client.product_detail.placeholder_text")}
+                  />
+                </Form.Item>
+
+                <Form.Item
+                  name="anket_6"
+                  label={t("client.product_detail.label_other_illnesses")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                    },
+                  ]}
+                >
+                  <Select
+                    placeholder={t("client.product_detail.placeholder_option")}
+                    onChange={(value) => setCurrentTreating(value)}
+                  >
+                    {PRODUCT_OPTION.CURRENTLY_TREATING.map((option, index) => (
+                      <Select.Option key={index} value={option.value}>
+                        {t(
+                          `client.product_detail.option_add_to_cart.currently_treating.${option.label}`
+                        )}
+                      </Select.Option>
+                    ))}
+                  </Select>
+                </Form.Item>
+                {currentTreating === 12 && (
+                  <Form.Item
+                    name="anket_7"
+                    label=" "
+                    rules={[
+                      {
+                        required: true,
+                        message: t("client.product_detail.error_required"),
+                      },
+                    ]}
+                  >
+                    <Input.TextArea
+                      maxLength={256}
+                      placeholder={t("client.product_detail.placeholder_text")}
+                    />
+                  </Form.Item>
+                )}
+                <Form.Item
+                  name="anket_8"
+                  label={t("client.product_detail.label_other_question")}
+                  rules={[
+                    {
+                      required: true,
+                      message: t("client.product_detail.error_required"),
+                      whitespace: true,
+                    },
+                  ]}
+                >
+                  <Input.TextArea
+                    showCount
+                    maxLength={256}
+                    placeholder={t("client.product_detail.placeholder_text")}
+                  />
+                </Form.Item>
+              </div>
+            </Form>
+            <div
+              className="modal fade"
+              id="noticeModal"
+              tabIndex="-1"
+              role="dialog"
+              aria-labelledby="noticeModalTitle"
+              aria-hidden="true"
+            >
+              <div
+                className="modal-dialog modal-dialog-centered"
+                role="document"
+              >
+                <div className="modal-content">
+                  <div className="modal-body">
+                    <p className="font-weight-bold">
+                      Could not add to shopping cart
+                    </p>
+                    <p>Please check your input.</p>
+                  </div>
+                  <div className="modal-footer">
                     <button
-                      type="submit"
-                      name="add-to-cart"
-                      value="99"
-                      className="single_add_to_cart_button button alt actived"
+                      type="button"
+                      className="btn-close"
+                      data-dismiss="modal"
                     >
-                      Buy Now
+                      OK
                     </button>
-                  </form>
+                  </div>
                 </div>
               </div>
-              <div className="d-none btn-cart-sp block-btn-checkout customs_btn_cart">
-                <form
-                  className="cart"
-                  action="https://member.wabisabi.media/en/product/loxonin-s-12-tablets"
-                  method="post"
-                  encType="multipart/form-data"
-                >
-                  <div className="quantity">
-                    <label
-                      className="screen-reader-text"
-                      htmlFor="quantity_6257eb17c8412"
-                    >
-                      Loxonin S (12 tablets) quantity
-                    </label>
-                    <input
-                      type="number"
-                      id="quantity_6257eb17c8412"
-                      className="input-text qty text"
-                      step="1"
-                      min="1"
-                      max=""
-                      name="quantity"
-                      value="1"
-                      title="Qty"
-                      size="4"
-                      placeholder=""
-                      inputMode="numeric"
+            </div>
+
+            <div className="wrap-more-info-product">
+              <div className="more-info-block flex flex-column">
+                <div className="more-info-wrap">
+                  <div className="item-info label-item">Features </div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.features,
+                      }}
                     />
                   </div>
-
-                  <button
-                    type="submit"
-                    name="add-to-cart"
-                    value="99"
-                    className="single_add_to_cart_button button alt actived"
-                  >
-                    Buy Now
-                  </button>
-                </form>
+                  <div className="item-info label-item">Precautions </div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.precautions,
+                      }}
+                    />
+                  </div>
+                  <div className="item-info label-item">Efficacy / effect </div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.efficacy_effect,
+                      }}
+                    />
+                  </div>
+                  <div className="item-info label-item">Usage / dose </div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.usage_dose,
+                      }}
+                    />
+                  </div>
+                  <div className="item-info label-item">Active ingredients</div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.active_ingredients,
+                      }}
+                    />
+                  </div>
+                  <div className="item-info label-item">Additives </div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.additives,
+                      }}
+                    />
+                  </div>
+                  <div className="item-info label-item">
+                    Precautions for storage and handling
+                  </div>
+                  <div className="item-info value-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.precautions_storage_handling,
+                      }}
+                    />
+                  </div>
+                  <div className="item-info label-item last-item">
+                    Manufacturer
+                  </div>
+                  <div className="item-info value-item last-item">
+                    <span
+                      dangerouslySetInnerHTML={{
+                        __html: productClient.manufacturer,
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-
-        <input type="hidden" id="medicine-type" value="1" />
-        <div className="list-questions-wrap">
-          <input type="hidden" id="user-id" value="1" />
-          <input type="hidden" id="product-id" value="99" />
-          <input type="hidden" id="current-lang" value="en" />
-          <div className="question-answer-wrap">
-            <div className="question">
-              What is your gender?<span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <select name="gender" className="input-answer" id="">
-                <option value="">Please select option</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-              </select>
-              <p className="message-warning warning-gender"></p>
-            </div>
-          </div>
-          <div className="question-answer-wrap">
-            <div className="question">
-              How old are you?<span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <select name="yearold" className="input-answer">
-                <option value="">Please select option</option>
-                <option value="1">Under 15 years old</option>
-                <option value="2">15-64 years old</option>
-                <option value="3">65 years of age or older</option>
-              </select>
-              <p className="message-warning warning-year_old"></p>
-            </div>
-          </div>
-          <div className="question-answer-wrap">
-            <div className="question">
-              Have you ever used this medicine?
-              <span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <select name="used_medicine" className="input-answer">
-                <option value="">Please select option</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
-              </select>
-              <p className="message-warning warning-used_medicine"></p>
-            </div>
-          </div>
-          <div className="question-answer-wrap">
-            <div className="question">
-              Have you ever taken any medicine and had side effects?
-              <span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <select name="taken_any_medicine" className="input-answer">
-                <option value="">Please select option</option>
-                <option value="1">Yes</option>
-                <option value="2">No</option>
-              </select>
-              <p className="message-warning warning-taken_any_medicine"></p>
-            </div>
-          </div>
-          <div className="question-answer-wrap">
-            <div className="question">
-              What is the name of the medicine you were using at that time?
-              <span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <textarea
-                placeholder="Please enter text"
-                name="list_used_medicine"
-                className="input-answer"
-                rows="1"
-              ></textarea>
-              <p className="message-warning warning-list_used_medicine"></p>
-            </div>
-          </div>
-          <div className="question-answer-wrap">
-            <div className="question">
-              Are there any illnesses you are currently treating?
-              <span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <select name="currently_treating" id="" className="input-answer">
-                <option value="">Please select option</option>
-                <option value="12">There is none</option>
-                <option value="1">High blood pressure</option>
-                <option value="2">Diabetes</option>
-                <option value="3">Dyslipidemia</option>
-                <option value="4">Asthma</option>
-                <option value="5">Liver disease</option>
-                <option value="6">Heart disease</option>
-                <option value="7">Cerebral infarction</option>
-                <option value="8">Gastric / duodenal ulcer</option>
-                <option value="9">Thyroid disease</option>
-                <option value="10">Prostate disease</option>
-                <option value="11">Other (free description)</option>
-              </select>
-              <p className="message-warning warning-currently_treating"></p>
-
-              <div className="another-treating-wrap mt-2 d-none">
-                <textarea
-                  placeholder="Please enter text"
-                  name="another-treating"
-                  className="input-answer"
-                />
-                <p className="message-warning warning-another-treating"></p>
-              </div>
-            </div>
-          </div>
-          <div className="question-answer-wrap">
-            <div className="question">
-              Do you have any questions?
-              <span className="required">(required)</span>
-            </div>
-            <div className="answer">
-              <textarea
-                placeholder="Please enter text"
-                name="any-questions"
-                className="input-answer"
-              />
-              <p className="message-warning warning-any_questions"></p>
-            </div>
-          </div>
-        </div>
-        <div
-          className="modal fade"
-          id="noticeModal"
-          tabIndex="-1"
-          role="dialog"
-          aria-labelledby="noticeModalTitle"
-          aria-hidden="true"
-        >
-          <div className="modal-dialog modal-dialog-centered" role="document">
-            <div className="modal-content">
-              <div className="modal-body">
-                <p className="font-weight-bold">
-                  Could not add to shopping cart
-                </p>
-                <p>Please check your input.</p>
-              </div>
-              <div className="modal-footer">
-                <button
-                  type="button"
-                  className="btn-close"
-                  data-dismiss="modal"
-                >
-                  OK
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="wrap-more-info-product">
-          <div className="more-info-block flex flex-column">
-            <div className="more-info-wrap">
-              <div className="item-info label-item">Features </div>
-              <div className="item-info value-item">
-                It contains antipyretic and analgesic components that have fast
-                effect on pain. It is a prodrug formulation with little strain
-                on the stomach. Does not contain ingredients that make you
-                sleepy. One tablet at a time works well. A small tablet that is
-                easy to swallow.{" "}
-              </div>
-              <div className="item-info label-item">Precautions </div>
-              <div className="item-info value-item">
-                1. People who belong to one of these groups should not take the
-                drug: <br />
-                (1) People who have had allergic symptoms after taking this drug
-                or the components of it.
-                <br />
-                (2) People who have had asthma after taking this drug or other
-                antipyretic analgesics, cold remedies.
-                <br />
-                (3) Children under 15 years of age.
-                <br />
-                (4) People receiving the following treatment at a medical
-                institution: Gastric / duodenal ulcer, liver disease, kidney
-                disease, heart disease.
-                <br />
-                (5) People who have been diagnosed by doctors as having blood
-                abnormalities (blood diseases) such as low red blood cell count
-                (anemia), low platelet count (difficult to stop bleeding,
-                excessively bleeding), and low white blood cell count.
-                <br />
-                (6) Pregnant women within 12 weeks of the expected delivery
-                date.
-                <br />
-                2. Do not take any of the following medicines while taking this
-                drug. <br />
-                Other antipyretic analgesics, cold remedies and sedatives
-                <br />
-                3. Please do not drink alcohol before and after taking this
-                drug.
-                <br />
-                4. Please do not take this drug for a long time.{" "}
-              </div>
-              <div className="item-info label-item">Efficacy / effect </div>
-              <div className="item-info value-item">
-                Headache, menstrual pain (physiological pain), toothache,
-                post-tooth extraction pain, sore throat, lower back pain, joint
-                pain, nerve pain, muscle pain, frozen shoulder pain, ear pain,
-                bruise pain, fracture pain, sprain, trauma, chills &amp; fever.{" "}
-              </div>
-              <div className="item-info label-item">Usage / dose </div>
-              <div className="item-info value-item">
-                Age: 1 dose: Number of doses per day
-                <br />
-                Adults (15 years old and over): 1 tablet: up to 2 times
-                <br />
-                However, if symptoms reappear, you can take the third dose.
-                <br />
-                (Please leave at least 4 hours between doses)
-                <br />
-                Under 15 years old: Do not take this.{" "}
-              </div>
-              <div className="item-info label-item">Active ingredients </div>
-              <div className="item-info value-item">
-                Loxoprofen sodium hydrate 68.1 mg (60 mg as anhydrate){" "}
-              </div>
-              <div className="item-info label-item">Additives </div>
-              <div className="item-info value-item">
-                Hydroxypropyl cellulose, magnesium stearate, lactose hydrate,
-                iron sesquioxide.{" "}
-              </div>
-              <div className="item-info label-item">
-                Precautions for storage and handling{" "}
-              </div>
-              <div className="item-info value-item">
-                (1) Store in a cool, dry place and keep it not to be exposed to
-                direct sunlight.
-                <br />
-                (2) Please keep out of reach of children.
-                <br />
-                (3) Do not put it in a different container. (It may cause misuse
-                or change of the quality)
-                <br />
-                (4) Do not use after the expiration date has passed.{" "}
-              </div>
-              <div className="item-info label-item last-item">
-                Manufacturer{" "}
-              </div>
-              <div className="item-info value-item last-item">
-                Daiichi Sankyo Healthcare Co., Ltd.{" "}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
-};
+};;;;
 
 export default ProductDetailPage;

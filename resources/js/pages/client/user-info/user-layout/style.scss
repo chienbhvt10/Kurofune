@@ -4,7 +4,7 @@
   height: fit-content;
   min-height: 100%;
   .user-layout-container {
-    width: 700px;
+    max-width: 700px;
     margin: auto;
     display: block;
     height: 100%;
@@ -29,6 +29,9 @@
         span {
           display: flex;
           align-items: center;
+          @media screen and (max-width: 570.98px) {
+            display: none;
+          }
         }
       }
     }
@@ -37,7 +40,7 @@
         background-color: #fff;
         margin-top: 17px;
         border-radius: 3px;
-        .nav-item{
+        .nav-item {
           display: flex;
         }
         .nav-link.active {
@@ -47,14 +50,13 @@
           -moz-border-radius: 0;
           -ms-border-radius: 0;
           -o-border-radius: 0;
-          color: #4E5260;
+          color: #4e5260;
           &::after {
             opacity: 1;
             width: 100%;
           }
         }
         a {
-          font-family: sans-serif;
           color: #62a19b;
           text-decoration: none;
           display: inline-block;
@@ -96,44 +98,6 @@
     -o-border-radius: 3px;
     padding: 24px;
   }
-  .form-group {
-    label {
-      margin-bottom: 8px;
-    }
-  }
-  .form-group {
-    position: relative;
-    margin-bottom: 15px;
-    label {
-      color: #62a19b;
-      font-size: 11px;
-      font-weight: 500;
-      transition: transform 0.2s ease, color 0.2s ease;
-      padding-left: 0;
-    }
-    .form-control-auth {
-      border: 0;
-      border-bottom: 1px solid #ccc;
-      outline: none;
-      background: transparent;
-      padding: 10px 5px;
-      height: 38px;
-      width: 100%;
-      font-weight: 400;
-      font-size: 16px;
-      &:focus {
-        outline: none;
-        border-color: #62a19b;
-        box-shadow: 0 1px 0 0 #62a19b;
-        transition: transform 0.2s ease, color 0.2s ease;
-      }
-    }
-    .icon-input {
-      position: absolute;
-      bottom: 12px;
-      left: 0;
-    }
-  }
 
   .show-pass {
     position: absolute;
@@ -141,8 +105,8 @@
     bottom: 14px;
     cursor: pointer;
   }
-  .copy-right{
-    color: #62A19B;
+  .copy-right {
+    color: #62a19b;
     height: 62px;
     display: flex;
     align-items: center;

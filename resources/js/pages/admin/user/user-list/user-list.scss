@@ -1,0 +1,12 @@
+.user-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  .select-role {
+    width: 200px;
+  }
+}
+.react-bootstrap-table td > .selection-input-4,
+.react-bootstrap-table th > .selection-input-4 {
+  margin: 0 !important;
+}

@@ -1,0 +1,52 @@
+.user-layout-tabs {
+  .nav-pills {
+    background-color: #fff;
+    margin-top: 17px;
+    border-radius: 3px;
+    .nav-item {
+      display: flex;
+    }
+    .nav-link.active {
+      background: transparent;
+      border-radius: 0;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      -ms-border-radius: 0;
+      -o-border-radius: 0;
+      color: #4e5260;
+      &::after {
+        opacity: 1;
+        width: 100%;
+      }
+    }
+    a {
+      color: #62a19b;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      padding-bottom: 0;
+      padding-inline: 8px;
+      .title-tab {
+        padding-inline: 14px;
+      }
+    }
+
+    a:after {
+      content: "";
+      position: relative;
+      bottom: -2px;
+      display: inline-block;
+      width: 0px;
+      background: #62a19b;
+      height: 2px;
+      opacity: 0;
+      transition: opacity, width;
+      transition-duration: 0.3s;
+    }
+
+    a:hover:after {
+      opacity: 1;
+      width: 100%;
+    }
+  }
+}

@@ -12,29 +12,30 @@ require("./bootstrap");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
+import "antd/dist/antd.css";
 import React from "react";
 import { render } from "react-dom";
+import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
-import { createStore, applyMiddleware } from "redux";
+import "../less/app.less";
+import store from "./redux/store";
 import Routes from "./routes/routes";
-import { BrowserRouter, Route } from "react-router-dom";
-import rootReducer from "./reducers/index";
-import thunk from "redux-thunk";
-import i18n from './translate/i18n';
-import { I18nextProvider } from 'react-i18next';
-let composeEnhancers = null
-if (process.env.NODE_ENV === 'development' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) {
-  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+import i18n from "./translate/i18n";
+
+let composeEnhancers = null;
+if (
+  process.env.NODE_ENV === "development" &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+) {
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 } else {
-  composeEnhancers = compose
+  // composeEnhancers = compose
 }
-const store = createStore(rootReducer, applyMiddleware(thunk));
 render(
   <Provider store={store}>
-    <I18nextProvider i18n={i18n}>
-      <Routes />
-    </I18nextProvider>
+      <I18nextProvider i18n={i18n}>
+        <Routes />
+      </I18nextProvider>
   </Provider>,
   document.getElementById("app")
 );

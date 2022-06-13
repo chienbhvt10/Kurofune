@@ -1,6 +1,10 @@
 {
+  "notification": "Thông báo",
+  "btn_send_mail": "Gửi email",
+  "btn_back": "Trở lại",
+  "btn_ok": "Ok",
   "login": {
-    "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN CỔNG HỖ TRỢ",
+    "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN <br> CỔNG HỖ TRỢ",
     "email": "Email",
     "password": "Mật khẩu",
     "remember": "Ghi nhớ",
@@ -11,5 +15,564 @@
     "languages": "Ngôn ngữ",
     "kurofune": "©KUROFUNE"
   },
-  "home": "Trang chủ"
+  "forgot_password": {
+    "title1": "Bạn quên mật khẩu đúng không?",
+    "title2": "Hãy điền địa chỉ email, chúng tôi sẽ gửi một đường dẫn cài đặt lại mật khẩu mới."
+  },
+  "reset_password": {
+    "reset_password_title": "Email đặt lại mật khẩu đã được gửi.",
+    "reset_password_message1": "Email cấp lại mật khẩu đã được gửi.",
+    "reset_password_message2": "Vui lòng kiểm tra địa chỉ email đã đăng ký của bạn."
+  },
+  "home": "Trang chủ",
+  "header": {
+    "btn_back1": "Quay lại danh sách thuốc",
+    "btn_back2": "Quay về danh sách đặt hàng",
+    "btn_back3": "Trở lại giỏ hàng",
+    "btn_logout": "Thoát",
+    "btn_view_cart": "XEM GIỎ HÀNG",
+    "btn_buy": "MUA",
+    "cart_empty": "Không có thông tin trong giỏ hàng.",
+    "cart_title": "Xem giỏ hàng của bạn "
+  },
+  "navigate_link": {
+    "title": "Hiệu thuốc Online",
+    "questionnaire_title": "Bảng câu hỏi chẩn đoán bệnh",
+    "pharmacies_title": "Danh sách nhà thuốc",
+    "medicine_title": "Danh sách thuốc",
+    "order_history_title": "Lịch sử mua hàng",
+    "cart_title": "Giỏ hàng",
+    "billing_address_title": "Thông tin đăng kí",
+    "media_title": "Trang chủ",
+    "chatbot_title": "Log Chatbot",
+    "user_title": "User",
+    "product_title": "Product",
+    "category_title": "Product Category"
+  },
+  "member": {
+    "dashboard": {
+      "questionnaire": "Bảng câu hỏi chẩn đoán bệnh",
+      "pharmacy": "Danh sách nhà thuốc",
+      "drug": "Danh sách thuốc",
+      "order_history": "Lịch sử đặt hàng",
+      "order_list": "Giỏ hàng",
+      "registration_info": "Thông tin đăng kí"
+    },
+    "user_profile": {
+      "btn_save": "Lưu",
+      "text_back": "Quay về trang chính",
+      "tab_user_info": "Thông tin người dùng",
+      "tab_password": "Thông tin mật khẩu"
+    },
+    "change_password": {
+      "title": "Thay đổi mật khẩu",
+      "field_old_password": "Mật khẩu cũ",
+      "field_new_password": "Mật khẩu mới",
+      "field_confirm_password": "Nhập lại mật khẩu vừa tạo"
+    },
+    "change_profile": {
+      "btn_search": "Tìm kiếm",
+      "title": "Thông tin người dùng",
+      "field_full_name": "Họ và Tên",
+      "field_postal": "Mã bưu điện/ ZIP code",
+      "field_prefecture": "Tỉnh / Thành phố",
+      "field_city": "Thị trấn / Thành phố",
+      "field_street": "Địa chỉ khu phố",
+      "field_building": "Tên tòa nhà",
+      "field_phone": "Số điện thoại",
+      "field_email": "Địa chỉ email"
+    }
+  },
+  "tab_address": {
+    "tab_ship": "Địa chỉ giao hàng",
+    "tab_bill": "Địa chỉ thanh toán"
+  },
+  "client": {
+    "qa": {
+      "q": {
+        "q1": "どのようなサービスがあるのか教えてください",
+        "q2": "プランを変更したい",
+        "q3": "登録している情報（住所など）を変更したい",
+        "q4": "利用回数に制限はありますか？",
+        "q5": "家族や友人の方が利用することはできますか？",
+        "q6": "①どのように薬を購入したらいいですか？",
+        "q7": "①オンライン薬局サービスで決済はどのようにすればいいですか？",
+        "q8": "①現在販売している以外の薬が欲しい場合はどうしたらいいですか？",
+        "q9": "①定期的に薬を届けて欲しい",
+        "q10": "①薬を海外に届けることはできますか？",
+        "q11": "①薬の請求先や届け先を変更できますか？",
+        "q12": "②知りたい情報がチャットボットでは見つからない",
+        "q13": "③海外送金サービスのパスワードを忘れた",
+        "q14": "④日本語教育サービスのパスワードを忘れた",
+        "q15": "④e-ラーニング（オンライン日本語教育）の日本語のコースを変更したい",
+        "q16": "⑤所得補償保険の詳細情報を知りたい",
+        "q17": "現在の所得補償保険のステータスを知りたい",
+        "q18": "⑤どのような場合に所得補償保険が支給されますか",
+        "q19": "⑤ What should I do if I take a leave of absence due to injury or illness?",
+        "q20": "退職した場合はサービスは使えますか？",
+        "q21": "一般社団法人在日外国人就業者支援協会について教えてください。",
+        "q22": "サービスの利用期間はありますか？"
+      },
+      "a": {
+        "a1": {
+          "a11": "プランによってサービスの内容が異なります。",
+          "a12": "ライトプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービスの2つのサービスを使うことができます。",
+          "a13": "フルサポートプランに加入しているユーザーは、①オンライン薬局 ②24時間生活相談サービス ③海外送金 ④e-ラーニング（オンライン日本語教育） ⑤所得補償保険の5つのサービスを使うことができます。",
+          "a14": "サービスの詳細はオリエンテーション動画をご覧ください"
+        },
+        "a2": "プランを変更するには、現在働いている企業から申し込みする必要があります。そのため、働いている企業の担当者の方に一度相談してみてください。",
+        "a3": "トップページにある「ユーザー情報」をクリックして変更したい部分を修正してください。",
+        "a4": "制限はありません。何度でも利用することができます。",
+        "a5": "利用することはできません。登録したユーザー以外が利用することはできません。もし不正に利用していることを発見した場合、退会処分になる可能性もあります。",
+        "a6": {
+          "a61": "まずは問診票の質問に答えて自分が欲しい薬を選んでください。その後、買い物かごに入った薬を確認して、購入手続きを進めてください。薬局から購入した薬についての質問のメールが届きますので、その情報を確認して回答したら購入完了となります。",
+          "a62": "購入完了後に、指定した住所に薬局から薬が届きます。"
+        },
+        "a7": "現在は代引き決済のみとなります。自宅に薬が届くタイミングでお金を支払います。",
+        "a8": "欲しい薬が見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a9": "お手数ですが、毎回購入していただきますようお願いいたします。",
+        "a10": "大変申し訳ございません。日本国内での郵送のみとなっております。",
+        "a11": "可能です。オンライン薬局のトップページの登録情報にて住所を変更すれば大丈夫です。",
+        "a12": "チャットボットでは見つからない場合は、弊社の担当者に連絡してください。 問い合わせ専用メールアドレスはこちら",
+        "a13": "「既存アカウントにログイン」をクリックして、その後に「パスワードを忘れた方」をクリックして再発行手続きを進めてください。",
+        "a14": "「パスワードを忘れました？」のボタンをクリックして再発行手続きを進めてください。",
+        "a15": "コースを変更したい場合は、弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+        "a16": {
+          "a161": "WABISABI Mediaのこちらのページを参考にしてください。",
+          "a162": "（KUROFUNEスタッフ注意：各国の言語に変更してください）"
+        },
+        "a17": "トップページから所得補償保険のところをクリックして現在のステータスをご確認ください。",
+        "a18": "告知された免責期間を超えて怪我や病気により休業した際に支給対象となります。しかし場合によっては支給対象とならない可能性もあるのでご了承ください。",
+        "a19": {
+          "a191": "所得補償保険の対象になるかを判断して手続きを進めていきます。弊社のスタッフにお問い合わせください。 問い合わせ専用メールアドレスはこちら",
+          "a192": "（保険専用問い合わせメールアドレス）"
+        },
+        "a20": "退職した場合はこれらのサービスは利用できなくなります。",
+        "a21": "日本に住んでいる外国人が、日本にて働きやすい・住みやすいと感じられるような支援を行っている団体となります。",
+        "a22": "申込から1 年間利用できます。"
+      }
+    },
+    "questionnaire": {
+      "placeholder": "Hãy nhập tên thuốc",
+      "btn_search": "Tìm kiếm",
+      "title_number_results": "Kết quả tìm kiếm: ",
+      "description_number": " trường hợp"
+    },
+    "media": {
+      "title": "HIỆP HỘI HỖ TRỢ NGƯỜI LAO ĐỘNG NƯỚC NGOÀI TẠI NHẬT BẢN<br>CỔNG HỖ TRỢ",
+      "card_pharmacy": "Hiệu thuốc Online",
+      "card_consultation": "Dịch vụ tư vấn 24 giờ",
+      "card_remittance": "Chuyển tiền ra nước ngoài",
+      "card_e_leaning": "Học trực tuyến",
+      "card_insurance": "Bảo hiểm thu nhập",
+      "card_wabisabi": "WABISABI-MEDIA",
+      "btn_user_info": "Thông tin người dùng",
+      "btn_logout": "Thoát"
+    },
+    "cart": {
+      "title_cart": "Giỏ hàng",
+      "title_cart_empty": "Giỏ hàng của bạn hiện đang trống.",
+      "cart_description1": "Vui lòng kiểm tra thông tin đơn hàng.",
+      "cart_description2": "Sau khi kiểm tra hãy nhấp vào nút \" TIẾP TỤC MUA HÀNG \"",
+      "th_product_name": "Sản phẩm",
+      "th_product_price": "Số tiền",
+      "th_product_quantity": "Số lượng",
+      "btn_delete": "XÓA BỎ",
+      "btn_checkout": "TIẾP TỤC MUA HÀNG",
+      "btn_empty": "GIỎ HÀNG TRỐNG",
+      "btn_update": "CẬP NHẬT GIỎ HÀNG CỦA BẠN",
+      "btn_return": "Quay lại cửa hàng"
+    },
+    "checkout": {
+      "title_confirm": "Xác nhận mua hàng",
+      "confirm_description1": "Vui lòng kiểm tra thông tin đơn hàng",
+      "confirm_description2": "Vui lòng đọc kĩ các điều khoản sử dụng và nhấp vào nút “ MUA ”",
+      "th_product_name": "Sản phẩm",
+      "th_product_price": "Số tiền",
+      "th_product_quantity": "Số lượng",
+      "th_product_total": "Tổng phụ (Gồm thuế)",
+      "td_total": "Tổng đơn hàng",
+      "title_billing": "Thông tin thanh toán",
+      "field_full_name": "Họ và Tên",
+      "field_zip_code": "Mã bưu điện/ ZIP code",
+      "field_prefecture": "Tỉnh/ Thành phố",
+      "field_town_city": "Thị trấn / Thành phố",
+      "field_street": "Địa chỉ khu phố",
+      "field_house": "Tên toà nhà",
+      "field_phone": "Số điện thoại",
+      "field_email": "Địa chỉ email",
+      "title_ship": "Thông tin giao hàng",
+      "accept_term": "Tôi đồng ý với điều khoản sử dụng và mua hàng.",
+      "btn_text_buy": "MUA"
+    },
+    "order-history": {
+      "th_order_date": "Ngày đặt hàng",
+      "th_order_ID": "Mã đơn đặt hàng",
+      "th_order_status": "Tình trạng đơn đặt hàng",
+      "th_order_price": "Số tiền",
+      "th_purchase_product": "Đơn hàng đã mua",
+      "btn_view": "Xem",
+      "btn_next": "Kế tiếp",
+      "btn_prev": "Trước",
+      "about_status": "Tình trạng đơn hàng",
+      "status_step_1": "Đang chờ mail xác nhận",
+      "status_step_2": "Đang chuẩn bị hàng",
+      "status_step_3": "Đang vận chuyển",
+      "status_step_4": "Đang giao hàng",
+      "status_step_5": "Hoàn thành"
+    },
+    "order-detail": {
+      "title": "Chi tiết đơn đặt hàng",
+      "th_order_date": "【Ngày đặt hàng】",
+      "th_order_ID": "【Mã đơn đặt hàng】",
+      "th_order_status": "【Tình trạng đơn đặt hàng】",
+      "th_product_name": "Sản phẩm",
+      "th_product_quantity": "Số lượng",
+      "th_unit_price": "Đơn giá",
+      "th_product_total": "Tổng phụ (Gồm thuế)",
+      "td_total": "Tổng đơn hàng",
+      "th_tax": "Thuế",
+      "title_billing": "Thông tin thanh toán",
+      "field_full_name": "Họ và Tên",
+      "field_postal": "Mã bưu điện/ ZIP code",
+      "field_prefecture": "Tỉnh / Thành phố",
+      "field_city": "Thị trấn / Thành phố",
+      "field_house": "Tên toà nhà",
+      "field_street": "Địa chỉ khu phố",
+      "field_phone": "Số điện thoại",
+      "field_email": "Địa chỉ email",
+      "title_ship": "Thông tin giao hàng",
+      "payment": "Phương thức thanh toán",
+      "payment_method": "Thanh toán khi giao hàng"
+    },
+    "medicine_list": {
+      "type_name1": "Loại 1",
+      "type_name2": "Loại 2 chỉ định",
+      "type_name3": "Loại 2"
+    },
+    "product_detail": {
+      "btn_buy": "MUA NGAY",
+      "placeholder_option": "Vui lòng hãy chọn ",
+      "label_gender": "Giới tính của bạn là gì ?",
+      "label_age": "Bạn bao nhiêu tuổi ?",
+      "label_ever_used": "Bạn dùng thuốc này bao giờ chưa ?",
+      "label_ever_side_effect": "Bạn đã bao giờ uống thuốc và bị tác dụng phụ chưa?",
+      "label_using_medicine": "Tên loại thuốc bạn đang sử dụng lúc đó là gì?",
+      "label_other_illnesses": "Hiện tại bạn có đang điều trị bệnh gì không ?",
+      "label_other_question": "Bạn có câu hỏi nào không?",
+      "placeholder_select": "Vui lòng hãy chọn",
+      "placeholder_text": "Vui lòng hãy nhập",
+      "option_yes": "Có",
+      "option_no": "Không",
+      "option_gender1": "Nam",
+      "option_gender2": "Nữ",
+      "option_age1": "Dưới 15 tuổi ",
+      "option_age2": "15-64 tuổi",
+      "option_age3": "65 tuổi trở lên",
+      "option_other_illnesses1": "Không",
+      "option_other_illnesses2": "Bệnh cao huyềt áp",
+      "option_other_illnesses3": "Bệnh tiểu đường",
+      "option_other_illnesses4": "Rối loạn mỡ máu",
+      "option_other_illnesses5": "Hen suyễn",
+      "option_other_illnesses6": "Bệnh gan",
+      "option_other_illnesses7": "Bệnh tim",
+      "option_other_illnesses8": "Nhồi máu não",
+      "option_other_illnesses9": "Loét dạ dày / tá tràng",
+      "option_other_illnesses10": "Bệnh tuyến giáp",
+      "option_other_illnesses11": "Bệnh tuyến tiền liệt",
+      "option_other_illnesses12": "Bệnh khác",
+      "error_required": " Mục này là mục bắt buộc.",
+      "error_title_requried": "Không thể thêm vào giỏ hàng",
+      "error_msg_requried": "Vui lòng kiểm tra thông tin nhập",
+      "option_add_to_cart": {
+        "gender": {
+          "g_1": "Nam",
+          "g_2": "Nữ"
+        },
+        "yes_or_no": {
+          "y_1": "Có ",
+          "y_2": "Không"
+        },
+        "year_old": {
+          "yo_1": "Dưới 15 tuổi ",
+          "yo_2": "15-64 tuổi",
+          "yo_3": "65 tuổi trở lên"
+        },
+        "currently_treating": {
+          "c_1": "Bệnh cao huyềt áp",
+          "c_2": "Bệnh tiểu đường",
+          "c_3": "Rối loạn mỡ máu",
+          "c_4": "Hen suyễn",
+          "c_5": "Bệnh gan",
+          "c_6": "Bệnh tim",
+          "c_7": "Nhồi máu não",
+          "c_8": "Loét dạ dày / tá tràng",
+          "c_9": "Bệnh tuyến giáp",
+          "c_10": "Bệnh tuyến tiền liệt",
+          "c_11": "Bệnh khác",
+          "c_12": "Không"
+        }
+      },
+      "medicinal_efficacy": "Phân loại thuốc theo công dụng"
+    },
+    "list_pharmacies": {
+      "title": "Hiệu thuốc Marine Oisotori",
+      "outside_image": "Ảnh chụp bên ngoài chính của hiệu thuốc hoặc cửa hàng",
+      "inside_image": "Ảnh chụp tình trạng trưng bày thuốc không kê đơn",
+      "title_concerning_management": "Các vấn đề liên quan đến quản lý và vận hành",
+      "title_classification": "Phân loại giấy phép",
+      "title_founder": "Người sáng lập",
+      "title_permit": "Các mục được nêu trong giấy phép",
+      "title_management_pharmacist": "Dược sĩ quản lý",
+      "title_working_pharmacies": "Dược sĩ làm việc tại nhà thuốc của chúng tôi (phụ trách)",
+      "title_register_seller": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi (phụ trách kinh doanh)",
+      "title_over_the_counter_drugs_handle": "Các loại thuốc không kê đơn được xử lý",
+      "title_distinguishing": "Phân biệt bằng bảng tên, v.v. của người làm việc tại hiệu thuốc này",
+      "title_business_hours": "Giờ làm việc",
+      "title_consultation_outside": "Giờ tư vấn ngoài giờ làm việc",
+      "title_contact": "Thông tin liên hệ để được tư vấn và các trường hợp khẩn cấp",
+      "title_current_working_pharmacies": "Dược sĩ đang làm việc (phụ trách)",
+      "title_specific_sale_time": "Khác nhau giữa Thời gian mở cửa và Thời gian mở cửa đặc biệt",
+      "title_time_accept_order": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
+      "title_expiration_date": "Ngày hết hạn của thuốc để bán cụ thể",
+      "title_problem": "Các vấn đề liên quan đến hệ thống bán thuốc cần hướng dẫn và thuốc không kê đơn"
+    }
+  },
+  "admins": {
+    "btn_save": "Lưu thay đổi",
+    "btn_cancel": "Huỷ bỏ",
+    "btn_upload": "Tải lên",
+    "btn_generate_password": "Tạo mật khẩu",
+    "btn_search": "Tìm kiếm",
+    "btn_add_new": "Thêm mới",
+    "delete_item_message": "Bạn có muốn xóa không?",
+    "user": {
+      "list": {
+        "title": "Danh sách hội viên"
+      },
+      "create": {
+        "title": "Tạo hội viên",
+        "breadcrumb": "Tạo hội viên"
+      },
+      "update": {
+        "title": "Cập nhật hội viên",
+        "breadcrumb": "Cập nhật hội viên"
+      },
+      "switch_tab": {
+        "address": "Địa chỉ",
+        "billing_address": "Địa chỉ thanh toán",
+        "shipping_address": "Địa chỉ giao hàng",
+        "role_info": "Thông tin thêm"
+      },
+      "form": {
+        "field_role": "Vai trò người dùng",
+        "field_name": "Tên",
+        "field_email": "Địa chỉ email",
+        "field_phone": "Số điện thoại",
+        "field_username": "Tài khoản",
+        "field_password": "Mật khẩu",
+        "field_active": "Trạng thái",
+        "field_full_name": "Họ và tên",
+        "field_postal_code": "Mã bưu điện/ ZIP code",
+        "field_prefecture": "Tỉnh / Thành Phố",
+        "field_city": "Thị trấn / Thành Phố",
+        "field_street": "Địa chỉ khu phố",
+        "field_building": "Tên toà nhà",
+        "profile": {
+          "field_dob": "Ngày sinh",
+          "field_gender": "Giới tính",
+          "field_facebook": "Facebook",
+          "field_line": "Line",
+          "field_address": "Địa chỉ",
+          "field_nationality": "Quốc tịch",
+          "field_visa_type": "Loại visa",
+          "field_job_name": "Nghề nghiệp",
+          "field_company_representative": "Người phụ trách công ty",
+          "field_payment_source": "Nguồn thanh toán",
+          "field_payment": "Tiền gửi vào ",
+          "field_insurance_status": "Trạng thái bảo hiểm ",
+          "field_insurance_support": "Hỗ trợ bảo hiểm",
+          "field_insurance_start_date": "Ngày bắt đầu bảo hiểm",
+          "field_overseas_remittance_status": "Trạng thái chuyển tiền ra nước ngoài",
+          "field_orientation": "Buổi giới thiệu",
+          "field_start_date_education": "Ngày bắt đầu giáo dục tiếng Nhật ",
+          "field_end_date_education": "Ngày kết thúc giáo dục tiếng Nhật",
+          "field_education_status": "Trình độ giáo dục tiếng Nhật ",
+          "field_page_registration": "Đăng kí My page Wabisabi",
+          "field_company_mail": "Email của công ty"
+        },
+        "order": {
+          "field_date_create":"Ngày tạo",
+          "field_customer":"Khách hàng:",
+          "field_action":"Thao tác",
+          "field_status":"Trạng thái:",
+          "field_first_name":"Họ",
+          "field_last_name":"Tên",
+          "field_company":"Công ty",
+          "field_address_line_1":"Địa chỉ khu phố",
+          "field_address_line_2":"Tên toà nhà",
+          "field_city":"Thị trấn / Thành phố ",
+          "field_postal_code":"Mã bưu điện",
+          "field_country_region":"Quốc gia / Khu vực",
+          "field_email":"Email",
+          "field_phone":"Phone",
+          "field_payment_method":"Phương thức thanh toán",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"Ghi chú về đơn hàng",
+          "field_state_county":"Tỉnh/ Thành phố"
+        },
+        "vendor_profile": {
+          "field_image_inside": "Hình ảnh bên trong hiệu thuốc",
+          "field_image_outside": "Hình ảnh bên ngoài hiệu thuốc",
+          "field_locale": "Ngôn ngữ",
+          "field_name": "Tên",
+          "field_permit_classification": "Phân loại giấy phép",
+          "field_founder": "Người sáng lập",
+          "field_stated_in_permit": "Các mục được nêu trong giấy phép",
+          "field_management_pharmacist": "Dược sĩ quản lý",
+          "field_registered_seller_working": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi　(phụ trách kinh doanh)",
+          "field_drug_handled": "Các loại thuốc không kê đơn được xử lý",
+          "field_distinguishing_by_name": "Phân biệt bằng bảng tên, v.v. của người làm việc tại hiệu thuốc này",
+          "field_business_hours": "Giờ làm việc",
+          "field_consultation_hours": "Giờ tư vấn ngoài giờ làm việc",
+          "field_contact_information": "Thông tin liên hệ để được tư vấn và các trường hợp khẩn cấp",
+          "field_current_working": "Dược sĩ đang làm việc (phụ trách)",
+          "field_open_sale_time": "Thời gian mở cửa",
+          "field_time_order_outside": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
+          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể"
+        },
+        "option": {
+          "active": "Hội viên đang hoạt động",
+          "inactive": "Hội viên không hoạt động",
+          "male": "Nam",
+          "female": "Nữ",
+          "yes": "Có",
+          "no": "Không",
+          "registered": "Đã đăng kí",
+          "unregistered": "Chưa đăng kí",
+          "remove_registered": "Đang xoá đăng kí",
+          "insurance_status": {
+            "option1": "Tài liệu đính kèm / tham giia buổi giới thiệu / ①kurofune",
+            "option2": "Tài liệu đính kèm / tham gia buổi giới thiệu /②kurofune ( có thể contact)",
+            "option3": "Tài liệu đính kèm / tham gia buổi giới thiệu /②kurofune ( không thể contact)",
+            "option4": "Bảo hiểm đã hoàn thành",
+            "option5": "Chưa bắt đầu"
+          },
+          "education_status": {
+            "registered": "Đã đăng kí",
+            "unregistered": "Chưa đăng kí"
+          }
+        },
+        "placeholder": {
+          "search": "Tìm kiếm theo tên tài khoản",
+          "select_role": "Vui lòng chọn một vai trò của người dùng.",
+          "select_active_status": "Vui lòng chọn trạng thái hoạt động.",
+          "select_prefecture": "Vui lòng chọn tên tỉnh/ thành phố.",
+          "select_date": "Vui lòng chọn ngày/tháng/năm.",
+          "select_gender": "Vui lòng chọn giới tính.",
+          "select_payment": "Vui lòng chọn tiền gửi vào.",
+          "select_insurance_status": "Vui lòng chọn trạng thái bảo hiểm.",
+          "select_education_status": "Vui lòng chọn trình độ giáo dục tiếng Nhật."
+        }
+      },
+      "error": {
+        "role_required": "Vui lòng chọn một vai trò của người dùng.",
+        "name_required": "Vui lòng nhập tên của bạn.",
+        "email": {
+          "required": "Vui lòng nhập email của bạn.",
+          "type": "Vui lòng nhập email hợp lệ."
+        },
+        "phone": {
+          "required": "Vui lòng nhập số điện thoại của bạn",
+          "pattern": "Vui lòng nhập số điện thoại hợp lệ."
+        },
+        "user_name_required": "Vui lòng nhập tên người dùng của bạn.",
+        "password": {
+          "required": "Vui lòng nhập mật khẩu của bạn.",
+          "min": "Vui lòng nhập mật khẩu có ít nhất 8 ký tự."
+        },
+        "active_required": "Please select active status!",
+        "postal_code": {
+          "required": "Vui lòng nhập mã bưu điện của bạn.",
+          "pattern": "Vui lòng nhập số.",
+          "max_3_number": "Vui lòng chỉ nhập 3 chữ số.",
+          "max_4_number": "Vui lòng chỉ nhập 4 chữ số.",
+          "max_7_number": "Vui lòng chỉ nhập 7 chữ số."
+        },
+        "prefecture_required": "Vui lòng chọn tỉnh/ thành phố.",
+        "city_required": "Vui lòng nhập tên thị trấn / thành phố.",
+        "street_address_required": "Vui lòng nhập địa chỉ khu phố.",
+        "current_password_required": "Vui lòng nhập mật khẩu hiện tại.",
+        "new_password_required": "Vui lòng nhập mật khẩu mới.",
+        "confirm_password_required": "Vui lòng nhập xác nhận mật khẩu.",
+        "not_same_password": "Hai mật khẩu bạn vừa nhập không khớp nhau."
+      }
+    },
+    "crud": {
+      "user": {
+        "create_success": "Tạo mới người dùng thành công",
+        "create_fail": "Tạo mới người dùng thất bại",
+        "update_success": "Cập nhật người dùng thành công",
+        "update_fail": "Cập nhật người dùng thất bại",
+        "delete_success": "Xoá người dùng thành công",
+        "delete_fail": "Xoá người dùng thất bại"
+      }
+    },
+    "product": {
+      "slug_field": "Slug",
+      "vendor_field": "Vendor",
+      "sku_field": "Sku",
+      "status_field": "Status",
+      "stock_status_field": "Stock Status",
+      "price_field": "Price",
+      "category_field": "Category",
+      "tax_field": "Tax",
+      "meta_title_field": "Meta Title",
+      "meta_description_field": "Meta Description",
+      "meta_keyword_field": "Meta Keyword",
+      "product_image_field": "Product Image",
+      "placeholder_seach": "Please enter name product",
+      "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
+      "features_field": "Tính năng sản phẩm",
+      "precautions_field": "Lưu ý khi sử dụng",
+      "efficacy_effect_field": "Công dụng / Hiệu quả",
+      "usage_does_field": "Cách dùng / liều lượng",
+      "active_ingredients_field": "Số lượng thành phần",
+      "additives_field": "Phụ gia",
+      "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
+      "manufacturer_field": "Công ty sản xuất và kinh doanh",
+      "name_field": "Tên gọi chung",
+      "use_manual_field": "Cách sử dụng",
+      "error_message": {
+        "required_message": " Mục này là mục bắt buộc."
+      }
+    },
+    "order": {
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_status": "Status",
+        "field_action": "Action"
+      }
+    },
+    "category": {
+      "slug_field": "Slug",
+      "name_field": "Tên",
+      "type_field": "Type",
+      "parent_category_field": "Parent category",
+      "product_image_field": "Product Image",
+      "placeholder_text": "Please enter text",
+      "placeholder_seach": "Please enter name category",
+      "type": {
+        "option1": "Thuốc OTC hạng nhất",
+        "option2": "Chỉ định thuốc OTC loại thứ hai",
+        "option3": "Thuốc OTC hạng hai"
+      },
+      "error_message": {
+        "error_category_image": "Vui lòng nhập category image"
+      }
+    }
+  }
 }

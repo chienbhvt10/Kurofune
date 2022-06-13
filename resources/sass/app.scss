@@ -1,13 +1,8 @@
-// Fonts
-@font-face {
-  font-family: "Segoe UI";
-  src: url(font/SegoeUI.woff);
-};
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 html {
   text-rendering: optimizeLegibility !important;
@@ -22,12 +17,6 @@ span,
 applet,
 object,
 iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p,
 blockquote,
 pre,
@@ -99,33 +88,42 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-family: 'Segoe UI', sans-serif;
+  // font-family: "Segoe UI", sans-serif;
   font-size: 100%;
   vertical-align: baseline;
-  list-style: none;
   margin-top: 0;
   margin-bottom: 0;
   margin-block-start: 0;
   margin-block-end: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
-
 
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
-  }
+}
 
-  /* Track */
-  ::-webkit-scrollbar-track {
-  background: #E2E2E2;
-  }
+/* Track */
+::-webkit-scrollbar-track {
+  background: #e2e2e2;
+}
 
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-  background: #62A19B;
-  }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #62a19b;
+}
 
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-  background: #62A19B;
-  }
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #62a19b;
+}
+
+.marginUnset{
+  margin: 0;
+}
+.ant-modal-close-x{
+  display: flex !important;
+  align-items: center;
+}

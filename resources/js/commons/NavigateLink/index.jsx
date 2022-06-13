@@ -1,18 +1,35 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { getCurrentLanguage } from "../../helper/localStorage";
+import { isAdmin } from "../../helper/roles";
 import "./navigate-link.scss";
 const NavigateLink = ({ navigateItems, onClick }) => {
+  const lang = getCurrentLanguage();
+  const { t } = useTranslation();
+  const { profile, userInfo } = useSelector((state) => state.authState);
   return (
     <div className="navbar-main-wrapper">
       <ul className="nav navbar-nav">
-        {navigateItems.map((item, index) => (
-          <li className="menu-item" key={index}>
-            <Link className="nav-link" to={item.link} onClick={onClick}>
-              <img className="icon" src={item.imageUrl} />
-              <span>{item.title}</span>
-            </Link>
-          </li>
-        ))}
+        {navigateItems
+          .filter((item) =>
+            isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
+              ? item
+              : !item?.isAdminOnly
+          )
+          .map((item, index) => (
+            <li className="menu-item" key={index}>
+              <NavLink
+                className={`nav-link`}
+                to={`${lang}/${item.link}`}
+                onClick={onClick}
+              >
+                <img className="icon" src={item.imageUrl} />
+                <span>{t(item.title)}</span>
+              </NavLink>
+            </li>
+          ))}
       </ul>
     </div>
   );

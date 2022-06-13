@@ -1,0 +1,30 @@
+#form-infor {
+  .ant-form-item-label {
+    padding: 0px;
+  }
+  .btn-search {
+    border: 1px solid #62a19b;
+    color: white;
+    background: #62a19b;
+    margin-left: 10px;
+    margin-top: 8px;
+    padding: 2px 15px;
+  }
+
+  .btn-save {
+    min-width: 254px;
+    height: 42px;
+    color: white;
+    border: 1px solid #62a19b;
+    background: #62a19b;
+    margin-left: 10px;
+    padding: 2px 15px;
+    opacity: 1;
+    font-size: 16px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+}

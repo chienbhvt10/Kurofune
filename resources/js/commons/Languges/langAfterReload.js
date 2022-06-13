@@ -1,19 +1,25 @@
 import React, { useEffect } from "react";
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from "react-i18next";
+import {
+  getCurrentLanguage,
+  setCurrentLanguage,
+} from "../../helper/localStorage";
 export const LangAfterReload = () => {
   const { t, i18n } = useTranslation();
-  const langUrl = window.location.pathname.slice(0, 4)
-  if(langUrl === '/vi/' || langUrl === '/tl/' || langUrl === '/en/' || langUrl === '/zh/'){
-    localStorage.setItem('lang', window.location.pathname.slice(0, 3));
-    var lang = localStorage.getItem('lang')
-  }else{
-    var lang = '/ja';
+  const langUrl = window.location.pathname.slice(0, 4);
+  if (
+    langUrl === "/vi/" ||
+    langUrl === "/tl/" ||
+    langUrl === "/en/" ||
+    langUrl === "/zh/"
+  ) {
+    setCurrentLanguage(window.location.pathname.slice(0, 3));
+    var lang = getCurrentLanguage();
+  } else {
+    var lang = "/ja";
   }
-  useEffect(() => {
-    i18n.changeLanguage(lang?.slice(1))
-  },[]);
-  return (
-    <> 
-    </>
-  );
+  React.useEffect(() => {
+    i18n.changeLanguage(lang?.slice(1));
+  }, []);
+  return <></>;
 };
