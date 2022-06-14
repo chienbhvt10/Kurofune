@@ -9,11 +9,7 @@ const FormHeader = ({ title, breadcrumb, onCancel, loading, onSubmit }) => {
     <div className="form-header">
       <Breadcrumb breadcrumb={breadcrumb} title={title} />
       <div className="btn-group">
-        <Button
-          htmlType="button"
-          className="header-btn cancel"
-          onClick={onCancel}
-        >
+        <Button type="button" className="header-btn cancel" onClick={onCancel}>
           {t("admins.btn_cancel")}
         </Button>
         <Button

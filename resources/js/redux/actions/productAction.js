@@ -10,7 +10,6 @@ const productActions = {
   deleteProduct: createAction("DELETE_PRODUCT"),
   getProductClient: createAction("GET_PRODUCT_CLIENT"),
   addToCart: createAction("ADD_TO_CART"),
-  resetProductResCRUD: createAction("RESET_RES_CRUD"),
 };
 
 export const getAllProductsAction = createAsyncThunk(
@@ -77,7 +76,5 @@ export const getProductClientAction = createAsyncThunk(
     return res;
   }
 );
-
-export const resetProductResCRUD = productActions.resetProductResCRUD;
 
 export default productActions;

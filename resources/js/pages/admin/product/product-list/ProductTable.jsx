@@ -27,29 +27,23 @@ const ProductTable = ({
       key: "name",
       dataIndex: "name",
       title: "Name",
-      render: (_, record) => {
-        let _lang = lang || "/ja";
-        return (
-          <Link to={`${lang}/admin/product/update/${record.id}`}>
-            {
-              record?.translations?.find((item) => _lang.includes(item.locale))
-                ?.name
-            }
-          </Link>
-        );
-      },
+      render: (_, record) => (
+        <Link to={`${lang}/admin/product/update/${record.id}`}>
+          {record.name}
+        </Link>
+      ),
     },
     {
       key: "sku",
       dataIndex: "sku",
       title: "SKU",
-      render: (_, record) => <span>{record.sku}</span>,
+      render: (_, record) => <span>{record.sku || "-"}</span>,
     },
     {
       key: "stock",
       dataIndex: "stock",
       title: "Stock",
-      render: (_, record) => <span>{record.stock_status}</span>,
+      render: (_, record) => <span>{record.stock}</span>,
     },
     {
       key: "price",
