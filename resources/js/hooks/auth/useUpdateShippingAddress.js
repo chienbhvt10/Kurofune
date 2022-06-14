@@ -25,10 +25,7 @@ const useUpdateShippingAddress = () => {
   React.useEffect(() => {
     if (resUpdateShippingAddress?.error_code === NO_ERROR) {
       setLoadingUpdateShipping(false);
-      NotificationSuccess(
-        t("notification"),
-        resUpdateShippingAddress.error_message
-      );
+      NotificationSuccess(t("notification"), resUpdateShippingAddress.message);
       dispatch(resetAuthResponse());
     }
     if (

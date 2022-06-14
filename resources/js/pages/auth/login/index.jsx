@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Checkbox, Col, Form, Input, Row, Typography } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
 import { Languages } from "../../../commons/Languges";
@@ -13,17 +13,14 @@ import ModalTerm from "../../../components/Modal/ModalTerm";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import { validateAuth } from "../../../helper/validateField";
 import useLogin from "../../../hooks/auth/useLogin";
+import useLogout from "../../../hooks/auth/useLogout";
 import "./style.scss";
-import { resetAuthResponse } from "../../../redux/actions/authAction";
 const { Title } = Typography;
-import { NotificationSuccess } from "../../../commons/Notification";
 export const Login = () => {
   const [show, setShow] = React.useState(true);
   const resLogin = useSelector((state) => state.authState.resLogin);
-  const resLogout = useSelector((state) => state.authState.resLogout);
-  const dispatch = useDispatch();
   const { t } = useTranslation();
-
+  const {} = useLogout();
   const lang = getCurrentLanguage();
   const { loginUser, loadingLogin } = useLogin();
   const [form] = Form.useForm();
@@ -33,14 +30,8 @@ export const Login = () => {
   const initialValues = {
     email: "",
     password: "",
+    remember: false,
   };
-
-  React.useEffect(() => {
-    if (resLogout?.status_code === 200) {
-      NotificationSuccess(t("notification"), resLogout?.message);
-      dispatch(resetAuthResponse());
-    }
-  }, [resLogout, dispatch]);
 
   const onLogin = (values) => {
     loginUser(values);
@@ -134,12 +125,13 @@ export const Login = () => {
                 align="center"
               >
                 <Col>
-                  <Form.Item name="remember" label="" className="remember">
-                    <Checkbox value="checked">
-                      <Typography type="secondary">
-                        {t("login.remember")}
-                      </Typography>
-                    </Checkbox>
+                  <Form.Item
+                    name="remember"
+                    valuePropName="checked"
+                    label=""
+                    className="remember"
+                  >
+                    <Checkbox>{t("login.remember")}</Checkbox>
                   </Form.Item>
                 </Col>
                 <Col>
