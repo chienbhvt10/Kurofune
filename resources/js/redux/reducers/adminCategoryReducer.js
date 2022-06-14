@@ -15,6 +15,11 @@ const initialState = {
   resDeleteCategory: undefined,
   resCreateCategory: undefined,
   resUpdateCategory: undefined,
+  total: undefined,
+  from: undefined,
+  to: undefined,
+  current_page: undefined,
+  last_page: undefined,
 };
 
 const adminCategoryReducers = createReducer(initialState, (builder) => {
@@ -23,15 +28,22 @@ const adminCategoryReducers = createReducer(initialState, (builder) => {
     state.resDeleteCategory = undefined;
     state.resCreateCategory = undefined;
     state.resUpdateCategory = undefined;
+    state.total = actions.payload.data?.total;
+    state.from = actions.payload.data.from;
+    state.to = actions.payload.data.to;
+    state.current_page = actions.payload.data.current_page;
+    state.last_page = actions.payload.data.last_page;
   });
 
-  // Get Category
+
+  // Get Category successs
   builder.addCase(getCategoryAdminAction.fulfilled, (state, actions) => {
     state.adminCategory = actions.payload?.data;
     state.resGetAdminCategory = actions.payload;
     state.resDeleteCategory = undefined;
     state.resCreateCategory = undefined;
     state.resUpdateCategory = undefined;
+    state.isLoading = false
   });
 
   // Create Category

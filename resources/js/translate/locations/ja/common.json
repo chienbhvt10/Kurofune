@@ -391,8 +391,8 @@
           "field_payment_source": "流入元",
           "field_payment": "入金",
           "field_insurance_status": "保険ステータス",
-          "field_insurance_support": "保険開始日",
-          "field_insurance_start_date": "海外送金ステータス",
+          "field_insurance_support": "保険対応",
+          "field_insurance_start_date": "保険開始日",
           "field_overseas_remittance_status": "海外送金ステータス",
           "field_orientation": "オリエンテーション",
           "field_start_date_education": "日本語教育開始日",
@@ -400,6 +400,26 @@
           "field_education_status": "日本語教育ステータス",
           "field_page_registration": "WABISABIマイページ登録",
           "field_company_mail": "企業のメールアドレス"
+        },
+        "order": {
+          "field_date_create":"作成日:",
+          "field_customer":"カスタマー:",
+          "field_action":"操作",
+          "field_status":"ステータス:",
+          "field_first_name":"姓",
+          "field_last_name":"名",
+          "field_company":"企業",
+          "field_address_line_1":"丁目・番地・号",
+          "field_address_line_2":"建物名・部屋番号",
+          "field_city":"市区町村",
+          "field_postal_code":"郵便番号",
+          "field_country_region":"国/地域",
+          "field_email":"メールアドレス",
+          "field_phone":"電話番号",
+          "field_payment_method":"決済方法",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"注文メモ",
+          "field_state_county":"都道府県"
         },
         "vendor_profile": {
           "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
@@ -498,6 +518,16 @@
         "delete_fail": "ユーザの削除に失敗しました。"
       }
     },
+    "order": {
+      "table":{
+        "field_subOrder":"SubOrder",
+        "field_order":"Order",
+        "field_date":"Date",
+        "field_total":"Total",
+        "field_status":"Status",
+        "field_action":"Action"
+      }
+    },
     "product": {
       "slug_field": "Slug",
       "vendor_field": "Vendor",
@@ -545,6 +575,22 @@
       "error_message": {
         "error_category_image": "category image を入力してください。"
       }
+    },
+    "log_chatbot":{
+      "no": "No.",
+      "id": "ID",
+      "btn_export": "CSVダウンロード",
+      "btn_export_ja": "CSVダウンロード (日本語）",
+      "btn_show": "表示",
+      "btn_show_ja": "日本語で表示",
+      "username_id":"ユーザーID",
+      "username":"ユーザー名",
+      "show_history": "チャット履歴",
+      "show_history_ja": "チャット履歴(日本語）",
+      "created_at": "作成日",
+      "dow_history": "ダウンロード ",
+      "dow_history_ja": "ダウンロード(日本語）"
     }
+
   }
 }

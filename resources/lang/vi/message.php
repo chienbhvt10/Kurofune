@@ -85,6 +85,8 @@ return [
         'quantity' => 'Vui lòng kiểm tra thông tin đơn hàng.'
     ],
     'order' => [
-        'no_info' => 'Không có order nào'
+        'no_info' => 'Không có order nào',
+        'deleted' => 'Order deleted',
+        'updated' => 'Order updated',
     ]
 ];

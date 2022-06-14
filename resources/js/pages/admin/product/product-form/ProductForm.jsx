@@ -22,8 +22,8 @@ import { isAdmin } from "../../../../helper/roles";
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
-
-  const { pharmaciesAdmin, getAllPharmaciesAdmin } = usePharmacies();
+  const { profile, userInfo } = useSelector((state) => state.authState);
+  const { pharmacies, getAllPharmacies } = usePharmacies();
   const { categoriesClient, getCategoriesClient } = useCategories();
 
   const [avatarState, setAvatarState] = React.useState({
@@ -90,7 +90,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
 
   React.useEffect(() => {
     getCategoriesClient();
-    getAllPharmaciesAdmin();
+    getAllPharmacies();
   }, [lang]);
 
   const onChangeAvatar = (base64Image) => {
@@ -134,7 +134,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         />
         <div>
           <Row justify="center">
-            {isAdmin && (
+            {(isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)) && (
               <Col
                 lg={12}
                 md={12}
@@ -157,8 +157,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   response={response}
                   error="user_id"
                 >
-                  {pharmaciesAdmin?.map((pharamacy, index) => (
-                    <Select.Option key={index} value={pharamacy.id}>
+                  {pharmacies?.map((pharamacy, index) => (
+                    <Select.Option key={index} value={pharamacy.user_id}>
                       {pharamacy.name}
                     </Select.Option>
                   ))}
@@ -171,6 +171,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.slug_field")}
                 type={<Input />}
                 response={response}
+                error="slug"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -179,6 +180,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.sku_field")}
                 rules={[]}
                 response={response}
+                error="sku"
                 type={<Input />}
               />
             </Col>
@@ -203,7 +205,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <SelectField
                 field="stock_status"
                 label={t("admins.product.stock_status_field")}
-                placeholder="Please select Category"
+                placeholder="Please select Stock"
                 options={productFormOptions.stock_status}
                 rules={[
                   {
@@ -230,7 +232,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <SelectField
                 field="cat_id"
                 label={t("admins.product.category_field")}
-                placeholder="Please select active status"
+                placeholder="Please select Category"
                 rules={[
                   {
                     required: true,

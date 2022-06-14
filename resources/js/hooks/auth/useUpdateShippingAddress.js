@@ -5,6 +5,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import {
   resetAuthResponse,
   updateShippingAddressAction,
@@ -22,17 +23,23 @@ const useUpdateShippingAddress = () => {
   };
 
   React.useEffect(() => {
-    if (resUpdateShippingAddress?.status_code === 200) {
+    if (resUpdateShippingAddress?.error_code === NO_ERROR) {
       setLoadingUpdateShipping(false);
-      NotificationSuccess(t("notification"), resUpdateShippingAddress.message);
+      NotificationSuccess(
+        t("notification"),
+        resUpdateShippingAddress.error_message
+      );
       dispatch(resetAuthResponse());
     }
     if (
       resUpdateShippingAddress &&
-      resUpdateShippingAddress.status_code !== 200
+      resUpdateShippingAddress.error_code !== ERROR
     ) {
       setLoadingUpdateShipping(false);
-      NotificationError(t("notification"), resUpdateShippingAddress.message);
+      NotificationError(
+        t("notification"),
+        resUpdateShippingAddress.error_message
+      );
     }
   }, [resUpdateShippingAddress]);
   return {

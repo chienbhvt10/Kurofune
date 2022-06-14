@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Traits\RespondsStatusTrait;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Validator;
@@ -13,6 +14,7 @@ use Spatie\Permission\PermissionRegistrar;
 
 class RoleController extends Controller
 {
+    use RespondsStatusTrait;
 
     public function __construct()
     {
@@ -29,15 +31,9 @@ class RoleController extends Controller
     {
         try {
             $roles = Role::all();
-            return response()->json([
-                'status_code' => 200,
-                'data' => $roles
-            ]);
+            return $this->response_data_success($roles);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -55,23 +51,13 @@ class RoleController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->response_validate($errors);
             }
 
             $role = Role::findOrCreate($request->role_name, 'api');
-            return response()->json([
-                'status_code' => 200,
-                'message' => 'message.role.created',
-                'data' => $role
-            ]);
+            return $this->response_message_data_success(__('message.role.created'), $role);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -86,15 +72,9 @@ class RoleController extends Controller
         try {
             $id = (int)$id;
             $role = Role::findById($id, 'api');
-            return response()->json([
-                'status_code' => 200,
-                'data' => $role
-            ]);
+            return $this->response_data_success($role);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -113,25 +93,15 @@ class RoleController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => 422,
-                    'message' => $errors
-                ], 422);
+                return $this->response_validate($errors);
             }
 
             $role = Role::findById($id, 'api');
             $role->name = $request->role_name;
             $role->save();
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.role.updated'),
-                'data' => $role
-            ]);
+            return $this->response_message_data_success(__('message.role.updated'), $role);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -146,15 +116,9 @@ class RoleController extends Controller
         try {
             $role = Role::findById($id, 'api');
             $role->delete();
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.role.deleted')
-            ]);
+            return $this->response_message_success(__('message.role.deleted'));
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -164,15 +128,9 @@ class RoleController extends Controller
             $role = Role::findById($id, 'api');
 
             $permission = $role->permissions();
-            return response()->json([
-                'status_code' => Response::HTTP_OK,
-                'data' => ['role' => $role, 'permissions' => $permission->getResults()]
-            ]);
+            return $this->response_data_success(['role' => $role, 'permissions' => $permission->getResults()]);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 
@@ -187,25 +145,15 @@ class RoleController extends Controller
             ]);
             if ($validator->fails()) {
                 $errors = $validator->errors();
-                return response()->json([
-                    'status_code' => Response::HTTP_UNPROCESSABLE_ENTITY,
-                    'message' => $errors
-                ], Response::HTTP_UNPROCESSABLE_ENTITY);
+                return $this->response_validate($errors);
             }
             $role = Role::findById($request->role_id, 'api');
             $getPermissions = $role->permissions()->getResults()->pluck('name');
             $role->revokePermissionTo($getPermissions);
             $role->syncPermissions($request->permissions);
-            return response()->json([
-                'status_code' => 200,
-                'message' => __('message.permission.updated'),
-                'data' => ['role' => $role]
-            ]);
+            return $this->response_message_data_success(__('message.permission.updated'), ['role' => $role]);
         }catch (\Exception $error){
-            return response()->json([
-                'status_code' => Response::HTTP_INTERNAL_SERVER_ERROR,
-                'message' => $error->getMessage()
-            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+            return $this->response_exception();
         }
     }
 }

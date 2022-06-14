@@ -12,8 +12,9 @@ import { useTranslation } from "react-i18next";
 const ProductList = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
-  const { getAllProducts, products, pagination } = useProducts();
-  const { deleteProduct, resDeleteProduct } = useDeleteProduct();
+  const { getAllProducts, products, pagination, loadingListProduct } =
+    useProducts();
+  const { deleteProduct, loadingDeleteProduct } = useDeleteProduct();
   const { t } = useTranslation();
 
   const onDelete = (row) => async () => {
@@ -33,17 +34,8 @@ const ProductList = () => {
   };
 
   React.useEffect(() => {
-    getAllProducts();
+    getAllProducts({ page: pagination.current_page });
   }, [lang]);
-
-  React.useEffect(() => {
-    if (resDeleteProduct?.error_code === "NO_ERROR") {
-      getAllProducts({ page: 1 });
-      NotificationSuccess(t("notification"), resDeleteProduct.message);
-    } else {
-      return;
-    }
-  }, [resDeleteProduct]);
 
   return (
     <div className="product-container">
@@ -64,6 +56,8 @@ const ProductList = () => {
         onEdit={onEdit}
         onTableChange={onTableChange}
         pagination={pagination}
+        loading={loadingListProduct}
+        loadingDeleteProduct={loadingDeleteProduct}
       />
     </div>
   );

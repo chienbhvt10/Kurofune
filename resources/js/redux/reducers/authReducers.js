@@ -1,4 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
+import { NO_ERROR } from "../../constants/error";
 import {
   changePasswordAction,
   forgotPassword,
@@ -31,12 +32,12 @@ const initialState = {
 
 const authReducers = createReducer(initialState, (builder) => {
   builder.addCase(login.fulfilled, (state, actions) => {
-    if (actions.payload.status_code === 200) {
+    if (actions.payload.error_code === NO_ERROR) {
       return {
         ...state,
         resLogin: actions.payload,
-        userInfo: actions.payload.user,
-        token: actions.payload.access_token,
+        userInfo: actions.payload.data.user,
+        token: actions.payload.data.access_token,
         isLogin: true,
       };
     } else {

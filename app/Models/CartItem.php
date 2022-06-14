@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\OrderByCreatedAtScope;
 
 class CartItem extends Model
 {
@@ -29,6 +30,11 @@ class CartItem extends Model
     ];
 
     public $timestamps = true;
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
+    }
 
     /*
     |--------------------------------------------------------------------------

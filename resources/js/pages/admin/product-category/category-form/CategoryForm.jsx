@@ -15,6 +15,7 @@ import {
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
+import { TYPE_FORM_UPDATE } from "../../../../constants";
 const CategoryForm = ({
   item,
   typeForm,
@@ -64,7 +65,11 @@ const CategoryForm = ({
       },
       category_image: avatarState.base64Avatar,
     };
-    setErrorMessImage(!avatarState.base64Avatar);
+    if (typeForm === TYPE_FORM_UPDATE) {
+      setErrorMessImage('');
+    }else{
+      setErrorMessImage(!avatarState.base64Avatar);
+    }
     onSave(submitInput);
   };
 

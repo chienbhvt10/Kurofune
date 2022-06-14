@@ -12,7 +12,8 @@ const AddProduct = () => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const { getAllProducts, products } = useProducts();
-  const { createNewProduct, resCreateProduct } = useCreateProduct();
+  const { createNewProduct, resCreateProduct, loadingCreateProduct } =
+    useCreateProduct();
   const navigate = useNavigate();
   const onCancel = () => {
     navigate(`${lang}/admin/product-list`);
@@ -27,13 +28,6 @@ const AddProduct = () => {
     createNewProduct(submitData);
   };
 
-  React.useEffect(() => {
-    if (resCreateProduct?.error_code === "NO_ERROR") {
-      NotificationSuccess(t("notification"), resCreateProduct.message);
-      navigate(`${lang}/admin/product-list`);
-      getAllProducts();
-    }
-  }, [resCreateProduct]);
   return (
     <div id="add-product-page">
       <ProductForm
@@ -42,6 +36,7 @@ const AddProduct = () => {
         onCancel={onCancel}
         onSave={onSave}
         response={resCreateProduct}
+        loading={loadingCreateProduct}
       />
     </div>
   );

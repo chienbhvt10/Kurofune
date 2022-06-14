@@ -6,6 +6,7 @@ import { NotificationError } from "../../commons/Notification";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import { login, resetAuthResponse } from "../../redux/actions/authAction";
 import { USER_ROLES } from "../../constants";
+import { ERROR, NO_ERROR } from "../../constants/error";
 const useLogin = () => {
   const { resLogin } = useSelector((state) => state.authState);
   const [loadingLogin, setLoadingLogin] = useState(false);
@@ -19,17 +20,19 @@ const useLogin = () => {
     dispatch(login(values));
   };
   React.useEffect(() => {
-    if (resLogin?.status_code === 200) {
+    if (resLogin?.error_code === NO_ERROR) {
       setLoadingLogin(false);
-      if (resLogin?.user.roles.name === USER_ROLES.ADMIN)
+      if (resLogin?.data?.user?.roles?.name === USER_ROLES.ADMIN) {
         navigate(`${lang}/admin`);
-      else if (resLogin?.user.roles.name === USER_ROLES.VENDOR)
+      } else if (resLogin?.data?.user?.roles?.name === USER_ROLES.VENDOR) {
         navigate(`${lang}/admin/product-list`);
-      else navigate(`${lang}/media`);
+      } else {
+        navigate(`${lang}/media`);
+      }
     }
-    if (resLogin && resLogin.status_code !== 200) {
+    if (resLogin && resLogin.error_code === ERROR) {
       setLoadingLogin(false);
-      NotificationError(t("notification"), resLogin.message);
+      NotificationError(t("notification"), resLogin.error_message);
     }
   }, [resLogin]);
   return {

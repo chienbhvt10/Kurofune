@@ -11,7 +11,11 @@ import {
   SHIPPING_ADDRESS_FORM,
   TYPE_FORM_CREATE,
 } from "../../../../constants";
-import { isRoleMember, isRolePlan } from "../../../../helper/roles";
+import {
+  isRoleMember,
+  isRolePlan,
+  isRoleVendor,
+} from "../../../../helper/roles";
 import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
@@ -73,26 +77,36 @@ const Phase2UserForm = ({
       ) : (
         <></>
       )}
-      <Tabs.TabPane tab={t("admins.user.switch_tab.billing_address")} key="3">
-        <BillingShipForm
-          className="billing-ship-form"
-          typeForm={BILLING_ADDRESS_FORM}
-          form={billingAddressForm}
-          response={
-            typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
-          }
-        />
-      </Tabs.TabPane>
-      <Tabs.TabPane tab={t("admins.user.switch_tab.shipping_address")} key="4">
-        <BillingShipForm
-          className="billing-ship-form"
-          typeForm={SHIPPING_ADDRESS_FORM}
-          form={shippingAddressForm}
-          response={
-            typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
-          }
-        />
-      </Tabs.TabPane>
+      {!isRoleVendor(role) && (
+        <>
+          <Tabs.TabPane
+            tab={t("admins.user.switch_tab.billing_address")}
+            key="3"
+          >
+            <BillingShipForm
+              className="billing-ship-form"
+              typeForm={BILLING_ADDRESS_FORM}
+              form={billingAddressForm}
+              response={
+                typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+              }
+            />
+          </Tabs.TabPane>
+          <Tabs.TabPane
+            tab={t("admins.user.switch_tab.shipping_address")}
+            key="4"
+          >
+            <BillingShipForm
+              className="billing-ship-form"
+              typeForm={SHIPPING_ADDRESS_FORM}
+              form={shippingAddressForm}
+              response={
+                typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+              }
+            />
+          </Tabs.TabPane>
+        </>
+      )}
     </Tabs>
   );
 };

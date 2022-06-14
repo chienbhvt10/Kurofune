@@ -10,10 +10,11 @@ import { useTranslation } from "react-i18next";
 
 const AddCategory = () => {
   const lang = localStorage.getItem("lang");
+  const { t } = useTranslation();
+
   const navigate = useNavigate();
   const { getAdminCategories, adminCategories } = useAdminCategories();
   const { createAdminCategory, resCreateCategory } = useCreateAdminCategory();
-  const { t } = useTranslation();
   const onCancel = () => {
     navigate(`${lang}/admin/category-list`);
   };

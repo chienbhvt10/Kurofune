@@ -402,6 +402,26 @@
           "field_page_registration": "Wabisabi My Page Registration",
           "field_company_mail": "Company representative mail"
         },
+        "order": {
+          "field_date_create":"Created date:",
+          "field_customer":"Customer:",
+          "field_action":"Action",
+          "field_status":"Status:",
+          "field_first_name":"First Name",
+          "field_last_name":"Last Name",
+          "field_company":"Company",
+          "field_address_line_1":"Address Line 1",
+          "field_address_line_2":"Address Line 2",
+          "field_city":"City",
+          "field_postal_code":"Postal code/zip",
+          "field_country_region":"Country/Region",
+          "field_email":"Email",
+          "field_phone":"Phone",
+          "field_payment_method":"Payment Method",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"Customer Provided Note",
+          "field_state_county":"State/County"
+        },
         "vendor_profile": {
           "field_image_inside": "Image inside",
           "field_image_outside": "Image outside",
@@ -411,16 +431,16 @@
           "field_founder": "Founder",
           "field_stated_in_permit": "Items to be stated in the permit",
           "field_management_pharmacist": "Management pharmacist",
-          "field_registered_seller_working": "Registered Seller Working",
-          "field_drug_handled": "Drugs Handled",
-          "field_distinguishing_by_name": "Distinguishing by name",
+          "field_registered_seller_working": "Registered seller working at our pharmacy (business in charge)",
+          "field_drug_handled": "Types of over-the-counter drugs handled",
+          "field_distinguishing_by_name": "Distinguishing by name tag etc. of the person who works at this pharmacy",
           "field_business_hours": "Business Hours",
-          "field_consultation_hours": "Consultation Hours",
-          "field_contact_information": "Contact Information",
-          "field_current_working": "Currently Working",
+          "field_consultation_hours": "Consultation hours outside business hours",
+          "field_contact_information": "Contact information for consultation and emergencies",
+          "field_current_working": "Currently working pharmacist(in charge)",
           "field_open_sale_time": "Open Sale Time",
-          "field_time_order_outside": "Time Order Outside",
-          "field_expiration_date_of_drug": "Expiration Date Of Drug"
+          "field_time_order_outside": "Time to accept drug orders outside business hours",
+          "field_expiration_date_of_drug": "Expiration date of drugs for specific sale"
         },
         "option": {
           "active": "User active",
@@ -459,6 +479,11 @@
       "error": {
         "role_required": "Please select a role!",
         "name_required": "Please input your name!",
+        "first_name_required": "Please input your first name!",
+        "last_name_required": "Please input your last name!",
+        "company_required": "Please input your company!",
+        "country_region_required": "Please input your Country/Region!",
+        "state_county_required": "Please input your State/Country!",
         "email": {
           "required": "Please input your email!",
           "type": "Please input valid email!"
@@ -487,6 +512,16 @@
         "new_password_required": "Please input new password!",
         "confirm_password_required": "Please input password confirmation!",
         "not_same_password": "The two passwords that you entered do not match!"
+      }
+    },
+    "order": {
+      "table":{
+        "field_subOrder":"SubOrder",
+        "field_order":"Order",
+        "field_date":"Date",
+        "field_total":"Total",
+        "field_action":"Action",
+        "field_status":"Status"
       }
     },
     "product": {
@@ -546,6 +581,21 @@
       "error_message": {
         "error_category_image": "The category image field is required."
       }
+    },
+    "log_chatbot":{
+      "no": "No.",
+      "id": "ID",
+      "btn_export": "Download CSV",
+      "btn_export_ja": "Download CSV (Japanese)",
+      "btn_show": "Display",
+      "btn_show_ja": "Display in Japanese",
+      "username_id":"ID user",
+      "username":"Username",
+      "show_history": "Chat history",
+      "show_history_ja": "Chat history (Japanese)",
+      "created_at": "Created date",
+      "dow_history": "Download ",
+      "dow_history_ja": "Download (Japanese)"
     }
   }
 }

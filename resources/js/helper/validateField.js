@@ -56,7 +56,27 @@ export const validateUser = {
         message: "admins.user.error.phone.pattern",
       },
     ],
-    email: [{ type: "email", message: "admins.user.error.email.type" }],
+    email: [
+      {
+        type: "email",
+        message: "admins.user.error.email.type",
+      },
+    ],
+    first_name: [
+      { required: true, message: "admins.user.error.first_name_required" },
+    ],
+    last_name: [
+      { required: true, message: "admins.user.error.last_name_required" },
+    ],
+    company: [
+      { required: true, message: "admins.user.error.company_required" },
+    ],
+    country_region: [
+      { required: true, message: "admins.user.error.country_region_required" },
+    ],
+    state_county: [
+      { required: true, message: "admins.user.error.state_county_required" },
+    ],
   },
   form_info: {
     full_name: [{ required: true, message: "admins.user.error.name_required" }],

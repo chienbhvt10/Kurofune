@@ -4,6 +4,12 @@ import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "../../../../commons/TableRowAction";
+import {
+  ACTIVE,
+  ACTIVE_TEXT,
+  IN_ACTIVE,
+  IN_ACTIVE_TEXT,
+} from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 export const UserTable = ({
   items,
@@ -65,6 +71,21 @@ export const UserTable = ({
       },
       render: (_, record) => {
         return <span>{record?.roles[0]?.name}</span>;
+      },
+    },
+    {
+      key: "active",
+      dataIndex: "active",
+      title: t("admins.user.form.field_active"),
+      headerStyle: {
+        width: 150,
+      },
+      render: (_, record) => {
+        return (
+          <span>
+            {record?.active === ACTIVE ? t(ACTIVE_TEXT) : t(IN_ACTIVE_TEXT)}
+          </span>
+        );
       },
     },
     {

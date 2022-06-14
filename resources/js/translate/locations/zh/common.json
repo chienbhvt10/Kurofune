@@ -401,6 +401,26 @@
           "field_page_registration": "Wabisabi我的页面注册",
           "field_company_mail": "公司邮件"
         },
+        "order": {
+          "field_date_create":"创建日期:",
+          "field_customer":"顾客:",
+          "field_action":"手术",
+          "field_status":"地位:",
+          "field_first_name":"姓",
+          "field_last_name":"名",
+          "field_company":"公司",
+          "field_address_line_1":"丁目/地址/号码",
+          "field_address_line_2":"楼名、房间号",
+          "field_city":"直辖市",
+          "field_postal_code":"邮编",
+          "field_country_region":"国家/地区",
+          "field_email":"电子邮件",
+          "field_phone":"电话",
+          "field_payment_method":"付款方式",
+          "field_transaction_id":"Transaction Id",
+          "field_customer_provided_note":"订单备忘录",
+          "field_state_county":"省/市"
+        },
         "vendor_profile": {
           "field_image_inside": "里面的图片",
           "field_image_outside": "外部图像",
@@ -512,7 +532,6 @@
       "meta_keyword": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
-
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
       "features_field": "Features",
@@ -524,9 +543,18 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
-
       "error_message": {
         "required_message": "这是必填栏。"
+      }
+    },
+    "order": {
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_status": "Status",
+        "field_action": "Action"
       }
     },
     "category": {
@@ -545,6 +573,21 @@
       "error_message": {
         "error_category_image": "category image 不能留空。"
       }
+    },
+    "log_chatbot":{
+      "no": "",
+      "id": "",
+      "btn_export": "下载 CSV",
+      "btn_export_ja": "下载 CSV（日语）",
+      "btn_show": "展示",
+      "btn_show_ja": "日语显示",
+      "username_id":"身份证用户",
+      "username":"用户名",
+      "show_history": "聊天记录",
+      "show_history_ja": "聊天记录（日语）",
+      "created_at": "创建日期",
+      "dow_history": "下载 ",
+      "dow_history_ja": "下载（日语）"
     }
   }
 }

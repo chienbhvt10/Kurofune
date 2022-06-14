@@ -30,7 +30,11 @@ const CategoryList = () => {
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
-    getAllUsers({ page: current, per_page: per_page });
+    getAdminCategories({ page: current, per_page: per_page });
+  };
+
+  const onSearch = (values) => {
+    getAdminCategories({ page: pagination.current_page, name: values.name });
   };
 
   React.useEffect(() => {
@@ -40,20 +44,16 @@ const CategoryList = () => {
   }, [adminCategories]);
 
   React.useEffect(() => {
-    getAdminCategories();
-  }, [lang]);
-
-  React.useEffect(() => {
     if (resDeleteCategory?.error_code === "NO_ERROR") {
       getAdminCategories();
       NotificationSuccess(t("notification"), resDeleteCategory.message);
     }
-    return () => {};
+    return () => { };
   }, [resDeleteCategory]);
 
   React.useEffect(() => {
     getAdminCategories();
-  }, [resCreateCategory]);
+  }, []);
 
   return (
     <div className="category-container">
@@ -64,7 +64,10 @@ const CategoryList = () => {
           { name: "Category List", routerLink: "/category-list" },
         ]}
         title="Product Category"
+        searchField="name"
+        onSearch={onSearch}
         searchPlaceHolder={t("admins.category.placeholder_seach")}
+
       />
       <CategoryTable
         items={adminCategories}

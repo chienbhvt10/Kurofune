@@ -57,91 +57,103 @@ class LogQuestionController extends Controller
             "お届け先電話番号",
             "お届け先メールアドレス",
         ];
+        $headers = array(
+            "Content-Encoding" => "sjis-win",
+            "Content-Disposition" => "attachment; filename=$file_name",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
 
-        $results = [];
         $response = $this->getDataOrder($orders);
-
-        if (isset($export) && ($export == 'all') && (!isset($order_id))) {
-            foreach ($response as $item) {
-                foreach ($item['order_products'] as $prod) {
-                    $result = [
-                        $item['name'],
-                        $item['user_email'],
-                        $prod['name'],
-                        $item['order_number'],
-                        $prod['quantity'],
-                        $prod['total'],
-                        $prod['anket_1'],
-                        $prod['anket_2'],
-                        $prod['anket_3'],
-                        $prod['anket_4'],
-                        $prod['anket_5'],
-                        $prod['anket_6'],
-                        $prod['anket_8'],
-                        $item['billing_full_name'],
-                        $item['billing_postal_code'],
-                        $item['billing_city'],
-                        $item['billing_prefecture'],
-                        $item['billing_street_address'],
-                        $item['billing_building'],
-                        $item['billing_phone'],
-                        $item['billing_email'],
-                        $item['shipping_full_name'],
-                        $item['shipping_postal_code'],
-                        $item['shipping_city'],
-                        $item['shipping_prefecture'],
-                        $item['shipping_street_address'],
-                        $item['shipping_building'],
-                        $item['shipping_phone'],
-                        $item['shipping_email'],
-                    ];
-                    array_push($results, $result);
-                }
-            }
-        } else {
-            if (isset($order_id)) {
+        $callback = function () use ($response, $csv_header, $export, $order_id) {
+            $file = fopen('php://output', 'w');
+            fputs($file, "\xEF\xBB\xBF");
+            fputcsv($file, $csv_header);
+            if (isset($export) && ($export == 'all') && (!isset($order_id))) {
                 foreach ($response as $item) {
-                    if ($item['id'] == $order_id) {
-                        $single_order = $item;
-                        foreach ($single_order['order_products'] as $prod) {
-                            $result = [
-                                $item['name'],
-                                $item['user_email'],
-                                $prod['name'],
-                                $item['order_number'],
-                                $prod['quantity'],
-                                $prod['total'],
-                                $prod['anket_1'],
-                                $prod['anket_2'],
-                                $prod['anket_3'],
-                                $prod['anket_4'],
-                                $prod['anket_5'],
-                                $prod['anket_6'],
-                                $prod['anket_8'],
-                                $item['billing_full_name'],
-                                $item['billing_postal_code'],
-                                $item['billing_city'],
-                                $item['billing_prefecture'],
-                                $item['billing_street_address'],
-                                $item['billing_building'],
-                                $item['billing_phone'],
-                                $item['billing_email'],
-                                $item['shipping_full_name'],
-                                $item['shipping_postal_code'],
-                                $item['shipping_city'],
-                                $item['shipping_prefecture'],
-                                $item['shipping_street_address'],
-                                $item['shipping_building'],
-                                $item['shipping_phone'],
-                                $item['shipping_email'],
-                            ];
-                            array_push($results, $result);
-                        }
+                    foreach ($item['order_products'] as $prod) {
+                        $result = [
+                            $item['name'],
+                            $item['user_email'],
+                            $prod['name'],
+                            $item['order_number'],
+                            $prod['quantity'],
+                            $prod['total'],
+                            $prod['anket_1'],
+                            $prod['anket_2'],
+                            $prod['anket_3'],
+                            $prod['anket_4'],
+                            $prod['anket_5'],
+                            $prod['anket_6'],
+                            $prod['anket_8'],
+                            $item['billing_full_name'],
+                            $item['billing_postal_code'],
+                            $item['billing_city'],
+                            $item['billing_prefecture'],
+                            $item['billing_street_address'],
+                            $item['billing_building'],
+                            $item['billing_phone'],
+                            $item['billing_email'],
+                            $item['shipping_full_name'],
+                            $item['shipping_postal_code'],
+                            $item['shipping_city'],
+                            $item['shipping_prefecture'],
+                            $item['shipping_street_address'],
+                            $item['shipping_building'],
+                            $item['shipping_phone'],
+                            $item['shipping_email'],
+                        ];
+                        fputcsv($file, $result, ',', '"');
                     }
                 }
+                fclose($file);
+            } else {
+                if (isset($order_id)) {
+                    foreach ($response as $item) {
+                        if ($item['id'] == $order_id) {
+                            $single_order = $item;
+                            foreach ($single_order['order_products'] as $prod) {
+                                $result = [
+                                    $item['name'],
+                                    $item['user_email'],
+                                    $prod['name'],
+                                    $item['order_number'],
+                                    $prod['quantity'],
+                                    $prod['total'],
+                                    $prod['anket_1'],
+                                    $prod['anket_2'],
+                                    $prod['anket_3'],
+                                    $prod['anket_4'],
+                                    $prod['anket_5'],
+                                    $prod['anket_6'],
+                                    $prod['anket_8'],
+                                    $item['billing_full_name'],
+                                    $item['billing_postal_code'],
+                                    $item['billing_city'],
+                                    $item['billing_prefecture'],
+                                    $item['billing_street_address'],
+                                    $item['billing_building'],
+                                    $item['billing_phone'],
+                                    $item['billing_email'],
+                                    $item['shipping_full_name'],
+                                    $item['shipping_postal_code'],
+                                    $item['shipping_city'],
+                                    $item['shipping_prefecture'],
+                                    $item['shipping_street_address'],
+                                    $item['shipping_building'],
+                                    $item['shipping_phone'],
+                                    $item['shipping_email'],
+                                ];
+                                fputcsv($file, $result, ',', '"');
+                            }
+                        }
+                    }
+                    fclose($file);
+                }
             }
-        }
-        return $this->exportCsv($file_name, $csv_header, $results);
+        };
+        return response()->stream($callback, 200, $headers);
     }
 
     public function getDataOrder($orders)
@@ -197,19 +209,5 @@ class LogQuestionController extends Controller
         }
 
         return $response;
-    }
-
-    protected function exportCsv($file_name, $csv_header, $results){
-        header('Content-Encoding: UTF-8');
-        header("Content-Disposition: attachment; filename=\"$file_name\"");
-        header("Content-Type: text/csv;charset=UTF-8");
-        $af = fopen( 'php://output', 'w' );
-        fprintf($af, chr(0xEF) . chr(0xBB) . chr(0xBF));
-        fputcsv($af, $csv_header, ',', '"');
-        foreach ($results as $item) {
-            fputcsv($af, $item, ',', '"');
-        }
-        fclose($af);
-        exit();
     }
 }
