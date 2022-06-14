@@ -1,5 +1,5 @@
 import { Col, Form, Input, Row } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -12,9 +12,11 @@ import {
   ROLE_LIGHT_PLAN,
 } from "../../../../../constants/index.js";
 const PlanProfileForm = ({ form, className, role }) => {
-  const { t } = useTranslation();
 
+  const { t } = useTranslation();
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
 
   React.useEffect(() => {
     if (role === ROLE_FULL_SUPPORT_PLAN) {
@@ -34,6 +36,7 @@ const PlanProfileForm = ({ form, className, role }) => {
       });
     }
   }, [role]);
+
   return (
     <div className={`common-profile-form ${className}`}>
       <Form name="plan-profile-form" form={form}>
@@ -239,6 +242,10 @@ const PlanProfileForm = ({ form, className, role }) => {
                   wrapperCol={{ span: 22 }}
                   locale={{ lang: { locale: "vi_VN" } }}
                   response={resCreateUser}
+                  disabledDate={(current) => {
+                    return current && current.valueOf() > endDate;
+                  }}
+                  onChange={(v) => setStartDate(v)}
                 />
               </Col>
               <Col span={12}>
@@ -250,6 +257,10 @@ const PlanProfileForm = ({ form, className, role }) => {
                   wrapperCol={{ span: 22 }}
                   locale={{ lang: { locale: "vi_VN" } }}
                   response={resCreateUser}
+                  disabledDate={(current) => {
+                    return current && current.valueOf() < startDate;
+                  }}
+                  onChange={(v) => setEndDate(v)}
                 />
               </Col>
             </>
