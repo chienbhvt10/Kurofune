@@ -3,6 +3,8 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
+import { CATEGORY_OPTIONS } from "../../../../commons/data";
+
 const CategoryTable = ({
   items,
   onDelete,
@@ -21,7 +23,15 @@ const CategoryTable = ({
       headerStyle: {
         width: 50,
       },
-      title: <img className="img-head" src="/images/image.png" alt="" width={20} height={20} />,
+      title: (
+        <img
+          className="img-head"
+          src="/images/image.png"
+          alt=""
+          width={20}
+          height={20}
+        />
+      ),
       render: (_, record) => (
         <Link to="#">
           <img src={record.category_image} alt="" width={40} height={40} />
@@ -31,30 +41,45 @@ const CategoryTable = ({
     {
       key: "name",
       dataIndex: "name",
-      title: <span className='title-header-category'>{t("admins.category.name_field")}</span>,
-      render: (_, record) => {
-        let _lang = lang || '/ja'
-        return (
-          <Link
-            to={`${lang}/admin/category/update/${record.id}`}
-            className="text-decoration-none d-flex"
-          >
-            {record.translations.find((item) => _lang.includes(item.locale))?.name}
-          </Link>
-        )
-      },
+      title: (
+        <span className="title-header-category">
+          {t("admins.category.name_field")}
+        </span>
+      ),
+      render: (_, record) => (
+        <Link
+          to={`${lang}/admin/category/update/${record.id}`}
+          className="text-decoration-none d-flex"
+        >
+          {record.name || record.translations[0].name}
+        </Link>
+      ),
     },
     {
       key: "slug",
       dataIndex: "slug",
-      title: <span className='title-header-category'>{t("admins.category.slug_field")}</span>,
+      title: (
+        <span className="title-header-category">
+          {t("admins.category.slug_field")}
+        </span>
+      ),
       render: (_, record) => <span>{record.slug}</span>,
     },
     {
       key: "type",
       dataIndex: "type",
-      title: <div className='title-header-category'>Type</div>,
-      render: (_, record) => <span>{record.type}</span>,
+      title: <div className="title-header-category">Type</div>,
+      render: (_, record) => (
+        <span>
+          {t(
+            CATEGORY_OPTIONS.CATEGORY_TYPES.find((type) => {
+              if (type.value === record.type) {
+                return t(type.label_translate);
+              }
+            })?.label_translate
+          )}
+        </span>
+      ),
     },
     {
       key: "tool",

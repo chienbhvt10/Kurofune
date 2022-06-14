@@ -66,8 +66,8 @@ const CategoryForm = ({
       category_image: avatarState.base64Avatar,
     };
     if (typeForm === TYPE_FORM_UPDATE) {
-      setErrorMessImage('');
-    }else{
+      setErrorMessImage("");
+    } else {
       setErrorMessImage(!avatarState.base64Avatar);
     }
     onSave(submitInput);
@@ -120,16 +120,6 @@ const CategoryForm = ({
     setAvatarState({ avatarUrl: item?.category_image || "" });
   }, [item]);
 
-  React.useEffect(() => {
-    if (!adminCategories) {
-      getAdminCategories();
-    }
-  }, [adminCategories]);
-
-  React.useEffect(() => {
-    getAdminCategories();
-  }, [lang]);
-
   return (
     <div id="category-form">
       <Form
@@ -169,8 +159,7 @@ const CategoryForm = ({
           <Row className="mb-30">
             <Col span={12} className="input-field-space">
               <Form.Item
-                field=" product_image"
-                className="required"
+                field="product_image"
                 label={t("admins.category.product_image_field")}
                 required={true}
               >
