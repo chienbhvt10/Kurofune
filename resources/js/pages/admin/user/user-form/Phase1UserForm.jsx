@@ -78,7 +78,6 @@ export const UserForm = ({
     });
   };
   const getDepend = () => document.querySelector("#role-select");
-
   return (
     <div className="user-form">
       <Form
