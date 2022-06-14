@@ -1,19 +1,19 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { NotificationSuccess } from "../../../../commons/Notification";
 import { TableHeader } from "../../../../commons/TableHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useProducts from "../../../../hooks/product/useProducts.js";
 import useDeleteProduct from "./../../../../hooks/product/useDeleteProduct";
 import "./product.scss";
 import ProductTable from "./ProductTable";
-import { getCurrentLanguage } from "../../../../helper/localStorage";
-import { useTranslation } from "react-i18next";
 
 const ProductList = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
-  const { getAllProducts, products, pagination } = useProducts();
-  const { deleteProduct, resDeleteProduct } = useDeleteProduct();
+  const { getAllProducts, products, pagination, loadingListProduct } =
+    useProducts();
+  const { deleteProduct, loadingDeleteProduct } = useDeleteProduct();
   const { t } = useTranslation();
 
   const onDelete = (row) => async () => {
@@ -33,17 +33,8 @@ const ProductList = () => {
   };
 
   React.useEffect(() => {
-    getAllProducts();
-  }, [lang]);
-
-  React.useEffect(() => {
-    if (resDeleteProduct?.error_code === "NO_ERROR") {
-      getAllProducts({ page: 1 });
-      NotificationSuccess(t("notification"), resDeleteProduct.message);
-    } else {
-      return;
-    }
-  }, [resDeleteProduct]);
+    getAllProducts({ page: pagination.current_page });
+  }, []);
 
   return (
     <div className="product-container">
@@ -57,7 +48,6 @@ const ProductList = () => {
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.product.placeholder_seach")}
-        searchField={'name'}
       />
       <ProductTable
         items={products}
@@ -65,6 +55,8 @@ const ProductList = () => {
         onEdit={onEdit}
         onTableChange={onTableChange}
         pagination={pagination}
+        loading={loadingListProduct}
+        loadingDeleteProduct={loadingDeleteProduct}
       />
     </div>
   );

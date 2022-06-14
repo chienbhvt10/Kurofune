@@ -492,7 +492,10 @@
           "required": "Please input your phone!",
           "pattern": "Please input valid phone number!"
         },
-        "user_name_required": "Please input your username!",
+        "user_name": {
+          "required" : "Please input your username!",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "Please input your password!",
           "pattern_number": "Vui lòng có số!",

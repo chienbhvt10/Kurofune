@@ -37,12 +37,14 @@ export const UserList = () => {
 
   const onChangeRole = (value) => {
     setFilterRole(value);
-    getAllUsers({ page: pagination.current_page, role: value });
+    const temp = { page: pagination.current_page, role: value }
+    getAllUsers(searchValue ? { ...temp, name: searchValue.name } : temp);
   };
 
   const onSearch = (values) => {
     setSearchValue(values);
-    getAllUsers({ page: pagination.current_page, name: values.name });
+    const temp = { page: pagination.current_page, name: values.name }
+    getAllUsers(filterRole || values.name ? { ...temp, role: filterRole } : temp);
   };
 
   const onTableChange = (paginationTable, filters, sorter) => {

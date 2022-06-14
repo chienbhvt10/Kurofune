@@ -815,30 +815,12 @@ export const userFormOptions = {
 };
 export const productFormOptions = {
   stock_status: [
-    { value: "instock", label: "instock" },
-    { value: "outofstock", label: "outofstock" },
+    { value: "instock", label: "Instock" },
+    { value: "outofstock", label: "Out of Stock" },
   ],
   status: [
-    { value: "publish", label: "publish" },
-    { value: "draft", label: "draft" },
-  ],
-  cat_id: [
-    { value: 1, label: "1" },
-    { value: 2, label: "2" },
-    { value: 3, label: "3" },
-  ],
-  user_id: [
-    { value: 1, label: "wabisabimember_admin" },
-    { value: 2, label: "member_admin" },
-    { value: 3, label: "developer" },
-    { value: 4, label: "thanhvuvan" },
-  ],
-  cat_id: [
-    { value: 1, label: "Category EN" },
-    { value: 2, label: "Category JA" },
-    { value: 3, label: "Category VI" },
-    { value: 4, label: "Category TL" },
-    { value: 5, label: "Category ZH" },
+    { value: "publish", label: "Publish" },
+    { value: "draft", label: "Draft" },
   ],
 };
 export const PRODUCT_OPTION = {

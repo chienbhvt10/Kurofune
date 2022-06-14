@@ -1,23 +1,47 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllProductsAction } from "../../redux/actions/productAction";
+import { getCurrentLanguage } from "../../helper/localStorage.js";
+import {
+  getAllProductsAction,
+  resetProductResCRUD,
+} from "../../redux/actions/productAction";
 
 const useProducts = () => {
-  const productState = useSelector((state) => state.productState);
+  const { total, from, to, current_page, last_page, products } = useSelector(
+    (state) => state.productState
+  );
   const dispatch = useDispatch();
+  const [loadingListProduct, setLoadingListProduct] = React.useState(false);
 
   const getAllProducts = (data) => {
     dispatch(getAllProductsAction(data));
+    setLoadingListProduct(true);
   };
+
+  React.useEffect(() => {
+    if (products?.length === 0) {
+      getAllProducts();
+    }
+    dispatch(resetProductResCRUD());
+  }, [products]);
+
+  React.useEffect(() => {
+    if (products) {
+      setLoadingListProduct(false);
+    }
+  }, [products]);
 
   return {
     getAllProducts,
-    products: productState.products,
+    loadingListProduct,
+    setLoadingListProduct,
+    products,
     pagination: {
-      total: productState.total,
-      from: productState.from,
-      to: productState.to,
-      current_page: productState.current_page,
-      last_page: productState.last_page,
+      total,
+      from,
+      to,
+      current_page,
+      last_page,
     },
   };
 };

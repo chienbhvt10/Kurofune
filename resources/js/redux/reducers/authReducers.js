@@ -76,7 +76,7 @@ const authReducers = createReducer(initialState, (builder) => {
     };
   });
   builder.addCase(logout.fulfilled, (state, actions) => {
-    if (actions.payload.status_code === 200) {
+    if (actions.payload.error_code === "NO_ERROR") {
       return {
         ...state,
         resLogout: actions.payload,

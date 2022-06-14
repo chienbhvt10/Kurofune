@@ -486,7 +486,10 @@
           "required": "请输入您的手机。",
           "pattern": "请输入有效的电话号码。"
         },
-        "user_name_required": "请输入您的用户名。",
+        "user_name": {
+          "required" :  "请输入您的用户名。",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "请输入您的密码。",
           "pattern_number": "Vui lòng có số!",
