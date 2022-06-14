@@ -98,7 +98,7 @@ const authReducers = createReducer(initialState, (builder) => {
       state.isLoading = true;
     })
     .addCase(showProfileAction.fulfilled, (state, actions) => {
-      if (actions.payload.message === "Unauthenticated.") {
+      if (actions.payload.error_code === "ERROR") {
         state.isLogin = false;
         state.profile = undefined;
         state.isLoading = false;
