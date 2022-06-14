@@ -1,26 +1,20 @@
 import React from "react";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useGetListOrderAdmin from "../../../../hooks/orderAdmin/useGetListOrderAdmin";
 import "./order.scss";
 import OrderTable from "./OrderTable";
 const OrderList = () => {
   const lang = getCurrentLanguage();
-  const data = [
-    {
-      orderNumber: "1",
-      subOrders: "guard1",
-      date: "13/3",
-      status: "abc",
-      total: "store1",
-    },
-    {
-      orderNumber: "2",
-      subOrders: "guard2",
-      date: "13/3",
-      status: "abc",
-      total: "store1",
-    },
-  ];
+
+  const [dataOrder,setDataOrder]= React.useState([])
+  let {getListOrderAdmin}=useGetListOrderAdmin()
+  React.useEffect(() => {
+    getListOrderAdmin((data)=>{
+      console.log('data',data);
+      setDataOrder(data)
+    })
+  },[])
   return (
     <div className="order-container">
       <TableHeader
@@ -31,7 +25,7 @@ const OrderList = () => {
         ]}
         title="Orders"
       />
-      <OrderTable items={data} />
+      <OrderTable items={dataOrder?.data} />
     </div>
   );
 };

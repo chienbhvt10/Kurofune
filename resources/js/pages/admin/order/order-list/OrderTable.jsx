@@ -11,17 +11,26 @@ const OrderTable = ({ items }) => {
 
   const column = [
     {
-      title: t("admins.order.table.field_order"),
-      dataIndex: 'orderNumber',
-      sorter: (a, b) => a.orderNumber - b.orderNumber,
+      title: t("admins.order.table.id"),
+      dataIndex: 'id',
+      sorter: (a, b) => a.id - b.id,
     },
     {
-      title: t("admins.order.table.field_subOrder"),
-      dataIndex: 'subOrders',
+      title: t("admins.order.table.field_order"),
+      dataIndex: 'order_number',
+      sorter: (a, b) => a.order_number - b.order_number,
+    },
+    {
+      title: t("admins.order.table.shipping_full_name"),
+      dataIndex: 'shipping_full_name',
+    },
+    {
+      title: t("admins.order.table.shipping_full_name"),
+      dataIndex: 'shipping_full_name',
     },
     {
       title: t("admins.order.table.field_date"),
-      dataIndex: 'date',
+      dataIndex: 'updated_at',
     },
     {
       title: t("admins.order.table.field_status"),
@@ -38,7 +47,7 @@ const OrderTable = ({ items }) => {
       fixed: 'center',
       render: (_, record) =>
         items.length >= 1 ? (
-          <Link to={`${lang}/admin/order-update/${record.orderNumber}`}>
+          <Link to={`${lang}/admin/order-update/${record.id}`}>
             <FontAwesomeIcon
               icon={faCheck}
               style={{
@@ -58,7 +67,14 @@ const OrderTable = ({ items }) => {
    
   // };
   return (
-    <Table columns={column} dataSource={items}  />
+    <Table 
+      columns={column} 
+      dataSource={items} 
+      pagination={{ 
+        defaultPageSize: 10, showSizeChanger: true, pageSizeOptions: ['10', '20', '30']
+      }}
+      
+      />
 
   );
 };

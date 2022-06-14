@@ -3,11 +3,13 @@ import { t } from "i18next";
 import moment from "moment";
 import React from "react";
 import * as Yup from "yup";
+import { useParams } from 'react-router-dom';
 import DateField from "../../../../commons/Form/DateField";
 import InputField from "../../../../commons/Form/InputField";
 import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
 import FormHeader from "../../../../commons/FormHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useOrderDetailAdmin from "../../../../hooks/orderAdmin/useOrderDetailAdmin";
 import BillingShipFormOrder from "./BillingShipFormOrder";
 import CartInfoTable from "./CartInfoTable";
 import "./order-form.scss";
@@ -15,6 +17,7 @@ const { Option } = Select;
 const { Title } = Typography;
 const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
+  const { id } = useParams();
   const lang = getCurrentLanguage();
   const initialGeneralValues = {
     date: moment(new Date(), 'YYYY-MM-DD') ,
@@ -52,10 +55,23 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
     formShipping.submit()
   }
 
+  const [dataOrder,setDataOrder]= React.useState([])
+
+  const { getOrderDetailAdmin }=useOrderDetailAdmin()
+   
   React.useEffect(() => {
     formGeneral.setFieldsValue({
       ...initialGeneralValues
     });
+  }, []);
+
+  React.useEffect(() => {
+    // formGeneral.setFieldsValue({
+    //   ...initialGeneralValues
+    // });
+    getOrderDetailAdmin(id,(data)=>{
+      console.log('data',data);
+    })
   }, []);
 
   return (
