@@ -492,6 +492,10 @@
         },
         "password": {
           "required": "Mangyaring ipasok ang iyong password.",
+          "pattern_number": "Vui lòng có số!",
+          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
+          "pattern_alpha": "Vui lòng có chữ in thường",
+          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
           "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
         },
         "active_required": "Please select active status!",
