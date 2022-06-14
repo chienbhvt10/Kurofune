@@ -15,7 +15,7 @@ import {
   isRoleMember,
   isRolePlan,
   isRoleVendor,
-} from "../../../../helper/roles";
+} from "../../../../helper/checker";
 import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
