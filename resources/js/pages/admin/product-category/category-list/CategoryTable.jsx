@@ -46,14 +46,20 @@ const CategoryTable = ({
           {t("admins.category.name_field")}
         </span>
       ),
-      render: (_, record) => (
-        <Link
-          to={`${lang}/admin/category/update/${record.id}`}
-          className="text-decoration-none d-flex"
-        >
-          {record.name || record.translations[0].name}
-        </Link>
-      ),
+      render: (_, record) => {
+        let _lang = lang || "/ja";
+        return (
+          <Link
+            to={`${lang}/admin/category/update/${record.id}`}
+            className="text-decoration-none d-flex"
+          >
+            {
+              record.translations.find((item) => _lang.includes(item.locale))
+                ?.name
+            }
+          </Link>
+        );
+      },
     },
     {
       key: "slug",
