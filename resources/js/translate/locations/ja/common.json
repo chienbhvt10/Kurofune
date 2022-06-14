@@ -486,7 +486,10 @@
           "required": "電話番号を入力してください。",
           "pattern": "有効な電話番号を入力してください。"
         },
-        "user_name_required": "ユーザー名を入力してください。",
+        "user_name": {
+          "required" : "ユーザー名を入力してください。",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "パスワードを入力してください。",
           "min": "8文字以上のパスワードを入力してください。"
