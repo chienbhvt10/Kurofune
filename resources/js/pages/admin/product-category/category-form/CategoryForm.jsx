@@ -14,8 +14,8 @@ import {
 } from "./categoryInitValues.js";
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
-import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
+import useCategories from "../../../../hooks/category/useCategories";
 const CategoryForm = ({
   item,
   typeForm,
@@ -43,8 +43,10 @@ const CategoryForm = ({
   const [categoryProfileFormVI] = Form.useForm();
   const [categoryProfileFormZH] = Form.useForm();
 
-  const { getAdminCategories, adminCategories } = useAdminCategories();
-
+  const { getAllCategories, categories } = useCategories();
+  React.useEffect(() => {
+      getAllCategories()
+  }, []);
   const onFinishAll = (values) => {
     const submitInput = {
       ...categoryForm.getFieldsValue(),
@@ -216,9 +218,9 @@ const CategoryForm = ({
                   response={response}
                   errorField="parent_id"
                 >
-                  {adminCategories?.map((option, index) => (
+                  {categories?.map((option, index) => (
                     <Select.Option key={index} value={option.id}>
-                      {option.name || option.translations[0].name}
+                      {option.name}
                     </Select.Option>
                   ))}
                 </SelectField>

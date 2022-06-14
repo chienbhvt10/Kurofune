@@ -26,10 +26,27 @@ export const validateUser = {
     {
       required: true,
       message: "admins.user.error.password.required",
+      whiteSpace: true,
     },
     {
       min: 8,
       message: "admins.user.error.password.min",
+    },
+    {
+      pattern: new RegExp(/\d/),
+      message: "admins.user.error.password.pattern_number",
+    },
+    {
+      pattern: new RegExp(/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/),
+      message: "admins.user.error.password.pattern_special_characters",
+    },
+    {
+      pattern: new RegExp(/[A-Z]/),
+      message: "admins.user.error.password.pattern_uppercase_alpha",
+    },
+    {
+      pattern: new RegExp(/[a-z]/),
+      message: "admins.user.error.password.pattern_alpha",
     },
   ],
   active: [{ required: true, message: "admins.user.error.active_required" }],
