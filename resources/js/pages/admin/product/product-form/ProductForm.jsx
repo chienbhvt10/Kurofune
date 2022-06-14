@@ -1,15 +1,12 @@
 import { Col, Form, Input, Row, Select } from "antd";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
 import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
-import { isAdmin } from "../../../../helper/roles";
-import useCategories from "../../../../hooks/category/useCategories.js";
-import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
 import SelectField from "./../../../../commons/Form/SelectField";
 import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
@@ -18,6 +15,9 @@ import {
   getProductInfoInitValues,
   getTranslateInitValues,
 } from "./productInitValues.js";
+import useCategories from "../../../../hooks/category/useCategories.js";
+import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
+import { isAdmin } from "../../../../helper/roles";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -122,7 +122,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: `../${lang}/admin/product-list` },
+            { name: "Home", routerLink: "../" },
             { name: "Product List", routerLink: `${lang}/admin/product-list` },
             {
               name: "Add",
@@ -171,7 +171,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.slug_field")}
                 type={<Input />}
                 response={response}
-                error="slug"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -180,7 +179,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.sku_field")}
                 rules={[]}
                 response={response}
-                error="sku"
                 type={<Input />}
               />
             </Col>
@@ -205,7 +203,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <SelectField
                 field="stock_status"
                 label={t("admins.product.stock_status_field")}
-                placeholder="Please select Stock"
+                placeholder="Please select Category"
                 options={productFormOptions.stock_status}
                 rules={[
                   {
@@ -232,7 +230,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <SelectField
                 field="cat_id"
                 label={t("admins.product.category_field")}
-                placeholder="Please select Category"
+                placeholder="Please select active status"
                 rules={[
                   {
                     required: true,

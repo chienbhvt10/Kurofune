@@ -137,7 +137,7 @@ const CategoryForm = ({
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: `../${lang}/admin/category-list` },
+            { name: "Home", routerLink: "../" },
             {
               name: "Category List",
               routerLink: `${lang}/admin/category-list`,

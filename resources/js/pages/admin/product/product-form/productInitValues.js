@@ -2,7 +2,7 @@ export const getProductInfoInitValues = (item) => {
   return {
     slug: item?.slug || "",
     sku: item?.sku || "",
-    stock_status: item?.stock_status || undefined,
+    stock_status: item?.stock_status || "",
     price: item?.price || undefined,
     status: item?.status || undefined,
     product_image: item?.product_image || "",
