@@ -88,10 +88,10 @@ const CategoryForm = ({
         item?.translations[1] || initialTranslateValues
       );
       categoryProfileFormVI.setFieldsValue(
-        item?.translations[2] || initialTranslateValues
+        item?.translations[3] || initialTranslateValues
       );
       categoryProfileFormTL.setFieldsValue(
-        item?.translations[3] || initialTranslateValues
+        item?.translations[2] || initialTranslateValues
       );
 
       categoryProfileFormZH.setFieldsValue(
