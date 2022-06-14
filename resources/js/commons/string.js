@@ -1,14 +1,20 @@
 import moment from "moment";
 
 export const generatePassword = (length) => {
-  var result = "";
-  var characters =
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(){}[]'\"~|`";
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
+  const alpha = 'abcdefghijklmnopqrstuvwxyz';
+const uppercaseAlpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const num = '1234567890';
+const specials = ',.!@#$%^&*';
+const options = [alpha, alpha, alpha, uppercaseAlpha, uppercaseAlpha, num, num, specials,alpha, alpha, alpha, uppercaseAlpha, uppercaseAlpha, num, num, specials];
+let opt, choose;
+let pass = "";
+for ( let i = 0; i < length; i++ ) {
+  opt = Math.floor(Math.random() * options.length);
+  choose = Math.floor(Math.random() * (options[opt].length));
+  pass = pass + options[opt][choose];
+  options.splice(opt, 1);
+}
+  return pass;
 };
 
 export const formatDate = (date) => {

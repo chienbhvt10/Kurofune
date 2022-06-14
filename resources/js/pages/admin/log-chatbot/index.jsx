@@ -110,26 +110,30 @@ const LogChatBot = () => {
       ),
     },
   ];
-  React.useEffect(() => {
-    if (!csvUser || !csvAllUser || contentCSV) {
-      if (contentCSV?.id) {
-        exportCsvUser(contentCSV);
-      } else {
-        exportCsvAll(contentCSV);
-      }
-    }
-  }, [contentCSV]);
+  // React.useEffect(() => {
+  //   if (!csvUser || !csvAllUser || contentCSV) {
+  //     if (contentCSV?.id) {
+  //       exportCsvUser(contentCSV);
+  //     } else {
+  //       exportCsvAll(contentCSV);
+  //     }
+  //   }
+  // }, [contentCSV]);
 
-  React.useEffect(() => {
-    if (csvUser || csvAllUser) {
-      contentCSV?.id
-        ? downloadBlob(csvUser, contentCSV?.id)
-        : downloadBlob(csvAllUser);
-    }
-  }, [csvUser, csvAllUser, contentCSV]);
+  // React.useEffect(() => {
+  //   if ((csvUser || csvAllUser) && contentCSV) {
+  //     contentCSV?.id
+  //       ? downloadBlob(csvUser, contentCSV?.id)
+  //       : downloadBlob(csvAllUser);
+  //   }
+  // }, [csvUser, csvAllUser, contentCSV]);
 
   const exportHistoryChatBot = (data) => {
-    setContentCSV(data);
+    if (data?.id) {
+      exportCsvUser(data);
+    } else {
+      exportCsvAll(data);
+    }
   };
   const openModalHistory = (id, langChat) => {
     if (!detailChat || idChat !== id) {
@@ -140,20 +144,20 @@ const LogChatBot = () => {
     setVisible(true);
   };
 
-  const downloadBlob = (content, idUser) => {
-    const dateExported = new Date();
-    const BOM = "\uFEFF";
-    content = BOM + content;
-    const blob = new Blob([content], { type: "data:text/csv;charset=utf-8," });
-    const url = URL.createObjectURL(blob);
-    let dow = document.createElement("a");
-    dow.href = url;
-    const fileName = `${idUser ? "User" + idUser + "_" : ""}chat_log_export_${
-      dateExported.toISOString().split("T")[0]
-    }.csv`;
-    dow.setAttribute("download", fileName);
-    dow.click();
-  };
+  // const downloadBlob = (content, idUser) => {
+  //   const dateExported = new Date();
+  //   const BOM = "\uFEFF";
+  //   content = BOM + content;
+  //   const blob = new Blob([content], { type: "data:text/csv;charset=utf-8," });
+  //   const url = URL.createObjectURL(blob);
+  //   let dow = document.createElement("a");
+  //   dow.href = url;
+  //   const fileName = `${idUser ? "User" + idUser + "_" : ""}chat_log_export_${
+  //     dateExported.toISOString().split("T")[0]
+  //   }.csv`;
+  //   dow.setAttribute("download", fileName);
+  //   dow.click();
+  // };
   return (
     <div className="log-container">
       <TableHeader
