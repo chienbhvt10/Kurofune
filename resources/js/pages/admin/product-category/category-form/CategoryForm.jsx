@@ -66,8 +66,8 @@ const CategoryForm = ({
       category_image: avatarState.base64Avatar,
     };
     if (typeForm === TYPE_FORM_UPDATE) {
-      setErrorMessImage('');
-    }else{
+      setErrorMessImage("");
+    } else {
       setErrorMessImage(!avatarState.base64Avatar);
     }
     onSave(submitInput);
@@ -145,7 +145,7 @@ const CategoryForm = ({
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: "../" },
+            { name: "Home", routerLink: `../${lang}/admin/category-list` },
             {
               name: "Category List",
               routerLink: `${lang}/admin/category-list`,

@@ -1,13 +1,12 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import { NotificationSuccess } from "../../../../commons/Notification";
 import { TableHeader } from "../../../../commons/TableHeader";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useProducts from "../../../../hooks/product/useProducts.js";
 import useDeleteProduct from "./../../../../hooks/product/useDeleteProduct";
 import "./product.scss";
 import ProductTable from "./ProductTable";
-import { getCurrentLanguage } from "../../../../helper/localStorage";
-import { useTranslation } from "react-i18next";
 
 const ProductList = () => {
   const lang = getCurrentLanguage();
@@ -35,7 +34,7 @@ const ProductList = () => {
 
   React.useEffect(() => {
     getAllProducts({ page: pagination.current_page });
-  }, [lang]);
+  }, []);
 
   return (
     <div className="product-container">

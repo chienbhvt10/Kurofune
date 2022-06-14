@@ -10,7 +10,6 @@ const useProducts = () => {
   const { total, from, to, current_page, last_page, products } = useSelector(
     (state) => state.productState
   );
-  const lang = getCurrentLanguage();
   const dispatch = useDispatch();
   const [loadingListProduct, setLoadingListProduct] = React.useState(false);
 
@@ -24,7 +23,7 @@ const useProducts = () => {
       getAllProducts();
     }
     dispatch(resetProductResCRUD());
-  }, [products, lang]);
+  }, [products]);
 
   React.useEffect(() => {
     if (products) {

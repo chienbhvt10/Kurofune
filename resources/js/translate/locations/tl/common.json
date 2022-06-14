@@ -486,7 +486,10 @@
           "required": "Mangyaring ipasok ang iyong telepono.",
           "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
         },
-        "user_name_required": "Mangyaring ipasok ang iyong username.",
+        "user_name": {
+          "required" : "Mangyaring ipasok ang iyong username.",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "Mangyaring ipasok ang iyong password.",
           "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."

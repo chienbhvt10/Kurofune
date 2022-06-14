@@ -16,7 +16,11 @@ export const validateUser = {
     },
   ],
   user_name: [
-    { required: true, message: "admins.user.error.user_name_required" },
+    { required: true, message: "admins.user.error.user_name.required" },
+    {
+      pattern: new RegExp(/^[a-zA-Z0-9_-]*$/),
+      message: "admins.user.error.user_name.pattern",
+    },
   ],
   password: [
     {
