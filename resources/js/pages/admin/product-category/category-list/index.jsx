@@ -1,6 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { NotificationSuccess } from "../../../../commons/Notification";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
@@ -34,26 +33,8 @@ const CategoryList = () => {
   };
 
   const onSearch = (values) => {
-    getAdminCategories({ page: pagination.current_page, name: values.name });
+    getAdminCategories({ name: values.name });
   };
-
-  React.useEffect(() => {
-    if (!adminCategories) {
-      getAdminCategories();
-    }
-  }, [adminCategories]);
-
-  React.useEffect(() => {
-    if (resDeleteCategory?.error_code === "NO_ERROR") {
-      getAdminCategories();
-      NotificationSuccess(t("notification"), resDeleteCategory.message);
-    }
-    return () => { };
-  }, [resDeleteCategory]);
-
-  React.useEffect(() => {
-    getAdminCategories();
-  }, []);
 
   return (
     <div className="category-container">
@@ -67,7 +48,6 @@ const CategoryList = () => {
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.category.placeholder_seach")}
-
       />
       <CategoryTable
         items={adminCategories}
