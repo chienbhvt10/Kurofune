@@ -243,7 +243,9 @@ const PlanProfileForm = ({ form, className, role }) => {
                   locale={{ lang: { locale: "vi_VN" } }}
                   response={resCreateUser}
                   disabledDate={(current) => {
-                    return current && current.valueOf() > endDate;
+                    if (endDate) {
+                      return current && current.valueOf() > endDate;
+                    }
                   }}
                   onChange={(v) => setStartDate(v)}
                 />
