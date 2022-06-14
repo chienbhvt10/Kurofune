@@ -122,7 +122,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: "../" },
+            { name: "Home", routerLink: `${lang}/admin/product-list` },
             { name: "Product List", routerLink: `${lang}/admin/product-list` },
             {
               name: "Add",

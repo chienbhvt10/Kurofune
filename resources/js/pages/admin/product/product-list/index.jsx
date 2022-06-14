@@ -50,7 +50,7 @@ const ProductList = () => {
       <TableHeader
         addLink={`${lang}/admin/product/add`}
         breadcrumb={[
-          { name: "Home", routerLink: "../" },
+          { name: "Home", routerLink: `${lang}/admin/product-list` },
           { name: "Product List", routerLink: `${lang}/product-list` },
         ]}
         title="Product"
