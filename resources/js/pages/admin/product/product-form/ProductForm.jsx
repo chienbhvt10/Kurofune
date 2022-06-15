@@ -17,7 +17,7 @@ import {
 } from "./productInitValues.js";
 import useCategories from "../../../../hooks/category/useCategories.js";
 import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
-import { isAdmin } from "../../../../helper/roles";
+import { isAdmin } from "../../../../helper/checker";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -122,7 +122,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: "../" },
             { name: "Product List", routerLink: `${lang}/admin/product-list` },
             {
               name: "Add",

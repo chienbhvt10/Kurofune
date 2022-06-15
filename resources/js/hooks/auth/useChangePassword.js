@@ -11,6 +11,7 @@ import {
   resetAuthResponse,
 } from "../../redux/actions/authAction";
 import useLogout from "./useLogout";
+import { ERROR, NO_ERROR } from "../../constants/error";
 
 const useChangePassword = () => {
   const { resChangePassword } = useSelector((state) => state.authState);
@@ -19,34 +20,36 @@ const useChangePassword = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const dispatch = useDispatch();
+
   const changePassword = (payload) => {
     setLoadingChangePassword(true);
     dispatch(changePasswordAction(payload));
   };
+
   React.useEffect(() => {
-    if (resChangePassword?.status_code === 200) {
+    if (resChangePassword?.error_code === NO_ERROR) {
       setLoadingChangePassword(false);
       NotificationSuccess(t("notification"), resChangePassword.message);
       getLogout();
       dispatch(resetAuthResponse());
     }
-    if (resChangePassword && resChangePassword.status_code !== 200) {
+    if (resChangePassword && resChangePassword.error_code === ERROR) {
       setLoadingChangePassword(false);
-      NotificationError(t("notification"), resChangePassword.message);
+      NotificationError(t("notification"), resChangePassword.error_message);
     }
   }, [resChangePassword]);
 
   React.useEffect(() => {
     if (
-      resLogout?.status_code === 200 &&
-      resChangePassword?.status_code === 200
+      resLogout?.error_code === NO_ERROR &&
+      resChangePassword?.error_code === NO_ERROR
     ) {
       NotificationSuccess(t("notification"), resLogout.message);
       navigate(`${lang}/login`);
       dispatch(resetAuthResponse());
     }
-    if (resLogout && resLogout.status_code !== 200) {
-      NotificationError(t("notification"), resLogout.message);
+    if (resLogout && resLogout.error_code === ERROR) {
+      NotificationError(t("notification"), resLogout.error_message);
     }
   }, [resLogout]);
 

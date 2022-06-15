@@ -5,6 +5,7 @@ import {
   deleteCart,
   addToCart,
   deleteCartItem,
+  checkout,
 } from "../actions/cartAction";
 import {
   NotificationSuccess,
@@ -72,6 +73,19 @@ const cartSlice = createSlice({
           NotificationError("", "Delete cart item failed");
         }
       });
+      builder
+        .addCase(checkout.pending, (state) => {
+          state.isLoading = true;
+        })
+        .addCase(checkout.fulfilled, (state, action) => {
+          state.isLoading = false;
+          if (action.payload.status_code === 200) {
+            NotificationSuccess("", action.payload.message);
+          } else {
+            NotificationError("", "Checkout failed");
+          }
+        });
+
   },
 });
 export default cartSlice.reducer;

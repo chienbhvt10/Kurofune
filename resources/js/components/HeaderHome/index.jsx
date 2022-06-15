@@ -48,7 +48,7 @@ const HeaderHome = ({ toggleSideBar }) => {
           />
           <BackButton
             currentPath={`${lang}/checkout`}
-            backTo={`/${lang}/cart`}
+            backTo={`${lang}/cart`}
             title={t("header.btn_back3")}
           />
           <div className="block-profile-header ">
@@ -97,8 +97,8 @@ const HeaderHome = ({ toggleSideBar }) => {
                                 {item?.quantity} ×{" "}
                                 <span className="amount">
                                   <bdi>
-                                    {item?.price_tax}&nbsp;
-                                    {/* <span className="">(JPY)</span> */}
+                                    {item?.price_tax.toFixed(3)}&nbsp;
+                                    <span>(JPY)</span>
                                   </bdi>
                                 </span>
                               </span>{" "}

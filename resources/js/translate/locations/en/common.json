@@ -346,6 +346,7 @@
     "btn_generate_password": "Generate",
     "btn_search": "Search",
     "btn_add_new": "Add New",
+    "btn_reset": "Reset",
     "delete_item_message": "You want to delete?",
     "user": {
       "list": {
@@ -403,24 +404,24 @@
           "field_company_mail": "Company representative mail"
         },
         "order": {
-          "field_date_create":"Created date:",
-          "field_customer":"Customer:",
-          "field_action":"Action",
-          "field_status":"Status:",
-          "field_first_name":"First Name",
-          "field_last_name":"Last Name",
-          "field_company":"Company",
-          "field_address_line_1":"Address Line 1",
-          "field_address_line_2":"Address Line 2",
-          "field_city":"City",
-          "field_postal_code":"Postal code/zip",
-          "field_country_region":"Country/Region",
-          "field_email":"Email",
-          "field_phone":"Phone",
-          "field_payment_method":"Payment Method",
-          "field_transaction_id":"Transaction Id",
-          "field_customer_provided_note":"Customer Provided Note",
-          "field_state_county":"State/County"
+          "field_date_create": "Created date:",
+          "field_customer": "Customer:",
+          "field_action": "Action",
+          "field_status": "Status:",
+          "field_first_name": "First Name",
+          "field_last_name": "Last Name",
+          "field_company": "Company",
+          "field_address_line_1": "Address Line 1",
+          "field_address_line_2": "Address Line 2",
+          "field_city": "City",
+          "field_postal_code": "Postal code/zip",
+          "field_country_region": "Country/Region",
+          "field_email": "Email",
+          "field_phone": "Phone",
+          "field_payment_method": "Payment Method",
+          "field_transaction_id": "Transaction Id",
+          "field_customer_provided_note": "Customer Provided Note",
+          "field_state_county": "State/County"
         },
         "vendor_profile": {
           "field_image_inside": "Image inside",
@@ -493,16 +494,15 @@
           "pattern": "Please input valid phone number!"
         },
         "user_name": {
-          "required" : "Please input your username!",
+          "required": "Please input your username!",
           "pattern": "The username must only contain letters, numbers, dashes and underscores."
         },
         "password": {
           "required": "Please input your password!",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
-          "min": "Please input atLeast 8 characters for password!"
+          "pattern_number": "Password must contain at least one number.",
+          "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
+          "pattern_special_characters": "Password must contain at least one symbol.",
+          "min": "Password must contain at least eight characters."
         },
         "active_required": "Please select active status!",
         "postal_code": {
@@ -522,13 +522,13 @@
       }
     },
     "order": {
-      "table":{
-        "field_subOrder":"SubOrder",
-        "field_order":"Order",
-        "field_date":"Date",
-        "field_total":"Total",
-        "field_action":"Action",
-        "field_status":"Status"
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_action": "Action",
+        "field_status": "Status"
       }
     },
     "product": {
@@ -589,15 +589,15 @@
         "error_category_image": "The category image field is required."
       }
     },
-    "log_chatbot":{
+    "log_chatbot": {
       "no": "No.",
       "id": "ID",
       "btn_export": "Download CSV",
       "btn_export_ja": "Download CSV (Japanese)",
       "btn_show": "Display",
       "btn_show_ja": "Display in Japanese",
-      "username_id":"ID user",
-      "username":"Username",
+      "username_id": "ID user",
+      "username": "Username",
       "show_history": "Chat history",
       "show_history_ja": "Chat history (Japanese)",
       "created_at": "Created date",

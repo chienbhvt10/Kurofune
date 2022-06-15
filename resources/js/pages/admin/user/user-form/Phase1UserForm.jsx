@@ -70,11 +70,16 @@ export const UserForm = ({
   }, [item]);
 
   const renderErrorTranslate = (field) => {
-    return validateUser?.[field].map((item) => {
-      return {
+    let validator = validateUser?.[field]
+    if( typeForm === TYPE_FORM_UPDATE && field === "password"){
+      validator = validateUser.password.slice(1)
+    }
+    return validator.map((item) => {
+        return {
         ...item,
         message: t(item.message),
       };
+
     });
   };
   const getDepend = () => document.querySelector("#role-select");
@@ -196,7 +201,6 @@ export const UserForm = ({
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
                     rules={
-                      typeForm === TYPE_FORM_CREATE &&
                       renderErrorTranslate("password")
                     }
                     response={response}
