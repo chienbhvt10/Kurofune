@@ -33,16 +33,13 @@ const useCreateUser = () => {
     if (resCreateUser?.error_code === NO_ERROR) {
       getAllUsers({ page: pagination.current_page });
       setLoadingCreateUser(false);
-      NotificationSuccess(
-        t("notification"),
-        t("admins.crud.user.create_success")
-      );
+      NotificationSuccess(t("notification"), resCreateUser.message);
       navigate(`${lang}/admin/user-list`);
       dispatch(resetResCRUDAction());
     }
     if (resCreateUser && resCreateUser.error_code === ERROR) {
       setLoadingCreateUser(false);
-      NotificationError(t("notification"), t("admins.crud.user.create_fail"));
+      NotificationError(t("notification"), resCreateUser.error_message);
     }
   }, [resCreateUser]);
 

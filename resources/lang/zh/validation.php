@@ -215,6 +215,7 @@ return [
         'billing_address.street_address' => '街道地址',
         'billing_address.building' => '建造',
         'billing_address.phone' => '电话',
+        'username' => '用户名',
     ],
 
 ];

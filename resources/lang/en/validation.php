@@ -215,6 +215,7 @@ return [
         'billing_address.street_address' => 'street address',
         'billing_address.building' => 'building',
         'billing_address.phone' => 'phone',
+        'username' => 'Username',
     ],
 
 ];

@@ -15,6 +15,7 @@ const useUsers = () => {
   const getAllUsers = (payload) => {
     setLoadingListUser(true);
     dispatch(getUsersAction(payload));
+    dispatch(resetResCRUDAction());
   };
 
   React.useEffect(() => {
