@@ -499,11 +499,10 @@
         },
         "password": {
           "required": "Please input your password!",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
-          "min": "Please input atLeast 8 characters for password!"
+          "pattern_number": "Password must contain at least one number.",
+          "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
+          "pattern_special_characters": "Password must contain at least one symbol.",
+          "min": "Password must contain at least eight characters."
         },
         "active_required": "Please select active status!",
         "postal_code": {

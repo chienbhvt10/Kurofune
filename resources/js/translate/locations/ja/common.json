@@ -493,10 +493,9 @@
         },
         "password": {
           "required": "パスワードを入力してください。",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
+          "pattern_number": "パスワードには少なくとも 1 つの数字を含む必要があります。",
+          "pattern_alpha": "パスワードには少なくとも1つの大文字と1つの小文字を含む必要があります。",
+          "pattern_special_characters": "パスワードには少なくとも 1 つのシンボルを含む必要があります。",
           "min": "8文字以上のパスワードを入力してください。"
         },
         "active_required": "Please select active status!",
