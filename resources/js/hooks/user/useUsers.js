@@ -18,13 +18,6 @@ const useUsers = () => {
   };
 
   React.useEffect(() => {
-    if (users.length === 0) {
-      getAllUsers();
-    }
-    dispatch(resetResCRUDAction());
-  }, [users]);
-
-  React.useEffect(() => {
     if (users) {
       setLoadingListUser(false);
     }

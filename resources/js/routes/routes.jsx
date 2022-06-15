@@ -54,7 +54,7 @@ import { NotFound } from "../pages/notFound";
 import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
 import { useSelector } from "react-redux";
 import useShowProfile from "../hooks/auth/useShowProfile";
-import { isAdmin, isVendor } from "../helper/roles";
+import { isAdmin, isVendor } from "../helper/checker";
 import QAPage from "../pages/client/Q&A";
 const appRouter = () => {
   const { i18n } = useTranslation();

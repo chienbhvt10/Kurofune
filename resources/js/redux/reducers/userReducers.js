@@ -1,9 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
-  NotificationError,
-  NotificationSuccess,
-} from "../../commons/Notification";
-import {
   createUserAction,
   deleteUserAction,
   getUserAction,
