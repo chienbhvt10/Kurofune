@@ -32,9 +32,6 @@ const useUpdateAdminCategory = () => {
       navigate(`${lang}/admin/category-list`);
       NotificationSuccess(t("notification"), resUpdateCategory?.message);
     }
-    if (resUpdateCategory && resUpdateCategory?.error_code === ERROR) {
-      NotificationError(t("notification"), resUpdateCategory?.error_message);
-    }
   }, [resUpdateCategory]);
 
   return {

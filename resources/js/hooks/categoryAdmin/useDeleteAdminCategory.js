@@ -32,9 +32,6 @@ const useDeleteAdminCategory = () => {
       NotificationSuccess(t("notification"), resDeleteCategory?.message);
       navigate(`${lang}/admin/category-list`);
     }
-    if (resDeleteCategory?.error_code === ERROR) {
-      NotificationError(t("notification"), resDeleteCategory?.error_message);
-    }
   }, [resDeleteCategory]);
 
   return {
