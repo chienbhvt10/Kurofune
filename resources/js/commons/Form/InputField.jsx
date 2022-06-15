@@ -25,13 +25,9 @@ const InputField = ({
       value={value}
       hasFeedback
       help={
-        (response?.message?.[error] &&
-          response?.message?.[error].length &&
-          response?.message?.[error][0]) ||
-        (response?.error_data?.[error] &&
-          response?.error_data?.[error] &&
-          response?.error_data?.[error][0]) ||
-        response?.error_message
+        response?.error_data?.[error] &&
+        response?.error_data?.[error] &&
+        response?.error_data?.[error][0]
       }
       validateStatus={
         (response?.message?.[error] && response?.message?.[error].length) ||
