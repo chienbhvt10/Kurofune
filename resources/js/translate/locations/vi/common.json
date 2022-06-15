@@ -497,7 +497,7 @@
           "required": "Vui lòng nhập mật khẩu của bạn.",
           "pattern_number": "Trường Mật khẩu phải chứa ít nhất một số.",
           "pattern_alpha": "Trường Mật khẩu phải chứa ít nhất một chữ hoa và một chữ thường.",
-          "pattern_special_characters": "Trường Mật khẩu must phải chứa ít nhất một ký tự đặc biệt.",
+          "pattern_special_characters": "Trường Mật khẩu phải chứa ít nhất một ký tự đặc biệt.",
           "min": "Trường Mật khẩu phải có ít nhất 8 ký tự."
         },
         "active_required": "Please select active status!",
