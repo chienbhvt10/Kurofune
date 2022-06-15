@@ -733,11 +733,11 @@ class UserController extends Controller
     {
         try {
             $user = User::find($id);
-            $vendor = $user->vendor_profile;
+            // $vendor = $user->vendor_profile;
             $user->delete();
-            if (!empty($vendor)) {
-                $vendor->delete();
-            }
+            // if (!empty($vendor)) {
+            //     $vendor->delete();
+            // }
             return $this->response_message_success(__('message.user.deleted'));
         }catch (\Exception $error){
             return $this->response_exception();
