@@ -449,6 +449,8 @@
           "female": "Babae",
           "yes": "Oo",
           "no": "Hindi",
+          "no&inactive": "Hindi",
+          "yes&inactive": "Oo",
           "registered": "Hindi nakarehistro",
           "unregistered": "Nakarehistro",
           "remove_registered": "Hindi nakarehistro.",

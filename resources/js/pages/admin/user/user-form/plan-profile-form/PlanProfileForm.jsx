@@ -25,11 +25,13 @@ const PlanProfileForm = ({ form, className, role }) => {
         insurance_support: 1,
         overseas_remittance_status: 1,
         wabisabi_my_page_registration: 1,
+        payment: 1,
       });
     }
     if (role === ROLE_LIGHT_PLAN) {
       form.setFieldsValue({
         ...form.getFieldsValue(),
+        payment: 0,
         insurance_support: 0,
         overseas_remittance_status: 0,
         wabisabi_my_page_registration: 0,
@@ -165,6 +167,7 @@ const PlanProfileForm = ({ form, className, role }) => {
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               response={resCreateUser}
+              disabled={true}
               placeholder={t("admins.user.form.placeholder.select_payment")}
               options={userFormOptions.payment}
             />

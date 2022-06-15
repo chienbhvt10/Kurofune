@@ -450,6 +450,8 @@
           "female": "Female",
           "yes": "Yes",
           "no": "No",
+          "no&inactive": "No",
+          "yes&inactive": "Yes",
           "registered": "Registered",
           "unregistered": "Unregistered",
           "remove_registered": "Unsubscribing",
