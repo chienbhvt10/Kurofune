@@ -28,7 +28,7 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
                 },
               ]}
               response={response}
-              errorField="en.name"
+              error="en.name"
               type={<Input />}
             />
           </Col>
