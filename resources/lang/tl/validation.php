@@ -215,6 +215,7 @@ return [
         'billing_address.street_address' => 'Address ng kalye',
         'billing_address.building' => 'Gusali',
         'billing_address.phone' => 'Telepono',
+        'username' => 'Username',
     ],
 
 ];
