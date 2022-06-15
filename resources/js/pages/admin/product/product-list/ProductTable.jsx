@@ -43,7 +43,7 @@ const ProductTable = ({
       key: "stock",
       dataIndex: "stock",
       title: "Stock",
-      render: (_, record) => <span>{record.stock}</span>,
+      render: (_, record) => <span>{record.stock_status}</span>,
     },
     {
       key: "price",
@@ -63,8 +63,9 @@ const ProductTable = ({
       title: "Date",
       render: (_, record) => (
         <span>
-          Published {moment(record.created_at).format("YYYY/MM/DD")} at{" "}
-          {moment(record.created_at).format("LT")}
+          Published{" "}
+          {moment(record.created_at).zone("+09:00").format("YYYY/MM/DD")} at{" "}
+          {moment(record.created_at).zone("+09:00").format("LT")}
         </span>
       ),
     },
