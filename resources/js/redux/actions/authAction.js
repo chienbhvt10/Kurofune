@@ -109,20 +109,26 @@ export const updateProfileAction = createAsyncThunk(
 );
 export const updateBillingAddressAction = createAsyncThunk(
   authActions.updateBillingAddress,
-  async (payload) => {
+  async (payload, { dispatch }) => {
     const res = await authApis
       .updateBillingAddress(payload)
-      .then((data) => data)
+      .then((data) => {
+        dispatch(showProfileAction());
+        return data;
+      })
       .catch((err) => JSON.parse(err.response.request.response));
     return res;
   }
 );
 export const updateShippingAddressAction = createAsyncThunk(
   authActions.updateShippingAddress,
-  async (payload) => {
+  async (payload, { dispatch }) => {
     const res = await authApis
       .updateShippingAddress(payload)
-      .then((data) => data)
+      .then((data) => {
+        dispatch(showProfileAction());
+        return data;
+      })
       .catch((err) => JSON.parse(err.response.request.response));
     return res;
   }

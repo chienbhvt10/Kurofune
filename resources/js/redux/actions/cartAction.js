@@ -6,6 +6,7 @@ const cartActions = {
   updateCart: createAction("UPDATE_CART"),
   deleteCart: createAction("DELETE_CART"),
   deleteCartItem: createAction("DELETE_CART_ITEM"),
+  checkout: createAction("CHECKOUT"),
 };
 
 export const getCartInfo = createAsyncThunk(
@@ -63,6 +64,19 @@ export const deleteCartItem = createAsyncThunk(
   async (id, { dispatch }) => {
     const res = await cartApis
       .deleteCartItem(id)
+      .then((data) => {
+        dispatch(getCartInfo());
+        return data;
+      })
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+export const checkout = createAsyncThunk(
+  cartActions.checkout,
+  async (payload, { dispatch }) => {
+    const res = await cartApis
+      .checkout(payload)
       .then((data) => {
         dispatch(getCartInfo());
         return data;
