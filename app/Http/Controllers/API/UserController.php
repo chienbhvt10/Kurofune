@@ -347,7 +347,7 @@ class UserController extends Controller
                 'username' => $username,
                 'password' => $password
             ];
-            Notification::sendNow($user, new RegisterUserNotification($data));
+            // Notification::sendNow($user, new RegisterUserNotification($data));
             return $this->response_message_data_success(__('message.user.created'), $user);
         }catch (\Exception $error){
             DB::rollBack();
@@ -732,7 +732,9 @@ class UserController extends Controller
     {
         try {
             $user = User::find($id);
+            $vendor = $user->vendor_profile();
             $user->delete();
+            $vendor->delete();
             return $this->response_message_success(__('message.user.deleted'));
         }catch (\Exception $error){
             return $this->response_exception();

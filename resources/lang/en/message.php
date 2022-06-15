@@ -2,7 +2,7 @@
 
 return [
     'user' => [
-        'logout' => 'logged out',
+        'logout' => 'Logged out.',
         'created' => 'user created',
         'updated' => 'user updated',
         'deleted' => 'user deleted',
