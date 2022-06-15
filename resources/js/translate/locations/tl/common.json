@@ -498,7 +498,7 @@
           "pattern_number": "Ang password ay dapat maglaman ng hindi bababa sa isang numero.",
           "pattern_alpha": "Ang password ay dapat maglaman ng hindi bababa sa isang malaking titik at isang maliit na titik",
           "pattern_special_characters": "Ang password ay dapat maglaman ng kahit isang simbolo.",
-          "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
+          "min": "Dapat maglaman ang password ng hindi bababa sa walong character."
         },
         "active_required": "Please select active status!",
         "postal_code": {

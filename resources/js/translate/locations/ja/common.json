@@ -400,7 +400,7 @@
           "field_end_date_education": "日本語教育終了日",
           "field_education_status": "日本語教育ステータス",
           "field_page_registration": "WABISABIマイページ登録",
-          "field_company_mail": "企業のメールアドレス"
+          "field_company_mail": "代行企業のメールアドレス"
         },
         "order": {
           "field_date_create": "作成日:",
