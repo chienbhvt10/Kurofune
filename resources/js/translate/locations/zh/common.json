@@ -574,6 +574,7 @@
       "placeholder_seach": "请输入姓名类别。",
       "title": {
         "product_category_title": "产品分类",
+        "product_category_add": "添加新类别",
         "category_list": "类别列表",
         "category_add": "添加"
       },

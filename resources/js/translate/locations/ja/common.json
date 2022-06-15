@@ -576,6 +576,7 @@
       "placeholder_seach": "カテゴリ名を入力してください。",
       "title": {
         "product_category_title": "商品カテゴリ",
+        "product_category_add": "カテゴリを新規追加",
         "category_list": "カテゴリリスト",
         "category_add": "新規追加"
       },

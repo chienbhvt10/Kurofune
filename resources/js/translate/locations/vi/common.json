@@ -574,6 +574,7 @@
       "placeholder_seach": "Vui lòng nhập tên danh mục",
       "title": {
         "product_category_title": "Danh mục sản phẩm",
+        "product_category_add": "Thêm danh mục",
         "category_list": "Danh sách danh mục",
         "category_add": "Thêm mới"
       },

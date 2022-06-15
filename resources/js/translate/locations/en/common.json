@@ -582,6 +582,7 @@
       "placeholder_seach": "Please enter name category",
       "title": {
         "product_category_title": "Product Category",
+        "product_category_add": "Add Category",
         "category_list": "Category List",
         "category_add": "Add"
       },
