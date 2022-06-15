@@ -28,7 +28,7 @@ export const UserTable = ({
       dataIndex: "username",
       title: t("admins.user.form.field_username"),
       sort: true,
-      width: 350,
+      width: 300,
       render: (_, record) => {
         return (
           <Link

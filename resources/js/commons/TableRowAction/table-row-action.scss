@@ -1,9 +1,12 @@
-.table-row-action{
-    .img-row{
-        cursor: pointer;
-        font-size: 20px;
-    }
-    .img-row:first-child{
-        margin-right: 5px;
-    }
+.table-row-action {
+  .img-row {
+    cursor: pointer;
+    font-size: 20px;
+  }
+  .img-row:first-child {
+    margin-right: 5px;
+  }
+  .ant-popover-inner {
+    width: 200px;
+  }
 }

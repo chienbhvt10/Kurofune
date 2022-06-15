@@ -345,6 +345,7 @@
     "btn_generate_password": "Tạo mật khẩu",
     "btn_search": "Tìm kiếm",
     "btn_add_new": "Thêm mới",
+    "btn_reset": "Reset",
     "delete_item_message": "Bạn có muốn xóa không?",
     "user": {
       "list": {
@@ -402,24 +403,24 @@
           "field_company_mail": "Email của công ty"
         },
         "order": {
-          "field_date_create":"Ngày tạo",
-          "field_customer":"Khách hàng:",
-          "field_action":"Thao tác",
-          "field_status":"Trạng thái:",
-          "field_first_name":"Họ",
-          "field_last_name":"Tên",
-          "field_company":"Công ty",
-          "field_address_line_1":"Địa chỉ khu phố",
-          "field_address_line_2":"Tên toà nhà",
-          "field_city":"Thị trấn / Thành phố ",
-          "field_postal_code":"Mã bưu điện",
-          "field_country_region":"Quốc gia / Khu vực",
-          "field_email":"Email",
-          "field_phone":"Phone",
-          "field_payment_method":"Phương thức thanh toán",
-          "field_transaction_id":"Transaction Id",
-          "field_customer_provided_note":"Ghi chú về đơn hàng",
-          "field_state_county":"Tỉnh/ Thành phố"
+          "field_date_create": "Ngày tạo",
+          "field_customer": "Khách hàng:",
+          "field_action": "Thao tác",
+          "field_status": "Trạng thái:",
+          "field_first_name": "Họ",
+          "field_last_name": "Tên",
+          "field_company": "Công ty",
+          "field_address_line_1": "Địa chỉ khu phố",
+          "field_address_line_2": "Tên toà nhà",
+          "field_city": "Thị trấn / Thành phố ",
+          "field_postal_code": "Mã bưu điện",
+          "field_country_region": "Quốc gia / Khu vực",
+          "field_email": "Email",
+          "field_phone": "Phone",
+          "field_payment_method": "Phương thức thanh toán",
+          "field_transaction_id": "Transaction Id",
+          "field_customer_provided_note": "Ghi chú về đơn hàng",
+          "field_state_county": "Tỉnh/ Thành phố"
         },
         "vendor_profile": {
           "field_image_inside": "Hình ảnh bên trong hiệu thuốc",
@@ -487,15 +488,15 @@
           "pattern": "Vui lòng nhập số điện thoại hợp lệ."
         },
         "user_name": {
-          "required" : "Vui lòng nhập tên người dùng của bạn.",
+          "required": "Vui lòng nhập tên người dùng của bạn.",
           "pattern": "The username must only contain letters, numbers, dashes and underscores."
         },
         "password": {
           "required": "Vui lòng nhập mật khẩu của bạn.",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
+          "pattern_number": "Password có ít nhất một số",
+          "pattern_uppercase_alpha": "Password có ít nhất 1 chữ hoa",
+          "pattern_alpha": "Password có ít nhất 1  chữ thường",
+          "pattern_special_characters": "Password có ít nhất một kí tự đặc biệt",
           "min": "Vui lòng nhập mật khẩu có ít nhất 8 ký tự."
         },
         "active_required": "Please select active status!",
@@ -581,15 +582,15 @@
         "error_category_image": "Vui lòng nhập category image"
       }
     },
-    "log_chatbot":{
+    "log_chatbot": {
       "no": "",
       "id": "",
       "btn_export": "Tải xuống CSV",
       "btn_export_ja": "Tải xuống CSV (tiếng Nhật)",
       "btn_show": "Hiển thị",
       "btn_show_ja": "Hiển thị bằng tiếng Nhật",
-      "username_id":"ID user",
-      "username":"Tên tài khoản",
+      "username_id": "ID user",
+      "username": "Tên tài khoản",
       "show_history": "Lịch sử trò chuyện",
       "show_history_ja": "Lịch sử trò chuyện (Tiếng Nhật)",
       "created_at": "Ngày tạo",
