@@ -28,6 +28,7 @@ const useLogout = () => {
     if (resLogout && resLogout?.error_code === NO_ERROR) {
       NotificationSuccess(t("notification"), resLogout.message);
       removeRememberLogin();
+      sessionStorage.clear();
       navigate(`${lang}/login`);
       dispatch(resetAuthResponse());
     }
