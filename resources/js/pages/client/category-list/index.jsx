@@ -6,6 +6,7 @@ import { getCurrentLanguage } from "../../../helper/localStorage";
 import useCategories from "../../../hooks/category/useCategories";
 import "./category-list.scss";
 import { uniqBy } from "lodash";
+
 const CategoryListPage = () => {
   const { i18n, t } = useTranslation();
   const { getAllCategories, categories } = useCategories();
@@ -30,7 +31,7 @@ const CategoryListPage = () => {
         <div className="list_categories">
           {typeCategories?.map((typeCategory, index) => (
             <div className="type-wrapper" key={index}>
-              <div className="type-name">{typeCategory}</div>
+              <div className="type-name"> {t(`client.medicine_list.type_name${typeCategory}`)}</div>
               <CardCategory cardItems={categories} type={typeCategory} />
             </div>
           ))}
