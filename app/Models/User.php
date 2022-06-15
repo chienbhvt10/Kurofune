@@ -147,7 +147,7 @@ class User extends Authenticatable
         return $this->hasMany(Order::class, 'user_id', 'id');
     }
 
-    protected static $relations_to_cascade = ['profile', 'address', 'shipping_address', 'billing_address', 'vendor_profile'];
+    protected static $relations_to_cascade = ['profile', 'address', 'shipping_address', 'billing_address', 'vendor_profile', 'cart'];
 
     protected static function boot()
     {
