@@ -41,7 +41,6 @@ const CategoryList = () => {
       <TableHeader
         addLink={`${lang}/admin/category/add`}
         breadcrumb={[
-          { name: "Home", routerLink: "../" },
           { name: "Category List", routerLink: "/category-list" },
         ]}
         title="Product Category"
