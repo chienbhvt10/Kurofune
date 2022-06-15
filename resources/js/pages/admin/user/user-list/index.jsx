@@ -48,6 +48,7 @@ export const UserList = () => {
         searchPlaceHolder={t("admins.user.form.placeholder.search")}
         onChangeSearch={onChangeSearchValue}
         onResetFilter={onResetFilter}
+        showReset={true}
       >
         <div id="role-select">
           <Select
