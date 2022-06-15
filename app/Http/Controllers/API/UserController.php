@@ -6,6 +6,7 @@ use App\Enums\Base;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\VendorProfile;
 use App\Notifications\ChangePasswordNotification;
 use App\Notifications\RegisterUserNotification;
 use App\Rules\WithoutSpaces;
@@ -732,9 +733,11 @@ class UserController extends Controller
     {
         try {
             $user = User::find($id);
-            $vendor = $user->vendor_profile();
+            $vendor = $user->vendor_profile;
             $user->delete();
-            $vendor->delete();
+            if (!empty($vendor)) {
+                $vendor->delete();
+            }
             return $this->response_message_success(__('message.user.deleted'));
         }catch (\Exception $error){
             return $this->response_exception();
