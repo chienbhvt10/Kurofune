@@ -1,5 +1,5 @@
 import {
-  ACCESS_TOKEN_STORE,
+  ACCESS_TOKEN_STORED,
   CURRENT_LANG_STORED,
   RESET_MAIL_STORED,
 } from "../constants";
@@ -12,13 +12,13 @@ export const getCurrentLanguage = () => {
 };
 
 export const getAccessToken = () => {
-  return localStorage.getItem(ACCESS_TOKEN_STORE);
+  return localStorage.getItem(ACCESS_TOKEN_STORED);
 };
 export const setAccessToken = (access_token) => {
-  return localStorage.setItem(ACCESS_TOKEN_STORE, access_token);
+  return localStorage.setItem(ACCESS_TOKEN_STORED, access_token);
 };
 export const removeAccessToken = () => {
-  return localStorage.removeItem(ACCESS_TOKEN_STORE);
+  return localStorage.removeItem(ACCESS_TOKEN_STORED);
 };
 
 export const getResetMail = () => {

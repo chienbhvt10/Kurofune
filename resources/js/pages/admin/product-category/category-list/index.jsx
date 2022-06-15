@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
@@ -14,9 +14,14 @@ const CategoryList = () => {
   const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
     useDeleteAdminCategory();
   const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState();
 
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
+
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  };
 
   const onDelete = (row) => () => {
     deleteAdminCategory(row.id);
@@ -29,12 +34,21 @@ const CategoryList = () => {
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
-    getAdminCategories({ page: current, per_page: per_page });
+    getAdminCategories({
+      page: current,
+      per_page: per_page,
+    });
   };
 
-  const onSearch = (values) => {
-    getAdminCategories({ name: values.name });
+  const onSearch = () => {
+    getAdminCategories({ name: searchValue });
   };
+
+  React.useEffect(() => {
+    if (!searchValue) {
+      getAdminCategories();
+    }
+  }, [searchValue]);
 
   return (
     <div className="category-container">
@@ -42,12 +56,16 @@ const CategoryList = () => {
         addLink={`${lang}/admin/category/add`}
         breadcrumb={[
           { name: "Home", routerLink: "../" },
-          { name: "Category List", routerLink: "/category-list" },
+          {
+            name: t("admins.category.title.category_list"),
+            routerLink: "/category-list",
+          },
         ]}
-        title="Product Category"
+        title={t("admins.category.title.product_category_title")}
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.category.placeholder_seach")}
+        onChangeSearch={onChangeSearchValue}
       />
       <CategoryTable
         items={adminCategories}

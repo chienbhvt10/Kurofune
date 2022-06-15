@@ -25,14 +25,29 @@ export const ChangePassword = () => {
   };
 
   const renderErrorTranslate = (field) => {
-    return validateUser?.change_password?.[field].map((item) => {
+    const errorMessage = validateUser?.change_password?.[field].map((item) => {
       return {
         ...item,
         message: t(item.message),
       };
     });
+    if (field === "password_confirmation") {
+      return [
+        ...errorMessage,
+        ({ getFieldValue }) => ({
+          validator(_, value) {
+            if (!value || getFieldValue("password") === value) {
+              return Promise.resolve();
+            }
+            return Promise.reject(
+              new Error(t("admins.user.error.not_same_password"))
+            );
+          },
+        }),
+      ];
+    }
+    return errorMessage;
   };
-
   return (
     <>
       <Helmet>
@@ -51,6 +66,7 @@ export const ChangePassword = () => {
           <Col span={24}>
             <InputField
               field="current_password"
+              error="current_password"
               label={t("member.change_password.field_old_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
@@ -78,6 +94,7 @@ export const ChangePassword = () => {
           <Col span={24}>
             <InputField
               field="password"
+              error="password"
               label={t("member.change_password.field_new_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
@@ -103,6 +120,7 @@ export const ChangePassword = () => {
           <Col span={24}>
             <InputField
               field="password_confirmation"
+              error="password_confirmation"
               label={t("member.change_password.field_confirm_password")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}

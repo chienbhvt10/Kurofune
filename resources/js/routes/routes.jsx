@@ -38,7 +38,6 @@ import CategoryListPage from "../pages/client/category-list";
 import CategoryListDetail from "../pages/client/category-list-detail";
 import CheckoutPage from "../pages/client/checkout";
 import MediaPage from "../pages/client/media";
-import MemberPage from "../pages/client/member";
 import OrderDetailPage from "../pages/client/order-detail";
 import OrderHistoryPage from "../pages/client/order-history";
 import PharmacyDetail from "../pages/client/pharmacy-detail";
@@ -52,13 +51,14 @@ import { ChangeProfile } from "../pages/client/user-info/change-profile";
 import { UserLayout } from "../pages/client/user-info/user-layout";
 import { NotFound } from "../pages/notFound";
 import PrivateRoute from "../commons/PrivateRoute/PrivateRoute";
-import { useSelector } from "react-redux";
-import useShowProfile from "../hooks/auth/useShowProfile";
 import { isAdmin, isVendor } from "../helper/checker";
+import { useSelector, useDispatch } from "react-redux";
 import QAPage from "../pages/client/Q&A";
+import { showProfileAction } from "../redux/actions/authAction";
 const appRouter = () => {
   const { i18n } = useTranslation();
-  const { profile, userInfo } = useSelector((state) => state.authState);
+  const userInfo = useSelector((state) => state.authState.userInfo);
+  const roles = useSelector((state) => state.authState.profile?.roles);
   const langUrl = i18n.language;
   if (
     langUrl === LANG_VIETNAMESE ||
@@ -83,24 +83,24 @@ const appRouter = () => {
     setCurrentLanguage("");
   }
   const lang = getCurrentLanguage();
-  const { showProfile } = useShowProfile();
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    showProfile();
+    dispatch(showProfileAction());
   }, []);
 
   return (
     <BrowserRouter>
       <Routes>
-        {(profile?.roles || userInfo?.roles?.name) && (
+        {(roles || userInfo?.roles?.name) && (
           <Route
             path={`/`}
             element={
               <Navigate
                 to={
-                  isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)
+                  isAdmin(roles) || isAdmin(userInfo?.roles?.name)
                     ? `${lang}/admin`
-                    : isVendor(profile?.roles) ||
-                      isVendor(userInfo?.roles?.name)
+                    : isVendor(roles) || isVendor(userInfo?.roles?.name)
                     ? `${lang}/admin/product-list`
                     : `${lang}/media`
                 }

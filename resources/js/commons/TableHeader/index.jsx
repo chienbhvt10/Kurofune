@@ -16,6 +16,7 @@ export const TableHeader = ({
   searchPlaceHolder,
   onChangeSearch,
   onResetFilter,
+  showReset,
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -44,13 +45,17 @@ export const TableHeader = ({
                 )}
               </Col>
               <Col>
-                <Button
-                  className="btn-reset"
-                  type="primary"
-                  onClick={onResetFilter}
-                >
-                  {t("admins.btn_reset")}
-                </Button>
+                {showReset ? (
+                  <Button
+                    className="btn-reset"
+                    type="primary"
+                    onClick={onResetFilter}
+                  >
+                    {t("admins.btn_reset")}
+                  </Button>
+                ) : (
+                  ""
+                )}
               </Col>
               <Col className="filter">{children}</Col>
             </Row>

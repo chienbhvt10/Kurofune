@@ -3,7 +3,10 @@ import React from "react";
 import { updateAdminCategoryAction } from "../../redux/actions/categoryAdminAction.js";
 import { useTranslation } from "react-i18next";
 import { NO_ERROR, ERROR } from "../../constants/error";
-import { NotificationSuccess } from "../../commons/Notification";
+import {
+  NotificationSuccess,
+  NotificationError,
+} from "../../commons/Notification";
 import useAdminCategories from "./useAdminCategories.js";
 import { useNavigate } from "react-router-dom";
 import { getCurrentLanguage } from "../../helper/localStorage.js";
@@ -30,7 +33,7 @@ const useUpdateAdminCategory = () => {
       NotificationSuccess(t("notification"), resUpdateCategory?.message);
     }
     if (resUpdateCategory && resUpdateCategory?.error_code === ERROR) {
-      NotificationSuccess(t("notification"), resUpdateCategory?.error_message);
+      NotificationError(t("notification"), resUpdateCategory?.error_message);
     }
   }, [resUpdateCategory]);
 

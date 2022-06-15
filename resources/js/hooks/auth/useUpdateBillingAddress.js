@@ -25,10 +25,7 @@ const useUpdateBillingAddress = () => {
   React.useEffect(() => {
     if (resUpdateBillingAddress?.error_code === NO_ERROR) {
       setLoadingUpdateBillings(false);
-      NotificationSuccess(
-        t("notification"),
-        resUpdateBillingAddress.error_message
-      );
+      NotificationSuccess(t("notification"), resUpdateBillingAddress.message);
       dispatch(resetAuthResponse());
     }
     if (

@@ -163,8 +163,11 @@
         }
       }
     }
-    .btn-submit-checkout.disabled {
+    .btn-submit-checkout{
       background-color: #62a19b;
+      border-color: #62a19b;
+    }
+    .btn-submit-checkout.disabled {
       opacity: 0.5;
     }
   }

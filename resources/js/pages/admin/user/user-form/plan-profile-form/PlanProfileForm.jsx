@@ -1,4 +1,5 @@
 import { Col, Form, Input, Row } from "antd";
+import moment from "moment";
 import React, { useState } from "react";
 import "react-datepicker/dist/react-datepicker.css";
 import { useTranslation } from "react-i18next";
@@ -12,7 +13,6 @@ import {
   ROLE_LIGHT_PLAN,
 } from "../../../../../constants/index.js";
 const PlanProfileForm = ({ form, className, role }) => {
-
   const { t } = useTranslation();
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
   const [startDate, setStartDate] = useState(null);
@@ -37,6 +37,10 @@ const PlanProfileForm = ({ form, className, role }) => {
     }
   }, [role]);
 
+  const disabledDate = (current) => {
+    return current && current > moment().endOf("day");
+  };
+
   return (
     <div className={`common-profile-form ${className}`}>
       <Form name="plan-profile-form" form={form}>
@@ -50,6 +54,7 @@ const PlanProfileForm = ({ form, className, role }) => {
               wrapperCol={{ span: 22 }}
               locale={{ lang: { locale: "vi_VN" } }}
               response={resCreateUser}
+              disabledDate={disabledDate}
             />
           </Col>
           <Col span={12}>

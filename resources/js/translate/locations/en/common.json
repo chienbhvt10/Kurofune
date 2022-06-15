@@ -499,11 +499,10 @@
         },
         "password": {
           "required": "Please input your password!",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
-          "min": "Please input atLeast 8 characters for password!"
+          "pattern_number": "Password must contain at least one number.",
+          "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
+          "pattern_special_characters": "Password must contain at least one symbol.",
+          "min": "Password must contain at least eight characters."
         },
         "active_required": "Please select active status!",
         "postal_code": {
@@ -578,16 +577,24 @@
       "name_field": "Name",
       "type_field": "Type",
       "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "product_image_field": "Category Image",
       "placeholder_text": "Please enter text",
       "placeholder_seach": "Please enter name category",
+      "title": {
+        "product_category_title": "Product Category",
+        "product_category_add": "Add Category",
+        "category_list": "Category List",
+        "category_add": "Add"
+      },
       "type": {
         "option1": "First-class OTC drugs",
         "option2": "Specify Second-class OTC drugs",
         "option3": "Second-class OTC drugs"
       },
       "error_message": {
-        "error_category_image": "The category image field is required."
+        "error_category_image": "The category image field is required",
+        "error_type": "The type field is required",
+        "error_name": "The Name field is required"
       }
     },
     "log_chatbot": {

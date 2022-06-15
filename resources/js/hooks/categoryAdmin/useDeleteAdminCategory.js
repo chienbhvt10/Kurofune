@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteAdminCategoryAction } from "../../redux/actions/categoryAdminAction.js";
 import { useTranslation } from "react-i18next";
 import { NO_ERROR, ERROR } from "../../constants/error";
-import { NotificationSuccess } from "../../commons/Notification";
+import {
+  NotificationSuccess,
+  NotificationError,
+} from "../../commons/Notification";
 import useAdminCategories from "./useAdminCategories.js";
 import { useNavigate } from "react-router-dom";
 import { getCurrentLanguage } from "../../helper/localStorage.js";
@@ -30,7 +33,7 @@ const useDeleteAdminCategory = () => {
       navigate(`${lang}/admin/category-list`);
     }
     if (resDeleteCategory?.error_code === ERROR) {
-      NotificationSuccess(t("notification"), resDeleteCategory?.error_message);
+      NotificationError(t("notification"), resDeleteCategory?.error_message);
     }
   }, [resDeleteCategory]);
 

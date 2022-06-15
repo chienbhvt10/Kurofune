@@ -493,10 +493,9 @@
         },
         "password": {
           "required": "Mangyaring ipasok ang iyong password.",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
+          "pattern_number": "Ang password ay dapat maglaman ng hindi bababa sa isang numero.",
+          "pattern_alpha": "Ang password ay dapat maglaman ng hindi bababa sa isang malaking titik at isang maliit na titik",
+          "pattern_special_characters": "Ang password ay dapat maglaman ng kahit isang simbolo.",
           "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
         },
         "active_required": "Please select active status!",
@@ -568,18 +567,26 @@
     "category": {
       "slug_field": "Slug",
       "name_field": "Pangalan",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "Uri",
+      "parent_category_field": "Kategorya ng magulang",
+      "product_image_field": "Larawan ng kategorya",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "Mangyaring ipasok ang kategorya ng pangalan",
+      "title": {
+        "product_category_title": "Kategorya ng Produkto",
+        "product_category_add": "Magdagdag ng kategorya",
+        "category_list": "Listahan ng Kategorya",
+        "category_add": "Idagdag"
+      },
       "type": {
         "option1": "Unang-class na OTC na gamot",
         "option2": "Tukuyin ang Second-class na mga OTC na gamot",
         "option3": "Pangalawang klase ng mga OTC na gamot"
       },
       "error_message": {
-        "error_category_image": "Ang category image ay isang kinakailangang."
+        "error_category_image": "Kinakailangan ang field ng larawan ng kategorya",
+        "error_type": "Kinakailangan ang field ng uri",
+        "error_name": "Kinakailangan ang field ng Pangalan"
       }
     },
     "log_chatbot": {

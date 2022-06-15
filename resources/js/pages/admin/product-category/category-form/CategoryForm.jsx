@@ -45,7 +45,7 @@ const CategoryForm = ({
 
   const { getAllCategories, categories } = useCategories();
   React.useEffect(() => {
-      getAllCategories()
+    getAllCategories();
   }, []);
   const onFinishAll = (values) => {
     const submitInput = {
@@ -137,12 +137,14 @@ const CategoryForm = ({
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: "../" },
             {
-              name: "Category List",
+              name: t("admins.category.title.category_list"),
               routerLink: `${lang}/admin/category-list`,
             },
-            { name: "Add", routerLink: "/admin/category/add" },
+            {
+              name: t("admins.category.title.category_add"),
+              routerLink: "/admin/category/add",
+            },
           ]}
           title={title}
           onCancel={onCancel}
@@ -196,11 +198,11 @@ const CategoryForm = ({
                 <SelectField
                   field="type"
                   label={t("admins.category.type_field")}
-                  validateStatus={"Please enter your Type"}
+                  validateStatus={true}
                   rules={[
                     {
                       required: true,
-                      message: t("admins.category.placeholder_text"),
+                      message: t("admins.category.error_message.error_type"),
                     },
                   ]}
                   type={<Input type="number" className="input-field" />}

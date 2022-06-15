@@ -24,7 +24,7 @@ const useUpdateProfile = () => {
   React.useEffect(() => {
     if (resUpdateProfile?.error_code === NO_ERROR) {
       setLoadingUpdateProfile(false);
-      NotificationSuccess(t("notification"), resUpdateProfile.error_message);
+      NotificationSuccess(t("notification"), resUpdateProfile.message);
       dispatch(resetAuthResponse());
     }
     if (resUpdateProfile && resUpdateProfile.error_code === ERROR) {
