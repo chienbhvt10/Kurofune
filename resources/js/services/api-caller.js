@@ -11,7 +11,8 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   async (config) => {
-    const access_token = getAccessToken();
+    const access_token =
+      getAccessToken() || sessionStorage.getItem("access_token") || "";
     const lang = getCurrentLanguage();
     if (access_token) {
       config.headers = {

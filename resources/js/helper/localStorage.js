@@ -1,6 +1,7 @@
 import {
   ACCESS_TOKEN_STORED,
   CURRENT_LANG_STORED,
+  REMEMBER_LOGIN_STORED,
   RESET_MAIL_STORED,
 } from "../constants";
 
@@ -30,4 +31,15 @@ export const removeResetMail = () => {
 
 export const setResetMail = (reset_email) => {
   return localStorage.setItem(RESET_MAIL_STORED, reset_email);
+};
+
+export const getRememberLogin = () => {
+  return localStorage.getItem(REMEMBER_LOGIN_STORED);
+};
+export const setRememberLogin = (remember) => {
+  return localStorage.setItem(REMEMBER_LOGIN_STORED, remember);
+};
+
+export const removeRememberLogin = () => {
+  return localStorage.removeItem(REMEMBER_LOGIN_STORED);
 };
