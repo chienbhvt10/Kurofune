@@ -30,7 +30,8 @@ const InputField = ({
           response?.message?.[error][0]) ||
         (response?.error_data?.[error] &&
           response?.error_data?.[error] &&
-          response?.error_data?.[error][0])
+          response?.error_data?.[error][0]) ||
+        response?.error_message
       }
       validateStatus={
         (response?.message?.[error] && response?.message?.[error].length) ||

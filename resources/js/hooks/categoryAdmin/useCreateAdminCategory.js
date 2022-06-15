@@ -3,7 +3,10 @@ import React from "react";
 import { createCategoryAdminAction } from "../../redux/actions/categoryAdminAction.js";
 import { NO_ERROR, ERROR } from "../../constants/error";
 import useAdminCategories from "./useAdminCategories.js";
-import { NotificationSuccess } from "../../commons/Notification";
+import {
+  NotificationSuccess,
+  NotificationError,
+} from "../../commons/Notification";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 import { getCurrentLanguage } from "../../helper/localStorage.js";

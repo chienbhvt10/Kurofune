@@ -15,14 +15,8 @@ const useAdminCategories = () => {
 
   const getAdminCategories = (payload) => {
     dispatch(getAllCategoriesAdminAction(payload));
-  };
-
-  React.useEffect(() => {
-    if (adminCategories?.length === 0) {
-      getAdminCategories({ page: current_page });
-    }
     dispatch(resetCategoryResCRUDAction());
-  }, [lang, adminCategories]);
+  };
 
   React.useEffect(() => {
     if (!adminCategories) {

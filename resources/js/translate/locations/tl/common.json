@@ -567,18 +567,26 @@
     "category": {
       "slug_field": "Slug",
       "name_field": "Pangalan",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "Uri",
+      "parent_category_field": "Kategorya ng magulang",
+      "product_image_field": "Larawan ng kategorya",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "Mangyaring ipasok ang kategorya ng pangalan",
+      "title": {
+        "product_category_title": "Kategorya ng Produkto",
+        "product_category_add": "Magdagdag ng kategorya",
+        "category_list": "Listahan ng Kategorya",
+        "category_add": "Idagdag"
+      },
       "type": {
         "option1": "Unang-class na OTC na gamot",
         "option2": "Tukuyin ang Second-class na mga OTC na gamot",
         "option3": "Pangalawang klase ng mga OTC na gamot"
       },
       "error_message": {
-        "error_category_image": "Ang category image ay isang kinakailangang."
+        "error_category_image": "Kinakailangan ang field ng larawan ng kategorya",
+        "error_type": "Kinakailangan ang field ng uri",
+        "error_name": "Kinakailangan ang field ng Pangalan"
       }
     },
     "log_chatbot": {
