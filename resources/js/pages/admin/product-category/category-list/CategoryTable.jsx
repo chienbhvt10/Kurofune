@@ -74,7 +74,11 @@ const CategoryTable = ({
     {
       key: "type",
       dataIndex: "type",
-      title: <div className="title-header-category">Type</div>,
+      title: (
+        <div className="title-header-category">
+          {t("admins.category.type_field")}
+        </div>
+      ),
       render: (_, record) => (
         <span>
           {t(

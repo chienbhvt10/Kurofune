@@ -2,9 +2,11 @@ import React from "react";
 import { Col, Form, Input, Row } from "antd";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import { getCategoryFormLayout } from "./categoryInitValues.js";
+import { useTranslation } from "react-i18next";
 
 const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
   const formItemLayout = getCategoryFormLayout();
+  const { t } = useTranslation();
   return (
     <>
       <Form
@@ -17,11 +19,11 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
           <Col span={24}>
             <InputField
               field="name"
-              label={`(${lang}) Name`}
+              label={`(${lang}) ${t("admins.category.name_field")}`}
               rules={[
                 lang === "EN" && {
                   required: true,
-                  message: "Please enter your Name",
+                  message: t("admins.category.error_message.error_name"),
                   whitespace: true,
                 },
               ]}

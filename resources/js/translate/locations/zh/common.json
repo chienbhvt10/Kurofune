@@ -565,20 +565,28 @@
       }
     },
     "category": {
-      "slug_field": "Slug",
+      "slug_field": "蛞蝓",
       "name_field": "姓名",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "类型",
+      "parent_category_field": "父类",
+      "product_image_field": "类别图片",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "请输入姓名类别。",
+      "title": {
+        "product_category_title": "产品分类",
+        "product_category_add": "添加新类别",
+        "category_list": "类别列表",
+        "category_add": "添加"
+      },
       "type": {
         "option1": "第1类",
         "option2": "指定的第2类",
         "option3": "第2类"
       },
       "error_message": {
-        "error_category_image": "category image 不能留空。"
+        "error_category_image": "类别图像字段是必需的。",
+        "error_type": "类型字段是必需的。",
+        "error_name": "类别名称字段是必需的。"
       }
     },
     "log_chatbot": {
