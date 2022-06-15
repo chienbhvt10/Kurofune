@@ -344,6 +344,7 @@
     "btn_add_new": "新規追加",
     "btn_search": "検索",
     "btn_upload": "アップロード",
+    "btn_reset": "Reset",
     "btn_generate_password": "パスワード生成",
     "delete_item_message": "これを削除しますか。",
     "user": {
@@ -402,24 +403,24 @@
           "field_company_mail": "企業のメールアドレス"
         },
         "order": {
-          "field_date_create":"作成日:",
-          "field_customer":"カスタマー:",
-          "field_action":"操作",
-          "field_status":"ステータス:",
-          "field_first_name":"姓",
-          "field_last_name":"名",
-          "field_company":"企業",
-          "field_address_line_1":"丁目・番地・号",
-          "field_address_line_2":"建物名・部屋番号",
-          "field_city":"市区町村",
-          "field_postal_code":"郵便番号",
-          "field_country_region":"国/地域",
-          "field_email":"メールアドレス",
-          "field_phone":"電話番号",
-          "field_payment_method":"決済方法",
-          "field_transaction_id":"Transaction Id",
-          "field_customer_provided_note":"注文メモ",
-          "field_state_county":"都道府県"
+          "field_date_create": "作成日:",
+          "field_customer": "カスタマー:",
+          "field_action": "操作",
+          "field_status": "ステータス:",
+          "field_first_name": "姓",
+          "field_last_name": "名",
+          "field_company": "企業",
+          "field_address_line_1": "丁目・番地・号",
+          "field_address_line_2": "建物名・部屋番号",
+          "field_city": "市区町村",
+          "field_postal_code": "郵便番号",
+          "field_country_region": "国/地域",
+          "field_email": "メールアドレス",
+          "field_phone": "電話番号",
+          "field_payment_method": "決済方法",
+          "field_transaction_id": "Transaction Id",
+          "field_customer_provided_note": "注文メモ",
+          "field_state_county": "都道府県"
         },
         "vendor_profile": {
           "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
@@ -487,7 +488,7 @@
           "pattern": "有効な電話番号を入力してください。"
         },
         "user_name": {
-          "required" : "ユーザー名を入力してください。",
+          "required": "ユーザー名を入力してください。",
           "pattern": "The username must only contain letters, numbers, dashes and underscores."
         },
         "password": {
@@ -525,13 +526,13 @@
       }
     },
     "order": {
-      "table":{
-        "field_subOrder":"SubOrder",
-        "field_order":"Order",
-        "field_date":"Date",
-        "field_total":"Total",
-        "field_status":"Status",
-        "field_action":"Action"
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_status": "Status",
+        "field_action": "Action"
       }
     },
     "product": {
@@ -582,21 +583,20 @@
         "error_category_image": "category image を入力してください。"
       }
     },
-    "log_chatbot":{
+    "log_chatbot": {
       "no": "No.",
       "id": "ID",
       "btn_export": "CSVダウンロード",
       "btn_export_ja": "CSVダウンロード (日本語）",
       "btn_show": "表示",
       "btn_show_ja": "日本語で表示",
-      "username_id":"ユーザーID",
-      "username":"ユーザー名",
+      "username_id": "ユーザーID",
+      "username": "ユーザー名",
       "show_history": "チャット履歴",
       "show_history_ja": "チャット履歴(日本語）",
       "created_at": "作成日",
       "dow_history": "ダウンロード ",
       "dow_history_ja": "ダウンロード(日本語）"
     }
-
   }
 }
