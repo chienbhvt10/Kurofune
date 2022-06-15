@@ -108,7 +108,7 @@ function get_multiple_image($arr_image)
 
 function check_unique_slug($model, $slug)
 {
-    $slug_check = $model->where('slug', $slug)->first();
+    $slug_check = $model->withTrashed()->where('slug', $slug)->first();
     if (!empty($slug_check->slug) && ($slug_check->slug === $slug)) {
         return false;
     }
@@ -117,7 +117,7 @@ function check_unique_slug($model, $slug)
 
 function check_unique_slug_update($model, $slug, $id)
 {
-    $slug_check = $model->where('slug', $slug)->first();
+    $slug_check = $model->withTrashed()->where('slug', $slug)->first();
     if (!empty($slug_check->slug) && ($slug_check->slug === $slug) && ($slug_check->id != $id)) {
         return false;
     }
