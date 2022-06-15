@@ -29,7 +29,7 @@ const useForgotPassword = () => {
   React.useEffect(() => {
     if (resForgotPassword?.error_code === NO_ERROR) {
       setLoadingForgotPassword(false);
-      NotificationSuccess(t("notification"), resForgotPassword.error_message);
+      NotificationSuccess(t("notification"), resForgotPassword.message);
       navigate(`${lang}/reset-link-password`);
       dispatch(resetAuthResponse());
     }

@@ -6,6 +6,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import {
   resetAuthResponse,
@@ -26,15 +27,15 @@ const useResetPassword = () => {
   };
 
   React.useEffect(() => {
-    if (resResetPassword?.status_code === 200) {
+    if (resResetPassword?.error_code === NO_ERROR) {
       setLoadingResetPassword(false);
       NotificationSuccess(t("notification"), resResetPassword.message);
       navigate(`${lang}/login`, { replace: true });
       resetAuthResponse();
     }
-    if (resResetPassword && resResetPassword.status_code !== 200) {
+    if (resResetPassword && resResetPassword.error_code === ERROR) {
       setLoadingResetPassword(false);
-      NotificationError(t("notification"), resResetPassword.message);
+      NotificationError(t("notification"), resResetPassword.error_message);
     }
   }, [resResetPassword]);
 
