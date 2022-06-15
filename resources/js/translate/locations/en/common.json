@@ -480,47 +480,47 @@
         }
       },
       "error": {
-        "role_required": "Please select a role!",
-        "name_required": "Please input your name!",
-        "first_name_required": "Please input your first name!",
-        "last_name_required": "Please input your last name!",
-        "company_required": "Please input your company!",
-        "country_region_required": "Please input your Country/Region!",
-        "state_county_required": "Please input your State/Country!",
+        "role_required": "Please select a role.",
+        "name_required": "Please input your name.",
+        "first_name_required": "Please input your first name.",
+        "last_name_required": "Please input your last name.",
+        "company_required": "Please input your company.",
+        "country_region_required": "Please input your Country/Region.",
+        "state_county_required": "Please input your State/Country.",
         "email": {
-          "required": "Please input your email!",
-          "type": "Please input valid email!"
+          "required": "Please input your email.",
+          "type": "Please input valid email."
         },
         "phone": {
-          "required": "Please input your phone!",
-          "pattern": "Please input valid phone number!"
+          "required": "Please input your phone.",
+          "pattern": "Please input valid phone number."
         },
         "user_name": {
-          "required": "Please input your username!",
+          "required": "Please input your username.",
           "pattern": "The username must only contain letters, numbers, dashes and underscores."
         },
         "password": {
-          "required": "Please input your password!",
+          "required": "Please input your password.",
           "pattern_number": "Password must contain at least one number.",
           "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
           "pattern_special_characters": "Password must contain at least one symbol.",
           "min": "Password must contain at least eight characters."
         },
-        "active_required": "Please select active status!",
+        "active_required": "Please select active status.",
         "postal_code": {
-          "required": "Please input your postal code/zip!",
+          "required": "Please input your postal code/zip.",
           "pattern": "Please enter number",
-          "max_3_number": "Please enter only 3 numbers!",
-          "max_4_number": "Please enter only 4 numbers!",
-          "max_7_number": "Please enter only 7 numbers!"
+          "max_3_number": "Please enter only 3 numbers.",
+          "max_4_number": "Please enter only 4 numbers.",
+          "max_7_number": "Please enter only 7 numbers."
         },
-        "prefecture_required": "Please select prefecture!",
-        "city_required": "Please input city!",
-        "street_address_required": "Please input street address!",
-        "current_password_required": "Please input current password!",
-        "new_password_required": "Please input new password!",
-        "confirm_password_required": "Please input password confirmation!",
-        "not_same_password": "The two passwords that you entered do not match!"
+        "prefecture_required": "Please select prefecture.",
+        "city_required": "Please input city.",
+        "street_address_required": "Please input street address.",
+        "current_password_required": "Please input current password.",
+        "new_password_required": "Please input new password.",
+        "confirm_password_required": "Please input password confirmation.",
+        "not_same_password": "The two passwords that you entered do not match."
       }
     },
     "order": {
@@ -566,12 +566,12 @@
     },
     "crud": {
       "user": {
-        "create_success": "Create user successfully!",
-        "create_fail": "Create user fail!",
-        "update_success": "Update user successfully!",
-        "update_fail": "Update user fail!",
-        "delete_success": "Delete user successfully!",
-        "delete_fail": "Delete user fail!"
+        "create_success": "Create user successfully.",
+        "create_fail": "Create user fail.",
+        "update_success": "Update user successfully.",
+        "update_fail": "Update user fail.",
+        "delete_success": "Delete user successfully.",
+        "delete_fail": "Delete user fail."
       }
     },
     "category": {
