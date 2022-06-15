@@ -492,10 +492,9 @@
         },
         "password": {
           "required": "请输入您的密码。",
-          "pattern_number": "Vui lòng có số!",
-          "pattern_uppercase_alpha": "Vui lòng có chữ in hoa!",
-          "pattern_alpha": "Vui lòng có chữ in thường",
-          "pattern_special_characters": "Vui lòng có chữ ký đặc biệt!",
+          "pattern_number": "密码必须包含至少一个数字。",
+          "pattern_alpha": "密码必须至少包含一个大写和一个小写字母",
+          "pattern_special_characters": "密码必须至少包含一个符号。",
           "min": "请输入至少 8 个字符作为密码。"
         },
         "active_required": "请选择一个活动状态。",
