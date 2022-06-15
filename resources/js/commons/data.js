@@ -765,8 +765,8 @@ export const userFormOptions = {
     { value: 1, label_translate: "admins.user.form.option.female" },
   ],
   payment: [
-    { value: 1, label_translate: "admins.user.form.option.yes" },
-    { value: 0, label_translate: "admins.user.form.option.no" },
+    { value: 0, label_translate: "admins.user.form.option.no&inactive" },
+    { value: 1, label_translate: "admins.user.form.option.yes&inactive" }
   ],
   insurance_status: [
     {

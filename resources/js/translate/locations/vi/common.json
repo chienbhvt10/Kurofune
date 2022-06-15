@@ -449,6 +449,8 @@
           "female": "Nữ",
           "yes": "Có",
           "no": "Không",
+          "yes&inactive": "Có",
+          "no&inactive": "Không",
           "registered": "Đã đăng kí",
           "unregistered": "Chưa đăng kí",
           "remove_registered": "Đang xoá đăng kí",
