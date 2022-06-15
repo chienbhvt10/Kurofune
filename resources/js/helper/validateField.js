@@ -141,6 +141,22 @@ export const validateUser = {
         required: true,
         message: "admins.user.error.current_password_required",
       },
+      {
+        pattern: new RegExp(/\d/),
+        message: "admins.user.error.password.pattern_number",
+      },
+      {
+        pattern: new RegExp(/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/),
+        message: "admins.user.error.password.pattern_special_characters",
+      },
+      {
+        pattern: new RegExp(/[A-Z]/),
+        message: "admins.user.error.password.pattern_uppercase_alpha",
+      },
+      {
+        pattern: new RegExp(/[a-z]/),
+        message: "admins.user.error.password.pattern_alpha",
+      },
     ],
     password: [
       {
@@ -148,26 +164,28 @@ export const validateUser = {
         message: "admins.user.error.password.min",
       },
       { required: true, message: "admins.user.error.new_password_required" },
+      {
+        pattern: new RegExp(/\d/),
+        message: "admins.user.error.password.pattern_number",
+      },
+      {
+        pattern: new RegExp(/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/),
+        message: "admins.user.error.password.pattern_special_characters",
+      },
+      {
+        pattern: new RegExp(/[A-Z]/),
+        message: "admins.user.error.password.pattern_uppercase_alpha",
+      },
+      {
+        pattern: new RegExp(/[a-z]/),
+        message: "admins.user.error.password.pattern_alpha",
+      },
     ],
     password_confirmation: [
-      {
-        min: 8,
-        message: "admins.user.error.password.min",
-      },
       {
         required: true,
         message: "admins.user.error.confirm_password_required",
       },
-      ({ getFieldValue }) => ({
-        validator(_, value) {
-          if (!value || getFieldValue("password") === value) {
-            return Promise.resolve();
-          }
-          return Promise.reject(
-            new Error("admins.user.error.not_same_password")
-          );
-        },
-      }),
     ],
   },
 };
@@ -182,10 +200,6 @@ export const validateAuth = {
       {
         required: true,
         message: "admins.user.error.password.required",
-      },
-      {
-        min: 8,
-        message: "admins.user.error.password.min",
       },
     ],
   },
@@ -206,26 +220,28 @@ export const validateAuth = {
         message: "admins.user.error.password.min",
       },
       { required: true, message: "admins.user.error.new_password_required" },
+      {
+        pattern: new RegExp(/\d/),
+        message: "admins.user.error.password.pattern_number",
+      },
+      {
+        pattern: new RegExp(/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/),
+        message: "admins.user.error.password.pattern_special_characters",
+      },
+      {
+        pattern: new RegExp(/[A-Z]/),
+        message: "admins.user.error.password.pattern_uppercase_alpha",
+      },
+      {
+        pattern: new RegExp(/[a-z]/),
+        message: "admins.user.error.password.pattern_alpha",
+      },
     ],
     password_confirmation: [
-      {
-        min: 8,
-        message: "admins.user.error.password.min",
-      },
       {
         required: true,
         message: "admins.user.error.confirm_password_required",
       },
-      ({ getFieldValue }) => ({
-        validator(_, value) {
-          if (!value || getFieldValue("password") === value) {
-            return Promise.resolve();
-          }
-          return Promise.reject(
-            new Error("admins.user.error.not_same_password")
-          );
-        },
-      }),
     ],
   },
 };
