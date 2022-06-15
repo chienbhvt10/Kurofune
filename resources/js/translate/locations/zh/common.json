@@ -449,6 +449,8 @@
           "female": "女性",
           "yes": "是的",
           "no": "不",
+          "no&inactive": "不",
+          "yes&inactive": "是的",
           "registered": "未注册",
           "unregistered": "挂号的",
           "remove_registered": "未注册",
