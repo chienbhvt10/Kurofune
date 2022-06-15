@@ -43,22 +43,33 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const onFinishAll = (values) => {
     const submitInput = {
       ...productsForm.getFieldsValue(),
-      ja: {
-        ...productProfileFormJP.getFieldsValue(),
+      product_image: avatarState.base64Avatar,
+      en: {
+        ...(Object.keys(productProfileFormEN.getFieldsValue()).length === 0
+          ? item?.translations[0]
+          : productProfileFormEN.getFieldsValue()),
       },
-      vi: {
-        ...productProfileFormVI.getFieldsValue(),
+      ja: {
+        ...(Object.keys(productProfileFormJP.getFieldsValue()).length === 0
+          ? item?.translations[1]
+          : productProfileFormJP.getFieldsValue()),
       },
       tl: {
-        ...productProfileFormTL.getFieldsValue(),
+        ...(Object.keys(productProfileFormTL.getFieldsValue()).length === 0
+          ? item?.translations[2]
+          : productProfileFormTL.getFieldsValue()),
       },
+      vi: {
+        ...(Object.keys(productProfileFormVI.getFieldsValue()).length === 0
+          ? item?.translations[3]
+          : productProfileFormVI.getFieldsValue()),
+      },
+
       zh: {
-        ...productProfileFormZH.getFieldsValue(),
+        ...(Object.keys(productProfileFormZH.getFieldsValue()).length === 0
+          ? item?.translations[4]
+          : productProfileFormZH.getFieldsValue()),
       },
-      en: {
-        ...productProfileFormEN.getFieldsValue(),
-      },
-      product_image: avatarState.base64Avatar,
     };
     productProfileFormEN.validateFields();
     onSave(submitInput);

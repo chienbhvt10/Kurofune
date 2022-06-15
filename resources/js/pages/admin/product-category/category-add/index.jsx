@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import useCreateAdminCategory from "../../../../hooks/categoryAdmin/useCreateAdminCategory.js";
 import { TYPE_FORM_CREATE } from "../../../../constants";
 import CategoryForm from "../category-form/CategoryForm";
+import { t } from "i18next";
 
 const AddCategory = () => {
   const lang = localStorage.getItem("lang");
@@ -21,7 +22,7 @@ const AddCategory = () => {
     <div id="add-category-page">
       <CategoryForm
         typeForm={TYPE_FORM_CREATE}
-        title="Add Category"
+        title={t("admins.category.title.product_category_add")}
         onCancel={onCancel}
         onSave={onSave}
         response={resCreateCategory}

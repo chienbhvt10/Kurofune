@@ -565,20 +565,28 @@
       }
     },
     "category": {
-      "slug_field": "Slug",
+      "slug_field": "Đường dẫn",
       "name_field": "Tên",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "Loại",
+      "parent_category_field": "Danh mục cha",
+      "product_image_field": "Hình ảnh danh mục",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "Vui lòng nhập tên danh mục",
+      "title": {
+        "product_category_title": "Danh mục sản phẩm",
+        "product_category_add": "Thêm danh mục",
+        "category_list": "Danh sách danh mục",
+        "category_add": "Thêm mới"
+      },
       "type": {
         "option1": "Thuốc OTC hạng nhất",
         "option2": "Chỉ định thuốc OTC loại thứ hai",
         "option3": "Thuốc OTC hạng hai"
       },
       "error_message": {
-        "error_category_image": "Vui lòng nhập category image"
+        "error_category_image": "Trường 'Hình ảnh danh mục' là trường bắt buộc.",
+        "error_type": "Trường 'Loại' là trường bắt buộc.",
+        "error_name": "Trường 'Tên danh mục' là trường bắt buộc."
       }
     },
     "log_chatbot": {
