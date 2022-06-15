@@ -347,7 +347,7 @@ class UserController extends Controller
                 'username' => $username,
                 'password' => $password
             ];
-            // Notification::sendNow($user, new RegisterUserNotification($data));
+            Notification::sendNow($user, new RegisterUserNotification($data));
             return $this->response_message_data_success(__('message.user.created'), $user);
         }catch (\Exception $error){
             DB::rollBack();
