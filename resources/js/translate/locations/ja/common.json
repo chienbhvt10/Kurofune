@@ -567,20 +567,27 @@
       }
     },
     "category": {
-      "slug_field": "Slug",
+      "slug_field": "スラッグ",
       "name_field": "名前",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "タイプ",
+      "parent_category_field": "親カテゴリ",
+      "product_image_field": "カテゴリ画像",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "カテゴリ名を入力してください。",
+      "title": {
+        "product_category_title": "商品カテゴリ",
+        "category_list": "カテゴリリスト",
+        "category_add": "新規追加"
+      },
       "type": {
         "option1": "第1類医薬品",
         "option2": "指定第2類医薬品",
         "option3": "第2類医薬品"
       },
       "error_message": {
-        "error_category_image": "category image を入力してください。"
+        "error_category_image": "「カテゴリ画像」フィールドは必須です。",
+        "error_type": "「タイプ」フィールドは必須です。",
+        "error_name": "「カテゴリ名」フィールドは必須です。"
       }
     },
     "log_chatbot": {
