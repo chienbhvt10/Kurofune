@@ -6,6 +6,7 @@ import {
   deleteCart as deleteCartAction,
   addToCart as addToCartAction,
   deleteCartItem as deleteCartItemAction,
+  checkout as checkoutAction,
 } from "../../redux/actions/cartAction";
 const useCart = () => {
   const cartInfo = useSelector((state) => state.cartState.cartInfo);
@@ -27,8 +28,11 @@ const useCart = () => {
   const deleteCartItem = (id) => {
     dispatch(deleteCartItemAction(id));
   };
+  const checkout = (payload) => {
+    dispatch(checkoutAction(payload));
+  };
   React.useEffect(() => {
-    getCartInfo();
+    if (!cartInfo?.cart_item || cartInfo?.cart_item.length === 0) getCartInfo();
   }, []);
 
   return {
@@ -39,6 +43,7 @@ const useCart = () => {
     deleteCart,
     addToCart,
     deleteCartItem,
+    checkout,
   };
 };
 

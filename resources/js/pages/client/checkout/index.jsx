@@ -1,11 +1,57 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import BillingShipAddress from "../../../commons/BillingShipAddress";
-import { billingInfo } from "../../../commons/data";
 import ModalTerm from "../../../components/Modal/ModalTerm";
+import useCart from "../../../hooks/cart/useCart";
 import "./checkout.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { showProfileAction } from "../../../redux/actions/authAction";
 const CheckoutPage = () => {
-  const { i18n, t } = useTranslation();
+  const dispatch = useDispatch();
+  const profile = useSelector((state) => state.authState.profile);
+  const { t } = useTranslation();
+  const { cartInfo, checkout } = useCart();
+  const [isPolicyConfirm, setIsPolicyConfirm] = React.useState(false);
+  useEffect(() => {
+    if (!profile) dispatch(showProfileAction());
+  }, []);
+  const totalValue =
+    cartInfo?.cart_item.length > 0
+      ? cartInfo.cart_item.reduce(
+          (prev, currentItem) =>
+            prev + currentItem.quantity * currentItem.price_tax,
+          0
+        )
+      : 0;
+  const handleCheckout = (e) => {
+    e.preventDefault();
+    const { shipping_address, billing_address } = profile;
+    const shippingRequestData = {};
+    Object.entries(shipping_address).forEach(
+      (item) => (shippingRequestData["shipping_" + item[0]] = item[1])
+    );
+    const billingRequestData = {};
+    Object.entries(billing_address).forEach(
+      (item) => (billingRequestData["billing_" + item[0]] = item[1])
+    );
+    const requestData = {
+      ...shippingRequestData,
+      ...billingRequestData,
+      payment_mode: "cod",
+    };
+    const filterKeys = [
+      "id",
+      "user_id",
+      "created_at",
+      "updated_at",
+      "deleted_at",
+    ];
+    Object.keys(requestData).forEach(
+      (key) =>
+        filterKeys.some((item) => key.includes(item)) && delete requestData[key]
+    );
+    checkout(requestData);
+  };
   return (
     <div id="checkout-page">
       <div className="cart-custom">
@@ -19,26 +65,26 @@ const CheckoutPage = () => {
         </div>
 
         <div className="cart-body">
-          <form action="" id="cart-form">
-            <table className="table table-bordered table-item-line">
-              <thead>
-                <tr>
-                  <th className="product-name" scope="col">
-                    {t("client.checkout.th_product_name")}
-                  </th>
-                  <th className="product-price" scope="col">
-                    {t("client.checkout.th_product_price")}
-                  </th>
-                  <th className="product-quantity" scope="col">
-                    {t("client.checkout.th_product_quantity")}
-                  </th>
-                  <th className="product-subtotal" scope="col">
-                    {t("client.checkout.th_product_total")}
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
+          <table className="table table-bordered table-item-line">
+            <thead>
+              <tr>
+                <th className="product-name" scope="col">
+                  {t("client.checkout.th_product_name")}
+                </th>
+                <th className="product-price" scope="col">
+                  {t("client.checkout.th_product_price")}
+                </th>
+                <th className="product-quantity" scope="col">
+                  {t("client.checkout.th_product_quantity")}
+                </th>
+                <th className="product-subtotal" scope="col">
+                  {t("client.checkout.th_product_total")}
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {cartInfo?.cart_item.map((item) => (
+                <tr key={item.id}>
                   <td
                     data-label={t("client.checkout.th_product_name")}
                     className="product-name"
@@ -47,12 +93,10 @@ const CheckoutPage = () => {
                       <div className="image-wrap">
                         <img
                           alt="image-prod-Checkout"
-                          src="https://member.wabisabi.media/wp-content/uploads/2022/02/15_lh-stick.jpeg"
+                          src={item?.product_image}
                         />
                       </div>
-                      <div className="name">
-                        Dootest LHⅡ (Que thử dự đoán ngày rụng trứng) 12 cái{" "}
-                      </div>
+                      <div className="name">{item?.name}</div>
                     </a>
                   </td>
                   <td
@@ -61,7 +105,7 @@ const CheckoutPage = () => {
                   >
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
-                        3,278&nbsp;
+                        {item?.price_tax.toFixed(3)}&nbsp;
                         <span className="woocommerce-Price-currencySymbol">
                           (JPY)
                         </span>
@@ -72,12 +116,12 @@ const CheckoutPage = () => {
                     data-label={t("client.checkout.th_product_quantity")}
                     className="product-quantity"
                   >
-                    1{" "}
+                    {item?.quantity}{" "}
                   </td>
                   <td className="product-subtotal">
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
-                        3,278&nbsp;
+                        {(item?.price_tax * item?.quantity).toFixed(3)}&nbsp;
                         <span className="woocommerce-Price-currencySymbol">
                           (JPY)
                         </span>
@@ -85,9 +129,9 @@ const CheckoutPage = () => {
                     </span>
                   </td>
                 </tr>
-              </tbody>
-            </table>
-          </form>
+              ))}
+            </tbody>
+          </table>
 
           <div className="cart-totals">
             <table className="table table-bordered table-cart-totals">
@@ -99,7 +143,7 @@ const CheckoutPage = () => {
                   <td className="cart-totals-value">
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
-                        3,278&nbsp;
+                        {totalValue.toFixed(3)}&nbsp;
                         <span className="woocommerce-Price-currencySymbol">
                           (JPY)
                         </span>
@@ -114,13 +158,13 @@ const CheckoutPage = () => {
       </div>
       <div className="info-block billing-address">
         <BillingShipAddress
-          info={billingInfo}
+          info={profile?.billing_address}
           title={t("client.checkout.title_billing")}
         />
       </div>
       <div className="info-block shipping-address">
         <BillingShipAddress
-          info={billingInfo}
+          info={profile?.shipping_address}
           title={t("client.checkout.title_ship")}
         />
       </div>
@@ -128,12 +172,22 @@ const CheckoutPage = () => {
       <div className="submit-block">
         <form action="" id="submit-checkout">
           <div className="confirm">
-            <input type="checkbox" id="policy-confirm" />
+            <input
+              type="checkbox"
+              id="policy-confirm"
+              defaultChecked={isPolicyConfirm}
+              onChange={() => setIsPolicyConfirm((prev) => !prev)}
+            />
             <label htmlFor="policy-confirm" className="policy-confirm">
               <ModalTerm text={t("client.checkout.accept_term")} />
             </label>
           </div>
-          <button className="btn btn-primary btn-submit-checkout btn-free-out disabled">
+          <button
+            className={`btn btn-primary btn-submit-checkout btn-free-out ${
+              isPolicyConfirm ? "" : "disabled"
+            }`}
+            onClick={handleCheckout}
+          >
             {t("client.checkout.btn_text_buy")}
           </button>
         </form>

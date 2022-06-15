@@ -9,35 +9,35 @@ const BillingShipAddress = ({ info, title }) => {
       <div className="info-wrap">
         <div className="info-row full-name">
           <p className="label">{t("client.checkout.field_full_name")}</p>
-          <p>{info.fullName}</p>
+          <p>{info?.full_name}</p>
         </div>
         <div className="info-row post-code">
           <p className="label">{t("client.checkout.field_zip_code")}</p>
-          <p>{info.postal}</p>
+          <p>{info?.postal_code}</p>
         </div>
         <div className="info-row prefecture">
           <p className="label">{t("client.checkout.field_prefecture")}</p>
-          <p>{info.prefecture}</p>
+          <p>{info?.prefecture}</p>
         </div>
         <div className="info-row city">
           <p className="label">{t("client.checkout.field_town_city")}</p>
-          <p>{info.city}</p>
+          <p>{info?.city}</p>
         </div>
         <div className="info-row address1">
           <p className="label">{t("client.checkout.field_street")}</p>
-          <p>{info.street}</p>
+          <p>{info?.street_address}</p>
         </div>
         <div className="info-row address2">
           <p className="label">{t("client.checkout.field_house")}</p>
-          <p>{info.house}</p>
+          <p>{info?.building}</p>
         </div>
         <div className="info-row phone">
           <p className="label">{t("client.checkout.field_phone")}</p>
-          <p>{info.phone}</p>
+          <p>{info?.phone}</p>
         </div>
         <div className="info-row email">
           <p className="label">{t("client.checkout.field_email")}</p>
-          <p>{info.email}</p>
+          <p>{info?.email}</p>
         </div>
       </div>
     </>

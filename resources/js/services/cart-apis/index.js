@@ -21,4 +21,8 @@ export const cartApis = {
     const url = `delete-cart-item/${id}`;
     return await axiosClient.delete(url);
   },
+  checkout: async (payload) => {
+    const url = "checkout";
+    return await axiosClient.post(url, payload);
+  },
 };
