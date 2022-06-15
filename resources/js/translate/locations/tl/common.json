@@ -553,7 +553,12 @@
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
       "error_message": {
-        "required_message": "Kinakailangan ang field na ito."
+        "error_vendor": "Kinakailangan ang field ng Vendor",
+        "error_status": "Kinakailangan ang field ng Status",
+        "error_stockstatus": "Kinakailangan ang field ng Stock Status",
+        "error_category": "Kinakailangan ang field ng Kategorya",
+        "error_tax": "Kinakailangan ang field ng Buwis",
+        "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
       }
     },
     "order": {

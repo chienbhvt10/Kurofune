@@ -159,9 +159,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   rules={[
                     {
                       required: true,
-                      message: t(
-                        "admins.product.error_message.required_message"
-                      ),
+                      message: t("admins.product.error_message.error_vendor"),
                     },
                   ]}
                   response={response}
@@ -201,7 +199,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t("admins.product.error_message.error_status"),
                     whiteSpace: true,
                   },
                 ]}
@@ -218,7 +216,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t(
+                      "admins.product.error_message.error_stockstatus"
+                    ),
                     whiteSpace: true,
                   },
                 ]}
@@ -244,7 +244,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t("admins.product.error_message.error_category"),
                   },
                 ]}
                 response={response}
@@ -265,7 +265,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t("admins.product.error_message.error_tax"),
                   },
                   {
                     pattern: new RegExp(/^[1-9][0-9]*$/),

@@ -553,7 +553,12 @@
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
       "error_message": {
-        "required_message": "这是必填栏。"
+        "error_vendor": "供应商字段是必需的。",
+        "error_status": "状态字段是必需的。",
+        "error_stockstatus": "库存状态字段是必需的。。",
+        "error_category": "类别字段是必需的。",
+        "error_tax": "税金字段为必填项。",
+        "error_en_product_name": "产品名称字段是必需的。"
       }
     },
     "order": {
