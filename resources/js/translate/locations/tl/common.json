@@ -447,7 +447,7 @@
           }
         },
         "placeholder": {
-          "search": "Maghanap ng username",
+          "search": "Maghanap ayon sa pangalan",
           "select_role": "Mangyaring pumili ng isang tungkulin.",
           "select_active_status": "Mangyaring pumili ng aktibong katayuan.",
           "select_prefecture": "Mangyaring pumili ng prefecture.",
@@ -542,9 +542,9 @@
         "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
       },
       "title": {
-        "product_title":"Magdagdag ng Produkto ",
+        "product_title": "Magdagdag ng Produkto ",
         "product_add": "Idagdag",
-        "product_list": "Listahan ng Produkto" 
+        "product_list": "Listahan ng Produkto"
       }
     },
     "order": {
