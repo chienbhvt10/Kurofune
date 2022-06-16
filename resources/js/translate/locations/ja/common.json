@@ -600,12 +600,12 @@
         "error_en_product_name": "「商品名」フィールドは必須です。"
       },
       "title": {
-        "product_title":"商品を新規追加 ",
+        "product_title": "商品を新規追加 ",
         "product_add": "新規追加",
-        "product_list": "商品リスト " 
+        "product_list": "商品リスト "
       }
     },
-   
+
     "category": {
       "slug_field": "スラッグ",
       "name_field": "名前",
@@ -657,6 +657,8 @@
       "placeholder_search_name": "Please enter name",
       "placeholder_search_value": "Please enter value",
       "error": {
+        "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
         "value": {
           "required": "Please input your value.",
           "pattern": "Please input valid number."

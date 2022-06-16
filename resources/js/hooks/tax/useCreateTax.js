@@ -22,6 +22,7 @@ const useCreateTax = () => {
 
   const createTax = (data) => {
     return dispatch(addTaxAction(data));
+    navigate(`${lang}/admin/tax-list`);
   };
 
   React.useEffect(() => {

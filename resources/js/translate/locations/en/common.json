@@ -593,12 +593,12 @@
         "error_en_product_name": "The Product Name field is required"
       },
       "title": {
-        "product_title":"Add Product ",
+        "product_title": "Add Product ",
         "product_add": "Add",
-        "product_list": "Product List " 
-    }
+        "product_list": "Product List "
+      }
     },
-   
+
     "crud": {
       "user": {
         "create_success": "Create user successfully.",
@@ -662,6 +662,7 @@
 
       "error": {
         "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
         "value": {
           "required": "Please input your value.",
           "pattern": "Please input valid number."

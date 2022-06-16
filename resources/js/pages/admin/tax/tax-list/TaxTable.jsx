@@ -14,10 +14,11 @@ const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
       dataIndex: "name",
       align: "center",
       headerAlign: "center",
+      width: "40%",
       headerStyle: {
         width: 50,
       },
-      title: <span>Name</span>,
+      title: <span>{t("admins.tax.title.name_title")}</span>,
       render: (_, record) => <span>{record.name}</span>,
     },
     {
@@ -25,10 +26,11 @@ const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
       dataIndex: "value",
       align: "center",
       headerAlign: "center",
+      width: "40%",
       headerStyle: {
         width: 50,
       },
-      title: <span>Value ( % )</span>,
+      title: <span>{t("admins.tax.title.value_title")} ( % )</span>,
       render: (_, record) => <span>{record.value}</span>,
     },
     {
@@ -36,6 +38,7 @@ const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
       dataIndex: "tool",
       align: "center",
       headerAlign: "center",
+      width: "20%",
       headerStyle: {
         width: 100,
       },

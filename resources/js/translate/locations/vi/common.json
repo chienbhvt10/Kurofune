@@ -542,9 +542,9 @@
         "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
       },
       "title": {
-        "product_title":"Thêm sản phẩm ",
+        "product_title": "Thêm sản phẩm ",
         "product_add": "Thêm mới",
-        "product_list": "Danh sách sản phẩm" 
+        "product_list": "Danh sách sản phẩm"
       }
     },
     "order": {
@@ -655,6 +655,8 @@
       "placeholder_search_name": "Please enter name",
       "placeholder_search_value": "Please enter value",
       "error": {
+        "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
         "value": {
           "required": "Please input your value.",
           "pattern": "Please input valid number."
