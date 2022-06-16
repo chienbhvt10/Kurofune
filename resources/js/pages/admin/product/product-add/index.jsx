@@ -37,9 +37,13 @@ const AddProduct = () => {
       getAllProducts();
     }
     if (resCreateProduct?.error_code === "ERROR") {
-      const { sku, slug } = resCreateProduct?.error_data
-      slug && NotificationError(t("notification"), slug);
-      sku && NotificationError(t("notification"), sku);
+      const errorData = resCreateProduct?.error_data;
+      errorData &&
+        errorData?.slug &&
+        NotificationError(t("notification"), errorData?.slug);
+      errorData &&
+        errorData?.sku &&
+        NotificationError(t("notification"), errorData?.sku);
     }
   }, [resCreateProduct]);
   return (
