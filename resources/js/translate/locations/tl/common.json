@@ -540,6 +540,11 @@
         "error_category": "Kinakailangan ang field ng Kategorya",
         "error_tax": "Kinakailangan ang field ng Buwis",
         "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
+      },
+      "title": {
+        "product_title":"Magdagdag ng Produkto ",
+        "product_add": "Idagdag",
+        "product_list": "Listahan ng Produkto" 
       }
     },
     "order": {

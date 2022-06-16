@@ -509,19 +509,18 @@
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword_field": "Meta Keyword",
-      "product_image_field": "Product Image",
-      "placeholder_seach": "Please enter name product",
+      "slug_field": "Đường dẫn",
+      "vendor_field": "Nhà thuốc",
+      "sku_field": "Mã sản phẩm",
+      "status_field": "Trạng thái",
+      "stock_status_field": "Trạng thái tồn kho",
+      "price_field": "Giá sản phẩm",
+      "category_field": "Danh mục",
+      "tax_field": "Thuế",
+      "meta_title_field": "Thẻ Meta Title",
+      "meta_description_field": "Thẻ Meta Description",
+      "meta_keyword_field": "Thẻ Meta Keyword",
+      "product_image_field": "Ảnh sản phẩm",
       "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
       "features_field": "Tính năng sản phẩm",
       "precautions_field": "Lưu ý khi sử dụng",
@@ -540,6 +539,11 @@
         "error_category": "Trường 'Danh mục' là trường bắt buộc",
         "error_tax": "Trường 'Thuế' là trường bắt buộc",
         "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
+      },
+      "title": {
+        "product_title":"Thêm sản phẩm ",
+        "product_add": "Thêm mới",
+        "product_list": "Danh sách sản phẩm" 
       }
     },
     "order": {
