@@ -141,9 +141,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       >
         <FormHeader
           breadcrumb={[
-            { name: "Product List", routerLink: `${lang}/admin/product-list` },
+            { name: t("admins.product.title.product_list"), routerLink: `${lang}/admin/product-list` },
             {
-              name: "Add",
+              name: t("admins.product.title.product_add"),
               routerLink: "",
             },
           ]}

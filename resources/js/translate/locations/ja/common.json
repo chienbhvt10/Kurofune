@@ -566,18 +566,18 @@
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword_field": "Meta Keyword",
-      "product_image_field": "Product Image",
+      "slug_field": "スラッグ",
+      "vendor_field": "薬局",
+      "sku_field": "商品番号",
+      "status_field": "ステータス",
+      "stock_status_field": "在庫ステータス",
+      "price_field": "商品価格",
+      "category_field": "カテゴリ",
+      "tax_field": "税金",
+      "meta_title_field": "メタタイトル",
+      "meta_description_field": "メタディスクリプション",
+      "meta_keyword_field": "メタキーワード",
+      "product_image_field": "商品画像",
       "placeholder_seach": "Please enter name product",
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
@@ -597,8 +597,14 @@
         "error_category": "「カテゴリ」フィールドは必須です。",
         "error_tax": "「税金」フィールドは必須です。",
         "error_en_product_name": "「商品名」フィールドは必須です。"
+      },
+      "title": {
+        "product_title":"商品を新規追加 ",
+        "product_add": "新規追加",
+        "product_list": "商品リスト " 
       }
     },
+   
     "category": {
       "slug_field": "スラッグ",
       "name_field": "名前",
