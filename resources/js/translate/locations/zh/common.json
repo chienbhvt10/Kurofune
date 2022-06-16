@@ -402,26 +402,6 @@
           "field_page_registration": "Wabisabi我的页面注册",
           "field_company_mail": "公司邮件"
         },
-        "order": {
-          "field_date_create": "创建日期:",
-          "field_customer": "顾客:",
-          "field_action": "手术",
-          "field_status": "地位:",
-          "field_first_name": "姓",
-          "field_last_name": "名",
-          "field_company": "公司",
-          "field_address_line_1": "丁目/地址/号码",
-          "field_address_line_2": "楼名、房间号",
-          "field_city": "直辖市",
-          "field_postal_code": "邮编",
-          "field_country_region": "国家/地区",
-          "field_email": "电子邮件",
-          "field_phone": "电话",
-          "field_payment_method": "付款方式",
-          "field_transaction_id": "Transaction Id",
-          "field_customer_provided_note": "订单备忘录",
-          "field_state_county": "省/市"
-        },
         "vendor_profile": {
           "field_image_inside": "里面的图片",
           "field_image_outside": "外部图像",
@@ -481,6 +461,7 @@
       "error": {
         "role_required": "请选择一个角色。",
         "name_required": "请输入您的姓名。",
+        "full_name_required": "Please input your full name!",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"
@@ -568,7 +549,51 @@
         "field_date": "Date",
         "field_total": "Total",
         "field_status": "Status",
-        "field_action": "Action"
+        "field_action": "Action",
+        "field_full_name": "Full name",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "创建日期:",
+        "field_customer": "顾客:",
+        "field_action": "手术",
+        "field_status": "地位:",
+        "field_first_name": "姓",
+        "field_last_name": "名",
+        "field_company": "公司",
+        "field_address_line_1": "丁目/地址/号码",
+        "field_address_line_2": "楼名、房间号",
+        "field_city": "直辖市",
+        "field_postal_code": "邮政编码",
+        "field_country_region": "国家/地区",
+        "field_email": "电子邮件",
+        "field_phone": "电话",
+        "field_payment_method": "付款方式",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "订单备忘录",
+        "field_state_county": "省/市",
+        "field_street_address": "街道地址"
+      },
+      "error": {
+        "full_name_required": "Please input your full name!",
+        "email": {
+          "required": "请输入您的电子邮件。",
+          "type": "请输入有效的电子邮件。"
+        },
+        "phone": {
+          "required": "请输入您的手机。",
+          "pattern": "请输入有效的电话号码。"
+        },
+        "postal_code": {
+          "required": "请输入您的邮政编码/邮编。",
+          "pattern": "请输入号码。",
+          "max_3_number": "请仅输入 3 个数字。",
+          "max_4_number": "请仅输入 4 个数字。",
+          "max_7_number": "请仅输入 7 个数字。"
+        },
+        "prefecture_required": "请选择县。",
+        "city_required": "请输入城市。",
+        "street_address_required": "请输入街道地址。"
       }
     },
     "category": {

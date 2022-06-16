@@ -402,26 +402,6 @@
           "field_page_registration": "Đăng kí My page Wabisabi",
           "field_company_mail": "Email của công ty"
         },
-        "order": {
-          "field_date_create": "Ngày tạo",
-          "field_customer": "Khách hàng:",
-          "field_action": "Thao tác",
-          "field_status": "Trạng thái:",
-          "field_first_name": "Họ",
-          "field_last_name": "Tên",
-          "field_company": "Công ty",
-          "field_address_line_1": "Địa chỉ khu phố",
-          "field_address_line_2": "Tên toà nhà",
-          "field_city": "Thị trấn / Thành phố ",
-          "field_postal_code": "Mã bưu điện",
-          "field_country_region": "Quốc gia / Khu vực",
-          "field_email": "Email",
-          "field_phone": "Phone",
-          "field_payment_method": "Phương thức thanh toán",
-          "field_transaction_id": "Transaction Id",
-          "field_customer_provided_note": "Ghi chú về đơn hàng",
-          "field_state_county": "Tỉnh/ Thành phố"
-        },
         "vendor_profile": {
           "field_image_inside": "Hình ảnh bên trong hiệu thuốc",
           "field_image_outside": "Hình ảnh bên ngoài hiệu thuốc",
@@ -481,6 +461,7 @@
       "error": {
         "role_required": "Vui lòng chọn một vai trò của người dùng.",
         "name_required": "Vui lòng nhập tên của bạn.",
+        "full_name_required": "Vui lòng nhập họ tên của bạn.",
         "email": {
           "required": "Vui lòng nhập email của bạn.",
           "type": "Vui lòng nhập email hợp lệ."
@@ -568,7 +549,54 @@
         "field_date": "Date",
         "field_total": "Total",
         "field_status": "Status",
-        "field_action": "Action"
+        "field_action": "Action",
+        "field_full_name": "Full name",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "Ngày tạo",
+        "field_customer": "Khách hàng:",
+        "field_action": "Thao tác",
+        "field_status": "Trạng thái:",
+        "field_first_name": "Họ",
+        "field_last_name": "Tên",
+        "field_company": "Công ty",
+        "field_address_line_1": "Địa chỉ khu phố",
+        "field_address_line_2": "Tên toà nhà",
+        "field_country_region": "Quốc gia / Khu vực",
+        "field_email": "Email",
+        "field_phone": "Phone",
+        "field_payment_method": "Phương thức thanh toán",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "Ghi chú về đơn hàng",
+        "field_state_county": "Tỉnh/ Thành phố",
+        "field_full_name": "Họ và tên",
+        "field_postal_code": "Mã bưu điện/ ZIP code",
+        "field_prefecture": "Tỉnh / Thành Phố",
+        "field_city": "Thị trấn / Thành Phố",
+        "field_street_address": "Địa chỉ khu phố",
+        "field_building": "Tên toà nhà"
+      },
+      "error": {
+        "full_name_required": "Vui lòng nhập họ tên của bạn.",
+        "email": {
+          "required": "Vui lòng nhập email của bạn.",
+          "type": "Vui lòng nhập email hợp lệ."
+        },
+        "phone": {
+          "required": "Vui lòng nhập số điện thoại của bạn",
+          "pattern": "Vui lòng nhập số điện thoại hợp lệ."
+        },
+        "postal_code": {
+          "required": "Vui lòng nhập mã bưu điện của bạn.",
+          "pattern": "Vui lòng nhập số.",
+          "max_3_number": "Vui lòng chỉ nhập 3 chữ số.",
+          "max_4_number": "Vui lòng chỉ nhập 4 chữ số.",
+          "max_7_number": "Vui lòng chỉ nhập 7 chữ số."
+        },
+        "prefecture_required": "Vui lòng chọn tỉnh/ thành phố.",
+        "city_required": "Vui lòng nhập tên thị trấn / thành phố.",
+        "street_address_required": "Vui lòng nhập địa chỉ khu phố."
       }
     },
     "category": {
