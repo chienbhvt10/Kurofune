@@ -72,10 +72,18 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       },
     };
     productProfileFormEN.validateFields();
+    productProfileFormJP.validateFields();
+    productProfileFormTL.validateFields();
+    productProfileFormVI.validateFields();
+    productProfileFormZH.validateFields();
     onSave(submitInput);
   };
   const onFinishFailed = () => {
     productProfileFormEN.validateFields();
+    productProfileFormJP.validateFields();
+    productProfileFormTL.validateFields();
+    productProfileFormVI.validateFields();
+    productProfileFormZH.validateFields();
   };
   React.useEffect(() => {
     productsForm.setFieldsValue(initialFormCommonValues);
@@ -179,6 +187,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.slug_field")}
                 type={<Input />}
                 response={response}
+                error="slug"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -188,6 +197,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[]}
                 response={response}
                 type={<Input />}
+                error="sku"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
