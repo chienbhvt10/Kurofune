@@ -473,7 +473,7 @@
         },
         "user_name": {
           "required": "请输入您的用户名。",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "用户名只能包含字母、数字、破折号和下划线。"
         },
         "password": {
           "required": "请输入您的密码。",
@@ -517,6 +517,9 @@
       "stock_status_field": "库存状况",
       "price_field": "产品价格",
       "category_field": "类别",
+      "date_field": "产品上市日期",
+      "store_field": "药店",
+      "field_name":"产品名称",
       "tax_field": "税",
       "meta_title_field": "元标题",
       "meta_description_field": "元描述",
@@ -580,7 +583,8 @@
         "field_street_address": "街道地址"
       },
       "error": {
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "请输入您的全名。",
+        "building_required": "请输入您的建筑物名称。",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"
@@ -606,8 +610,18 @@
       "name_field": "姓名",
       "type_field": "类型",
       "parent_category_field": "父类",
-      "product_image_field": "类别图片",
       "placeholder_text": "Please enter text",
+      "vendor_field": "小贩",
+      "sku_field": "项目编号",
+      "status_field": "地位",
+      "stock_status_field": "库存状况",
+      "price_field": "产品价格",
+      "category_field": "类别",
+      "tax_field": "税",
+      "meta_title_field": "元标题",
+      "meta_description_field": "元描述",
+      "meta_keyword_field": "元关键字",
+      "product_image_field": "产品图片",
       "placeholder_seach": "请输入姓名类别。",
       "title": {
         "product_category_title": "产品分类",

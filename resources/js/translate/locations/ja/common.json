@@ -462,7 +462,7 @@
       "error": {
         "role_required": "ユーザーロールを選択してください。",
         "name_required": "名前を入力してください。",
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "氏名を入力してください。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -473,7 +473,7 @@
         },
         "user_name": {
           "required": "ユーザー名を入力してください。",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "ユーザー名は文字、数字、ハイフン、アンダーバーのみを含めてください。"
         },
         "password": {
           "required": "パスワードを入力してください。",
@@ -515,9 +515,9 @@
         "field_order": "Order",
         "field_date": "Date",
         "field_total": "Total",
-        "field_status": "Status",
-        "field_action": "Action",
-        "field_full_name": "Full name",
+        "field_status": "ステータス",
+        "field_action": "操作",
+        "field_full_name": "氏名",
         "field_id": "Id"
       },
       "form": {
@@ -545,7 +545,8 @@
         "field_building": "建物名・部屋番号"
       },
       "error": {
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "氏名を入力してください。",
+        "building_required": "建物名・部屋番号を入力してください。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -574,12 +575,14 @@
       "stock_status_field": "在庫ステータス",
       "price_field": "商品価格",
       "category_field": "カテゴリ",
+      "date_field": "商品の掲載日",
+      "store_field": "薬局",
       "tax_field": "税金",
       "meta_title_field": "メタタイトル",
       "meta_description_field": "メタディスクリプション",
       "meta_keyword_field": "メタキーワード",
       "product_image_field": "商品画像",
-      "placeholder_seach": "Please enter name product",
+      "placeholder_seach": "商品名を入力してください。",
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
       "precautions_field": "使用上の注意",
@@ -590,8 +593,13 @@
       "precautions_storage_handling_field": "保管及び取扱い上の注意",
       "manufacturer_field": "製造販売会社",
       "name_field": "一般名",
+      "field_name":"商品名",
       "use_manual_field": "用量用法",
       "error_message": {
+        "error_category_image": "「カテゴリ画像」フィールドは必須です。",
+        "error_type": "「タイプ」フィールドは必須です。",
+        "error_name": "「カテゴリ名」フィールドは必須です。",
+        "required_message": "この項目は必須です。",
         "error_vendor": "「薬局」フィールドは必須です。",
         "error_status": "「ステータス」フィールドは必須です。。",
         "error_stockstatus": "「在庫ステータス」フィールドは必須です。",
