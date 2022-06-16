@@ -56,7 +56,6 @@ const ProductList = () => {
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.product.placeholder_seach")}
-        searchField={'name'}
       />
       <ProductTable
         items={products}

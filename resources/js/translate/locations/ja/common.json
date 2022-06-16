@@ -447,7 +447,7 @@
           }
         },
         "placeholder": {
-          "search": "ユーザー名で検索する",
+          "search": "名前で検索する",
           "select_role": "ユーザーロールを選択してください。",
           "select_active_status": "アクティブステータスを選択してください。",
           "select_prefecture": "都道府県を選択してください。",
@@ -603,12 +603,12 @@
         "error_en_product_name": "「商品名」フィールドは必須です。"
       },
       "title": {
-        "product_title":"商品を新規追加 ",
+        "product_title": "商品を新規追加 ",
         "product_add": "新規追加",
-        "product_list": "商品リスト " 
+        "product_list": "商品リスト "
       }
     },
-   
+
     "category": {
       "slug_field": "スラッグ",
       "name_field": "名前",
