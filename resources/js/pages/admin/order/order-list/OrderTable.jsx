@@ -3,78 +3,99 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
 import { Link, useNavigate } from "react-router-dom";
-import { Table } from 'antd';
+import { Button, Popconfirm, Table, Tag } from 'antd';
 import { t } from "i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
-const OrderTable = ({ items }) => {
-  const lang = getCurrentLanguage();
 
+import TableRowAction from "./../../../../commons/TableRowAction/index";
+import moment from "moment";
+const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
+
+  const lang = getCurrentLanguage();
+  let navigate = useNavigate();
+  const confirmDelete = ({id}) => {
+    handleDeleteOrder(id)
+  };
+  const onEdit = ({id}) => {
+    navigate(`${lang}/admin/order-update/${id}`)
+  }
+  console.log('items',items);
   const column = [
     {
-      title: t("admins.order.table.id"),
+      title: t("admins.order.table.field_id"),
       dataIndex: 'id',
       sorter: (a, b) => a.id - b.id,
     },
     {
-      title: t("admins.order.table.field_order"),
-      dataIndex: 'order_number',
-      sorter: (a, b) => a.order_number - b.order_number,
-    },
-    {
-      title: t("admins.order.table.shipping_full_name"),
-      dataIndex: 'shipping_full_name',
-    },
-    {
-      title: t("admins.order.table.shipping_full_name"),
+      title: t("admins.order.table.field_full_name"),
       dataIndex: 'shipping_full_name',
     },
     {
       title: t("admins.order.table.field_date"),
-      dataIndex: 'updated_at',
+      dataIndex: 'created_at',
+      render: (_, record) => {
+        return <>{moment(record.created_at).format("YYYY/MM/DD hh:ss")}</>
+      }
     },
     {
       title: t("admins.order.table.field_status"),
       dataIndex: 'status',
+      render: (_, record) =>{
+        return  <Tag color="success">{String(record.transaction.status).toLocaleUpperCase()}</Tag>
+      }
     },
     {
       title: t("admins.order.table.field_total"),
       dataIndex: 'total',
     },
+    // {
+    //   title: t("admins.order.table.field_action"),
+    //   dataIndex: 'Action',
+    //   width: 100,
+    //   fixed: 'center',
+    //   render: (_, record) =>
+    //     items && (
+    //       (
+    //         <>
+    //           <Link to={`${lang}/admin/order-update/${record.id}`}>
+    //             <FontAwesomeIcon
+    //               icon={faCheck}
+    //               style={{
+    //                 border: "1px solid ",
+    //                 padding: 7,
+    //                 borderRadius: 3,
+    //                 width: 8,
+    //               }} />
+    //           </Link>
+             
+    //         </>
+    //       )
+    //     ),
+    // },
     {
+      align: "center",
+      headerAlign: "center",
       title: t("admins.order.table.field_action"),
-      dataIndex: 'Action',
-      width:100,
-      fixed: 'center',
-      render: (_, record) =>
-        items.length >= 1 ? (
-          <Link to={`${lang}/admin/order-update/${record.id}`}>
-            <FontAwesomeIcon
-              icon={faCheck}
-              style={{
-                border: "1px solid ",
-                padding: 7,
-                borderRadius: 3,
-                width: 8,
-              }}
-            />
-          </Link>
-        ) : null,
+      headerStyle: {
+        width: 100,
+      },
+      render: (_, record) => (
+        <TableRowAction record={record} onDelete={confirmDelete} onEdit={onEdit} />
+      ),
     },
   ];
-  
 
-  // const onChange = (pagination, filters, sorter, extra) => {
-   
-  // };
   return (
-    <Table 
-      columns={column} 
-      dataSource={items} 
-      pagination={{ 
-        defaultPageSize: 10, showSizeChanger: true, pageSizeOptions: ['10', '20', '30']
+    <Table
+      columns={column}
+      dataSource={items}
+      pagination={{
+        showSizeChanger: true,
+        pageSizeOptions: ['10', '20', '30'],
+        defaultPageSize:10
       }}
-      
-      />
+      onChange={onChange}
+    />
 
   );
 };

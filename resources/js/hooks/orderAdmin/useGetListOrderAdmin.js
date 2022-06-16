@@ -6,19 +6,15 @@ const useGetListOrderAdmin = () => {
   //   (state) => state.adminCategoryState
   // );
 
-  const getListOrderAdmin = (onSuccess, onError) => {
-
-    let respose =  orderAdminAPI.getListOrderAdmin();
+  const getListOrderAdmin = (payload=null,onSuccess, onError) => {
+    let respose =  orderAdminAPI.getListOrderAdmin(payload);
     respose.then((result) => {
       let { data } = result
-      console.log('data',data);
       onSuccess(data)
     }).catch((error) => {
       console.log('error', error);
     })
-
   };
-
   return {
     getListOrderAdmin
   }

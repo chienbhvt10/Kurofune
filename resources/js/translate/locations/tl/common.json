@@ -401,26 +401,6 @@
           "field_page_registration": "Wabisabi My Page Registration",
           "field_company_mail": "Mail ng Kumpanya"
         },
-        "order": {
-          "field_date_create":"Nagawa ang petsa:",
-          "field_customer":"Customer:",
-          "field_action":"Operasyon",
-          "field_status":"Katayuan:",
-          "field_first_name":"Apelyido",
-          "field_last_name":"Pangalan",
-          "field_company":"Kumpanya",
-          "field_address_line_1":"Chome / address / numero",
-          "field_address_line_2":"Pangalan ng gusali, numero ng silid",
-          "field_city":"Mga munisipalidad",
-          "field_postal_code":"Postal code",
-          "field_country_region":"Bansa / Rehiyon",
-          "field_email":"Email",
-          "field_phone":"Telepono",
-          "field_payment_method":"Paraan ng Pagbayad",
-          "field_transaction_id":"Transaction Id",
-          "field_customer_provided_note":"Mag-order ng memo",
-          "field_state_county":"Lalawigan/Lungsod"
-        },
         "vendor_profile": {
           "field_image_inside": "Mga larawan sa loob ng botika",
           "field_image_outside": "Mga larawan sa labas ng botika",
@@ -478,6 +458,7 @@
       "error": {
         "role_required": "Mangyaring pumili ng isang tungkulin.",
         "name_required": "Pakilagay ang iyong pangalan.",
+        "full_name_required": "Please input your full name!",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
@@ -554,7 +535,58 @@
         "field_date": "Date",
         "field_total": "Total",
         "field_status": "Status",
-        "field_action": "Action"
+        "field_action": "Action",
+        "field_full_name": "Full name",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "Nagawa ang petsa:",
+        "field_customer": "Customer:",
+        "field_action": "Operasyon",
+        "field_status": "Katayuan:",
+        "field_first_name": "Apelyido",
+        "field_last_name": "Pangalan",
+        "field_company": "Kumpanya",
+        "field_address_line_1": "Chome / address / numero",
+        "field_address_line_2": "Pangalan ng gusali, numero ng silid",
+        "field_postal_code": "Postal code/zip",
+        "field_country_region": "Bansa / Rehiyon",
+        "field_email": "Email",
+        "field_phone": "Telepono",
+        "field_payment_method": "Paraan ng Pagbayad",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "Mag-order ng memo",
+        "field_state_county": "Lalawigan/Lungsod",
+        "field_full_name": "Buong pangalan",
+        "field_prefecture": "Prefecture",
+        "field_city": "Bayan / Lungsod",
+        "field_street_address": "Address ng kalye",
+        "field_building": "Gusali"
+      },
+      "error": {
+        "full_name_required": "Please input your full name!",
+        "email": {
+          "required": "Mangyaring ipasok ang iyong email.",
+          "type": "Mangyaring maglagay ng wastong email."
+        },
+        "phone": {
+          "required": "Mangyaring ipasok ang iyong telepono.",
+          "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
+        },
+        "password": {
+          "required": "Mangyaring ipasok ang iyong password.",
+          "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
+        },
+        "postal_code": {
+          "required": "Pakilagay ang iyong postal code/zip.",
+          "pattern": "Pakilagay ang numero.",
+          "max_3_number": "Mangyaring magpasok lamang ng 3 numero.",
+          "max_4_number": "Mangyaring magpasok lamang ng 4 numero.",
+          "max_7_number": "Mangyaring magpasok lamang ng 7 numero."
+        },
+        "prefecture_required": "Mangyaring pumili ng prefecture.",
+        "city_required": "Mangyaring ipasok ang lungsod.",
+        "street_address_required": "Mangyaring ipasok ang address ng kalye."
       }
     },
     "category": {

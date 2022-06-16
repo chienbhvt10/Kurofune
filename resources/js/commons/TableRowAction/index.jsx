@@ -10,12 +10,16 @@ const TableRowAction = ({ onDelete, onEdit, record, confirmLoading }) => {
     <div className="table-row-action">
       <FontAwesomeIcon
         icon={faPenToSquare}
-        onClick={onEdit(record)}
+        onClick={()=>{
+          onEdit(record)
+        }}
         className="img-row"
       />
       <Popconfirm
         title={t("admins.delete_item_message")}
-        onConfirm={onDelete(record)}
+        onConfirm={()=>{
+          onDelete(record)
+        }}
         okText={t("admins.user.form.option.yes")}
         cancelText={t("admins.user.form.option.no")}
         okButtonProps={{ loading: confirmLoading }}

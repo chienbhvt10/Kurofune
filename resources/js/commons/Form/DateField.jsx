@@ -13,6 +13,8 @@ const DateField = ({
   className,
   type,
   dependId,
+  disable=false,
+  allowClear=true
 }) => {
   const dateFormat = "YYYY/MM/DD";
   const { t } = useTranslation();
@@ -43,6 +45,8 @@ const DateField = ({
           locale={locale}
           format={dateFormat}
           placeholder={t("admins.user.form.placeholder.select_date")}
+          disable={true}
+          allowClear={false}
         />
         }
       </Form.Item>

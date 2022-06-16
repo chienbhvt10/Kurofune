@@ -402,26 +402,6 @@
           "field_page_registration": "Wabisabi My Page Registration",
           "field_company_mail": "Company representative mail"
         },
-        "order": {
-          "field_date_create":"Created date:",
-          "field_customer":"Customer:",
-          "field_action":"Action",
-          "field_status":"Status:",
-          "field_first_name":"First Name",
-          "field_last_name":"Last Name",
-          "field_company":"Company",
-          "field_address_line_1":"Address Line 1",
-          "field_address_line_2":"Address Line 2",
-          "field_city":"City",
-          "field_postal_code":"Postal code/zip",
-          "field_country_region":"Country/Region",
-          "field_email":"Email",
-          "field_phone":"Phone",
-          "field_payment_method":"Payment Method",
-          "field_transaction_id":"Transaction Id",
-          "field_customer_provided_note":"Customer Provided Note",
-          "field_state_county":"State/County"
-        },
         "vendor_profile": {
           "field_image_inside": "Image inside",
           "field_image_outside": "Image outside",
@@ -479,11 +459,7 @@
       "error": {
         "role_required": "Please select a role!",
         "name_required": "Please input your name!",
-        "first_name_required": "Please input your first name!",
-        "last_name_required": "Please input your last name!",
-        "company_required": "Please input your company!",
-        "country_region_required": "Please input your Country/Region!",
-        "state_county_required": "Please input your State/Country!",
+        "full_name_required": "Please input your full name!",
         "email": {
           "required": "Please input your email!",
           "type": "Please input valid email!"
@@ -515,13 +491,58 @@
       }
     },
     "order": {
-      "table":{
-        "field_subOrder":"SubOrder",
-        "field_order":"Order",
-        "field_date":"Date",
-        "field_total":"Total",
-        "field_action":"Action",
-        "field_status":"Status"
+      "table": {
+        "field_subOrder": "SubOrder",
+        "field_order": "Order",
+        "field_date": "Date",
+        "field_total": "Total",
+        "field_action": "Action",
+        "field_status": "Status",
+        "field_full_name": "Full name",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "Created date:",
+        "field_customer": "Customer:",
+        "field_action": "Action",
+        "field_status": "Status:",
+        "field_first_name": "First Name",
+        "field_last_name": "Last Name",
+        "field_company": "Company",
+        "field_city": "Town / City",
+        "field_postal_code": "Postal code/zip",
+        "field_country_region": "Country/Region",
+        "field_email": "Email",
+        "field_phone": "Phone",
+        "field_payment_method": "Payment Method",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "Customer Provided Note",
+        "field_state_county": "State/County",
+        "field_full_name": "Full name",
+        "field_prefecture": "Prefecture",
+        "field_street_address": " Street address",
+        "field_building": "Building"
+      },
+      "error": {
+        "full_name_required": "Please input your full name!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!"
       }
     },
     "product": {
@@ -538,7 +559,6 @@
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
-
       "name_field": "Product Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
       "features_field": "Features",
@@ -550,7 +570,6 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
-
       "error_message": {
         "required_message": "This field is required."
       }
