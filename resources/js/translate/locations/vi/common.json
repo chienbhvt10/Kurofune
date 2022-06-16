@@ -541,9 +541,9 @@
         "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
       },
       "title": {
-        "product_title":"Thêm sản phẩm ",
+        "product_title": "Thêm sản phẩm ",
         "product_add": "Thêm mới",
-        "product_list": "Danh sách sản phẩm" 
+        "product_list": "Danh sách sản phẩm"
       }
     },
     "order": {

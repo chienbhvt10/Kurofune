@@ -150,7 +150,7 @@ export const validateUser = {
         message: "admins.user.error.password.pattern_special_characters",
       },
       {
-        pattern: new RegExp(/[a-z]/),
+        pattern: new RegExp(/^(?:(?=.*[a-z])(?=.*[A-Z]).*)$/),
         message: "admins.user.error.password.pattern_alpha",
       },
     ],
@@ -169,7 +169,7 @@ export const validateUser = {
         message: "admins.user.error.password.pattern_special_characters",
       },
       {
-        pattern: new RegExp(/[a-z]/),
+        pattern: new RegExp(/^(?:(?=.*[a-z])(?=.*[A-Z]).*)$/),
         message: "admins.user.error.password.pattern_alpha",
       },
     ],
@@ -221,7 +221,7 @@ export const validateAuth = {
         message: "admins.user.error.password.pattern_special_characters",
       },
       {
-        pattern: new RegExp(/[a-z]/),
+        pattern: new RegExp(/^(?:(?=.*[a-z])(?=.*[A-Z]).*)$/),
         message: "admins.user.error.password.pattern_alpha",
       },
     ],

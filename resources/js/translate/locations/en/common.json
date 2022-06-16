@@ -592,12 +592,12 @@
         "error_en_product_name": "The Product Name field is required"
       },
       "title": {
-        "product_title":"Add Product ",
+        "product_title": "Add Product ",
         "product_add": "Add",
-        "product_list": "Product List " 
-    }
+        "product_list": "Product List "
+      }
     },
-   
+
     "crud": {
       "user": {
         "create_success": "Create user successfully.",
