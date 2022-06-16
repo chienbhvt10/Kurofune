@@ -215,6 +215,7 @@ return [
         'billing_address.street_address' => 'Địa chỉ khu phố',
         'billing_address.building' => 'Tên toà nhà',
         'billing_address.phone' => 'Số điện thoại',
+        'username' => 'Tên tài khoản',
     ],
 
 ];

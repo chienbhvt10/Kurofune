@@ -1,19 +1,31 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getAllCategoriesAdminAction } from "../../redux/actions/categoryAdminAction.js";
+import React from "react";
+import {
+  getAllCategoriesAdminAction,
+  resetCategoryResCRUDAction,
+} from "../../redux/actions/categoryAdminAction.js";
+import { getCurrentLanguage } from "../../helper/localStorage.js";
 
 const useAdminCategories = () => {
-  const categoryState = useSelector((state) => state.adminCategoryState);
-  const { from, total, to, current_page, last_page } = useSelector(
-    (state) => state.adminCategoryState
-  );
+  const lang = getCurrentLanguage();
+  const { from, total, to, current_page, last_page, adminCategories } =
+    useSelector((state) => state.adminCategoryState);
+
   const dispatch = useDispatch();
 
   const getAdminCategories = (payload) => {
     dispatch(getAllCategoriesAdminAction(payload));
+    dispatch(resetCategoryResCRUDAction());
   };
 
+  React.useEffect(() => {
+    if (!adminCategories) {
+      getAdminCategories({ page: current_page });
+    }
+  }, []);
+
   return {
-    adminCategories: categoryState.adminCategories,
+    adminCategories,
     pagination: {
       from,
       to,
@@ -21,7 +33,8 @@ const useAdminCategories = () => {
       current_page,
       last_page,
     },
-    getAdminCategories};
+    getAdminCategories,
+  };
 };
 
 export default useAdminCategories;

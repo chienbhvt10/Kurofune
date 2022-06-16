@@ -14,7 +14,8 @@ import {
 } from "./categoryInitValues.js";
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
-import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
+import { TYPE_FORM_UPDATE } from "../../../../constants";
+import useCategories from "../../../../hooks/category/useCategories";
 const CategoryForm = ({
   item,
   typeForm,
@@ -42,8 +43,10 @@ const CategoryForm = ({
   const [categoryProfileFormVI] = Form.useForm();
   const [categoryProfileFormZH] = Form.useForm();
 
-  const { getAdminCategories, adminCategories } = useAdminCategories();
-
+  const { getAllCategories, categories } = useCategories();
+  React.useEffect(() => {
+    getAllCategories();
+  }, []);
   const onFinishAll = (values) => {
     const submitInput = {
       ...categoryForm.getFieldsValue(),
@@ -64,7 +67,11 @@ const CategoryForm = ({
       },
       category_image: avatarState.base64Avatar,
     };
-    setErrorMessImage(!avatarState.base64Avatar);
+    if (typeForm === TYPE_FORM_UPDATE) {
+      setErrorMessImage("");
+    } else {
+      setErrorMessImage(!avatarState.base64Avatar);
+    }
     onSave(submitInput);
   };
 
@@ -83,10 +90,10 @@ const CategoryForm = ({
         item?.translations[1] || initialTranslateValues
       );
       categoryProfileFormVI.setFieldsValue(
-        item?.translations[2] || initialTranslateValues
+        item?.translations[3] || initialTranslateValues
       );
       categoryProfileFormTL.setFieldsValue(
-        item?.translations[3] || initialTranslateValues
+        item?.translations[2] || initialTranslateValues
       );
 
       categoryProfileFormZH.setFieldsValue(
@@ -115,16 +122,6 @@ const CategoryForm = ({
     setAvatarState({ avatarUrl: item?.category_image || "" });
   }, [item]);
 
-  React.useEffect(() => {
-    if (!adminCategories) {
-      getAdminCategories();
-    }
-  }, [adminCategories]);
-
-  React.useEffect(() => {
-    getAdminCategories();
-  }, [lang]);
-
   return (
     <div id="category-form">
       <Form
@@ -140,12 +137,14 @@ const CategoryForm = ({
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: "../" },
             {
-              name: "Category List",
+              name: t("admins.category.title.category_list"),
               routerLink: `${lang}/admin/category-list`,
             },
-            { name: "Add", routerLink: "/admin/category/add" },
+            {
+              name: t("admins.category.title.category_add"),
+              routerLink: "/admin/category/add",
+            },
           ]}
           title={title}
           onCancel={onCancel}
@@ -164,8 +163,7 @@ const CategoryForm = ({
           <Row className="mb-30">
             <Col span={12} className="input-field-space">
               <Form.Item
-                field=" product_image"
-                className="required"
+                field="product_image"
                 label={t("admins.category.product_image_field")}
                 required={true}
               >
@@ -200,11 +198,11 @@ const CategoryForm = ({
                 <SelectField
                   field="type"
                   label={t("admins.category.type_field")}
-                  validateStatus={"Please enter your Type"}
+                  validateStatus={true}
                   rules={[
                     {
                       required: true,
-                      message: t("admins.category.placeholder_text"),
+                      message: t("admins.category.error_message.error_type"),
                     },
                   ]}
                   type={<Input type="number" className="input-field" />}
@@ -222,9 +220,9 @@ const CategoryForm = ({
                   response={response}
                   errorField="parent_id"
                 >
-                  {adminCategories?.map((option, index) => (
+                  {categories?.map((option, index) => (
                     <Select.Option key={index} value={option.id}>
-                      {option.name || option.translations[0].name}
+                      {option.name}
                     </Select.Option>
                   ))}
                 </SelectField>

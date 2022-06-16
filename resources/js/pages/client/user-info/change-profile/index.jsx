@@ -6,15 +6,9 @@ import useShowProfile from "../../../../hooks/auth/useShowProfile";
 import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
 
 export const ChangeProfile = () => {
-  const { showProfile, profile } = useShowProfile();
+  const { profile } = useShowProfile();
   const { updateProfile, resUpdateProfile, loadingUpdateProfile } =
     useUpdateProfile();
-
-  React.useEffect(() => {
-    if (!profile) {
-      showProfile();
-    }
-  }, [profile]);
 
   const onSave = (values) => {
     updateProfile(values);

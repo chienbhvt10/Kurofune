@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { Table, Button, Modal } from "antd";
 import { HistoryChat } from "./history-chat";
+import { useTranslation } from "react-i18next";
 import useListChat from "../../../hooks/logChat/useListChat";
 import useDetailChat from "../../../hooks/logChat/useDetailChat";
 import useExportCsv from "../../../hooks/logChat/useExportCSV";
@@ -19,7 +20,7 @@ const LogChatBot = () => {
   const { detailChat, getDetailChat } = useDetailChat();
   const { csvUser, exportCsvUser } = useExportCsv();
   const { csvAllUser, exportCsvAll } = useExportCsvAll();
-
+  const { t } = useTranslation();
   React.useEffect(() => {
     if (!listChat) {
       getListChat();
@@ -39,27 +40,27 @@ const LogChatBot = () => {
       key: "id",
     },
     {
-      title: "ユーザーID",
+      title: t("admins.log_chatbot.username_id"),
       dataIndex: "user_id",
       key: "user_id",
     },
     {
-      title: "ユーザー名",
+      title: t("admins.log_chatbot.username"),
       dataIndex: "name_user",
       key: "name_user",
     },
     {
-      title: "チャット履歴",
+      title: t("admins.log_chatbot.show_history"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
         <Button type="primary" onClick={() => openModalHistory(id, "message")}>
-          表示
+          {t("admins.log_chatbot.btn_show")}
         </Button>
       ),
     },
     {
-      title: "チャット履歴 (日本語）",
+      title: t("admins.log_chatbot.show_history_ja"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
@@ -67,17 +68,17 @@ const LogChatBot = () => {
           type="primary"
           onClick={() => openModalHistory(id, "message_ja")}
         >
-          日本語で表示
+          {t("admins.log_chatbot.btn_show_ja")}
         </Button>
       ),
     },
     {
-      title: "作成日",
+      title: t("admins.log_chatbot.created_at"),
       dataIndex: "create_date",
       key: "create_date",
     },
     {
-      title: "ダウンロード",
+      title: t("admins.log_chatbot.dow_history"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
@@ -93,7 +94,7 @@ const LogChatBot = () => {
       ),
     },
     {
-      title: "ダウンロード(日本語）",
+      title: t("admins.log_chatbot.dow_history_ja"),
       dataIndex: "id",
       key: "id",
       render: (id) => (
@@ -109,26 +110,30 @@ const LogChatBot = () => {
       ),
     },
   ];
-  React.useEffect(() => {
-    if (!csvUser || !csvAllUser || contentCSV) {
-      if (contentCSV?.id) {
-        exportCsvUser(contentCSV);
-      } else {
-        exportCsvAll(contentCSV);
-      }
-    }
-  }, [contentCSV]);
+  // React.useEffect(() => {
+  //   if (!csvUser || !csvAllUser || contentCSV) {
+  //     if (contentCSV?.id) {
+  //       exportCsvUser(contentCSV);
+  //     } else {
+  //       exportCsvAll(contentCSV);
+  //     }
+  //   }
+  // }, [contentCSV]);
 
-  React.useEffect(() => {
-    if (csvUser || csvAllUser) {
-      contentCSV?.id
-        ? downloadBlob(csvUser, contentCSV?.id)
-        : downloadBlob(csvAllUser);
-    }
-  }, [csvUser, csvAllUser, contentCSV]);
+  // React.useEffect(() => {
+  //   if ((csvUser || csvAllUser) && contentCSV) {
+  //     contentCSV?.id
+  //       ? downloadBlob(csvUser, contentCSV?.id)
+  //       : downloadBlob(csvAllUser);
+  //   }
+  // }, [csvUser, csvAllUser, contentCSV]);
 
   const exportHistoryChatBot = (data) => {
-    setContentCSV(data);
+    if (data?.id) {
+      exportCsvUser(data);
+    } else {
+      exportCsvAll(data);
+    }
   };
   const openModalHistory = (id, langChat) => {
     if (!detailChat || idChat !== id) {
@@ -139,20 +144,20 @@ const LogChatBot = () => {
     setVisible(true);
   };
 
-  const downloadBlob = (content, idUser) => {
-    const dateExported = new Date();
-    const BOM = "\uFEFF";
-    content = BOM + content;
-    const blob = new Blob([content], { type: "data:text/csv;charset=utf-8," });
-    const url = URL.createObjectURL(blob);
-    let dow = document.createElement("a");
-    dow.href = url;
-    const fileName = `${idUser ? "User" + idUser + "_" : ""}chat_log_export_${
-      dateExported.toISOString().split("T")[0]
-    }.csv`;
-    dow.setAttribute("download", fileName);
-    dow.click();
-  };
+  // const downloadBlob = (content, idUser) => {
+  //   const dateExported = new Date();
+  //   const BOM = "\uFEFF";
+  //   content = BOM + content;
+  //   const blob = new Blob([content], { type: "data:text/csv;charset=utf-8," });
+  //   const url = URL.createObjectURL(blob);
+  //   let dow = document.createElement("a");
+  //   dow.href = url;
+  //   const fileName = `${idUser ? "User" + idUser + "_" : ""}chat_log_export_${
+  //     dateExported.toISOString().split("T")[0]
+  //   }.csv`;
+  //   dow.setAttribute("download", fileName);
+  //   dow.click();
+  // };
   return (
     <div className="log-container">
       <TableHeader
@@ -172,7 +177,7 @@ const LogChatBot = () => {
               className="mr-2"
               style={{ color: "white" }}
             />
-            <span> CSVダウンロード</span>
+            <span>{t("admins.log_chatbot.btn_export")}</span>
           </Button>
           <Button
             className="ml-2"
@@ -184,7 +189,7 @@ const LogChatBot = () => {
               className="mr-2"
               style={{ color: "white" }}
             />
-            <span> CSVダウンロード (日本語）</span>
+            <span>{t("admins.log_chatbot.btn_export_ja")}</span>
           </Button>
         </div>
       </TableHeader>
@@ -199,7 +204,7 @@ const LogChatBot = () => {
         }}
       />
       <Modal
-        title="History chatbot"
+        title= {t("admins.log_chatbot.show_history")}
         visible={visible}
         onCancel={() => setVisible(false)}
         width={"1000"}

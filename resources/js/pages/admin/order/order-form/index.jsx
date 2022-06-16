@@ -174,14 +174,14 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     field="hours"
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
-                    style={{margin: 0}}
-                    className='marginUnset'
+                    style={{ margin: 0 }}
+                    className="marginUnset"
                     type={
                       <InputNumber
                         min={0}
-                        max={23} 
+                        max={23}
                         defaultValue={0}
-                        style={{margin:'0 8px'}}
+                        style={{ margin: "0 8px" }}
                       />
                     }
                   />  
@@ -191,14 +191,14 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     // rules={[{ required: true, message: 'Please input your username!' }]}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
-                    style={{margin: 0}}
-                    className='marginUnset'
+                    style={{ margin: 0 }}
+                    className="marginUnset"
                     type={
                       <InputNumber
                         min={0}
                         max={60}
                         defaultValue={0}
-                        style={{margin:'0 8px'}}
+                        style={{ margin: "0 8px" }}
                       />
                     }
                   /> */}

@@ -33,6 +33,11 @@ const AddProduct = () => {
       navigate(`${lang}/admin/product-list`);
       getAllProducts();
     }
+    if (resCreateProduct?.error_code === "ERROR") {
+      const { sku, slug } = resCreateProduct?.error_data
+      slug && NotificationError(t("notification"), slug);
+      sku && NotificationError(t("notification"), sku);
+    }
   }, [resCreateProduct]);
   return (
     <div id="add-product-page">

@@ -345,6 +345,7 @@
     "btn_generate_password": "パスワード生成",
     "btn_search": "搜索",
     "btn_add_new": "添新",
+    "btn_reset": "Reset",
     "delete_item_message": "您要删除吗。",
     "user": {
       "list": {
@@ -428,6 +429,8 @@
           "female": "女性",
           "yes": "是的",
           "no": "不",
+          "no&inactive": "不",
+          "yes&inactive": "是的",
           "registered": "未注册",
           "unregistered": "挂号的",
           "remove_registered": "未注册",
@@ -467,9 +470,15 @@
           "required": "请输入您的手机。",
           "pattern": "请输入有效的电话号码。"
         },
-        "user_name_required": "请输入您的用户名。",
+        "user_name": {
+          "required": "请输入您的用户名。",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "请输入您的密码。",
+          "pattern_number": "密码必须包含至少一个数字。",
+          "pattern_alpha": "密码必须至少包含一个大写和一个小写字母",
+          "pattern_special_characters": "密码必须至少包含一个符号。",
           "min": "请输入至少 8 个字符作为密码。"
         },
         "active_required": "请选择一个活动状态。",
@@ -583,21 +592,44 @@
       }
     },
     "category": {
-      "slug_field": "Slug",
+      "slug_field": "蛞蝓",
       "name_field": "姓名",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "类型",
+      "parent_category_field": "父类",
+      "product_image_field": "类别图片",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "请输入姓名类别。",
+      "title": {
+        "product_category_title": "产品分类",
+        "product_category_add": "添加新类别",
+        "category_list": "类别列表",
+        "category_add": "添加"
+      },
       "type": {
         "option1": "第1类",
         "option2": "指定的第2类",
         "option3": "第2类"
       },
       "error_message": {
-        "error_category_image": "category image 不能留空。"
+        "error_category_image": "类别图像字段是必需的。",
+        "error_type": "类型字段是必需的。",
+        "error_name": "类别名称字段是必需的。"
       }
+    },
+    "log_chatbot": {
+      "no": "",
+      "id": "",
+      "btn_export": "下载 CSV",
+      "btn_export_ja": "下载 CSV（日语）",
+      "btn_show": "展示",
+      "btn_show_ja": "日语显示",
+      "username_id": "身份证用户",
+      "username": "用户名",
+      "show_history": "聊天记录",
+      "show_history_ja": "聊天记录（日语）",
+      "created_at": "创建日期",
+      "dow_history": "下载 ",
+      "dow_history_ja": "下载（日语）"
     }
   }
 }

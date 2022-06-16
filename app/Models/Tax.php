@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Scopes\OrderByCreatedAtScope;
 
 class Tax extends Model
 {
@@ -12,6 +13,11 @@ class Tax extends Model
     protected $fillable = ['id', 'name', 'value'];
     protected $table = 'taxes';
     public $timestamps = true;
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
+    }
 
      /*
     |--------------------------------------------------------------------------

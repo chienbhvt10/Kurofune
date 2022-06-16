@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use App\Scopes\OrderByCreatedAtScope;
 
 class User extends Authenticatable
 {
@@ -84,6 +85,11 @@ class User extends Authenticatable
         $query->where('active', $type);
     }
 
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
+    }
+
 
     /*
     |--------------------------------------------------------------------------
@@ -139,5 +145,20 @@ class User extends Authenticatable
     public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Order::class, 'user_id', 'id');
+    }
+
+    protected static $relations_to_cascade = ['profile', 'address', 'shipping_address', 'billing_address', 'vendor_profile', 'cart'];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::deleting(function($resource) {
+            foreach (static::$relations_to_cascade as $relation) {
+                foreach ($resource->{$relation}()->get() as $item) {
+                    $item->delete();
+                }
+            }
+        });
     }
 }

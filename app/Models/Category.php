@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Scopes\OrderByCreatedAtScope;
 
 class Category extends Model
 {
@@ -20,12 +21,13 @@ class Category extends Model
 
     public $timestamps = true;
 
-    public function getCategoryImageAttribute(){
-        return $this->attributes['category_image'] = get_image_url($this->attributes['category_image']);
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
     }
 
-    public function getTypeAttribute() {
-        return $this->attributes['type'] = __(CAT_TYPE[$this->attributes['type']]);
+    public function getCategoryImageAttribute(){
+        return $this->attributes['category_image'] = get_image_url($this->attributes['category_image']);
     }
 
     /*

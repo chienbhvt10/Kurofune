@@ -345,6 +345,7 @@
     "btn_generate_password": "Pagbuo ng password",
     "btn_search": "Maghanap",
     "btn_add_new": "Magdagdag ng bago",
+    "btn_reset": "Reset",
     "delete_item_message": "Gusto mong tanggalin?",
     "user": {
       "list": {
@@ -428,6 +429,8 @@
           "female": "Babae",
           "yes": "Oo",
           "no": "Hindi",
+          "no&inactive": "Hindi",
+          "yes&inactive": "Oo",
           "registered": "Hindi nakarehistro",
           "unregistered": "Nakarehistro",
           "remove_registered": "Hindi nakarehistro.",
@@ -467,10 +470,16 @@
           "required": "Mangyaring ipasok ang iyong telepono.",
           "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
         },
-        "user_name_required": "Mangyaring ipasok ang iyong username.",
+        "user_name": {
+          "required": "Mangyaring ipasok ang iyong username.",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "Mangyaring ipasok ang iyong password.",
-          "min": "Mangyaring mag-input ng hindi bababa sa 8 character para sa password."
+          "pattern_number": "Ang password ay dapat maglaman ng hindi bababa sa isang numero.",
+          "pattern_alpha": "Ang password ay dapat maglaman ng hindi bababa sa isang malaking titik at isang maliit na titik",
+          "pattern_special_characters": "Ang password ay dapat maglaman ng kahit isang simbolo.",
+          "min": "Dapat maglaman ang password ng hindi bababa sa walong character."
         },
         "active_required": "Please select active status!",
         "postal_code": {
@@ -592,19 +601,42 @@
     "category": {
       "slug_field": "Slug",
       "name_field": "Pangalan",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "Uri",
+      "parent_category_field": "Kategorya ng magulang",
+      "product_image_field": "Larawan ng kategorya",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "Mangyaring ipasok ang kategorya ng pangalan",
+      "title": {
+        "product_category_title": "Kategorya ng Produkto",
+        "product_category_add": "Magdagdag ng kategorya",
+        "category_list": "Listahan ng Kategorya",
+        "category_add": "Idagdag"
+      },
       "type": {
         "option1": "Unang-class na OTC na gamot",
         "option2": "Tukuyin ang Second-class na mga OTC na gamot",
         "option3": "Pangalawang klase ng mga OTC na gamot"
       },
       "error_message": {
-        "error_category_image": "Ang category image ay isang kinakailangang."
+        "error_category_image": "Kinakailangan ang field ng larawan ng kategorya",
+        "error_type": "Kinakailangan ang field ng uri",
+        "error_name": "Kinakailangan ang field ng Pangalan"
       }
+    },
+    "log_chatbot": {
+      "no": "",
+      "id": "",
+      "btn_export": "I-download ang CSV",
+      "btn_export_ja": "I-download ang CSV (Japanese)",
+      "btn_show": "Pagpapakita",
+      "btn_show_ja": "Display sa Japanese",
+      "username_id": "User ng ID",
+      "username": "Username",
+      "show_history": "History ng chat",
+      "show_history_ja": "History ng chat (Japanese)",
+      "created_at": "Nagawa ang petsa",
+      "dow_history": "I-download ",
+      "dow_history_ja": "I-download (Japanese)"
     }
   }
 }

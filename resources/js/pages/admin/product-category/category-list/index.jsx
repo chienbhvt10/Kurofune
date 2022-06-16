@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { NotificationSuccess } from "../../../../commons/Notification";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
@@ -15,9 +14,14 @@ const CategoryList = () => {
   const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
     useDeleteAdminCategory();
   const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState();
 
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
+
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  };
 
   const onDelete = (row) => () => {
     deleteAdminCategory(row.id);
@@ -30,33 +34,21 @@ const CategoryList = () => {
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
-    getAdminCategories({ page: current, per_page: per_page });
+    getAdminCategories({
+      page: current,
+      per_page: per_page,
+    });
   };
 
-  const onSearch = (values) => {
-    getAdminCategories({ page: pagination.current_page, name: values.name });
+  const onSearch = () => {
+    getAdminCategories({ name: searchValue });
   };
 
   React.useEffect(() => {
-    if (!adminCategories) {
+    if (!searchValue) {
       getAdminCategories();
     }
-  }, [adminCategories]);
-  // React.useEffect(() => {
-  //   getAdminCategories();
-  // }, [lang]);
-
-  React.useEffect(() => {
-    if (resDeleteCategory?.error_code === "NO_ERROR") {
-      getAdminCategories();
-      NotificationSuccess(t("notification"), resDeleteCategory.message);
-    }
-    return () => {};
-  }, [resDeleteCategory]);
-
-  React.useEffect(() => {
-    getAdminCategories();
-  }, []);
+  }, [searchValue]);
 
   return (
     <div className="category-container">
@@ -64,20 +56,23 @@ const CategoryList = () => {
         addLink={`${lang}/admin/category/add`}
         breadcrumb={[
           { name: "Home", routerLink: "../" },
-          { name: "Category List", routerLink: "/category-list" },
+          {
+            name: t("admins.category.title.category_list"),
+            routerLink: "/category-list",
+          },
         ]}
-        title="Product Category"
+        title={t("admins.category.title.product_category_title")}
         searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.category.placeholder_seach")}
-
+        onChangeSearch={onChangeSearchValue}
       />
       <CategoryTable
         items={adminCategories}
         onDelete={onDelete}
         onEdit={onEdit}
         onTableChange={onTableChange}
-        pagination={pagination}        
+        pagination={pagination}
       />
     </div>
   );

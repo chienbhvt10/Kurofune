@@ -5,6 +5,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import {
   deleteUserAction,
   resetResCRUDAction,
@@ -24,18 +25,15 @@ const useDeleteUser = () => {
   };
 
   React.useEffect(() => {
-    if (resDeleteUser?.status_code === 200) {
+    if (resDeleteUser?.error_code === NO_ERROR) {
       getAllUsers({ page: pagination.current_page });
-      NotificationSuccess(
-        t("notification"),
-        t("admins.crud.user.delete_success")
-      );
+      NotificationSuccess(t("notification"), resDeleteUser.message);
       setLoadingDeleteUser(false);
       dispatch(resetResCRUDAction());
     }
-    if (resDeleteUser && resDeleteUser.status_code !== 200) {
+    if (resDeleteUser && resDeleteUser.error_code === ERROR) {
       setLoadingDeleteUser(false);
-      NotificationError(t("notification"), t("admins.crud.user.delete_fail"));
+      NotificationError(t("notification"), resDeleteUser.error_message);
     }
   }, [resDeleteUser]);
 

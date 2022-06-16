@@ -6,6 +6,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { ERROR, NO_ERROR } from "../../constants/error";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import {
   resetResCRUDAction,
@@ -28,19 +29,16 @@ const useCreateUser = () => {
   };
 
   React.useEffect(() => {
-    if (resUpdateUser?.status_code === 200) {
+    if (resUpdateUser?.error_code === NO_ERROR) {
       getAllUsers({ page: pagination.current_page });
       setLoadingUpdateUser(false);
-      NotificationSuccess(
-        t("notification"),
-        t("admins.crud.user.update_success")
-      );
+      NotificationSuccess(t("notification"), resUpdateUser.message);
       navigate(`${lang}/admin/user-list`);
       dispatch(resetResCRUDAction());
     }
-    if (resUpdateUser && resUpdateUser.status_code !== 200) {
+    if (resUpdateUser && resUpdateUser.error_code === ERROR) {
       setLoadingUpdateUser(false);
-      NotificationError(t("notification"), t("admins.crud.user.update_fail"));
+      NotificationError(t("notification"), resUpdateUser.error_message);
     }
   }, [resUpdateUser]);
 

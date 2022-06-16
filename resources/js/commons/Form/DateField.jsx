@@ -13,8 +13,13 @@ const DateField = ({
   className,
   type,
   dependId,
+<<<<<<< HEAD
   disable=false,
   allowClear=true
+=======
+  disabledDate,
+  onChange,
+>>>>>>> bc5dfae61b5103febb214f525e35142836c1f94a
 }) => {
   const dateFormat = "YYYY/MM/DD";
   const { t } = useTranslation();
@@ -40,15 +45,19 @@ const DateField = ({
             : ""
         }
       >
-        {type ? type : <DatePicker
-          style={{ width: "100%" }}
-          locale={locale}
-          format={dateFormat}
-          placeholder={t("admins.user.form.placeholder.select_date")}
-          disable={true}
-          allowClear={false}
-        />
-        }
+        {type ? (
+          type
+        ) : (
+          <DatePicker
+            style={{ width: "100%" }}
+            locale={locale}
+            format={dateFormat}
+            placeholder={t("admins.user.form.placeholder.select_date")}
+            disabledDate={disabledDate}
+            onChange={onChange}
+            getPopupContainer={getDepend}
+          />
+        )}
       </Form.Item>
     </div>
   );

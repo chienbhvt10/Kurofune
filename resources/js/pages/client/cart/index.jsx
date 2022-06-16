@@ -7,7 +7,7 @@ import "./cart.scss";
 import useCart from "../../../hooks/cart/useCart";
 import LoadingModal from "../../../commons/LoadingModal";
 const Cart = () => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const [cartItemState, setCartItemState] = useState([]);
@@ -43,6 +43,7 @@ const Cart = () => {
                   src={record?.product_image}
                 />
               </Row>
+              ,
             </Col>
             <Col span={20}>
               <Row justify="start">
@@ -57,7 +58,7 @@ const Cart = () => {
       key: "price",
       dataIndex: "price",
       title: t("client.cart.th_product_price"),
-      render: (_, record) => <span>{record.price_tax}</span>,
+      render: (_, record) => <span>{record?.price_tax.toFixed(3)}</span>,
       align: "center",
       width: 230,
     },
@@ -72,6 +73,7 @@ const Cart = () => {
           type="number"
           className="input-field"
           defaultValue={record.quantity}
+          min={1}
           onChange={(e) =>
             setCartItemState((prev) =>
               prev.map((item) =>

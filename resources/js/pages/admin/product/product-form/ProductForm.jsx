@@ -17,13 +17,13 @@ import {
 } from "./productInitValues.js";
 import useCategories from "../../../../hooks/category/useCategories.js";
 import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
-import { isAdmin } from "../../../../helper/roles";
+import { isAdmin } from "../../../../helper/checker";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
-
-  const { pharmaciesAdmin, getAllPharmaciesAdmin } = usePharmacies();
+  const { profile, userInfo } = useSelector((state) => state.authState);
+  const { pharmacies, getAllPharmacies } = usePharmacies();
   const { categoriesClient, getCategoriesClient } = useCategories();
 
   const [avatarState, setAvatarState] = React.useState({
@@ -43,22 +43,33 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const onFinishAll = (values) => {
     const submitInput = {
       ...productsForm.getFieldsValue(),
-      ja: {
-        ...productProfileFormJP.getFieldsValue(),
+      product_image: avatarState.base64Avatar,
+      en: {
+        ...(Object.keys(productProfileFormEN.getFieldsValue()).length === 0
+          ? item?.translations[0]
+          : productProfileFormEN.getFieldsValue()),
       },
-      vi: {
-        ...productProfileFormVI.getFieldsValue(),
+      ja: {
+        ...(Object.keys(productProfileFormJP.getFieldsValue()).length === 0
+          ? item?.translations[1]
+          : productProfileFormJP.getFieldsValue()),
       },
       tl: {
-        ...productProfileFormTL.getFieldsValue(),
+        ...(Object.keys(productProfileFormTL.getFieldsValue()).length === 0
+          ? item?.translations[2]
+          : productProfileFormTL.getFieldsValue()),
       },
+      vi: {
+        ...(Object.keys(productProfileFormVI.getFieldsValue()).length === 0
+          ? item?.translations[3]
+          : productProfileFormVI.getFieldsValue()),
+      },
+
       zh: {
-        ...productProfileFormZH.getFieldsValue(),
+        ...(Object.keys(productProfileFormZH.getFieldsValue()).length === 0
+          ? item?.translations[4]
+          : productProfileFormZH.getFieldsValue()),
       },
-      en: {
-        ...productProfileFormEN.getFieldsValue(),
-      },
-      product_image: avatarState.base64Avatar,
     };
     productProfileFormEN.validateFields();
     onSave(submitInput);
@@ -90,7 +101,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
 
   React.useEffect(() => {
     getCategoriesClient();
-    getAllPharmaciesAdmin();
+    getAllPharmacies();
   }, [lang]);
 
   const onChangeAvatar = (base64Image) => {
@@ -122,7 +133,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       >
         <FormHeader
           breadcrumb={[
-            { name: "Home", routerLink: "../" },
             { name: "Product List", routerLink: `${lang}/admin/product-list` },
             {
               name: "Add",
@@ -134,7 +144,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         />
         <div>
           <Row justify="center">
-            {isAdmin && (
+            {(isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)) && (
               <Col
                 lg={12}
                 md={12}
@@ -157,8 +167,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   response={response}
                   error="user_id"
                 >
-                  {pharmaciesAdmin?.map((pharamacy, index) => (
-                    <Select.Option key={index} value={pharamacy.id}>
+                  {pharmacies?.map((pharamacy, index) => (
+                    <Select.Option key={index} value={pharamacy.user_id}>
                       {pharamacy.name}
                     </Select.Option>
                   ))}

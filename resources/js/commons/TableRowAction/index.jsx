@@ -6,8 +6,17 @@ import { useTranslation } from "react-i18next";
 import "./table-row-action.scss";
 const TableRowAction = ({ onDelete, onEdit, record, confirmLoading }) => {
   const { t } = useTranslation(0);
+
+  const getDepend = () => {
+    return document.querySelector(`#pop-confirm-${record.id}`);
+  };
+
   return (
-    <div className="table-row-action">
+    <div
+      className="table-row-action"
+      id={`pop-confirm-${record.id}`}
+      style={{ position: "relative" }}
+    >
       <FontAwesomeIcon
         icon={faPenToSquare}
         onClick={()=>{
@@ -23,6 +32,7 @@ const TableRowAction = ({ onDelete, onEdit, record, confirmLoading }) => {
         okText={t("admins.user.form.option.yes")}
         cancelText={t("admins.user.form.option.no")}
         okButtonProps={{ loading: confirmLoading }}
+        getPopupContainer={getDepend}
       >
         <FontAwesomeIcon icon={faTrashCan} className="img-row" />
       </Popconfirm>

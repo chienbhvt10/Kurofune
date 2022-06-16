@@ -345,6 +345,7 @@
     "btn_generate_password": "Tạo mật khẩu",
     "btn_search": "Tìm kiếm",
     "btn_add_new": "Thêm mới",
+    "btn_reset": "Reset",
     "delete_item_message": "Bạn có muốn xóa không?",
     "user": {
       "list": {
@@ -369,7 +370,7 @@
         "field_name": "Tên",
         "field_email": "Địa chỉ email",
         "field_phone": "Số điện thoại",
-        "field_username": "Tài khoản",
+        "field_username": "Tên người dùng",
         "field_password": "Mật khẩu",
         "field_active": "Trạng thái",
         "field_full_name": "Họ và tên",
@@ -428,6 +429,8 @@
           "female": "Nữ",
           "yes": "Có",
           "no": "Không",
+          "yes&inactive": "Có",
+          "no&inactive": "Không",
           "registered": "Đã đăng kí",
           "unregistered": "Chưa đăng kí",
           "remove_registered": "Đang xoá đăng kí",
@@ -467,10 +470,16 @@
           "required": "Vui lòng nhập số điện thoại của bạn",
           "pattern": "Vui lòng nhập số điện thoại hợp lệ."
         },
-        "user_name_required": "Vui lòng nhập tên người dùng của bạn.",
+        "user_name": {
+          "required": "Vui lòng nhập tên người dùng của bạn.",
+          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+        },
         "password": {
           "required": "Vui lòng nhập mật khẩu của bạn.",
-          "min": "Vui lòng nhập mật khẩu có ít nhất 8 ký tự."
+          "pattern_number": "Trường Mật khẩu phải chứa ít nhất một số.",
+          "pattern_alpha": "Trường Mật khẩu phải chứa ít nhất một chữ hoa và một chữ thường.",
+          "pattern_special_characters": "Trường Mật khẩu phải chứa ít nhất một ký tự đặc biệt.",
+          "min": "Trường Mật khẩu phải có ít nhất 8 ký tự."
         },
         "active_required": "Please select active status!",
         "postal_code": {
@@ -586,21 +595,44 @@
       }
     },
     "category": {
-      "slug_field": "Slug",
+      "slug_field": "Đường dẫn",
       "name_field": "Tên",
-      "type_field": "Type",
-      "parent_category_field": "Parent category",
-      "product_image_field": "Product Image",
+      "type_field": "Loại",
+      "parent_category_field": "Danh mục cha",
+      "product_image_field": "Hình ảnh danh mục",
       "placeholder_text": "Please enter text",
-      "placeholder_seach": "Please enter name category",
+      "placeholder_seach": "Vui lòng nhập tên danh mục",
+      "title": {
+        "product_category_title": "Danh mục sản phẩm",
+        "product_category_add": "Thêm danh mục",
+        "category_list": "Danh sách danh mục",
+        "category_add": "Thêm mới"
+      },
       "type": {
         "option1": "Thuốc OTC hạng nhất",
         "option2": "Chỉ định thuốc OTC loại thứ hai",
         "option3": "Thuốc OTC hạng hai"
       },
       "error_message": {
-        "error_category_image": "Vui lòng nhập category image"
+        "error_category_image": "Trường 'Hình ảnh danh mục' là trường bắt buộc.",
+        "error_type": "Trường 'Loại' là trường bắt buộc.",
+        "error_name": "Trường 'Tên danh mục' là trường bắt buộc."
       }
+    },
+    "log_chatbot": {
+      "no": "",
+      "id": "",
+      "btn_export": "Tải xuống CSV",
+      "btn_export_ja": "Tải xuống CSV (tiếng Nhật)",
+      "btn_show": "Hiển thị",
+      "btn_show_ja": "Hiển thị bằng tiếng Nhật",
+      "username_id": "ID user",
+      "username": "Tên tài khoản",
+      "show_history": "Lịch sử trò chuyện",
+      "show_history_ja": "Lịch sử trò chuyện (Tiếng Nhật)",
+      "created_at": "Ngày tạo",
+      "dow_history": "Tải xuống ",
+      "dow_history_ja": "Tải xuống (tiếng Nhật)"
     }
   }
 }

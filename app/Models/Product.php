@@ -6,6 +6,7 @@ use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Scopes\OrderByCreatedAtScope;
 
 class Product extends Model
 {
@@ -43,6 +44,11 @@ class Product extends Model
     public function scopeProductStatus($query, $type)
     {
         $query->where('status', $type);
+    }
+
+    protected static function booted()
+    {
+        static::addGlobalScope(new OrderByCreatedAtScope);
     }
 
     /*

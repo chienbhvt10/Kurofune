@@ -2,7 +2,7 @@
 
 return [
     'user' => [
-        'logout' => 'logged out',
+        'logout' => 'Logged out.',
         'created' => 'user created',
         'updated' => 'user updated',
         'deleted' => 'user deleted',
@@ -86,6 +86,8 @@ return [
         'quantity' => 'Please check your purchase details.'
     ],
     'order' => [
-        'no_info' => 'There is no order'
+        'no_info' => 'There is no order',
+        'deleted' => 'Order deleted',
+        'updated' => 'Order updated',
     ]
 ];

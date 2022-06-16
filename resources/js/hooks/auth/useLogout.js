@@ -6,7 +6,11 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
-import { getCurrentLanguage } from "../../helper/localStorage";
+import { ERROR, NO_ERROR } from "../../constants/error";
+import {
+  getCurrentLanguage,
+  removeRememberLogin,
+} from "../../helper/localStorage";
 import { logout, resetAuthResponse } from "../../redux/actions/authAction";
 
 const useLogout = () => {
@@ -21,12 +25,15 @@ const useLogout = () => {
     dispatch(logout());
   };
   React.useEffect(() => {
-    if (resLogout?.status_code === 200) {
+    if (resLogout && resLogout?.error_code === NO_ERROR) {
       NotificationSuccess(t("notification"), resLogout.message);
+      removeRememberLogin();
+      sessionStorage.clear();
       navigate(`${lang}/login`);
+      dispatch(resetAuthResponse());
     }
-    if (resLogout && resLogout.status_code !== 200) {
-      NotificationError(t("notification"), resLogout.message);
+    if (resLogout && resLogout.status_code === ERROR) {
+      NotificationError(t("notification"), resLogout.error_message);
     }
   }, [resLogout]);
   return {

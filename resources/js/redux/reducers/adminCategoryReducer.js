@@ -5,6 +5,7 @@ import {
   getCategoryAdminAction,
   updateAdminCategoryAction,
   getAllCategoriesAdminAction,
+  resetCategoryResCRUDAction,
 } from "../actions/categoryAdminAction.js";
 
 const initialState = {
@@ -24,50 +25,68 @@ const initialState = {
 
 const adminCategoryReducers = createReducer(initialState, (builder) => {
   builder.addCase(getAllCategoriesAdminAction.fulfilled, (state, actions) => {
-    state.adminCategories = actions.payload?.data?.data;
-    state.resDeleteCategory = undefined;
-    state.resCreateCategory = undefined;
-    state.resUpdateCategory = undefined;
-    state.total = actions.payload.data.total;
-    state.from = actions.payload.data.from;
-    state.to = actions.payload.data.to;
-    state.current_page = actions.payload.data.current_page;
-    state.last_page = actions.payload.data.last_page;
+    return {
+      ...state,
+      adminCategories: actions.payload?.data?.data,
+      total: actions.payload.data?.total,
+      from: actions.payload.data?.from,
+      to: actions.payload.data?.to,
+      current_page: actions.payload.data?.current_page,
+      last_page: actions.payload.data?.last_page,
+    };
   });
-
 
   // Get Category successs
   builder.addCase(getCategoryAdminAction.fulfilled, (state, actions) => {
-    state.adminCategory = actions.payload?.data;
-    state.resGetAdminCategory = actions.payload;
-    state.resDeleteCategory = undefined;
-    state.resCreateCategory = undefined;
-    state.resUpdateCategory = undefined;
-    state.isLoading = false
+    return {
+      ...state,
+      adminCategory: actions.payload.data,
+    };
   });
 
   // Create Category
   builder.addCase(createCategoryAdminAction.fulfilled, (state, actions) => {
-    state.resCreateCategory = actions.payload;
-  });
-  builder.addCase(createCategoryAdminAction.rejected, (state, actions) => {
-    state.resCreateCategory = actions.payload;
+    return {
+      ...state,
+      resCreateCategory: actions.payload,
+    };
   });
 
   // Update Category
   builder.addCase(updateAdminCategoryAction.fulfilled, (state, actions) => {
-    state.resUpdateCategory = actions.payload;
+    return {
+      ...state,
+      resUpdateCategory: actions.payload,
+    };
   });
   builder.addCase(updateAdminCategoryAction.rejected, (state, actions) => {
-    state.resUpdateCategory = actions.payload;
+    return {
+      ...state,
+      resUpdateCategory: actions.payload,
+    };
   });
 
   // Delete Category
   builder.addCase(deleteAdminCategoryAction.fulfilled, (state, actions) => {
-    state.resDeleteCategory = actions.payload;
+    return {
+      ...state,
+      resDeleteCategory: actions.payload,
+    };
   });
   builder.addCase(deleteAdminCategoryAction.rejected, (state, actions) => {
-    state.resDeleteCategory = actions.payload;
+    return {
+      ...state,
+      resDeleteCategory: actions.payload,
+    };
+  });
+
+  builder.addCase(resetCategoryResCRUDAction, (state) => {
+    return {
+      ...state,
+      resCreateCategory: undefined,
+      resUpdateCategory: undefined,
+      resDeleteCategory: undefined,
+    };
   });
 });
 

@@ -7,6 +7,7 @@ const categoryAdminActions = {
   createAdminCategory: createAction("CREATE_CATEGORY_ADMIN"),
   updateAdminCategory: createAction("UPDATE_CATEGORY_ADMIN"),
   deleteAdminCategory: createAction("DELETE_CATEGORY_ADMIN"),
+  resetResCRUD: createAction("RESET_RES_CRUD"),
 };
 
 export const getAllCategoriesAdminAction = createAsyncThunk(
@@ -63,4 +64,6 @@ export const deleteAdminCategoryAction = createAsyncThunk(
     return res;
   }
 );
+export const resetCategoryResCRUDAction = categoryAdminActions.resetResCRUD;
+
 export default categoryAdminActions;

@@ -12,6 +12,7 @@ import {
   resetResCRUDAction,
 } from "../../redux/actions/userAction";
 import useUsers from "./useUsers";
+import { NO_ERROR, ERROR } from "../../constants/error";
 
 const useCreateUser = () => {
   const { resCreateUser, user } = useSelector((state) => state.userState);
@@ -29,19 +30,16 @@ const useCreateUser = () => {
   };
 
   React.useEffect(() => {
-    if (resCreateUser?.status_code === 200) {
+    if (resCreateUser?.error_code === NO_ERROR) {
       getAllUsers({ page: pagination.current_page });
       setLoadingCreateUser(false);
-      NotificationSuccess(
-        t("notification"),
-        t("admins.crud.user.create_success")
-      );
+      NotificationSuccess(t("notification"), resCreateUser.message);
       navigate(`${lang}/admin/user-list`);
       dispatch(resetResCRUDAction());
     }
-    if (resCreateUser && resCreateUser.status_code !== 200) {
+    if (resCreateUser && resCreateUser.error_code === ERROR) {
       setLoadingCreateUser(false);
-      NotificationError(t("notification"), t("admins.crud.user.create_fail"));
+      NotificationError(t("notification"), resCreateUser.error_message);
     }
   }, [resCreateUser]);
 

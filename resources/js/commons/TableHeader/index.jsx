@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Breadcrumb } from "../../commons/Breadcrumb";
 import "./table-header.scss";
 export const TableHeader = ({
@@ -14,6 +14,9 @@ export const TableHeader = ({
   onSearch,
   searchField,
   searchPlaceHolder,
+  onChangeSearch,
+  onResetFilter,
+  showReset,
 }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -41,30 +44,48 @@ export const TableHeader = ({
                   <></>
                 )}
               </Col>
+              <Col>
+                {showReset ? (
+                  <Button
+                    className="btn-reset"
+                    type="primary"
+                    onClick={onResetFilter}
+                  >
+                    {t("admins.btn_reset")}
+                  </Button>
+                ) : (
+                  ""
+                )}
+              </Col>
               <Col className="filter">{children}</Col>
             </Row>
           </Col>
-          {searchField && <Col>
-            <Form onFinish={onSearch} autoComplete="off">
-              <Row align="middle">
-                <Col>
-                  <Form.Item name={searchField} className="search-field">
-                    <Input type="text" placeholder={searchPlaceHolder} />
-                  </Form.Item>
-                </Col>
-                <Col>
-                  <Button
-                    className="btn-search"
-                    type="primary"
-                    htmlType="submit"
-                  >
-                    {t("admins.btn_search")}
-                  </Button>
-                </Col>
-              </Row>
-            </Form>
-          </Col>}
-
+          {searchField && (
+            <Col>
+              <Form onFinish={onSearch} autoComplete="off">
+                <Row align="middle">
+                  <Col>
+                    <Form.Item name={searchField} className="search-field">
+                      <Input
+                        type="text"
+                        placeholder={searchPlaceHolder}
+                        onChange={onChangeSearch}
+                      />
+                    </Form.Item>
+                  </Col>
+                  <Col>
+                    <Button
+                      className="btn-search"
+                      type="primary"
+                      htmlType="submit"
+                    >
+                      {t("admins.btn_search")}
+                    </Button>
+                  </Col>
+                </Row>
+              </Form>
+            </Col>
+          )}
         </Row>
       </Col>
     </Row>

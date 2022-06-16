@@ -36,12 +36,28 @@ const ResetPassword = () => {
   };
 
   const renderErrorTranslate = (field) => {
-    return validateAuth?.reset_password?.[field].map((item) => {
+    const errorMessage = validateAuth?.reset_password?.[field].map((item) => {
       return {
         ...item,
         message: t(item.message),
       };
     });
+    if (field === "password_confirmation") {
+      return [
+        ...errorMessage,
+        ({ getFieldValue }) => ({
+          validator(_, value) {
+            if (!value || getFieldValue("password") === value) {
+              return Promise.resolve();
+            }
+            return Promise.reject(
+              new Error(t("admins.user.error.not_same_password"))
+            );
+          },
+        }),
+      ];
+    }
+    return errorMessage;
   };
 
   return (
@@ -58,6 +74,7 @@ const ResetPassword = () => {
               <InputField
                 field="email"
                 label="Email"
+                error="email"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 response={resResetPassword}
@@ -80,6 +97,7 @@ const ResetPassword = () => {
               <InputField
                 field="password"
                 label="Password"
+                error="password"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 rules={renderErrorTranslate("password")}
@@ -111,6 +129,7 @@ const ResetPassword = () => {
               <InputField
                 field="password_confirmation"
                 label="Password confirmation"
+                error="password_confirmation"
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 24 }}
                 dependencies={["password"]}

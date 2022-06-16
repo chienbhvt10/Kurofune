@@ -15,14 +15,8 @@ const useUsers = () => {
   const getAllUsers = (payload) => {
     setLoadingListUser(true);
     dispatch(getUsersAction(payload));
-  };
-
-  React.useEffect(() => {
-    if (users.length === 0) {
-      getAllUsers();
-    }
     dispatch(resetResCRUDAction());
-  }, [users]);
+  };
 
   React.useEffect(() => {
     if (users) {

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { getCurrentLanguage } from "../../helper/localStorage";
-import { isAdmin } from "../../helper/roles";
+import { isAdmin } from "../../helper/checker";
 import "./navigate-link.scss";
 const NavigateLink = ({ navigateItems, onClick }) => {
   const lang = getCurrentLanguage();
