@@ -706,9 +706,17 @@ class UserController extends Controller
                 }else{
                     $user->vendor_profile()->create($data_vendor);
                 }
+
+                if ($user->profile) {
+                    $user->profile()->delete();
+                }
             } elseif ($role == UserRole::ROLE_ADMIN) {
                 if ($user->vendor_profile) {
                     $user->vendor_profile()->delete();
+                }
+
+                if ($user->profile) {
+                    $user->profile()->delete();
                 }
             }
             DB::commit();
