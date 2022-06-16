@@ -80,7 +80,6 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         }
         const { id } = dataOrder
         updateOrderAdmin({id,data:objectUpdate},(data)=>{
-
         })
       }
     } catch (error) {

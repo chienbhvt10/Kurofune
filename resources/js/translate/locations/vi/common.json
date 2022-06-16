@@ -472,7 +472,7 @@
         },
         "user_name": {
           "required": "Vui lòng nhập tên người dùng của bạn.",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "Tên người dùng chỉ được chứa chữ cái, chữ số, dấu gạch ngang và dấu gạch dưới."
         },
         "password": {
           "required": "Vui lòng nhập mật khẩu của bạn.",
@@ -516,6 +516,9 @@
       "stock_status_field": "Trạng thái tồn kho",
       "price_field": "Giá sản phẩm",
       "category_field": "Danh mục",
+      "date_field": "Ngày đăng sản phẩm",
+      "store_field": "Nhà thuốc",
+      "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
       "tax_field": "Thuế",
       "meta_title_field": "Thẻ Meta Title",
       "meta_description_field": "Thẻ Meta Description",
@@ -531,6 +534,7 @@
       "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
       "manufacturer_field": "Công ty sản xuất và kinh doanh",
       "name_field": "Tên gọi chung",
+      "field_name":"Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
       "error_message": {
         "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
@@ -583,6 +587,7 @@
       },
       "error": {
         "full_name_required": "Vui lòng nhập họ tên của bạn.",
+        "building_required": "Vui lòng nhập tên tòa nhà của bạn.",
         "email": {
           "required": "Vui lòng nhập email của bạn.",
           "type": "Vui lòng nhập email hợp lệ."

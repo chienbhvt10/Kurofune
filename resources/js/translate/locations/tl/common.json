@@ -461,7 +461,7 @@
       "error": {
         "role_required": "Mangyaring pumili ng isang tungkulin.",
         "name_required": "Pakilagay ang iyong pangalan.",
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
@@ -472,7 +472,7 @@
         },
         "user_name": {
           "required": "Mangyaring ipasok ang iyong username.",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "Ang username ay dapat lamang maglaman ng mga titik, numero, gitling at salungguhit."
         },
         "password": {
           "required": "Mangyaring ipasok ang iyong password.",
@@ -583,7 +583,8 @@
         "field_building": "Gusali"
       },
       "error": {
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
+        "building_required": "Pakilagay ang pangalan ng iyong gusali.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."

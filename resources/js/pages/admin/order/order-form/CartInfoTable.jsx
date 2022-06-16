@@ -123,7 +123,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
                 height="35"
               />
             </div>
-            <div>{record.translations[0].name}</div>
+            <div>{record.name}</div>
           </div>
         );
       },
