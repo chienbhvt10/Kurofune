@@ -15,11 +15,10 @@ const LogChatBot = () => {
   const [visible, setVisible] = useState(false);
   const [langChat, setLangChat] = useState();
   const [idChat, setIdChat] = useState();
-  const [contentCSV, setContentCSV] = useState();
   const { listChat, getListChat } = useListChat();
   const { detailChat, getDetailChat } = useDetailChat();
-  const { csvUser, exportCsvUser } = useExportCsv();
-  const { csvAllUser, exportCsvAll } = useExportCsvAll();
+  const { exportCsvUser } = useExportCsv();
+  const { exportCsvAll } = useExportCsvAll();
   const { t } = useTranslation();
   React.useEffect(() => {
     if (!listChat) {
@@ -110,23 +109,6 @@ const LogChatBot = () => {
       ),
     },
   ];
-  // React.useEffect(() => {
-  //   if (!csvUser || !csvAllUser || contentCSV) {
-  //     if (contentCSV?.id) {
-  //       exportCsvUser(contentCSV);
-  //     } else {
-  //       exportCsvAll(contentCSV);
-  //     }
-  //   }
-  // }, [contentCSV]);
-
-  // React.useEffect(() => {
-  //   if ((csvUser || csvAllUser) && contentCSV) {
-  //     contentCSV?.id
-  //       ? downloadBlob(csvUser, contentCSV?.id)
-  //       : downloadBlob(csvAllUser);
-  //   }
-  // }, [csvUser, csvAllUser, contentCSV]);
 
   const exportHistoryChatBot = (data) => {
     if (data?.id) {
@@ -144,20 +126,6 @@ const LogChatBot = () => {
     setVisible(true);
   };
 
-  // const downloadBlob = (content, idUser) => {
-  //   const dateExported = new Date();
-  //   const BOM = "\uFEFF";
-  //   content = BOM + content;
-  //   const blob = new Blob([content], { type: "data:text/csv;charset=utf-8," });
-  //   const url = URL.createObjectURL(blob);
-  //   let dow = document.createElement("a");
-  //   dow.href = url;
-  //   const fileName = `${idUser ? "User" + idUser + "_" : ""}chat_log_export_${
-  //     dateExported.toISOString().split("T")[0]
-  //   }.csv`;
-  //   dow.setAttribute("download", fileName);
-  //   dow.click();
-  // };
   return (
     <div className="log-container">
       <TableHeader
@@ -204,7 +172,7 @@ const LogChatBot = () => {
         }}
       />
       <Modal
-        title= {t("admins.log_chatbot.show_history")}
+        title={t("admins.log_chatbot.show_history")}
         visible={visible}
         onCancel={() => setVisible(false)}
         width={"1000"}
