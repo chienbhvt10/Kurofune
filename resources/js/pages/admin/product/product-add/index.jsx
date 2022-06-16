@@ -4,7 +4,10 @@ import { TYPE_FORM_CREATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import ProductForm from "../product-form/ProductForm";
 import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
-import { NotificationSuccess } from "../../../../commons/Notification";
+import {
+  NotificationSuccess,
+  NotificationError,
+} from "../../../../commons/Notification";
 import useProducts from "../../../../hooks/product/useProducts.js";
 import { useTranslation } from "react-i18next";
 
