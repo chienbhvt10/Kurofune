@@ -28,7 +28,7 @@ const ProductTable = ({
     {
       key: "name",
       dataIndex: "name",
-      title: t("admins.product.name_field"),
+      title: t("admins.product.field_name"),
       render: (_, record) => (
         <Link to={`${lang}/admin/product/update/${record.id}`}>
           {record.name}

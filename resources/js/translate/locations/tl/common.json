@@ -526,6 +526,7 @@
       "product_image_field": "Product Image",
       "placeholder_seach": "Pakilagay ang pangalan ng produkto.",
       "name_field": "Pangalan ng Produkto",
+      "field_name":"Pangalan",
       "medicinal_efficacy_classification_field": "Medicinal efficacy classification",
       "features_field": "Features",
       "precautions_field": "Precautions",

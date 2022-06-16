@@ -534,6 +534,7 @@
       "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
       "manufacturer_field": "Công ty sản xuất và kinh doanh",
       "name_field": "Tên gọi chung",
+      "field_name":"Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
       "error_message": {
         "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
