@@ -84,7 +84,9 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
           billing_email: valueFormBillingError.email,
         }
         const { id } = dataOrder
-        updateOrderAdmin({id,data:objectUpdate})
+        updateOrderAdmin({id,data:objectUpdate},(data)=>{
+
+        })
       }
     } catch (error) {
       console.log('Validate fail');

@@ -13,13 +13,10 @@ const DateField = ({
   className,
   type,
   dependId,
-<<<<<<< HEAD
   disable=false,
-  allowClear=true
-=======
+  allowClear=true,
   disabledDate,
   onChange,
->>>>>>> bc5dfae61b5103febb214f525e35142836c1f94a
 }) => {
   const dateFormat = "YYYY/MM/DD";
   const { t } = useTranslation();
