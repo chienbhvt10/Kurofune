@@ -402,26 +402,6 @@
           "field_page_registration": "WABISABIマイページ登録",
           "field_company_mail": "代行企業のメールアドレス"
         },
-        "order": {
-          "field_date_create": "作成日:",
-          "field_customer": "カスタマー:",
-          "field_action": "操作",
-          "field_status": "ステータス:",
-          "field_first_name": "姓",
-          "field_last_name": "名",
-          "field_company": "企業",
-          "field_address_line_1": "丁目・番地・号",
-          "field_address_line_2": "建物名・部屋番号",
-          "field_city": "市区町村",
-          "field_postal_code": "郵便番号",
-          "field_country_region": "国/地域",
-          "field_email": "メールアドレス",
-          "field_phone": "電話番号",
-          "field_payment_method": "決済方法",
-          "field_transaction_id": "Transaction Id",
-          "field_customer_provided_note": "注文メモ",
-          "field_state_county": "都道府県"
-        },
         "vendor_profile": {
           "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
           "field_image_outside": "薬局又は店舗の主要な外観の写真",
@@ -467,7 +447,7 @@
           }
         },
         "placeholder": {
-          "search": "ユーザー名で検索する",
+          "search": "名前で検索する",
           "select_role": "ユーザーロールを選択してください。",
           "select_active_status": "アクティブステータスを選択してください。",
           "select_prefecture": "都道府県を選択してください。",
@@ -481,6 +461,7 @@
       "error": {
         "role_required": "ユーザーロールを選択してください。",
         "name_required": "名前を入力してください。",
+        "full_name_required": "氏名を入力してください。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -491,7 +472,7 @@
         },
         "user_name": {
           "required": "ユーザー名を入力してください。",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "ユーザー名は文字、数字、ハイフン、アンダーバーのみを含めてください。"
         },
         "password": {
           "required": "パスワードを入力してください。",
@@ -533,25 +514,74 @@
         "field_order": "Order",
         "field_date": "Date",
         "field_total": "Total",
-        "field_status": "Status",
-        "field_action": "Action"
+        "field_status": "ステータス",
+        "field_action": "操作",
+        "field_full_name": "氏名",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "作成日:",
+        "field_customer": "カスタマー:",
+        "field_action": "操作",
+        "field_status": "ステータス:",
+        "field_first_name": "姓",
+        "field_last_name": "名",
+        "field_company": "企業",
+        "field_address_line_1": "丁目・番地・号",
+        "field_address_line_2": "建物名・部屋番号",
+        "field_postal_code": "郵便番号",
+        "field_country_region": "国/地域",
+        "field_email": "メールアドレス",
+        "field_phone": "電話番号",
+        "field_payment_method": "決済方法",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "注文メモ",
+        "field_state_county": "都道府県",
+        "field_full_name": "氏名",
+        "field_prefecture": "都道府県",
+        "field_city": "市区町村",
+        "field_street_address": "丁目・番地・号",
+        "field_building": "建物名・部屋番号"
+      },
+      "error": {
+        "full_name_required": "氏名を入力してください。",
+        "building_required": "建物名・部屋番号を入力してください。",
+        "email": {
+          "required": "メールを入力してください。",
+          "type": "有効なメールアドレスを入力してください。"
+        },
+        "phone": {
+          "required": "電話番号を入力してください。",
+          "pattern": "有効な電話番号を入力してください。"
+        },
+        "postal_code": {
+          "required": "郵便番号を入力してください。",
+          "pattern": "数字で入力してください。",
+          "max_3_number": "3数字以内入力してください。",
+          "max_4_number": "4数字以内入力してください。",
+          "max_7_number": "7数字以内入力してください。"
+        },
+        "prefecture_required": "都道府県を入力してください。",
+        "city_required": "市区町村を入力してください。",
+        "street_address_required": "市区町村を入力してください。"
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword_field": "Meta Keyword",
-      "product_image_field": "Product Image",
-      "placeholder_seach": "Please enter name product",
-
+      "slug_field": "スラッグ",
+      "vendor_field": "薬局",
+      "sku_field": "商品番号",
+      "status_field": "ステータス",
+      "stock_status_field": "在庫ステータス",
+      "price_field": "商品価格",
+      "category_field": "カテゴリ",
+      "date_field": "商品の掲載日",
+      "store_field": "薬局",
+      "tax_field": "税金",
+      "meta_title_field": "メタタイトル",
+      "meta_description_field": "メタディスクリプション",
+      "meta_keyword_field": "メタキーワード",
+      "product_image_field": "商品画像",
+      "placeholder_seach": "商品名を入力してください。",
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
       "precautions_field": "使用上の注意",
@@ -562,17 +592,27 @@
       "precautions_storage_handling_field": "保管及び取扱い上の注意",
       "manufacturer_field": "製造販売会社",
       "name_field": "一般名",
+      "field_name":"商品名",
       "use_manual_field": "用量用法",
-
       "error_message": {
+        "error_category_image": "「カテゴリ画像」フィールドは必須です。",
+        "error_type": "「タイプ」フィールドは必須です。",
+        "error_name": "「カテゴリ名」フィールドは必須です。",
+        "required_message": "この項目は必須です。",
         "error_vendor": "「薬局」フィールドは必須です。",
         "error_status": "「ステータス」フィールドは必須です。。",
         "error_stockstatus": "「在庫ステータス」フィールドは必須です。",
         "error_category": "「カテゴリ」フィールドは必須です。",
         "error_tax": "「税金」フィールドは必須です。",
         "error_en_product_name": "「商品名」フィールドは必須です。"
+      },
+      "title": {
+        "product_title": "商品を新規追加 ",
+        "product_add": "新規追加",
+        "product_list": "商品リスト "
       }
     },
+
     "category": {
       "slug_field": "スラッグ",
       "name_field": "名前",

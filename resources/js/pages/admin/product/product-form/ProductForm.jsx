@@ -25,7 +25,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const { profile, userInfo } = useSelector((state) => state.authState);
   const { pharmacies, getAllPharmacies } = usePharmacies();
   const { categoriesClient, getCategoriesClient } = useCategories();
-
+  const [isFormSubmitted, setIsFormSubmiited] = React.useState(false);
   const [avatarState, setAvatarState] = React.useState({
     avatarUrl: undefined,
     base64Avatar: undefined,
@@ -76,6 +76,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     productProfileFormTL.validateFields();
     productProfileFormVI.validateFields();
     productProfileFormZH.validateFields();
+    productsForm.validateFields();
     onSave(submitInput);
   };
   const onFinishFailed = () => {
@@ -84,6 +85,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     productProfileFormTL.validateFields();
     productProfileFormVI.validateFields();
     productProfileFormZH.validateFields();
+    productsForm.validateFields();
+    setIsFormSubmiited(true);
   };
   React.useEffect(() => {
     productsForm.setFieldsValue(initialFormCommonValues);
@@ -110,6 +113,14 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   React.useEffect(() => {
     getCategoriesClient();
     getAllPharmacies();
+    if (isFormSubmitted) {
+      productProfileFormEN.validateFields();
+      productProfileFormJP.validateFields();
+      productProfileFormTL.validateFields();
+      productProfileFormVI.validateFields();
+      productProfileFormZH.validateFields();
+      productsForm.validateFields();
+    }
   }, [lang]);
 
   const onChangeAvatar = (base64Image) => {
@@ -141,9 +152,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       >
         <FormHeader
           breadcrumb={[
-            { name: "Product List", routerLink: `${lang}/admin/product-list` },
+            { name: t("admins.product.title.product_list"), routerLink: `${lang}/admin/product-list` },
             {
-              name: "Add",
+              name: t("admins.product.title.product_add"),
               routerLink: "",
             },
           ]}

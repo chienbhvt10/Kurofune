@@ -370,7 +370,7 @@
         "field_name": "全名",
         "field_email": "电子邮件地址",
         "field_phone": "电话",
-        "field_username": "Username",
+        "field_username": "用户名",
         "field_password": "密碼",
         "field_active": "活動狀態",
         "field_full_name": "全名",
@@ -401,26 +401,6 @@
           "field_education_status": "日语教育状况",
           "field_page_registration": "Wabisabi我的页面注册",
           "field_company_mail": "公司邮件"
-        },
-        "order": {
-          "field_date_create": "创建日期:",
-          "field_customer": "顾客:",
-          "field_action": "手术",
-          "field_status": "地位:",
-          "field_first_name": "姓",
-          "field_last_name": "名",
-          "field_company": "公司",
-          "field_address_line_1": "丁目/地址/号码",
-          "field_address_line_2": "楼名、房间号",
-          "field_city": "直辖市",
-          "field_postal_code": "邮编",
-          "field_country_region": "国家/地区",
-          "field_email": "电子邮件",
-          "field_phone": "电话",
-          "field_payment_method": "付款方式",
-          "field_transaction_id": "Transaction Id",
-          "field_customer_provided_note": "订单备忘录",
-          "field_state_county": "省/市"
         },
         "vendor_profile": {
           "field_image_inside": "里面的图片",
@@ -467,7 +447,7 @@
           }
         },
         "placeholder": {
-          "search": "搜索用户名",
+          "search": "按名称搜索",
           "select_role": "请选择一个角色。",
           "select_active_status": "请选择一个活动状态。",
           "select_prefecture": "请选择县。",
@@ -481,6 +461,7 @@
       "error": {
         "role_required": "请选择一个角色。",
         "name_required": "请输入您的姓名。",
+        "full_name_required": "Please input your full name!",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"
@@ -491,7 +472,7 @@
         },
         "user_name": {
           "required": "请输入您的用户名。",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "用户名只能包含字母、数字、破折号和下划线。"
         },
         "password": {
           "required": "请输入您的密码。",
@@ -528,30 +509,32 @@
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword": "Meta Keyword",
-      "product_image_field": "Product Image",
+      "slug_field": "蛞蝓",
+      "vendor_field": "小贩",
+      "sku_field": "项目编号",
+      "status_field": "地位",
+      "stock_status_field": "库存状况",
+      "price_field": "产品价格",
+      "category_field": "类别",
+      "date_field": "产品上市日期",
+      "store_field": "药店",
+      "field_name":"产品名称",
+      "tax_field": "税",
+      "meta_title_field": "元标题",
+      "meta_description_field": "元描述",
+      "meta_keyword_field": "元关键字",
+      "product_image_field": "产品图片",
       "placeholder_seach": "Please enter name product",
-      "name_field": "Product Name",
-      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
-      "features_field": "Features",
-      "precautions_field": "Precautions",
-      "efficacy_effect_field": "Efficacy Effect",
-      "usage_does_field": "Usage Does",
-      "active_ingredients_field": "Active ingredients",
-      "additives_field": "Additives",
-      "precautions_storage_handling_field": "Precautions for Storage and Handling",
-      "manufacturer_field": "Manufacturer",
-      "use_manual_field": "Use Manual",
+      "name_field": "产品名称",
+      "medicinal_efficacy_classification_field": "药效分类",
+      "features_field": "特征",
+      "precautions_field": "预防措施",
+      "efficacy_effect_field": "功效/效果",
+      "usage_does_field": "用法/剂量",
+      "active_ingredients_field": "有效成分",
+      "additives_field": "添加剂",
+      "precautions_storage_handling_field": "储存和处理注意事项",
+      "manufacturer_field": "制造商",
       "error_message": {
         "error_vendor": "供应商字段是必需的。",
         "error_status": "状态字段是必需的。",
@@ -559,6 +542,11 @@
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
         "error_en_product_name": "产品名称字段是必需的。"
+      },
+      "title": {
+        "product_title": "添加产品 ",
+        "product_add": "添加",
+        "product_list": "产品列表 "
       }
     },
     "order": {
@@ -568,7 +556,52 @@
         "field_date": "Date",
         "field_total": "Total",
         "field_status": "Status",
-        "field_action": "Action"
+        "field_action": "Action",
+        "field_full_name": "Full name",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "创建日期:",
+        "field_customer": "顾客:",
+        "field_action": "手术",
+        "field_status": "地位:",
+        "field_first_name": "姓",
+        "field_last_name": "名",
+        "field_company": "公司",
+        "field_address_line_1": "丁目/地址/号码",
+        "field_address_line_2": "楼名、房间号",
+        "field_city": "直辖市",
+        "field_postal_code": "邮政编码",
+        "field_country_region": "国家/地区",
+        "field_email": "电子邮件",
+        "field_phone": "电话",
+        "field_payment_method": "付款方式",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "订单备忘录",
+        "field_state_county": "省/市",
+        "field_street_address": "街道地址"
+      },
+      "error": {
+        "full_name_required": "请输入您的全名。",
+        "building_required": "请输入您的建筑物名称。",
+        "email": {
+          "required": "请输入您的电子邮件。",
+          "type": "请输入有效的电子邮件。"
+        },
+        "phone": {
+          "required": "请输入您的手机。",
+          "pattern": "请输入有效的电话号码。"
+        },
+        "postal_code": {
+          "required": "请输入您的邮政编码/邮编。",
+          "pattern": "请输入号码。",
+          "max_3_number": "请仅输入 3 个数字。",
+          "max_4_number": "请仅输入 4 个数字。",
+          "max_7_number": "请仅输入 7 个数字。"
+        },
+        "prefecture_required": "请选择县。",
+        "city_required": "请输入城市。",
+        "street_address_required": "请输入街道地址。"
       }
     },
     "category": {
@@ -576,8 +609,18 @@
       "name_field": "姓名",
       "type_field": "类型",
       "parent_category_field": "父类",
-      "product_image_field": "类别图片",
       "placeholder_text": "Please enter text",
+      "vendor_field": "小贩",
+      "sku_field": "项目编号",
+      "status_field": "地位",
+      "stock_status_field": "库存状况",
+      "price_field": "产品价格",
+      "category_field": "类别",
+      "tax_field": "税",
+      "meta_title_field": "元标题",
+      "meta_description_field": "元描述",
+      "meta_keyword_field": "元关键字",
+      "product_image_field": "产品图片",
       "placeholder_seach": "请输入姓名类别。",
       "title": {
         "product_category_title": "产品分类",

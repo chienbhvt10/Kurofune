@@ -13,6 +13,8 @@ const DateField = ({
   className,
   type,
   dependId,
+  disable=false,
+  allowClear=true,
   disabledDate,
   onChange,
 }) => {

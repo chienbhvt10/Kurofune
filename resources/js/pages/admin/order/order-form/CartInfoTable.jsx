@@ -75,106 +75,38 @@ const EditableCell = ({
   );
 };
 
-const CartInfoTable = ({ items }) => {
+const CartInfoTable = ({ dataCartInforTable }) => {
   const [activeRefund, setActiveRefund] = React.useState(false);
   const [activeToolSecond, setActiveToolSecond] = React.useState(false);
-  const originData = [];
-  for (let i = 0; i < 8; i++) {
-    originData.push({
-      key: i.toString(),
-      image: "",
-      nameProduct: `Product ${i.toString()} `,
-      cost: 15580,
-      quantity: 1,
-      VAT: 1558,
-    });
-  }
   const [form] = Form.useForm();
-  const [data, setData] = React.useState(originData);
   const [fee, setFee] = React.useState(0);
   const [shipping, setShipping] = React.useState(0);
-  const [orderTotal, setOrderTotal] = React.useState(0);
+  const removeFirstWord = (str) => {
+    if (!str) return ''
+    const indexOfSpace = str.indexOf(' ');
+    if (indexOfSpace === -1) {
+      return '';
+    }
+    return str.substring(indexOfSpace + 1);
+  }
+  const unitMoney = React.useMemo(() => {
+    let unit = removeFirstWord(String(dataCartInforTable.total_tax));
+    return unit
+  }, [dataCartInforTable]);
 
-  const [editingKey, setEditingKey] = React.useState("");
-  const [editAll, setEditAll] = React.useState(false);
+  const itemsSubtotal = React.useMemo(() => {
+    let total = dataCartInforTable.products.reduce((total, item) => {
+      return Number(total) + Number(item.pivot.quantity) * Number(item.price);
+    }, 0);
+    return total;
+  }, [dataCartInforTable]);
 
-  const isEditing = (record) => record.key === editingKey;
-
-  const edit = (record) => {
-    form.setFieldsValue({
-      cost: 0,
-      quantity: 0,
-      nameProduct: "",
-      VAT: 0,
-      total: 0,
-      ...record,
+  const maxValueVAT = React.useMemo(() => {
+    let array = dataCartInforTable.products.map((item) => {
+      return item.pivot.total_tax;
     });
-    setEditingKey(record.key);
-  };
-
-  const cancel = () => {
-    setEditingKey("");
-  };
-
-  const handleDelete = (key) => {
-    const newData = data.filter((item) => item.key !== key);
-    setData(newData);
-  };
-  let reverseObectRecord = (object) => {
-    const newObject = Object.fromEntries(
-      Object.entries(object).map(([key, value]) => [
-        `${key.split("-", 1)}`,
-        value,
-      ])
-    );
-    return newObject;
-  };
-  const save = async (key) => {
-    try {
-      const row = await form.validateFields();
-      const newObject = reverseObectRecord(row);
-      const newData = [...data];
-      const index = newData.findIndex((item) => key === item.key);
-      if (newObject.total) {
-        if (index > -1) {
-          const item = newData[index];
-          newData.splice(index, 1, { ...item, ...newObject });
-          setData(newData);
-          setEditingKey("");
-        } else {
-          newData.push(row);
-          setData(newData);
-          setEditingKey("");
-        }
-      } else if (newObject.total <= 0) {
-        const newData = data.filter((item) => item.key !== key);
-        setData(newData);
-      }
-    } catch (errInfo) {
-      console.log("Validate Failed:", errInfo);
-    }
-  };
-  const saveAll = (valueSaveAll) => {
-    try {
-      const newData = [...data];
-      let arrayResult = newData.map((item) => {
-        let objectpick = pick(valueSaveAll, [
-          `VAT-${item.key}`,
-          `cost-${item.key}`,
-          `quantity-${item.key}`,
-        ]);
-        let objectNewSave = reverseObectRecord(objectpick);
-
-        if (objectNewSave) {
-        }
-        return { ...item, ...objectNewSave };
-      });
-      setData(arrayResult);
-      setEditingKey("");
-    } catch (errInfo) {
-      console.log("Validate Failed:", errInfo);
-    }
-  };
+    return Math.max(...array);
+  }, [dataCartInforTable]);
   const columns = [
     {
       title: "Product",
@@ -185,131 +117,52 @@ const CartInfoTable = ({ items }) => {
           <div style={{ display: "flex" }}>
             <div style={{ marginRight: 15 }}>
               <img
-                src="https://imge.com/wp-content/uploads/2019/02/imge-new.png"
+                src={`${record.product_image}`}
                 alt="Flowers in Chania"
                 width="35"
                 height="35"
               />
             </div>
-            <div>{record.nameProduct}</div>
+            <div>{record.name}</div>
           </div>
         );
       },
     },
     {
-      title: "Cost",
-      dataIndex: "cost",
+      title: "Price",
+      dataIndex: "price",
       editable: true,
     },
     {
       title: "Qty",
-      dataIndex: "quantity",
       editable: true,
       render: (_, record) => {
-        return <span id={`quantity-${record.key}`}>{record.quantity}</span>;
+        return <span id={`quantity-${record?.key}`}>{record?.pivot?.quantity}</span>;
+      },
+    },
+
+    {
+      title: "VAT",
+      editable: true,
+      render: (_, record) => {
+        return <span id={`quantity-${record?.key}`}>{record?.pivot?.total_tax}</span>;
       },
     },
     {
       title: "Total",
-      dataIndex: "total",
       editable: true,
       render: (_, record) => {
-        return <span>{record.quantity * record.cost}</span>;
-      },
-    },
-    {
-      title: "VAT",
-      dataIndex: "VAT",
-      editable: true,
-    },
-    {
-      render: (_, record, _action) => {
-        const editable = isEditing(record);
-        return editable ? (
-          <span>
-            <Typography.Link
-              onClick={() => save(record.key)}
-              style={{
-                marginRight: 8,
-              }}
-            >
-              Save
-            </Typography.Link>
-            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
-              <a>Cancel</a>
-            </Popconfirm>
-          </span>
-        ) : (
-          <>
-            <Popconfirm
-              title="Sure to delete?"
-              onConfirm={() => handleDelete(record.key)}
-            >
-              <a>Delete </a>
-            </Popconfirm>
-            <Typography.Link onClick={() => edit(record)}>Edit</Typography.Link>
-          </>
-        );
+        return <span>{(Number(record.price) * Number(record.pivot?.quantity)) + (Number(record.pivot.total_tax))}</span>;
       },
     },
   ];
-  const mergedColumns = columns.map((col) => {
-    if (!col.editable) {
-      return col;
-    }
-    let arrayTypeNumber = ["quantity", "VAT", "cost", "total"];
-    if (editAll) {
-      return {
-        ...col,
-        onCell: (record) => ({
-          record,
-          inputType: arrayTypeNumber.includes(col.dataIndex)
-            ? "number"
-            : "text",
-          dataIndex: col.dataIndex,
-          title: col.title,
-          editing: true,
-          key: record.key,
-          total: record.quantity * record.cost,
-        }),
-      };
-    }
-    return {
-      ...col,
-      onCell: (record) => ({
-        record,
-        inputType: arrayTypeNumber.includes(col.dataIndex) ? "number" : "text",
-        dataIndex: col.dataIndex,
-        title: col.title,
-        editing: isEditing(record),
-        key: record.key,
-        total: record.quantity * record.cost,
-      }),
-    };
-  });
+
   const onToggleToolSecond = () => {
     setActiveToolSecond(!activeToolSecond);
   };
   const onToggleRefund = () => {
     setActiveRefund(!activeRefund);
-    if (editAll) {
-      form.submit();
-    }
-    setEditAll(!editAll);
   };
-  const totalMemo = React.useMemo(() => {
-    let total = data.reduce((total, item) => {
-      return total + item.quantity * item.cost;
-    }, 0);
-    return total;
-  }, [data]);
-
-  const maxValueVAT = React.useMemo(() => {
-    let array = data.map((item) => {
-      return item.VAT;
-    });
-    return Math.max(...array);
-  }, [data]);
   return (
     <>
       <div className="cart-product">
@@ -321,14 +174,13 @@ const CartInfoTable = ({ items }) => {
           }}
         >
           <Table
-            components={{
-              body: {
-                cell: EditableCell,
-              },
-            }}
-            bordered
-            dataSource={data}
-            columns={mergedColumns}
+            // components={{
+            //   body: {
+            //     cell: EditableCell,
+            //   },
+            // }}
+            dataSource={dataCartInforTable.products}
+            columns={columns}
             rowClassName="editable-row"
             pagination={false}
           />
@@ -339,17 +191,17 @@ const CartInfoTable = ({ items }) => {
           <div className="calculate">
             <div className="cal-title">
               <p>Items Subtotal:</p>
-              <p> Fees: </p>
-              <p> Shipping:</p>
+              <p>Fees: </p>
+              <p>Shipping:</p>
               <p>VAT:</p>
-              <p>OrderTotal:</p>
+              <p>Order Total:</p>
             </div>
             <div className="cal-total">
-              <p>{totalMemo} (JPY)</p>
-              <p>{fee} (JPY)</p>
-              <p>{shipping} (JPY)</p>
-              <p>{maxValueVAT} (JPY)</p>
-              <p>{totalMemo + fee + shipping + maxValueVAT} (JPY)</p>
+              <p>{itemsSubtotal} ({unitMoney})</p>
+              <p> 0 ({unitMoney})</p>
+              <p> 0 ({unitMoney})</p>
+              <p>{maxValueVAT} ({unitMoney})</p>
+              <p>{ itemsSubtotal+ fee +shipping + maxValueVAT} ({unitMoney})</p>
             </div>
           </div>
           <div className="tool-container">
@@ -392,7 +244,7 @@ const CartInfoTable = ({ items }) => {
                 <button
                   className="add-btn tool-btn"
                   type="button"
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   Add product(s)
                 </button>
