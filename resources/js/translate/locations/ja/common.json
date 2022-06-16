@@ -591,6 +591,10 @@
       "name_field": "一般名",
       "use_manual_field": "用量用法",
       "error_message": {
+        "error_category_image": "「カテゴリ画像」フィールドは必須です。",
+        "error_type": "「タイプ」フィールドは必須です。",
+        "error_name": "「カテゴリ名」フィールドは必須です。",
+        "required_message": "この項目は必須です。",
         "error_vendor": "「薬局」フィールドは必須です。",
         "error_status": "「ステータス」フィールドは必須です。。",
         "error_stockstatus": "「在庫ステータス」フィールドは必須です。",
