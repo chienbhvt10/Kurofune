@@ -385,6 +385,17 @@ class ProductController extends Controller
             if(!$product) {
                 return $this->response_error(__('message.product.not_exist'));
             }
+            if ($product->slug) {
+                $length_random = config('constants.product.max_length_of_slug') - strlen($product->slug) - 1;
+                if ($length_random > 0) {
+                    if ($length_random > config('constants.product.max_length_ramdom_slug')) {
+                        $length_random = config('constants.product.max_length_ramdom_slug');
+                    }
+                    $product->slug = $product->slug . '-' . Str::random($length_random);
+                }
+            }
+            $product->sku = null;
+            $product->save();
             $product->delete();
             return $this->response_message_success(__('message.product.deleted'));
         }catch (\Exception $error){

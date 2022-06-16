@@ -544,48 +544,33 @@ class UserController extends Controller
                     $errors = $validator_profile->errors();
                     return $this->response_validate($errors);
                 }
-                $dob = $request->dob ?? null;
-                $gender = (boolean)$request->gender;
-                $facebook = $request->facebook ?? null;
-                $line = $request->line ?? null;
-                $address = $request->address ?? null;
-                $nationality = $request->nationality ?? null;
-                $visa_type = $request->visa_type ?? null;
-                $job_name = $request->job_name ?? null;
-                $company_representative = $request->company_representative ?? null;
-                $inflow_source = $request->inflow_source ?? null;
-                $payment = (int)$request->payment ?? null;
-                $insurance_status = $request->insurance_status ?? null;
-                $insurance_support = $request->insurance_support ?? null;
-                $insurance_start_date = $request->insurance_start_date ?? null;
-                $overseas_remittance_status = (int)$request->insurance_start_date ?? null;
-                $orientation = $request->orientation ?? null;
-                $start_date_education = $request->start_date_education ?? null;
-                $end_date_education = $request->end_date_education ?? null;
-                $education_status = (int)$request->education_status ?? null;
-                $wabisabi_my_page_registration = (int)$request->wabisabi_my_page_registration ?? null;
-                $user->profile()->update([
-                    'dob' => $dob,
-                    'gender' => $gender,
-                    'facebook' => $facebook,
-                    'line' => $line,
-                    'address' => $address,
-                    'nationality' => $nationality,
-                    'visa_type' => $visa_type,
-                    'job_name' => $job_name,
-                    'company_representative' => $company_representative,
-                    'inflow_source' => $inflow_source,
-                    'payment' => $payment,
-                    'insurance_status' => $insurance_status,
-                    'insurance_support' => $insurance_support,
-                    'insurance_start_date' => $insurance_start_date,
-                    'overseas_remittance_status' => $overseas_remittance_status,
-                    'orientation' => $orientation,
-                    'start_date_education' => $start_date_education,
-                    'end_date_education' => $end_date_education,
-                    'education_status' => $education_status,
-                    'wabisabi_my_page_registration' => $wabisabi_my_page_registration,
-                ]);
+                $data_profile = [
+                    'dob' => $request->dob ?? null,
+                    'gender' => (boolean)$request->gender,
+                    'facebook' => $request->facebook ?? null,
+                    'line' => $request->line ?? null,
+                    'address' => $request->address ?? null,
+                    'nationality' => $request->nationality ?? null,
+                    'visa_type' => $request->visa_type ?? null,
+                    'job_name' => $request->job_name ?? null,
+                    'company_representative' => $request->company_representative ?? null,
+                    'inflow_source' => $request->inflow_source ?? null,
+                    'payment' => (int)$request->payment ?? null,
+                    'insurance_status' => $request->insurance_status ?? null,
+                    'insurance_support' => $request->insurance_support ?? null,
+                    'insurance_start_date' => $request->insurance_start_date ?? null,
+                    'overseas_remittance_status' => (int)$request->insurance_start_date ?? null,
+                    'orientation' => $request->orientation ?? null,
+                    'start_date_education' => $request->start_date_education ?? null,
+                    'end_date_education' => $request->end_date_education ?? null,
+                    'education_status' => (int)$request->education_status ?? null,
+                    'wabisabi_my_page_registration' => (int)$request->wabisabi_my_page_registration ?? null,
+                ];
+                if ($user->profile) {
+                    $user->profile()->update($data_profile);
+                } else {
+                    $user->profile()->create($data_profile);
+                }
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
@@ -708,7 +693,7 @@ class UserController extends Controller
                 }
 
                 if ($user->profile) {
-                    $user->profile()->delete();
+                    $user->profile()->forceDelete();
                 }
             } elseif ($role == UserRole::ROLE_ADMIN) {
                 if ($user->vendor_profile) {
@@ -716,7 +701,7 @@ class UserController extends Controller
                 }
 
                 if ($user->profile) {
-                    $user->profile()->delete();
+                    $user->profile()->forceDelete();
                 }
             }
             DB::commit();
