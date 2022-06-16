@@ -574,14 +574,21 @@
       "stock_status_field": "在庫ステータス",
       "price_field": "商品価格",
       "category_field": "カテゴリ",
+<<<<<<< HEAD
       "date_field": "商品の掲載日",
       "store_field": "薬局",
+=======
+>>>>>>> 537a5dd42c052411396c9ccd81e5d8d4a48d18f5
       "tax_field": "税金",
       "meta_title_field": "メタタイトル",
       "meta_description_field": "メタディスクリプション",
       "meta_keyword_field": "メタキーワード",
       "product_image_field": "商品画像",
+<<<<<<< HEAD
       "placeholder_seach": "商品名を入力してください。",
+=======
+      "placeholder_seach": "Please enter name product",
+>>>>>>> 537a5dd42c052411396c9ccd81e5d8d4a48d18f5
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
       "precautions_field": "使用上の注意",
@@ -595,14 +602,24 @@
       "field_name":"商品名",
       "use_manual_field": "用量用法",
       "error_message": {
+        "error_category_image": "「カテゴリ画像」フィールドは必須です。",
+        "error_type": "「タイプ」フィールドは必須です。",
+        "error_name": "「カテゴリ名」フィールドは必須です。",
+        "required_message": "この項目は必須です。",
         "error_vendor": "「薬局」フィールドは必須です。",
         "error_status": "「ステータス」フィールドは必須です。。",
         "error_stockstatus": "「在庫ステータス」フィールドは必須です。",
         "error_category": "「カテゴリ」フィールドは必須です。",
         "error_tax": "「税金」フィールドは必須です。",
         "error_en_product_name": "「商品名」フィールドは必須です。"
+      },
+      "title": {
+        "product_title":"商品を新規追加 ",
+        "product_add": "新規追加",
+        "product_list": "商品リスト " 
       }
     },
+   
     "category": {
       "slug_field": "スラッグ",
       "name_field": "名前",

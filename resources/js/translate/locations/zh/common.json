@@ -510,7 +510,7 @@
     },
     "product": {
       "slug_field": "蛞蝓",
-      "vendor_field": "药店",
+      "vendor_field": "小贩",
       "sku_field": "项目编号",
       "status_field": "地位",
       "stock_status_field": "库存状况",
@@ -518,14 +518,14 @@
       "category_field": "类别",
       "date_field": "产品上市日期",
       "store_field": "药店",
+      "field_name":"产品名称",
       "tax_field": "税",
       "meta_title_field": "元标题",
       "meta_description_field": "元描述",
-      "meta_keyword": "元关键字",
+      "meta_keyword_field": "元关键字",
       "product_image_field": "产品图片",
-      "placeholder_seach": "请输入名称产品。",
+      "placeholder_seach": "Please enter name product",
       "name_field": "产品名称",
-      "field_name":"产品名称",
       "medicinal_efficacy_classification_field": "药效分类",
       "features_field": "特征",
       "precautions_field": "预防措施",
@@ -535,7 +535,6 @@
       "additives_field": "添加剂",
       "precautions_storage_handling_field": "储存和处理注意事项",
       "manufacturer_field": "制造商",
-      "use_manual_field": "Use Manual",
       "error_message": {
         "error_vendor": "供应商字段是必需的。",
         "error_status": "状态字段是必需的。",
@@ -543,6 +542,11 @@
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
         "error_en_product_name": "产品名称字段是必需的。"
+      },
+      "title": {
+        "product_title":"添加产品 ",
+        "product_add": "添加",
+        "product_list": "产品列表 " 
       }
     },
     "order": {
@@ -605,8 +609,18 @@
       "name_field": "姓名",
       "type_field": "类型",
       "parent_category_field": "父类",
-      "product_image_field": "类别图片",
       "placeholder_text": "Please enter text",
+      "vendor_field": "小贩",
+      "sku_field": "项目编号",
+      "status_field": "地位",
+      "stock_status_field": "库存状况",
+      "price_field": "产品价格",
+      "category_field": "类别",
+      "tax_field": "税",
+      "meta_title_field": "元标题",
+      "meta_description_field": "元描述",
+      "meta_keyword_field": "元关键字",
+      "product_image_field": "产品图片",
       "placeholder_seach": "请输入姓名类别。",
       "title": {
         "product_category_title": "产品分类",

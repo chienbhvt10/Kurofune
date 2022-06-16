@@ -509,6 +509,7 @@
       }
     },
     "product": {
+<<<<<<< HEAD
       "slug_field": "Slug",
       "vendor_field": "Botika",
       "sku_field": "Code ng produkto",
@@ -535,8 +536,32 @@
       "active_ingredients_field": "Active ingredients",
       "additives_field": "Additives",
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
+=======
+      "slug_field": "Daan",
+      "vendor_field": "Nagtitinda",
+      "sku_field": "Code ng produkto",
+      "status_field": "Katayuan",
+      "stock_status_field": "Katayuan ng Stock",
+      "price_field": "Presyo",
+      "category_field": "Mga kategorya",
+      "tax_field": "Buwis",
+      "meta_title_field": "Pamagat ng Meta",
+      "meta_description_field": "Paglalarawan ng Meta",
+      "meta_keyword_field": "Mga tampok",
+      "product_image_field": "Larawan ng Produkto",
+      "placeholder_seach": "Please enter name product",
+      "name_field": "Buwis",
+      "medicinal_efficacy_classification_field": "Pag-uuri ng pagiging epektibo ng gamot",
+      "features_field": "Mga tampok",
+      "precautions_field": "Mga pag-iingat",
+      "efficacy_effect_field": "Kahusayan / epekto",
+      "usage_does_field": "Paggamit / dosis",
+      "active_ingredients_field": "Mga aktibong sangkap",
+      "additives_field": "Mga additives",
+      "precautions_storage_handling_field": "Mga Pag-iingat para sa Pag-iimbak at Paghawak",
+>>>>>>> 537a5dd42c052411396c9ccd81e5d8d4a48d18f5
       "manufacturer_field": "Manufacturer",
-      "use_manual_field": "Use Manual",
+      "use_manual_field": "Gumamit ng Manual",
       "error_message": {
         "error_vendor": "Kinakailangan ang field ng Vendor",
         "error_status": "Kinakailangan ang field ng Status",
@@ -544,6 +569,11 @@
         "error_category": "Kinakailangan ang field ng Kategorya",
         "error_tax": "Kinakailangan ang field ng Buwis",
         "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
+      },
+      "title": {
+        "product_title":"Magdagdag ng Produkto ",
+        "product_add": "Idagdag",
+        "product_list": "Listahan ng Produkto" 
       }
     },
     "order": {

@@ -594,9 +594,16 @@
         "error_stockstatus": "The Stock Status field is required",
         "error_category": "The Category field is required",
         "error_tax": "The Tax field is required",
-        "error_en_product_name": "The Product Name field is required"
+        "error_en_product_name": "The Product Name field is required",
+        "required_message": "This field is required."
+      },
+      "title": {
+        "product_title": "Add Product ",
+        "product_add": "Add",
+        "product_list": "Product List "
       }
     },
+   
     "crud": {
       "user": {
         "create_success": "Create user successfully.",

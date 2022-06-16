@@ -518,12 +518,12 @@
       "category_field": "Danh mục",
       "date_field": "Ngày đăng sản phẩm",
       "store_field": "Nhà thuốc",
+      "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
       "tax_field": "Thuế",
-      "meta_title_field": "Thẻ Meta Tittle",
+      "meta_title_field": "Thẻ Meta Title",
       "meta_description_field": "Thẻ Meta Description",
       "meta_keyword_field": "Thẻ Meta Keyword",
       "product_image_field": "Ảnh sản phẩm",
-      "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
       "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
       "features_field": "Tính năng sản phẩm",
       "precautions_field": "Lưu ý khi sử dụng",
@@ -543,6 +543,11 @@
         "error_category": "Trường 'Danh mục' là trường bắt buộc",
         "error_tax": "Trường 'Thuế' là trường bắt buộc",
         "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
+      },
+      "title": {
+        "product_title":"Thêm sản phẩm ",
+        "product_add": "Thêm mới",
+        "product_list": "Danh sách sản phẩm" 
       }
     },
     "order": {

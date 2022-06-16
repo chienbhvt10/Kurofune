@@ -50,7 +50,7 @@ const AddProduct = () => {
     <div id="add-product-page">
       <ProductForm
         typeForm={TYPE_FORM_CREATE}
-        title="Add Product"
+        title={t("admins.product.title.product_title")}
         onCancel={onCancel}
         onSave={onSave}
         response={resCreateProduct}
