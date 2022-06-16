@@ -121,7 +121,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       productProfileFormZH.validateFields();
       productsForm.validateFields();
     }
-
   }, [lang]);
 
   const onChangeAvatar = (base64Image) => {
