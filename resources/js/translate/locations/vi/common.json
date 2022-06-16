@@ -411,7 +411,7 @@
           "field_founder": "Người sáng lập",
           "field_stated_in_permit": "Các mục được nêu trong giấy phép",
           "field_management_pharmacist": "Dược sĩ quản lý",
-          "field_registered_seller_working": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi　(phụ trách kinh doanh)",
+          "field_registered_seller_working": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi (phụ trách kinh doanh)",
           "field_drug_handled": "Các loại thuốc không kê đơn được xử lý",
           "field_distinguishing_by_name": "Phân biệt bằng bảng tên, v.v. của người làm việc tại hiệu thuốc này",
           "field_business_hours": "Giờ làm việc",
@@ -534,7 +534,7 @@
       "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
       "manufacturer_field": "Công ty sản xuất và kinh doanh",
       "name_field": "Tên gọi chung",
-      "field_name":"Tên sản phẩm",
+      "field_name": "Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
       "error_message": {
         "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
