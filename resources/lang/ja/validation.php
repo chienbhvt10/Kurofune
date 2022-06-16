@@ -214,6 +214,7 @@ return [
         'billing_address.street_address' => '丁目・番地・号',
         'billing_address.building' => '建物名・部屋番号',
         'billing_address.phone' => '電話番号',
+        'username' => 'ユーザー名',
     ],
 
 ];

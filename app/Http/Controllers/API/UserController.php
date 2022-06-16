@@ -6,6 +6,7 @@ use App\Enums\Base;
 use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\VendorProfile;
 use App\Notifications\ChangePasswordNotification;
 use App\Notifications\RegisterUserNotification;
 use App\Rules\WithoutSpaces;
