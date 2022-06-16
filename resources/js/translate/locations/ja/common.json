@@ -461,7 +461,7 @@
       "error": {
         "role_required": "ユーザーロールを選択してください。",
         "name_required": "名前を入力してください。",
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "氏名を入力してください。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -472,7 +472,7 @@
         },
         "user_name": {
           "required": "ユーザー名を入力してください。",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "ユーザー名は文字、数字、ハイフン、アンダーバーのみを含めてください。"
         },
         "password": {
           "required": "パスワードを入力してください。",
@@ -514,9 +514,9 @@
         "field_order": "Order",
         "field_date": "Date",
         "field_total": "Total",
-        "field_status": "Status",
-        "field_action": "Action",
-        "field_full_name": "Full name",
+        "field_status": "ステータス",
+        "field_action": "操作",
+        "field_full_name": "氏名",
         "field_id": "Id"
       },
       "form": {
@@ -544,7 +544,8 @@
         "field_building": "建物名・部屋番号"
       },
       "error": {
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "氏名を入力してください。",
+        "building_required": "建物名・部屋番号を入力してください。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -566,19 +567,21 @@
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword_field": "Meta Keyword",
-      "product_image_field": "Product Image",
-      "placeholder_seach": "Please enter name product",
+      "slug_field": "スラッグ",
+      "vendor_field": "薬局",
+      "sku_field": "商品番号",
+      "status_field": "ステータス",
+      "stock_status_field": "在庫ステータス",
+      "price_field": "商品価格",
+      "category_field": "カテゴリ",
+      "date_field": "商品の掲載日",
+      "store_field": "薬局",
+      "tax_field": "税金",
+      "meta_title_field": "メタタイトル",
+      "meta_description_field": "メタディスクリプション",
+      "meta_keyword_field": "メタキーワード",
+      "product_image_field": "商品画像",
+      "placeholder_seach": "商品名を入力してください。",
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
       "precautions_field": "使用上の注意",

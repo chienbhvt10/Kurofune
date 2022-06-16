@@ -53,7 +53,6 @@ const ProductList = () => {
           { name: "Product List", routerLink: `${lang}/product-list` },
         ]}
         title="Product"
-        searchField="name"
         onSearch={onSearch}
         searchPlaceHolder={t("admins.product.placeholder_seach")}
         searchField={'name'}

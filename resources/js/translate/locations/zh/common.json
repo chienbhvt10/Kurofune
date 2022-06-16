@@ -472,7 +472,7 @@
         },
         "user_name": {
           "required": "请输入您的用户名。",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "用户名只能包含字母、数字、破折号和下划线。"
         },
         "password": {
           "required": "请输入您的密码。",
@@ -509,29 +509,31 @@
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword": "Meta Keyword",
-      "product_image_field": "Product Image",
+      "slug_field": "蛞蝓",
+      "vendor_field": "药店",
+      "sku_field": "项目编号",
+      "status_field": "地位",
+      "stock_status_field": "库存状况",
+      "price_field": "产品价格",
+      "category_field": "类别",
+      "date_field": "产品上市日期",
+      "store_field": "药店",
+      "tax_field": "税",
+      "meta_title_field": "元标题",
+      "meta_description_field": "元描述",
+      "meta_keyword": "元关键字",
+      "product_image_field": "产品图片",
       "placeholder_seach": "Please enter name product",
-      "name_field": "Product Name",
-      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
-      "features_field": "Features",
-      "precautions_field": "Precautions",
-      "efficacy_effect_field": "Efficacy Effect",
-      "usage_does_field": "Usage Does",
-      "active_ingredients_field": "Active ingredients",
-      "additives_field": "Additives",
-      "precautions_storage_handling_field": "Precautions for Storage and Handling",
-      "manufacturer_field": "Manufacturer",
+      "name_field": "产品名称",
+      "medicinal_efficacy_classification_field": "药效分类",
+      "features_field": "特征",
+      "precautions_field": "预防措施",
+      "efficacy_effect_field": "功效/效果",
+      "usage_does_field": "用法/剂量",
+      "active_ingredients_field": "有效成分",
+      "additives_field": "添加剂",
+      "precautions_storage_handling_field": "储存和处理注意事项",
+      "manufacturer_field": "制造商",
       "use_manual_field": "Use Manual",
       "error_message": {
         "error_vendor": "供应商字段是必需的。",
@@ -575,7 +577,8 @@
         "field_street_address": "街道地址"
       },
       "error": {
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "请输入您的全名。",
+        "building_required": "请输入您的建筑物名称。",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"

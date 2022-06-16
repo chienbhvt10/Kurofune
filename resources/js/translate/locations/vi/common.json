@@ -472,7 +472,7 @@
         },
         "user_name": {
           "required": "Vui lòng nhập tên người dùng của bạn.",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "Tên người dùng chỉ được chứa chữ cái, chữ số, dấu gạch ngang và dấu gạch dưới."
         },
         "password": {
           "required": "Vui lòng nhập mật khẩu của bạn.",
@@ -509,19 +509,21 @@
       }
     },
     "product": {
-      "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
-      "meta_description_field": "Meta Description",
-      "meta_keyword_field": "Meta Keyword",
-      "product_image_field": "Product Image",
-      "placeholder_seach": "Please enter name product",
+      "slug_field": "Đường dẫn",
+      "vendor_field": "Nhà thuốc",
+      "sku_field": "Mã sản phẩm",
+      "status_field": "Trạng thái",
+      "stock_status_field": "Trạng thái tồn kho",
+      "price_field": "Giá sản phẩm",
+      "category_field": "Danh mục",
+      "date_field": "Ngày đăng sản phẩm",
+      "store_field": "Nhà thuốc",
+      "tax_field": "Thuế",
+      "meta_title_field": "Thẻ Meta Tittle",
+      "meta_description_field": "Thẻ Meta Description",
+      "meta_keyword_field": "Thẻ Meta Keyword",
+      "product_image_field": "Ảnh sản phẩm",
+      "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
       "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
       "features_field": "Tính năng sản phẩm",
       "precautions_field": "Lưu ý khi sử dụng",
@@ -579,6 +581,7 @@
       },
       "error": {
         "full_name_required": "Vui lòng nhập họ tên của bạn.",
+        "building_required": "Vui lòng nhập tên tòa nhà của bạn.",
         "email": {
           "required": "Vui lòng nhập email của bạn.",
           "type": "Vui lòng nhập email hợp lệ."

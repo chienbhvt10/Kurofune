@@ -461,7 +461,7 @@
       "error": {
         "role_required": "Mangyaring pumili ng isang tungkulin.",
         "name_required": "Pakilagay ang iyong pangalan.",
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
@@ -472,7 +472,7 @@
         },
         "user_name": {
           "required": "Mangyaring ipasok ang iyong username.",
-          "pattern": "The username must only contain letters, numbers, dashes and underscores."
+          "pattern": "Ang username ay dapat lamang maglaman ng mga titik, numero, gitling at salungguhit."
         },
         "password": {
           "required": "Mangyaring ipasok ang iyong password.",
@@ -510,24 +510,27 @@
     },
     "product": {
       "slug_field": "Slug",
-      "vendor_field": "Vendor",
-      "sku_field": "Sku",
-      "status_field": "Status",
-      "stock_status_field": "Stock Status",
-      "price_field": "Price",
-      "category_field": "Category",
-      "tax_field": "Tax",
-      "meta_title_field": "Meta Title",
+      "vendor_field": "Botika",
+      "sku_field": "Code ng produkto",
+      "status_field": "Katayuan",
+      "stock_status_field": "Katayuan ng Stock",
+      "stock_field": "Katayuan ng Stock",
+      "price_field": "Presyo",
+      "category_field": "Mga kategorya",
+      "date_field": "Petsa",
+      "store_field": "Botika",
+      "tax_field": "Buwis",
+      "meta_title_field": "Pamagat ng Meta",
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
-      "placeholder_seach": "Please enter name product",
-      "name_field": "Product Name",
-      "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
+      "placeholder_seach": "Pakilagay ang pangalan ng produkto.",
+      "name_field": "Pangalan ng Produkto",
+      "medicinal_efficacy_classification_field": "Medicinal efficacy classification",
       "features_field": "Features",
       "precautions_field": "Precautions",
-      "efficacy_effect_field": "Efficacy Effect",
-      "usage_does_field": "Usage Does",
+      "efficacy_effect_field": "Efficacy / effect",
+      "usage_does_field": "Usage / dose",
       "active_ingredients_field": "Active ingredients",
       "additives_field": "Additives",
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
@@ -578,7 +581,8 @@
         "field_building": "Gusali"
       },
       "error": {
-        "full_name_required": "Please input your full name!",
+        "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
+        "building_required": "Pakilagay ang pangalan ng iyong gusali.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
