@@ -21,19 +21,44 @@ const SwitchTabsLangForm = ({
   return (
     <Tabs defaultActiveKey={FIRST_TAB} centered>
       <TabPane tab="English" key={FIRST_TAB}>
-        <SubFormTranslate lang="EN" form={formEN} response={response} />
+        <SubFormTranslate
+          errorField="en.name"
+          lang="EN"
+          form={formEN}
+          response={response}
+        />
       </TabPane>
       <TabPane tab="Japan" key={SECOND_TAB}>
-        <SubFormTranslate lang="JA" form={formJP} />
+        <SubFormTranslate
+          errorField="ja.name"
+          lang="JA"
+          form={formJP}
+          response={response}
+        />
       </TabPane>
       <TabPane tab="Tagalog" key={THIRD_TAB}>
-        <SubFormTranslate lang="TL" form={formTL} />
+        <SubFormTranslate
+          errorField="tl.name"
+          lang="TL"
+          form={formTL}
+          response={response}
+        />
       </TabPane>
       <TabPane tab="Vietnam" key={FOURTH_TAB}>
-        <SubFormTranslate lang="VI" form={formVI} response={response} />
+        <SubFormTranslate
+          errorField="vi.name"
+          lang="VI"
+          form={formVI}
+          response={response}
+        />
       </TabPane>
       <TabPane tab="China" key={FIFTH_TAB}>
-        <SubFormTranslate lang="ZH" form={formZH} response={response} />
+        <SubFormTranslate
+          errorField="zh.name"
+          lang="ZH"
+          form={formZH}
+          response={response}
+        />
       </TabPane>
     </Tabs>
   );

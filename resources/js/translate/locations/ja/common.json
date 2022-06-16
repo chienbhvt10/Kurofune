@@ -591,7 +591,12 @@
       "name_field": "一般名",
       "use_manual_field": "用量用法",
       "error_message": {
-        "required_message": "この項目は必須です。"
+        "error_vendor": "「薬局」フィールドは必須です。",
+        "error_status": "「ステータス」フィールドは必須です。。",
+        "error_stockstatus": "「在庫ステータス」フィールドは必須です。",
+        "error_category": "「カテゴリ」フィールドは必須です。",
+        "error_tax": "「税金」フィールドは必須です。",
+        "error_en_product_name": "「商品名」フィールドは必須です。"
       }
     },
     "category": {

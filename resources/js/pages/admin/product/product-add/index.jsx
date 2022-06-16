@@ -4,7 +4,10 @@ import { TYPE_FORM_CREATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import ProductForm from "../product-form/ProductForm";
 import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
-import { NotificationSuccess } from "../../../../commons/Notification";
+import {
+  NotificationSuccess,
+  NotificationError,
+} from "../../../../commons/Notification";
 import useProducts from "../../../../hooks/product/useProducts.js";
 import { useTranslation } from "react-i18next";
 
@@ -34,9 +37,13 @@ const AddProduct = () => {
       getAllProducts();
     }
     if (resCreateProduct?.error_code === "ERROR") {
-      const { sku, slug } = resCreateProduct?.error_data
-      slug && NotificationError(t("notification"), slug);
-      sku && NotificationError(t("notification"), sku);
+      const errorData = resCreateProduct?.error_data;
+      errorData &&
+        errorData?.slug &&
+        NotificationError(t("notification"), errorData?.slug);
+      errorData &&
+        errorData?.sku &&
+        NotificationError(t("notification"), errorData?.sku);
     }
   }, [resCreateProduct]);
   return (

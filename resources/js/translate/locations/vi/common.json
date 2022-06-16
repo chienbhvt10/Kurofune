@@ -534,7 +534,12 @@
       "name_field": "Tên gọi chung",
       "use_manual_field": "Cách sử dụng",
       "error_message": {
-        "required_message": " Mục này là mục bắt buộc."
+        "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
+        "error_status": "Trường 'Trạng thái' là trường bắt buộc",
+        "error_stockstatus": "Trường 'Trạng thái tồn kho' là trường bắt buộc",
+        "error_category": "Trường 'Danh mục' là trường bắt buộc",
+        "error_tax": "Trường 'Thuế' là trường bắt buộc",
+        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
       }
     },
     "order": {

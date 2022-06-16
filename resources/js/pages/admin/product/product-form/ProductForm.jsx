@@ -72,10 +72,18 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       },
     };
     productProfileFormEN.validateFields();
+    productProfileFormJP.validateFields();
+    productProfileFormTL.validateFields();
+    productProfileFormVI.validateFields();
+    productProfileFormZH.validateFields();
     onSave(submitInput);
   };
   const onFinishFailed = () => {
     productProfileFormEN.validateFields();
+    productProfileFormJP.validateFields();
+    productProfileFormTL.validateFields();
+    productProfileFormVI.validateFields();
+    productProfileFormZH.validateFields();
   };
   React.useEffect(() => {
     productsForm.setFieldsValue(initialFormCommonValues);
@@ -159,9 +167,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   rules={[
                     {
                       required: true,
-                      message: t(
-                        "admins.product.error_message.required_message"
-                      ),
+                      message: t("admins.product.error_message.error_vendor"),
                     },
                   ]}
                   response={response}
@@ -181,6 +187,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 label={t("admins.product.slug_field")}
                 type={<Input />}
                 response={response}
+                error="slug"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -190,6 +197,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[]}
                 response={response}
                 type={<Input />}
+                error="sku"
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
@@ -201,7 +209,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t("admins.product.error_message.error_status"),
                     whiteSpace: true,
                   },
                 ]}
@@ -218,7 +226,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t(
+                      "admins.product.error_message.error_stockstatus"
+                    ),
                     whiteSpace: true,
                   },
                 ]}
@@ -244,7 +254,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t("admins.product.error_message.error_category"),
                   },
                 ]}
                 response={response}
@@ -265,7 +275,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[
                   {
                     required: true,
-                    message: t("admins.product.error_message.required_message"),
+                    message: t("admins.product.error_message.error_tax"),
                   },
                   {
                     pattern: new RegExp(/^[1-9][0-9]*$/),
