@@ -603,7 +603,7 @@
         "product_list": "Product List "
       }
     },
-   
+
     "crud": {
       "user": {
         "create_success": "Create user successfully.",

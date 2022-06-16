@@ -12,9 +12,12 @@ import Footer from "../../../components/Footer";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import useLogout from "../../../hooks/auth/useLogout";
 import "./media.scss";
+import { useDispatch } from "react-redux";
+import { resetAuthResponse } from "../../../redux/actions/authAction";
 
 const MediaPage = () => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   function createMarkup() {
     return { __html: t("login.title") };
   }
@@ -25,6 +28,10 @@ const MediaPage = () => {
   const logout = () => {
     getLogout();
   };
+
+  React.useEffect(() => {
+    dispatch(resetAuthResponse());
+  }, []);
 
   return (
     <>
