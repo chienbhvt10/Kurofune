@@ -19,20 +19,23 @@ const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
   const onEdit = ({id}) => {
     navigate(`${lang}/admin/order-update/${id}`)
   }
-  console.log('items',items);
+
   const column = [
     {
       title: t("admins.order.table.field_id"),
       dataIndex: 'id',
+      width:'10%',
       sorter: (a, b) => a.id - b.id,
     },
     {
       title: t("admins.order.table.field_full_name"),
+      width:'30%',
       dataIndex: 'shipping_full_name',
     },
     {
       title: t("admins.order.table.field_date"),
       dataIndex: 'created_at',
+      width:'20%',
       render: (_, record) => {
         return <>{moment(record.created_at).format("YYYY/MM/DD hh:ss")}</>
       }
@@ -40,6 +43,15 @@ const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
     {
       title: t("admins.order.table.field_status"),
       dataIndex: 'status',
+      width:'10%',
+      filters: [
+        { value: 'awaiting confirm', text: 'Awaiting confirm' },
+        { value: 'packing', text: 'Packing' },
+        { value: 'delivery', text: 'Delivery' },
+        { value: 'shipping', text: 'Shipping' },
+        { value: 'completed', text: 'Completed' },
+      ],
+      onFilter: (value, record) => record.transaction.status.indexOf(value) === 0,
       render: (_, record) =>{
         return  <Tag color="success">{String(record.transaction.status).toLocaleUpperCase()}</Tag>
       }

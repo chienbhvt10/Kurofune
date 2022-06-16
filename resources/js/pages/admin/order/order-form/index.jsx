@@ -33,16 +33,11 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const initialBillingValue = {};
   const initialShippingValue = {};
   const dataOptionsStatus = [
-    { value: 'pending payment', label: 'Pending payment' },
     { value: 'awaiting confirm', label: 'Awaiting confirm' },
     { value: 'packing', label: 'Packing' },
     { value: 'delivery', label: 'Delivery' },
     { value: 'shipping', label: 'Shipping' },
-    { value: 'on hold', label: 'On hold' },
     { value: 'completed', label: 'Completed' },
-    { value: 'cancelled', label: 'Cancelled' },
-    { value: 'refunded', label: 'Refunded' },
-    { value: 'failed', label: 'Failed' },
   ]
   const [dataOrder, setDataOrder] = React.useState()
   const [dataCartInforTable, setDataCartInforTable] = React.useState({

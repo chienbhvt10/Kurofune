@@ -107,7 +107,6 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     });
     return Math.max(...array);
   }, [dataCartInforTable]);
-  console.log('itemsSubtotal',dataCartInforTable.products);
   const columns = [
     {
       title: "Product",
