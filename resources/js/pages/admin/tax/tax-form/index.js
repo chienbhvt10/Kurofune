@@ -55,41 +55,47 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           title={title}
           onCancel={onCancel}
         />
+        <Row span={24} className="mb-30">
+          <Col span={24}>
+            <InputField
+              className="input-field-space"
+              field="name"
+              label={t("admins.tax.title.name_title")}
+              rules={[
+                {
+                  required: true,
+                  message: t("admins.tax.error.name_required"),
+                },
+              ]}
+              response={response}
+              error="name"
+              placeholder={t("admins.tax.placeholder_search_name")}
+              type={<Input />}
+            />
+          </Col>
 
-        <InputField
-          className="input-field-space"
-          field="name"
-          label={t("admins.tax.title.name_title")}
-          rules={[
-            { required: true, message: t("admins.tax.error.name_required") },
-          ]}
-          response={response}
-          error="name"
-          placeholder={t("admins.tax.placeholder_search_name")}
-          type={<Input />}
-        />
-
-        <InputField
-          className="input-field-space"
-          field="value"
-          label={t("admins.tax.title.value_title")}
-          rules={[
-            {
-              required: true,
-              message: t("admins.tax.error.value.required"),
-            },
-            {
-              type: "number",
-              min: 0,
-              max: 100,
-              message: "Please enter from 0 to 100",
-            },
-          ]}
-          response={response}
-          error="value"
-          placeholder={t("admins.tax.placeholder_search_value")}
-          type={<Input type="number" className="mb-30" />}
-        />
+          <Col span={24} className="mb-30">
+            <InputField
+              className="input-field-space"
+              field="value"
+              label={t("admins.tax.title.value_title")}
+              rules={[
+                {
+                  required: true,
+                  message: t("admins.tax.error.value.required"),
+                },
+                {
+                  pattern: RegExp(/^[1-9][0-9]?$|^100$/),
+                  message: "Please enter from 0 to 100",
+                },
+              ]}
+              response={response}
+              error="value"
+              placeholder={t("admins.tax.placeholder_search_value")}
+              type={<Input type="number" />}
+            />
+          </Col>
+        </Row>
       </Form>
     </div>
   );
