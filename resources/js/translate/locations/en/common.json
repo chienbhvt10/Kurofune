@@ -561,7 +561,12 @@
       "use_manual_field": "Use Manual",
 
       "error_message": {
-        "required_message": "This field is required."
+        "error_vendor": "The Vendor field is required",
+        "error_status": "The Status field is required",
+        "error_stockstatus": "The Stock Status field is required",
+        "error_category": "The Category field is required",
+        "error_tax": "The Tax field is required",
+        "error_en_product_name": "The Product Name field is required"
       }
     },
     "crud": {

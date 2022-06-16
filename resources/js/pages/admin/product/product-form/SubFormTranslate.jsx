@@ -22,9 +22,11 @@ const SubFormTranslate = ({ lang, className, form, response }) => {
               field="name"
               label={`(${lang}) ${t("admins.product.name_field")}`}
               rules={[
-                lang === "EN" && {
+                {
                   required: true,
-                  message: t("admins.product.error_message.required_message"),
+                  message: t(
+                    "admins.product.error_message.error_en_product_name"
+                  ),
                   whitespace: true,
                 },
               ]}
