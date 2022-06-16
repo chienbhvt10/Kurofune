@@ -1,3 +1,5 @@
+import { t } from "i18next";
+import { NotificationError } from "../../commons/Notification/index.jsx";
 import { orderAdminAPI } from "../../services/order-admin-apis/index.js";
 
 const useOrderDetailAdmin = () => {
@@ -8,7 +10,7 @@ const useOrderDetailAdmin = () => {
       let { data } = result
       onSuccess(data)
     }).catch((error) => {
-      console.log('error', error);
+      NotificationError(t("notification"), `Error ${error.message}` );
     })
 
   };
