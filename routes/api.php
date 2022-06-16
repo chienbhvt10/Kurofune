@@ -45,6 +45,11 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
 
         // Category Manage
         Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
+        Route::get('get-list-deleted', [\App\Http\Controllers\API\CategoryController::class, 'getListDeleted']);
+        Route::put('restore-list-deleted', [\App\Http\Controllers\API\CategoryController::class, 'restoreListDeleted']);
+        Route::delete('force-delete', [\App\Http\Controllers\API\CategoryController::class, 'forceDelete']);
+        
+
 
         // Product Manage
         Route::middleware(['permission:manage product'])->group(function () {

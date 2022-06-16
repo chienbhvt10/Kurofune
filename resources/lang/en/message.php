@@ -59,6 +59,8 @@ return [
         'updated' => 'Category updated',
         'deleted' => 'Category deleted',
         'not_exist' => 'Category not exist',
+        'force_delete' => 'Categories deleted completely',
+        'restore' => 'Categories restored'
     ],
     'slug' => [
         'unique' => 'The slug has already been taken.',

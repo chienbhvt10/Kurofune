@@ -58,6 +58,8 @@ return [
         'updated' => 'Na-update ang kategorya.',
         'deleted' => 'Tinanggal ang kategorya',
         'not_exist' => 'Hindi umiiral ang kategorya.',
+        'force_delete' => 'Categories deleted completely',
+        'restore' => 'Categories restored'
     ],
     'slug' => [
         'unique' => 'Kinuha na ang slug.',
