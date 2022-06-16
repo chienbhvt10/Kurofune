@@ -16,7 +16,7 @@ const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
   const confirmDelete = ({id}) => {
     handleDeleteOrder(id)
   };
-  const onEdit = ({id}) => {
+  const onEdit = ({id}) => () => {
     navigate(`${lang}/admin/order-update/${id}`)
   }
 
