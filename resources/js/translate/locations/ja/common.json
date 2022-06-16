@@ -574,21 +574,14 @@
       "stock_status_field": "在庫ステータス",
       "price_field": "商品価格",
       "category_field": "カテゴリ",
-<<<<<<< HEAD
       "date_field": "商品の掲載日",
       "store_field": "薬局",
-=======
->>>>>>> 537a5dd42c052411396c9ccd81e5d8d4a48d18f5
       "tax_field": "税金",
       "meta_title_field": "メタタイトル",
       "meta_description_field": "メタディスクリプション",
       "meta_keyword_field": "メタキーワード",
       "product_image_field": "商品画像",
-<<<<<<< HEAD
       "placeholder_seach": "商品名を入力してください。",
-=======
-      "placeholder_seach": "Please enter name product",
->>>>>>> 537a5dd42c052411396c9ccd81e5d8d4a48d18f5
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
       "precautions_field": "使用上の注意",

@@ -509,34 +509,6 @@
       }
     },
     "product": {
-<<<<<<< HEAD
-      "slug_field": "Slug",
-      "vendor_field": "Botika",
-      "sku_field": "Code ng produkto",
-      "status_field": "Katayuan",
-      "stock_status_field": "Katayuan ng Stock",
-      "stock_field": "Katayuan ng Stock",
-      "price_field": "Presyo",
-      "category_field": "Mga kategorya",
-      "date_field": "Petsa",
-      "store_field": "Botika",
-      "tax_field": "Buwis",
-      "meta_title_field": "Pamagat ng Meta",
-      "meta_description_field": "Meta Description",
-      "meta_keyword_field": "Meta Keyword",
-      "product_image_field": "Product Image",
-      "placeholder_seach": "Pakilagay ang pangalan ng produkto.",
-      "name_field": "Pangalan ng Produkto",
-      "field_name":"Pangalan",
-      "medicinal_efficacy_classification_field": "Medicinal efficacy classification",
-      "features_field": "Features",
-      "precautions_field": "Precautions",
-      "efficacy_effect_field": "Efficacy / effect",
-      "usage_does_field": "Usage / dose",
-      "active_ingredients_field": "Active ingredients",
-      "additives_field": "Additives",
-      "precautions_storage_handling_field": "Precautions for Storage and Handling",
-=======
       "slug_field": "Daan",
       "vendor_field": "Nagtitinda",
       "sku_field": "Code ng produkto",
@@ -559,7 +531,6 @@
       "active_ingredients_field": "Mga aktibong sangkap",
       "additives_field": "Mga additives",
       "precautions_storage_handling_field": "Mga Pag-iingat para sa Pag-iimbak at Paghawak",
->>>>>>> 537a5dd42c052411396c9ccd81e5d8d4a48d18f5
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Gumamit ng Manual",
       "error_message": {
