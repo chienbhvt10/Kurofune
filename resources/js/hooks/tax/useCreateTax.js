@@ -21,7 +21,7 @@ const useCreateTax = () => {
   const { getTaxes, pagination } = useTaxes();
 
   const createTax = (data) => {
-    return dispatch(addTaxAction(data));
+    dispatch(addTaxAction(data));
     navigate(`${lang}/admin/tax-list`);
   };
 

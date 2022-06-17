@@ -1,6 +1,6 @@
 export const getTaxInitValues = (item) => {
   return {
-    name: item?.name || undefined,
+    name: item?.name,
     value: item?.value || undefined,
   };
 };

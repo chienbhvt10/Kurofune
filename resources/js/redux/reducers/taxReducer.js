@@ -28,10 +28,6 @@ const taxReducers = createReducer(initialState, (builder) => {
     state.to = actions.payload.data?.to;
     state.current_page = actions.payload.data?.current_page;
     state.last_page = actions.payload.data?.last_page;
-
-    state.resAddTax = undefined;
-    state.resUpdateTax = undefined;
-    state.resDeleteTax = undefined;
   });
 
   builder.addCase(getTaxAction.fulfilled, (state, actions) => {

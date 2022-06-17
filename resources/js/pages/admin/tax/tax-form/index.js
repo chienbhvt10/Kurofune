@@ -65,6 +65,7 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 {
                   required: true,
                   message: t("admins.tax.error.name_required"),
+                  whitespace: true,
                 },
               ]}
               response={response}
@@ -84,15 +85,11 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   required: true,
                   message: t("admins.tax.error.value.required"),
                 },
-                {
-                  pattern: RegExp(/^[1-9][0-9]?$|^100$/),
-                  message: "Please enter from 0 to 100",
-                },
               ]}
               response={response}
               error="value"
               placeholder={t("admins.tax.placeholder_search_value")}
-              type={<Input type="number" />}
+              type={<Input type="number" min={0} />}
             />
           </Col>
         </Row>
