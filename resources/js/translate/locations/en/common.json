@@ -419,7 +419,7 @@
           "field_business_hours": "Business Hours",
           "field_consultation_hours": "Consultation hours outside business hours",
           "field_contact_information": "Contact information for consultation and emergencies",
-          "field_current_working": "Currently working pharmacist(in charge)",
+          "field_current_working": "Currently working pharmacist (in charge)",
           "field_open_sale_time": "Open Sale Time",
           "field_time_order_outside": "Time to accept drug orders outside business hours",
           "field_expiration_date_of_drug": "Expiration date of drugs for specific sale",
