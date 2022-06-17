@@ -443,6 +443,12 @@ export const navigateLinkAdminData = [
     isAdminOnly: true,
   },
   {
+    link: "admin/tax-list",
+    imageUrl: "/images/sidebar/medicine-list.png",
+    title: "navigate_link.tax_title",
+    isAdminOnly: true,
+  },
+  {
     link: "admin/category-list",
     imageUrl: "/images/sidebar/medicine-list.png",
     title: "navigate_link.category_title",
@@ -464,164 +470,13 @@ export const navigateLinkAdminData = [
     title: "navigate_link.user_title",
     isAdminOnly: true,
   },
-  {
-    link: "media",
-    imageUrl: "/images/sidebar/home.png",
-    title: "navigate_link.media_title",
-  },
+  // {
+  //   link: "media",
+  //   imageUrl: "/images/sidebar/home.png",
+  //   title: "navigate_link.media_title",
+  // },
 ];
-export const historyData = [
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-07T11:58:01+00:00",
-    time: "2022/02/07",
-    op: "OP-00000056 ",
-    status: "STEP①: 薬剤師からのメール確認",
-    totalPrice: "713",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-    ],
-  },
-  {
-    fulltime: "2022-02-25T15:01:03+00:00",
-    time: "2022/02/25",
-    op: "OP-00000064 ",
-    status: 'STEP①: 薬剤師からのメール確認{" "}',
-    totalPrice: "3,164",
-    orderDetailUrl: "/member/order-detail",
-    infoProduct: [
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
-        name: "アネトンせき止め顆粒 16包",
-      },
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-      {
-        link: "/product-detail",
-        imageUrl: "/images/medicine-list/1_loxonin-s-1.jpg",
-        name: "ロキソニンS 12錠",
-      },
-    ],
-  },
-];
+
 export const orderDetailData = [
   {
     imageUrl: "/images/medicine-list/4_aneton_gra-3.jpg",
@@ -766,7 +621,7 @@ export const userFormOptions = {
   ],
   payment: [
     { value: 0, label_translate: "admins.user.form.option.no&inactive" },
-    { value: 1, label_translate: "admins.user.form.option.yes&inactive" }
+    { value: 1, label_translate: "admins.user.form.option.yes&inactive" },
   ],
   insurance_status: [
     {
@@ -845,7 +700,6 @@ export const PRODUCT_OPTION = {
   GENDER: [
     { value: 0, label: "g_1" },
     { value: 1, label: "g_2" },
-    { value: 2, label: "g_3" },
   ],
   USER_STATUS: [
     { value: 0, label: "Inactive" },

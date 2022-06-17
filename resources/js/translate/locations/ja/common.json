@@ -47,7 +47,8 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category"
+    "category_title": "商品カテゴリ",
+    "tax_title": "Tax"
   },
   "member": {
     "dashboard": {
@@ -420,7 +421,8 @@
           "field_current_working": "現在勤務している薬剤師（担当業務）",
           "field_open_sale_time": "開店時間",
           "field_time_order_outside": "営業時間外で医薬品の注文を受理する時間",
-          "field_expiration_date_of_drug": "特定販売を行う医薬品の使用期限"
+          "field_expiration_date_of_drug": "特定販売を行う医薬品の使用期限",
+          "field_pharmacist_working": "当薬局に勤務する薬剤師（担当業務）"
         },
         "option": {
           "active": "アクティブユーザー",
@@ -592,8 +594,9 @@
       "precautions_storage_handling_field": "保管及び取扱い上の注意",
       "manufacturer_field": "製造販売会社",
       "name_field": "一般名",
-      "field_name":"商品名",
+      "field_name": "商品名",
       "use_manual_field": "用量用法",
+      "product_list":"商品リスト",
       "error_message": {
         "error_category_image": "「カテゴリ画像」フィールドは必須です。",
         "error_type": "「タイプ」フィールドは必須です。",
@@ -652,6 +655,25 @@
       "created_at": "作成日",
       "dow_history": "ダウンロード ",
       "dow_history_ja": "ダウンロード(日本語）"
+    },
+    "tax": {
+      "title": {
+        "tax_title": "Tax List",
+        "name_title": "Name",
+        "value_title": "Value",
+        "add_tax": "Add Tax"
+      },
+      "placeholder_seach": "Please enter name tax",
+      "placeholder_search_name": "Please enter name",
+      "placeholder_search_value": "Please enter value",
+      "error": {
+        "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
+        "value": {
+          "required": "Please input your value.",
+          "pattern": "Please input valid number."
+        }
+      }
     }
   }
 }

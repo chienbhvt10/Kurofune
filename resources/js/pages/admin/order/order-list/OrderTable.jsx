@@ -13,7 +13,7 @@ const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
 
   const lang = getCurrentLanguage();
   let navigate = useNavigate();
-  const confirmDelete = ({id}) => {
+  const confirmDelete = ({id}) => () => {
     handleDeleteOrder(id)
   };
   const onEdit = ({id}) => () => {

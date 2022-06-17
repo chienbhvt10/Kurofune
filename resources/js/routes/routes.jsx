@@ -55,6 +55,10 @@ import { isAdmin, isVendor } from "../helper/checker";
 import { useSelector, useDispatch } from "react-redux";
 import QAPage from "../pages/client/Q&A";
 import { showProfileAction } from "../redux/actions/authAction";
+import TaxList from "../pages/admin/tax/tax-list";
+import AddTax from "../pages/admin/tax/tax-add";
+import UpdateTax from "../pages/admin/tax/tax-update";
+
 const appRouter = () => {
   const { i18n } = useTranslation();
   const userInfo = useSelector((state) => state.authState.userInfo);
@@ -197,7 +201,7 @@ const appRouter = () => {
             exact={true}
           />
           <Route
-            path="order-detail"
+            path="order-detail/:id"
             element={<OrderDetailPage />}
             exact={true}
           />
@@ -273,6 +277,33 @@ const appRouter = () => {
             element={
               <PrivateRoute roles={[USER_ROLES.ADMIN]}>
                 <UpdateUser />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
+          <Route
+            path={`tax-list`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <TaxList />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
+          <Route
+            path={`tax/add`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <AddTax />
+              </PrivateRoute>
+            }
+            exact={true}
+          />
+          <Route
+            path={`tax/update/:id`}
+            element={
+              <PrivateRoute roles={[USER_ROLES.ADMIN]}>
+                <UpdateTax />
               </PrivateRoute>
             }
             exact={true}
