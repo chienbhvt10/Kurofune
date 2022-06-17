@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\Base;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 
@@ -134,4 +135,35 @@ function get_per_page($number) {
 function get_price_html($price): string
 {
     return number_format($price)." ". __('(JPY)');
+}
+
+/**
+ * get slug for product, category
+ *
+ * @param   string  $name
+ * @param   Product|Category  $model
+ * @param   string  $relational
+ *
+ * @return  string  slug
+ */
+function getSlug($name, $model, $relational)
+{
+    $slug = Str::slug($name);
+    if (!check_unique_slug($model, $slug)) {
+        $max = $model::withTrashed()->withoutGlobalScopes()
+        ->whereHas($relational, function (Builder $query) use ($name) {
+            $query->where('name', '=', $name)
+            ->where('locale', '=', 'en');
+        })->latest('id')->value('slug');
+
+        if (!empty($max) && is_numeric($max[-1])) {
+            return preg_replace_callback('/(\d+)$/', function ($mathces) {
+                return $mathces[1] + 1;
+            }, $max);
+        }
+
+        return "{$slug}-2";
+    }
+
+    return $slug;
 }

@@ -83,7 +83,7 @@ class ProductController extends Controller
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-            $slug = $this->getSlug($request->en['name']);
+            $slug = getSlug($request->en['name'], new Product, 'product_translations');
             $user = auth()->user();
             $user_id = $user->id;
             $roles = $user->getRoleNames()->first();
