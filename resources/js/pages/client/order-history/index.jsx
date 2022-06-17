@@ -19,7 +19,7 @@ const OrderHistoryPage = () => {
       title: t("client.order-history.th_order_date"),
       dataIndex: "date_order",
       key: "date_order",
-      render: (date_order) => (moment(date_order).format("YYYY/MM/DD"))
+      render: (date_order) => (moment(date_order).zone("+09:00").format("YYYY/MM/DD"))
     },
     {
       title: t("client.order-history.th_order_ID"),

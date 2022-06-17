@@ -31,7 +31,7 @@ useEffect(() => {
                   {t("client.order-detail.th_order_date")}
                 </span>
                 <span className="io-value">
-                  <time dateTime="2022-02-25T15:01:03+00:00">{moment(orderHistoryDetail?.date_order).format("YYYY/MM/DD")}</time>
+                  <time dateTime={orderHistoryDetail?.date_order}>{moment(orderHistoryDetail?.date_order).zone("+09:00").format("YYYY/MM/DD")}</time>
                 </span>
               </div>
               <div className="item-of">
