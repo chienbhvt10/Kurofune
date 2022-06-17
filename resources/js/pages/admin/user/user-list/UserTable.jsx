@@ -31,22 +31,24 @@ export const UserTable = ({
       width: 350,
       render: (_, record) => {
         return (
-          <Link
-            to={`${lang}/admin/user-update/${record.id}`}
-            className="text-decoration-none d-flex"
-          >
-            <img
-              src={record.avatar || "/avatars/default.png"}
-              alt=""
-              style={{
-                width: "25px",
-                height: "25px",
-                marginRight: 10,
-                objectFit: "cover",
-              }}
-            />
-            <span>{record.username}</span>
-          </Link>
+          <div className="table-column-break">
+            <Link
+              to={`${lang}/admin/user-update/${record.id}`}
+              className="text-decoration-none d-flex"
+            >
+              <img
+                src={record.avatar || "/avatars/default.png"}
+                alt=""
+                style={{
+                  width: "25px",
+                  height: "25px",
+                  marginRight: 10,
+                  objectFit: "cover",
+                }}
+              />
+              <span>{record.username}</span>
+            </Link>
+          </div>
         );
       },
     },
@@ -55,12 +57,26 @@ export const UserTable = ({
       dataIndex: "name",
       title: t("admins.user.form.field_name"),
       width: 250,
+      render: (_, record) => {
+        return (
+          <div className="table-column-break">
+            <span>{record.name}</span>
+          </div>
+        );
+      },
     },
     {
       key: "email",
       dataIndex: "email",
       title: t("admins.user.form.field_email"),
       width: 250,
+      render: (_, record) => {
+        return (
+          <div className="table-column-break">
+            <span>{record.email}</span>
+          </div>
+        );
+      },
     },
     {
       key: "role",
@@ -70,7 +86,11 @@ export const UserTable = ({
         width: 150,
       },
       render: (_, record) => {
-        return <span>{record?.roles[0]?.name}</span>;
+        return (
+          <div className="table-column-break">
+            <span>{record?.roles[0]?.name}</span>
+          </div>
+        );
       },
     },
     {
@@ -80,13 +100,13 @@ export const UserTable = ({
       headerStyle: {
         width: 150,
       },
-      render: (_, record) => {
-        return (
+      render: (_, record) => (
+        <div className="table-column-break">
           <span>
             {record?.active === ACTIVE ? t(ACTIVE_TEXT) : t(IN_ACTIVE_TEXT)}
           </span>
-        );
-      },
+        </div>
+      ),
     },
     {
       key: "tool",
@@ -98,12 +118,14 @@ export const UserTable = ({
         width: 100,
       },
       render: (cell, row) => (
-        <TableRowAction
-          confirmLoading={loadingDeleteUser}
-          record={row}
-          onDelete={onDelete}
-          onEdit={onEdit}
-        />
+        <div className="table-column-break">
+          <TableRowAction
+            confirmLoading={loadingDeleteUser}
+            record={row}
+            onDelete={onDelete}
+            onEdit={onEdit}
+          />
+        </div>
       ),
     },
   ];

@@ -20,6 +20,7 @@ const CategoryTable = ({
       dataIndex: "image",
       align: "center",
       headerAlign: "center",
+      width: "10%",
       headerStyle: {
         width: 50,
       },
@@ -41,6 +42,7 @@ const CategoryTable = ({
     {
       key: "name",
       dataIndex: "name",
+      width: "35%",
       title: (
         <span className="title-header-category">
           {t("admins.category.name_field")}
@@ -49,46 +51,56 @@ const CategoryTable = ({
       render: (_, record) => {
         let _lang = lang || "/ja";
         return (
-          <Link
-            to={`${lang}/admin/category/update/${record.id}`}
-            className="text-decoration-none d-flex"
-          >
-            {
-              record.translations.find((item) => _lang.includes(item.locale))
-                ?.name
-            }
-          </Link>
+          <div className="table-column">
+            <Link
+              to={`${lang}/admin/category/update/${record.id}`}
+              className="text-decoration-none d-flex"
+            >
+              {
+                record.translations.find((item) => _lang.includes(item.locale))
+                  ?.name
+              }
+            </Link>
+          </div>
         );
       },
     },
     {
       key: "slug",
       dataIndex: "slug",
+      width: "20%",
       title: (
         <span className="title-header-category">
           {t("admins.category.slug_field")}
         </span>
       ),
-      render: (_, record) => <span>{record.slug}</span>,
+      render: (_, record) => (
+        <div className="table-column">
+          <span>{record.slug}</span>
+        </div>
+      ),
     },
     {
       key: "type",
       dataIndex: "type",
+      width: "25%",
       title: (
         <div className="title-header-category">
           {t("admins.category.type_field")}
         </div>
       ),
       render: (_, record) => (
-        <span>
-          {t(
-            CATEGORY_OPTIONS.CATEGORY_TYPES.find((type) => {
-              if (type.value === record.type) {
-                return t(type.label_translate);
-              }
-            })?.label_translate
-          )}
-        </span>
+        <div className="table-column">
+          <span>
+            {t(
+              CATEGORY_OPTIONS.CATEGORY_TYPES.find((type) => {
+                if (type.value === record.type) {
+                  return t(type.label_translate);
+                }
+              })?.label_translate
+            )}
+          </span>
+        </div>
       ),
     },
     {
@@ -96,11 +108,14 @@ const CategoryTable = ({
       dataIndex: "tool",
       align: "center",
       headerAlign: "center",
+      width: "10%",
       headerStyle: {
         width: 100,
       },
       render: (_, record) => (
-        <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
+        <div className="table-column">
+          <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
+        </div>
       ),
     },
   ];
