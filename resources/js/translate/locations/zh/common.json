@@ -421,7 +421,8 @@
           "field_current_working": "在职药剂师（主管）",
           "field_open_sale_time": "开售时间",
           "field_time_order_outside": "营业时间以外接受药单的时间",
-          "field_expiration_date_of_drug": "特定销售药品的有效期"
+          "field_expiration_date_of_drug": "特定销售药品的有效期",
+          "field_pharmacist_working": "在我们药房工作的药剂师（负责人）"
         },
         "option": {
           "active": "用户活跃",
@@ -519,7 +520,7 @@
       "category_field": "类别",
       "date_field": "产品上市日期",
       "store_field": "药店",
-      "field_name":"产品名称",
+      "field_name": "产品名称",
       "tax_field": "税",
       "meta_title_field": "元标题",
       "meta_description_field": "元描述",

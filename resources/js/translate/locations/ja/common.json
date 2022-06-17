@@ -421,7 +421,8 @@
           "field_current_working": "現在勤務している薬剤師（担当業務）",
           "field_open_sale_time": "開店時間",
           "field_time_order_outside": "営業時間外で医薬品の注文を受理する時間",
-          "field_expiration_date_of_drug": "特定販売を行う医薬品の使用期限"
+          "field_expiration_date_of_drug": "特定販売を行う医薬品の使用期限",
+          "field_pharmacist_working": "当薬局に勤務する薬剤師（担当業務）"
         },
         "option": {
           "active": "アクティブユーザー",
@@ -593,7 +594,7 @@
       "precautions_storage_handling_field": "保管及び取扱い上の注意",
       "manufacturer_field": "製造販売会社",
       "name_field": "一般名",
-      "field_name":"商品名",
+      "field_name": "商品名",
       "use_manual_field": "用量用法",
       "error_message": {
         "error_category_image": "「カテゴリ画像」フィールドは必須です。",

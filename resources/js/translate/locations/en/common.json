@@ -422,7 +422,8 @@
           "field_current_working": "Currently working pharmacist(in charge)",
           "field_open_sale_time": "Open Sale Time",
           "field_time_order_outside": "Time to accept drug orders outside business hours",
-          "field_expiration_date_of_drug": "Expiration date of drugs for specific sale"
+          "field_expiration_date_of_drug": "Expiration date of drugs for specific sale",
+          "field_pharmacist_working": "Pharmacist working at our pharmacy (in charge)"
         },
         "option": {
           "active": "User active",

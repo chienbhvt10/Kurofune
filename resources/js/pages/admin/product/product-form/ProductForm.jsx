@@ -257,7 +257,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 rules={[]}
                 response={response}
                 error="price"
-                type={<Input type="number" className="input-field" />}
+                type={<Input type="number" className="input-field" min="0" />}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
