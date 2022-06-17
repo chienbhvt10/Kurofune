@@ -254,7 +254,12 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <InputField
                 field="price"
                 label={t("admins.product.price_field")}
-                rules={[]}
+                rules={[
+                  {
+                    pattern: new RegExp(/^[1-9][0-9]*$/),
+                    message: "Vui lòng nhập số lớn hơn 0",
+                  },
+                ]}
                 response={response}
                 error="price"
                 type={<Input type="number" className="input-field" min="0" />}
@@ -291,14 +296,10 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                     required: true,
                     message: t("admins.product.error_message.error_tax"),
                   },
-                  {
-                    pattern: new RegExp(/^[1-9][0-9]*$/),
-                    message: "Please input number greater than 0",
-                  },
                 ]}
                 response={response}
                 errorField="tax_id"
-                options={[{ label: "VAT", value: "1" }]}
+                options={[{ label: "VAT", value: 1 }]}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
