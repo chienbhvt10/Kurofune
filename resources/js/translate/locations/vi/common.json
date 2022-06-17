@@ -47,12 +47,8 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-<<<<<<< HEAD
-    "category_title": "Danh mục sản phẩm"
-=======
-    "category_title": "Product Category",
+    "category_title": "Danh mục sản phẩm",
     "tax_title": "Tax"
->>>>>>> fd32ecb94e25b6b6343edb01ba8321f8cdf1376a
   },
   "member": {
     "dashboard": {
