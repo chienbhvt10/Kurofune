@@ -167,7 +167,6 @@ const CategoryForm = ({
                   formVI={categoryProfileFormVI}
                   formZH={categoryProfileFormZH}
                   response={response}
-                  renderErrorMessage={renderErrorMessage}
                 />
 
                 <Row className="mb-30">
