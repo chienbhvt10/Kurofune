@@ -18,7 +18,6 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Rules\Base64Image;
 use App\Traits\ProductTrait;
-use Illuminate\Database\Eloquent\Builder;
 
 class ProductController extends Controller
 {
@@ -184,9 +183,9 @@ class ProductController extends Controller
             DB::commit();
             return $this->response_message_data_success(__('message.product.created'), $product);
 
-        } catch (\Exception $error) {dd($error->getMessage());
+        } catch (\Exception $error) {
             DB::rollBack();
-            // return $this->response_exception();
+            return $this->response_exception();
         }
     }
 
