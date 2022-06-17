@@ -17,7 +17,8 @@ class VendorProfileController extends Controller
     use RespondsStatusTrait, CustomFilterTrait;
     public function index(): \Illuminate\Http\JsonResponse
     {
-        $userVendors = User::has('vendor_profile')->with('vendor_profile')->get();
+        $userVendors = User::has('vendor_profile')->with('vendor_profile')
+        ->where('active', '=', 1)->get();
         if (empty($userVendors)) {
             return $this->response_error(__('message.user.vendor.not_data'), 404);
         }
