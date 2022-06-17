@@ -420,7 +420,8 @@
           "field_current_working": "Dược sĩ đang làm việc (phụ trách)",
           "field_open_sale_time": "Thời gian mở cửa",
           "field_time_order_outside": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
-          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể"
+          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể",
+          "field_pharmacist_working": "Dược sĩ làm việc tại nhà thuốc của chúng tôi (phụ trách)"
         },
         "option": {
           "active": "Hội viên đang hoạt động",

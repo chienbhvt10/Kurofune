@@ -420,7 +420,8 @@
           "field_current_working": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
           "field_open_sale_time": "Buksan ang Oras ng Pagbebenta",
           "field_time_order_outside": "Time Order sa Labas",
-          "field_expiration_date_of_drug": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta"
+          "field_expiration_date_of_drug": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
+          "field_pharmacist_working": "Pharmacist na nagtatrabaho sa aming botika (namumuno)"
         },
         "option": {
           "active": "Aktibo ang user",
