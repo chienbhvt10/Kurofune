@@ -53,23 +53,20 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'slug' => 'nullable|string|max:255',
                 'category_image' => ['required', new Base64Image],
                 'type' => 'required|numeric',
-                'en.name' => 'required|string'
+                'en.name' => 'required|string',
+                'ja.name' => 'required',
+                'vi.name' => 'required',
+                'tl.name' => 'required',
+                'zh.name' => 'required'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-
-            $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = check_unique_slug(new Category, $slug);
-            if ($slug_check == false) {
-                return $this->errorUniqueSlug();
-            }
-
+            $slug = getSlug($request->en['name'], new Category, 'category_translations');
             $image = $request->category_image;
             $image_path = save_base_64_image($image, 'category');
 
@@ -147,10 +144,13 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'slug' => 'nullable|string',
                 'category_image' => ['nullable', new Base64Image],
                 'type' => 'required|numeric',
-                'en.name' => 'required|string'
+                'en.name' => 'required|string',
+                'ja.name' => 'required',
+                'vi.name' => 'required',
+                'tl.name' => 'required',
+                'zh.name' => 'required'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -158,10 +158,11 @@ class CategoryController extends Controller
                 return $this->response_validate($errors);
             }
 
-            $slug = $request->slug ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = check_unique_slug_update(new Category, $slug, $id);
-            if ($slug_check == false) {
-                return $this->errorUniqueSlug();
+            $nameCategory = $cat->category_translations
+            ->where('locale', '=', 'en')->first()->name;
+            $slug = $cat->slug;
+            if ($nameCategory != $request->en['name']) {
+                $slug = getSlug($request->en['name'], new Category, 'category_translations');
             }
 
             $params_update = [
