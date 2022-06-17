@@ -520,9 +520,9 @@
       "category_field": "类别",
       "date_field": "产品上市日期",
       "store_field": "药店",
-      "field_name":"产品名称",
+      "field_name": "产品名称",
       "use_manual_field": "Cách sử dụng",
-      "product_list":"产品列表",
+      "product_list": "产品列表",
       "tax_field": "税",
       "meta_title_field": "元标题",
       "meta_description_field": "元描述",
@@ -542,7 +542,7 @@
       "error_message": {
         "error_vendor": "供应商字段是必需的。",
         "error_status": "状态字段是必需的。",
-        "error_stockstatus": "库存状态字段是必需的。。",
+        "error_stockstatus": "库存状态字段是必需的。",
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
         "error_en_product_name": "产品名称字段是必需的。"
