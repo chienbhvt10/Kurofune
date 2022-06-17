@@ -150,20 +150,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           ...initialFormCommonValues,
         }}
       >
-        <FormHeader
-          breadcrumb={[
-            {
-              name: t("admins.product.title.product_list"),
-              routerLink: `${lang}/admin/product-list`,
-            },
-            {
-              name: t("admins.product.title.product_add"),
-              routerLink: "",
-            },
-          ]}
-          title={title}
-          onCancel={onCancel}
-        />
+        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
         <div>
           <Row justify="center">
             {(isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)) && (
