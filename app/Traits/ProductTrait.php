@@ -5,7 +5,9 @@ namespace App\Traits;
 use App\Models\Cart;
 use App\Models\Product;
 use App\Models\Tax;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Response;
+use Illuminate\Support\Str;
 
 trait ProductTrait
 {
@@ -37,5 +39,35 @@ trait ProductTrait
 
     public function resetCart(Cart $cart){
         $cart->delete();
+    }
+
+    /**
+     * get slug for product
+     *
+     * @param   string  $nameProduct
+     *
+     * @return  string  slug
+     */
+    public function getSlug($nameProduct)
+    {
+        $slug = Str::slug($nameProduct);
+
+        if (!check_unique_slug(new Product, $slug)) {
+            $max = Product::withTrashed()->withoutGlobalScopes()
+            ->whereHas('product_translations', function (Builder $query) use ($nameProduct) {
+                $query->where('name', '=', $nameProduct)
+                ->where('locale', '=', 'en');
+            })->latest('id')->value('slug');
+
+            if (!empty($max) && is_numeric($max[-1])) {
+                return preg_replace_callback('/(\d+)$/', function ($mathces) {
+                    return $mathces[1] + 1;
+                }, $max);
+            }
+
+            return "{$slug}-2";
+        }
+
+        return $slug;
     }
 }

@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use App\Rules\Base64Image;
 use App\Traits\ProductTrait;
+use Illuminate\Database\Eloquent\Builder;
 
 class ProductController extends Controller
 {
@@ -64,7 +65,6 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
-                'slug' => 'nullable|unique:products',
                 'sku' => 'nullable|unique:products',
                 'price' => 'nullable|numeric',
                 'product_image' => ['nullable', new Base64Image],
@@ -84,12 +84,7 @@ class ProductController extends Controller
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = check_unique_slug(new Product, $slug);
-            if ($slug_check == false) {
-                return $this->errorUniqueSlug();
-            }
+            $slug = $this->getSlug($request->en['name']);
             $user = auth()->user();
             $user_id = $user->id;
             $roles = $user->getRoleNames()->first();
@@ -189,9 +184,9 @@ class ProductController extends Controller
             DB::commit();
             return $this->response_message_data_success(__('message.product.created'), $product);
 
-        } catch (\Exception $error) {
+        } catch (\Exception $error) {dd($error->getMessage());
             DB::rollBack();
-            return $this->response_exception();
+            // return $this->response_exception();
         }
     }
 
@@ -237,7 +232,6 @@ class ProductController extends Controller
                 return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
-                'slug' => 'nullable|unique:products,slug,'.$product->id.',id',
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
                 'price' => 'nullable|numeric',
                 'product_image' => ['nullable', new Base64Image],
@@ -258,10 +252,11 @@ class ProductController extends Controller
                 return $this->response_validate($errors);
             }
 
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = check_unique_slug_update(new Product, $slug, $id);
-            if ($slug_check == false) {
-                return $this->errorUniqueSlug();
+            $nameProduct = $product->product_translations
+            ->where('locale', '=', 'en')->first()->name;
+            $slug = $product->slug;
+            if ($nameProduct != $request->en['name']) {
+                $slug = $this->getSlug($request->en['name']);
             }
             $user = auth()->user();
             $user_id = $user->id;
@@ -384,15 +379,6 @@ class ProductController extends Controller
             $product = Product::find($id);
             if(!$product) {
                 return $this->response_error(__('message.product.not_exist'));
-            }
-            if ($product->slug) {
-                $length_random = config('constants.product.max_length_of_slug') - strlen($product->slug) - 1;
-                if ($length_random > 0) {
-                    if ($length_random > config('constants.product.max_length_ramdom_slug')) {
-                        $length_random = config('constants.product.max_length_ramdom_slug');
-                    }
-                    $product->slug = $product->slug . '-' . Str::random($length_random);
-                }
             }
             $product->sku = null;
             $product->save();
