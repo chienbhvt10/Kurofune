@@ -1,12 +1,24 @@
 import { Col, Form, Input, Row } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import { getProductFormLayout } from "./productInitValues.js";
 
-const SubFormTranslate = ({ lang, className, form, response, errorField }) => {
+const SubFormTranslate = ({
+  lang,
+  className,
+  form,
+  response,
+  errorField,
+  isFormSubmitted,
+}) => {
   const formItemLayout = getProductFormLayout();
   const { i18n, t } = useTranslation();
+  useEffect(() => {
+    if (isFormSubmitted) {
+      form?.validateFields();
+    }
+  }, []);
   return (
     <Row justify="center">
       <Form

@@ -420,7 +420,8 @@
           "field_current_working": "Kasalukuyang nagtatrabahong parmasyutiko (namumuno)",
           "field_open_sale_time": "Buksan ang Oras ng Pagbebenta",
           "field_time_order_outside": "Time Order sa Labas",
-          "field_expiration_date_of_drug": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta"
+          "field_expiration_date_of_drug": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
+          "field_pharmacist_working": "Pharmacist na nagtatrabaho sa aming botika (namumuno)"
         },
         "option": {
           "active": "Aktibo ang user",
@@ -447,7 +448,7 @@
           }
         },
         "placeholder": {
-          "search": "Maghanap ng username",
+          "search": "Maghanap ayon sa pangalan",
           "select_role": "Mangyaring pumili ng isang tungkulin.",
           "select_active_status": "Mangyaring pumili ng aktibong katayuan.",
           "select_prefecture": "Mangyaring pumili ng prefecture.",
@@ -544,9 +545,9 @@
         "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
       },
       "title": {
-        "product_title":"Magdagdag ng Produkto ",
+        "product_title": "Magdagdag ng Produkto ",
         "product_add": "Idagdag",
-        "product_list": "Listahan ng Produkto" 
+        "product_list": "Listahan ng Produkto"
       }
     },
     "order": {

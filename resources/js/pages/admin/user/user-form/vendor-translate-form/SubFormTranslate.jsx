@@ -19,17 +19,6 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
         <Row justify="center">
           <Col span={12}>
             <InputField
-              field="locale"
-              error="locale"
-              label={t("admins.user.form.vendor_profile.field_locale")}
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              response={resCreateUser}
-              type={<Input disabled />}
-            />
-          </Col>
-          <Col span={12}>
-            <InputField
               field="name"
               error="name"
               label={t("admins.user.form.vendor_profile.field_name")}
@@ -204,6 +193,19 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               error="expiration_date_of_drugs"
               label={t(
                 "admins.user.form.vendor_profile.field_expiration_date_of_drug"
+              )}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              response={resCreateUser}
+              type={<Input.TextArea />}
+            />
+          </Col>
+          <Col span={12}>
+            <InputField
+              field="pharmacist_working"
+              error="pharmacist_working"
+              label={t(
+                "admins.user.form.vendor_profile.field_pharmacist_working"
               )}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}

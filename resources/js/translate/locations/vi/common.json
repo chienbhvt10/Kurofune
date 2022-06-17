@@ -411,7 +411,7 @@
           "field_founder": "Người sáng lập",
           "field_stated_in_permit": "Các mục được nêu trong giấy phép",
           "field_management_pharmacist": "Dược sĩ quản lý",
-          "field_registered_seller_working": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi　(phụ trách kinh doanh)",
+          "field_registered_seller_working": "Người bán đã đăng ký làm việc tại hiệu thuốc của chúng tôi (phụ trách kinh doanh)",
           "field_drug_handled": "Các loại thuốc không kê đơn được xử lý",
           "field_distinguishing_by_name": "Phân biệt bằng bảng tên, v.v. của người làm việc tại hiệu thuốc này",
           "field_business_hours": "Giờ làm việc",
@@ -420,7 +420,8 @@
           "field_current_working": "Dược sĩ đang làm việc (phụ trách)",
           "field_open_sale_time": "Thời gian mở cửa",
           "field_time_order_outside": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
-          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể"
+          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể",
+          "field_pharmacist_working": "Dược sĩ làm việc tại nhà thuốc của chúng tôi (phụ trách)"
         },
         "option": {
           "active": "Hội viên đang hoạt động",
@@ -447,7 +448,7 @@
           }
         },
         "placeholder": {
-          "search": "Tìm kiếm theo tên tài khoản",
+          "search": "Tìm kiếm theo Tên",
           "select_role": "Vui lòng chọn một vai trò của người dùng.",
           "select_active_status": "Vui lòng chọn trạng thái hoạt động.",
           "select_prefecture": "Vui lòng chọn tên tỉnh/ thành phố.",
@@ -534,7 +535,7 @@
       "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
       "manufacturer_field": "Công ty sản xuất và kinh doanh",
       "name_field": "Tên gọi chung",
-      "field_name":"Tên sản phẩm",
+      "field_name": "Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
       "product_list":"Danh sách sản phẩm",
       "error_message": {
@@ -546,9 +547,9 @@
         "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
       },
       "title": {
-        "product_title":"Thêm sản phẩm ",
+        "product_title": "Thêm sản phẩm ",
         "product_add": "Thêm mới",
-        "product_list": "Danh sách sản phẩm" 
+        "product_list": "Danh sách sản phẩm"
       }
     },
     "order": {

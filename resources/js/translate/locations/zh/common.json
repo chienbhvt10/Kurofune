@@ -370,7 +370,7 @@
         "field_name": "全名",
         "field_email": "电子邮件地址",
         "field_phone": "电话",
-        "field_username": "Username",
+        "field_username": "用户名",
         "field_password": "密碼",
         "field_active": "活動狀態",
         "field_full_name": "全名",
@@ -420,7 +420,8 @@
           "field_current_working": "在职药剂师（主管）",
           "field_open_sale_time": "开售时间",
           "field_time_order_outside": "营业时间以外接受药单的时间",
-          "field_expiration_date_of_drug": "特定销售药品的有效期"
+          "field_expiration_date_of_drug": "特定销售药品的有效期",
+          "field_pharmacist_working": "在我们药房工作的药剂师（负责人）"
         },
         "option": {
           "active": "用户活跃",
@@ -447,7 +448,7 @@
           }
         },
         "placeholder": {
-          "search": "搜索用户名",
+          "search": "按名称搜索",
           "select_role": "请选择一个角色。",
           "select_active_status": "请选择一个活动状态。",
           "select_prefecture": "请选择县。",
@@ -546,9 +547,9 @@
         "error_en_product_name": "产品名称字段是必需的。"
       },
       "title": {
-        "product_title":"添加产品 ",
+        "product_title": "添加产品 ",
         "product_add": "添加",
-        "product_list": "产品列表 " 
+        "product_list": "产品列表 "
       }
     },
     "order": {

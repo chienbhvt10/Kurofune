@@ -30,7 +30,7 @@ const SideBar = ({
             size="lg"
           />
         </div>
-      </div>
+      </div>{console.log('navigateLinkData',navigateLinkData)}
       <NavigateLink navigateItems={navigateLinkData} onClick={closeSideBar} />
     </div>
   );

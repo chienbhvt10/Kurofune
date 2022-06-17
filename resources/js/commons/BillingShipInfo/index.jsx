@@ -21,7 +21,7 @@ const BillingShipInfo = ({ info, title }) => {
         </tr>
         <tr>
           <td className="td-label">{t("client.order-detail.field_postal")}</td>
-          <td>{info.postal}</td>
+          <td>{info.postalCode}</td>
           <td>{t("client.order-detail.field_prefecture")}</td>
           <td>{info.prefecture}</td>
           <td>{t("client.order-detail.field_email")}</td>
@@ -31,11 +31,11 @@ const BillingShipInfo = ({ info, title }) => {
           <td className="td-label">{t("client.order-detail.field_city")}</td>
           <td>{info.city}</td>
           <td>{t("client.order-detail.field_street")}</td>
-          <td colSpan="3">{info.street}</td>
+          <td colSpan="3">{info.streetAddress}</td>
         </tr>
         <tr>
           <td className="td-label">{t("client.order-detail.field_house")}</td>
-          <td colSpan="5">{info.house}</td>
+          <td colSpan="5">{info.building}</td>
         </tr>
       </tbody>
     </table>

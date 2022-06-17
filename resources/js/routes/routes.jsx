@@ -197,7 +197,7 @@ const appRouter = () => {
             exact={true}
           />
           <Route
-            path="order-detail"
+            path="order-detail/:id"
             element={<OrderDetailPage />}
             exact={true}
           />

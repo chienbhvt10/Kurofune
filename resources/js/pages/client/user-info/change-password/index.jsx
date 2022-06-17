@@ -9,7 +9,7 @@ import InputField from "../../../../commons/Form/InputField";
 import { validateUser } from "../../../../helper/validateField";
 import useChangePassword from "../../../../hooks/auth/useChangePassword";
 import "./style.scss";
-
+import { resetChangePasswordResponse } from "../../../../redux/actions/authAction";
 export const ChangePassword = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ export const ChangePassword = () => {
   const [showCurrentPassword, setShowCurrentPassword] = React.useState(false);
   const [showPassword, setShowPassword] = React.useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = React.useState(false);
-
+  const [isShowValidator, setIsShowValidator] = React.useState(false);
   const onFinish = (values) => {
     changePassword(values);
   };
@@ -48,6 +48,15 @@ export const ChangePassword = () => {
     }
     return errorMessage;
   };
+  const handleResetError = () => {
+    if (isShowValidator) {
+      setIsShowValidator(false);
+      dispatch(resetChangePasswordResponse());
+    }
+  };
+  React.useEffect(() => {
+    if (resChangePassword) setIsShowValidator(true);
+  }, [resChangePassword]);
   return (
     <>
       <Helmet>
@@ -71,7 +80,7 @@ export const ChangePassword = () => {
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 24 }}
               rules={renderErrorTranslate("current_password")}
-              response={resChangePassword}
+              response={isShowValidator ? resChangePassword : undefined}
               type={
                 <Input
                   type={!showCurrentPassword ? "password" : "text"}
@@ -87,6 +96,8 @@ export const ChangePassword = () => {
                       }
                     />
                   }
+                  onMouseDown={handleResetError}
+                  onChange={handleResetError}
                 />
               }
             />
