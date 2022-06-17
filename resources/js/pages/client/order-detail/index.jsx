@@ -1,11 +1,22 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import BillingShipInfo from "../../../commons/BillingShipInfo";
-import { billingInfo, orderDetailData } from "../../../commons/data";
+import React, { useEffect } from "react";
 import "./order-detail.scss";
+import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+import useOrderHistory from "../../../hooks/order-history/UseOrderHistory";
+import BillingShipInfo from "../../../commons/BillingShipInfo";
+import { getCurrentLanguage } from "../../../helper/localStorage";
+import moment from "moment";
 const OrderDetailPage = () => {
-  const { i18n, t } = useTranslation();
+  const { t } = useTranslation();
+  const { id } = useParams();
+  const lang = getCurrentLanguage();
+  const { orderHistoryDetail, getOrderDetail } = useOrderHistory();
+
+useEffect(() => {
+    if (id) getOrderDetail(id);
+  }, [id,lang]);
+
   return (
     <div id="order-detail" className="order_detail">
       <div className="card">
@@ -20,20 +31,20 @@ const OrderDetailPage = () => {
                   {t("client.order-detail.th_order_date")}
                 </span>
                 <span className="io-value">
-                  <time dateTime="2022-02-25T15:01:03+00:00">2022/02/25</time>
+                  <time dateTime="2022-02-25T15:01:03+00:00">{moment(orderHistoryDetail?.date_order).format("YYYY/MM/DD")}</time>
                 </span>
               </div>
               <div className="item-of">
                 <span className="io-label">
                   {t("client.order-detail.th_order_ID")}
                 </span>
-                <span className="io-value">OP-00000064</span>
+                <span className="io-value">{orderHistoryDetail?.order_number}</span>
               </div>
               <div className="item-of">
                 <span className="io-label">
                   {t("client.order-detail.th_order_status")}
                 </span>
-                <span className="io-value"> STEP①: Đang chờ mail xác nhận</span>
+                <span className="io-value"> {orderHistoryDetail?.status}</span>
               </div>
             </div>
           </div>
@@ -49,15 +60,15 @@ const OrderDetailPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {orderDetailData.map((item, index) => (
+                {orderHistoryDetail?.order_products.map((item, index) => (
                   <tr key={index}>
                     <td>
-                      <Link className="d-flex align-items-center" to={item.url}>
+                      <Link className="d-flex align-items-center" to={`${lang}/product-detail/${item.id}`}>
                         <div className="p-item p-image mr-2">
                           <img
                             width="50"
                             alt="Thuốc trị ho dạng bột Aneton (16 gói)"
-                            src={item.imageUrl}
+                            src={item?.imageUrl || '/images/image-default.png'}
                           />
                         </div>
                         <div className="p-item p-name">{item.name}</div>
@@ -78,7 +89,7 @@ const OrderDetailPage = () => {
                     <td>
                       <span className="woocommerce-Price-amount amount">
                         <bdi>
-                          {item.net}&nbsp;
+                          {item.total_tax}&nbsp;
                           <span className="woocommerce-Price-currencySymbol">
                             (JPY)
                           </span>
@@ -100,10 +111,7 @@ const OrderDetailPage = () => {
                     <td className="cart-totals-value">
                       <span className="woocommerce-Price-amount amount">
                         <bdi>
-                          3,164&nbsp;
-                          <span className="woocommerce-Price-currencySymbol">
-                            (JPY)
-                          </span>
+                        {orderHistoryDetail?.total_tax}
                         </bdi>
                       </span>
                     </td>
@@ -114,13 +122,33 @@ const OrderDetailPage = () => {
           </div>
           <div className="order-billing">
             <BillingShipInfo
-              info={billingInfo}
+              info={{
+                fullName: orderHistoryDetail?.billing_full_name,
+                postalCode: orderHistoryDetail?.shipping_postal_code,
+                city: orderHistoryDetail?.shipping_city,
+                prefecture: orderHistoryDetail?.shipping_prefecture,
+                streetAddress: orderHistoryDetail?.shipping_street_address,
+                building: orderHistoryDetail?.shipping_building,
+                phone: orderHistoryDetail?.shipping_phone,
+                email: orderHistoryDetail?.shipping_email,
+
+              }}
               title={t("client.order-detail.title_billing")}
             />
           </div>
           <div className="order-shipping">
             <BillingShipInfo
-              info={billingInfo}
+              info={{
+                fullName: orderHistoryDetail?.shipping_full_name,
+                postalCode: orderHistoryDetail?.billing_postal_code,
+                city: orderHistoryDetail?.billing_city,
+                prefecture: orderHistoryDetail?.billing_prefecture,
+                streetAddress: orderHistoryDetail?.billing_street_address,
+                building: orderHistoryDetail?.billing_building,
+                phone: orderHistoryDetail?.billing_phone,
+                email: orderHistoryDetail?.billing_email,
+
+              }}
               title={t("client.order-detail.title_ship")}
             />
           </div>

@@ -4,6 +4,7 @@ import { orderHistoryApi } from "../../services/order-history";
 
 const orderHistoryAction = {
   getOrderHistory: createAction("GET_ORDER_HISTORY"),
+  getOrderHistoryDetail: createAction("GET_ORDER_HISTORY_DETAIL"),
 };
 
 export const getOrderHistoryAction = createAsyncThunk(
@@ -16,14 +17,15 @@ export const getOrderHistoryAction = createAsyncThunk(
     return res;
   }
 );
-// export const getDetailChatAction = createAsyncThunk(
-//   orderHistoryAction.getDetailChat,
-//   async (payload) => {
-//     const res = await LogChatApi
-//       .getDetailChat(payload)
-//       .then((data) => data)
-//       .catch((errors) => JSON.parse(errors.response.request.response));
-//     return res;
-//   }
-// );
+export const getOrderHistoryDetailAction = createAsyncThunk(
+  orderHistoryAction.getOrderHistoryDetail,
+  async (payload) => {
+    const res = await orderHistoryApi
+      .getOrderHistoryDetail(payload)
+      .then((data) => data)
+      .catch((errors) => JSON.parse(errors.response.request.response));
+    return res;
+  }
+);
+
 export default orderHistoryAction;

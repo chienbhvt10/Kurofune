@@ -6,8 +6,8 @@ export const orderHistoryApi = {
     const url = ROOT_URL + "order-history";
     return await axiosClient.get(url);
   },
-  // getDetailChat: async (data) => {
-  //   const url = ROOT_URL + `detail-chat-log/${data}`;
-  //   return await axiosClient.get(url);
-  // }
+  getOrderHistoryDetail: async (data) => {
+    const url = ROOT_URL + `order-history-detail/${data}`;
+    return await axiosClient.get(url);
+  }
 };

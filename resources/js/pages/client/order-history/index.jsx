@@ -2,9 +2,10 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
+import { Table } from "antd";
+import moment from "moment";
 import useOrderHistory from "../../../hooks/order-history/UseOrderHistory";
 import "./order-history.scss";
-import { Table } from "antd";
 const OrderHistoryPage = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -18,6 +19,7 @@ const OrderHistoryPage = () => {
       title: t("client.order-history.th_order_date"),
       dataIndex: "date_order",
       key: "date_order",
+      render: (date_order) => (moment(date_order).format("YYYY/MM/DD"))
     },
     {
       title: t("client.order-history.th_order_ID"),
@@ -42,13 +44,13 @@ const OrderHistoryPage = () => {
         <div className="info-product">
           {order_products.map((product, index) => (
             <Link key={index} to={`${lang}/product-detail/${product.id}`}>
-              {/* <div className="p-item p-image mr-2">
+              <div className="p-item p-image mr-2">
                 <img
                   width="50"
                   alt="アネトンせき止め顆粒 16包"
-                  src={product.imageUrl}
+                  src={product?.imageUrl || '/images/image-default.png'}
                 />
-              </div> */}
+              </div>
               <div className="p-item p-name">{product.name}</div>
             </Link>
           ))}

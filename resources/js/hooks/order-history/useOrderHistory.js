@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getOrderHistoryAction } from "../../redux/actions/orderHistoryAction";
+import { getOrderHistoryAction, getOrderHistoryDetailAction } from "../../redux/actions/orderHistoryAction";
 
 const useOrderHistory = () => {
   const orderHistoryState = useSelector((state) => state.orderHistoryState);
@@ -8,10 +8,15 @@ const useOrderHistory = () => {
   const getOrderHistory = () => {
     dispatch(getOrderHistoryAction());
   };
+  const getOrderDetail = (payload) => {
+    dispatch(getOrderHistoryDetailAction(payload));
+  };
 
   return {
     orderHistory: orderHistoryState.orderHistory,
-    getOrderHistory
+    orderHistoryDetail: orderHistoryState.orderHistoryDetail,
+    getOrderHistory,
+    getOrderDetail
   };
 };
 
