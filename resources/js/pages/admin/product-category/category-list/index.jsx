@@ -54,13 +54,7 @@ const CategoryList = () => {
     <div className="category-container">
       <TableHeader
         addLink={`${lang}/admin/category/add`}
-        breadcrumb={[
-          { name: "Home", routerLink: "../" },
-          {
-            name: t("admins.category.title.category_list"),
-            routerLink: "/category-list",
-          },
-        ]}
+        breadcrumb={[]}
         title={t("admins.category.title.product_category_title")}
         searchField="name"
         onSearch={onSearch}
