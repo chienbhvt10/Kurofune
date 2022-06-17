@@ -167,6 +167,17 @@
     margin-bottom:5px;
     padding-bottom: 8px;
   }
+  .billing-shipping-form .ant-form-item-explain.ant-form-item-explain-connected .ant-form-item-explain-error {
+    display: none;
+  }
+
+  .form-error {
+    display: flex;
+    flex-direction: column;
+    color: red;
+    font-size: 11px;
+  }
+  
 }
 
 

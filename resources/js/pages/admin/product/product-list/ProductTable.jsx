@@ -4,6 +4,7 @@ import moment from "moment";
 import { Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
+import { useTranslation } from "react-i18next";
 const ProductTable = ({
   items,
   onEdit,
@@ -12,6 +13,7 @@ const ProductTable = ({
   onTableChange,
   loading,
 }) => {
+  const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const columns = [
     {
@@ -26,7 +28,7 @@ const ProductTable = ({
     {
       key: "name",
       dataIndex: "name",
-      title: "Name",
+      title: t("admins.product.field_name"),
       render: (_, record) => (
         <Link to={`${lang}/admin/product/update/${record.id}`}>
           {record.name}
@@ -36,42 +38,43 @@ const ProductTable = ({
     {
       key: "sku",
       dataIndex: "sku",
-      title: "SKU",
+      title: t("admins.product.sku_field"),
       render: (_, record) => <span>{record.sku || "-"}</span>,
     },
     {
       key: "stock",
       dataIndex: "stock",
-      title: "Stock",
-      render: (_, record) => <span>{record.stock}</span>,
+      title:  t("admins.product.stock_status_field"),
+      render: (_, record) => <span>{record.stock_status}</span>,
     },
     {
       key: "price",
       dataIndex: "price",
-      title: "Price",
+      title:  t("admins.product.price_field"),
       render: (_, record) => <span>{record.price} (JPY)</span>,
     },
     {
       key: "categories",
       dataIndex: "categories",
-      title: "Categories",
+      title: t("admins.product.category_field"),
       render: (_, record) => <span>{record.categories}</span>,
     },
     {
       key: "date",
       dataIndex: "date",
-      title: "Date",
+      title:  t("admins.product.date_field"),
       render: (_, record) => (
         <span>
-          Published {moment(record.created_at).format("YYYY/MM/DD")} at{" "}
-          {moment(record.created_at).format("LT")}
+          Published{" "}
+          {moment(record.created_at).zone("+09:00").format("YYYY/MM/DD")} at{" "}
+          {moment(record.created_at).zone("+09:00").format("LT")}
         </span>
       ),
     },
     {
       key: "store",
       dataIndex: "store",
-      title: "Store",
+      title:  t("admins.product.store_field"),
       render: (_, record) => <span>{record.store}</span>,
     },
     {

@@ -403,26 +403,6 @@
           "field_page_registration": "Wabisabi My Page Registration",
           "field_company_mail": "Company representative mail"
         },
-        "order": {
-          "field_date_create": "Created date:",
-          "field_customer": "Customer:",
-          "field_action": "Action",
-          "field_status": "Status:",
-          "field_first_name": "First Name",
-          "field_last_name": "Last Name",
-          "field_company": "Company",
-          "field_address_line_1": "Address Line 1",
-          "field_address_line_2": "Address Line 2",
-          "field_city": "City",
-          "field_postal_code": "Postal code/zip",
-          "field_country_region": "Country/Region",
-          "field_email": "Email",
-          "field_phone": "Phone",
-          "field_payment_method": "Payment Method",
-          "field_transaction_id": "Transaction Id",
-          "field_customer_provided_note": "Customer Provided Note",
-          "field_state_county": "State/County"
-        },
         "vendor_profile": {
           "field_image_inside": "Image inside",
           "field_image_outside": "Image outside",
@@ -468,7 +448,7 @@
           }
         },
         "placeholder": {
-          "search": "Search username",
+          "search": "Search Name",
           "select_role": "Please select a role",
           "select_active_status": "Please select a active status",
           "select_prefecture": "Please select prefecture",
@@ -480,47 +460,47 @@
         }
       },
       "error": {
-        "role_required": "Please select a role!",
-        "name_required": "Please input your name!",
-        "first_name_required": "Please input your first name!",
-        "last_name_required": "Please input your last name!",
-        "company_required": "Please input your company!",
-        "country_region_required": "Please input your Country/Region!",
-        "state_county_required": "Please input your State/Country!",
+        "role_required": "Please select a role.",
+        "name_required": "Please input your name.",
+        "first_name_required": "Please input your first name.",
+        "last_name_required": "Please input your last name.",
+        "company_required": "Please input your company.",
+        "country_region_required": "Please input your Country/Region.",
+        "state_county_required": "Please input your State/Country.",
         "email": {
-          "required": "Please input your email!",
-          "type": "Please input valid email!"
+          "required": "Please input your email.",
+          "type": "Please input valid email."
         },
         "phone": {
-          "required": "Please input your phone!",
-          "pattern": "Please input valid phone number!"
+          "required": "Please input your phone.",
+          "pattern": "Please input valid phone number."
         },
         "user_name": {
-          "required": "Please input your username!",
+          "required": "Please input your username.",
           "pattern": "The username must only contain letters, numbers, dashes and underscores."
         },
         "password": {
-          "required": "Please input your password!",
+          "required": "Please input your password.",
           "pattern_number": "Password must contain at least one number.",
           "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
           "pattern_special_characters": "Password must contain at least one symbol.",
           "min": "Password must contain at least eight characters."
         },
-        "active_required": "Please select active status!",
+        "active_required": "Please select active status.",
         "postal_code": {
-          "required": "Please input your postal code/zip!",
+          "required": "Please input your postal code/zip.",
           "pattern": "Please enter number",
-          "max_3_number": "Please enter only 3 numbers!",
-          "max_4_number": "Please enter only 4 numbers!",
-          "max_7_number": "Please enter only 7 numbers!"
+          "max_3_number": "Please enter only 3 numbers.",
+          "max_4_number": "Please enter only 4 numbers.",
+          "max_7_number": "Please enter only 7 numbers."
         },
-        "prefecture_required": "Please select prefecture!",
-        "city_required": "Please input city!",
-        "street_address_required": "Please input street address!",
-        "current_password_required": "Please input current password!",
-        "new_password_required": "Please input new password!",
-        "confirm_password_required": "Please input password confirmation!",
-        "not_same_password": "The two passwords that you entered do not match!"
+        "prefecture_required": "Please select prefecture.",
+        "city_required": "Please input city.",
+        "street_address_required": "Please input street address.",
+        "current_password_required": "Please input current password.",
+        "new_password_required": "Please input new password.",
+        "confirm_password_required": "Please input password confirmation.",
+        "not_same_password": "The two passwords that you entered do not match."
       }
     },
     "order": {
@@ -530,7 +510,53 @@
         "field_date": "Date",
         "field_total": "Total",
         "field_action": "Action",
-        "field_status": "Status"
+        "field_status": "Status",
+        "field_full_name": "Full name",
+        "field_id": "Id"
+      },
+      "form": {
+        "field_date_create": "Created date:",
+        "field_customer": "Customer:",
+        "field_action": "Action",
+        "field_status": "Status:",
+        "field_first_name": "First Name",
+        "field_last_name": "Last Name",
+        "field_company": "Company",
+        "field_city": "Town / City",
+        "field_postal_code": "Postal code/zip",
+        "field_country_region": "Country/Region",
+        "field_email": "Email",
+        "field_phone": "Phone",
+        "field_payment_method": "Payment Method",
+        "field_transaction_id": "Transaction Id",
+        "field_customer_provided_note": "Customer Provided Note",
+        "field_state_county": "State/County",
+        "field_full_name": "Full name",
+        "field_prefecture": "Prefecture",
+        "field_street_address": " Street address",
+        "field_building": "Building"
+      },
+      "error": {
+        "full_name_required": "Please input your full name!",
+        "building_required": "Please enter your building name!",
+        "email": {
+          "required": "Please input your email!",
+          "type": "Please input valid email!"
+        },
+        "phone": {
+          "required": "Please input your phone!",
+          "pattern": "Please input valid phone number!"
+        },
+        "postal_code": {
+          "required": "Please input your postal code/zip!",
+          "pattern": "Please enter number",
+          "max_3_number": "Please enter only 3 numbers!",
+          "max_4_number": "Please enter only 4 numbers!",
+          "max_7_number": "Please enter only 7 numbers!"
+        },
+        "prefecture_required": "Please select prefecture!",
+        "city_required": "Please input city!",
+        "street_address_required": "Please input street address!"
       }
     },
     "product": {
@@ -539,16 +565,19 @@
       "sku_field": "Sku",
       "status_field": "Status",
       "stock_status_field": "Stock Status",
+      "stock_field": "Stock Status",
       "price_field": "Price",
       "category_field": "Category",
+      "date_field": "Date",
+      "store_field": "Store",
       "tax_field": "Tax",
       "meta_title_field": "Meta Title",
       "meta_description_field": "Meta Description",
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
-
       "name_field": "Product Name",
+      "field_name":"Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
       "features_field": "Features",
       "precautions_field": "Precautions",
@@ -559,19 +588,30 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
-
       "error_message": {
+        "error_vendor": "The Vendor field is required",
+        "error_status": "The Status field is required",
+        "error_stockstatus": "The Stock Status field is required",
+        "error_category": "The Category field is required",
+        "error_tax": "The Tax field is required",
+        "error_en_product_name": "The Product Name field is required",
         "required_message": "This field is required."
+      },
+      "title": {
+        "product_title": "Add Product ",
+        "product_add": "Add",
+        "product_list": "Product List "
       }
     },
+
     "crud": {
       "user": {
-        "create_success": "Create user successfully!",
-        "create_fail": "Create user fail!",
-        "update_success": "Update user successfully!",
-        "update_fail": "Update user fail!",
-        "delete_success": "Delete user successfully!",
-        "delete_fail": "Delete user fail!"
+        "create_success": "Create user successfully.",
+        "create_fail": "Create user fail.",
+        "update_success": "Update user successfully.",
+        "update_fail": "Update user fail.",
+        "delete_success": "Delete user successfully.",
+        "delete_fail": "Delete user fail."
       }
     },
     "category": {

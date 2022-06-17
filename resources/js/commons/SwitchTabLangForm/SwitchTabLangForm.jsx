@@ -27,7 +27,7 @@ const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
             }`}
             onClick={() => onChangeLanguageForm(SECOND_TAB)}
           >
-            Japan
+            Japanese
           </label>
           <label
             className={`switch-label ${
@@ -43,7 +43,7 @@ const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
             }`}
             onClick={() => onChangeLanguageForm(FOURTH_TAB)}
           >
-            Vietnam
+            Vietnamese
           </label>
           <label
             className={`switch-label ${
@@ -51,7 +51,7 @@ const SwitchTabLangForm = ({ activeTab, onChangeLanguageForm, children }) => {
             }`}
             onClick={() => onChangeLanguageForm(FIFTH_TAB)}
           >
-            China
+            Chinese
           </label>
         </div>
       </div>

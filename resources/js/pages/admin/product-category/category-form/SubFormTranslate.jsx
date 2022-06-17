@@ -21,7 +21,7 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
               field="name"
               label={`(${lang}) ${t("admins.category.name_field")}`}
               rules={[
-                lang === "EN" && {
+                {
                   required: true,
                   message: t("admins.category.error_message.error_name"),
                   whitespace: true,

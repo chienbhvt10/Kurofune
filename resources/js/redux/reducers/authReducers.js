@@ -11,6 +11,7 @@ import {
   updateBillingAddressAction,
   updateProfileAction,
   updateShippingAddressAction,
+  resetChangePasswordResponse,
 } from "../actions/authAction";
 
 const initialState = {
@@ -61,7 +62,9 @@ const authReducers = createReducer(initialState, (builder) => {
       resResetPassword: actions.payload,
     };
   });
-
+  builder.addCase(resetChangePasswordResponse, (state) => {
+    state.resChangePassword = undefined;
+  });
   builder.addCase(resetAuthResponse.fulfilled, (state, actions) => {
     return {
       ...state,

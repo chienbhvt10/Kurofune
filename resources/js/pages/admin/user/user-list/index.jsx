@@ -40,7 +40,6 @@ export const UserList = () => {
         addLink={`${lang}/admin/user-create`}
         title={t("admins.user.list.title")}
         breadcrumb={[
-          { name: "Home", routerLink: "../" },
           { name: t("admins.user.list.title"), routerLink: "/users" },
         ]}
         onSearch={onSearch}
