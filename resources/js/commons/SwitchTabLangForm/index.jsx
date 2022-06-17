@@ -17,6 +17,7 @@ const SwitchTabsLangForm = ({
   formEN,
   formZH,
   response,
+  isFormSubmitted,
 }) => {
   return (
     <Tabs defaultActiveKey={FIRST_TAB} centered>
@@ -26,6 +27,7 @@ const SwitchTabsLangForm = ({
           lang="EN"
           form={formEN}
           response={response}
+          isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
       <TabPane tab="Japanese" key={SECOND_TAB}>
@@ -34,6 +36,7 @@ const SwitchTabsLangForm = ({
           lang="JA"
           form={formJP}
           response={response}
+          isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
       <TabPane tab="Tagalog" key={THIRD_TAB}>
@@ -42,6 +45,7 @@ const SwitchTabsLangForm = ({
           lang="TL"
           form={formTL}
           response={response}
+          isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
       <TabPane tab="Vietnamese" key={FOURTH_TAB}>
@@ -50,6 +54,7 @@ const SwitchTabsLangForm = ({
           lang="VI"
           form={formVI}
           response={response}
+          isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
       <TabPane tab="Chinese" key={FIFTH_TAB}>
@@ -58,6 +63,7 @@ const SwitchTabsLangForm = ({
           lang="ZH"
           form={formZH}
           response={response}
+          isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
     </Tabs>
