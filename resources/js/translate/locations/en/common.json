@@ -579,6 +579,7 @@
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
+      "placeholder_select_tax": "Please select tax",
       "name_field": "Product Name",
       "field_name": "Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
@@ -591,7 +592,7 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
-      "product_list":"Product List",
+      "product_list": "Product List",
       "error_message": {
         "error_vendor": "The Vendor field is required",
         "error_status": "The Status field is required",

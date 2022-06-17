@@ -530,6 +530,7 @@
       "meta_keyword_field": "元关键字",
       "product_image_field": "产品图片",
       "placeholder_seach": "Please enter name product",
+      "placeholder_select_tax": "Please select tax",
       "name_field": "产品名称",
       "medicinal_efficacy_classification_field": "药效分类",
       "features_field": "特征",
