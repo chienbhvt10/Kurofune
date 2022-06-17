@@ -30,6 +30,8 @@ class VendorProfileController extends Controller
         }
         $vendors = [];
         foreach ($userVendors as $userVendor) {
+            $images_outside = getMediaImages($userVendor->vendor_profile, 'images_outside');
+            $images_inside = getMediaImages($userVendor->vendor_profile, 'images_inside');
             $items = [
                 'id' => $userVendor->vendor_profile->id,
                 'user_id' => $userVendor->vendor_profile->user_id,
@@ -49,8 +51,8 @@ class VendorProfileController extends Controller
                 'open_sale_time' => $userVendor->vendor_profile->open_sale_time,
                 'time_order_outside' => $userVendor->vendor_profile->time_order_outside,
                 'expiration_date_of_drugs' => $userVendor->vendor_profile->expiration_date_of_drugs,
-                'images_outside' => $userVendor->vendor_profile->images_outside,
-                'images_inside' => $userVendor->vendor_profile->images_inside,
+                'images_outside' => $images_outside,
+                'images_inside' => $images_inside,
             ];
             $vendors[] = $items;
         }
@@ -62,6 +64,8 @@ class VendorProfileController extends Controller
     {
         $vendor = [];
         $vendor = VendorProfile::find($id);
+        $images_outside = getMediaImages($vendor, 'images_outside');
+        $images_inside = getMediaImages($vendor, 'images_inside');
         $items = [
             'id' => $vendor->id,
             'user_id' => $vendor->user_id,
@@ -81,8 +85,8 @@ class VendorProfileController extends Controller
             'open_sale_time' => $vendor->open_sale_time,
             'time_order_outside' => $vendor->time_order_outside,
             'expiration_date_of_drugs' => $vendor->expiration_date_of_drugs,
-            'images_outside' => $vendor->images_outside,
-            'images_inside' => $vendor->images_inside,
+            'images_outside' => $images_outside,
+            'images_inside' => $images_inside,
         ];
 
         $vendor = $items;
