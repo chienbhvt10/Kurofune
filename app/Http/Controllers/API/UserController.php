@@ -470,9 +470,9 @@ class UserController extends Controller
             $password = trim($request->password) ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
-            $file_avatar = $request->avatar ?? null;
+            $file_avatar = $request->file('avatar') ?? null;
             if($file_avatar) {
-                $filename = save_base_64_image($file_avatar);
+                $filename = upload_single_image($file_avatar);
                 $user->avatar = $filename;
             }
             $get_role = Role::findByName($role, 'api');
