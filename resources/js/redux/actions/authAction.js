@@ -132,4 +132,7 @@ export const updateShippingAddressAction = createAsyncThunk(
     return res;
   }
 );
+export const resetChangePasswordResponse = createAction(
+  "RESET_CHANGE_PASSWORD_RESPONSE"
+);
 export default authActions;

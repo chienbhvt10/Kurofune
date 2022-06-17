@@ -371,7 +371,7 @@
         "field_name": "全名",
         "field_email": "电子邮件地址",
         "field_phone": "电话",
-        "field_username": "Username",
+        "field_username": "用户名",
         "field_password": "密碼",
         "field_active": "活動狀態",
         "field_full_name": "全名",
@@ -448,7 +448,7 @@
           }
         },
         "placeholder": {
-          "search": "搜索用户名",
+          "search": "按名称搜索",
           "select_role": "请选择一个角色。",
           "select_active_status": "请选择一个活动状态。",
           "select_prefecture": "请选择县。",

@@ -449,7 +449,7 @@
           }
         },
         "placeholder": {
-          "search": "Search username",
+          "search": "Search Name",
           "select_role": "Please select a role",
           "select_active_status": "Please select a active status",
           "select_prefecture": "Please select prefecture",
