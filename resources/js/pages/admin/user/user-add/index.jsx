@@ -1,11 +1,9 @@
-import { Spin } from "antd";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import PageHead from "../../../../commons/PageHead";
 import { TYPE_FORM_CREATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useCreateUser from "../../../../hooks/user/createUser";
-import useUsers from "../../../../hooks/user/useUsers";
 import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {
@@ -24,6 +22,10 @@ const AddUser = () => {
 
   return (
     <div id="add-user">
+      <PageHead
+        title={t("meta.title_user_create")}
+        content={t("meta.content_user_create")}
+      />
       <UserForm
         loading={loadingCreateUser}
         response={resCreateUser}

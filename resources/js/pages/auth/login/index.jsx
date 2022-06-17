@@ -49,7 +49,10 @@ export const Login = () => {
   return (
     <Row justify="center">
       <Col span={12}>
-        <PageHead content="Login" title="Login" />
+        <PageHead
+          title={t("meta.title_login")}
+          content={t("meta.content_login")}
+        />
         <Title className="title" level={4}>
           <span dangerouslySetInnerHTML={createMarkup()} />
         </Title>

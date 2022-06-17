@@ -6,6 +6,8 @@ import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./cart.scss";
 import useCart from "../../../hooks/cart/useCart";
 import LoadingModal from "../../../commons/LoadingModal";
+import PageHead from "../../../commons/PageHead";
+
 const Cart = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -102,6 +104,7 @@ const Cart = () => {
 
   return (
     <>
+      <PageHead title={t("meta.title_cart")} content={t("meta.content_cart")} />
       {isLoading && <LoadingModal />}
       <div id="cart">
         <Row justify="center" style={{ padding: "40px 0" }} className="d-none">

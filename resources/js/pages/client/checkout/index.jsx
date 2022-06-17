@@ -6,6 +6,7 @@ import useCart from "../../../hooks/cart/useCart";
 import "./checkout.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { showProfileAction } from "../../../redux/actions/authAction";
+import PageHead from "../../../commons/PageHead";
 const CheckoutPage = () => {
   const dispatch = useDispatch();
   const profile = useSelector((state) => state.authState.profile);
@@ -54,6 +55,10 @@ const CheckoutPage = () => {
   };
   return (
     <div id="checkout-page">
+      <PageHead
+        title={t("meta.title_checkout")}
+        content={t("meta.content_checkout")}
+      />
       <div className="cart-custom">
         <div className="cart-header">
           <h1>{t("client.checkout.title_confirm")}</h1>

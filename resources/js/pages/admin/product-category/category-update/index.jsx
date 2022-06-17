@@ -1,11 +1,11 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
+import PageHead from "../../../../commons/PageHead";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import CategoryForm from "../category-form/CategoryForm";
 import useAdminCategory from "./../../../../hooks/categoryAdmin/useAdminCategory";
 import useUpdateAdminCategory from "./../../../../hooks/categoryAdmin/useUpdateAdminCategory";
-import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories";
-import { useTranslation } from "react-i18next";
 
 const UpdateCategory = () => {
   const lang = localStorage.getItem("lang");
@@ -35,6 +35,10 @@ const UpdateCategory = () => {
 
   return (
     <div id="update-category-page">
+      <PageHead
+        title={t("meta.title_category_update")}
+        content={t("meta.content_category_update")}
+      />
       <CategoryForm
         item={adminCategory}
         typeForm={TYPE_FORM_UPDATE}

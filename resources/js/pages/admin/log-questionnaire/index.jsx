@@ -1,11 +1,15 @@
-import React from "react";
-import QuestionnaireTable from "./QuestionnaireTable";
-import "./questionnaire.scss";
-import { Link } from "react-router-dom";
-import { TableHeader } from "../../../commons/TableHeader";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
+import PageHead from "../../../commons/PageHead";
+import { TableHeader } from "../../../commons/TableHeader";
+import "./questionnaire.scss";
+import QuestionnaireTable from "./QuestionnaireTable";
+
 const LogQuestionnaire = () => {
+  const { t } = useTranslation();
+
   const items = [
     {
       orderId: "1",
@@ -74,6 +78,10 @@ const LogQuestionnaire = () => {
   ];
   return (
     <div className="questionnaire-container">
+      <PageHead
+        title={t("meta.title_questionnaire_list")}
+        content={t("meta.content_questionnaire_list")}
+      />
       <TableHeader
         breadcrumb={[
           { name: "Home", routerLink: "../" },
