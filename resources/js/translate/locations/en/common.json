@@ -47,7 +47,8 @@
     "order_history_title": "Order history",
     "cart_title": "Order list",
     "billing_address_title": "Registration information",
-    "media_title": "Home"
+    "media_title": "Home",
+    "tax_title": "Tax"
   },
   "member": {
     "dashboard": {
@@ -654,6 +655,26 @@
       "created_at": "Created date",
       "dow_history": "Download ",
       "dow_history_ja": "Download (Japanese)"
+    },
+    "tax": {
+      "title": {
+        "tax_title": "Tax List",
+        "name_title": "Name",
+        "value_title": "Value",
+        "add_tax": "Add Tax"
+      },
+      "placeholder_seach": "Please enter name tax",
+      "placeholder_search_name": "Please enter name",
+      "placeholder_search_value": "Please enter value",
+
+      "error": {
+        "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
+        "value": {
+          "required": "Please input your value.",
+          "pattern": "Please input valid number."
+        }
+      }
     }
   }
 }

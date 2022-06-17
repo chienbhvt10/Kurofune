@@ -47,7 +47,8 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category"
+    "category_title": "Product Category",
+    "tax_title": "Tax"
   },
   "member": {
     "dashboard": {
@@ -648,6 +649,25 @@
       "created_at": "Ngày tạo",
       "dow_history": "Tải xuống ",
       "dow_history_ja": "Tải xuống (tiếng Nhật)"
+    },
+    "tax": {
+      "title": {
+        "tax_title": "Tax List",
+        "name_title": "Name",
+        "value_title": "Value",
+        "add_tax": "Add Tax"
+      },
+      "placeholder_seach": "Please enter name tax",
+      "placeholder_search_name": "Please enter name",
+      "placeholder_search_value": "Please enter value",
+      "error": {
+        "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
+        "value": {
+          "required": "Please input your value.",
+          "pattern": "Please input valid number."
+        }
+      }
     }
   }
 }
