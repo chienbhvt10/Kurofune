@@ -485,6 +485,7 @@
           "required": "Please input your password.",
           "pattern_number": "Password must contain at least one number.",
           "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
+          "pattern_space": "Password must not contain spaces",
           "pattern_special_characters": "Password must contain at least one symbol.",
           "min": "Password must contain at least eight characters."
         },

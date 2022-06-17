@@ -480,6 +480,7 @@
           "required": "Mangyaring ipasok ang iyong password.",
           "pattern_number": "Ang password ay dapat maglaman ng hindi bababa sa isang numero.",
           "pattern_alpha": "Ang password ay dapat maglaman ng hindi bababa sa isang malaking titik at isang maliit na titik",
+          "pattern_space": "Ang password ay hindi dapat maglaman ng mga puwang.",
           "pattern_special_characters": "Ang password ay dapat maglaman ng kahit isang simbolo.",
           "min": "Dapat maglaman ang password ng hindi bababa sa walong character."
         },
