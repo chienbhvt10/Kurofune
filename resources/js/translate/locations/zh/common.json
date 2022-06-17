@@ -47,7 +47,7 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category",
+    "category_title": "产品分类",
     "tax_title": "Tax"
   },
   "member": {
@@ -520,7 +520,9 @@
       "category_field": "类别",
       "date_field": "产品上市日期",
       "store_field": "药店",
-      "field_name": "产品名称",
+      "field_name":"产品名称",
+      "use_manual_field": "Cách sử dụng",
+      "product_list":"产品列表",
       "tax_field": "税",
       "meta_title_field": "元标题",
       "meta_description_field": "元描述",
