@@ -29,7 +29,7 @@ class TaxsController extends Controller
             if ($request->name) {
                 $tax = $this->filterScopeName(new Tax, $request->name)->paginate($posts_per_page);
             } else {
-                $tax = Tax::paginate(10);
+                $tax = Tax::paginate($posts_per_page);
             }
             return $this->response_data_success($tax);
         }catch (\Exception $error){
