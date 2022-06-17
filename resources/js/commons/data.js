@@ -464,11 +464,11 @@ export const navigateLinkAdminData = [
     title: "navigate_link.user_title",
     isAdminOnly: true,
   },
-  {
-    link: "media",
-    imageUrl: "/images/sidebar/home.png",
-    title: "navigate_link.media_title",
-  },
+  // {
+  //   link: "media",
+  //   imageUrl: "/images/sidebar/home.png",
+  //   title: "navigate_link.media_title",
+  // },
 ];
 export const historyData = [
   {
