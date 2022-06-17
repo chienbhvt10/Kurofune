@@ -17,6 +17,7 @@ import {
 } from "./productInitValues.js";
 import useCategories from "../../../../hooks/category/useCategories.js";
 import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
+import useTaxes from "../../../../hooks/tax/useTaxes";
 import { isAdmin } from "../../../../helper/checker";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
@@ -24,6 +25,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const { t } = useTranslation();
   const { profile, userInfo } = useSelector((state) => state.authState);
   const { pharmacies, getAllPharmacies } = usePharmacies();
+  const { getTaxes, taxes } = useTaxes();
   const { categoriesClient, getCategoriesClient } = useCategories();
   const [isFormSubmitted, setIsFormSubmiited] = React.useState(false);
   const [avatarState, setAvatarState] = React.useState({
@@ -113,6 +115,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   React.useEffect(() => {
     getCategoriesClient();
     getAllPharmacies();
+    getTaxes();
+
     if (isFormSubmitted) {
       productProfileFormEN.validateFields();
       productProfileFormJP.validateFields();
@@ -278,6 +282,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <SelectField
                 field="tax_id"
                 label={t("admins.product.tax_field")}
+                placeholder={t("admins.product.placeholder_select_tax")}
+                mode="multiple"
                 rules={[
                   {
                     required: true,
@@ -286,8 +292,13 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 ]}
                 response={response}
                 errorField="tax_id"
-                options={[{ label: "VAT", value: 1 }]}
-              />
+              >
+                {taxes?.map((tax, index) => (
+                  <Select.Option key={index} value={tax.id}>
+                    {tax.name}
+                  </Select.Option>
+                ))}
+              </SelectField>
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">
               <InputField
