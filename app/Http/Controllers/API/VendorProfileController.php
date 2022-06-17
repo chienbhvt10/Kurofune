@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Enums\UserRole;
 use App\Http\Controllers\Controller;
 use App\Models\VendorProfile;
 use App\Traits\RespondsStatusTrait;
@@ -17,8 +18,13 @@ class VendorProfileController extends Controller
     use RespondsStatusTrait, CustomFilterTrait;
     public function index(): \Illuminate\Http\JsonResponse
     {
+        $roleVendor = UserRole::ROLE_VENDOR;
         $userVendors = User::has('vendor_profile')->with('vendor_profile')
-        ->where('active', '=', 1)->get();
+        ->where('active', '=', 1)
+        ->whereHas('roles', function ($query) use ($roleVendor) {
+            return $query->where('name', '=', $roleVendor);
+        })
+        ->get();
         if (empty($userVendors)) {
             return $this->response_error(__('message.user.vendor.not_data'), 404);
         }
