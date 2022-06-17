@@ -30,7 +30,7 @@ const useUpdateShippingAddress = () => {
     }
     if (
       resUpdateShippingAddress &&
-      resUpdateShippingAddress.error_code !== ERROR
+      resUpdateShippingAddress.error_code === ERROR
     ) {
       setLoadingUpdateShipping(false);
       NotificationError(

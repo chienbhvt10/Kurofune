@@ -20,7 +20,7 @@ const OrderList = () => {
     })
   }, [])
 
-  const handleDeleteOrder = (id) =>() =>{
+  const handleDeleteOrder = (id) =>{
     deleteOrderAdmin(id,(data)=>{
       getListOrderAdmin(null,(response) => {
         setDataOrder(response)

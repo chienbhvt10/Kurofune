@@ -16,6 +16,10 @@ const ProductList = () => {
   const { deleteProduct, resDeleteProduct } = useDeleteProduct();
   const { t } = useTranslation();
 
+  const onChangeSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  };
+
   const onDelete = (row) => async () => {
     deleteProduct(row.id);
   };
@@ -23,7 +27,7 @@ const ProductList = () => {
     navigate(`${lang}/admin/product/update/${row.id}`);
   };
   const onSearch = (values) => {
-    getAllProducts({ page: pagination.current_page, name: values.name });
+    getAllProducts({name: values.name });
   };
 
   const onTableChange = (paginationTable, filters, sorter) => {
@@ -50,10 +54,12 @@ const ProductList = () => {
       <TableHeader
         addLink={`${lang}/admin/product/add`}
         breadcrumb={[
-          { name: "Product List", routerLink: `${lang}/product-list` },
+          { name:  t("admins.product.product_list"), routerLink: `${lang}/product-list` },
         ]}
         title="Product"
+        searchField="name"
         onSearch={onSearch}
+        onChangeSearch={onChangeSearchValue}
         searchPlaceHolder={t("admins.product.placeholder_seach")}
       />
       <ProductTable

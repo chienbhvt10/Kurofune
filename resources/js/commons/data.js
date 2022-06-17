@@ -443,6 +443,12 @@ export const navigateLinkAdminData = [
     isAdminOnly: true,
   },
   {
+    link: "admin/tax-list",
+    imageUrl: "/images/sidebar/medicine-list.png",
+    title: "navigate_link.tax_title",
+    isAdminOnly: true,
+  },
+  {
     link: "admin/category-list",
     imageUrl: "/images/sidebar/medicine-list.png",
     title: "navigate_link.category_title",
@@ -464,11 +470,11 @@ export const navigateLinkAdminData = [
     title: "navigate_link.user_title",
     isAdminOnly: true,
   },
-  {
-    link: "media",
-    imageUrl: "/images/sidebar/home.png",
-    title: "navigate_link.media_title",
-  },
+  // {
+  //   link: "media",
+  //   imageUrl: "/images/sidebar/home.png",
+  //   title: "navigate_link.media_title",
+  // },
 ];
 
 export const orderDetailData = [
@@ -615,7 +621,7 @@ export const userFormOptions = {
   ],
   payment: [
     { value: 0, label_translate: "admins.user.form.option.no&inactive" },
-    { value: 1, label_translate: "admins.user.form.option.yes&inactive" }
+    { value: 1, label_translate: "admins.user.form.option.yes&inactive" },
   ],
   insurance_status: [
     {

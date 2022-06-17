@@ -47,7 +47,8 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category"
+    "category_title": "Danh mục sản phẩm",
+    "tax_title": "Tax"
   },
   "member": {
     "dashboard": {
@@ -420,7 +421,8 @@
           "field_current_working": "Dược sĩ đang làm việc (phụ trách)",
           "field_open_sale_time": "Thời gian mở cửa",
           "field_time_order_outside": "Thời gian nhận đặt thuốc ngoài giờ làm việc",
-          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể"
+          "field_expiration_date_of_drug": "Ngày hết hạn của thuốc để bán cụ thể",
+          "field_pharmacist_working": "Dược sĩ làm việc tại nhà thuốc của chúng tôi (phụ trách)"
         },
         "option": {
           "active": "Hội viên đang hoạt động",
@@ -537,6 +539,7 @@
       "name_field": "Tên gọi chung",
       "field_name": "Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
+      "product_list":"Danh sách sản phẩm",
       "error_message": {
         "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
         "error_status": "Trường 'Trạng thái' là trường bắt buộc",
@@ -648,6 +651,25 @@
       "created_at": "Ngày tạo",
       "dow_history": "Tải xuống ",
       "dow_history_ja": "Tải xuống (tiếng Nhật)"
+    },
+    "tax": {
+      "title": {
+        "tax_title": "Tax List",
+        "name_title": "Name",
+        "value_title": "Value",
+        "add_tax": "Add Tax"
+      },
+      "placeholder_seach": "Please enter name tax",
+      "placeholder_search_name": "Please enter name",
+      "placeholder_search_value": "Please enter value",
+      "error": {
+        "name_required": "Please input name tax",
+        "value_required": "Please enter from 0 to 100",
+        "value": {
+          "required": "Please input your value.",
+          "pattern": "Please input valid number."
+        }
+      }
     }
   }
 }
