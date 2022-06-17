@@ -8,7 +8,8 @@ import userState from "../reducers/userReducers";
 import adminCategoryState from "./../reducers/adminCategoryReducer";
 import cartState from "../reducers/cartReducer";
 import logChatState from "./../reducers/logChatReducer";
-import orderHistoryState from './../reducers/orderHistoryReducer';
+import taxState from "../reducers/taxReducer";
+import orderHistoryState from "./../reducers/orderHistoryReducer";
 
 export const store = configureStore({
   reducer: {
@@ -20,8 +21,10 @@ export const store = configureStore({
     pharmacyState,
     adminCategoryState,
     logChatState,
+    taxState,
     cartState,
-    orderHistoryState
+    cartState,
+    orderHistoryState,
   },
 });
 
