@@ -28,7 +28,7 @@ const SwitchTabsLangForm = ({
           response={response}
         />
       </TabPane>
-      <TabPane tab="Japan" key={SECOND_TAB}>
+      <TabPane tab="Japanese" key={SECOND_TAB}>
         <SubFormTranslate
           errorField="ja.name"
           lang="JA"
@@ -44,7 +44,7 @@ const SwitchTabsLangForm = ({
           response={response}
         />
       </TabPane>
-      <TabPane tab="Vietnam" key={FOURTH_TAB}>
+      <TabPane tab="Vietnamese" key={FOURTH_TAB}>
         <SubFormTranslate
           errorField="vi.name"
           lang="VI"
@@ -52,7 +52,7 @@ const SwitchTabsLangForm = ({
           response={response}
         />
       </TabPane>
-      <TabPane tab="China" key={FIFTH_TAB}>
+      <TabPane tab="Chinese" key={FIFTH_TAB}>
         <SubFormTranslate
           errorField="zh.name"
           lang="ZH"
