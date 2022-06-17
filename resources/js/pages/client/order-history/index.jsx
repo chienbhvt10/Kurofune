@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import { Table } from "antd";
 import moment from "moment";
-import useOrderHistory from "../../../hooks/order-history/UseOrderHistory";
+import useOrderHistory from "../../../hooks/order-history/useOrderHistory";
 import "./order-history.scss";
 const OrderHistoryPage = () => {
   const { t } = useTranslation();
