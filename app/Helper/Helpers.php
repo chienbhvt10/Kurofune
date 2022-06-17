@@ -86,7 +86,7 @@ function save_multiple_image($arr_image = [], $path = null)
     $multiple_images = [];
     if ($arr_image) {
         foreach ($arr_image as $img) {
-            $image_path = save_base_64_image($img, $path);
+            $image_path = upload_single_image($img, $path);
             array_push($multiple_images, $image_path);
         }
     }
