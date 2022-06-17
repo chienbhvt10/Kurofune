@@ -47,7 +47,7 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category"
+    "category_title": "商品カテゴリ"
   },
   "member": {
     "dashboard": {
@@ -594,6 +594,7 @@
       "name_field": "一般名",
       "field_name":"商品名",
       "use_manual_field": "用量用法",
+      "product_list":"商品リスト",
       "error_message": {
         "error_category_image": "「カテゴリ画像」フィールドは必須です。",
         "error_type": "「タイプ」フィールドは必須です。",

@@ -2,78 +2,6 @@ import { Form, Input, InputNumber, Popconfirm, Table, Typography } from "antd";
 import React from "react";
 import { debounce, pick, groupBy, unionBy } from "lodash";
 
-const EditableCell = ({
-  editing,
-  dataIndex,
-  title,
-  inputType,
-  record,
-  index,
-  children,
-  total,
-  key,
-  ...restProps
-}) => {
-  return (
-    <td {...restProps}>
-      {editing ? (
-        <Form.Item
-          shouldUpdate={(prevValues, currentValues) => {
-            {
-              return prevValues !== currentValues;
-            }
-          }}
-        >
-          {({ getFieldValue, setFieldsValue }) => {
-            const handleChange = () => {
-              if (dataIndex === "quantity" || dataIndex === "cost") {
-                let quantity = Number(
-                  getFieldValue(`quantity-${record["key"]}`)
-                );
-                let cost = Number(getFieldValue(`cost-${record["key"]}`));
-                setFieldsValue({
-                  [`total-${record["key"]}`]: quantity * cost,
-                });
-              }
-            };
-            return (
-              <Form.Item
-                name={record ? `${dataIndex}-${record["key"]}` : dataIndex}
-                shouldUpdate={(prevValues, currentValues) => {
-                  prevValues !== currentValues;
-                }}
-                style={{
-                  margin: 0,
-                }}
-                // rules={[
-                //   {
-                //     required: true,
-                //     message: `Please Input ${title}!`,
-                //   },
-                // ]}
-                initialValue={
-                  title === "Total" ? total : record && record[dataIndex]
-                }
-              >
-                {inputType === "number" ? (
-                  <InputNumber
-                    min={0}
-                    readOnly={title === "Total" ? true : false}
-                    onChange={handleChange}
-                  />
-                ) : (
-                  <Input onChange={handleChange} />
-                )}
-              </Form.Item>
-            );
-          }}
-        </Form.Item>
-      ) : (
-        children
-      )}
-    </td>
-  );
-};
 
 const CartInfoTable = ({ dataCartInforTable }) => {
   const [activeRefund, setActiveRefund] = React.useState(false);
@@ -101,12 +29,6 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     return total;
   }, [dataCartInforTable]);
 
-  const maxValueVAT = React.useMemo(() => {
-    let array = dataCartInforTable.products.map((item) => {
-      return item.pivot.total_tax;
-    });
-    return Math.max(...array);
-  }, [dataCartInforTable]);
   const columns = [
     {
       title: "Product",
@@ -145,14 +67,14 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       title: "VAT",
       editable: true,
       render: (_, record) => {
-        return <span id={`quantity-${record?.key}`}>{record?.pivot?.total_tax}</span>;
+        return <span id={`quantity-${record?.key}`}>{Number(record.pivot.total_tax) - (Number(record?.pivot?.quantity) * Number(record?.price))}</span>;
       },
     },
     {
       title: "Total",
       editable: true,
       render: (_, record) => {
-        return <span>{(Number(record.price) * Number(record.pivot?.quantity)) + (Number(record.pivot.total_tax))}</span>;
+        return <span>{(Number(record.pivot.total_tax))}</span>;
       },
     },
   ];
@@ -197,11 +119,11 @@ const CartInfoTable = ({ dataCartInforTable }) => {
               <p>Order Total:</p>
             </div>
             <div className="cal-total">
-              <p>{itemsSubtotal} ({unitMoney})</p>
+              <p>{dataCartInforTable.total}</p>
               <p> 0 ({unitMoney})</p>
               <p> 0 ({unitMoney})</p>
-              <p>{maxValueVAT} ({unitMoney})</p>
-              <p>{ itemsSubtotal+ fee +shipping + maxValueVAT} ({unitMoney})</p>
+              {/* <p>{maxValueVAT} ({unitMoney})</p> */}
+              <p>{dataCartInforTable.total_tax}</p>
             </div>
           </div>
           <div className="tool-container">

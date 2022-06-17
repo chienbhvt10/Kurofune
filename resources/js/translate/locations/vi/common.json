@@ -47,7 +47,7 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category"
+    "category_title": "Danh mục sản phẩm"
   },
   "member": {
     "dashboard": {
@@ -536,6 +536,7 @@
       "name_field": "Tên gọi chung",
       "field_name":"Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
+      "product_list":"Danh sách sản phẩm",
       "error_message": {
         "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
         "error_status": "Trường 'Trạng thái' là trường bắt buộc",

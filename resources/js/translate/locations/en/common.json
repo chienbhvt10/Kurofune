@@ -588,6 +588,7 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
+      "product_list":"Product List",
       "error_message": {
         "error_vendor": "The Vendor field is required",
         "error_status": "The Status field is required",

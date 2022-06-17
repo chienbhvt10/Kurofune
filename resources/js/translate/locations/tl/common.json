@@ -47,7 +47,7 @@
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
     "product_title": "Product",
-    "category_title": "Product Category"
+    "category_title": "Kategorya ng Produkto"
   },
   "member": {
     "dashboard": {
@@ -534,6 +534,7 @@
       "precautions_storage_handling_field": "Mga Pag-iingat para sa Pag-iimbak at Paghawak",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Gumamit ng Manual",
+      "product_list":"Listahan ng Produkto",
       "error_message": {
         "error_vendor": "Kinakailangan ang field ng Vendor",
         "error_status": "Kinakailangan ang field ng Status",
