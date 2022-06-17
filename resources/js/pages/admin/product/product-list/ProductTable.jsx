@@ -22,7 +22,9 @@ const ProductTable = ({
       align: "center",
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
-        <img src={record.product_image} alt="" height={50} width={50} />
+        <div className="table-column-break">
+          <img src={record.product_image} alt="" height={50} width={50} />
+        </div>
       ),
     },
     {
@@ -30,27 +32,33 @@ const ProductTable = ({
       dataIndex: "name",
       title: t("admins.product.field_name"),
       render: (_, record) => (
-        <Link to={`${lang}/admin/product/update/${record.id}`}>
-          {record.name}
-        </Link>
+        <div className="table-column-break">
+          <Link to={`${lang}/admin/product/update/${record.id}`}>
+            {record.name}
+          </Link>
+        </div>
       ),
     },
     {
       key: "sku",
       dataIndex: "sku",
       title: t("admins.product.sku_field"),
-      render: (_, record) => <span>{record.sku || "-"}</span>,
+      render: (_, record) => (
+        <div className="table-column-break">
+          <span>{record.sku || "-"}</span>
+        </div>
+      ),
     },
     {
       key: "stock",
       dataIndex: "stock",
-      title:  t("admins.product.stock_status_field"),
+      title: t("admins.product.stock_status_field"),
       render: (_, record) => <span>{record.stock_status}</span>,
     },
     {
       key: "price",
       dataIndex: "price",
-      title:  t("admins.product.price_field"),
+      title: t("admins.product.price_field"),
       render: (_, record) => <span>{record.price} (JPY)</span>,
     },
     {
@@ -62,20 +70,26 @@ const ProductTable = ({
     {
       key: "date",
       dataIndex: "date",
-      title:  t("admins.product.date_field"),
+      title: t("admins.product.date_field"),
       render: (_, record) => (
-        <span>
-          Published{" "}
-          {moment(record.created_at).zone("+09:00").format("YYYY/MM/DD")} at{" "}
-          {moment(record.created_at).zone("+09:00").format("LT")}
-        </span>
+        <div className="table-column-break">
+          <span>
+            Published{" "}
+            {moment(record.created_at).zone("+09:00").format("YYYY/MM/DD")} at{" "}
+            {moment(record.created_at).zone("+09:00").format("LT")}
+          </span>
+        </div>
       ),
     },
     {
       key: "store",
       dataIndex: "store",
-      title:  t("admins.product.store_field"),
-      render: (_, record) => <span>{record.store}</span>,
+      title: t("admins.product.store_field"),
+      render: (_, record) => (
+        <div className="table-column-break">
+          <span>{record.store}</span>
+        </div>
+      ),
     },
     {
       key: "vi",
@@ -86,7 +100,9 @@ const ProductTable = ({
         width: 100,
       },
       render: (_, record) => (
-        <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
+        <div className="table-column-break">
+          <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
+        </div>
       ),
     },
   ];
