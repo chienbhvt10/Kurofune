@@ -70,16 +70,15 @@ export const UserForm = ({
   }, [item]);
 
   const renderErrorTranslate = (field) => {
-    let validator = validateUser[field]
-    if( typeForm === TYPE_FORM_UPDATE && field === "password"){
-      validator = validateUser.password.slice(1)
+    let validator = validateUser[field];
+    if (typeForm === TYPE_FORM_UPDATE && field === "password") {
+      validator = validateUser.password.slice(1);
     }
     return validator.map((item) => {
-        return {
+      return {
         ...item,
         message: t(item.message),
       };
-
     });
   };
   const getDepend = () => document.querySelector("#role-select");
@@ -96,17 +95,7 @@ export const UserForm = ({
         }}
       >
         <FormHeader
-          breadcrumb={[
-            { name: "Home", routerLink: "../" },
-            {
-              name: t("admins.user.list.title"),
-              routerLink: `${lang}/admin/user-list`,
-            },
-            {
-              name: title,
-              routerLink: "",
-            },
-          ]}
+          breadcrumb={[]}
           title={title}
           onCancel={onCancel}
           loading={loading}
@@ -200,9 +189,7 @@ export const UserForm = ({
                     label={t("admins.user.form.field_password")}
                     labelCol={{ span: 8 }}
                     wrapperCol={{ span: 16 }}
-                    rules={
-                      renderErrorTranslate("password")
-                    }
+                    rules={renderErrorTranslate("password")}
                     response={response}
                     type={<Input />}
                   />
