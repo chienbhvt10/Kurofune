@@ -44,9 +44,7 @@ export const UserList = () => {
       <TableHeader
         addLink={`${lang}/admin/user-create`}
         title={t("admins.user.list.title")}
-        breadcrumb={[
-          { name: t("admins.user.list.title"), routerLink: "/users" },
-        ]}
+        breadcrumb={[]}
         onSearch={onSearch}
         searchField="name"
         searchPlaceHolder={t("admins.user.form.placeholder.search")}
