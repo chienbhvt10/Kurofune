@@ -627,7 +627,8 @@
         "error_stockstatus": "库存状态字段是必需的。",
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
-        "error_en_product_name": "产品名称字段是必需的。"
+        "error_en_product_name": "产品名称字段是必需的。",
+        "error_price": "Please input valid number."
       },
       "title": {
         "product_title": "添加产品 ",
