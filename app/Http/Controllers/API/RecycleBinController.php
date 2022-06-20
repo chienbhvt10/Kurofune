@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Validation\Rule;
 use \Illuminate\Http\JsonResponse;
 use App\Traits\RespondsStatusTrait;
 
@@ -17,9 +16,8 @@ class RecycleBinController extends Controller
     {
         try {
             $posts_per_page = get_per_page($request->per_page);
-            $models = '\App\models\\'.$model;
-            $data = $models::withTrashed()->paginate($posts_per_page);
-            return $this->response_data_success($models);
+            $data = ('\App\models\\'.$model)::onlyTrashed()->paginate($posts_per_page);
+            return $this->response_data_success($data);
         } catch (\Exception $error) {
             return $this->response_exception();
         }
