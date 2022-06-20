@@ -1,4 +1,5 @@
 import { Col, Form, Input, Row } from "antd";
+import { isNull } from "lodash";
 import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import InputField from "../../../../commons/Form/InputField.jsx";
@@ -11,12 +12,26 @@ const SubFormTranslate = ({
   response,
   errorField,
   isFormSubmitted,
+  setListError = null
 }) => {
   const formItemLayout = getProductFormLayout();
   const { i18n, t } = useTranslation();
   useEffect(() => {
     if (isFormSubmitted) {
-      form?.validateFields();
+      try {
+        const validateForm = async () => {
+          await form?.validateFields();
+        }
+        validateForm()
+      } catch (error) {
+        console.log('validate failed',error);
+       if(!isNull(setListError) ){
+        setListError((pre) =>{
+          console.log(pre);
+          return {...pre,lang}
+        })
+       }
+      }
     }
   }, []);
   return (
@@ -24,7 +39,7 @@ const SubFormTranslate = ({
       <Form
         {...formItemLayout}
         className={className}
-        name="common-translate-form"
+        name={`${lang}-common-translate-form`}
         form={form}
       >
         <Row justify="center">
