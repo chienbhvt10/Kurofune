@@ -16,18 +16,18 @@ class DatabaseSeeder extends Seeder
         $this->call([
             PermissionSeeder::class,
             UserAdminSeeder::class,
-           ShippingMethodSeeder::class,
-           PageSeeder::class,
-           VendorProfileSeeder::class,
-           UserSeeder::class,
-           ProfileSeeder::class,
-           BillingAddressSeeder::class,
-           ShippingAddressSeeder::class,
-           AddressSeeder::class,
-           TaxSeeder::class,
-           CategorySeeder::class,
-           ProductSeeder::class,
-           CategoryProductSeeder::class
+//            ShippingMethodSeeder::class,
+//            PageSeeder::class,
+//            VendorProfileSeeder::class,
+//            UserSeeder::class,
+//            ProfileSeeder::class,
+//            BillingAddressSeeder::class,
+//            ShippingAddressSeeder::class,
+//            AddressSeeder::class,
+//            TaxSeeder::class,
+//            CategorySeeder::class,
+//            ProductSeeder::class,
+//            CategoryProductSeeder::class
         ]);
     }
 }
