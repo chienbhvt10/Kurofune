@@ -112,7 +112,7 @@ export const Questionnaire = () => {
                       to={`${lang}/product-detail/${item.id}`}
                       className="btn-detail"
                     >
-                      詳細
+                      {t("client.questionnaire.btn_detail")}
                     </Link>
                   </div>
                 </div>
