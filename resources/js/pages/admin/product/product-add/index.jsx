@@ -1,15 +1,16 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import {
+  NotificationError,
+  NotificationSuccess,
+} from "../../../../commons/Notification";
+import PageHead from "../../../../commons/PageHead";
 import { TYPE_FORM_CREATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useProducts from "../../../../hooks/product/useProducts.js";
 import ProductForm from "../product-form/ProductForm";
 import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
-import {
-  NotificationSuccess,
-  NotificationError,
-} from "../../../../commons/Notification";
-import useProducts from "../../../../hooks/product/useProducts.js";
-import { useTranslation } from "react-i18next";
 
 const AddProduct = () => {
   const lang = getCurrentLanguage();
@@ -48,6 +49,10 @@ const AddProduct = () => {
   }, [resCreateProduct]);
   return (
     <div id="add-product-page">
+      <PageHead
+        title={t("meta.title_product_create")}
+        content={t("meta.content_product_create")}
+      />
       <ProductForm
         typeForm={TYPE_FORM_CREATE}
         title={t("admins.product.title.product_title")}

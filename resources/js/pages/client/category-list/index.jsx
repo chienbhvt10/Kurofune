@@ -26,12 +26,18 @@ const CategoryListPage = () => {
 
   return (
     <>
-      <PageHead content="Category List" title="Category List" />
+      <PageHead
+        title={t("meta.title_categories_list")}
+        content={t("meta.content_categories_list")}
+      />
       <div id="category-list">
         <div className="list_categories">
           {typeCategories?.map((typeCategory, index) => (
             <div className="type-wrapper" key={index}>
-              <div className="type-name"> {t(`client.medicine_list.type_name${typeCategory}`)}</div>
+              <div className="type-name">
+                {" "}
+                {t(`client.medicine_list.type_name${typeCategory}`)}
+              </div>
               <CardCategory cardItems={categories} type={typeCategory} />
             </div>
           ))}

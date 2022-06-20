@@ -35,7 +35,10 @@ const MediaPage = () => {
 
   return (
     <>
-      <PageHead content={t("login.title")} title={t("login.title")} />
+      <PageHead
+        title={t("meta.title_media")}
+        content={t("meta.content_media")}
+      />
       <div id="media-page">
         <div className="content">
           <div className="page-header-content">

@@ -6,6 +6,8 @@ import { SHIPPING_INFO_FORM } from "../../../constants";
 import useShowProfile from "../../../hooks/auth/useShowProfile";
 import useUpdateShippingAddress from "../../../hooks/auth/useUpdateShippingAddress";
 import "./style.scss";
+import PageHead from "../../../commons/PageHead";
+
 const ShippingAddress = () => {
   const { i18n, t } = useTranslation();
   const { showProfile, profile } = useShowProfile();
@@ -27,6 +29,10 @@ const ShippingAddress = () => {
 
   return (
     <div id="ShippingAddress">
+      <PageHead
+        title={t("meta.title_shipping_address")}
+        content={t("meta.content_shipping_address")}
+      />
       <TabLink
         infoTabs={[
           {

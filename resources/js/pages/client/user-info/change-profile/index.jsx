@@ -1,5 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
+import PageHead from "../../../../commons/PageHead";
 import { FormInfo } from "../../../../components/form-infor";
 import { PROFILE_FORM } from "../../../../constants";
 import useShowProfile from "../../../../hooks/auth/useShowProfile";
@@ -16,12 +17,11 @@ export const ChangeProfile = () => {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Change profile</title>
-        <meta name="description" content="Change profile Page" />
-        <meta name="og:title" content="Change profile" />
-      </Helmet>
+      <PageHead
+        title={t("meta.title_change_profile")}
+        content={t("meta.content_change_profile")}
+      />
+
       <FormInfo
         loading={loadingUpdateProfile}
         item={profile}

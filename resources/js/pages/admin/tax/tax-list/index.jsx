@@ -7,6 +7,7 @@ import useDeleteTax from "../../../../hooks/tax/useDeleteTax";
 import { useTranslation } from "react-i18next";
 import TaxTable from "./TaxTable";
 import "./tax.scss";
+import PageHead from "../../../../commons/PageHead";
 
 const TaxList = () => {
   const { getTaxes, taxes, pagination } = useTaxes();
@@ -52,6 +53,10 @@ const TaxList = () => {
 
   return (
     <div className="tax-container">
+      <PageHead
+        title={t("meta.title_tax_list")}
+        content={t("meta.content_tax_list")}
+      />
       <TableHeader
         addLink={`${lang}/admin/tax/add`}
         breadcrumb={[{}]}

@@ -2,6 +2,7 @@ import { Spin } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
+import PageHead from "../../../../commons/PageHead";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useUpdateUser from "../../../../hooks/user/useUpdateUser";
@@ -33,6 +34,10 @@ const UpdateUser = () => {
 
   return (
     <div id="update-user">
+      <PageHead
+        title={t("meta.title_user_update")}
+        content={t("meta.content_user_update")}
+      />
       <Spin spinning={loadingUser} tip="Loading...">
         {user && (
           <UserForm
