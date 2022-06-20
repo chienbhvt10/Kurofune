@@ -99,7 +99,7 @@ class Order extends Model
 
     public function products(): \Illuminate\Database\Eloquent\Relations\BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'order_product', 'order_id', 'product_id')->withPivot(['quantity', 'anket_1', 'anket_2', 'anket_3', 'anket_4', 'anket_5', 'anket_6', 'anket_7', 'anket_8', 'sub_total_tax', 'sub_total', 'total_tax','total']);
+        return $this->belongsToMany(Product::class, 'order_product', 'order_id', 'product_id')->withPivot(['product_name', 'quantity', 'anket_1', 'anket_2', 'anket_3', 'anket_4', 'anket_5', 'anket_6', 'anket_7', 'anket_8', 'sub_total_tax', 'sub_total', 'total_tax','total']);
     }
 
     public function transaction(): \Illuminate\Database\Eloquent\Relations\HasOne
