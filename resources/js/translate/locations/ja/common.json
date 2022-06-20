@@ -386,7 +386,15 @@
           "c_12": "ありません"
         }
       },
-      "medicinal_efficacy": "薬効分類"
+      "medicinal_efficacy": "薬効分類",
+      "label_features": "商品の特徴",
+      "label_precautions": "使用上の注意",
+      "label_efficacy_effect": "効能・効果",
+      "label_usage_dose": "用法・用量",
+      "label_active_ingredients": "成分分量",
+      "label_additives": "添加物",
+      "label_precautions_handling": "保管及び取扱い上の注意",
+      "label_manufacturer": "製造販売会社"
     },
     "list_pharmacies": {
       "title": "マリン薬局　大磯通店",

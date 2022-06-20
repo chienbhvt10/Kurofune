@@ -386,7 +386,15 @@
           "c_12": "没有"
         }
       },
-      "medicinal_efficacy": "药效分类"
+      "medicinal_efficacy": "药效分类",
+      "label_features": "特征",
+      "label_precautions": "预防措施",
+      "label_efficacy_effect": "功效/效果",
+      "label_usage_dose": "用法/剂量",
+      "label_active_ingredients": "有效成分",
+      "label_additives": "添加剂",
+      "label_precautions_handling": "储存和处理注意事项",
+      "label_manufacturer": "制造商"
     },
     "list_pharmacies": {
       "title": "海洋药房大矶",
