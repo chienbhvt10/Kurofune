@@ -157,6 +157,7 @@
       "placeholder": "输入药物名称",
       "btn_search": "提交",
       "title_number_results": "搜索结果s:",
+      "no_result": "未找到搜索结果",
       "description_number": "总共有"
     },
     "media": {

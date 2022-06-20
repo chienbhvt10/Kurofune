@@ -157,6 +157,7 @@
       "placeholder": "Enter drug name",
       "btn_search": "Submit",
       "title_number_results": "Search results:",
+      "no_result": "No search results found",
       "description_number": " cases in total"
     },
     "media": {

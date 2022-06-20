@@ -157,6 +157,7 @@
       "placeholder": "Hãy nhập tên thuốc",
       "btn_search": "Tìm kiếm",
       "title_number_results": "Kết quả tìm kiếm: ",
+      "no_result": "Không tìm thấy kết quả tìm kiếm.",
       "description_number": " trường hợp"
     },
     "media": {

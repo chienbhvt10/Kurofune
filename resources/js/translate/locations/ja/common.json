@@ -157,6 +157,7 @@
       "placeholder": "薬剤名入力",
       "btn_search": "検索する",
       "title_number_results": "検索結果:",
+      "no_result": "検索結果が見つかりません",
       "description_number": "件"
     },
     "media": {
