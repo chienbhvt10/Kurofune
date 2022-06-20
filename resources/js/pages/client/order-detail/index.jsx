@@ -7,18 +7,23 @@ import useOrderHistory from "../../../hooks/order-history/useOrderHistory";
 import BillingShipInfo from "../../../commons/BillingShipInfo";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import moment from "moment";
+import PageHead from "../../../commons/PageHead";
 const OrderDetailPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const lang = getCurrentLanguage();
   const { orderHistoryDetail, getOrderDetail } = useOrderHistory();
 
-useEffect(() => {
+  useEffect(() => {
     if (id) getOrderDetail(id);
-  }, [id,lang]);
+  }, [id, lang]);
 
   return (
     <div id="order-detail" className="order_detail">
+      <PageHead
+        title={t("meta.title_order_detail")}
+        content={t("meta.content_order_detail")}
+      />
       <div className="card">
         <div className="woocommerce">
           <div className="order-header-title">
@@ -31,14 +36,20 @@ useEffect(() => {
                   {t("client.order-detail.th_order_date")}
                 </span>
                 <span className="io-value">
-                  <time dateTime={orderHistoryDetail?.date_order}>{moment(orderHistoryDetail?.date_order).zone("+09:00").format("YYYY/MM/DD")}</time>
+                  <time dateTime={orderHistoryDetail?.date_order}>
+                    {moment(orderHistoryDetail?.date_order)
+                      .zone("+09:00")
+                      .format("YYYY/MM/DD")}
+                  </time>
                 </span>
               </div>
               <div className="item-of">
                 <span className="io-label">
                   {t("client.order-detail.th_order_ID")}
                 </span>
-                <span className="io-value">{orderHistoryDetail?.order_number}</span>
+                <span className="io-value">
+                  {orderHistoryDetail?.order_number}
+                </span>
               </div>
               <div className="item-of">
                 <span className="io-label">
@@ -63,12 +74,15 @@ useEffect(() => {
                 {orderHistoryDetail?.order_products.map((item, index) => (
                   <tr key={index}>
                     <td>
-                      <Link className="d-flex align-items-center" to={`${lang}/product-detail/${item.id}`}>
+                      <Link
+                        className="d-flex align-items-center"
+                        to={`${lang}/product-detail/${item.id}`}
+                      >
                         <div className="p-item p-image mr-2">
                           <img
                             width="50"
                             alt="Thuốc trị ho dạng bột Aneton (16 gói)"
-                            src={item?.imageUrl || '/images/image-default.png'}
+                            src={item?.imageUrl || "/images/image-default.png"}
                           />
                         </div>
                         <div className="p-item p-name">{item.name}</div>
@@ -110,9 +124,7 @@ useEffect(() => {
                     </td>
                     <td className="cart-totals-value">
                       <span className="woocommerce-Price-amount amount">
-                        <bdi>
-                        {orderHistoryDetail?.total_tax}
-                        </bdi>
+                        <bdi>{orderHistoryDetail?.total_tax}</bdi>
                       </span>
                     </td>
                   </tr>
@@ -131,7 +143,6 @@ useEffect(() => {
                 building: orderHistoryDetail?.shipping_building,
                 phone: orderHistoryDetail?.shipping_phone,
                 email: orderHistoryDetail?.shipping_email,
-
               }}
               title={t("client.order-detail.title_billing")}
             />
@@ -147,7 +158,6 @@ useEffect(() => {
                 building: orderHistoryDetail?.billing_building,
                 phone: orderHistoryDetail?.billing_phone,
                 email: orderHistoryDetail?.billing_email,
-
               }}
               title={t("client.order-detail.title_ship")}
             />

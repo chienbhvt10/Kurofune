@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CardCategoryDetail from "../../../commons/CardCategoryDetail";
 import "./category-list-detail.scss";
 import useCategory from "../../../hooks/category/useCategory";
+import PageHead from "../../../commons/PageHead";
 
 const CategoryListDetail = () => {
   const { i18n, t } = useTranslation();
@@ -17,6 +18,10 @@ const CategoryListDetail = () => {
   }, [id]);
   return (
     <>
+      <PageHead
+        title={t("meta.title_product_of_category")}
+        content={t("meta.content_product_of_category")}
+      />
       <div id="category-list-detail">
         <div className="list_categories">
           <div className="type-wrapper">

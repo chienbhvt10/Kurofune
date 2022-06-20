@@ -6,6 +6,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
 import { PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
+import PageHead from "../../../commons/PageHead";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 const formItemLayout = {
   labelCol: {
@@ -55,6 +56,10 @@ const ProductDetailPage = () => {
   };
   return (
     <>
+      <PageHead
+        title={t("meta.title_product_details")}
+        content={t("meta.content_product_details")}
+      />
       {productClient && (
         <div id="info-prod" className="card">
           <div className="container-detail-product">

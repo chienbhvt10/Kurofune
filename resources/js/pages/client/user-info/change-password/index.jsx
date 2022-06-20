@@ -2,14 +2,15 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
-import Helmet from "react-helmet";
 import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
 import InputField from "../../../../commons/Form/InputField";
+import PageHead from "../../../../commons/PageHead";
 import { validateUser } from "../../../../helper/validateField";
 import useChangePassword from "../../../../hooks/auth/useChangePassword";
-import "./style.scss";
 import { resetChangePasswordResponse } from "../../../../redux/actions/authAction";
+import "./style.scss";
+
 export const ChangePassword = () => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
@@ -59,12 +60,10 @@ export const ChangePassword = () => {
   }, [resChangePassword]);
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title> {t("member.change_password.title")}</title>
-        <meta name="description" content="Change Password Page" />
-        <meta name="og:title" content="Change Password" />
-      </Helmet>
+      <PageHead
+        title={t("meta.title_change_password")}
+        content={t("meta.content_change_password")}
+      />
       <Form
         className="change-password-form"
         form={changePasswordForm}

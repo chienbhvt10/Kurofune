@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import Footer from "../../../components/Footer";
 import "./qa.scss";
+import PageHead from "../../../commons/PageHead";
 
 const QAPage = () => {
   const { t } = useTranslation();
@@ -12,6 +13,7 @@ const QAPage = () => {
 
   return (
     <>
+      <PageHead title={t("meta.title_qa")} content={t("meta.content_qa")} />
       <Row justify="center" id="QA-page">
         <Col>
           <Row justify="center" className="qa-container">
@@ -60,7 +62,7 @@ const QAPage = () => {
                           <iframe
                             loading="lazy"
                             src="//www.youtube.com/embed/Rda05UqBtR8"
-                            allowfullscreen="allowfullscreen"
+                            allowFullScreen="allowfullscreen"
                           />
                         </Col>
                         <Col span={24} className="sub-a">
@@ -73,7 +75,7 @@ const QAPage = () => {
                           <iframe
                             loading="lazy"
                             src="//www.youtube.com/embed/vjyWFKmuij0"
-                            allowfullscreen="allowfullscreen"
+                            allowFullScreen="allowfullscreen"
                           />
                         </Col>
                       </Row>
