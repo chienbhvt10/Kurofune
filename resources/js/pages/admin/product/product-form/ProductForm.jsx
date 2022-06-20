@@ -66,7 +66,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           ? item?.translations[3]
           : productProfileFormVI.getFieldsValue()),
       },
-
       zh: {
         ...(Object.keys(productProfileFormZH.getFieldsValue()).length === 0
           ? item?.translations[4]
