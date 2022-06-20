@@ -51,8 +51,7 @@ class ProductController extends Controller
                 $category = $item->categories()->get()->toArray();
                 $dataResponse['data'][$key]['categories'] = $category;
                 $vendorProfile = $item->user()->first()->vendor_profile();
-                $store =  $vendorProfile->get()->toArray();
-                $dataResponse['data'][$key]['store'] = $store;
+                $dataResponse['data'][$key]['store'] = $vendorProfile->get()->toArray();
             }
 
             return $this->response_data_success($dataResponse);
