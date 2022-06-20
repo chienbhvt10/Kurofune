@@ -372,20 +372,19 @@
           "yo_2": "15-64 years old",
           "yo_3": "65 years of age or older"
         },
-
         "currently_treating": {
-          "c_1": "High blood pressure",
-          "c_2": "Diabetes",
-          "c_3": "Dyslipidemia",
-          "c_4": "Asthma",
-          "c_5": "Liver disease",
-          "c_6": "Heart disease",
-          "c_7": "Cerebral infarction",
-          "c_8": "Gastric / duodenal ulcer",
-          "c_9": "Thyroid disease",
-          "c_10": "Prostate disease",
-          "c_11": "Other (free description)",
-          "c_12": "There is none"
+          "c_1": "There is none",
+          "c_2": "High blood pressure",
+          "c_3": "Diabetes",
+          "c_4": "Dyslipidemia",
+          "c_5": "Asthma",
+          "c_6": "Liver disease",
+          "c_7": "Heart disease",
+          "c_8": "Cerebral infarction",
+          "c_9": "Gastric / duodenal ulcer",
+          "c_10": "Thyroid disease",
+          "c_11": "Prostate disease",
+          "c_12": "Other (free description)"
         }
       },
       "medicinal_efficacy": "Medicinal efficacy classification",

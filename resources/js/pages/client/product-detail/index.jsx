@@ -263,7 +263,7 @@ const ProductDetailPage = () => {
                     ))}
                   </Select>
                 </Form.Item>
-                {currentTreating === 11 && (
+                {currentTreating === 12 && (
                   <Form.Item
                     name="anket_7"
                     label=" "
