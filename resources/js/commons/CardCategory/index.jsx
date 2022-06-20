@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { DEFAULT_IMAGE } from "../../constants";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import "./card-category.scss";
-
+import { Tooltip } from 'antd';
 const CardCategory = ({ cardItems, type }) => {
   const lang = getCurrentLanguage();
 
@@ -25,7 +25,7 @@ const CardCategory = ({ cardItems, type }) => {
                   hoverable
                   cover={
                     <img
-                      style={{ objectFit: "cover" , height:"180px"}}
+                      style={{ objectFit: "cover", height: "180px" }}
                       src={item.category_image}
                       alt={item.name}
                       onError={(e) => {
@@ -35,7 +35,9 @@ const CardCategory = ({ cardItems, type }) => {
                     />
                   }
                 >
-                  <Card.Meta title={item.name || "Not set name now"} />
+                  <Card.Meta title={<span> <Tooltip title={item.name || "Not set name now"}>
+                    {item.name || "Not set name now"}
+                  </Tooltip> </span>} />
                 </Card>
               </Link>
             </Col>
