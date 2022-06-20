@@ -17,7 +17,6 @@ const SubFormCategoryTranslate = ({ lang, className, form, response, onSaverende
       >
         {(values, form) => {
           const renderErrorMessage = (field) => {
-
             return (
               <div className="form-error">{form.getFieldError(field) && t(form.getFieldError(field)[0])}</div>
             );
