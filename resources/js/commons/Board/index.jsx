@@ -55,7 +55,6 @@ const Board = ({ boardItems,setModalVisible }) => {
               </div>
               <div className="desc">
                 <h3 className="tit">{t(item.title)}</h3>
-                <h3 className="tit">{(item.title)}</h3>
               </div>
             </Link>
           )}
