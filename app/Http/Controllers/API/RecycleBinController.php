@@ -47,7 +47,7 @@ class RecycleBinController extends Controller
     public function forceDelete(Request $request ,$model)
     {
         try {
-            $ids = [1];
+            $ids = $request->ids ;
             $retore = ('\App\models\\'.$model)::whereIn('id',$ids)->forceDelete();
             return $this->response_message_data_success($retore);
         } catch (\Exception $error) {
