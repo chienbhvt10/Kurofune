@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import PageHead from "../../../commons/PageHead";
 import { FormInfo } from "../../../components/form-infor";
 import { TabLink } from "../../../components/tabs";
 import { BILLING_INFO_FORM } from "../../../constants";
@@ -27,6 +28,10 @@ const BillingAddress = () => {
 
   return (
     <div id="BillingAddress">
+      <PageHead
+        title={t("meta.title_billing_address")}
+        content={t("meta.content_billing_address")}
+      />
       <TabLink
         infoTabs={[
           {

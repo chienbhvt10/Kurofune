@@ -4,7 +4,7 @@ import { Popconfirm } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import "./table-row-action.scss";
-const TableRowAction = ({ onDelete, onEdit, record, confirmLoading }) => {
+const TableRowAction = ({ onDelete, onEdit, record, confirmLoading, style }) => {
   const { t } = useTranslation(0);
 
   const getDepend = () => {
@@ -15,7 +15,7 @@ const TableRowAction = ({ onDelete, onEdit, record, confirmLoading }) => {
     <div
       className="table-row-action"
       id={`pop-confirm-${record.id}`}
-      style={{ position: "relative" }}
+      style={{ position: "relative", ...style }}
     >
       <FontAwesomeIcon
         icon={faPenToSquare}

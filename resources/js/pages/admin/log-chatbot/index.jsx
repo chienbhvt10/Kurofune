@@ -1,15 +1,17 @@
-import React, { useState } from "react";
-import "./log.scss";
-import { TableHeader } from "../../../commons/TableHeader";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import { Table, Button, Modal } from "antd";
-import { HistoryChat } from "./history-chat";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Button, Modal, Table } from "antd";
+import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import useListChat from "../../../hooks/logChat/useListChat";
+import PageHead from "../../../commons/PageHead";
+import { TableHeader } from "../../../commons/TableHeader";
 import useDetailChat from "../../../hooks/logChat/useDetailChat";
 import useExportCsv from "../../../hooks/logChat/useExportCSV";
 import useExportCsvAll from "../../../hooks/logChat/useExportCSVAll";
+import useListChat from "../../../hooks/logChat/useListChat";
+import { HistoryChat } from "./history-chat";
+import "./log.scss";
+
 const LogChatBot = () => {
   const [page, setPage] = useState(1);
   const [visible, setVisible] = useState(false);
@@ -128,6 +130,10 @@ const LogChatBot = () => {
 
   return (
     <div className="log-container">
+      <PageHead
+        title={t("meta.title_log_chatbot")}
+        content={t("meta.content_log_chatbot")}
+      />
       <TableHeader
         breadcrumb={[
           { name: "Home", routerLink: "../" },

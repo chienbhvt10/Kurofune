@@ -3,9 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Col, Form, Input, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import InputField from "../../../commons/Form/InputField";
-import { getCurrentLanguage, getResetMail } from "../../../helper/localStorage";
+import PageHead from "../../../commons/PageHead";
+import { getResetMail } from "../../../helper/localStorage";
 import { validateAuth } from "../../../helper/validateField";
 import useResetPassword from "../../../hooks/auth/useResetPassword";
 import "./reset-password.scss";
@@ -61,130 +62,136 @@ const ResetPassword = () => {
   };
 
   return (
-    <Row justify="center">
-      <Col span={12}>
-        <Form
-          initialValues={resetPasswordInitValues}
-          name="reset-password-form"
-          onFinish={onResetPassword}
-          autoComplete="off"
-        >
-          <Row justify="center" align="middle">
-            <Col span={24}>
-              <InputField
-                field="email"
-                label="Email"
-                error="email"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                response={resResetPassword}
-                rules={renderErrorTranslate("email")}
-                type={
-                  <Input
-                    addonBefore={
-                      <img
-                        className="icon-input"
-                        src="/images/ic-user.png"
-                        alt=""
-                      />
-                    }
-                    className="input-field"
-                  />
-                }
-              />
-            </Col>
-            <Col span={24}>
-              <InputField
-                field="password"
-                label="Password"
-                error="password"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                rules={renderErrorTranslate("password")}
-                response={resResetPassword}
-                type={
-                  <Input
-                    type={!showPassword ? "password" : "text"}
-                    addonBefore={
-                      <img
-                        className="icon-input"
-                        src="/images/ic-key.png"
-                        alt=""
-                      />
-                    }
-                    addonAfter={
-                      <FontAwesomeIcon
-                        icon={!showPassword ? faEyeSlash : faEye}
-                        color="#515151"
-                        size="sm"
-                        style={{ cursor: "pointer" }}
-                        onClick={() => setShowPassword(!showPassword)}
-                      />
-                    }
-                  />
-                }
-              />
-            </Col>
-            <Col span={24}>
-              <InputField
-                field="password_confirmation"
-                label="Password confirmation"
-                error="password_confirmation"
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                dependencies={["password"]}
-                rules={renderErrorTranslate("password_confirmation")}
-                response={resResetPassword}
-                type={
-                  <Input
-                    type={!showPasswordConfirm ? "password" : "text"}
-                    className="input-field"
-                    addonBefore={
-                      <img
-                        className="icon-input"
-                        src="/images/ic-key.png"
-                        alt=""
-                      />
-                    }
-                    addonAfter={
-                      <FontAwesomeIcon
-                        icon={!showPasswordConfirm ? faEyeSlash : faEye}
-                        color="#515151"
-                        size="sm"
-                        style={{ cursor: "pointer" }}
-                        onClick={() =>
-                          setShowPasswordConfirm(!showPasswordConfirm)
-                        }
-                      />
-                    }
-                  />
-                }
-              />
-            </Col>
-            <Col span={24}>
-              <InputField
-                field="token"
-                label=""
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 24 }}
-                response={resResetPassword}
-                type={<Input hidden />}
-              />
-            </Col>
-            <Col span={12}>
-              <Button
-                loading={loadingResetPassword}
-                type="primary"
-                className="w-100"
-                htmlType="submit"
-              >
-                Save
-              </Button>
-            </Col>
-          </Row>
-        </Form>
-      </Col>
-    </Row>
+    <>
+      <PageHead
+        title={t("meta.title_reset_password")}
+        content={t("meta.content_reset_password")}
+      />
+      <Row justify="center">
+        <Col span={12}>
+          <Form
+            initialValues={resetPasswordInitValues}
+            name="reset-password-form"
+            onFinish={onResetPassword}
+            autoComplete="off"
+          >
+            <Row justify="center" align="middle">
+              <Col span={24}>
+                <InputField
+                  field="email"
+                  label="Email"
+                  error="email"
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 24 }}
+                  response={resResetPassword}
+                  rules={renderErrorTranslate("email")}
+                  type={
+                    <Input
+                      addonBefore={
+                        <img
+                          className="icon-input"
+                          src="/images/ic-user.png"
+                          alt=""
+                        />
+                      }
+                      className="input-field"
+                    />
+                  }
+                />
+              </Col>
+              <Col span={24}>
+                <InputField
+                  field="password"
+                  label="Password"
+                  error="password"
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 24 }}
+                  rules={renderErrorTranslate("password")}
+                  response={resResetPassword}
+                  type={
+                    <Input
+                      type={!showPassword ? "password" : "text"}
+                      addonBefore={
+                        <img
+                          className="icon-input"
+                          src="/images/ic-key.png"
+                          alt=""
+                        />
+                      }
+                      addonAfter={
+                        <FontAwesomeIcon
+                          icon={!showPassword ? faEyeSlash : faEye}
+                          color="#515151"
+                          size="sm"
+                          style={{ cursor: "pointer" }}
+                          onClick={() => setShowPassword(!showPassword)}
+                        />
+                      }
+                    />
+                  }
+                />
+              </Col>
+              <Col span={24}>
+                <InputField
+                  field="password_confirmation"
+                  label="Password confirmation"
+                  error="password_confirmation"
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 24 }}
+                  dependencies={["password"]}
+                  rules={renderErrorTranslate("password_confirmation")}
+                  response={resResetPassword}
+                  type={
+                    <Input
+                      type={!showPasswordConfirm ? "password" : "text"}
+                      className="input-field"
+                      addonBefore={
+                        <img
+                          className="icon-input"
+                          src="/images/ic-key.png"
+                          alt=""
+                        />
+                      }
+                      addonAfter={
+                        <FontAwesomeIcon
+                          icon={!showPasswordConfirm ? faEyeSlash : faEye}
+                          color="#515151"
+                          size="sm"
+                          style={{ cursor: "pointer" }}
+                          onClick={() =>
+                            setShowPasswordConfirm(!showPasswordConfirm)
+                          }
+                        />
+                      }
+                    />
+                  }
+                />
+              </Col>
+              <Col span={24}>
+                <InputField
+                  field="token"
+                  label=""
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 24 }}
+                  response={resResetPassword}
+                  type={<Input hidden />}
+                />
+              </Col>
+              <Col span={12}>
+                <Button
+                  loading={loadingResetPassword}
+                  type="primary"
+                  className="w-100"
+                  htmlType="submit"
+                >
+                  Save
+                </Button>
+              </Col>
+            </Row>
+          </Form>
+        </Col>
+      </Row>
+    </>
   );
 };
 

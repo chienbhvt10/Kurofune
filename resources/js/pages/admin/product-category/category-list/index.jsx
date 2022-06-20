@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
+import PageHead from "../../../../commons/PageHead";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategories.js";
 import useDeleteAdminCategory from "../../../../hooks/categoryAdmin/useDeleteAdminCategory.js";
 import "./category.scss";
 import CategoryTable from "./CategoryTable";
-import { useTranslation } from "react-i18next";
 
 const CategoryList = () => {
   const { getAdminCategories, adminCategories, pagination } =
@@ -52,15 +53,13 @@ const CategoryList = () => {
 
   return (
     <div className="category-container">
+      <PageHead
+        title={t("meta.title_category_list")}
+        content={t("meta.content_category_list")}
+      />
       <TableHeader
         addLink={`${lang}/admin/category/add`}
-        breadcrumb={[
-          { name: "Home", routerLink: "../" },
-          {
-            name: t("admins.category.title.category_list"),
-            routerLink: "/category-list",
-          },
-        ]}
+        breadcrumb={[]}
         title={t("admins.category.title.product_category_title")}
         searchField="name"
         onSearch={onSearch}

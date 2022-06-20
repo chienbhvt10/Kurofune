@@ -1,7 +1,11 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
-import { NotificationError, NotificationSuccess } from "../../../../commons/Notification/index.jsx";
+import {
+  NotificationError,
+  NotificationSuccess,
+} from "../../../../commons/Notification/index.jsx";
+import PageHead from "../../../../commons/PageHead";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import useProductDetail from "../../../../hooks/product/useProductDetail";
 import useProducts from "../../../../hooks/product/useProducts.js";
@@ -44,13 +48,17 @@ const UpdateProduct = () => {
       getAllProducts();
     }
     if (resUpdateProduct?.error_code === "ERROR") {
-      const { sku, slug } = resUpdateProduct?.error_data
+      const { sku, slug } = resUpdateProduct?.error_data;
       slug && NotificationError(t("notification"), slug);
       sku && NotificationError(t("notification"), sku);
     }
   }, [resUpdateProduct]);
   return (
     <div id="update-product-page">
+      <PageHead
+        title={t("meta.title_product_update")}
+        content={t("meta.content_product_update")}
+      />
       <ProductForm
         item={product}
         typeForm={TYPE_FORM_UPDATE}

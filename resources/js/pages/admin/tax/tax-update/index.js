@@ -6,6 +6,7 @@ import useTax from "../../../../hooks/tax/useTax";
 import useUpdateTax from "../../../../hooks/tax/useUpdateTax";
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import PageHead from "../../../../commons/PageHead";
 
 const UpdateTax = () => {
   const lang = getCurrentLanguage();
@@ -31,6 +32,10 @@ const UpdateTax = () => {
 
   return (
     <div id="update-category-page">
+      <PageHead
+        title={t("meta.title_tax_update")}
+        content={t("meta.content_tax_update")}
+      />
       <TaxForm
         item={tax}
         typeForm={TYPE_FORM_UPDATE}
