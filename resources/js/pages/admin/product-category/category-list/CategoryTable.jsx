@@ -34,9 +34,11 @@ const CategoryTable = ({
         />
       ),
       render: (_, record) => (
-        <Link to="#">
-          <img src={record.category_image} alt="" width={40} height={40} />
-        </Link>
+        <div className="table-column-break">
+          <Link to="#">
+            <img src={record.category_image} alt="" width={40} height={40} />
+          </Link>
+        </div>
       ),
     },
     {
@@ -51,7 +53,7 @@ const CategoryTable = ({
       render: (_, record) => {
         let _lang = lang || "/ja";
         return (
-          <div className="table-column">
+          <div className="table-column-break">
             <Link
               to={`${lang}/admin/category/update/${record.id}`}
               className="text-decoration-none d-flex"
@@ -70,12 +72,14 @@ const CategoryTable = ({
       dataIndex: "slug",
       width: "20%",
       title: (
-        <span className="title-header-category">
-          {t("admins.category.slug_field")}
-        </span>
+        <div className="table-column-break">
+          <span className="title-header-category">
+            {t("admins.category.slug_field")}
+          </span>
+        </div>
       ),
       render: (_, record) => (
-        <div className="table-column">
+        <div className="table-column-break">
           <span>{record.slug}</span>
         </div>
       ),
@@ -90,7 +94,7 @@ const CategoryTable = ({
         </div>
       ),
       render: (_, record) => (
-        <div className="table-column">
+        <div className="table-column-break">
           <span>
             {t(
               CATEGORY_OPTIONS.CATEGORY_TYPES.find((type) => {
@@ -113,7 +117,7 @@ const CategoryTable = ({
         width: 100,
       },
       render: (_, record) => (
-        <div className="table-column">
+        <div className="table-column-break">
           <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
         </div>
       ),
