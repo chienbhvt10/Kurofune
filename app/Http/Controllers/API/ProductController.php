@@ -46,8 +46,13 @@ class ProductController extends Controller
                     $product = $user->products()->paginate($posts_per_page);
                 }
             }
-            return $this->response_data_success($product);
+            $dataResponse = $product->toArray();
+            foreach ($product as $key => $item) {
+                $category = $item->categories()->get()->toArray();
+                $dataResponse['data'][$key]['categories'] = $category;
+            }
 
+            return $this->response_data_success($dataResponse);
         }catch (\Exception $error){
             return $this->response_exception();
         }
@@ -111,6 +116,7 @@ class ProductController extends Controller
                 'user_id' => $user_id,
                 'slug' => $slug,
                 'sku' => $request->sku,
+                'status' => $request->status,
                 'stock_status' => $request->stock_status,
                 'price' => $request->price ?? null,
                 'product_image' => $image_product,
