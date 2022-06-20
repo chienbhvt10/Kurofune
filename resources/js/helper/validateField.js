@@ -3,7 +3,12 @@ export const validateUser = {
   name: [{ required: true, message: "admins.user.error.name_required" }],
   email: [
     { required: true, message: "admins.user.error.email.required" },
-    { type: "email", message: "admins.user.error.email.type" },
+    {
+      pattern: new RegExp(
+        /^([\w\-]|[^ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\W]|(\.(?!(\.|@))))+@([\w-]+\.)+[\w-]{2,4}$/
+      ),
+      message: "admins.user.error.email.type",
+    },
   ],
   phone: [
     {
@@ -25,7 +30,7 @@ export const validateUser = {
   password: [
     {
       required: true,
-      message: "admins.user.error.password.required"
+      message: "admins.user.error.password.required",
     },
     {
       min: 8,
@@ -45,7 +50,7 @@ export const validateUser = {
     },
     {
       pattern: new RegExp(/^\S*$/u),
-      message: "admins.user.error.password.pattern_space"
+      message: "admins.user.error.password.pattern_space",
     },
   ],
   active: [{ required: true, message: "admins.user.error.active_required" }],
