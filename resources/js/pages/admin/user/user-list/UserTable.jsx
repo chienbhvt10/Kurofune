@@ -118,14 +118,13 @@ export const UserTable = ({
         width: 100,
       },
       render: (cell, row) => (
-        <div className="table-column-break">
-          <TableRowAction
-            confirmLoading={loadingDeleteUser}
-            record={row}
-            onDelete={onDelete}
-            onEdit={onEdit}
-          />
-        </div>
+        <TableRowAction
+          confirmLoading={loadingDeleteUser}
+          record={row}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          style={{ display: "flex" }}
+        />
       ),
     },
   ];
