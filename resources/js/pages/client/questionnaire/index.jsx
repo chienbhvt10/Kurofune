@@ -44,6 +44,11 @@ export const Questionnaire = () => {
         webChat.style.display = "block";
       }
     })();
+    return () => {
+      const sc = document.getElementsByTagName("script")[0];
+      const webChat = document.getElementsByClassName("wc-webchat-ctn")[0];
+      webChat.style.display = "none";
+    };
   }, []);
 
   const onFinish = (values) => {
