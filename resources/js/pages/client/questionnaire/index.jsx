@@ -18,6 +18,32 @@ export const Questionnaire = () => {
 
   React.useEffect(() => {
     forceUpdate({});
+    (function () {
+      const sc = document.querySelectorAll("script");
+      let activeChat = false;
+      sc.forEach((el) => {
+        if (
+          el.attributes.src?.nodeValue ==
+          "https://front.ebot.chat/embed/js/webInit.js"
+        ) {
+          activeChat = true;
+        }
+      });
+      if (!activeChat) {
+        const webJs = document.createElement("script");
+        webJs.type = "text/javascript";
+        webJs.async = true;
+        webJs.src = "https://front.ebot.chat/embed/js/webInit.js";
+        webJs.onload = function () {
+          webInit("61792ae247e39e694a190fa6");
+        };
+        const chatbot = document.getElementsByTagName("script")[0];
+        chatbot.parentNode.insertBefore(webJs, chatbot);
+      } else {
+        const webChat = document.getElementsByClassName("wc-webchat-ctn")[0];
+        webChat.style.display = "block";
+      }
+    })();
   }, []);
 
   const onFinish = (values) => {
