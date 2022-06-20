@@ -144,21 +144,7 @@ const CategoryForm = ({
           return (
 
             <>
-              <FormHeader
-                breadcrumb={[
-                  {
-                    name: t("admins.category.title.category_list"),
-                    routerLink: `${lang}/admin/category-list`,
-                  },
-                  {
-                    name: t("admins.category.title.category_add"),
-                    routerLink: "/admin/category/add",
-                  },
-                ]}
-                title={title}
-                onCancel={onCancel}
-              />
-
+                <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
               <div>
                 <TranslateCategoryForm
                   formEN={categoryProfileFormEN}

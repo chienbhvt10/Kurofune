@@ -480,6 +480,7 @@
           "required": "Vui lòng nhập mật khẩu của bạn.",
           "pattern_number": "Trường Mật khẩu phải chứa ít nhất một số.",
           "pattern_alpha": "Trường Mật khẩu phải chứa ít nhất một chữ hoa và một chữ thường.",
+          "pattern_space": "Mật khẩu không được chứa khoảng trắng.",
           "pattern_special_characters": "Trường Mật khẩu phải chứa ít nhất một ký tự đặc biệt.",
           "min": "Trường Mật khẩu phải có ít nhất 8 ký tự."
         },
@@ -521,6 +522,7 @@
       "date_field": "Ngày đăng sản phẩm",
       "store_field": "Nhà thuốc",
       "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
+      "placeholder_select_tax": "Please select tax",
       "tax_field": "Thuế",
       "meta_title_field": "Thẻ Meta Title",
       "meta_description_field": "Thẻ Meta Description",
@@ -538,7 +540,7 @@
       "name_field": "Tên gọi chung",
       "field_name": "Tên sản phẩm",
       "use_manual_field": "Cách sử dụng",
-      "product_list":"Danh sách sản phẩm",
+      "product_list": "Danh sách sản phẩm",
       "error_message": {
         "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
         "error_status": "Trường 'Trạng thái' là trường bắt buộc",

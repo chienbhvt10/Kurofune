@@ -27,7 +27,7 @@ const ProductList = () => {
     navigate(`${lang}/admin/product/update/${row.id}`);
   };
   const onSearch = (values) => {
-    getAllProducts({name: values.name });
+    getAllProducts({ name: values.name });
   };
 
   const onTableChange = (paginationTable, filters, sorter) => {
@@ -53,9 +53,7 @@ const ProductList = () => {
     <div className="product-container">
       <TableHeader
         addLink={`${lang}/admin/product/add`}
-        breadcrumb={[
-          { name:  t("admins.product.product_list"), routerLink: `${lang}/product-list` },
-        ]}
+        breadcrumb={[]}
         title="Product"
         searchField="name"
         onSearch={onSearch}

@@ -25,8 +25,7 @@ export const validateUser = {
   password: [
     {
       required: true,
-      message: "admins.user.error.password.required",
-      whiteSpace: true,
+      message: "admins.user.error.password.required"
     },
     {
       min: 8,
@@ -44,6 +43,10 @@ export const validateUser = {
       pattern: new RegExp(/^(?:(?=.*[a-z])(?=.*[A-Z]).*)$/),
       message: "admins.user.error.password.pattern_alpha",
     },
+    {
+      pattern: new RegExp(/^\S*$/u),
+      message: "admins.user.error.password.pattern_space"
+    },
   ],
   active: [{ required: true, message: "admins.user.error.active_required" }],
   postal_code: [
@@ -56,6 +59,7 @@ export const validateUser = {
       message: "admins.user.error.postal_code.max_7_number",
     },
   ],
+
   billing_shipping: {
     postal_code: [
       {

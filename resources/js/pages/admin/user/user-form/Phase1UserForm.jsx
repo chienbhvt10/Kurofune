@@ -70,7 +70,7 @@ export const UserForm = ({
   }, [item]);
 
   const renderErrorTranslate = (field) => {
-    let validator = validateUser?.[field]
+    let validator = validateUser[field]
     if( typeForm === TYPE_FORM_UPDATE && field === "password"){
       validator = validateUser.password.slice(1)
     }

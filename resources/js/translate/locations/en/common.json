@@ -419,7 +419,7 @@
           "field_business_hours": "Business Hours",
           "field_consultation_hours": "Consultation hours outside business hours",
           "field_contact_information": "Contact information for consultation and emergencies",
-          "field_current_working": "Currently working pharmacist(in charge)",
+          "field_current_working": "Currently working pharmacist (in charge)",
           "field_open_sale_time": "Open Sale Time",
           "field_time_order_outside": "Time to accept drug orders outside business hours",
           "field_expiration_date_of_drug": "Expiration date of drugs for specific sale",
@@ -485,6 +485,7 @@
           "required": "Please input your password.",
           "pattern_number": "Password must contain at least one number.",
           "pattern_alpha": "Password must contain at least one uppercase and one lowercase letter",
+          "pattern_space": "Password must not contain spaces",
           "pattern_special_characters": "Password must contain at least one symbol.",
           "min": "Password must contain at least eight characters."
         },
@@ -578,6 +579,7 @@
       "meta_keyword_field": "Meta Keyword",
       "product_image_field": "Product Image",
       "placeholder_seach": "Please enter name product",
+      "placeholder_select_tax": "Please select tax",
       "name_field": "Product Name",
       "field_name": "Name",
       "medicinal_efficacy_classification_field": "Medicinal Efficacy Classification",
@@ -590,7 +592,7 @@
       "precautions_storage_handling_field": "Precautions for Storage and Handling",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Use Manual",
-      "product_list":"Product List",
+      "product_list": "Product List",
       "error_message": {
         "error_vendor": "The Vendor field is required",
         "error_status": "The Status field is required",

@@ -480,6 +480,7 @@
           "required": "Mangyaring ipasok ang iyong password.",
           "pattern_number": "Ang password ay dapat maglaman ng hindi bababa sa isang numero.",
           "pattern_alpha": "Ang password ay dapat maglaman ng hindi bababa sa isang malaking titik at isang maliit na titik",
+          "pattern_space": "Ang password ay hindi dapat maglaman ng mga puwang.",
           "pattern_special_characters": "Ang password ay dapat maglaman ng kahit isang simbolo.",
           "min": "Dapat maglaman ang password ng hindi bababa sa walong character."
         },
@@ -524,8 +525,9 @@
       "meta_keyword_field": "Mga tampok",
       "product_image_field": "Larawan ng Produkto",
       "placeholder_seach": "Please enter name product",
+      "placeholder_select_tax": "Please select tax",
       "name_field": "Buwis",
-      "field_name":"Pangalan",
+      "field_name": "Pangalan",
       "medicinal_efficacy_classification_field": "Pag-uuri ng pagiging epektibo ng gamot",
       "features_field": "Mga tampok",
       "precautions_field": "Mga pag-iingat",
@@ -536,7 +538,7 @@
       "precautions_storage_handling_field": "Mga Pag-iingat para sa Pag-iimbak at Paghawak",
       "manufacturer_field": "Manufacturer",
       "use_manual_field": "Gumamit ng Manual",
-      "product_list":"Listahan ng Produkto",
+      "product_list": "Listahan ng Produkto",
       "error_message": {
         "error_vendor": "Kinakailangan ang field ng Vendor",
         "error_status": "Kinakailangan ang field ng Status",

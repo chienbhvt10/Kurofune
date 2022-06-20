@@ -6,6 +6,7 @@ import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
 import { PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -20,6 +21,7 @@ const formItemLayout = {
 const ProductDetailPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
+  const lang = getCurrentLanguage();
   const location = useLocation();
   const { getProductClient, productClient } = useProductClient();
   const [productSideEfectSelect, setProductSideEffectSelect] = useState(null);
@@ -88,6 +90,7 @@ const ProductDetailPage = () => {
                           <div className="Ybrg9j">
                             <span className="woocommerce-Price-amount amount">
                               <bdi>{productClient.price}</bdi>
+                              <span>{!lang ? "円" : "(JPY)"}</span>
                             </span>
                           </div>
                         </div>
@@ -401,6 +404,6 @@ const ProductDetailPage = () => {
       )}
     </>
   );
-};;;;
+};
 
 export default ProductDetailPage;

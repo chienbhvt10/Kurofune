@@ -3,7 +3,7 @@ import "./order-detail.scss";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import useOrderHistory from "../../../hooks/order-history/UseOrderHistory";
+import useOrderHistory from "../../../hooks/order-history/useOrderHistory";
 import BillingShipInfo from "../../../commons/BillingShipInfo";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import moment from "moment";
