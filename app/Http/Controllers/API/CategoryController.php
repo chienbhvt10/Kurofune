@@ -210,9 +210,6 @@ class CategoryController extends Controller
     {
         try {
             $cat = Category::find($id);
-            $cat->update([
-                'slug' => rand(1,999999).'-'.$cat->slug
-            ]);
             $cat->delete();
             return $this->response_message_success(__('message.category.deleted'));
         } catch (\Exception $error) {
@@ -255,39 +252,6 @@ class CategoryController extends Controller
             $products = $cat->products()->where('status', 'publish')->with('categories')->get();
 
             return $this->response_data_success($products);
-        } catch (\Exception $error) {
-            return $this->response_exception();
-        }
-    }
-
-    public function getListDeleted(Request $request)
-    {
-        try {
-            $posts_per_page = get_per_page($request->per_page);
-            $data = Category::withTrashed()->paginate($posts_per_page);
-            return $this->response_data_success($data);
-        } catch (\Exception $error) {
-            return $this->response_exception();
-        }
-    }
-
-    public function restoreListDeleted(Request $request)
-    {
-        try {
-            $ids = [];
-            $retore = Category::withTrashed()->whereIn('id',$ids)->restore();
-            return $this->response_message_data_success(__('message.category.restore'), $retore);
-        } catch (\Exception $error) {
-            return $this->response_exception();
-        }
-    }
-
-    public function forceDelete(Request $request)
-    {
-        try {
-            $ids = $request->id;
-            $retore = Category::whereIn('id',$ids)->forceDelete();
-            return $this->response_message_data_success(__('message.category.force_delete'), $retore);
         } catch (\Exception $error) {
             return $this->response_exception();
         }

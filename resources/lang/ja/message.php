@@ -10,7 +10,8 @@ return [
         'vendor' => [
             'not_data' => '薬局リストが空です。'
         ],
-        'inactive' => 'ユーザーが非アクティブ'
+        'inactive' => 'ユーザーが非アクティブ',
+        'unauthenticated' => 'not authorized'
     ],
     'role' => [
         'created' => 'ロールを作成しました。',
