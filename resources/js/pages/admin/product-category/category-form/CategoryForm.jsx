@@ -135,101 +135,101 @@ const CategoryForm = ({
           ...initialCommonValues,
         }}
       >
-        <FormHeader
-          breadcrumb={[
-            {
-              name: t("admins.category.title.category_list"),
-              routerLink: `${lang}/admin/category-list`,
-            },
-            {
-              name: t("admins.category.title.category_add"),
-              routerLink: "/admin/category/add",
-            },
-          ]}
-          title={title}
-          onCancel={onCancel}
-        />
+        {(values, form) => {
+        const renderErrorMessage = (field) => {
+          return (
+            <div className="form-error">{form.getFieldError(field) && t(form.getFieldError(field)[0])}</div>
+          );
+        };
+          return (
 
-        <div>
-          <TranslateCategoryForm
-            formEN={categoryProfileFormEN}
-            formJP={categoryProfileFormJP}
-            formTL={categoryProfileFormTL}
-            formVI={categoryProfileFormVI}
-            formZH={categoryProfileFormZH}
-            response={response}
-          />
-
-          <Row className="mb-30">
-            <Col span={12} className="input-field-space">
-              <Form.Item
-                field="product_image"
-                label={t("admins.category.product_image_field")}
-                required={true}
-              >
-                <UploadDragger
-                  onChangeImage={onChangeAvatar}
-                  imageUrlProps={avatarState.avatarUrl}
-                  loading={avatarState.loading}
-                  mode="multiple"
-                  className="form-image-custom"
-                />
-                {errorMessImage && (
-                  <span style={{ color: "red" }}>
-                    {t("admins.category.error_message.error_category_image")}
-                  </span>
-                )}
-              </Form.Item>
-            </Col>
-
-            <Col span={12} className="mb-30">
-              <Col span={24} className="input-field-space">
-                <InputField
-                  field="slug"
-                  label={t("admins.category.slug_field")}
-                  // rules={[]}
+            <>
+                <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
+              <div>
+                <TranslateCategoryForm
+                  formEN={categoryProfileFormEN}
+                  formJP={categoryProfileFormJP}
+                  formTL={categoryProfileFormTL}
+                  formVI={categoryProfileFormVI}
+                  formZH={categoryProfileFormZH}
                   response={response}
-                  error="slug"
-                  placeholder={t("admins.category.placeholder_text")}
-                  type={<Input />}
                 />
-              </Col>
-              <Col span={24} className="input-field-space">
-                <SelectField
-                  field="type"
-                  label={t("admins.category.type_field")}
-                  validateStatus={true}
-                  rules={[
-                    {
-                      required: true,
-                      message: t("admins.category.error_message.error_type"),
-                    },
-                  ]}
-                  type={<Input type="number" className="input-field" />}
-                  response={response}
-                  errorField="type"
-                  options={CATEGORY_OPTIONS.CATEGORY_TYPES}
-                />
-              </Col>
 
-              <Col span={24} className="input-field-space">
-                <SelectField
-                  field="parent_id"
-                  label={t("admins.category.parent_category_field")}
-                  // validateStatus={"Please enter your parent catogory"}
-                  response={response}
-                  errorField="parent_id"
-                >
-                  {categories?.map((option, index) => (
-                    <Select.Option key={index} value={option.id}>
-                      {option.name}
-                    </Select.Option>
-                  ))}
-                </SelectField>
-              </Col>
-            </Col>
-          </Row>
-        </div>
+                <Row className="mb-30">
+                  <Col span={12} className="input-field-space">
+                    <Form.Item
+                      field="product_image"
+                      label={t("admins.category.product_image_field")}
+                      required={true}
+                    >
+                      <UploadDragger
+                        onChangeImage={onChangeAvatar}
+                        imageUrlProps={avatarState.avatarUrl}
+                        loading={avatarState.loading}
+                        mode="multiple"
+                        className="form-image-custom"
+                      />
+                      {errorMessImage && (
+                        <span style={{ color: "red" }}>
+                          {t("admins.category.error_message.error_category_image")}
+                        </span>
+                      )}
+                    </Form.Item>
+                  </Col>
+
+                  <Col span={12} className="mb-30">
+                    <Col span={24} className="input-field-space">
+                      <InputField
+                        field="slug"
+                        label={t("admins.category.slug_field")}
+                        // rules={[]}
+                        response={response}
+                        error="slug"
+                        placeholder={t("admins.category.placeholder_text")}
+                        type={<Input />}
+                      />
+                    </Col>
+                    <Col span={24} className="input-field-space">
+                      <SelectField
+                        field="type"
+                        label={t("admins.category.type_field")}
+                        validateStatus={true}
+                        rules={[
+                          {
+                            required: true,
+                            message: "admins.category.error_message.error_type",
+                          },
+                        ]}
+                        type={<Input type="number" className="input-field" />}
+                        response={response}
+                        errorField="type"
+                        options={CATEGORY_OPTIONS.CATEGORY_TYPES}
+                        
+                      />
+                      {renderErrorMessage('type')}
+                    </Col>
+
+                    <Col span={24} className="input-field-space">
+                      <SelectField
+                        field="parent_id"
+                        label={t("admins.category.parent_category_field")}
+                        // validateStatus={"Please enter your parent catogory"}
+                        response={response}
+                        errorField="parent_id"
+                      >
+                        {categories?.map((option, index) => (
+                          <Select.Option key={index} value={option.id}>
+                            {option.name}
+                          </Select.Option>
+                        ))}
+                      </SelectField>
+                    </Col>
+                  </Col>
+                </Row>
+              </div>
+            </>
+          )
+        }}
       </Form>
     </div>
   );

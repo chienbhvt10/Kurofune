@@ -1,6 +1,7 @@
 import { Select } from "antd";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useTranslation } from "react-i18next";
+import PageHead from "../../../../commons/PageHead";
 import { TableHeader } from "../../../../commons/TableHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useRoles from "../../../../hooks/role/useRoles";
@@ -36,6 +37,10 @@ export const UserList = () => {
 
   return (
     <div className="user-list">
+      <PageHead
+        title={t("meta.title_user_list")}
+        content={t("meta.content_user_list")}
+      />
       <TableHeader
         addLink={`${lang}/admin/user-create`}
         title={t("admins.user.list.title")}

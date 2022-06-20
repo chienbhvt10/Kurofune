@@ -15,6 +15,8 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const initialCommonValues = getTaxInitValues(item);
   const [taxForm] = Form.useForm();
 
+  const exceptThisSymbols = ["e", "E", "+", "-", "."];
+
   const onFinishAll = (values) => {
     const submitInput = {
       id: item?.id,
@@ -41,20 +43,7 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         }}
         className="mb-30"
       >
-        <FormHeader
-          breadcrumb={[
-            {
-              name: t("admins.tax.title.tax_title"),
-              routerLink: `${lang}/admin/tax-list`,
-            },
-            {
-              name: t("admins.tax.title.add_tax"),
-              routerLink: "/admin/tax/add",
-            },
-          ]}
-          title={title}
-          onCancel={onCancel}
-        />
+        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
         <Row span={24} className="mb-30">
           <Col span={24}>
             <InputField
@@ -89,7 +78,15 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               response={response}
               error="value"
               placeholder={t("admins.tax.placeholder_search_value")}
-              type={<Input type="number" min={0} />}
+              type={
+                <Input
+                  type="number"
+                  min={0}
+                  onKeyDown={(e) =>
+                    exceptThisSymbols.includes(e.key) && e.preventDefault()
+                  }
+                />
+              }
             />
           </Col>
         </Row>

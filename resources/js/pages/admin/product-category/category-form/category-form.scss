@@ -46,7 +46,12 @@
       }
     }
   }
-
+  .form-error{
+    color:red;
+  }
+  .ant-form-item-explain-error{
+    display: none;
+  }
   .input-field-space {
     padding: 0 30px;
   }

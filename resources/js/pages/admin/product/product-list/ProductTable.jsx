@@ -65,7 +65,13 @@ const ProductTable = ({
       key: "categories",
       dataIndex: "categories",
       title: t("admins.product.category_field"),
-      render: (_, record) => <span>{record.categories}</span>,
+      render: (_, record) => (
+        <div className="category-wrapper">
+          {record?.categories.map((item) => (
+            <span>{item?.name}</span>
+          ))}
+        </div>
+      ),
     },
     {
       key: "date",

@@ -18,6 +18,7 @@ class CreateOrderProductTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('order_id');
             $table->unsignedBigInteger('quantity');
+            $table->string('product_name');
             $table->tinyInteger('anket_1');
             $table->tinyInteger('anket_2');
             $table->tinyInteger('anket_3');

@@ -6,6 +6,7 @@ import { Table } from "antd";
 import moment from "moment";
 import useOrderHistory from "../../../hooks/order-history/useOrderHistory";
 import "./order-history.scss";
+import PageHead from "../../../commons/PageHead";
 const OrderHistoryPage = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -19,7 +20,8 @@ const OrderHistoryPage = () => {
       title: t("client.order-history.th_order_date"),
       dataIndex: "date_order",
       key: "date_order",
-      render: (date_order) => (moment(date_order).zone("+09:00").format("YYYY/MM/DD"))
+      render: (date_order) =>
+        moment(date_order).zone("+09:00").format("YYYY/MM/DD"),
     },
     {
       title: t("client.order-history.th_order_ID"),
@@ -48,7 +50,7 @@ const OrderHistoryPage = () => {
                 <img
                   width="50"
                   alt="アネトンせき止め顆粒 16包"
-                  src={product?.imageUrl || '/images/image-default.png'}
+                  src={product?.imageUrl || "/images/image-default.png"}
                 />
               </div>
               <div className="p-item p-name">{product.name}</div>
@@ -70,6 +72,10 @@ const OrderHistoryPage = () => {
   ];
   return (
     <div id="order-history" className="list_order">
+      <PageHead
+        title={t("meta.title_order_history")}
+        content={t("meta.content_order_history")}
+      />
       <div className="card table-responsive">
         <Table rowKey="id" dataSource={orderHistory} columns={columns} />
       </div>

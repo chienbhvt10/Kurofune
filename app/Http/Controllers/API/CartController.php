@@ -284,6 +284,7 @@ class CartController extends Controller
 
                     $tmp[$vendor_id]['product_items'][] = [
                         'product_id' => $product->id,
+                        'product_name' => $product->name,
                         'quantity' => $quantity,
                         'anket_1' => $item->anket_1,
                         'anket_2' => $item->anket_2,

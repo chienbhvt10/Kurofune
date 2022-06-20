@@ -4,6 +4,7 @@ import PageHead from "../../../commons/PageHead";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
+import { Tooltip } from 'antd';
 const PharmacyDetail = () => {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -15,7 +16,10 @@ const PharmacyDetail = () => {
   }, [id]);
   return (
     <>
-      <PageHead content="Pharmacy Detail" title="Pharmacy Detail" />
+      <PageHead
+        title={t("meta.title_pharmacy_details")}
+        content={t("meta.content_pharmacy_details")}
+      />
       <div id="list-of-pharmacies">
         <div className="list_pharmacies">
           <div className="card card-list-pharmacies">
@@ -36,22 +40,18 @@ const PharmacyDetail = () => {
                     {t("client.list_pharmacies.inside_image")}
                   </div>
                   <div className="item-info border-none">
-                  {pharmacy?.images_outside.map(item =>
-                    <div className="item-image">
-                      <img
-                        alt="image-vendor"
-                        src={item}
-                      />
-                    </div>)}
+                    {pharmacy?.images_outside.map((item) => (
+                      <div className="item-image">
+                        <img alt="image-vendor" src={item} />
+                      </div>
+                    ))}
                   </div>
                   <div className="item-info border-none">
-                    {pharmacy?.images_inside.map(item =>
-                    <div className="item-image">
-                      <img
-                        alt="image-vendor"
-                        src={item}
-                      />
-                    </div>)}
+                    {pharmacy?.images_inside.map((item) => (
+                      <div className="item-image">
+                        <img alt="image-vendor" src={item} />
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

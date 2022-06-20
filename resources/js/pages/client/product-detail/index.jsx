@@ -6,6 +6,8 @@ import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
 import { PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
+import PageHead from "../../../commons/PageHead";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -20,6 +22,7 @@ const formItemLayout = {
 const ProductDetailPage = () => {
   const { t } = useTranslation();
   const { id } = useParams();
+  const lang = getCurrentLanguage();
   const location = useLocation();
   const { getProductClient, productClient } = useProductClient();
   const [productSideEfectSelect, setProductSideEffectSelect] = useState(null);
@@ -53,6 +56,10 @@ const ProductDetailPage = () => {
   };
   return (
     <>
+      <PageHead
+        title={t("meta.title_product_details")}
+        content={t("meta.content_product_details")}
+      />
       {productClient && (
         <div id="info-prod" className="card">
           <div className="container-detail-product">
@@ -87,7 +94,9 @@ const ProductDetailPage = () => {
                         <div className="no-sale">
                           <div className="Ybrg9j">
                             <span className="woocommerce-Price-amount amount">
-                              <bdi>{productClient.price}</bdi>
+                              <bdi>
+                                {productClient.price} {!lang ? "円" : "(JPY)"}
+                              </bdi>
                             </span>
                           </div>
                         </div>
@@ -325,7 +334,9 @@ const ProductDetailPage = () => {
             <div className="wrap-more-info-product">
               <div className="more-info-block flex flex-column">
                 <div className="more-info-wrap">
-                  <div className="item-info label-item">Features </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_features")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -333,7 +344,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Precautions </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_precautions")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -341,7 +354,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Efficacy / effect </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_efficacy_effect")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -349,7 +364,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Usage / dose </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_usage_dose")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -357,7 +374,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Active ingredients</div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_active_ingredients")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -365,7 +384,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Additives </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_additives")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -374,7 +395,7 @@ const ProductDetailPage = () => {
                     />
                   </div>
                   <div className="item-info label-item">
-                    Precautions for storage and handling
+                    {t("client.product_detail.label_precautions_handling")}
                   </div>
                   <div className="item-info value-item">
                     <span
@@ -384,7 +405,7 @@ const ProductDetailPage = () => {
                     />
                   </div>
                   <div className="item-info label-item last-item">
-                    Manufacturer
+                    {t("client.product_detail.label_manufacturer")}
                   </div>
                   <div className="item-info value-item last-item">
                     <span
@@ -401,6 +422,6 @@ const ProductDetailPage = () => {
       )}
     </>
   );
-};;;;
+};
 
 export default ProductDetailPage;
