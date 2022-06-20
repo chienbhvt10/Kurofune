@@ -14,6 +14,7 @@ import useLogout from "../../../hooks/auth/useLogout";
 import "./media.scss";
 import { useDispatch } from "react-redux";
 import { resetAuthResponse } from "../../../redux/actions/authAction";
+import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
 
 const MediaPage = () => {
   const { t } = useTranslation();
@@ -32,7 +33,7 @@ const MediaPage = () => {
   React.useEffect(() => {
     dispatch(resetAuthResponse());
   }, []);
-
+  const [modalVisible, setModalVisible] = React.useState(false);
   return (
     <>
       <PageHead
@@ -50,7 +51,7 @@ const MediaPage = () => {
             </div>
           </div>
           <div className="service_dashboard">
-            <Board boardItems={mediaBoardItemData} />
+            <Board boardItems={mediaBoardItemData} setModalVisible={setModalVisible}/>
             <div className="switch">
               <div>
                 <Languages />
@@ -99,6 +100,7 @@ const MediaPage = () => {
           </div>
         </div>
         <Footer />
+        <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} />
       </div>
     </>
   );

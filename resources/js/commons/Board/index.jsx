@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "./board.scss";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import { LANG_VIETNAMESE } from "../../constants";
-const Board = ({ boardItems }) => {
+const Board = ({ boardItems,setModalVisible }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   return (
@@ -17,11 +17,19 @@ const Board = ({ boardItems }) => {
               ? "board-item block-disabled"
               : "board-item"
           }
+          onClick={()=>{
+            if(item.disable){
+              setModalVisible((pre)=> {
+                return !pre
+              } )
+            }
+          }
+        }
         >
           {item.type === "a_tag" ? (
             <a
               target="_blank"
-              href={item.link}
+              href={ !item.disable ? item.link : ""}
               className="item"
               title={item.link}
             >
@@ -30,6 +38,7 @@ const Board = ({ boardItems }) => {
               </div>
               <div className="desc">
                 <h3 className="tit">{t(item.title)}</h3>
+              
               </div>
             </a>
           ) : (
@@ -46,6 +55,7 @@ const Board = ({ boardItems }) => {
               </div>
               <div className="desc">
                 <h3 className="tit">{t(item.title)}</h3>
+                <h3 className="tit">{(item.title)}</h3>
               </div>
             </Link>
           )}
