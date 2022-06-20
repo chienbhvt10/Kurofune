@@ -25,12 +25,6 @@ const SubFormTranslate = ({
         validateForm()
       } catch (error) {
         console.log('validate failed',error);
-       if(!isNull(setListError) ){
-        setListError((pre) =>{
-          console.log(pre);
-          return {...pre,lang}
-        })
-       }
       }
     }
   }, []);
