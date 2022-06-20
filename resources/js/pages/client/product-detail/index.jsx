@@ -94,8 +94,9 @@ const ProductDetailPage = () => {
                         <div className="no-sale">
                           <div className="Ybrg9j">
                             <span className="woocommerce-Price-amount amount">
-                              <bdi>{productClient.price}</bdi>
-                              <span>{!lang ? "円" : "(JPY)"}</span>
+                              <bdi>
+                                {productClient.price} {!lang ? "円" : "(JPY)"}
+                              </bdi>
                             </span>
                           </div>
                         </div>
