@@ -81,7 +81,7 @@ class UserController extends Controller
                         ->symbols()
                 ],
                 'active' => 'required|boolean',
-                'avatar' => ['nullable', new Base64Image],
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
                 'postal_code' => 'nullable|string|max:50',
@@ -89,22 +89,22 @@ class UserController extends Controller
                 'prefecture' => 'nullable|string|max:150',
                 'street_address' => 'nullable|string|max:255',
                 'building' => 'nullable|string|max:255',
-                'shipping_address.full_name' => 'nullable|string|max:100',
-                'shipping_address.postal_code' => 'nullable|string|max:50',
-                'shipping_address.city' => 'nullable|string|max:255',
-                'shipping_address.prefecture' => 'nullable|string|max:150',
-                'shipping_address.street_address' => 'nullable|string|max:255',
-                'shipping_address.building' => 'nullable|string|max:255',
-                'shipping_address.phone' => 'nullable|numeric',
-                'shipping_address.email' => 'nullable|email',
-                'billing_address.full_name' => 'nullable|string|max:100',
-                'billing_address.postal_code' => 'nullable|string|max:50',
-                'billing_address.city' => 'nullable|string|max:255',
-                'billing_address.prefecture' => 'nullable|string|max:150',
-                'billing_address.street_address' => 'nullable|string|max:255',
-                'billing_address.building' => 'nullable|string|max:255',
-                'billing_address.phone' => 'nullable|numeric',
-                'billing_address.email' => 'nullable|email',
+                'shipping_full_name' => 'nullable|string|max:100',
+                'shipping_postal_code' => 'nullable|string|max:50',
+                'shipping_city' => 'nullable|string|max:255',
+                'shipping_prefecture' => 'nullable|string|max:150',
+                'shipping_street_address' => 'nullable|string|max:255',
+                'shipping_building' => 'nullable|string|max:255',
+                'shipping_phone' => 'nullable|numeric',
+                'shipping_email' => 'nullable|email',
+                'billing_full_name' => 'nullable|string|max:100',
+                'billing_postal_code' => 'nullable|string|max:50',
+                'billing_city' => 'nullable|string|max:255',
+                'billing_prefecture' => 'nullable|string|max:150',
+                'billing_street_address' => 'nullable|string|max:255',
+                'billing_building' => 'nullable|string|max:255',
+                'billing_phone' => 'nullable|numeric',
+                'billing_email' => 'nullable|email',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -118,8 +118,8 @@ class UserController extends Controller
             $password = trim($request->password);
             $active = (boolean)$request->active;
             $role = $request->role;
-            $file_avatar = $request->avatar;
-            $filename = $file_avatar ? save_base_64_image($file_avatar, 'avatar') : null;
+            $file_avatar = $request->file('avatar');
+            $filename = $file_avatar ? upload_single_image($file_avatar, 'avatar') : null;
 
             $data = [
                 'username' => $username,
@@ -143,25 +143,25 @@ class UserController extends Controller
             ]);
 
             $user->shipping_address()->create([
-                'full_name' => $request->shipping_address['full_name'] ?? null,
-                'postal_code' => $request->shipping_address['postal_code'] ?? null,
-                'city' => $request->shipping_address['city'] ?? null,
-                'prefecture' => $request->shipping_address['prefecture'] ?? null,
-                'street_address' => $request->shipping_address['street_address'] ?? null,
-                'building' => $request->shipping_address['building'] ?? null,
-                'phone' => $request->shipping_address['phone'] ?? null,
-                'email' => $request->shipping_address['email'] ?? null,
+                'full_name' => $request->shipping_full_name ?? null,
+                'postal_code' => $request->shipping_postal_code ?? null,
+                'city' => $request->shipping_city ?? null,
+                'prefecture' => $request->shipping_prefecture ?? null,
+                'street_address' => $request->shipping_street_address ?? null,
+                'building' => $request->shipping_building ?? null,
+                'phone' => $request->shipping_phone ?? null,
+                'email' => $request->shipping_email ?? null,
             ]);
 
             $user->billing_address()->create([
-                'full_name' => $request->billing_address['full_name'] ?? null,
-                'postal_code' => $request->billing_address['postal_code'] ?? null,
-                'city' => $request->billing_address['city'] ?? null,
-                'prefecture' => $request->billing_address['prefecture'] ?? null,
-                'street_address' => $request->billing_address['street_address'] ?? null,
-                'building' => $request->billing_address['building'] ?? null,
-                'phone' => $request->billing_address['phone'] ?? null,
-                'email' => $request->billing_address['email'] ?? null,
+                'full_name' => $request->billing_full_name ?? null,
+                'postal_code' => $request->billing_postal_code ?? null,
+                'city' => $request->billing_city ?? null,
+                'prefecture' => $request->billing_prefecture ?? null,
+                'street_address' => $request->billing_street_address ?? null,
+                'building' => $request->billing_building ?? null,
+                'phone' => $request->billing_phone ?? null,
+                'email' => $request->billing_email ?? null,
             ]);
 
             if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {
@@ -226,120 +226,124 @@ class UserController extends Controller
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => ['string', new Base64Image],
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => ['string', new Base64Image]
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
                     $errors = $validator_vendor->errors();
                     return $this->response_validate($errors);
                 }
-                $images_outside = $request->images_outside;
-                $images_inside = $request->images_inside;
-                if ($images_outside) {
-                    $vendor_images_outside = save_multiple_image($images_outside, 'vendor');
-                }
-                if ($images_inside) {
-                    $vendor_images_inside = save_multiple_image($images_inside, 'vendor');
-                }
+                $images_outside = $request->images_outside ?? null;
+                $images_inside = $request->images_inside ?? null;
 
                 $data_vendor = [
                     'images_outside' => $vendor_images_outside ?? null,
                     'images_inside' => $vendor_images_inside ?? null,
                     'en' => [
-                        'name' => $request->en['name'] ?? null,
-                        'permit_classification' => $request->en['permit_classification'] ?? null,
-                        'founder' => $request->en['founder'] ?? null,
-                        'items_stated_permit' => $request->en['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->en['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->en['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->en['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->en['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->en['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->en['business_hours'] ?? null,
-                        'consultation_hours' => $request->en['consultation_hours'] ?? null,
-                        'contact_information' => $request->en['contact_information'] ?? null,
-                        'currently_working' => $request->en['currently_working'] ?? null,
-                        'open_sale_time' => $request->en['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->en['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->en['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->en_name ?? null,
+                        'permit_classification' => $request->en_permit_classification ?? null,
+                        'founder' => $request->en_founder ?? null,
+                        'items_stated_permit' => $request->en_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->en_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->en_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->en_registered_seller_working ?? null,
+                        'drugs_handled' => $request->en_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->en_distinguishing_by_name ?? null,
+                        'business_hours' => $request->en_business_hours ?? null,
+                        'consultation_hours' => $request->en_consultation_hours ?? null,
+                        'contact_information' => $request->en_contact_information ?? null,
+                        'currently_working' => $request->en_currently_working ?? null,
+                        'open_sale_time' => $request->en_open_sale_time ?? null,
+                        'time_order_outside' => $request->en_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->en_expiration_date_of_drugs ?? null,
                     ],
                     'ja' => [
-                        'name' => $request->ja['name'] ?? null,
-                        'permit_classification' => $request->ja['permit_classification'] ?? null,
-                        'founder' => $request->ja['founder'] ?? null,
-                        'items_stated_permit' => $request->ja['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->ja['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->ja['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->ja['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->ja['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->ja['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->ja['business_hours'] ?? null,
-                        'consultation_hours' => $request->ja['consultation_hours'] ?? null,
-                        'contact_information' => $request->ja['contact_information'] ?? null,
-                        'currently_working' => $request->ja['currently_working'] ?? null,
-                        'open_sale_time' => $request->ja['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->ja['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->ja['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->ja_name ?? null,
+                        'permit_classification' => $request->ja_permit_classification ?? null,
+                        'founder' => $request->ja_founder ?? null,
+                        'items_stated_permit' => $request->ja_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->ja_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->ja_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->ja_registered_seller_working ?? null,
+                        'drugs_handled' => $request->ja_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->ja_distinguishing_by_name ?? null,
+                        'business_hours' => $request->ja_business_hours ?? null,
+                        'consultation_hours' => $request->ja_consultation_hours ?? null,
+                        'contact_information' => $request->ja_contact_information ?? null,
+                        'currently_working' => $request->ja_currently_working ?? null,
+                        'open_sale_time' => $request->ja_open_sale_time ?? null,
+                        'time_order_outside' => $request->ja_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->ja_expiration_date_of_drugs ?? null,
                     ],
                     'vi' => [
-                        'name' => $request->vi['name'] ?? null,
-                        'permit_classification' => $request->vi['permit_classification'] ?? null,
-                        'founder' => $request->vi['founder'] ?? null,
-                        'items_stated_permit' => $request->vi['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->vi['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->vi['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->vi['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->vi['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->vi['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->vi['business_hours'] ?? null,
-                        'consultation_hours' => $request->vi['consultation_hours'] ?? null,
-                        'contact_information' => $request->vi['contact_information'] ?? null,
-                        'currently_working' => $request->vi['currently_working'] ?? null,
-                        'open_sale_time' => $request->vi['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->vi['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->vi['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->vi_name ?? null,
+                        'permit_classification' => $request->vi_permit_classification ?? null,
+                        'founder' => $request->vi_founder ?? null,
+                        'items_stated_permit' => $request->vi_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->vi_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->vi_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->vi_registered_seller_working ?? null,
+                        'drugs_handled' => $request->vi_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->vi_distinguishing_by_name ?? null,
+                        'business_hours' => $request->vi_business_hours ?? null,
+                        'consultation_hours' => $request->vi_consultation_hours ?? null,
+                        'contact_information' => $request->vi_contact_information ?? null,
+                        'currently_working' => $request->vi_currently_working ?? null,
+                        'open_sale_time' => $request->vi_open_sale_time ?? null,
+                        'time_order_outside' => $request->vi_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->vi_expiration_date_of_drugs ?? null,
                     ],
                     'tl' => [
-                        'name' => $request->tl['name'] ?? null,
-                        'permit_classification' => $request->tl['permit_classification'] ?? null,
-                        'founder' => $request->tl['founder'] ?? null,
-                        'items_stated_permit' => $request->tl['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->tl['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->tl['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->tl['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->tl['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->tl['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->tl['business_hours'] ?? null,
-                        'consultation_hours' => $request->tl['consultation_hours'] ?? null,
-                        'contact_information' => $request->tl['contact_information'] ?? null,
-                        'currently_working' => $request->tl['currently_working'] ?? null,
-                        'open_sale_time' => $request->tl['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->tl['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->tl['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->tl_name ?? null,
+                        'permit_classification' => $request->tl_permit_classification ?? null,
+                        'founder' => $request->tl_founder ?? null,
+                        'items_stated_permit' => $request->tl_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->tl_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->tl_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->tl_registered_seller_working ?? null,
+                        'drugs_handled' => $request->tl_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->tl_distinguishing_by_name ?? null,
+                        'business_hours' => $request->tl_business_hours ?? null,
+                        'consultation_hours' => $request->tl_consultation_hours ?? null,
+                        'contact_information' => $request->tl_contact_information ?? null,
+                        'currently_working' => $request->tl_currently_working ?? null,
+                        'open_sale_time' => $request->tl_open_sale_time ?? null,
+                        'time_order_outside' => $request->tl_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->tl_expiration_date_of_drugs ?? null,
                     ],
                     'zh' => [
-                        'name' => $request->zh['name'] ?? null,
-                        'permit_classification' => $request->zh['permit_classification'] ?? null,
-                        'founder' => $request->zh['founder'] ?? null,
-                        'items_stated_permit' => $request->zh['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->zh['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->zh['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->zh['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->zh['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->zh['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->zh['business_hours'] ?? null,
-                        'consultation_hours' => $request->zh['consultation_hours'] ?? null,
-                        'contact_information' => $request->zh['contact_information'] ?? null,
-                        'currently_working' => $request->zh['currently_working'] ?? null,
-                        'open_sale_time' => $request->zh['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->zh['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->zh['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->zh_name ?? null,
+                        'permit_classification' => $request->zh_permit_classification ?? null,
+                        'founder' => $request->zh_founder ?? null,
+                        'items_stated_permit' => $request->zh_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->zh_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->zh_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->zh_registered_seller_working ?? null,
+                        'drugs_handled' => $request->zh_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->zh_distinguishing_by_name ?? null,
+                        'business_hours' => $request->zh_business_hours ?? null,
+                        'consultation_hours' => $request->zh_consultation_hours ?? null,
+                        'contact_information' => $request->zh_contact_information ?? null,
+                        'currently_working' => $request->zh_currently_working ?? null,
+                        'open_sale_time' => $request->zh_open_sale_time ?? null,
+                        'time_order_outside' => $request->zh_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->zh_expiration_date_of_drugs ?? null,
                     ],
                 ];
 
                 $vendor = $user->vendor_profile()->create($data_vendor);
+                if($images_outside) {
+                    $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
+                        $fileAdder->toMediaCollection('images_outside');
+                    });
+                }
+                if($images_inside) {
+                    $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
+                        $fileAdder->toMediaCollection('images_inside');
+                    });
+                }
             }
 
             DB::commit();
@@ -377,11 +381,13 @@ class UserController extends Controller
             $vendor_profile_data = null;
             $vendor_profile = $user->vendor_profile;
             if($vendor_profile){
+                $images_outside = getMediaImages($vendor_profile, 'images_outside');
+                $images_inside = getMediaImages($vendor_profile, 'images_inside');
                 $vendor_profile_data = [
                     'id' => $vendor_profile->id,
                     'vendor_translations' => $vendor_profile->translations,
-                    'images_outside' => $vendor_profile->images_outside,
-                    'images_inside' => $vendor_profile->images_inside,
+                    'images_outside' => $images_outside,
+                    'images_inside' => $images_inside,
                 ];
             }
 
@@ -424,11 +430,11 @@ class UserController extends Controller
             }
             $roles = Role::all()->pluck('name')->toArray();
             $validator = Validator::make($request->all(), [
-                'name' => 'required',
-                'email' => 'email|required',
-                'phone' => 'numeric|required',
-                'active' => 'required|boolean',
-                'avatar' => ['nullable', new Base64Image],
+                'name' => 'nullable',
+                'email' => 'nullable|email',
+                'phone' => 'nullable|numeric',
+                'active' => 'nullable|boolean',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'nullable|string|max:100',
                 'postal_code' => 'nullable|string|max:50',
@@ -436,22 +442,22 @@ class UserController extends Controller
                 'prefecture' => 'nullable|string|max:150',
                 'street_address' => 'nullable|string|max:255',
                 'building' => 'nullable|string|max:255',
-                'shipping_address.full_name' => 'nullable|string|max:100',
-                'shipping_address.postal_code' => 'nullable|string|max:50',
-                'shipping_address.city' => 'nullable|string|max:255',
-                'shipping_address.prefecture' => 'nullable|string|max:150',
-                'shipping_address.street_address' => 'nullable|string|max:255',
-                'shipping_address.building' => 'nullable|string|max:255',
-                'shipping_address.phone' => 'nullable|numeric',
-                'shipping_address.email' => 'nullable|email',
-                'billing_address.full_name' => 'nullable|string|max:100',
-                'billing_address.postal_code' => 'nullable|string|max:50',
-                'billing_address.city' => 'nullable|string|max:255',
-                'billing_address.prefecture' => 'nullable|string|max:150',
-                'billing_address.street_address' => 'nullable|string|max:255',
-                'billing_address.building' => 'nullable|string|max:255',
-                'billing_address.phone' => 'nullable|numeric',
-                'billing_address.email' => 'nullable|email',
+                'shipping_full_name' => 'nullable|string|max:100',
+                'shipping_postal_code' => 'nullable|string|max:50',
+                'shipping_city' => 'nullable|string|max:255',
+                'shipping_prefecture' => 'nullable|string|max:150',
+                'shipping_street_address' => 'nullable|string|max:255',
+                'shipping_building' => 'nullable|string|max:255',
+                'shipping_phone' => 'nullable|numeric',
+                'shipping_email' => 'nullable|email',
+                'billing_full_name' => 'nullable|string|max:100',
+                'billing_postal_code' => 'nullable|string|max:50',
+                'billing_city' => 'nullable|string|max:255',
+                'billing_prefecture' => 'nullable|string|max:150',
+                'billing_street_address' => 'nullable|string|max:255',
+                'billing_building' => 'nullable|string|max:255',
+                'billing_phone' => 'nullable|numeric',
+                'billing_email' => 'nullable|email',
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -464,9 +470,9 @@ class UserController extends Controller
             $password = trim($request->password) ?? null;
             $active = (boolean)$request->active;
             $role = $request->role;
-            $file_avatar = $request->avatar ?? null;
+            $file_avatar = $request->file('avatar') ?? null;
             if($file_avatar) {
-                $filename = save_base_64_image($file_avatar);
+                $filename = upload_single_image($file_avatar);
                 $user->avatar = $filename;
             }
             $get_role = Role::findByName($role, 'api');
@@ -503,25 +509,25 @@ class UserController extends Controller
             ]);
 
             $user->shipping_address()->update([
-                'full_name' => $request->shipping_address['full_name'] ?? null,
-                'postal_code' => $request->shipping_address['postal_code'] ?? null,
-                'city' => $request->shipping_address['city'] ?? null,
-                'prefecture' => $request->shipping_address['prefecture'] ?? null,
-                'street_address' => $request->shipping_address['street_address'] ?? null,
-                'building' => $request->shipping_address['building'] ?? null,
-                'phone' => $request->shipping_address['phone'] ?? null,
-                'email' => $request->shipping_address['email'] ?? null,
+                'full_name' => $request->shipping_full_name ?? null,
+                'postal_code' => $request->shipping_postal_code ?? null,
+                'city' => $request->shipping_city ?? null,
+                'prefecture' => $request->shipping_prefecture ?? null,
+                'street_address' => $request->shipping_street_address ?? null,
+                'building' => $request->shipping_building ?? null,
+                'phone' => $request->shipping_phone ?? null,
+                'email' => $request->shipping_email ?? null,
             ]);
 
             $user->billing_address()->update([
-                'full_name' => $request->billing_address['full_name'] ?? null,
-                'postal_code' => $request->billing_address['postal_code'] ?? null,
-                'city' => $request->billing_address['city'] ?? null,
-                'prefecture' => $request->billing_address['prefecture'] ?? null,
-                'street_address' => $request->billing_address['street_address'] ?? null,
-                'building' => $request->billing_address['building'] ?? null,
-                'phone' => $request->billing_address['phone'] ?? null,
-                'email' => $request->billing_address['email'] ?? null,
+                'full_name' => $request->billing_full_name ?? null,
+                'postal_code' => $request->billing_postal_code ?? null,
+                'city' => $request->billing_city ?? null,
+                'prefecture' => $request->billing_prefecture ?? null,
+                'street_address' => $request->billing_street_address ?? null,
+                'building' => $request->billing_building ?? null,
+                'phone' => $request->billing_phone ?? null,
+                'email' => $request->billing_email ?? null,
             ]);
 
             if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {
@@ -537,61 +543,45 @@ class UserController extends Controller
                     'start_date_education' => 'nullable|date|date_format:Y-m-d',
                     'end_date_education' => 'nullable|date|date_format:Y-m-d',
                     'wabisabi_my_page_registration' => 'nullable|boolean',
-
                 ]);
                 if ($validator_profile->fails()) {
                     DB::rollBack();
                     $errors = $validator_profile->errors();
                     return $this->response_validate($errors);
                 }
-                $dob = $request->dob ?? null;
-                $gender = (boolean)$request->gender;
-                $facebook = $request->facebook ?? null;
-                $line = $request->line ?? null;
-                $address = $request->address ?? null;
-                $nationality = $request->nationality ?? null;
-                $visa_type = $request->visa_type ?? null;
-                $job_name = $request->job_name ?? null;
-                $company_representative = $request->company_representative ?? null;
-                $inflow_source = $request->inflow_source ?? null;
-                $payment = (int)$request->payment ?? null;
-                $insurance_status = $request->insurance_status ?? null;
-                $insurance_support = $request->insurance_support ?? null;
-                $insurance_start_date = $request->insurance_start_date ?? null;
-                $overseas_remittance_status = (int)$request->insurance_start_date ?? null;
-                $orientation = $request->orientation ?? null;
-                $start_date_education = $request->start_date_education ?? null;
-                $end_date_education = $request->end_date_education ?? null;
-                $education_status = (int)$request->education_status ?? null;
-                $wabisabi_my_page_registration = (int)$request->wabisabi_my_page_registration ?? null;
-                $user->profile()->update([
-                    'dob' => $dob,
-                    'gender' => $gender,
-                    'facebook' => $facebook,
-                    'line' => $line,
-                    'address' => $address,
-                    'nationality' => $nationality,
-                    'visa_type' => $visa_type,
-                    'job_name' => $job_name,
-                    'company_representative' => $company_representative,
-                    'inflow_source' => $inflow_source,
-                    'payment' => $payment,
-                    'insurance_status' => $insurance_status,
-                    'insurance_support' => $insurance_support,
-                    'insurance_start_date' => $insurance_start_date,
-                    'overseas_remittance_status' => $overseas_remittance_status,
-                    'orientation' => $orientation,
-                    'start_date_education' => $start_date_education,
-                    'end_date_education' => $end_date_education,
-                    'education_status' => $education_status,
-                    'wabisabi_my_page_registration' => $wabisabi_my_page_registration,
-                ]);
+                $data_profile = [
+                    'dob' => $request->dob ?? null,
+                    'gender' => (boolean)$request->gender,
+                    'facebook' => $request->facebook ?? null,
+                    'line' => $request->line ?? null,
+                    'address' => $request->address ?? null,
+                    'nationality' => $request->nationality ?? null,
+                    'visa_type' => $request->visa_type ?? null,
+                    'job_name' => $request->job_name ?? null,
+                    'company_representative' => $request->company_representative ?? null,
+                    'inflow_source' => $request->inflow_source ?? null,
+                    'payment' => (int)$request->payment ?? null,
+                    'insurance_status' => $request->insurance_status ?? null,
+                    'insurance_support' => $request->insurance_support ?? null,
+                    'insurance_start_date' => $request->insurance_start_date ?? null,
+                    'overseas_remittance_status' => (int)$request->insurance_start_date ?? null,
+                    'orientation' => $request->orientation ?? null,
+                    'start_date_education' => $request->start_date_education ?? null,
+                    'end_date_education' => $request->end_date_education ?? null,
+                    'education_status' => (int)$request->education_status ?? null,
+                    'wabisabi_my_page_registration' => (int)$request->wabisabi_my_page_registration ?? null,
+                ];
+                if ($user->profile) {
+                    $user->profile()->update($data_profile);
+                } else {
+                    $user->profile()->create($data_profile);
+                }
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => ['string', new Base64Image],
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => ['string', new Base64Image]
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
@@ -600,111 +590,139 @@ class UserController extends Controller
                 }
                 $images_outside = $request->images_outside ?? null;
                 $images_inside = $request->images_inside ?? null;
-                if ($images_outside) {
-                    $vendor_images_outside = save_multiple_image($images_outside, 'vendor');
-                    $data_vendor['images_outside'] = $vendor_images_outside;
-                }
-                if ($images_inside) {
-                    $vendor_images_inside = save_multiple_image($images_inside, 'vendor');
-                    $data_vendor['images_inside'] = $vendor_images_inside;
-                }
 
                 $data_vendor = [
                     'en' => [
-                        'name' => $request->en['name'] ?? null,
-                        'permit_classification' => $request->en['permit_classification'] ?? null,
-                        'founder' => $request->en['founder'] ?? null,
-                        'items_stated_permit' => $request->en['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->en['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->en['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->en['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->en['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->en['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->en['business_hours'] ?? null,
-                        'consultation_hours' => $request->en['consultation_hours'] ?? null,
-                        'contact_information' => $request->en['contact_information'] ?? null,
-                        'currently_working' => $request->en['currently_working'] ?? null,
-                        'open_sale_time' => $request->en['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->en['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->en['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->en_name ?? null,
+                        'permit_classification' => $request->en_permit_classification ?? null,
+                        'founder' => $request->en_founder ?? null,
+                        'items_stated_permit' => $request->en_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->en_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->en_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->en_registered_seller_working ?? null,
+                        'drugs_handled' => $request->en_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->en_distinguishing_by_name ?? null,
+                        'business_hours' => $request->en_business_hours ?? null,
+                        'consultation_hours' => $request->en_consultation_hours ?? null,
+                        'contact_information' => $request->en_contact_information ?? null,
+                        'currently_working' => $request->en_currently_working ?? null,
+                        'open_sale_time' => $request->en_open_sale_time ?? null,
+                        'time_order_outside' => $request->en_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->en_expiration_date_of_drugs ?? null,
                     ],
                     'ja' => [
-                        'name' => $request->ja['name'] ?? null,
-                        'permit_classification' => $request->ja['permit_classification'] ?? null,
-                        'founder' => $request->ja['founder'] ?? null,
-                        'items_stated_permit' => $request->ja['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->ja['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->ja['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->ja['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->ja['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->ja['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->ja['business_hours'] ?? null,
-                        'consultation_hours' => $request->ja['consultation_hours'] ?? null,
-                        'contact_information' => $request->ja['contact_information'] ?? null,
-                        'currently_working' => $request->ja['currently_working'] ?? null,
-                        'open_sale_time' => $request->ja['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->ja['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->ja['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->ja_name ?? null,
+                        'permit_classification' => $request->ja_permit_classification ?? null,
+                        'founder' => $request->ja_founder ?? null,
+                        'items_stated_permit' => $request->ja_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->ja_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->ja_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->ja_registered_seller_working ?? null,
+                        'drugs_handled' => $request->ja_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->ja_distinguishing_by_name ?? null,
+                        'business_hours' => $request->ja_business_hours ?? null,
+                        'consultation_hours' => $request->ja_consultation_hours ?? null,
+                        'contact_information' => $request->ja_contact_information ?? null,
+                        'currently_working' => $request->ja_currently_working ?? null,
+                        'open_sale_time' => $request->ja_open_sale_time ?? null,
+                        'time_order_outside' => $request->ja_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->ja_expiration_date_of_drugs ?? null,
                     ],
                     'vi' => [
-                        'name' => $request->vi['name'] ?? null,
-                        'permit_classification' => $request->vi['permit_classification'] ?? null,
-                        'founder' => $request->vi['founder'] ?? null,
-                        'items_stated_permit' => $request->vi['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->vi['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->vi['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->vi['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->vi['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->vi['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->vi['business_hours'] ?? null,
-                        'consultation_hours' => $request->vi['consultation_hours'] ?? null,
-                        'contact_information' => $request->vi['contact_information'] ?? null,
-                        'currently_working' => $request->vi['currently_working'] ?? null,
-                        'open_sale_time' => $request->vi['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->vi['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->vi['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->vi_name ?? null,
+                        'permit_classification' => $request->vi_permit_classification ?? null,
+                        'founder' => $request->vi_founder ?? null,
+                        'items_stated_permit' => $request->vi_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->vi_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->vi_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->vi_registered_seller_working ?? null,
+                        'drugs_handled' => $request->vi_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->vi_distinguishing_by_name ?? null,
+                        'business_hours' => $request->vi_business_hours ?? null,
+                        'consultation_hours' => $request->vi_consultation_hours ?? null,
+                        'contact_information' => $request->vi_contact_information ?? null,
+                        'currently_working' => $request->vi_currently_working ?? null,
+                        'open_sale_time' => $request->vi_open_sale_time ?? null,
+                        'time_order_outside' => $request->vi_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->vi_expiration_date_of_drugs ?? null,
                     ],
                     'tl' => [
-                        'name' => $request->tl['name'] ?? null,
-                        'permit_classification' => $request->tl['permit_classification'] ?? null,
-                        'founder' => $request->tl['founder'] ?? null,
-                        'items_stated_permit' => $request->tl['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->tl['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->tl['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->tl['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->tl['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->tl['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->tl['business_hours'] ?? null,
-                        'consultation_hours' => $request->tl['consultation_hours'] ?? null,
-                        'contact_information' => $request->tl['contact_information'] ?? null,
-                        'currently_working' => $request->tl['currently_working'] ?? null,
-                        'open_sale_time' => $request->tl['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->tl['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->tl['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->tl_name ?? null,
+                        'permit_classification' => $request->tl_permit_classification ?? null,
+                        'founder' => $request->tl_founder ?? null,
+                        'items_stated_permit' => $request->tl_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->tl_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->tl_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->tl_registered_seller_working ?? null,
+                        'drugs_handled' => $request->tl_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->tl_distinguishing_by_name ?? null,
+                        'business_hours' => $request->tl_business_hours ?? null,
+                        'consultation_hours' => $request->tl_consultation_hours ?? null,
+                        'contact_information' => $request->tl_contact_information ?? null,
+                        'currently_working' => $request->tl_currently_working ?? null,
+                        'open_sale_time' => $request->tl_open_sale_time ?? null,
+                        'time_order_outside' => $request->tl_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->tl_expiration_date_of_drugs ?? null,
                     ],
                     'zh' => [
-                        'name' => $request->zh['name'] ?? null,
-                        'permit_classification' => $request->zh['permit_classification'] ?? null,
-                        'founder' => $request->zh['founder'] ?? null,
-                        'items_stated_permit' => $request->zh['items_stated_permit'] ?? null,
-                        'management_pharmacist' => $request->zh['management_pharmacist'] ?? null,
-                        'pharmacist_working' => $request->zh['pharmacist_working'] ?? null,
-                        'registered_seller_working' => $request->zh['registered_seller_working'] ?? null,
-                        'drugs_handled' => $request->zh['drugs_handled'] ?? null,
-                        'distinguishing_by_name' => $request->zh['distinguishing_by_name'] ?? null,
-                        'business_hours' => $request->zh['business_hours'] ?? null,
-                        'consultation_hours' => $request->zh['consultation_hours'] ?? null,
-                        'contact_information' => $request->zh['contact_information'] ?? null,
-                        'currently_working' => $request->zh['currently_working'] ?? null,
-                        'open_sale_time' => $request->zh['open_sale_time'] ?? null,
-                        'time_order_outside' => $request->zh['time_order_outside'] ?? null,
-                        'expiration_date_of_drugs' => $request->zh['expiration_date_of_drugs'] ?? null,
+                        'name' => $request->zh_name ?? null,
+                        'permit_classification' => $request->zh_permit_classification ?? null,
+                        'founder' => $request->zh_founder ?? null,
+                        'items_stated_permit' => $request->zh_items_stated_permit ?? null,
+                        'management_pharmacist' => $request->zh_management_pharmacist ?? null,
+                        'pharmacist_working' => $request->zh_pharmacist_working ?? null,
+                        'registered_seller_working' => $request->zh_registered_seller_working ?? null,
+                        'drugs_handled' => $request->zh_drugs_handled ?? null,
+                        'distinguishing_by_name' => $request->zh_distinguishing_by_name ?? null,
+                        'business_hours' => $request->zh_business_hours ?? null,
+                        'consultation_hours' => $request->zh_consultation_hours ?? null,
+                        'contact_information' => $request->zh_contact_information ?? null,
+                        'currently_working' => $request->zh_currently_working ?? null,
+                        'open_sale_time' => $request->zh_open_sale_time ?? null,
+                        'time_order_outside' => $request->zh_time_order_outside ?? null,
+                        'expiration_date_of_drugs' => $request->zh_expiration_date_of_drugs ?? null,
                     ],
                 ];
                 if($user->vendor_profile) {
                     $user->vendor_profile->update($data_vendor);
+                    $vendor = $user->vendor_profile;
+                    if($images_outside) {
+                        $vendor->clearMediaCollection('images_outside');
+                        $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_outside');
+                        });
+                    }
+                    if($images_inside) {
+                        $vendor->clearMediaCollection('images_inside');
+                        $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_inside');
+                        });
+                    }
                 }else{
                     $user->vendor_profile()->create($data_vendor);
+                    $vendor = $user->vendor_profile()->create($data_vendor);
+                    if($images_outside) {
+                        $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_outside');
+                        });
+                    }
+                    if($images_inside) {
+                        $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
+                            $fileAdder->toMediaCollection('images_inside');
+                        });
+                    }
+                }
+
+                if ($user->profile) {
+                    $user->profile()->forceDelete();
+                }
+            } elseif ($role == UserRole::ROLE_ADMIN) {
+                if ($user->vendor_profile) {
+                    $user->vendor_profile()->delete();
+                }
+
+                if ($user->profile) {
+                    $user->profile()->forceDelete();
                 }
             }
             DB::commit();

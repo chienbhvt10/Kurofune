@@ -46,8 +46,13 @@ class ProductController extends Controller
                     $product = $user->products()->paginate($posts_per_page);
                 }
             }
-            return $this->response_data_success($product);
+            $dataResponse = $product->toArray();
+            foreach ($product as $key => $item) {
+                $category = $item->categories()->get()->toArray();
+                $dataResponse['data'][$key]['categories'] = $category;
+            }
 
+            return $this->response_data_success($dataResponse);
         }catch (\Exception $error){
             return $this->response_exception();
         }
@@ -64,11 +69,14 @@ class ProductController extends Controller
         try {
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
-                'slug' => 'nullable|unique:products',
                 'sku' => 'nullable|unique:products',
                 'price' => 'nullable|numeric',
                 'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
+                'ja.name' => 'required',
+                'vi.name' => 'required',
+                'tl.name' => 'required',
+                'zh.name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
                 'tax_id' => 'nullable|exists:App\Models\Tax,id',
@@ -80,12 +88,7 @@ class ProductController extends Controller
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = check_unique_slug(new Product, $slug);
-            if ($slug_check == false) {
-                return $this->errorUniqueSlug();
-            }
+            $slug = getSlug($request->en['name'], new Product, 'product_translations');
             $user = auth()->user();
             $user_id = $user->id;
             $roles = $user->getRoleNames()->first();
@@ -113,6 +116,7 @@ class ProductController extends Controller
                 'user_id' => $user_id,
                 'slug' => $slug,
                 'sku' => $request->sku,
+                'status' => $request->status,
                 'stock_status' => $request->stock_status,
                 'price' => $request->price ?? null,
                 'product_image' => $image_product,
@@ -233,11 +237,14 @@ class ProductController extends Controller
                 return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
             $validator = Validator::make($request->all(), [
-                'slug' => 'nullable|unique:products,slug,'.$product->id.',id',
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
                 'price' => 'nullable|numeric',
                 'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
+                'ja.name' => 'required',
+                'vi.name' => 'required',
+                'tl.name' => 'required',
+                'zh.name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
                 'tax_id' => 'nullable|exists:App\Models\Tax,id',
@@ -250,10 +257,11 @@ class ProductController extends Controller
                 return $this->response_validate($errors);
             }
 
-            $slug = ($request->slug) ? Str::slug($request->slug) : Str::slug($request->en['name']);
-            $slug_check = check_unique_slug_update(new Product, $slug, $id);
-            if ($slug_check == false) {
-                return $this->errorUniqueSlug();
+            $nameProduct = $product->product_translations
+            ->where('locale', '=', 'en')->first()->name;
+            $slug = $product->slug;
+            if ($nameProduct != $request->en['name']) {
+                $slug = $this->getSlug($request->en['name']);
             }
             $user = auth()->user();
             $user_id = $user->id;
@@ -377,6 +385,8 @@ class ProductController extends Controller
             if(!$product) {
                 return $this->response_error(__('message.product.not_exist'));
             }
+            $product->sku = null;
+            $product->save();
             $product->delete();
             return $this->response_message_success(__('message.product.deleted'));
         }catch (\Exception $error){
