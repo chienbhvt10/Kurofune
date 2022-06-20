@@ -625,7 +625,8 @@
         "error_stockstatus": "Kinakailangan ang field ng Stock Status",
         "error_category": "Kinakailangan ang field ng Kategorya",
         "error_tax": "Kinakailangan ang field ng Buwis",
-        "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
+        "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto",
+        "error_price": "Please input valid number."
       },
       "title": {
         "product_title": "Magdagdag ng Produkto ",

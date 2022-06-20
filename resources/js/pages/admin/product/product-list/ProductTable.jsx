@@ -59,7 +59,11 @@ const ProductTable = ({
       key: "price",
       dataIndex: "price",
       title: t("admins.product.price_field"),
-      render: (_, record) => <span>{record.price} (JPY)</span>,
+      render: (_, record) => (
+        <span>
+          {record.price} {!lang ? "円" : "(JPY)"}
+        </span>
+      ),
     },
     {
       key: "categories",

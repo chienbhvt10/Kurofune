@@ -627,7 +627,8 @@
         "error_stockstatus": "Trường 'Trạng thái tồn kho' là trường bắt buộc",
         "error_category": "Trường 'Danh mục' là trường bắt buộc",
         "error_tax": "Trường 'Thuế' là trường bắt buộc",
-        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
+        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc",
+        "error_price": "Vui lòng nhập số hợp lệ."
       },
       "title": {
         "product_title": "Thêm sản phẩm ",
