@@ -333,7 +333,9 @@ const ProductDetailPage = () => {
             <div className="wrap-more-info-product">
               <div className="more-info-block flex flex-column">
                 <div className="more-info-wrap">
-                  <div className="item-info label-item">Features </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_features")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -341,7 +343,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Precautions </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_precautions")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -349,7 +353,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Efficacy / effect </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_efficacy_effect")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -357,7 +363,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Usage / dose </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_usage_dose")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -365,7 +373,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Active ingredients</div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_active_ingredients")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -373,7 +383,9 @@ const ProductDetailPage = () => {
                       }}
                     />
                   </div>
-                  <div className="item-info label-item">Additives </div>
+                  <div className="item-info label-item">
+                    {t("client.product_detail.label_additives")}
+                  </div>
                   <div className="item-info value-item">
                     <span
                       dangerouslySetInnerHTML={{
@@ -382,7 +394,7 @@ const ProductDetailPage = () => {
                     />
                   </div>
                   <div className="item-info label-item">
-                    Precautions for storage and handling
+                    {t("client.product_detail.label_precautions_handling")}
                   </div>
                   <div className="item-info value-item">
                     <span
@@ -392,7 +404,7 @@ const ProductDetailPage = () => {
                     />
                   </div>
                   <div className="item-info label-item last-item">
-                    Manufacturer
+                    {t("client.product_detail.label_manufacturer")}
                   </div>
                   <div className="item-info value-item last-item">
                     <span

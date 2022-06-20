@@ -386,7 +386,15 @@
           "c_12": "Wala naman"
         }
       },
-      "medicinal_efficacy": "Medicinal efficacy classification"
+      "medicinal_efficacy": "Medicinal efficacy classification",
+      "label_features": "Mga tampok",
+      "label_precautions": "Mga pag-iingat",
+      "label_efficacy_effect": "Kahusayan / epekto",
+      "label_usage_dose": "Paggamit / dosis",
+      "label_active_ingredients": "Mga aktibong sangkap",
+      "label_additives": "Mga additives",
+      "label_precautions_handling": "Mga Pag-iingat para sa Pag-iimbak at Paghawak",
+      "label_manufacturer": "Manufacturer"
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",

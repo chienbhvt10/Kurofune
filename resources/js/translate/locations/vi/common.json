@@ -386,7 +386,15 @@
           "c_12": "Không"
         }
       },
-      "medicinal_efficacy": "Phân loại thuốc theo công dụng"
+      "medicinal_efficacy": "Phân loại thuốc theo công dụng",
+      "label_features": "Tính năng sản phẩm",
+      "label_precautions": "Lưu ý khi sử dụng",
+      "label_efficacy_effect": "Công dụng / Hiệu quả",
+      "label_usage_dose": "Cách dùng / liều lượng",
+      "label_active_ingredients": "Số lượng thành phần",
+      "label_additives": "Phụ gia",
+      "label_precautions_handling": "Các lưu ý khi lưu trữ và xử lý",
+      "label_manufacturer": "Công ty sản xuất và kinh doanh"
     },
     "list_pharmacies": {
       "title": "Hiệu thuốc Marine Oisotori",
