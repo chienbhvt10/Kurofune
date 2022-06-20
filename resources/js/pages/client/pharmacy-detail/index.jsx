@@ -4,6 +4,7 @@ import PageHead from "../../../commons/PageHead";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
+import { Tooltip } from 'antd';
 const PharmacyDetail = () => {
   const { t } = useTranslation();
   const { id } = useParams();
