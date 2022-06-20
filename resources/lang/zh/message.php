@@ -59,8 +59,6 @@ return [
         'updated' => '类别更新。',
         'deleted' => '类别删除。',
         'not_exist' => '类别不存在。',
-        'force_delete' => 'Categories deleted completely',
-        'restore' => 'Categories restored'
     ],
     'slug' => [
         'unique' => '鼻涕虫已经被带走了。',

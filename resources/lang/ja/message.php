@@ -59,8 +59,6 @@ return [
         'updated' => 'カテゴリーを更新しました。',
         'deleted' => 'カテゴリーを消除しました。',
         'not_exist' => 'カテゴリーが存在しません。',
-        'force_delete' => 'Categories deleted completely',
-        'restore' => 'Categories restored'
     ],
     'slug' => [
         'unique' => 'スラッグはすでに撮影済みです。',

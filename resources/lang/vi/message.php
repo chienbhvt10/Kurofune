@@ -59,8 +59,6 @@ return [
         'updated' => 'Đã cập nhật danh mục thành công.',
         'deleted' => 'Danh mục đã bị xóa.',
         'not_exist' => 'Danh mục không tồn tại.',
-        'force_delete' => 'Categories deleted completely',
-        'restore' => 'Categories restored'
     ],
     'slug' => [
         'unique' => 'Đườg dẫn đã tồn tại .',
