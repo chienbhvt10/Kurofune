@@ -6,7 +6,7 @@ export const getProductInfoInitValues = (item) => {
     price: item?.price || undefined,
     status: item?.status || undefined,
     product_image: item?.product_image || "",
-    tax_id: item?.tax_id || 1,
+    tax_id: item?.tax_id || undefined,
     meta_title: item?.meta_title || "",
     meta_description: item?.meta_description || "",
     meta_keywords: item?.meta_keywords || "",

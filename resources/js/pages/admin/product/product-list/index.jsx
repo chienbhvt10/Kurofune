@@ -58,12 +58,7 @@ const ProductList = () => {
       />
       <TableHeader
         addLink={`${lang}/admin/product/add`}
-        breadcrumb={[
-          {
-            name: t("admins.product.product_list"),
-            routerLink: `${lang}/product-list`,
-          },
-        ]}
+        breadcrumb={[]}
         title="Product"
         searchField="name"
         onSearch={onSearch}

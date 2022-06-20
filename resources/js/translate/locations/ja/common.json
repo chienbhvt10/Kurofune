@@ -552,6 +552,7 @@
           "required": "パスワードを入力してください。",
           "pattern_number": "パスワードには少なくとも 1 つの数字を含む必要があります。",
           "pattern_alpha": "パスワードには少なくとも1つの大文字と1つの小文字を含む必要があります。",
+          "pattern_space": "パスワードにスペースを含んではいけません。",
           "pattern_special_characters": "パスワードには少なくとも 1 つのシンボルを含む必要があります。",
           "min": "8文字以上のパスワードを入力してください。"
         },
@@ -656,6 +657,7 @@
       "meta_keyword_field": "メタキーワード",
       "product_image_field": "商品画像",
       "placeholder_seach": "商品名を入力してください。",
+      "placeholder_select_tax": "Please select tax",
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
       "precautions_field": "使用上の注意",
