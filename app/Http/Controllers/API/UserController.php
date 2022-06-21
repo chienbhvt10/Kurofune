@@ -226,9 +226,9 @@ class UserController extends Controller
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
