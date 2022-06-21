@@ -80,7 +80,7 @@ return [
         'not_exist' => 'Phương thức vận chuyển không tồn tại'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name đã được thêm vào giỏ hàng của bạn.',
         'no_info' => 'Không có thông tin trong giỏ hàng.',
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',

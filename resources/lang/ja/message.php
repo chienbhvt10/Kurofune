@@ -80,7 +80,7 @@ return [
         'not_exist' => '配送方法がありません'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name が買い物かごに追加されました。',
         'no_info' => '買い物かご内の情報はありません。',
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',

@@ -80,7 +80,7 @@ return [
         'not_exist' => '配送方式不存在'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name 已添加到您的购物车。',
         'no_info' => '购物车中没有任何信息。',
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',

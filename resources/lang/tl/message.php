@@ -80,7 +80,7 @@ return [
         'not_exist' => 'Ang paraan ng pagpapadala ay hindi umiiral'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name ay naidagdag sa iyong cart.',
         'no_info' => 'Walang impormasyon sa shopping cart.',
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',
