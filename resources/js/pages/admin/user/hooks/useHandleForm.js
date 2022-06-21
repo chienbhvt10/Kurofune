@@ -85,8 +85,19 @@ const useHandleForm = (item, onSave, typeForm) => {
       delete submitValues.password;
     }
     if (role === ROLE_VENDOR) {
+      console.log(images_outside_delete);
       appendArrayToFormData(formData, "images_inside", images_inside);
       appendArrayToFormData(formData, "images_outside", images_outside);
+      appendArrayToFormData(
+        formData,
+        "images_inside_delete",
+        images_inside_delete
+      );
+      appendArrayToFormData(
+        formData,
+        "images_outside_delete",
+        images_outside_delete
+      );
       appendObjectToFormData(formData, vendorProfileFormEN.getFieldsValue());
       appendObjectToFormData(formData, vendorProfileFormJP.getFieldsValue());
       appendObjectToFormData(formData, vendorProfileFormTL.getFieldsValue());

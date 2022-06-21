@@ -22,7 +22,8 @@ const VendorProfileForm = (props) => {
     onChangeImageInside,
     outSideImageUrl,
     insideImageUrl,
-    onSaveDeletedImage,
+    onSaveImgInsideDelete,
+    onSaveImgOutsideDelete,
   } = props;
   const { t } = useTranslation();
   return (
@@ -37,7 +38,7 @@ const VendorProfileForm = (props) => {
             </Col>
             <Col span={24}>
               <UploadList
-                onSaveDeletedImage={onSaveDeletedImage}
+                onSaveDeletedImage={onSaveImgInsideDelete}
                 onChangeFileList={onChangeImageInside}
                 fileListUrlProps={insideImageUrl}
               />
@@ -54,6 +55,7 @@ const VendorProfileForm = (props) => {
             <Col span={24}>
               <Row justify="center">
                 <UploadList
+                  onSaveDeletedImage={onSaveImgOutsideDelete}
                   onChangeFileList={onChangeImageOutside}
                   fileListUrlProps={outSideImageUrl}
                 />

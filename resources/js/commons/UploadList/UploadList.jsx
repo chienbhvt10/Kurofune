@@ -60,13 +60,13 @@ const UploadList = (props) => {
     setPreviewImageURL(url);
   };
 
-  const onRemoveImage = (deletedImage) => () => {
+  const onRemoveImage = (deletedImage, deletedImageIndex) => () => {
     const newFileListURL = fileListUrl.filter(
       (item) => item.url !== deletedImage.url
     );
     setFileListUrl(newFileListURL);
     if (deletedImage.url.startsWith("https")) {
-      onSaveDeletedImage(deletedImage);
+      onSaveDeletedImage(deletedImageIndex);
     }
   };
 
@@ -130,7 +130,7 @@ const UploadList = (props) => {
                       icon={<DeleteOutlined style={{ color: "#ffffff" }} />}
                       size="small"
                       title="Xóa"
-                      onClick={onRemoveImage(item)}
+                      onClick={onRemoveImage(item, index)}
                     />
                   </Space>
                 </div>
