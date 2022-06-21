@@ -32,6 +32,8 @@ export const UserForm = (props) => {
     onChangeAvatar,
     onChangeImageInside,
     onChangeImageOutside,
+    onSaveImgInsideDelete,
+    onSaveImgOutsideDelete,
     shippingAddressForm,
     userInfoForm,
     vendorProfileFormEN,
@@ -236,6 +238,8 @@ export const UserForm = (props) => {
           shippingAddressForm={shippingAddressForm}
           onChangeImageInside={onChangeImageInside}
           onChangeImageOutside={onChangeImageOutside}
+          onSaveImgInsideDelete={onSaveImgInsideDelete}
+          onSaveImgOutsideDelete={onSaveImgOutsideDelete}
           onSaveDeletedImage={onSaveDeletedImage}
           insideImageUrl={insideImageUrl}
           outSideImageUrl={outSideImageUrl}
