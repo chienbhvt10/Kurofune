@@ -12,24 +12,29 @@ export const getUserInfoInitValues = (item) => {
     avatar: item?.avatar || "",
   };
 };
-export const getTranslateInitValues = (lang) => {
+export const getTranslateInitValues = (translateValues, lang) => {
   return {
-    locale: "",
-    name: "",
-    permit_classification: "",
-    founder: "",
-    items_stated_permit: "",
-    management_pharmacist: "",
-    registered_seller_working: "",
-    drugs_handled: "",
-    distinguishing_by_name: "",
-    business_hours: "",
-    consultation_hours: "",
-    contact_information: "",
-    currently_working: "",
-    open_sale_time: "",
-    time_order_outside: "",
-    expiration_date_of_drugs: "",
+    [`${lang}_locale`]: translateValues?._locale || "",
+    [`${lang}_name`]: translateValues?.name || "",
+    [`${lang}_permit_classification`]:
+      translateValues?.permit_classification || "",
+    [`${lang}_founder`]: translateValues?.founder || "",
+    [`${lang}_items_stated_permit`]: translateValues?.items_stated_permit || "",
+    [`${lang}_management_pharmacist`]:
+      translateValues?.management_pharmacist || "",
+    [`${lang}_registered_seller_working`]:
+      translateValues?.registered_seller_working || "",
+    [`${lang}_drugs_handled`]: translateValues?.drugs_handled || "",
+    [`${lang}_distinguishing_by_name`]:
+      translateValues?.distinguishing_by_name || "",
+    [`${lang}_business_hours`]: translateValues?.business_hours || "",
+    [`${lang}_consultation_hours`]: translateValues?.consultation_hours || "",
+    [`${lang}_contact_information`]: translateValues?.contact_information || "",
+    [`${lang}_currently_working`]: translateValues?.currently_working || "",
+    [`${lang}_open_sale_time`]: translateValues?.open_sale_time || "",
+    [`${lang}_time_order_outside`]: translateValues?.time_order_outside || "",
+    [`${lang}_expiration_date_of_drugs`]:
+      translateValues?.expiration_date_of_drugs || "",
   };
 };
 export const getPlanInitValues = (item) => {
@@ -45,7 +50,7 @@ export const getPlanInitValues = (item) => {
     company_representative: item?.profile?.company_representative || "",
     inflow_source: item?.profile?.inflow_source || "",
     payment: item?.profile?.payment || 0,
-    insurance_status: item?.profile?.insurance_status || undefined,
+    insurance_status: item?.profile?.insurance_status || 1,
     insurance_support: item?.profile?.insurance_support || undefined,
     insurance_start_date: item?.profile?.insurance_start_date || "",
     overseas_remittance_status:
@@ -68,38 +73,38 @@ export const getCommonAddressInitValues = (item) => {
   return {
     postal_code: item?.address?.postal_code || "",
     city: item?.address?.city || "",
-    prefecture: item?.address?.prefecture || undefined,
+    prefecture: item?.address?.prefecture || "",
     street_address: item?.address?.street_address || "",
     building: item?.address?.building || "",
   };
 };
 export const getBillingAddressInitValues = (item) => {
   return {
-    full_name: item?.billing_address?.full_name || "",
-    postal_code: item?.billing_address?.postal_code || "",
-    city: item?.billing_address?.city || "",
-    prefecture: item?.billing_address?.prefecture || undefined,
-    street_address: item?.billing_address?.street_address || "",
-    building: item?.billing_address?.building || "",
-    phone: item?.billing_address?.phone || "",
-    email: item?.billing_address?.email || "",
+    billing_full_name: item?.billing_address?.full_name || "",
+    billing_postal_code: item?.billing_address?.postal_code || "",
+    billing_city: item?.billing_address?.city || "",
+    billing_prefecture: item?.billing_address?.prefecture || "",
+    billing_street_address: item?.billing_address?.street_address || "",
+    billing_building: item?.billing_address?.building || "",
+    billing_phone: item?.billing_address?.phone || "",
+    billing_email: item?.billing_address?.email || "",
   };
 };
 export const getShippingAddressInitValues = (item) => {
   return {
-    full_name: item?.shipping_address?.full_name || "",
-    postal_code: item?.shipping_address?.postal_code || "",
-    city: item?.shipping_address?.city || "",
-    prefecture: item?.shipping_address?.prefecture || undefined,
-    street_address: item?.shipping_address?.street_address || "",
-    building: item?.shipping_address?.building || "",
-    phone: item?.shipping_address?.phone || "",
-    email: item?.shipping_address?.email || "",
+    shipping_full_name: item?.shipping_address?.full_name || "",
+    shipping_postal_code: item?.shipping_address?.postal_code || "",
+    shipping_city: item?.shipping_address?.city || "",
+    shipping_prefecture: item?.shipping_address?.prefecture || "",
+    shipping_street_address: item?.shipping_address?.street_address || "",
+    shipping_building: item?.shipping_address?.building || "",
+    shipping_phone: item?.shipping_address?.phone || "",
+    shipping_email: item?.shipping_address?.email || "",
   };
 };
 export const getVendorUploadInitValues = (item) => {
   return {
     images_inside: item?.images_inside || "",
-    images_outside: item?.images_outside || undefined,
+    images_outside: item?.images_outside || "",
   };
 };

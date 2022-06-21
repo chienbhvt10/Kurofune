@@ -10,18 +10,20 @@ import {
   LANG_VIETNAMESE,
 } from "../../../../../constants";
 import SubFormUserTranslate from "./SubFormTranslate";
-const VendorProfileForm = ({
-  formEN,
-  formJP,
-  formTL,
-  formVI,
-  formZH,
-  className,
-  onChangeImageOutside,
-  onChangeImageInside,
-  outSideImageUrl,
-  insideImageUrl,
-}) => {
+const VendorProfileForm = (props) => {
+  const {
+    formEN,
+    formJP,
+    formTL,
+    formVI,
+    formZH,
+    className,
+    onChangeImageOutside,
+    onChangeImageInside,
+    outSideImageUrl,
+    insideImageUrl,
+    onSaveDeletedImage,
+  } = props;
   const { t } = useTranslation();
   return (
     <div className={`vendor-profile-form ${className}`}>
@@ -35,6 +37,7 @@ const VendorProfileForm = ({
             </Col>
             <Col span={24}>
               <UploadList
+                onSaveDeletedImage={onSaveDeletedImage}
                 onChangeFileList={onChangeImageInside}
                 fileListUrlProps={insideImageUrl}
               />

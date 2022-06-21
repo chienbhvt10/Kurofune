@@ -6,8 +6,25 @@
     width: 200px;
     margin-left: 10px;
   }
-}
-.react-bootstrap-table td > .selection-input-4,
-.react-bootstrap-table th > .selection-input-4 {
-  margin: 0 !important;
+  .avatar-image {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    object-fit: cover;
+  }
+  .user-name-td {
+    width: 200px;
+  }
+  .name-td {
+    width: 200px;
+  }
+  .email-td {
+    width: 200px;
+  }
+  .role-td {
+    width: 120px;
+  }
+  .active-td {
+    width: 170px;
+  }
 }
