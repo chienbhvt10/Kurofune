@@ -22,8 +22,7 @@ import "./style.scss";
 
 export const FormInfo = ({ onSave, item, typeForm, response, loading }) => {
   const [formInfo] = Form.useForm();
-  const { i18n, t } = useTranslation();
-
+  const { t } = useTranslation();
   const billingInitValues = getBillingInitValues(item);
   const shippingInitValues = getShippingInitValues(item);
   const profileInitValues = getProfileInitValues(item);

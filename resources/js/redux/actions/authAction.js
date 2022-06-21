@@ -19,11 +19,11 @@ const authActions = {
   updateShippingAddress: createAction("UPDATE_SHIPPING_ADDRESS"),
 };
 
-export const login = createAsyncThunk(authActions.login, async (payload) => {
+export const login = createAsyncThunk(authActions.login, async (payload,{ rejectWithValue }) => {
   const res = await authApis
     .login(payload)
     .then((data) => data)
-    .catch((errors) => JSON.parse(errors.response.request.response));
+    .catch((errors) =>rejectWithValue(JSON.parse(errors.response.request.response)) );
   return res;
 });
 
@@ -98,11 +98,11 @@ export const changePasswordAction = createAsyncThunk(
 
 export const updateProfileAction = createAsyncThunk(
   authActions.updateProfile,
-  async (payload) => {
+  async (payload,{rejectWithValue}) => {
     const res = await authApis
       .updateProfile(payload)
       .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
+      .catch((err) => rejectWithValue(JSON.parse(err.response.request.response)));
     return res;
   }
 );

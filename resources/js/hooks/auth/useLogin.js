@@ -14,8 +14,7 @@ import { login } from "../../redux/actions/authAction";
 import useShowProfile from "./useShowProfile";
 
 const useLogin = () => {
-  const { resLogin } = useSelector((state) => state.authState);
-  const [loadingLogin, setLoadingLogin] = React.useState(false);
+  const { resLogin,isLoadingLogin } = useSelector((state) => state.authState);
   const [remember, setRemember] = React.useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const useLogin = () => {
   const { profile } = useShowProfile();
 
   const loginUser = (values) => {
-    setLoadingLogin(true);
+
     setRemember(values.remember);
     dispatch(login(values));
   };
@@ -48,7 +47,6 @@ const useLogin = () => {
 
   React.useEffect(() => {
     if (resLogin?.error_code === NO_ERROR) {
-      setLoadingLogin(false);
       if (resLogin?.data?.user?.roles?.name === USER_ROLES.ADMIN) {
         navigate(`${lang}/admin`);
       } else if (resLogin?.data?.user?.roles?.name === USER_ROLES.VENDOR) {
@@ -58,16 +56,13 @@ const useLogin = () => {
       }
     }
     if (resLogin && resLogin.error_code === ERROR) {
-      setLoadingLogin(false);
       NotificationError(t("notification"), resLogin.error_message);
     }
   }, [resLogin]);
-
   return {
     resLogin,
     loginUser,
-    setLoadingLogin,
-    loadingLogin,
+    isLoadingLogin
   };
 };
 
