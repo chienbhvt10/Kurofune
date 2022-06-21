@@ -52,8 +52,7 @@ class ProductController extends Controller
                 $dataResponse['data'][$key]['categories'] = $category;
                 $user = $item->user()->first();
                 if ($user) {
-                    $dataResponse['data'][$key]['store'] = $item->user()->first()
-                    ->vendor_profile()->get();
+                    $dataResponse['data'][$key]['store'] = $user->vendor_profile()->get();
                 }
             }
 
