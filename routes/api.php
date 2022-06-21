@@ -81,7 +81,7 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         
         // Recycle Bin manage
         Route::get('get-list-deleted/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'getListDeleted']);
-        Route::put('restore-each-deleted/{model}-{id}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreEachDeleted']);
+        Route::put('restore-each-deleted/{model}/id/{id}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreEachDeleted']);
         Route::put('restore-list-deleted/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreListDeleted']);
         Route::delete('force-delete/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'forceDelete']);
 
