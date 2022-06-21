@@ -97,9 +97,9 @@ const ProductTable = ({
       title: t("admins.product.store_field"),
       render: (_, record) => (
         <div className="category-wrapper">
-          {record?.store.map((item) => (
-            <span>{item?.name}</span>
-          ))}
+          {Array.isArray(record?.store)
+            ? record?.store.map((item) => <span>{item?.name}</span>)
+            : null}
         </div>
       ),
     },
