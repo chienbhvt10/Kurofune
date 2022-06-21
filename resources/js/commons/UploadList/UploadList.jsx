@@ -1,10 +1,11 @@
-import { UploadOutlined } from "@ant-design/icons";
-import { Button, Col, message, Modal, Row, Upload } from "antd";
+import { DeleteOutlined, EyeOutlined, UploadOutlined } from "@ant-design/icons";
+import { Button, Col, message, Modal, Row, Space, Upload } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { getBase64 } from "../string";
 import "./upload-list.scss";
-const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
+const UploadList = (props) => {
+  const { onChangeFileList, fileListUrlProps, onSaveDeletedImage } = props;
   const { t } = useTranslation();
   const [previewImageURL, setPreviewImageURL] = React.useState();
   const [previewVisible, setPreviewVisible] = React.useState(false);
@@ -32,12 +33,8 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
   };
 
   const handleChange = async (info) => {
-    const listBase64 = await Promise.all(
-      info.fileList.map(async (file) => {
-        return await getBase64(file.originFileObj).then((data) => data);
-      })
-    );
-    onChangeFileList && onChangeFileList(listBase64);
+    const filesObj = info.fileList.map((file) => file.originFileObj);
+    onChangeFileList && onChangeFileList(filesObj);
     setFileList(info.fileList);
   };
 
@@ -46,9 +43,9 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
   };
 
   React.useEffect(() => {
-    const newArr = fileList?.map((file) =>
-      URL.createObjectURL(file.originFileObj)
-    );
+    const newArr = fileList?.map((file) => {
+      return { file, url: URL.createObjectURL(file.originFileObj) };
+    });
     if (!fileListUrlProps) {
       setFileListUrl(newArr);
     } else {
@@ -57,6 +54,22 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
       );
     }
   }, [fileList, fileListUrlProps]);
+
+  const openModal = (url) => () => {
+    setPreviewVisible(true);
+    setPreviewImageURL(url);
+  };
+
+  const onRemoveImage = (deletedImage) => () => {
+    const newFileListURL = fileListUrl.filter(
+      (item) => item.url !== deletedImage.url
+    );
+    setFileListUrl(newFileListURL);
+    if (deletedImage.url.startsWith("https")) {
+      onSaveDeletedImage(deletedImage);
+    }
+  };
+
   return (
     <Row justify="center" className="upload-list">
       <Col span={24}>
@@ -88,6 +101,7 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
           >
             <img
               alt="example"
+              className="modal-image"
               style={{ width: "100%" }}
               src={previewImageURL}
             />
@@ -96,9 +110,31 @@ const UploadList = ({ onChangeFileList, fileListUrlProps }) => {
       </Col>
       <Col span={24} className="list-picture">
         <Row justify="center">
-          {fileListUrl?.map((url, index) => (
-            <Col key={index} className="list-image-preview">
-              <img src={url} alt="Image outside" />
+          {fileListUrl?.map((item, index) => (
+            <Col key={index} className="image-container">
+              <Col className="list-image-preview">
+                <img src={item.url} alt="Image outside" />
+                <div className="middle">
+                  <Space>
+                    <Button
+                      type="ghost"
+                      shape="circle"
+                      icon={<EyeOutlined style={{ color: "#ffffff" }} />}
+                      size="small"
+                      title="Xem"
+                      onClick={openModal(item.url)}
+                    />
+                    <Button
+                      type="ghost"
+                      shape="circle"
+                      icon={<DeleteOutlined style={{ color: "#ffffff" }} />}
+                      size="small"
+                      title="Xóa"
+                      onClick={onRemoveImage(item)}
+                    />
+                  </Space>
+                </div>
+              </Col>
             </Col>
           ))}
         </Row>

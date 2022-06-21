@@ -8,13 +8,18 @@ import {
   updateUserAction,
   selectRoleAction,
 } from "../actions/userAction";
-
+import {
+  NotificationError,
+  NotificationSuccess,
+} from "../../commons/Notification";
 const initialState = {
   users: [],
   user: undefined,
   resCreateUser: undefined,
   resUpdateUser: undefined,
   resDeleteUser: undefined,
+  loadingUpdateUser: false,
+  loadingCreateUser: false,
   total: undefined,
   from: undefined,
   to: undefined,
@@ -45,19 +50,53 @@ const userReducers = createReducer(initialState, (builder) => {
     };
   });
 
-  builder.addCase(createUserAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      resCreateUser: actions.payload,
-    };
-  });
+  builder
+    .addCase(createUserAction.fulfilled, (state, actions) => {
+      NotificationSuccess("", actions.payload.message);
+      return {
+        ...state,
+        resCreateUser: actions.payload,
+        loadingCreateUser: false,
+      };
+    })
+    .addCase(createUserAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingCreateUser: true,
+      };
+    })
+    .addCase(createUserAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload?.error_message || "Error");
+      return {
+        ...state,
+        resCreateUser: actions.payload,
+        loadingCreateUser: false,
+      };
+    });
 
-  builder.addCase(updateUserAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      resUpdateUser: actions.payload,
-    };
-  });
+  builder
+    .addCase(updateUserAction.fulfilled, (state, actions) => {
+      NotificationSuccess("", actions.payload.message);
+      return {
+        ...state,
+        resUpdateUser: actions.payload,
+        loadingUpdateUser: false,
+      };
+    })
+    .addCase(updateUserAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingUpdateUser: true,
+      };
+    })
+    .addCase(updateUserAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload?.error_message || "Error");
+      return {
+        ...state,
+        resUpdateUser: actions.payload,
+        loadingUpdateUser: false,
+      };
+    });
 
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
     return {

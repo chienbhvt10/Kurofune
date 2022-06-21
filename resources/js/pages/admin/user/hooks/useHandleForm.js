@@ -5,7 +5,9 @@ import {
   ROLE_FULL_SUPPORT_PLAN,
   ROLE_LIGHT_PLAN,
   ROLE_VENDOR,
+  TYPE_FORM_UPDATE,
 } from "../../../../constants";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import {
   getBillingAddressInitValues,
   getCommonAddressInitValues,
@@ -15,17 +17,25 @@ import {
 } from "../user-form/userFormInitValues";
 import useHandleImage from "./useHandleImage";
 import useHandleVendorForm from "./useHandleVendorForm";
-
-const useHandleForm = (item, onSave) => {
+import {
+  appendArrayToFormData,
+  appendObjectToFormData,
+} from "../../../../helper/handler";
+const useHandleForm = (item, onSave, typeForm) => {
+  const lang = getCurrentLanguage();
+  const [isSubmitted, setSubmitted] = React.useState(false);
   const {
-    base64Avatar,
-    listBase64ImageInSide,
-    listBase64ImageOutSide,
+    avatar,
+    images_inside,
+    images_outside,
     onChangeAvatar,
     onChangeImageInside,
     onChangeImageOutside,
+    images_inside_delete,
+    images_outside_delete,
+    onSaveImgInsideDelete,
+    onSaveImgOutsideDelete,
   } = useHandleImage();
-
   const {
     vendorProfileFormEN,
     vendorProfileFormJP,
@@ -47,64 +57,60 @@ const useHandleForm = (item, onSave) => {
   const shippingAddressInitValues = getShippingAddressInitValues(item);
 
   const onFinishAll = () => {
+    const formData = new FormData();
+    const role = userInfoForm.getFieldValue("role");
+    const dob = planProfileForm.getFieldValue("dob");
+    const start_date_education = planProfileForm.getFieldValue(
+      "start_date_education"
+    );
+    const end_date_education =
+      planProfileForm.getFieldValue("end_date_education");
+
     let submitValues = {
       id: userInfoInitValues.id,
-      avatar: base64Avatar,
-      images_inside: listBase64ImageInSide,
-      images_outside: listBase64ImageOutSide,
-      ...userInfoForm.getFieldsValue(),
-      ...commonAddressForm.getFieldsValue(),
-      billing_address: {
-        ...billingAddressForm.getFieldsValue(),
-      },
-      shipping_address: {
-        ...shippingAddressForm.getFieldsValue(),
-      },
+      avatar,
     };
+    if (typeForm === TYPE_FORM_UPDATE) {
+      formData.append("_method", "PUT");
+    }
+    appendObjectToFormData(formData, userInfoForm.getFieldsValue());
+    appendObjectToFormData(formData, commonAddressForm.getFieldsValue());
+    appendObjectToFormData(formData, billingAddressForm.getFieldsValue());
+    appendObjectToFormData(formData, shippingAddressForm.getFieldsValue());
+
+    if (!avatar) {
+      delete submitValues.avatar;
+    }
     if (!userInfoForm.getFieldValue("password")) {
       delete submitValues.password;
     }
-    if (userInfoForm.getFieldValue("role") === ROLE_VENDOR) {
-      submitValues = {
-        ...submitValues,
-        ja: {
-          ...vendorProfileFormJP.getFieldsValue(),
-        },
-        en: {
-          ...vendorProfileFormEN.getFieldsValue(),
-        },
-        zh: {
-          ...vendorProfileFormZH.getFieldsValue(),
-        },
-        tl: {
-          ...vendorProfileFormTL.getFieldsValue(),
-        },
-        vi: {
-          ...vendorProfileFormVI.getFieldsValue(),
-        },
-      };
+    if (role === ROLE_VENDOR) {
+      appendArrayToFormData(formData, "images_inside", images_inside);
+      appendArrayToFormData(formData, "images_outside", images_outside);
+      appendObjectToFormData(formData, vendorProfileFormEN.getFieldsValue());
+      appendObjectToFormData(formData, vendorProfileFormJP.getFieldsValue());
+      appendObjectToFormData(formData, vendorProfileFormTL.getFieldsValue());
+      appendObjectToFormData(formData, vendorProfileFormVI.getFieldsValue());
+      appendObjectToFormData(formData, vendorProfileFormZH.getFieldsValue());
     }
-    if (
-      userInfoForm.getFieldValue("role") === ROLE_LIGHT_PLAN ||
-      userInfoForm.getFieldValue("role") === ROLE_FULL_SUPPORT_PLAN
-    ) {
-      submitValues = {
-        ...submitValues,
-        ...planProfileForm.getFieldsValue(),
-        dob: planProfileForm.getFieldValue("dob")
-          ? formatDate(planProfileForm.getFieldValue("dob"))
-          : "",
-        start_date_education: planProfileForm.getFieldValue(
-          "start_date_education"
-        )
-          ? formatDate(planProfileForm.getFieldValue("start_date_education"))
-          : "",
-        end_date_education: planProfileForm.getFieldValue("end_date_education")
-          ? formatDate(planProfileForm.getFieldValue("end_date_education"))
-          : "",
-      };
+    if (role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN) {
+      appendObjectToFormData(formData, planProfileForm.getFieldsValue());
+      submitValues["dob"] = dob ? formatDate(dob) : "";
+      submitValues["start_date_education"] = dob
+        ? formatDate(start_date_education)
+        : "";
+      submitValues["end_date_education"] = dob
+        ? formatDate(end_date_education)
+        : "";
     }
-    onSave(submitValues);
+
+    appendObjectToFormData(formData, submitValues);
+    setSubmitted(true);
+    onSave(formData);
+  };
+
+  const onFinishAllFailed = () => {
+    setSubmitted(true);
   };
 
   React.useEffect(() => {
@@ -114,6 +120,16 @@ const useHandleForm = (item, onSave) => {
     shippingAddressForm.setFieldsValue(shippingAddressInitValues);
     commonAddressForm.setFieldsValue(commonAddressInitValues);
   }, [item]);
+
+  React.useEffect(() => {
+    if (isSubmitted) {
+      userInfoForm.validateFields();
+      planProfileForm.validateFields();
+      billingAddressForm.validateFields();
+      shippingAddressForm.validateFields();
+      commonAddressForm.validateFields();
+    }
+  }, [lang]);
 
   return {
     userInfoInitValues,
@@ -128,9 +144,12 @@ const useHandleForm = (item, onSave) => {
     vendorProfileFormVI,
     vendorProfileFormZH,
     onFinishAll,
+    onFinishAllFailed,
     onChangeAvatar,
     onChangeImageInside,
     onChangeImageOutside,
+    onSaveImgInsideDelete,
+    onSaveImgOutsideDelete,
     planProfileForm,
   };
 };

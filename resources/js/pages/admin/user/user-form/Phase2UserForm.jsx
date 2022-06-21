@@ -1,12 +1,9 @@
 import { Tabs } from "antd";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import BillingShipForm from "../../../../commons/BillingShipForm";
 import {
   BILLING_ADDRESS_FORM,
-  ROLE_FULL_SUPPORT_PLAN,
-  ROLE_LIGHT_PLAN,
   ROLE_VENDOR,
   SHIPPING_ADDRESS_FORM,
   TYPE_FORM_CREATE,
@@ -19,23 +16,25 @@ import {
 import CommonInfoForm from "../user-form/common-form/CommonInfoForm";
 import PlanProfileForm from "../user-form/plan-profile-form/PlanProfileForm";
 import VendorProfileForm from "./vendor-translate-form/VendorProfileForm";
-const Phase2UserForm = ({
-  role,
-  typeForm,
-  vendorProfileFormVI,
-  vendorProfileFormJP,
-  vendorProfileFormZH,
-  vendorProfileFormTL,
-  vendorProfileFormEN,
-  planProfileForm,
-  commonAddressForm,
-  billingAddressForm,
-  shippingAddressForm,
-  onChangeImageOutside,
-  outSideImageUrl,
-  onChangeImageInside,
-  insideImageUrl,
-}) => {
+const Phase2UserForm = (props) => {
+  const {
+    role,
+    typeForm,
+    vendorProfileFormVI,
+    vendorProfileFormJP,
+    vendorProfileFormZH,
+    vendorProfileFormTL,
+    vendorProfileFormEN,
+    planProfileForm,
+    commonAddressForm,
+    billingAddressForm,
+    shippingAddressForm,
+    onChangeImageOutside,
+    outSideImageUrl,
+    onChangeImageInside,
+    insideImageUrl,
+    onSaveDeletedImage,
+  } = props;
   const { t } = useTranslation();
   const { resCreateUser, resUpdateUser } = useSelector(
     (state) => state.userState
@@ -60,6 +59,7 @@ const Phase2UserForm = ({
               outSideImageUrl={outSideImageUrl}
               onChangeImageInside={onChangeImageInside}
               insideImageUrl={insideImageUrl}
+              onSaveDeletedImage={onSaveDeletedImage}
             />
           ) : (
             <></>

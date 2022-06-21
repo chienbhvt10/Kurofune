@@ -30,22 +30,24 @@ export const getUserAction = createAsyncThunk(
 );
 export const createUserAction = createAsyncThunk(
   userActions.createUser,
-  async (payload) => {
-    const res = await userApis
-      .createUser(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await userApis.createUser(payload).then((data) => data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
   }
 );
 export const updateUserAction = createAsyncThunk(
   userActions.updateUser,
-  async (payload) => {
-    const res = await userApis
-      .updateUser(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await userApis.updateUser(payload).then((data) => data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
   }
 );
 export const deleteUserAction = createAsyncThunk(
