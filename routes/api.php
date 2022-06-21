@@ -80,10 +80,10 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         });
         
         // Recycle Bin manage
-        Route::get('get-list-deleted/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'getListDeleted']);
-        Route::put('restore-each-deleted/{model}/id/{id}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreEachDeleted']);
-        Route::put('restore-list-deleted/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreListDeleted']);
-        Route::delete('force-delete/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'forceDelete']);
+        Route::get('get-list-deleted/model/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'getListDeleted']);
+        Route::put('restore-each-deleted/model/{model}/id/{id}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreEachDeleted']);
+        Route::put('restore-list-deleted//model/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreListDeleted']);
+        Route::delete('force-delete/model/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'forceDelete']);
 
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');
