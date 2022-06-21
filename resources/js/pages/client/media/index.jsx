@@ -15,6 +15,7 @@ import "./media.scss";
 import { useDispatch } from "react-redux";
 import { resetAuthResponse } from "../../../redux/actions/authAction";
 import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
+import ModalAccessRight2 from "../../../components/Modal/ModalAccessRight2";
 
 const MediaPage = () => {
   const { t } = useTranslation();
@@ -100,7 +101,8 @@ const MediaPage = () => {
           </div>
         </div>
         <Footer />
-        <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} />
+        {/* <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} /> */}
+        <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} />
       </div>
     </>
   );
