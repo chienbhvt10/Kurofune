@@ -54,11 +54,9 @@ const useHandleUserTable = () => {
   };
 
   const onResetFilter = () => {
-    setFilterRole(undefined);
+    dispatch(selectRoleAction(undefined));
     getAllUsers({
       page: pagination.current_page,
-      name: searchValue,
-      role: selectRole,
       per_page: pagination.per_page,
     });
   };
