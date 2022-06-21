@@ -1,4 +1,4 @@
-import { Table } from "antd";
+import { Image, Table } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -25,7 +25,7 @@ const CategoryTable = ({
         width: 50,
       },
       title: (
-        <img
+        <Image
           className="img-head"
           src="/images/image.png"
           alt=""
@@ -36,7 +36,7 @@ const CategoryTable = ({
       render: (_, record) => (
         <div className="table-column-break">
           <Link to="#">
-            <img src={record.category_image} alt="" width={40} height={40} />
+            <Image src={record.category_image} alt="" width={40} height={40} />
           </Link>
         </div>
       ),

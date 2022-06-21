@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
-import { Table } from "antd";
+import { Image, Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import { useTranslation } from "react-i18next";
@@ -23,7 +23,7 @@ const ProductTable = ({
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
         <div className="table-column-break">
-          <img
+          <Image
             src={record.product_image}
             onError={(e) => (e.target.src = "/images/image-default.png")}
             alt=""
