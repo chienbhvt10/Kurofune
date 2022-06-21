@@ -582,6 +582,8 @@ class UserController extends Controller
                     'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                     'images_inside' => 'nullable|array',
                     'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_delete' => 'nullable|array',
+                    'images_delete.*' => 'integer'
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
@@ -590,6 +592,8 @@ class UserController extends Controller
                 }
                 $images_outside = $request->images_outside ?? null;
                 $images_inside = $request->images_inside ?? null;
+                $images_outside_delete = $request->images_outside_delete ?? null;
+                $images_inside_delete = $request->images_inside_delete ?? null;
 
                 $data_vendor = [
                     'en' => [
@@ -683,17 +687,28 @@ class UserController extends Controller
                         'expiration_date_of_drugs' => $request->zh_expiration_date_of_drugs ?? null,
                     ],
                 ];
+
                 if($user->vendor_profile) {
                     $user->vendor_profile->update($data_vendor);
                     $vendor = $user->vendor_profile;
+                    if ($images_outside_delete) {
+                        $media_outside = $vendor->getMedia('images_outside');
+                        foreach ($images_outside_delete as $img) {
+                            $media_outside[$img]->delete();
+                        }
+                    }
+                    if ($images_inside_delete) {
+                        $media_inside = $vendor->getMedia('images_inside');
+                        foreach ($images_inside_delete as $img) {
+                            $media_inside[$img]->delete();
+                        }
+                    }
                     if($images_outside) {
-                        $vendor->clearMediaCollection('images_outside');
                         $vendor->addMultipleMediaFromRequest(['images_outside'])->each(function ($fileAdder) {
                             $fileAdder->toMediaCollection('images_outside');
                         });
                     }
                     if($images_inside) {
-                        $vendor->clearMediaCollection('images_inside');
                         $vendor->addMultipleMediaFromRequest(['images_inside'])->each(function ($fileAdder) {
                             $fileAdder->toMediaCollection('images_inside');
                         });
@@ -732,11 +747,12 @@ class UserController extends Controller
                     'password' => $password,
                     'username' => $user->username
                 ];
-                Notification::sendNow($user, New ChangePasswordNotification($data));
+                // Notification::sendNow($user, New ChangePasswordNotification($data));
             }
             return $this->response_message_data_success(__('message.user.updated'), $user);
         }catch (\Exception $error){
             DB::rollBack();
+            return $error->getMessage();
             return $this->response_exception();
         }
     }
