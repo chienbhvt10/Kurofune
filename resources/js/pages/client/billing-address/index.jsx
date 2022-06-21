@@ -9,13 +9,14 @@ import useUpdateBillingAddress from "../../../hooks/auth/useUpdateBillingAddress
 import "./style.scss";
 
 const BillingAddress = () => {
-  const { i18n, t } = useTranslation();
+  const {  t } = useTranslation();
   const { showProfile, profile } = useShowProfile();
   const {
     updateBillingAddress,
     resUpdateBillingAddress,
     loadingUpdateBilling,
   } = useUpdateBillingAddress();
+
   React.useEffect(() => {
     if (!profile) {
       showProfile();

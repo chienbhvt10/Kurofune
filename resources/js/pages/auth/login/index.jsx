@@ -22,7 +22,7 @@ export const Login = () => {
   const { t } = useTranslation();
   const {} = useLogout();
   const lang = getCurrentLanguage();
-  const { loginUser, loadingLogin } = useLogin();
+  const { loginUser, isLoadingLogin } = useLogin();
   const [form] = Form.useForm();
   function createMarkup() {
     return { __html: t("login.title") };
@@ -149,7 +149,7 @@ export const Login = () => {
             </Col>
             <Col span={8}>
               <Button
-                loading={loadingLogin}
+                loading={isLoadingLogin}
                 className="w-100"
                 size="large"
                 type="primary"
