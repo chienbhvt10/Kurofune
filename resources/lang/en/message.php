@@ -11,7 +11,8 @@ return [
             'not_data' => 'list of pharmacies is empty'
         ],
         'inactive' => 'user inactive',
-        'unauthenticated' => 'not authorized'
+        'unauthenticated' => 'Unauthenticated',
+        'active' => 'User is activated.'
     ],
     'role' => [
         'created' => 'role created',

@@ -11,7 +11,8 @@ return [
             'not_data' => '药店名单是空的。'
         ],
         'inactive' => '用戶不活躍。',
-        'unauthenticated' => 'not authorized'
+        'unauthenticated' => '未经身份验证。',
+        'active' => '用户已激活。'
     ],
     'role' => [
         'created' => '创建的角色。',

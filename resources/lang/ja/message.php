@@ -11,7 +11,8 @@ return [
             'not_data' => '薬局リストが空です。'
         ],
         'inactive' => 'ユーザーが非アクティブ',
-        'unauthenticated' => 'not authorized'
+        'unauthenticated' => '認証されていません。',
+        'active' => 'ユーザーが既にアクティブになっています。'
     ],
     'role' => [
         'created' => 'ロールを作成しました。',

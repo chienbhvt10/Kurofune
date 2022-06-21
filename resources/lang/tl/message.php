@@ -11,7 +11,8 @@ return [
             'not_data' => 'Walang laman ang listahan ng mga botika.'
         ],
         'inactive' => 'hindi aktibo ang user.',
-        'unauthenticated' => 'not authorized'
+        'unauthenticated' => 'Hindi napatotohanan',
+        'active' => 'Naka-activate ang user.'
     ],
     'role' => [
         'created' => 'Nabuong papel',
