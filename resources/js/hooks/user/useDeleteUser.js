@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   NotificationError,
   NotificationSuccess,
@@ -14,6 +15,7 @@ import useUsers from "./useUsers";
 
 const useDeleteUser = () => {
   const { resDeleteUser } = useSelector((state) => state.userState);
+  const { selectRole } = useSelector((state) => state.userState);
   const [loadingDeleteUser, setLoadingDeleteUser] = React.useState(false);
   const dispatch = useDispatch();
   const { getAllUsers, pagination } = useUsers();
@@ -26,7 +28,11 @@ const useDeleteUser = () => {
 
   React.useEffect(() => {
     if (resDeleteUser?.error_code === NO_ERROR) {
-      getAllUsers({ page: pagination.current_page });
+      getAllUsers({
+        page: pagination.current_page,
+        per_page: pagination.per_page,
+        role: selectRole,
+      });
       NotificationSuccess(t("notification"), resDeleteUser.message);
       setLoadingDeleteUser(false);
       dispatch(resetResCRUDAction());

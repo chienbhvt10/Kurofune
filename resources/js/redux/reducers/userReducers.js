@@ -6,6 +6,7 @@ import {
   getUsersAction,
   resetResCRUDAction,
   updateUserAction,
+  selectRoleAction,
 } from "../actions/userAction";
 
 const initialState = {
@@ -19,6 +20,8 @@ const initialState = {
   to: undefined,
   current_page: undefined,
   last_page: undefined,
+  per_page: undefined,
+  selectRole: undefined,
 };
 
 const userReducers = createReducer(initialState, (builder) => {
@@ -31,6 +34,7 @@ const userReducers = createReducer(initialState, (builder) => {
       to: actions.payload.data.to,
       current_page: actions.payload.data.current_page,
       last_page: actions.payload.data.last_page,
+      per_page: actions.payload.data.per_page,
     };
   });
 
@@ -68,6 +72,13 @@ const userReducers = createReducer(initialState, (builder) => {
       resCreateUser: undefined,
       resUpdateUser: undefined,
       resDeleteUser: undefined,
+    };
+  });
+
+  builder.addCase(selectRoleAction, (state, actions) => {
+    return {
+      ...state,
+      selectRole: actions.payload,
     };
   });
 });
