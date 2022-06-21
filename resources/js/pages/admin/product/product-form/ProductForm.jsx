@@ -19,11 +19,7 @@ import useCategories from "../../../../hooks/category/useCategories.js";
 import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
 import useTaxes from "../../../../hooks/tax/useTaxes";
 import { isAdmin } from "../../../../helper/checker";
-import { isEmpty, isUndefined } from "lodash";
-import {
-  TYPE_FORM_CREATE,
-  TYPE_FORM_UPDATE,
-} from "../../../../constants/index.js";
+ 
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -33,25 +29,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const { getTaxes, taxes } = useTaxes();
   const { categoriesClient, getCategoriesClient } = useCategories();
   const [isFormSubmitted, setIsFormSubmiited] = React.useState(false);
-  const [objectError, setObjectError] = React.useState(() => {
-    if (typeForm === TYPE_FORM_UPDATE) {
-      return {
-        EN: true,
-        JA: true,
-        TL: true,
-        VI: true,
-        ZH: true,
-      };
-    } else {
-      return {
-        EN: false,
-        JA: false,
-        TL: false,
-        VI: false,
-        ZH: false,
-      };
-    }
-  });
+  
 
   const [avatarState, setAvatarState] = React.useState({
     avatarUrl: undefined,
@@ -67,39 +45,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const [productProfileFormTL] = Form.useForm();
   const [productProfileFormVI] = Form.useForm();
   const [productProfileFormZH] = Form.useForm();
-  const validateFormTranslateValues = async () => {
-    let nameEN = await productProfileFormEN.getFieldsValue("name");
-    let nameJP = await productProfileFormJP.getFieldsValue("name");
-    let nameTL = await productProfileFormTL.getFieldsValue("name");
-    let nameVI = await productProfileFormVI.getFieldsValue("name");
-    let nameZH = await productProfileFormZH.getFieldsValue("name");
-    const objectCheckValidate = {
-      EN: nameEN,
-      JA: nameJP,
-      TL: nameTL,
-      VI: nameVI,
-      ZH: nameZH,
-    };
-    const objectError = {
-      EN: false,
-      JA: false,
-      TL: false,
-      VI: false,
-      ZH: false,
-    };
-    Object.keys(objectCheckValidate).map((key) => {
-      if (
-        objectCheckValidate[key] &&
-        !isUndefined(objectCheckValidate[key].name)
-      ) {
-        objectError[key] = true;
-      } else {
-        objectError[key] = false;
-      }
-      return key;
-    });
-    setObjectError(objectError);
-  };
+ 
   const onSubmit = () => {
     productsForm.submit();
     productProfileFormEN.submit();
@@ -138,7 +84,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           : productProfileFormZH.getFieldsValue()),
       },
     };
-    validateFormTranslateValues();
     onSave(submitInput);
   };
   const onFinishFailed = () => {
@@ -418,7 +363,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         formZH={productProfileFormZH}
         response={response}
         isFormSubmitted={isFormSubmitted}
-        objectError={objectError}
       />
     </div>
   );

@@ -23,7 +23,7 @@ const SwitchTabsLangForm = ({
 }) => {
   return (
     <Tabs defaultActiveKey={FIRST_TAB} centered>
-      <TabPane tab={(objectError['EN']) ? <span>English</span> : <span>English<span style={{color:'red'}}>*</span></span>} key={FIRST_TAB}>
+      <TabPane tab={ <span>English<span style={{color:'red'}}>*</span></span>} key={FIRST_TAB}>
         <SubFormTranslate
           errorField="en.name"
           lang="EN"
@@ -32,7 +32,7 @@ const SwitchTabsLangForm = ({
           isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
-      <TabPane tab={objectError['JA'] ? <span>Japanese</span> : <span>Japanese <span style={{color:'red'}}>*</span></span>} key={SECOND_TAB}>
+      <TabPane tab={  <span>Japanese <span style={{color:'red'}}>*</span></span>} key={SECOND_TAB}>
         <SubFormTranslate
           errorField="ja.name"
           lang="JA"
@@ -41,7 +41,7 @@ const SwitchTabsLangForm = ({
           isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
-      <TabPane tab={objectError['TL'] ? <span>Tagalog</span> : <span>Tagalog <span style={{color:'red'}}>*</span></span>} key={THIRD_TAB}>
+      <TabPane tab={  <span>Tagalog <span style={{color:'red'}}>*</span></span>} key={THIRD_TAB}>
         <SubFormTranslate
           errorField="tl.name"
           lang="TL"
@@ -50,7 +50,7 @@ const SwitchTabsLangForm = ({
           isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
-      <TabPane tab={objectError['VI'] ? <span>Vietnamese</span> : <span>Vietnamese <span style={{color:'red'}}>*</span></span>} key={FOURTH_TAB}>
+      <TabPane tab={  <span>Vietnamese <span style={{color:'red'}}>*</span></span>} key={FOURTH_TAB}>
         <SubFormTranslate
           errorField="vi.name"
           lang="VI"
@@ -59,7 +59,7 @@ const SwitchTabsLangForm = ({
           isFormSubmitted={isFormSubmitted}
         />
       </TabPane>
-      <TabPane tab={objectError['ZH'] ? <span>Chinese</span> : <span>Chinese <span style={{color:'red'}}>*</span></span>} key={FIFTH_TAB}>
+      <TabPane tab={  <span>Chinese <span style={{color:'red'}}>*</span></span>} key={FIFTH_TAB}>
         <SubFormTranslate
           errorField="zh.name"
           lang="ZH"
