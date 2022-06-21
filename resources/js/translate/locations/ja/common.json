@@ -118,7 +118,7 @@
     "media_title": "総合トップページ",
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
-    "product_title": "Product",
+    "product_title": "商品",
     "category_title": "商品カテゴリ",
     "tax_title": "Tax"
   },
@@ -652,6 +652,7 @@
       }
     },
     "product": {
+      "title_product": "商品",
       "slug_field": "スラッグ",
       "vendor_field": "薬局",
       "sku_field": "商品番号",

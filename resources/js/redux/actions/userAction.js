@@ -8,6 +8,7 @@ const userActions = {
   updateUser: createAction("UPDATE_USER"),
   deleteUser: createAction("DELETE_USER"),
   resetResCRUD: createAction("RESET_RES_CRUD"),
+  selectRole: createAction("SELECT_ROLE"),
 };
 
 export const getUsersAction = createAsyncThunk(
@@ -63,4 +64,7 @@ export const resetResCRUDAction = createAsyncThunk(
     return;
   }
 );
+
+export const selectRoleAction = userActions.selectRole;
+
 export default userActions;

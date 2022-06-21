@@ -5,9 +5,11 @@ import { FormInfo } from "../../../../components/form-infor";
 import { PROFILE_FORM } from "../../../../constants";
 import useShowProfile from "../../../../hooks/auth/useShowProfile";
 import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
+import { useTranslation } from "react-i18next";
 
 export const ChangeProfile = () => {
   const { profile } = useShowProfile();
+  const { t } = useTranslation();
   const { updateProfile, resUpdateProfile, loadingUpdateProfile } =
     useUpdateProfile();
 
