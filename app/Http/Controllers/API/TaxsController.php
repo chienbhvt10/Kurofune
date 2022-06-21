@@ -48,7 +48,7 @@ class TaxsController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'name' => 'string|required',
-                'value'=> 'numeric|required'
+                'value'=> 'integer|required'
             ]);
 
             if ($validator->fails()) {
@@ -98,7 +98,7 @@ class TaxsController extends Controller
         try {
             $validator = Validator::make($request->all(), [
                 'name' => 'required|string',
-                'value' => 'required|numeric'
+                'value' => 'required|integer'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
