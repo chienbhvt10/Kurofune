@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
-import "./product-detail.scss";
 import useProductClient from "../../../hooks/product/useProductClient";
 import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
@@ -8,6 +7,7 @@ import { PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
 import PageHead from "../../../commons/PageHead";
 import { getCurrentLanguage } from "../../../helper/localStorage";
+import "./product-detail.scss";
 const formItemLayout = {
   labelCol: {
     xs: { span: 24 },
@@ -18,6 +18,7 @@ const formItemLayout = {
     sm: { span: 16 },
   },
 };
+const { Option } = Select;
 
 const ProductDetailPage = () => {
   const { t } = useTranslation();
@@ -137,11 +138,11 @@ const ProductDetailPage = () => {
                     placeholder={t("client.product_detail.placeholder_option")}
                   >
                     {PRODUCT_OPTION.GENDER.map((option, index) => (
-                      <Select.Option key={index} value={option.value}>
+                      <Option key={index} value={option.value}>
                         {t(
                           `client.product_detail.option_add_to_cart.gender.${option.label}`
                         )}
-                      </Select.Option>
+                      </Option>
                     ))}
                   </Select>
                 </Form.Item>
@@ -160,11 +161,11 @@ const ProductDetailPage = () => {
                     placeholder={t("client.product_detail.placeholder_option")}
                   >
                     {PRODUCT_OPTION.YEAR_OLD.map((option, index) => (
-                      <Select.Option key={index} value={option.value}>
+                      <Option key={index} value={option.value}>
                         {t(
                           `client.product_detail.option_add_to_cart.year_old.${option.label}`
                         )}
-                      </Select.Option>
+                      </Option>
                     ))}
                   </Select>
                 </Form.Item>
@@ -183,11 +184,11 @@ const ProductDetailPage = () => {
                     placeholder={t("client.product_detail.placeholder_option")}
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
-                      <Select.Option key={index} value={option.value}>
+                      <Option key={index} value={option.value}>
                         {t(
                           `client.product_detail.option_add_to_cart.yes_or_no.${option.label}`
                         )}
-                      </Select.Option>
+                      </Option>
                     ))}
                   </Select>
                 </Form.Item>
@@ -210,15 +211,15 @@ const ProductDetailPage = () => {
                     }}
                   >
                     {PRODUCT_OPTION.YES_OR_NO.map((option, index) => (
-                      <Select.Option key={index} value={option.value}>
+                      <Option key={index} value={option.value}>
                         {t(
                           `client.product_detail.option_add_to_cart.yes_or_no.${option.label}`
                         )}
-                      </Select.Option>
+                      </Option>
                     ))}
                   </Select>
                 </Form.Item>
-
+              
                 <Form.Item
                   name="anket_5"
                   label={t("client.product_detail.label_using_medicine")}
@@ -239,7 +240,6 @@ const ProductDetailPage = () => {
                     placeholder={t("client.product_detail.placeholder_text")}
                   />
                 </Form.Item>
-
                 <Form.Item
                   name="anket_6"
                   label={t("client.product_detail.label_other_illnesses")}
@@ -255,11 +255,11 @@ const ProductDetailPage = () => {
                     onChange={(value) => setCurrentTreating(value)}
                   >
                     {PRODUCT_OPTION.CURRENTLY_TREATING.map((option, index) => (
-                      <Select.Option key={index} value={option.value}>
+                      <Option key={index} value={option.value}>
                         {t(
                           `client.product_detail.option_add_to_cart.currently_treating.${option.label}`
                         )}
-                      </Select.Option>
+                      </Option>
                     ))}
                   </Select>
                 </Form.Item>
