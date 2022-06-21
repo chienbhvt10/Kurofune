@@ -534,7 +534,7 @@ class UserController extends Controller
                 if($user->vendor_profile) {
                     $user->vendor_profile()->delete();
                     if ($user->products) {
-                        $user->products()->delete();
+                        $user->products()->forceDelete();
                     }
                 }
                 $validator_profile = Validator::make($request->all(), [
@@ -740,7 +740,7 @@ class UserController extends Controller
                 if ($user->vendor_profile) {
                     $user->vendor_profile()->delete();
                     if ($user->products) {
-                        $user->products()->delete();
+                        $user->products()->forceDelete();
                     }
                 }
 
