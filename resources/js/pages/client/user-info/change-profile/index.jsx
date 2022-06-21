@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
+import React from "react";
 import PageHead from "../../../../commons/PageHead";
 import { FormInfo } from "../../../../components/form-infor";
 import { PROFILE_FORM } from "../../../../constants";
@@ -9,7 +8,7 @@ import { useTranslation } from "react-i18next";
 
 export const ChangeProfile = () => {
   const { t } = useTranslation();
-  const { profile,showProfile } = useShowProfile();
+  const { profile } = useShowProfile();
   const { updateProfile, resUpdateProfile, isLoadingUpdateProfile } = useUpdateProfile();
 
   const onSave = (values) => {
