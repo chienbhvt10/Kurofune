@@ -242,7 +242,39 @@
       "card_insurance": "Income Compensation Insurance",
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "User information",
-      "btn_logout": "Logout"
+      "btn_logout": "Logout",
+      "light_plan":{
+        "modal_access_right":{
+      
+        },
+        "modal_access_right2":{
+          "description":"You can only start using the portal site after the video finishes.Please watch",
+          "title":"* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are",
+          "the_services":{
+            "1":"Online pharmacy service",
+            "2":"24-hour life consultation service",
+            "linkVideo":"//www.youtube.com/embed/Rda05UqBtR8"
+          }
+        }
+      },
+      "full_plan":{
+        "modal_access_right":{
+      
+        },
+        "modal_access_right2":{
+          "description":"You can only start using the portal site after the video finishes.Please watch",
+          "title":"* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are",
+          "the_services":{
+            "1":"Online pharmacy service",
+            "2":"24-hour life consultation service",
+            "3":"Overseas remittance service",
+            "4":"Online Japanese language education service",
+            "5":"Income compensation insurance service",
+            "linkVideo":"//www.youtube.com/embed/vjyWFKmuij0"
+            
+          }
+        }
+      }      
     },
     "cart": {
       "title_cart": "Shopping basket",
@@ -421,6 +453,7 @@
       "title_expiration_date": "Expiration date of drugs for specific sale",
       "title_problem": "Matters concerning the system for sales of drugs requiring guidance and over-the-counter drugs"
     }
+    
   },
   "admins": {
     "btn_save": "Save",
