@@ -1,9 +1,23 @@
 import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 import "./modal-custom.scss";
+import { useTranslation } from "react-i18next";
 const ModalAccessRight2 = ({ modalVisible, setModalVisible }) => {
-    // const [modalVisible, setModalVisible] = useState(true);
 
+    const theServices ={
+        light_plan:[
+            'client.media.light_plan.modal_access_right2.the_services.1',
+            'client.media.light_plan.modal_access_right2.the_services.2',
+        ],
+        full_plan:[
+            'client.media.full_plan.modal_access_right2.the_services.1',
+            'client.media.full_plan.modal_access_right2.the_services.2',
+            'client.media.full_plan.modal_access_right2.the_services.3',
+            'client.media.full_plan.modal_access_right2.the_services.4',
+            'client.media.full_plan.modal_access_right2.the_services.5',
+        ]
+    }
+    const { t } = useTranslation();
     return (
         <Modal
             visible={modalVisible}
@@ -16,36 +30,26 @@ const ModalAccessRight2 = ({ modalVisible, setModalVisible }) => {
             <div className="modal-custom">
                 <div className="modal-custom-body">
                     <div className="modal-custom-content">
-                        <p className="modal-custom-description"> lorem ipsum dolor sit am</p>
-                        <p className="modal-custom-title"> lorem ipsum dolor sit am</p>
+                        <p className="modal-custom-description">{t("client.media.full_plan.modal_access_right2.description")}</p>
+                        <p className="modal-custom-title">{t("client.media.full_plan.modal_access_right2.title",{payload:'Name User'})}</p>
                         <ul className="modal-custom-list">
-                            <li className="modal-custom-item">
-                                <span className="modal-custom-item-index">1</span>
-                                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-                            </li>
-                            <li className="modal-custom-item">
-                                <span className="modal-custom-item-index">2</span>
-                                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-                            </li>
-                            <li className="modal-custom-item">
-                                <span className="modal-custom-item-index">3</span>
-                                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-                            </li>
-                            <li className="modal-custom-item">
-                                <span className="modal-custom-item-index">4</span>
-                                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-                            </li>
+                            {theServices.full_plan.map((content, index) => {
+                                return (
+                                    <li className="modal-custom-item">
+                                        <span className="modal-custom-item-index">{index +1}</span>
+                                        <span className="modal-custom-item-content">{t(content)}</span>
+                                    </li>
+                                )
+                            })}
                         </ul>
                         <div className="modal-custom-video">
-                            <video
+                            <iframe 
                                 width="100%"
                                 height="240"
                                 controls
-                                // poster="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTY2wq3i7Gja-3NnPviZKpQgo_maLZbz0NzSw&usqp=CAU"
+                                src={t("client.media.full_plan.modal_access_right2.the_services.linkVideo")}
                             >
-                                <source src="movie.mp4" type="video/mp4" />
-                                <source src="movie.ogg" type="video/ogg" />
-                            </video>
+                            </iframe>
                         </div>
                     </div>
                 </div>
