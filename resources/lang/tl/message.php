@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => 'Walang laman ang listahan ng mga botika.'
         ],
-        'inactive' => 'hindi aktibo ang user.'
+        'inactive' => 'hindi aktibo ang user.',
+        'unauthenticated' => 'Hindi napatotohanan',
+        'active' => 'Naka-activate ang user.'
     ],
     'role' => [
         'created' => 'Nabuong papel',
