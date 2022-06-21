@@ -747,7 +747,7 @@ class UserController extends Controller
                     'password' => $password,
                     'username' => $user->username
                 ];
-                // Notification::sendNow($user, New ChangePasswordNotification($data));
+                Notification::sendNow($user, New ChangePasswordNotification($data));
             }
             return $this->response_message_data_success(__('message.user.updated'), $user);
         }catch (\Exception $error){
