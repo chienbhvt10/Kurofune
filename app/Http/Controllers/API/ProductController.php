@@ -73,7 +73,7 @@ class ProductController extends Controller
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products',
-                'price' => 'nullable|numeric',
+                'price' => 'nullable|integer',
                 'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'en_name' => 'required',
                 'ja_name' => 'required',

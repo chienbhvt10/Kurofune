@@ -226,9 +226,9 @@ class UserController extends Controller
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
@@ -434,7 +434,7 @@ class UserController extends Controller
                 'email' => 'nullable|email',
                 'phone' => 'nullable|numeric',
                 'active' => 'nullable|boolean',
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'nullable|string|max:100',
                 'postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
