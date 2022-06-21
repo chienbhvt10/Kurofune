@@ -23,7 +23,13 @@ const ProductTable = ({
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
         <div className="table-column-break">
-          <img src={record.product_image} alt="" height={50} width={50} />
+          <img
+            src={record.product_image}
+            onError={(e) => (e.target.src = "/images/image-default.png")}
+            alt=""
+            height={50}
+            width={50}
+          />
         </div>
       ),
     },
@@ -69,10 +75,10 @@ const ProductTable = ({
       key: "categories",
       dataIndex: "categories",
       title: t("admins.product.category_field"),
-      render: (_, record) => (
+      render: (categories) => (
         <div className="category-wrapper">
-          {record?.categories.map((item) => (
-            <span>{item?.name}</span>
+          {categories?.map((item,i) => (
+            <span key={i}>{item?.name}</span>
           ))}
         </div>
       ),
@@ -95,10 +101,10 @@ const ProductTable = ({
       key: "store",
       dataIndex: "store",
       title: t("admins.product.store_field"),
-      render: (_, record) => (
+      render: (store) => (
         <div className="category-wrapper">
-          {record?.store.map((item) => (
-            <span>{item?.name}</span>
+          {store?.map((item, index) => (
+            <span key={index}>{item?.name}</span>
           ))}
         </div>
       ),
