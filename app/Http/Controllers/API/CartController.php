@@ -43,7 +43,7 @@ class CartController extends Controller
                     $item['id'] = $value->id;
                     $item['name'] = $product->name;
                     $item['quantity'] = $value->quantity;
-                    $item['price'] = (float)$product->price;
+                    $item['price'] = (integer)$product->price;
                     $item['price_tax'] = $this->get_price_including_tax($product);
                     $item['product_image'] = $product->product_image;
                     $data_item[] = $item;
@@ -294,10 +294,10 @@ class CartController extends Controller
                         'anket_6' => $item->anket_6,
                         'anket_7' => $item->anket_7,
                         'anket_8' => $item->anket_8,
-                        'sub_total_tax' => (float)$price_tax,
-                        'sub_total' => (float)$price,
-                        'total_tax' => (float) $price_tax * $quantity,
-                        'total' =>(float) $price * $quantity,
+                        'sub_total_tax' => (integer)$price_tax,
+                        'sub_total' => (integer)$price,
+                        'total_tax' => (integer) $price_tax * $quantity,
+                        'total' =>(integer) $price * $quantity,
                         'created_at' => Carbon::now(),
                         'updated_at' => Carbon::now()
                     ];

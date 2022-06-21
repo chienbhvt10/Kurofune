@@ -50,8 +50,10 @@ class ProductController extends Controller
             foreach ($product as $key => $item) {
                 $category = $item->categories()->get()->toArray();
                 $dataResponse['data'][$key]['categories'] = $category;
-                $vendorProfile = $item->user()->first()->vendor_profile();
-                $dataResponse['data'][$key]['store'] = $vendorProfile->get()->toArray();
+                $user = $item->user()->first();
+                if ($user) {
+                    $dataResponse['data'][$key]['store'] = $user->vendor_profile()->get();
+                }
             }
 
             return $this->response_data_success($dataResponse);
@@ -72,7 +74,7 @@ class ProductController extends Controller
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products',
-                'price' => 'nullable|numeric',
+                'price' => 'nullable|integer',
                 'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
                 'ja.name' => 'required',
@@ -240,7 +242,7 @@ class ProductController extends Controller
             }
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
-                'price' => 'nullable|numeric',
+                'price' => 'nullable|integer',
                 'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
                 'ja.name' => 'required',
@@ -404,6 +406,7 @@ class ProductController extends Controller
                 $categories = $data->categories;
                 $translations = $data -> translations;
                 $response = [
+                    'product_id' => $data->id,
                     'slug' => $data->slug,
                     'sku' => $data->sku,
                     'stock_status' => $data->stock_status,

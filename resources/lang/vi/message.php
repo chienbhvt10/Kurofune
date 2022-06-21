@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => 'Danh sách hiệu thuốc trống.'
         ],
-        'inactive' => 'người dùng không hoạt động.'
+        'inactive' => 'người dùng không hoạt động.',
+        'unauthenticated' => 'Không thể xác thực',
+        'active' => 'Người dùng đã được kích hoạt.'
     ],
     'role' => [
         'created' => 'Tạo vai trò thành công .',
@@ -78,7 +80,7 @@ return [
         'not_exist' => 'Phương thức vận chuyển không tồn tại'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name đã được thêm vào giỏ hàng của bạn.',
         'no_info' => 'Không có thông tin trong giỏ hàng.',
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',

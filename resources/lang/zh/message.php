@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => '药店名单是空的。'
         ],
-        'inactive' => '用戶不活躍。'
+        'inactive' => '用戶不活躍。',
+        'unauthenticated' => '未经身份验证。',
+        'active' => '用户已激活。'
     ],
     'role' => [
         'created' => '创建的角色。',
@@ -78,7 +80,7 @@ return [
         'not_exist' => '配送方式不存在'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name 已添加到您的购物车。',
         'no_info' => '购物车中没有任何信息。',
         'deleted' => 'Cart deleted',
         'updated' => 'Cart updated',
