@@ -8,7 +8,6 @@ import {
 import { ERROR, NO_ERROR } from "../../constants/error";
 import {
   updateProfileAction,
-  resetAuthResponse,
 } from "../../redux/actions/authAction";
 const useUpdateProfile = () => {
   const { resUpdateProfile } = useSelector((state) => state.authState);
@@ -25,7 +24,6 @@ const useUpdateProfile = () => {
     if (resUpdateProfile?.error_code === NO_ERROR) {
       setLoadingUpdateProfile(false);
       NotificationSuccess(t("notification"), resUpdateProfile.message);
-      dispatch(resetAuthResponse());
     }
     if (resUpdateProfile && resUpdateProfile.error_code === ERROR) {
       setLoadingUpdateProfile(false);

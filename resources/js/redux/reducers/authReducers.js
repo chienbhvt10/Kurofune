@@ -125,10 +125,11 @@ const authReducers = createReducer(initialState, (builder) => {
     };
   });
   builder.addCase(updateProfileAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      resUpdateProfile: actions.payload,
-    };
+    if (actions.payload.data) {
+      (state.profile.address = actions.payload.data);
+      // (state.profile.email = actions.payload.data?.email);
+    }
+    (state.resUpdateProfile = actions.payload);
   });
   builder.addCase(updateBillingAddressAction.fulfilled, (state, actions) => {
     return {

@@ -1,5 +1,5 @@
-import React from "react";
-import Helmet from "react-helmet";
+import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import PageHead from "../../../../commons/PageHead";
 import { FormInfo } from "../../../../components/form-infor";
 import { PROFILE_FORM } from "../../../../constants";
@@ -7,9 +7,9 @@ import useShowProfile from "../../../../hooks/auth/useShowProfile";
 import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
 
 export const ChangeProfile = () => {
-  const { profile } = useShowProfile();
-  const { updateProfile, resUpdateProfile, loadingUpdateProfile } =
-    useUpdateProfile();
+  const { t } = useTranslation();
+  const { profile,showProfile } = useShowProfile();
+  const { updateProfile, resUpdateProfile, loadingUpdateProfile } = useUpdateProfile();
 
   const onSave = (values) => {
     updateProfile(values);
