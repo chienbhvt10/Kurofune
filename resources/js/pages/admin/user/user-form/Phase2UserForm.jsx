@@ -33,7 +33,8 @@ const Phase2UserForm = (props) => {
     outSideImageUrl,
     onChangeImageInside,
     insideImageUrl,
-    onSaveDeletedImage,
+    onSaveImgInsideDelete,
+    onSaveImgOutsideDelete,
   } = props;
   const { t } = useTranslation();
   const { resCreateUser, resUpdateUser } = useSelector(
@@ -59,7 +60,8 @@ const Phase2UserForm = (props) => {
               outSideImageUrl={outSideImageUrl}
               onChangeImageInside={onChangeImageInside}
               insideImageUrl={insideImageUrl}
-              onSaveDeletedImage={onSaveDeletedImage}
+              onSaveImgInsideDelete={onSaveImgInsideDelete}
+              onSaveImgOutsideDelete={onSaveImgOutsideDelete}
             />
           ) : (
             <></>
