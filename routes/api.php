@@ -44,8 +44,10 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         });
 
         // Category Manage
-        Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
-
+        Route::middleware(['permission:manage product category'])->group(function () {
+            Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class);
+        });
+      
         // Product Manage
         Route::middleware(['permission:manage product'])->group(function () {
             Route::apiResource('products', \App\Http\Controllers\API\ProductController::class);
@@ -76,6 +78,12 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
             Route::get('list-log-question', [\App\Http\Controllers\API\LogQuestionController::class, 'listLogQuestion']);
             Route::get('export-log-question', [\App\Http\Controllers\API\LogQuestionController::class, 'exportLogQuestion']);
         });
+        
+        // Recycle Bin manage
+        Route::get('get-list-deleted/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'getListDeleted']);
+        Route::put('restore-each-deleted/{model}-{id}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreEachDeleted']);
+        Route::put('restore-list-deleted/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'restoreListDeleted']);
+        Route::delete('force-delete/{model}', [\App\Http\Controllers\API\RecycleBinController::class, 'forceDelete']);
 
         // View Profile
         Route::get('profile', ['App\Http\Controllers\API\UserController', 'profile'])->middleware('permission:view profile');

@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => 'Danh sách hiệu thuốc trống.'
         ],
-        'inactive' => 'người dùng không hoạt động.'
+        'inactive' => 'người dùng không hoạt động.',
+        'unauthenticated' => 'Không thể xác thực',
+        'active' => 'Người dùng đã được kích hoạt.'
     ],
     'role' => [
         'created' => 'Tạo vai trò thành công .',

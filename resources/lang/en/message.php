@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => 'list of pharmacies is empty'
         ],
-        'inactive' => 'user inactive'
+        'inactive' => 'user inactive',
+        'unauthenticated' => 'Unauthenticated',
+        'active' => 'User is activated.'
     ],
     'role' => [
         'created' => 'role created',
