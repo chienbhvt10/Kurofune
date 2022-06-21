@@ -20,8 +20,10 @@ const initialState = {
   isLogin: false,
   profile: undefined,
   resLogin: undefined,
+  isLoadingLogin: undefined,
   resLogout: undefined,
   resUpdateProfile: undefined,
+  isLoadingUpdateProfile: undefined,
   resUpdateBillingAddress: undefined,
   resUpdateShippingAddress: undefined,
   resChangePassword: undefined,
@@ -32,22 +34,33 @@ const initialState = {
 };
 
 const authReducers = createReducer(initialState, (builder) => {
-  builder.addCase(login.fulfilled, (state, actions) => {
-    if (actions.payload.error_code === NO_ERROR) {
-      return {
-        ...state,
-        resLogin: actions.payload,
-        userInfo: actions.payload.data.user,
-        token: actions.payload.data.access_token,
-        isLogin: true,
-      };
-    } else {
-      return {
-        ...state,
-        resLogin: actions.payload,
-      };
-    }
-  });
+  // Start Login
+  builder
+    .addCase(login.pending, (state) => {
+      state.isLoadingLogin = true;
+    })
+    .addCase(login.fulfilled, (state, actions) => {
+      if (actions.payload.error_code === NO_ERROR) {
+        return {
+          ...state,
+          resLogin: actions.payload,
+          userInfo: actions.payload.data.user,
+          token: actions.payload.data.access_token,
+          isLogin: true,
+          isLoadingLogin: false,
+        };
+      } else {
+        return {
+          ...state,
+          resLogin: actions.payload,
+          isLoadingLogin: false,
+        };
+      }
+    })
+    .addCase(login.rejected, (state) => {
+      state.isLoadingLogin = false;
+    });
+    // End Login
 
   builder.addCase(forgotPassword.fulfilled, (state, actions) => {
     return {
@@ -124,13 +137,22 @@ const authReducers = createReducer(initialState, (builder) => {
       resChangePassword: actions.payload,
     };
   });
-  builder.addCase(updateProfileAction.fulfilled, (state, actions) => {
-    if (actions.payload.data) {
-      (state.profile.address = actions.payload.data);
-      // (state.profile.email = actions.payload.data?.email);
-    }
-    (state.resUpdateProfile = actions.payload);
-  });
+
+  // Start Update profile
+  builder
+    .addCase(updateProfileAction.pending, (state, actions) => {
+      state.isLoadingUpdateProfile = true;
+    })
+    .addCase(updateProfileAction.fulfilled, (state, actions) => {
+      state.resUpdateProfile = actions.payload;
+      state.isLoadingUpdateProfile = false;
+    })
+    .addCase(updateProfileAction.rejected, (state, actions) => {
+      state.resUpdateProfile = actions.payload;
+      state.isLoadingUpdateProfile = false;
+    });
+  // End Update profile
+
   builder.addCase(updateBillingAddressAction.fulfilled, (state, actions) => {
     return {
       ...state,

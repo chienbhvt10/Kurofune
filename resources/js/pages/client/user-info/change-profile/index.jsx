@@ -9,7 +9,7 @@ import useUpdateProfile from "../../../../hooks/auth/useUpdateProfile";
 export const ChangeProfile = () => {
   const { t } = useTranslation();
   const { profile,showProfile } = useShowProfile();
-  const { updateProfile, resUpdateProfile, loadingUpdateProfile } = useUpdateProfile();
+  const { updateProfile, resUpdateProfile, isLoadingUpdateProfile } = useUpdateProfile();
 
   const onSave = (values) => {
     updateProfile(values);
@@ -23,7 +23,7 @@ export const ChangeProfile = () => {
       />
 
       <FormInfo
-        loading={loadingUpdateProfile}
+        loading={isLoadingUpdateProfile}
         item={profile}
         onSave={onSave}
         typeForm={PROFILE_FORM}
