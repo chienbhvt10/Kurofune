@@ -16,6 +16,7 @@ import useUsers from "./useUsers";
 
 const useCreateUser = () => {
   const { resUpdateUser, users } = useSelector((state) => state.userState);
+  const { selectRole } = useSelector((state) => state.userState);
   const dispatch = useDispatch();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
@@ -30,7 +31,11 @@ const useCreateUser = () => {
 
   React.useEffect(() => {
     if (resUpdateUser?.error_code === NO_ERROR) {
-      getAllUsers({ page: pagination.current_page });
+      getAllUsers({
+        page: pagination.current_page,
+        per_page: pagination.per_page,
+        role: selectRole,
+      });
       setLoadingUpdateUser(false);
       NotificationSuccess(t("notification"), resUpdateUser.message);
       navigate(`${lang}/admin/user-list`);

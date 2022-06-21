@@ -60,7 +60,7 @@ const ProductList = () => {
         <TableHeader
           addLink={`${lang}/admin/product/add`}
           breadcrumb={[]}
-          title="Product"
+          title={t("admins.product.title_product")}
           searchField="name"
           onSearch={onSearch}
           onChangeSearch={onChangeSearchValue}

@@ -136,15 +136,16 @@ const CategoryForm = ({
         }}
       >
         {(values, form) => {
-        const renderErrorMessage = (field) => {
+          const renderErrorMessage = (field) => {
+            return (
+              <div className="form-error">
+                {form.getFieldError(field) && t(form.getFieldError(field)[0])}
+              </div>
+            );
+          };
           return (
-            <div className="form-error">{form.getFieldError(field) && t(form.getFieldError(field)[0])}</div>
-          );
-        };
-          return (
-
             <>
-                <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
+              <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
               <div>
                 <TranslateCategoryForm
                   formEN={categoryProfileFormEN}
@@ -171,24 +172,15 @@ const CategoryForm = ({
                       />
                       {errorMessImage && (
                         <span style={{ color: "red" }}>
-                          {t("admins.category.error_message.error_category_image")}
+                          {t(
+                            "admins.category.error_message.error_category_image"
+                          )}
                         </span>
                       )}
                     </Form.Item>
                   </Col>
 
                   <Col span={12} className="mb-30">
-                    <Col span={24} className="input-field-space">
-                      <InputField
-                        field="slug"
-                        label={t("admins.category.slug_field")}
-                        // rules={[]}
-                        response={response}
-                        error="slug"
-                        placeholder={t("admins.category.placeholder_text")}
-                        type={<Input />}
-                      />
-                    </Col>
                     <Col span={24} className="input-field-space">
                       <SelectField
                         field="type"
@@ -204,9 +196,8 @@ const CategoryForm = ({
                         response={response}
                         errorField="type"
                         options={CATEGORY_OPTIONS.CATEGORY_TYPES}
-                        
                       />
-                      {renderErrorMessage('type')}
+                      {renderErrorMessage("type")}
                     </Col>
 
                     <Col span={24} className="input-field-space">
@@ -228,7 +219,7 @@ const CategoryForm = ({
                 </Row>
               </div>
             </>
-          )
+          );
         }}
       </Form>
     </div>
