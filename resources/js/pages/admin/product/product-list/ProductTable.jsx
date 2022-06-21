@@ -96,8 +96,10 @@ const ProductTable = ({
       dataIndex: "store",
       title: t("admins.product.store_field"),
       render: (_, record) => (
-        <div className="table-column-break">
-          <span>{record.store}</span>
+        <div className="category-wrapper">
+          {record?.store.map((item) => (
+            <span>{item?.name}</span>
+          ))}
         </div>
       ),
     },
