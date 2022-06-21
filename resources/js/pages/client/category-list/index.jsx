@@ -32,7 +32,7 @@ const CategoryListPage = () => {
       />
       <div id="category-list">
         <div className="list_categories">
-          {typeCategories?.map((typeCategory, index) => (
+          {typeCategories?.sort()?.map((typeCategory, index) => (
             <div className="type-wrapper" key={index}>
               <div className="type-name">
                 {" "}
