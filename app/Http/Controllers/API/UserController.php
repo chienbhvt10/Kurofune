@@ -434,7 +434,7 @@ class UserController extends Controller
                 'email' => 'nullable|email',
                 'phone' => 'nullable|numeric',
                 'active' => 'nullable|boolean',
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'nullable|string|max:100',
                 'postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
