@@ -50,8 +50,8 @@ class AuthController extends Controller
                 'email' => $user->email,
                 'phone' => $user->phone,
                 'email_verified_at' => $user->email_verified_at,
-                'active' => $user->avatar,
-                'avatar' => $user->phone,
+                'active' => USER_STATUS[$user->active],
+                'avatar' => $user->avatar,
                 'login_counter' => $user->login_counter,
                 'roles' => [
                     'id' => $roles[0]->id,
