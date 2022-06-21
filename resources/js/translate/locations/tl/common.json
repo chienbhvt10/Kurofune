@@ -118,7 +118,7 @@
     "media_title": "Bumalik sa top page",
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
-    "product_title": "Product",
+    "product_title": "Produkto",
     "category_title": "Kategorya ng Produkto",
     "tax_title": "Tax"
   },
@@ -594,6 +594,7 @@
       }
     },
     "product": {
+      "title_product": "Produkto",
       "slug_field": "Daan",
       "vendor_field": "Nagtitinda",
       "sku_field": "Code ng produkto",

@@ -645,6 +645,7 @@
       }
     },
     "product": {
+      "title_product": "Product",
       "slug_field": "Slug",
       "vendor_field": "Vendor",
       "sku_field": "Sku",
