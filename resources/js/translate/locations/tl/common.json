@@ -242,7 +242,39 @@
       "card_insurance": "Income Compensation Insurance",
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "User Information",
-      "btn_logout": "Mag-logout"
+      "btn_logout": "Mag-logout",
+      "light_plan":{
+        "modal_access_right":{
+      
+        },
+        "modal_access_right2":{
+          "description":"Maaari mo lamang simulan ang paggamit ng portal site pagkatapos ng video. Mangyaring panoorin",
+          "title":"* Dahil ang kasalukuyang plano ay Light Plan, ang mga serbisyong magagamit ni G. {{payload}} ay",
+          "the_services":{
+            "1":"Online na serbisyo sa parmasya",
+            "2":"24 na oras na serbisyo sa konsultasyon sa buhay",
+            "linkVideo":"//www.youtube.com/embed/Rda05UqBtR8"
+          }
+        }
+      },
+      "full_plan":{
+        "modal_access_right":{
+      
+        },
+        "modal_access_right2":{
+          "description":"Maaari mo lamang simulan ang paggamit ng portal site pagkatapos ng video. Mangyaring panoorin",
+          "title":"* Dahil ang kasalukuyang plano ay Light Plan, ang mga serbisyong magagamit ni G. {{payload}} ay",
+          "the_services":{
+            "1":"Online na serbisyo sa parmasya",
+            "2":"24 na oras na serbisyo sa konsultasyon sa buhay",
+            "3":"Overseas remittance service",
+            "4":"Online Japanese language education service",
+            "5":"Income compensation insurance service",
+            "linkVideo":"//www.youtube.com/embed/vjyWFKmuij0"
+          }
+        }
+      }
+      
     },
     "cart": {
       "title_cart": "Basket ng pamimili",
