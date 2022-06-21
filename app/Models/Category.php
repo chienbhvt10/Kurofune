@@ -21,6 +21,10 @@ class Category extends Model
 
     public $timestamps = true;
 
+    protected $appends = [
+        'allow_deleted'
+    ];
+
     protected static function booted()
     {
         static::addGlobalScope(new OrderByCreatedAtScope);
@@ -28,6 +32,18 @@ class Category extends Model
 
     public function getCategoryImageAttribute(){
         return $this->attributes['category_image'] = get_image_url($this->attributes['category_image']);
+    }
+
+    public function getAllowDeletedAttribute(){
+        try {
+            $cate_id = $this->attributes['id'];
+            $res = Product::whereHas('categories', function (Builder $query) use ($cate_id){
+                $query->where('categories.id','=', $cate_id)->withoutGlobalScope(OrderByCreatedAtScope::class);
+            })->where('status', 'publish')->withoutGlobalScope(OrderByCreatedAtScope::class)->firstOrFail();
+            return $this->attributes['allow_delete'] = false;
+        }catch (\Exception $error){
+            return $this->attributes['category_image'] = true;
+        }
     }
 
     /*
