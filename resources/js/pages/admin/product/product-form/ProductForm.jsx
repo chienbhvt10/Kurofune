@@ -20,7 +20,10 @@ import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
 import useTaxes from "../../../../hooks/tax/useTaxes";
 import { isAdmin } from "../../../../helper/checker";
 import { isEmpty, isUndefined } from "lodash";
-import { TYPE_FORM_CREATE, TYPE_FORM_UPDATE } from "../../../../constants/index.js";
+import {
+  TYPE_FORM_CREATE,
+  TYPE_FORM_UPDATE,
+} from "../../../../constants/index.js";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -30,24 +33,23 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const { getTaxes, taxes } = useTaxes();
   const { categoriesClient, getCategoriesClient } = useCategories();
   const [isFormSubmitted, setIsFormSubmiited] = React.useState(false);
-  const [objectError, setObjectError] = React.useState(()=>{
-    if(typeForm=== TYPE_FORM_UPDATE){
+  const [objectError, setObjectError] = React.useState(() => {
+    if (typeForm === TYPE_FORM_UPDATE) {
       return {
         EN: true,
         JA: true,
         TL: true,
         VI: true,
-        ZH: true
-      }
-    }
-    else {
+        ZH: true,
+      };
+    } else {
       return {
         EN: false,
         JA: false,
         TL: false,
         VI: false,
-        ZH: false
-      }
+        ZH: false,
+      };
     }
   });
 
@@ -66,44 +68,47 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const [productProfileFormVI] = Form.useForm();
   const [productProfileFormZH] = Form.useForm();
   const validateFormTranslateValues = async () => {
-      let nameEN = await productProfileFormEN.getFieldsValue('name');
-      let nameJP = await productProfileFormJP.getFieldsValue('name');
-      let nameTL = await productProfileFormTL.getFieldsValue('name');
-      let nameVI = await productProfileFormVI.getFieldsValue('name');
-      let nameZH = await productProfileFormZH.getFieldsValue('name');
-      const objectCheckValidate={
-        EN: nameEN,
-        JA: nameJP,
-        TL: nameTL,
-        VI: nameVI,
-        ZH: nameZH
+    let nameEN = await productProfileFormEN.getFieldsValue("name");
+    let nameJP = await productProfileFormJP.getFieldsValue("name");
+    let nameTL = await productProfileFormTL.getFieldsValue("name");
+    let nameVI = await productProfileFormVI.getFieldsValue("name");
+    let nameZH = await productProfileFormZH.getFieldsValue("name");
+    const objectCheckValidate = {
+      EN: nameEN,
+      JA: nameJP,
+      TL: nameTL,
+      VI: nameVI,
+      ZH: nameZH,
+    };
+    const objectError = {
+      EN: false,
+      JA: false,
+      TL: false,
+      VI: false,
+      ZH: false,
+    };
+    Object.keys(objectCheckValidate).map((key) => {
+      if (
+        objectCheckValidate[key] &&
+        !isUndefined(objectCheckValidate[key].name)
+      ) {
+        objectError[key] = true;
+      } else {
+        objectError[key] = false;
       }
-      const objectError={
-        EN: false,
-        JA: false,
-        TL: false,
-        VI: false,
-        ZH: false
-      }
-      Object.keys(objectCheckValidate).map((key)=>{
-        if(objectCheckValidate[key] && !isUndefined(objectCheckValidate[key].name)) {
-          objectError[key] = true
-        }else{
-          objectError[key] = false
-        }
-        return key
-      })
-      setObjectError(objectError)
-  }
-  const onSubmit=()=>{
-    productsForm.submit(); 
-    productProfileFormEN.submit(); 
-    productProfileFormJP.submit(); 
-    productProfileFormTL.submit(); 
-    productProfileFormVI.submit(); 
-    productProfileFormZH.submit(); 
-  }
-  const onFinishAll = async (values) =>{
+      return key;
+    });
+    setObjectError(objectError);
+  };
+  const onSubmit = () => {
+    productsForm.submit();
+    productProfileFormEN.submit();
+    productProfileFormJP.submit();
+    productProfileFormTL.submit();
+    productProfileFormVI.submit();
+    productProfileFormZH.submit();
+  };
+  const onFinishAll = async (values) => {
     const submitInput = {
       ...productsForm.getFieldsValue(),
       product_image: avatarState.base64Avatar,
@@ -133,7 +138,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           : productProfileFormZH.getFieldsValue()),
       },
     };
-    validateFormTranslateValues()
+    validateFormTranslateValues();
     onSave(submitInput);
   };
   const onFinishFailed = () => {
@@ -150,8 +155,8 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     if (item) {
       productProfileFormEN.setFieldsValue(
         item?.translations[0] || initialTranslateValues
-        );
-        productProfileFormJP.setFieldsValue(
+      );
+      productProfileFormJP.setFieldsValue(
         item?.translations[1] || initialTranslateValues
       );
       productProfileFormTL.setFieldsValue(
@@ -159,15 +164,14 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       );
       productProfileFormVI.setFieldsValue(
         item?.translations[3] || initialTranslateValues
-        );
-        productProfileFormZH.setFieldsValue(
-          item?.translations[4] || initialTranslateValues
-          );
-        }
+      );
+      productProfileFormZH.setFieldsValue(
+        item?.translations[4] || initialTranslateValues
+      );
+    }
     setAvatarState({ avatarUrl: item?.product_image || "" });
   }, [item]);
 
-  
   React.useEffect(() => {
     getCategoriesClient();
     getAllPharmacies();
@@ -210,7 +214,12 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           ...initialFormCommonValues,
         }}
       >
-        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} onSubmit={onSubmit}/>
+        <FormHeader
+          breadcrumb={[]}
+          title={title}
+          onCancel={onCancel}
+          onSubmit={onSubmit}
+        />
         <div>
           <Row justify="center">
             {(isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)) && (
@@ -302,14 +311,20 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 field="price"
                 label={t("admins.product.price_field")}
                 rules={[
-                  {
-                    pattern: new RegExp(/^[1-9][0-9]*$/),
-                    message: "Vui lòng nhập số lớn hơn 0",
-                  },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (getFieldValue("price") < 0 || value < 0) {
+                        return Promise.reject(
+                          t("admins.product.error_message.error_price")
+                        );
+                      }
+                      return Promise.resolve();
+                    },
+                  }),
                 ]}
                 response={response}
                 error="price"
-                type={<Input type="number" className="input-field" min={0} />}
+                type={<Input type="number" className="input-field" />}
               />
             </Col>
             <Col lg={12} md={12} sm={24} xs={24} className="input-field-space">

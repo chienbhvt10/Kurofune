@@ -51,10 +51,7 @@ const OrderList = () => {
       />
       <TableHeader
         addLink={`${lang}/admin/order-add`}
-        breadcrumb={[
-          { name: "Home", routerLink: "../" },
-          { name: "Order List", routerLink: "" },
-        ]}
+        breadcrumb={[]}
         title="Orders"
       />
       <OrderTable

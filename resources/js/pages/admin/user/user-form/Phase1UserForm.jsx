@@ -95,17 +95,7 @@ export const UserForm = ({
         }}
       >
         <FormHeader
-          breadcrumb={[
-            { name: "Home", routerLink: "../" },
-            {
-              name: t("admins.user.list.title"),
-              routerLink: `${lang}/admin/user-list`,
-            },
-            {
-              name: title,
-              routerLink: "",
-            },
-          ]}
+          breadcrumb={[]}
           title={title}
           onCancel={onCancel}
           loading={loading}

@@ -1,19 +1,23 @@
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./style.scss";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
+import usePharmacies from "../../../hooks/pharmacy/usePharmacy";
+import { SearchOutlined } from "@ant-design/icons";
+import { Button, Form, Input } from "antd";
+
 export const Questionnaire = () => {
-  const { i18n, t } = useTranslation();
-  const [number, setNumber] = React.useState(5);
+  const { t } = useTranslation();
+  const { searchPharmacy, emptyPharmacy, searchPharmacies } = usePharmacies();
   const lang = getCurrentLanguage();
-  const { isLogin, userInfo, profile, isLoading } = useSelector(
-    (state) => state.authState
-  );
+  const { profile } = useSelector((state) => state.authState);
+  const [form] = Form.useForm();
+  const [, forceUpdate] = React.useState({});
+
   React.useEffect(() => {
+    forceUpdate({});
     (function () {
       const sc = document.querySelectorAll("script");
       let activeChat = false;
@@ -46,73 +50,76 @@ export const Questionnaire = () => {
       webChat.style.display = "none";
     };
   }, []);
+
+  const onFinish = (values) => {
+    searchPharmacies(values.search);
+  };
   return (
     <div className="questionnaire-container">
       <input type="hidden" id="sys_userid" value={profile?.id} />
       <div className="card">
-        <div className="search-wrap">
-          <div className="input-group">
-            <FontAwesomeIcon
-              icon={faSearch}
-              size="sm"
-              className="icon-search"
-            />
-            <input
+        <Form
+          form={form}
+          name="horizontal_login"
+          layout="inline"
+          onFinish={onFinish}
+          size="large"
+        >
+          <Form.Item name="search" style={{ flex: 1 }}>
+            <Input
+              prefix={<SearchOutlined className="site-form-item-icon" />}
               type="text"
               placeholder={t("client.questionnaire.placeholder")}
             />
-          </div>
-          <button className="btn-search">
-            {t("client.questionnaire.btn_search")}
-          </button>
-        </div>
-        <div className="product-container">
-          <p className="show-number-result">
-            {t("client.questionnaire.title_number_results")} {number}
-            {t("client.questionnaire.description_number")}
-          </p>
-          <div className="product-list">
-            <div className="product-item">
-              <Link to={`${lang}/product-detail`} className="product-link">
-                <img src="https://pharma.its-globaltek.com/wp-content/uploads/2021/12/6_rinderon-1.jpg" />
-              </Link>
-              <div className="product-info">
-                <Link to={`${lang}/product-detail`} className="product-title">
-                  リンデロンVs軟膏 10g
-                </Link>
-                <Link to={`${lang}/product-detail`} className="btn-detail">
-                  詳細
-                </Link>
-              </div>
-            </div>
-            <div className="product-item">
-              <Link to={`${lang}/product-detail`} className="product-link">
-                <img src="https://pharma.its-globaltek.com/wp-content/uploads/2021/12/6_rinderon-1.jpg" />
-              </Link>
-              <div className="product-info">
-                <Link to={`${lang}/product-detail`} className="product-title">
-                  リンデロンVs軟膏 10g
-                </Link>
-                <Link to={`${lang}/product-detail`} className="btn-detail">
-                  詳細
-                </Link>
-              </div>
-            </div>
-            <div className="product-item">
-              <Link to={`${lang}/product-detail`} className="product-link">
-                <img src="https://pharma.its-globaltek.com/wp-content/uploads/2021/12/6_rinderon-1.jpg" />
-              </Link>
-              <div className="product-info">
-                <Link to={`${lang}/product-detail`} className="product-title">
-                  リンデロンVs軟膏 10g
-                </Link>
-                <Link to={`${lang}/product-detail`} className="btn-detail">
-                  詳細
-                </Link>
-              </div>
+          </Form.Item>
+          <Form.Item shouldUpdate>
+            {() => (
+              <Button type="primary" htmlType="submit">
+                {t("client.questionnaire.btn_search")}
+              </Button>
+            )}
+          </Form.Item>
+        </Form>
+        {searchPharmacy && (
+          <div className="product-container">
+            <p className="show-number-result">
+              {emptyPharmacy
+                ? t("client.questionnaire.no_result")
+                : `${t("client.questionnaire.title_number_results")} ${
+                    searchPharmacy.length
+                  }
+              ${t("client.questionnaire.description_number")}`}
+            </p>
+            <div className="product-list">
+              {searchPharmacy?.map((item, index) => (
+                <div className="product-item" key={index}>
+                  <Link to={`${lang}/product-detail`} className="product-link">
+                    <img
+                      src={item.product_image}
+                      onError={(e) =>
+                        (e.target.src = "/images/image-default.png")
+                      }
+                    />
+                  </Link>
+                  <div className="product-info">
+                    <Link
+                      to={`${lang}/product-detail/${item.id}`}
+                      className="product-title"
+                    >
+                      {item.name}
+                    </Link>
+                    <Link
+                      to={`${lang}/product-detail/${item.id}`}
+                      className="btn-detail"
+                    >
+                      {t("client.questionnaire.btn_detail")}
+                    </Link>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

@@ -14,4 +14,5 @@ export const pharmacyApi = {
     const url = ROOT_URL + "users?role=vendor";
     return await axiosClient.get(url);
   },
+  searchPharmacy: async (data) => { return await axiosClient.get(ROOT_URL + `search-pharmacy?search=${data}`);}
 };

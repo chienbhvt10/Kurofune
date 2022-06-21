@@ -229,6 +229,8 @@
       "placeholder": "Hãy nhập tên thuốc",
       "btn_search": "Tìm kiếm",
       "title_number_results": "Kết quả tìm kiếm: ",
+      "btn_detail": "Chi tiết",
+      "no_result": "Không tìm thấy kết quả tìm kiếm.",
       "description_number": " trường hợp"
     },
     "media": {
@@ -372,18 +374,18 @@
           "yo_3": "65 tuổi trở lên"
         },
         "currently_treating": {
-          "c_1": "Bệnh cao huyềt áp",
-          "c_2": "Bệnh tiểu đường",
-          "c_3": "Rối loạn mỡ máu",
-          "c_4": "Hen suyễn",
-          "c_5": "Bệnh gan",
-          "c_6": "Bệnh tim",
-          "c_7": "Nhồi máu não",
-          "c_8": "Loét dạ dày / tá tràng",
-          "c_9": "Bệnh tuyến giáp",
-          "c_10": "Bệnh tuyến tiền liệt",
-          "c_11": "Bệnh khác",
-          "c_12": "Không"
+          "c_1": "Không",
+          "c_2": "Bệnh cao huyềt áp",
+          "c_3": "Bệnh tiểu đường",
+          "c_4": "Rối loạn mỡ máu",
+          "c_5": "Hen suyễn",
+          "c_6": "Bệnh gan",
+          "c_7": "Bệnh tim",
+          "c_8": "Nhồi máu não",
+          "c_9": "Loét dạ dày / tá tràng",
+          "c_10": "Bệnh tuyến giáp",
+          "c_11": "Bệnh tuyến tiền liệt",
+          "c_12": "Bệnh khác"
         }
       },
       "medicinal_efficacy": "Phân loại thuốc theo công dụng",
@@ -627,7 +629,8 @@
         "error_stockstatus": "Trường 'Trạng thái tồn kho' là trường bắt buộc",
         "error_category": "Trường 'Danh mục' là trường bắt buộc",
         "error_tax": "Trường 'Thuế' là trường bắt buộc",
-        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc"
+        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc",
+        "error_price": "Vui lòng nhập số hợp lệ."
       },
       "title": {
         "product_title": "Thêm sản phẩm ",
