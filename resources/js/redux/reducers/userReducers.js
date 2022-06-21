@@ -6,19 +6,27 @@ import {
   getUsersAction,
   resetResCRUDAction,
   updateUserAction,
+  selectRoleAction,
 } from "../actions/userAction";
-
+import {
+  NotificationError,
+  NotificationSuccess,
+} from "../../commons/Notification";
 const initialState = {
   users: [],
   user: undefined,
   resCreateUser: undefined,
   resUpdateUser: undefined,
   resDeleteUser: undefined,
+  loadingUpdateUser: false,
+  loadingCreateUser: false,
   total: undefined,
   from: undefined,
   to: undefined,
   current_page: undefined,
   last_page: undefined,
+  per_page: undefined,
+  selectRole: undefined,
 };
 
 const userReducers = createReducer(initialState, (builder) => {
@@ -31,6 +39,7 @@ const userReducers = createReducer(initialState, (builder) => {
       to: actions.payload.data.to,
       current_page: actions.payload.data.current_page,
       last_page: actions.payload.data.last_page,
+      per_page: actions.payload.data.per_page,
     };
   });
 
@@ -41,19 +50,53 @@ const userReducers = createReducer(initialState, (builder) => {
     };
   });
 
-  builder.addCase(createUserAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      resCreateUser: actions.payload,
-    };
-  });
+  builder
+    .addCase(createUserAction.fulfilled, (state, actions) => {
+      NotificationSuccess("", actions.payload.message);
+      return {
+        ...state,
+        resCreateUser: actions.payload,
+        loadingCreateUser: false,
+      };
+    })
+    .addCase(createUserAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingCreateUser: true,
+      };
+    })
+    .addCase(createUserAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload?.error_message || "Error");
+      return {
+        ...state,
+        resCreateUser: actions.payload,
+        loadingCreateUser: false,
+      };
+    });
 
-  builder.addCase(updateUserAction.fulfilled, (state, actions) => {
-    return {
-      ...state,
-      resUpdateUser: actions.payload,
-    };
-  });
+  builder
+    .addCase(updateUserAction.fulfilled, (state, actions) => {
+      NotificationSuccess("", actions.payload.message);
+      return {
+        ...state,
+        resUpdateUser: actions.payload,
+        loadingUpdateUser: false,
+      };
+    })
+    .addCase(updateUserAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingUpdateUser: true,
+      };
+    })
+    .addCase(updateUserAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload?.error_message || "Error");
+      return {
+        ...state,
+        resUpdateUser: actions.payload,
+        loadingUpdateUser: false,
+      };
+    });
 
   builder.addCase(deleteUserAction.fulfilled, (state, actions) => {
     return {
@@ -68,6 +111,13 @@ const userReducers = createReducer(initialState, (builder) => {
       resCreateUser: undefined,
       resUpdateUser: undefined,
       resDeleteUser: undefined,
+    };
+  });
+
+  builder.addCase(selectRoleAction, (state, actions) => {
+    return {
+      ...state,
+      selectRole: actions.payload,
     };
   });
 });

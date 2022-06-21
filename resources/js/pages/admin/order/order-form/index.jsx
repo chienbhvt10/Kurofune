@@ -3,7 +3,7 @@ import { t } from "i18next";
 import moment from "moment";
 import React from "react";
 import * as Yup from "yup";
-import { useParams } from 'react-router-dom';
+import { useParams } from "react-router-dom";
 import DateField from "../../../../commons/Form/DateField";
 import InputField from "../../../../commons/Form/InputField";
 import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
@@ -20,45 +20,48 @@ const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const { id } = useParams();
   const lang = getCurrentLanguage();
-  const { getOrderDetailAdmin } = useOrderDetailAdmin()
+  const { getOrderDetailAdmin } = useOrderDetailAdmin();
   const { updateOrderAdmin } = useUpdateOrderAdmin();
   const initialGeneralValues = {
-    date: moment(new Date(), 'YYYY-MM-DD'),
+    date: moment(new Date(), "YYYY-MM-DD"),
     hours: 0,
     minute: 0,
     customer: 0,
     status: 0,
-
   };
   const initialBillingValue = {};
   const initialShippingValue = {};
   const dataOptionsStatus = [
-    { value: 'awaiting confirm', label: 'Awaiting confirm' },
-    { value: 'packing', label: 'Packing' },
-    { value: 'delivery', label: 'Delivery' },
-    { value: 'shipping', label: 'Shipping' },
-    { value: 'completed', label: 'Completed' },
-  ]
-  const [dataOrder, setDataOrder] = React.useState()
+    { value: "awaiting confirm", label: "Awaiting confirm" },
+    { value: "packing", label: "Packing" },
+    { value: "delivery", label: "Delivery" },
+    { value: "shipping", label: "Shipping" },
+    { value: "completed", label: "Completed" },
+  ];
+  const [dataOrder, setDataOrder] = React.useState();
   const [dataCartInforTable, setDataCartInforTable] = React.useState({
     products: [],
     total: 0,
     total_tax: 0,
-  })
+  });
   const [formGeneral] = Form.useForm();
   const [formBilling] = Form.useForm();
   const [formShipping] = Form.useForm();
 
   const handleSubmit = async () => {
     try {
-      formGeneral.submit()
-      formBilling.submit()
-      formShipping.submit()
-      let valueFormGeneralError = await formGeneral.validateFields()
-      let valueFormBillingError = await formBilling.validateFields()
-      let valueFormShippingError = await formShipping.validateFields()
+      formGeneral.submit();
+      formBilling.submit();
+      formShipping.submit();
+      let valueFormGeneralError = await formGeneral.validateFields();
+      let valueFormBillingError = await formBilling.validateFields();
+      let valueFormShippingError = await formShipping.validateFields();
 
-      if (valueFormGeneralError && valueFormBillingError && valueFormShippingError) {
+      if (
+        valueFormGeneralError &&
+        valueFormBillingError &&
+        valueFormShippingError
+      ) {
         let objectUpdate = {
           order_status: valueFormGeneralError.status,
           shipping_full_name: valueFormShippingError.full_name,
@@ -77,15 +80,14 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
           billing_building: valueFormBillingError.building,
           billing_phone: valueFormBillingError.phone,
           billing_email: valueFormBillingError.email,
-        }
-        const { id } = dataOrder
-        updateOrderAdmin({id,data:objectUpdate},(data)=>{
-        })
+        };
+        const { id } = dataOrder;
+        updateOrderAdmin({ id, data: objectUpdate }, (data) => {});
       }
     } catch (error) {
-      console.log('Validate fail');
+      console.log("Validate fail");
     }
-  }
+  };
 
   React.useEffect(() => {
     if (dataOrder) {
@@ -98,7 +100,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         prefecture: dataOrder.billing_prefecture,
         street_address: dataOrder.billing_street_address,
         payment_method: dataOrder.transaction.payment_mode,
-        phone: dataOrder.billing_phone
+        phone: dataOrder.billing_phone,
       });
       formShipping.setFieldsValue({
         city: dataOrder.shipping_city,
@@ -108,37 +110,30 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         postal_code: dataOrder.shipping_postal_code,
         prefecture: dataOrder.shipping_prefecture,
         street_address: dataOrder.shipping_street_address,
-        phone: dataOrder.shipping_phone
+        phone: dataOrder.shipping_phone,
       });
 
       formGeneral.setFieldsValue({
         date: moment(new Date(dataOrder.created_at)),
         customer: dataOrder.user?.username,
-        status: dataOrder.transaction.status
+        status: dataOrder.transaction.status,
       });
       setDataCartInforTable({
         products: dataOrder.products,
         total: dataOrder.total,
         total_tax: dataOrder.total_tax,
-      })
+      });
     }
   }, [dataOrder]);
   React.useEffect(() => {
     getOrderDetailAdmin(id, (data) => {
       setDataOrder(data[0]);
-    })
+    });
   }, []);
   return (
     <div id="order-form">
       <FormHeader
-        breadcrumb={[
-          { name: "Home", routerLink: "../" },
-          { name: "Order List", routerLink: `${lang}/admin/order-list` },
-          {
-            name: "Add",
-            routerLink: "",
-          },
-        ]}
+        breadcrumb={[]}
         title={title}
         onCancel={onCancel}
         onSubmit={handleSubmit}
@@ -150,20 +145,30 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
           <Form form={formGeneral} name="formGeneral">
             <div className="form-group">
               <div>
-                <label className="label-for">{t("admins.order.form.field_date_create")}</label>
-                <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <label className="label-for">
+                  {t("admins.order.form.field_date_create")}
+                </label>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
                   <DateField
                     field="date"
-                    rules={[{ required: true, message: 'Please input your date field !' }]}
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your date field !",
+                      },
+                    ]}
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 24 }}
                     locale={{ lang: { locale: "vi_VN" } }}
-                    className='marginUnset'
+                    className="marginUnset"
                     disable={true}
-                    type={
-                      <DatePicker
-                        format="DD-MM-YYYY HH:mm:ss"
-                      />}
+                    type={<DatePicker format="DD-MM-YYYY HH:mm:ss" />}
                   />
                   {/* @ 
                   <InputField
@@ -217,10 +222,13 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     labelCol={{ span: 24 }}
                     wrapperCol={{ span: 22 }}
                     style={{ margin: 0 }}
-                    rules={[{ required: true, message: 'Please input your username!' }]}
-                    type={
-                      <Input disabled={true} />
-                    }
+                    rules={[
+                      {
+                        required: true,
+                        message: "Please input your username!",
+                      },
+                    ]}
+                    type={<Input disabled={true} />}
                   />
                 </Form.Item>
               </div>

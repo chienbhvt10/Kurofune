@@ -8,6 +8,7 @@ const userActions = {
   updateUser: createAction("UPDATE_USER"),
   deleteUser: createAction("DELETE_USER"),
   resetResCRUD: createAction("RESET_RES_CRUD"),
+  selectRole: createAction("SELECT_ROLE"),
 };
 
 export const getUsersAction = createAsyncThunk(
@@ -29,22 +30,24 @@ export const getUserAction = createAsyncThunk(
 );
 export const createUserAction = createAsyncThunk(
   userActions.createUser,
-  async (payload) => {
-    const res = await userApis
-      .createUser(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await userApis.createUser(payload).then((data) => data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
   }
 );
 export const updateUserAction = createAsyncThunk(
   userActions.updateUser,
-  async (payload) => {
-    const res = await userApis
-      .updateUser(payload)
-      .then((data) => data)
-      .catch((err) => JSON.parse(err.response.request.response));
-    return res;
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await userApis.updateUser(payload).then((data) => data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
   }
 );
 export const deleteUserAction = createAsyncThunk(
@@ -63,4 +66,7 @@ export const resetResCRUDAction = createAsyncThunk(
     return;
   }
 );
+
+export const selectRoleAction = userActions.selectRole;
+
 export default userActions;

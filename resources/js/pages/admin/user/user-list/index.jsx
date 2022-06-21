@@ -24,7 +24,7 @@ export const UserList = () => {
     onResetFilter,
     pagination,
     users,
-    filterRole,
+    selectRole,
   } = useHandleUserTable();
 
   const { roles } = useRoles();
@@ -44,9 +44,7 @@ export const UserList = () => {
       <TableHeader
         addLink={`${lang}/admin/user-create`}
         title={t("admins.user.list.title")}
-        breadcrumb={[
-          { name: t("admins.user.list.title"), routerLink: "/users" },
-        ]}
+        breadcrumb={[]}
         onSearch={onSearch}
         searchField="name"
         searchPlaceHolder={t("admins.user.form.placeholder.search")}
@@ -60,7 +58,7 @@ export const UserList = () => {
             onChange={onChangeRole}
             className="select-role"
             getPopupContainer={getDepend}
-            value={filterRole}
+            value={selectRole}
           >
             {roles.map((item, index) => (
               <Select.Option key={index} value={item.name}>

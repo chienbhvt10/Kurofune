@@ -6,6 +6,7 @@ import {
   addToCart,
   deleteCartItem,
   checkout,
+  resetCartCRUD,
 } from "../actions/cartAction";
 import {
   NotificationSuccess,
@@ -14,6 +15,7 @@ import {
 const initialState = {
   cartInfo: { cart_item: [], total: 0, key: "" },
   isLoading: false,
+  resAddToCart: undefined,
 };
 const cartSlice = createSlice({
   name: "slice",
@@ -31,6 +33,7 @@ const cartSlice = createSlice({
       })
       .addCase(addToCart.fulfilled, (state, actions) => {
         state.isLoading = false;
+        state.resAddToCart = actions.payload;
         if (actions.payload.status_code === 200) {
           NotificationSuccess("", actions.payload.message);
         } else {
@@ -73,19 +76,25 @@ const cartSlice = createSlice({
           NotificationError("", "Delete cart item failed");
         }
       });
-      builder
-        .addCase(checkout.pending, (state) => {
-          state.isLoading = true;
-        })
-        .addCase(checkout.fulfilled, (state, action) => {
-          state.isLoading = false;
-          if (action.payload.status_code === 200) {
-            NotificationSuccess("", action.payload.message);
-          } else {
-            NotificationError("", "Checkout failed");
-          }
-        });
-
+    builder
+      .addCase(checkout.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(checkout.fulfilled, (state, action) => {
+        state.isLoading = false;
+        if (action.payload.status_code === 200) {
+          NotificationSuccess("", action.payload.message);
+        } else {
+          NotificationError("", "Checkout failed");
+        }
+      });
+    builder.addCase(resetCartCRUD, (state) => {
+      return {
+        ...state,
+        resAddToCart: undefined,
+      };
+    });
   },
 });
+
 export default cartSlice.reducer;

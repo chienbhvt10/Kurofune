@@ -2,8 +2,8 @@ export const getProductInfoInitValues = (item) => {
   return {
     slug: item?.slug || "",
     sku: item?.sku || "",
-    stock_status: item?.stock_status || "",
-    price: item?.price || undefined,
+    stock_status: item?.stock_status || undefined,
+    price: item?.price || 0,
     status: item?.status || undefined,
     product_image: item?.product_image || "",
     tax_id: item?.tax_id || undefined,

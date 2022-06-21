@@ -14,15 +14,8 @@ import useRoles from "../../../../hooks/role/useRoles";
 import useHandleForm from "../hooks/useHandleForm";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
-export const UserForm = ({
-  item,
-  typeForm,
-  onCancel,
-  onSave,
-  title,
-  response,
-  loading,
-}) => {
+export const UserForm = (props) => {
+  const { item, typeForm, onCancel, onSave, title, response, loading } = props;
   const { t } = useTranslation();
   const { roles } = useRoles();
   const [role, setRole] = React.useState();
@@ -34,6 +27,8 @@ export const UserForm = ({
     billingAddressForm,
     commonAddressForm,
     onFinishAll,
+    onFinishAllFailed,
+    onSaveDeletedImage,
     onChangeAvatar,
     onChangeImageInside,
     onChangeImageOutside,
@@ -46,7 +41,7 @@ export const UserForm = ({
     vendorProfileFormZH,
     userInfoInitValues,
     planProfileForm,
-  } = useHandleForm(item, onSave);
+  } = useHandleForm(item, onSave, typeForm);
 
   const lang = getCurrentLanguage();
 
@@ -70,7 +65,7 @@ export const UserForm = ({
   }, [item]);
 
   const renderErrorTranslate = (field) => {
-    let validator = validateUser[field];
+    let validator = validateUser?.[field];
     if (typeForm === TYPE_FORM_UPDATE && field === "password") {
       validator = validateUser.password.slice(1);
     }
@@ -89,23 +84,14 @@ export const UserForm = ({
         name="common-info-form"
         form={userInfoForm}
         onFinish={onFinishAll}
+        onFinishFailed={onFinishAllFailed}
         autoComplete="off"
         initialValues={{
           ...userInfoInitValues,
         }}
       >
         <FormHeader
-          breadcrumb={[
-            { name: "Home", routerLink: "../" },
-            {
-              name: t("admins.user.list.title"),
-              routerLink: `${lang}/admin/user-list`,
-            },
-            {
-              name: title,
-              routerLink: "",
-            },
-          ]}
+          breadcrumb={[]}
           title={title}
           onCancel={onCancel}
           loading={loading}
@@ -204,7 +190,7 @@ export const UserForm = ({
                     type={<Input />}
                   />
                 </Col>
-                <Col span={4}>
+                <Col span={6}>
                   <Button
                     type="primary"
                     htmlType="button"
@@ -250,6 +236,7 @@ export const UserForm = ({
           shippingAddressForm={shippingAddressForm}
           onChangeImageInside={onChangeImageInside}
           onChangeImageOutside={onChangeImageOutside}
+          onSaveDeletedImage={onSaveDeletedImage}
           insideImageUrl={insideImageUrl}
           outSideImageUrl={outSideImageUrl}
         />

@@ -1,28 +1,43 @@
 import React from "react";
 
 const useHandleImage = () => {
-  const [base64Avatar, setBase64Avatar] = React.useState();
-  const [listBase64ImageInSide, setListBase64ImageInSide] = React.useState();
-  const [listBase64ImageOutSide, setListBase64ImageOutSide] = React.useState();
+  const [avatar, setAvatar] = React.useState();
+  const [images_inside, setImagesInSide] = React.useState();
+  const [images_outside, setImagesOutSide] = React.useState();
+  const [images_inside_delete, setImagesInSideDelete] = React.useState();
+  const [images_outside_delete, setImagesOutSideDelete] = React.useState();
 
-  const onChangeAvatar = (base64Image) => {
-    setBase64Avatar(base64Image);
+  const onChangeAvatar = (file) => {
+    setAvatar(file);
   };
 
-  const onChangeImageOutside = (listBase64Image) => {
-    setListBase64ImageOutSide(listBase64Image);
+  const onChangeImageOutside = (fileList) => {
+    setImagesOutSide(fileList);
   };
 
-  const onChangeImageInside = (listBase64Image) => {
-    setListBase64ImageInSide(listBase64Image);
+  const onChangeImageInside = (fileList) => {
+    setImagesInSide(fileList);
   };
+
+  const onSaveImgInsideDelete = (file) => {
+    setImagesInSideDelete(images_inside_delete.push(file));
+  };
+
+  const onSaveImgOutsideDelete = (file) => {
+    setImagesOutSideDelete(images_outside_delete.push(file));
+  };
+
   return {
-    base64Avatar,
-    listBase64ImageInSide,
-    listBase64ImageOutSide,
+    avatar,
+    images_inside,
+    images_outside,
+    images_inside_delete,
+    images_outside_delete,
     onChangeAvatar,
     onChangeImageOutside,
     onChangeImageInside,
+    onSaveImgInsideDelete,
+    onSaveImgOutsideDelete,
   };
 };
 

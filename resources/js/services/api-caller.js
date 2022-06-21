@@ -2,6 +2,27 @@ import axios from "axios";
 import { ROOT_URL } from "../constants/api";
 import { getAccessToken, getCurrentLanguage } from "../helper/localStorage";
 
+const configRequest = async (config) => {
+  const access_token =
+    getAccessToken() || sessionStorage.getItem("access_token") || "";
+  const lang = getCurrentLanguage();
+  if (access_token) {
+    config.headers = {
+      Authorization: `Bearer ${access_token}`,
+      "X-localization": lang.replace("/", "") || "ja",
+    };
+  }
+  return config;
+};
+
+const responseResolve = (response) => {
+  return response.data;
+};
+
+const responseReject = (error) => {
+  return Promise.reject(error);
+};
+
 const axiosClient = axios.create({
   baseURL: ROOT_URL,
   headers: {
@@ -9,31 +30,19 @@ const axiosClient = axios.create({
   },
 });
 
-axiosClient.interceptors.request.use(
-  async (config) => {
-    const access_token =
-      getAccessToken() || sessionStorage.getItem("access_token") || "";
-    const lang = getCurrentLanguage();
-    if (access_token) {
-      config.headers = {
-        Authorization: `Bearer ${access_token}`,
-        "X-localization": lang.replace("/", "") || "ja",
-      };
-    }
-    return config;
-  },
-  (error) => {
-    Promise.reject(error);
-  }
-);
+axiosClient.interceptors.request.use(configRequest);
 
-axiosClient.interceptors.response.use(
-  function (response) {
-    return response.data;
+axiosClient.interceptors.response.use(responseResolve, responseReject);
+
+export const axiosFormData = axios.create({
+  baseURL: ROOT_URL,
+  headers: {
+    "content-type": "multipart/form-data",
   },
-  function (error) {
-    return Promise.reject(error);
-  }
-);
+});
+
+axiosFormData.interceptors.request.use(configRequest);
+
+axiosFormData.interceptors.response.use(responseResolve, responseReject);
 
 export default axiosClient;

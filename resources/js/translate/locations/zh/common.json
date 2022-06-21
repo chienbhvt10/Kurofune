@@ -118,7 +118,7 @@
     "media_title": "综合首页",
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
-    "product_title": "Product",
+    "product_title": "产品",
     "category_title": "产品分类",
     "tax_title": "Tax"
   },
@@ -229,6 +229,8 @@
       "placeholder": "输入药物名称",
       "btn_search": "提交",
       "title_number_results": "搜索结果s:",
+      "btn_detail": "详情",
+      "no_result": "未找到搜索结果",
       "description_number": "总共有"
     },
     "media": {
@@ -405,18 +407,18 @@
           "yo_3": "65岁或以上"
         },
         "currently_treating": {
-          "c_1": "高血压",
-          "c_2": "糖尿病",
-          "c_3": "高脂血症",
-          "c_4": "气喘",
-          "c_5": "肝脏疾病",
-          "c_6": "心脏疾病",
-          "c_7": "脑部梗塞",
-          "c_8": "胃／十二指肠溃疡",
-          "c_9": "甲状腺方面疾病",
-          "c_10": "前列腺方面疾病",
-          "c_11": "其他",
-          "c_12": "没有"
+          "c_1": "没有",
+          "c_2": "高血压",
+          "c_3": "糖尿病",
+          "c_4": "高脂血症",
+          "c_5": "气喘",
+          "c_6": "肝脏疾病",
+          "c_7": "心脏疾病",
+          "c_8": "脑部梗塞",
+          "c_9": "胃／十二指肠溃疡",
+          "c_10": "甲状腺方面疾病",
+          "c_11": "前列腺方面疾病",
+          "c_12": "其他"
         }
       },
       "medicinal_efficacy": "药效分类",
@@ -625,6 +627,7 @@
       }
     },
     "product": {
+      "title_product": "产品",
       "slug_field": "蛞蝓",
       "vendor_field": "小贩",
       "sku_field": "项目编号",
@@ -642,7 +645,7 @@
       "meta_description_field": "元描述",
       "meta_keyword_field": "元关键字",
       "product_image_field": "产品图片",
-      "placeholder_seach": "Please enter name product",
+      "placeholder_seach": "请输入名称产品",
       "placeholder_select_tax": "Please select tax",
       "name_field": "产品名称",
       "medicinal_efficacy_classification_field": "药效分类",
@@ -660,7 +663,8 @@
         "error_stockstatus": "库存状态字段是必需的。",
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
-        "error_en_product_name": "产品名称字段是必需的。"
+        "error_en_product_name": "产品名称字段是必需的。",
+        "error_price": "Please input valid number."
       },
       "title": {
         "product_title": "添加产品 ",

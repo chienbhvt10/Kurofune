@@ -59,7 +59,11 @@ const ProductTable = ({
       key: "price",
       dataIndex: "price",
       title: t("admins.product.price_field"),
-      render: (_, record) => <span>{record.price} (JPY)</span>,
+      render: (_, record) => (
+        <span>
+          {record.price} {!lang ? "円" : "(JPY)"}
+        </span>
+      ),
     },
     {
       key: "categories",
@@ -92,8 +96,10 @@ const ProductTable = ({
       dataIndex: "store",
       title: t("admins.product.store_field"),
       render: (_, record) => (
-        <div className="table-column-break">
-          <span>{record.store}</span>
+        <div className="category-wrapper">
+          {record?.store.map((item) => (
+            <span>{item?.name}</span>
+          ))}
         </div>
       ),
     },

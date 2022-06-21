@@ -3,27 +3,27 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { NO_ERROR } from "../../constants/error";
 import { getCurrentLanguage } from "../../helper/localStorage";
-import {
-  resetResCRUDAction,
-  updateUserAction,
-} from "../../redux/actions/userAction";
 import useUsers from "../../hooks/user/useUsers";
+import {
+  createUserAction,
+  resetResCRUDAction,
+} from "../../redux/actions/userAction";
 const useCreateUser = () => {
-  const { selectRole } = useSelector((state) => state.userState);
-  const { resUpdateUser, users, loadingUpdateUser } = useSelector(
+  const { resCreateUser, user, loadingCreateUser } = useSelector(
     (state) => state.userState
   );
-  const { getAllUsers, pagination } = useUsers();
   const dispatch = useDispatch();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
+  const { getAllUsers, pagination } = useUsers();
+  const { selectRole } = useSelector((state) => state.userState);
 
-  const updateUser = (payload) => {
-    dispatch(updateUserAction(payload));
+  const createUser = (payload) => {
+    dispatch(createUserAction(payload));
   };
 
   React.useEffect(() => {
-    if (resUpdateUser?.error_code === NO_ERROR) {
+    if (resCreateUser?.error_code === NO_ERROR) {
       getAllUsers({
         page: pagination.current_page,
         per_page: pagination.per_page,
@@ -32,13 +32,13 @@ const useCreateUser = () => {
       navigate(`${lang}/admin/user-list`);
       dispatch(resetResCRUDAction());
     }
-  }, [resUpdateUser]);
+  }, [resCreateUser]);
 
   return {
-    users,
-    resUpdateUser,
-    updateUser,
-    loadingUpdateUser,
+    user,
+    resCreateUser,
+    createUser,
+    loadingCreateUser,
   };
 };
 
