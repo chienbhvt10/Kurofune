@@ -44,7 +44,9 @@ Route::middleware(['language'])->prefix('v1')->group(function () {
         });
 
         // Category Manage
-        Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class)->middleware('permission:manage product category');
+        Route::middleware(['permission:manage product category'])->group(function () {
+            Route::apiResource('categories', \App\Http\Controllers\API\CategoryController::class);
+        });
       
         // Product Manage
         Route::middleware(['permission:manage product'])->group(function () {
