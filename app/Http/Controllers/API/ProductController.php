@@ -404,6 +404,7 @@ class ProductController extends Controller
                 $categories = $data->categories;
                 $translations = $data -> translations;
                 $response = [
+                    'product_id' => $data->id,
                     'slug' => $data->slug,
                     'sku' => $data->sku,
                     'stock_status' => $data->stock_status,
