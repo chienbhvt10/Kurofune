@@ -118,7 +118,7 @@
     "media_title": "Trang chủ",
     "chatbot_title": "Log Chatbot",
     "user_title": "User",
-    "product_title": "Product",
+    "product_title": "Sản phẩm",
     "category_title": "Danh mục sản phẩm",
     "tax_title": "Tax"
   },
@@ -594,6 +594,7 @@
       }
     },
     "product": {
+      "title_product": "Sản phẩm",
       "slug_field": "Đường dẫn",
       "vendor_field": "Nhà thuốc",
       "sku_field": "Mã sản phẩm",
