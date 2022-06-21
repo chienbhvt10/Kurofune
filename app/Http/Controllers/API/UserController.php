@@ -533,6 +533,9 @@ class UserController extends Controller
             if($role == UserRole::ROLE_FULL_SUPPORT_PLAN || $role == UserRole::ROLE_LIGHT_PLAN) {
                 if($user->vendor_profile) {
                     $user->vendor_profile()->delete();
+                    if ($user->products) {
+                        $user->products()->delete();
+                    }
                 }
                 $validator_profile = Validator::make($request->all(), [
                     'dob' => 'nullable|date|date_format:Y-m-d',
@@ -719,6 +722,9 @@ class UserController extends Controller
             } elseif ($role == UserRole::ROLE_ADMIN) {
                 if ($user->vendor_profile) {
                     $user->vendor_profile()->delete();
+                    if ($user->products) {
+                        $user->products()->delete();
+                    }
                 }
 
                 if ($user->profile) {

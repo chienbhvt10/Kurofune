@@ -50,8 +50,11 @@ class ProductController extends Controller
             foreach ($product as $key => $item) {
                 $category = $item->categories()->get()->toArray();
                 $dataResponse['data'][$key]['categories'] = $category;
-                $vendorProfile = $item->user()->first()->vendor_profile();
-                $dataResponse['data'][$key]['store'] = $vendorProfile->get()->toArray();
+                $user = $item->user()->first();
+                if ($user) {
+                    $dataResponse['data'][$key]['store'] = $item->user()->first()
+                    ->vendor_profile()->get();
+                }
             }
 
             return $this->response_data_success($dataResponse);
