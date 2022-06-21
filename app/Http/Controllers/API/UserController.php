@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
 use Spatie\Permission\Models\Role;
-use App\Rules\Base64Image;
+use App\Rules\PostalCode;
 
 class UserController extends Controller
 {
@@ -84,13 +84,13 @@ class UserController extends Controller
                 'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
-                'postal_code' => 'nullable|string|max:50',
+                'postal_code' => ['required', 'string', 'max:50', new PostalCode],
                 'city' => 'nullable|string|max:255',
                 'prefecture' => 'nullable|string|max:150',
                 'street_address' => 'nullable|string|max:255',
                 'building' => 'nullable|string|max:255',
                 'shipping_full_name' => 'nullable|string|max:100',
-                'shipping_postal_code' => 'nullable|string|max:50',
+                'shipping_postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
                 'shipping_city' => 'nullable|string|max:255',
                 'shipping_prefecture' => 'nullable|string|max:150',
                 'shipping_street_address' => 'nullable|string|max:255',
@@ -98,7 +98,7 @@ class UserController extends Controller
                 'shipping_phone' => 'nullable|numeric',
                 'shipping_email' => 'nullable|email',
                 'billing_full_name' => 'nullable|string|max:100',
-                'billing_postal_code' => 'nullable|string|max:50',
+                'billing_postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
                 'billing_city' => 'nullable|string|max:255',
                 'billing_prefecture' => 'nullable|string|max:150',
                 'billing_street_address' => 'nullable|string|max:255',
@@ -226,9 +226,9 @@ class UserController extends Controller
             }elseif ($role == UserRole::ROLE_VENDOR) {
                 $validator_vendor = Validator::make($request->all(), [
                     'images_outside' => 'nullable|array',
-                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_outside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                     'images_inside' => 'nullable|array',
-                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                    'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 ]);
                 if ($validator_vendor->fails()) {
                     DB::rollBack();
@@ -434,16 +434,16 @@ class UserController extends Controller
                 'email' => 'nullable|email',
                 'phone' => 'nullable|numeric',
                 'active' => 'nullable|boolean',
-                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'nullable|string|max:100',
-                'postal_code' => 'nullable|string|max:50',
+                'postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
                 'city' => 'nullable|string|max:255',
                 'prefecture' => 'nullable|string|max:150',
                 'street_address' => 'nullable|string|max:255',
                 'building' => 'nullable|string|max:255',
                 'shipping_full_name' => 'nullable|string|max:100',
-                'shipping_postal_code' => 'nullable|string|max:50',
+                'shipping_postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
                 'shipping_city' => 'nullable|string|max:255',
                 'shipping_prefecture' => 'nullable|string|max:150',
                 'shipping_street_address' => 'nullable|string|max:255',
@@ -451,7 +451,7 @@ class UserController extends Controller
                 'shipping_phone' => 'nullable|numeric',
                 'shipping_email' => 'nullable|email',
                 'billing_full_name' => 'nullable|string|max:100',
-                'billing_postal_code' => 'nullable|string|max:50',
+                'billing_postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
                 'billing_city' => 'nullable|string|max:255',
                 'billing_prefecture' => 'nullable|string|max:150',
                 'billing_street_address' => 'nullable|string|max:255',
@@ -586,6 +586,8 @@ class UserController extends Controller
                     'images_inside' => 'nullable|array',
                     'images_inside.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                     'images_inside_delete' => 'nullable|array',
+                    'images_inside_delete.*' => 'integer',
+                    'images_outside_delete' => 'nullable|array',
                     'images_outside_delete.*' => 'integer'
                 ]);
                 if ($validator_vendor->fails()) {
