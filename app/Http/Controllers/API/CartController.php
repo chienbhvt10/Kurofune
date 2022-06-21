@@ -19,7 +19,6 @@ use Cartalyst\Stripe\Stripe as Stripe;
 use http\Client\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
