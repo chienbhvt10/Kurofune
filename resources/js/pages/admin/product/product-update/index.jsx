@@ -47,9 +47,11 @@ const UpdateProduct = () => {
       NotificationSuccess(t("notification"), resUpdateProduct.message);
       getAllProducts();
     }
-    if (resUpdateProduct?.error_code === "ERROR") {
-      const { sku, slug } = resUpdateProduct?.error_data;
-      slug && NotificationError(t("notification"), slug);
+    if (
+      resUpdateProduct?.error_code === "ERROR" &&
+      resUpdateProduct.error_data
+    ) {
+      const { sku } = resUpdateProduct.error_data;
       sku && NotificationError(t("notification"), sku);
     }
   }, [resUpdateProduct]);
