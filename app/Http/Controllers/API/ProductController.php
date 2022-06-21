@@ -16,7 +16,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
-use App\Rules\Base64Image;
 use App\Traits\ProductTrait;
 
 class ProductController extends Controller
@@ -74,13 +73,13 @@ class ProductController extends Controller
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products',
-                'price' => 'nullable|integer',
-                'product_image' => ['nullable', new Base64Image],
-                'en.name' => 'required',
-                'ja.name' => 'required',
-                'vi.name' => 'required',
-                'tl.name' => 'required',
-                'zh.name' => 'required',
+                'price' => 'nullable|numeric',
+                'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'en_name' => 'required',
+                'ja_name' => 'required',
+                'vi_name' => 'required',
+                'tl_name' => 'required',
+                'zh_name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
                 'tax_id' => 'nullable|exists:App\Models\Tax,id',
@@ -92,7 +91,7 @@ class ProductController extends Controller
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-            $slug = getSlug($request->en['name'], new Product, 'product_translations');
+            $slug = getSlug($request->en_name, new Product, 'product_translations');
             $user = auth()->user();
             $user_id = $user->id;
             $roles = $user->getRoleNames()->first();
@@ -115,7 +114,7 @@ class ProductController extends Controller
                 $user_id = $userVendor->id;
 
             }
-            $image_product = $request->product_image ? save_base_64_image($request->product_image, 'products') : null;
+            $image_product = $request->file('product_image') ? upload_single_image($request->file('product_image'), 'products') : null;
             $product = Product::create([
                 'user_id' => $user_id,
                 'slug' => $slug,
@@ -129,64 +128,64 @@ class ProductController extends Controller
                 'meta_description' => $request->meta_description ?? null,
                 'meta_keywords' => $request->meta_keywords ?? null,
                 'en' => [
-                    'name' => $request->en['name'],
-                    'medicinal_efficacy_classification' => $request->en['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->en['features'] ?? null,
-                    'precautions' => $request->en['precautions'] ?? null,
-                    'efficacy_effect' => $request->en['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->en['usage_dose'] ?? null,
-                    'active_ingredients' => $request->en['active_ingredients'] ?? null,
-                    'additives' => $request->en['additives'] ?? null,
-                    'precautions_storage_handling' => $request->en['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->en['manufacturer'] ?? null,
+                    'name' => $request->en_name,
+                    'medicinal_efficacy_classification' => $request->en_medicinal_efficacy_classification ?? null,
+                    'features' => $request->en_features ?? null,
+                    'precautions' => $request->en_precautions ?? null,
+                    'efficacy_effect' => $request->en_efficacy_effect ?? null,
+                    'usage_dose' => $request->en_usage_dose ?? null,
+                    'active_ingredients' => $request->en_active_ingredients ?? null,
+                    'additives' => $request->en_additives ?? null,
+                    'precautions_storage_handling' => $request->en_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->en_manufacturer ?? null,
                 ],
                 'ja' => [
-                    'name' => $request->ja['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->ja['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->ja['features'] ?? null,
-                    'precautions' => $request->ja['precautions'] ?? null,
-                    'efficacy_effect' => $request->ja['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->ja['usage_dose'] ?? null,
-                    'active_ingredients' => $request->ja['active_ingredients'] ?? null,
-                    'additives' => $request->ja['additives'] ?? null,
-                    'precautions_storage_handling' => $request->ja['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->ja['manufacturer'] ?? null,
+                    'name' => $request->ja_name ?? null,
+                    'medicinal_efficacy_classification' => $request->ja_medicinal_efficacy_classification ?? null,
+                    'features' => $request->ja_features ?? null,
+                    'precautions' => $request->ja_precautions ?? null,
+                    'efficacy_effect' => $request->ja_efficacy_effect ?? null,
+                    'usage_dose' => $request->ja_usage_dose ?? null,
+                    'active_ingredients' => $request->ja_active_ingredients ?? null,
+                    'additives' => $request->ja_additives ?? null,
+                    'precautions_storage_handling' => $request->ja_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->ja_manufacturer ?? null,
                 ],
                 'vi' => [
-                    'name' => $request->vi['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->vi['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->vi['features'] ?? null,
-                    'precautions' => $request->vi['precautions'] ?? null,
-                    'efficacy_effect' => $request->vi['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->vi['usage_dose'] ?? null,
-                    'active_ingredients' => $request->vi['active_ingredients'] ?? null,
-                    'additives' => $request->vi['additives'] ?? null,
-                    'precautions_storage_handling' => $request->vi['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->vi['manufacturer'] ?? null,
+                    'name' => $request->vi_name ?? null,
+                    'medicinal_efficacy_classification' => $request->vi_medicinal_efficacy_classification ?? null,
+                    'features' => $request->vi_features ?? null,
+                    'precautions' => $request->vi_precautions ?? null,
+                    'efficacy_effect' => $request->vi_efficacy_effect ?? null,
+                    'usage_dose' => $request->vi_usage_dose ?? null,
+                    'active_ingredients' => $request->vi_active_ingredients ?? null,
+                    'additives' => $request->vi_additives ?? null,
+                    'precautions_storage_handling' => $request->vi_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->vi_manufacturer ?? null,
                 ],
                 'tl' => [
-                    'name' => $request->tl['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->tl['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->tl['features'] ?? null,
-                    'precautions' => $request->tl['precautions'] ?? null,
-                    'efficacy_effect' => $request->tl['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->tl['usage_dose'] ?? null,
-                    'active_ingredients' => $request->tl['active_ingredients'] ?? null,
-                    'additives' => $request->tl['additives'] ?? null,
-                    'precautions_storage_handling' => $request->tl['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->tl['manufacturer'] ?? null,
+                    'name' => $request->tl_name ?? null,
+                    'medicinal_efficacy_classification' => $request->tl_medicinal_efficacy_classification ?? null,
+                    'features' => $request->tl_features ?? null,
+                    'precautions' => $request->tl_precautions ?? null,
+                    'efficacy_effect' => $request->tl_efficacy_effect ?? null,
+                    'usage_dose' => $request->tl_usage_dose ?? null,
+                    'active_ingredients' => $request->tl_active_ingredients ?? null,
+                    'additives' => $request->tl_additives ?? null,
+                    'precautions_storage_handling' => $request->tl_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->tl_manufacturer ?? null,
                 ],
                 'zh' => [
-                    'name' => $request->zh['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->zh['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->zh['features'] ?? null,
-                    'precautions' => $request->zh['precautions'] ?? null,
-                    'efficacy_effect' => $request->zh['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->zh['usage_dose'] ?? null,
-                    'active_ingredients' => $request->zh['active_ingredients'] ?? null,
-                    'additives' => $request->zh['additives'] ?? null,
-                    'precautions_storage_handling' => $request->zh['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->zh['manufacturer'] ?? null,
+                    'name' => $request->zh_name ?? null,
+                    'medicinal_efficacy_classification' => $request->zh_medicinal_efficacy_classification ?? null,
+                    'features' => $request->zh_features ?? null,
+                    'precautions' => $request->zh_precautions ?? null,
+                    'efficacy_effect' => $request->zh_efficacy_effect ?? null,
+                    'usage_dose' => $request->zh_usage_dose ?? null,
+                    'active_ingredients' => $request->zh_active_ingredients ?? null,
+                    'additives' => $request->zh_additives ?? null,
+                    'precautions_storage_handling' => $request->zh_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->zh_manufacturer ?? null,
                 ],
             ]);
             $product->categories()->sync($request->cat_id);
@@ -243,12 +242,12 @@ class ProductController extends Controller
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
                 'price' => 'nullable|integer',
-                'product_image' => ['nullable', new Base64Image],
-                'en.name' => 'required',
-                'ja.name' => 'required',
-                'vi.name' => 'required',
-                'tl.name' => 'required',
-                'zh.name' => 'required',
+                'product_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
+                'en_name' => 'required',
+                'ja_name' => 'required',
+                'vi_name' => 'required',
+                'tl_name' => 'required',
+                'zh_name' => 'required',
                 'cat_id' => 'required|array',
                 'cat_id.*' => 'exists:App\Models\Category,id',
                 'tax_id' => 'nullable|exists:App\Models\Tax,id',
@@ -264,8 +263,8 @@ class ProductController extends Controller
             $nameProduct = $product->product_translations
             ->where('locale', '=', 'en')->first()->name;
             $slug = $product->slug;
-            if ($nameProduct != $request->en['name']) {
-                $slug = $this->getSlug($request->en['name']);
+            if ($nameProduct != $request->en_name) {
+                $slug = $this->getSlug($request->en_name);
             }
             $user = auth()->user();
             $user_id = $user->id;
@@ -300,69 +299,69 @@ class ProductController extends Controller
                 'meta_description' => $request->meta_description ?? null,
                 'meta_keywords' => $request->meta_keywords ?? null,
                 'en' => [
-                    'name' => $request->en['name'],
-                    'medicinal_efficacy_classification' => $request->en['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->en['features'] ?? null,
-                    'precautions' => $request->en['precautions'] ?? null,
-                    'efficacy_effect' => $request->en['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->en['usage_dose'] ?? null,
-                    'active_ingredients' => $request->en['active_ingredients'] ?? null,
-                    'additives' => $request->en['additives'] ?? null,
-                    'precautions_storage_handling' => $request->en['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->en['manufacturer'] ?? null,
+                    'name' => $request->en_name,
+                    'medicinal_efficacy_classification' => $request->en_medicinal_efficacy_classification ?? null,
+                    'features' => $request->en_features ?? null,
+                    'precautions' => $request->en_precautions ?? null,
+                    'efficacy_effect' => $request->en_efficacy_effect ?? null,
+                    'usage_dose' => $request->en_usage_dose ?? null,
+                    'active_ingredients' => $request->en_active_ingredients ?? null,
+                    'additives' => $request->en_additives ?? null,
+                    'precautions_storage_handling' => $request->en_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->en_manufacturer ?? null,
                 ],
                 'ja' => [
-                    'name' => $request->ja['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->ja['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->ja['features'] ?? null,
-                    'precautions' => $request->ja['precautions'] ?? null,
-                    'efficacy_effect' => $request->ja['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->ja['usage_dose'] ?? null,
-                    'active_ingredients' => $request->ja['active_ingredients'] ?? null,
-                    'additives' => $request->ja['additives'] ?? null,
-                    'precautions_storage_handling' => $request->ja['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->ja['manufacturer'] ?? null,
+                    'name' => $request->ja_name ?? null,
+                    'medicinal_efficacy_classification' => $request->ja_medicinal_efficacy_classification ?? null,
+                    'features' => $request->ja_features ?? null,
+                    'precautions' => $request->ja_precautions ?? null,
+                    'efficacy_effect' => $request->ja_efficacy_effect ?? null,
+                    'usage_dose' => $request->ja_usage_dose ?? null,
+                    'active_ingredients' => $request->ja_active_ingredients ?? null,
+                    'additives' => $request->ja_additives ?? null,
+                    'precautions_storage_handling' => $request->ja_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->ja_manufacturer ?? null,
                 ],
                 'vi' => [
-                    'name' => $request->vi['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->vi['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->vi['features'] ?? null,
-                    'precautions' => $request->vi['precautions'] ?? null,
-                    'efficacy_effect' => $request->vi['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->vi['usage_dose'] ?? null,
-                    'active_ingredients' => $request->vi['active_ingredients'] ?? null,
-                    'additives' => $request->vi['additives'] ?? null,
-                    'precautions_storage_handling' => $request->vi['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->vi['manufacturer'] ?? null,
+                    'name' => $request->vi_name ?? null,
+                    'medicinal_efficacy_classification' => $request->vi_medicinal_efficacy_classification ?? null,
+                    'features' => $request->vi_features ?? null,
+                    'precautions' => $request->vi_precautions ?? null,
+                    'efficacy_effect' => $request->vi_efficacy_effect ?? null,
+                    'usage_dose' => $request->vi_usage_dose ?? null,
+                    'active_ingredients' => $request->vi_active_ingredients ?? null,
+                    'additives' => $request->vi_additives ?? null,
+                    'precautions_storage_handling' => $request->vi_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->vi_manufacturer ?? null,
                 ],
                 'tl' => [
-                    'name' => $request->tl['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->tl['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->tl['features'] ?? null,
-                    'precautions' => $request->tl['precautions'] ?? null,
-                    'efficacy_effect' => $request->tl['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->tl['usage_dose'] ?? null,
-                    'active_ingredients' => $request->tl['active_ingredients'] ?? null,
-                    'additives' => $request->tl['additives'] ?? null,
-                    'precautions_storage_handling' => $request->tl['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->tl['manufacturer'] ?? null,
+                    'name' => $request->tl_name ?? null,
+                    'medicinal_efficacy_classification' => $request->tl_medicinal_efficacy_classification ?? null,
+                    'features' => $request->tl_features ?? null,
+                    'precautions' => $request->tl_precautions ?? null,
+                    'efficacy_effect' => $request->tl_efficacy_effect ?? null,
+                    'usage_dose' => $request->tl_usage_dose ?? null,
+                    'active_ingredients' => $request->tl_active_ingredients ?? null,
+                    'additives' => $request->tl_additives ?? null,
+                    'precautions_storage_handling' => $request->tl_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->tl_manufacturer ?? null,
                 ],
                 'zh' => [
-                    'name' => $request->zh['name'] ?? null,
-                    'medicinal_efficacy_classification' => $request->zh['medicinal_efficacy_classification'] ?? null,
-                    'features' => $request->zh['features'] ?? null,
-                    'precautions' => $request->zh['precautions'] ?? null,
-                    'efficacy_effect' => $request->zh['efficacy_effect'] ?? null,
-                    'usage_dose' => $request->zh['usage_dose'] ?? null,
-                    'active_ingredients' => $request->zh['active_ingredients'] ?? null,
-                    'additives' => $request->zh['additives'] ?? null,
-                    'precautions_storage_handling' => $request->zh['precautions_storage_handling'] ?? null,
-                    'manufacturer' => $request->zh['manufacturer'] ?? null,
+                    'name' => $request->zh_name ?? null,
+                    'medicinal_efficacy_classification' => $request->zh_medicinal_efficacy_classification ?? null,
+                    'features' => $request->zh_features ?? null,
+                    'precautions' => $request->zh_precautions ?? null,
+                    'efficacy_effect' => $request->zh_efficacy_effect ?? null,
+                    'usage_dose' => $request->zh_usage_dose ?? null,
+                    'active_ingredients' => $request->zh_active_ingredients ?? null,
+                    'additives' => $request->zh_additives ?? null,
+                    'precautions_storage_handling' => $request->zh_precautions_storage_handling ?? null,
+                    'manufacturer' => $request->zh_manufacturer ?? null,
                 ],
             ];
-            $image_product = $request->product_image;
+            $image_product = $request->file('product_image');
             if($image_product) {
-                $update_image_product = save_base_64_image($image_product, 'products');
+                $update_image_product = upload_single_image($image_product, 'products');
                 $data_update['product_image'] = $update_image_product;
             }
             $product->update($data_update);
@@ -431,8 +430,7 @@ class ProductController extends Controller
                     'translations' => $translations,
                 ];
                 return $this->response_data_success($response);
-            }       
-            else{
+            } else {
                 return $this->response_error(__('message.product.not_exist'), Response::HTTP_NOT_FOUND);
             }
         } catch (\Exception $error) {
