@@ -6,9 +6,8 @@ import {
 } from "../../redux/actions/userAction";
 
 const useUsers = () => {
-  const { users, total, from, to, current_page, last_page } = useSelector(
-    (state) => state.userState
-  );
+  const { users, total, from, to, current_page, last_page, per_page } =
+    useSelector((state) => state.userState);
   const [loadingListUser, setLoadingListUser] = React.useState(false);
   const dispatch = useDispatch();
 
@@ -32,6 +31,7 @@ const useUsers = () => {
       to,
       current_page,
       last_page,
+      per_page,
     },
     getAllUsers,
     loadingListUser,

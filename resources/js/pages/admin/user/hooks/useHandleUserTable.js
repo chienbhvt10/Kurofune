@@ -1,8 +1,11 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { NO_ERROR } from "../../../../constants/error";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useDeleteUser from "../../../../hooks/user/useDeleteUser";
 import useUsers from "../../../../hooks/user/useUsers";
+import { selectRoleAction } from "../../../../redux/actions/userAction";
 
 const useHandleUserTable = () => {
   const { getAllUsers, users, pagination, loadingListUser } = useUsers();
@@ -11,12 +14,20 @@ const useHandleUserTable = () => {
   const [searchValue, setSearchValue] = React.useState();
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
+  const dispatch = useDispatch();
+  const { selectRole } = useSelector((state) => state.userState);
 
   React.useEffect(() => {
     if (!searchValue) {
-      getAllUsers({ page: 1, role: filterRole });
+      getAllUsers({
+        page: pagination.current_page,
+        role: selectRole,
+        per_page: pagination.per_page,
+      });
     }
   }, [searchValue]);
+
+  localStorage.setItem("selectRole", selectRole);
 
   const onDelete = (row) => () => {
     deleteUser(row.id);
@@ -31,9 +42,12 @@ const useHandleUserTable = () => {
   };
 
   const onChangeRole = (value) => {
-    setFilterRole(value);
+    // setFilterRole(value);
+    dispatch(selectRoleAction(value));
+
     const temp = {
-      page: 1,
+      page: pagination.current_page,
+      per_page: pagination.per_page,
       role: value,
     };
     getAllUsers(searchValue ? { ...temp, name: searchValue } : temp);
@@ -41,16 +55,22 @@ const useHandleUserTable = () => {
 
   const onResetFilter = () => {
     setFilterRole(undefined);
-    getAllUsers({ page: 1, name: searchValue });
+    getAllUsers({
+      page: pagination.current_page,
+      name: searchValue,
+      role: selectRole,
+      per_page: pagination.per_page,
+    });
   };
 
   const onSearch = (values) => {
     const temp = {
-      page: 1,
+      page: pagination.current_page,
+      per_page: pagination.per_page,
       name: values.name,
     };
     getAllUsers(
-      filterRole || values.name ? { ...temp, role: filterRole } : temp
+      selectRole || values.name ? { ...temp, role: selectRole } : temp
     );
   };
 
@@ -61,7 +81,7 @@ const useHandleUserTable = () => {
     getAllUsers({
       page: current,
       per_page: per_page,
-      role: filterRole || "",
+      role: selectRole || "",
       name: searchValue,
     });
   };
@@ -73,6 +93,7 @@ const useHandleUserTable = () => {
     loadingDeleteUser,
     filterRole,
     searchValue,
+    selectRole,
     onChangeRole,
     onChangeSearchValue,
     onDelete,
