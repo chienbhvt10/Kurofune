@@ -51,28 +51,30 @@ const ProductList = () => {
   }, [resDeleteProduct]);
 
   return (
-    <div className="product-container">
+    <>
       <PageHead
         title={t("meta.title_product_list")}
         content={t("meta.content_product_list")}
       />
-      <TableHeader
-        addLink={`${lang}/admin/product/add`}
-        breadcrumb={[]}
-        title="Product"
-        searchField="name"
-        onSearch={onSearch}
-        onChangeSearch={onChangeSearchValue}
-        searchPlaceHolder={t("admins.product.placeholder_seach")}
-      />
-      <ProductTable
-        items={products}
-        onDelete={onDelete}
-        onEdit={onEdit}
-        onTableChange={onTableChange}
-        pagination={pagination}
-      />
-    </div>
+      <div className="product-container">
+        <TableHeader
+          addLink={`${lang}/admin/product/add`}
+          breadcrumb={[]}
+          title="Product"
+          searchField="name"
+          onSearch={onSearch}
+          onChangeSearch={onChangeSearchValue}
+          searchPlaceHolder={t("admins.product.placeholder_seach")}
+        />
+        <ProductTable
+          items={products}
+          onDelete={onDelete}
+          onEdit={onEdit}
+          onTableChange={onTableChange}
+          pagination={pagination}
+        />
+      </div>
+    </>
   );
 };
 

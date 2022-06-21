@@ -229,6 +229,8 @@
       "placeholder": "Enter drug name",
       "btn_search": "Submit",
       "title_number_results": "Search results:",
+      "btn_detail": "Detail",
+      "no_result": "No search results found",
       "description_number": " cases in total"
     },
     "media": {
@@ -387,7 +389,15 @@
           "c_12": "Other (free description)"
         }
       },
-      "medicinal_efficacy": "Medicinal efficacy classification"
+      "medicinal_efficacy": "Medicinal efficacy classification",
+      "label_features": "Features",
+      "label_precautions": "Precautions",
+      "label_efficacy_effect": "Efficacy / effect",
+      "label_usage_dose": "Usage / dose",
+      "label_active_ingredients": "Active ingredients",
+      "label_additives": "Additives",
+      "label_precautions_handling": "Precautions for storage and handling",
+      "label_manufacturer": "Manufacturer"
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",
@@ -672,7 +682,8 @@
         "error_category": "The Category field is required",
         "error_tax": "The Tax field is required",
         "error_en_product_name": "The Product Name field is required",
-        "required_message": "This field is required."
+        "required_message": "This field is required.",
+        "error_price": "Please input valid number."
       },
       "title": {
         "product_title": "Add Product ",

@@ -229,6 +229,8 @@
       "placeholder": "Ilagay ang pangalan ng gamot",
       "btn_search": "Ipasa",
       "title_number_results": "Mga resulta ng paghahanap:",
+      "btn_detail": "Detalye",
+      "no_result": "Walang nakitang resulta ng paghahanap",
       "description_number": " kaso sa kabuuan"
     },
     "media": {
@@ -372,21 +374,29 @@
           "yo_3": "65 taong gulang o mas matanda"
         },
         "currently_treating": {
-          "c_1": "High blood",
-          "c_2": "Diabetes",
-          "c_3": "Dyslipidemia",
-          "c_4": "Asthma",
-          "c_5": "Sakit sa atay",
-          "c_6": "Sakit sa puso",
-          "c_7": "Stroke",
-          "c_8": "Ulcer",
-          "c_9": "Sakit sa Thyroid",
-          "c_10": "Sakit sa Prostate",
-          "c_11": "Iba pa",
-          "c_12": "Wala naman"
+          "c_1": "Wala naman",
+          "c_2": "High blood",
+          "c_3": "Diabetes",
+          "c_4": "Dyslipidemia",
+          "c_5": "Asthma",
+          "c_6": "Sakit sa atay",
+          "c_7": "Sakit sa puso",
+          "c_8": "Stroke",
+          "c_9": "Ulcer",
+          "c_10": "Sakit sa Thyroid",
+          "c_11": "Sakit sa Prostate",
+          "c_12": "Iba pa"
         }
       },
-      "medicinal_efficacy": "Medicinal efficacy classification"
+      "medicinal_efficacy": "Medicinal efficacy classification",
+      "label_features": "Mga tampok",
+      "label_precautions": "Mga pag-iingat",
+      "label_efficacy_effect": "Kahusayan / epekto",
+      "label_usage_dose": "Paggamit / dosis",
+      "label_active_ingredients": "Mga aktibong sangkap",
+      "label_additives": "Mga additives",
+      "label_precautions_handling": "Mga Pag-iingat para sa Pag-iimbak at Paghawak",
+      "label_manufacturer": "Manufacturer"
     },
     "list_pharmacies": {
       "title": "Marine Pharmacy Oisotori",
@@ -596,7 +606,7 @@
       "meta_description_field": "Paglalarawan ng Meta",
       "meta_keyword_field": "Mga tampok",
       "product_image_field": "Larawan ng Produkto",
-      "placeholder_seach": "Please enter name product",
+      "placeholder_seach": "Pakilagay ang pangalan ng produkto",
       "placeholder_select_tax": "Please select tax",
       "name_field": "Buwis",
       "field_name": "Pangalan",
@@ -617,7 +627,8 @@
         "error_stockstatus": "Kinakailangan ang field ng Stock Status",
         "error_category": "Kinakailangan ang field ng Kategorya",
         "error_tax": "Kinakailangan ang field ng Buwis",
-        "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto"
+        "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto",
+        "error_price": "Please input valid number."
       },
       "title": {
         "product_title": "Magdagdag ng Produkto ",

@@ -10,6 +10,7 @@ import { ERROR, NO_ERROR } from "../../constants/error";
 import {
   getCurrentLanguage,
   removeRememberLogin,
+  removeAccessToken,
 } from "../../helper/localStorage";
 import { logout, resetAuthResponse } from "../../redux/actions/authAction";
 
@@ -28,6 +29,7 @@ const useLogout = () => {
     if (resLogout && resLogout?.error_code === NO_ERROR) {
       NotificationSuccess(t("notification"), resLogout.message);
       removeRememberLogin();
+      removeAccessToken();
       sessionStorage.clear();
       navigate(`${lang}/login`);
       dispatch(resetAuthResponse());
