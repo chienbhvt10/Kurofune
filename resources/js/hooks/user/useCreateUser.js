@@ -1,14 +1,13 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { NO_ERROR } from "../../constants/error";
 import { getCurrentLanguage } from "../../helper/localStorage";
+import useUsers from "../../hooks/user/useUsers";
 import {
   createUserAction,
   resetResCRUDAction,
 } from "../../redux/actions/userAction";
-
 const useCreateUser = () => {
   const { resCreateUser, user, loadingCreateUser } = useSelector(
     (state) => state.userState
