@@ -1,4 +1,4 @@
-import { Col, Form, Input, Select, Row } from "antd";
+import { Col, Form, Input, Select, Row, InputNumber } from "antd";
 import React from "react";
 import FormHeader from "../../../../commons/FormHeader";
 import InputField from "./../../../../commons/Form/InputField";
@@ -15,7 +15,7 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const initialCommonValues = getTaxInitValues(item);
   const [taxForm] = Form.useForm();
 
-  const exceptThisSymbols = ["e", "E", "+", "-", "."];
+  const exceptThisSymbols = ["e", "E", "+", "-"];
 
   const onFinishAll = (values) => {
     const submitInput = {
@@ -79,7 +79,8 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               error="value"
               placeholder={t("admins.tax.placeholder_search_value")}
               type={
-                <Input
+                <InputNumber
+                  style={{ width: "100%" }}
                   type="number"
                   min={0}
                   onKeyDown={(e) =>
