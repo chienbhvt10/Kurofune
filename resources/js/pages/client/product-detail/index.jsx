@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import useProductClient from "../../../hooks/product/useProductClient";
 import { useLocation, useParams } from "react-router-dom";
 import { Form, Input, Select, Button, Modal } from "antd";
-import { PRODUCT_OPTION } from "../../../commons/data";
+import { CATEGORY_OPTIONS, PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
 import PageHead from "../../../commons/PageHead";
 import { getCurrentLanguage } from "../../../helper/localStorage";
@@ -103,7 +103,15 @@ const ProductDetailPage = () => {
                         </div>
                       </div>
                       <div className="item-info product-type">
-                        {productClient.type}
+                        {t(
+                          CATEGORY_OPTIONS.CATEGORY_TYPES.find((type) => {
+                            if (
+                              type.value === productClient.categories[0].type
+                            ) {
+                              return t(type.label_translate);
+                            }
+                          })?.label_translate
+                        )}
                       </div>
                       <div className="btn-cart-pc item-info block-btn-checkout customs_btn_cart">
                         <div className="cart">
@@ -219,7 +227,7 @@ const ProductDetailPage = () => {
                     ))}
                   </Select>
                 </Form.Item>
-              
+
                 <Form.Item
                   name="anket_5"
                   label={t("client.product_detail.label_using_medicine")}
