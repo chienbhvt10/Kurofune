@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PageHead from "../../../../commons/PageHead";
 import { TYPE_FORM_CREATE } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
-import useCreateUser from "../../../../hooks/user/createUser";
+import useCreateUser from "../../../../hooks/user/useCreateUser";
 import { UserForm } from "../user-form/Phase1UserForm";
 
 const AddUser = () => {

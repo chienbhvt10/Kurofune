@@ -1,5 +1,5 @@
 import { ROOT_URL } from "../../constants/api";
-import axiosClient from "../api-caller";
+import axiosClient, { axiosFormData } from "../api-caller";
 
 export const userApis = {
   users: async (data) => {
@@ -12,11 +12,11 @@ export const userApis = {
   },
   createUser: async (data) => {
     const url = ROOT_URL + "users";
-    return await axiosClient.post(url, data);
+    return await axiosFormData.post(url, data);
   },
   updateUser: async (data) => {
-    const url = ROOT_URL + `users/${data.id}`;
-    return await axiosClient.put(url, data);
+    const url = ROOT_URL + `users/${data.get("id")}`;
+    return await axiosFormData.post(url, data);
   },
   deleteUser: async (data) => {
     const url = ROOT_URL + `users/${data}`;

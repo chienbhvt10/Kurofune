@@ -1,31 +1,24 @@
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import {
-  NotificationError,
-  NotificationSuccess,
-} from "../../commons/Notification";
-import { ERROR, NO_ERROR } from "../../constants/error";
+import { NO_ERROR } from "../../constants/error";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import {
   resetResCRUDAction,
   updateUserAction,
 } from "../../redux/actions/userAction";
-import useUsers from "./useUsers";
-
+import useUsers from "../../hooks/user/useUsers";
 const useCreateUser = () => {
-  const { resUpdateUser, users } = useSelector((state) => state.userState);
   const { selectRole } = useSelector((state) => state.userState);
+  const { resUpdateUser, users, loadingUpdateUser } = useSelector(
+    (state) => state.userState
+  );
+  const { getAllUsers, pagination } = useUsers();
   const dispatch = useDispatch();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
-  const { getAllUsers, pagination } = useUsers();
-  const { t } = useTranslation();
-  const [loadingUpdateUser, setLoadingUpdateUser] = useState();
 
   const updateUser = (payload) => {
-    setLoadingUpdateUser(true);
     dispatch(updateUserAction(payload));
   };
 
@@ -36,14 +29,8 @@ const useCreateUser = () => {
         per_page: pagination.per_page,
         role: selectRole,
       });
-      setLoadingUpdateUser(false);
-      NotificationSuccess(t("notification"), resUpdateUser.message);
       navigate(`${lang}/admin/user-list`);
       dispatch(resetResCRUDAction());
-    }
-    if (resUpdateUser && resUpdateUser.error_code === ERROR) {
-      setLoadingUpdateUser(false);
-      NotificationError(t("notification"), resUpdateUser.error_message);
     }
   }, [resUpdateUser]);
 
@@ -52,7 +39,6 @@ const useCreateUser = () => {
     resUpdateUser,
     updateUser,
     loadingUpdateUser,
-    setLoadingUpdateUser,
   };
 };
 

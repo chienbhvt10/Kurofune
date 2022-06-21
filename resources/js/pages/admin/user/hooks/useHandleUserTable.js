@@ -11,7 +11,7 @@ const useHandleUserTable = () => {
   const { getAllUsers, users, pagination, loadingListUser } = useUsers();
   const { deleteUser, loadingDeleteUser } = useDeleteUser();
   const [filterRole, setFilterRole] = React.useState();
-  const [searchValue, setSearchValue] = React.useState();
+  const [searchValue, setSearchValue] = React.useState("");
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
   const dispatch = useDispatch();

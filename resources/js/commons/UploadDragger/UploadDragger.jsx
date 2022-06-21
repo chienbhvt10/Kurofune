@@ -1,5 +1,5 @@
-import { EyeOutlined, UploadOutlined } from "@ant-design/icons";
-import { Button, message, Modal, Space, Spin, Upload } from "antd";
+import { EyeOutlined, UploadOutlined, DeleteOutlined } from "@ant-design/icons";
+import { Button, message, Modal, Space, Upload } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import {
@@ -7,7 +7,6 @@ import {
   TYPE_IMAGE_JPG,
   TYPE_IMAGE_PNG,
 } from "../../constants";
-import { getBase64 } from "../string";
 import "./upload-dragger.scss";
 
 const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
@@ -30,8 +29,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
   };
 
   const handleChange = async (info) => {
-    const base64Image = await getBase64(info.file);
-    onChangeImage && onChangeImage(base64Image);
+    onChangeImage && onChangeImage(info.file);
     setImageUrl(URL.createObjectURL(info.file));
   };
 
@@ -48,7 +46,11 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
   const openModal = () => {
     setPreviewImage(true);
   };
+  const onRemoveImage = () => {
+    setImageUrl("");
+  };
 
+  const preventSubmit = (e) => e.preventDefault();
   return (
     <div className="form-image-custom">
       <div className="container">
@@ -65,6 +67,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
           />
         </Modal>
         <input
+          onClick={preventSubmit}
           type="image"
           src={imageUrl || "/avatars/default.png"}
           className="image"
@@ -72,18 +75,28 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
           height={300}
           style={{ width: "100%", objectFit: "cover" }}
         />
-        <div className="middle">
-          <Space>
-            <Button
-              type="ghost"
-              shape="circle"
-              icon={<EyeOutlined style={{ color: "#ffffff" }} />}
-              size="middle"
-              title="Xem"
-              onClick={openModal}
-            />
-          </Space>
-        </div>
+        {imageUrl && (
+          <div className="middle">
+            <Space>
+              <Button
+                type="ghost"
+                shape="circle"
+                icon={<EyeOutlined style={{ color: "#ffffff" }} />}
+                size="middle"
+                title="Xem"
+                onClick={openModal}
+              />
+              <Button
+                type="ghost"
+                shape="circle"
+                icon={<DeleteOutlined style={{ color: "#ffffff" }} />}
+                size="middle"
+                title="Xóa"
+                onClick={onRemoveImage}
+              />
+            </Space>
+          </div>
+        )}
       </div>
       <Upload
         ref={ref}
