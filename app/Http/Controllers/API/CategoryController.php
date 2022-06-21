@@ -64,7 +64,7 @@ class CategoryController extends Controller
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-            $slug = getSlug($request->en['name'], new Category, 'category_translations');
+            $slug = getSlug($request->en_name, new Category, 'category_translations');
             $image = $request->file('category_image');
             $image_path = upload_single_image($image, 'category');
 
