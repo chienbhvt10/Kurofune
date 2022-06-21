@@ -752,7 +752,6 @@ class UserController extends Controller
             return $this->response_message_data_success(__('message.user.updated'), $user);
         }catch (\Exception $error){
             DB::rollBack();
-            return $error->getMessage();
             return $this->response_exception();
         }
     }
