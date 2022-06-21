@@ -72,7 +72,7 @@ class ProductController extends Controller
             DB::beginTransaction();
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products',
-                'price' => 'nullable|numeric',
+                'price' => 'nullable|integer',
                 'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
                 'ja.name' => 'required',
@@ -240,7 +240,7 @@ class ProductController extends Controller
             }
             $validator = Validator::make($request->all(), [
                 'sku' => 'nullable|unique:products,sku,'.$product->id.',id',
-                'price' => 'nullable|numeric',
+                'price' => 'nullable|integer',
                 'product_image' => ['nullable', new Base64Image],
                 'en.name' => 'required',
                 'ja.name' => 'required',
