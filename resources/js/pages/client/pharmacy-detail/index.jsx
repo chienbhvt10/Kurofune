@@ -4,7 +4,7 @@ import PageHead from "../../../commons/PageHead";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
-import { Tooltip } from 'antd';
+import { Image, Tooltip } from 'antd';
 const PharmacyDetail = () => {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -39,17 +39,17 @@ const PharmacyDetail = () => {
                   <div className="item-info title">
                     {t("client.list_pharmacies.inside_image")}
                   </div>
-                  <div className="item-info border-none">
+                  <div className="item-info border-none d-flex  flex-wrap justify-content-center">
                     {pharmacy?.images_outside.map((item) => (
-                      <div className="item-image">
-                        <img alt="image-vendor" src={item} />
+                      <div className="item-image p-1">
+                        <Image alt="image-vendor" src={item.url} />
                       </div>
                     ))}
                   </div>
-                  <div className="item-info border-none">
+                  <div className="item-info border-none d-flex  flex-wrap justify-content-center">
                     {pharmacy?.images_inside.map((item) => (
-                      <div className="item-image">
-                        <img alt="image-vendor" src={item} />
+                      <div className="item-image p-1">
+                        <Image alt="image-vendor" src={item.url} />
                       </div>
                     ))}
                   </div>

@@ -109,7 +109,7 @@ const ProductDetailPage = () => {
                         {t(
                           CATEGORY_OPTIONS.CATEGORY_TYPES.find((type) => {
                             if (
-                              type.value === productClient.categories[0].type
+                              type.value === productClient.categories[0]?.type
                             ) {
                               return t(type.label_translate);
                             }
