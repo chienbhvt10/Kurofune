@@ -1,5 +1,6 @@
 export const getCategoryInitValues = (item) => {
   return {
+    id: item?.id || "",
     user_id: item?.user_id || "",
     slug: item?.slug || "",
     category_image: item?.category_image || "",
@@ -8,11 +9,9 @@ export const getCategoryInitValues = (item) => {
   };
 };
 
-export const getTranslateCategoryInitValues = () => {
+export const getTranslateCategoryInitValues = (translateValues, lang) => {
   return {
-    cat: "",
-    locale: "",
-    name: "",
+    [`${lang}_name`]: translateValues?.name || "",
   };
 };
 
