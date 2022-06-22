@@ -8,3 +8,13 @@ export const appendArrayToFormData = (formData, key, dataAppend) => {
     formData.append(`${key}[]`, dataAppend[i]);
   }
 };
+export const deleteKeyUndefined = (object) => {
+  if (Object.keys(object).length !== 0) {
+    for (let item in object) {
+      if (!object[item]) {
+        delete object[`${item}`];
+      }
+    }
+  }
+  return object;
+};

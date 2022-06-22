@@ -2,12 +2,15 @@ import { Form } from "antd";
 import React from "react";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 import { appendObjectToFormData } from "../../../../helper/handler";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { getCategoryInitValues } from "../category-form/categoryInitValues";
 import useHandleImage from "./useHandleImage";
 import useHandleTranslateForm from "./useHandleTranslateForm";
 
 const useHandleForm = (item, onSave, typeForm) => {
   const formData = new FormData();
+  const [isSubmitted, setSubmitted] = React.useState(false);
+
   const {
     categoryProfileFormEN,
     categoryProfileFormJP,
@@ -15,7 +18,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     categoryProfileFormVI,
     categoryProfileFormZH,
   } = useHandleTranslateForm(item);
-
+  const lang = getCurrentLanguage();
   const { avatar, onChangeAvatar, errorMessImage, setErrorMessImage } =
     useHandleImage();
 
@@ -46,7 +49,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     } else {
       setErrorMessImage(!avatar);
     }
-
+    setSubmitted(true);
     appendObjectToFormData(formData, submitValues);
     onSave(formData);
   };
@@ -58,11 +61,23 @@ const useHandleForm = (item, onSave, typeForm) => {
     categoryProfileFormZH.validateFields();
     categoryProfileFormEN.validateFields();
     setErrorMessImage(!avatar);
+    setSubmitted(true);
   };
 
   React.useEffect(() => {
     categoryForm.setFieldsValue(initialCommonValues);
   }, [item]);
+
+  React.useEffect(() => {
+    if (isSubmitted) {
+      categoryForm.validateFields();
+      categoryProfileFormEN.validateFields();
+      categoryProfileFormJP.validateFields();
+      categoryProfileFormTL.validateFields();
+      categoryProfileFormVI.validateFields();
+      categoryProfileFormZH.validateFields();
+    }
+  }, [lang]);
 
   return {
     categoryForm,

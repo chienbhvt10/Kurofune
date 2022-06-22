@@ -25,14 +25,7 @@ const UpdateProduct = () => {
     navigate(`${lang}/admin/product-list`);
   };
   const onSave = (data) => {
-    const submitData = {
-      ...data,
-      id: id,
-      tax_id: Number(data.tax_id),
-      price: Number(data.price),
-    };
-
-    updateProduct(submitData);
+    updateProduct(data);
   };
 
   React.useEffect(() => {
@@ -44,17 +37,10 @@ const UpdateProduct = () => {
   React.useEffect(() => {
     if (resUpdateProduct?.error_code === "NO_ERROR") {
       navigate(`${lang}/admin/product-list`);
-      NotificationSuccess(t("notification"), resUpdateProduct.message);
       getAllProducts();
     }
-    if (
-      resUpdateProduct?.error_code === "ERROR" &&
-      resUpdateProduct.error_data
-    ) {
-      const { sku } = resUpdateProduct.error_data;
-      sku && NotificationError(t("notification"), sku);
-    }
   }, [resUpdateProduct]);
+
   return (
     <div id="update-product-page">
       <PageHead

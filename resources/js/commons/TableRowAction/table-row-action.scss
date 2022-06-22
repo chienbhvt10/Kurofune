@@ -1,4 +1,7 @@
 .table-row-action {
+  display: flex;
+  width: 70px;
+  justify-content: center;
   .img-row {
     cursor: pointer;
     font-size: 20px;

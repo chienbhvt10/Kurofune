@@ -1,39 +1,50 @@
-import React from "react";
-import SubFormTranslate from "./SubFormTranslate.jsx";
+import { Tabs } from "antd";
 import {
   FIFTH_TAB,
   FIRST_TAB,
   FOURTH_TAB,
+  LANG_CHINESE,
+  LANG_ENGLISH,
+  LANG_JAPANESE,
+  LANG_PHILIPPINES,
+  LANG_VIETNAMESE,
   SECOND_TAB,
   THIRD_TAB,
 } from "../../../../constants";
-import { Tabs } from "antd";
+import SubFormTranslate from "./SubFormTranslate.jsx";
 const { TabPane } = Tabs;
 
-const TranslateProductForm = ({
-  formJP,
-  formVI,
-  formTL,
-  formEN,
-  formZH,
-  response,
-}) => {
+const TranslateProductForm = (props) => {
+  const { formJP, formVI, formTL, formEN, formZH, response } = props;
+
   return (
     <Tabs defaultActiveKey={FIRST_TAB} centered>
       <TabPane tab="English" key={FIRST_TAB}>
-        <SubFormTranslate lang="EN" form={formEN} response={response} />
+        <SubFormTranslate
+          lang={LANG_ENGLISH}
+          form={formEN}
+          response={response}
+        />
       </TabPane>
-      <TabPane tab="Japan" key={SECOND_TAB}>
-        <SubFormTranslate lang="JA" form={formJP} />
+      <TabPane tab="Japanese" key={SECOND_TAB}>
+        <SubFormTranslate lang={LANG_JAPANESE} form={formJP} />
       </TabPane>
-      <TabPane tab="Thailan" key={THIRD_TAB}>
-        <SubFormTranslate lang="TL" form={formTL} />
+      <TabPane tab="Tagalog" key={THIRD_TAB}>
+        <SubFormTranslate lang={LANG_PHILIPPINES} form={formTL} />
       </TabPane>
-      <TabPane tab="Vietnam" key={FOURTH_TAB}>
-        <SubFormTranslate lang="VI" form={formVI} response={response} />
+      <TabPane tab="Vietnamese" key={FOURTH_TAB}>
+        <SubFormTranslate
+          lang={LANG_VIETNAMESE}
+          form={formVI}
+          response={response}
+        />
       </TabPane>
-      <TabPane tab="China" key={FIFTH_TAB}>
-        <SubFormTranslate lang="ZH" form={formZH} response={response} />
+      <TabPane tab="Chinese" key={FIFTH_TAB}>
+        <SubFormTranslate
+          lang={LANG_CHINESE}
+          form={formZH}
+          response={response}
+        />
       </TabPane>
     </Tabs>
   );
