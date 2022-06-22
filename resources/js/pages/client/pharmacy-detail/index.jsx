@@ -4,8 +4,10 @@ import PageHead from "../../../commons/PageHead";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
-import { Tooltip } from "antd";
+import { getCurrentLanguage } from "../../../helper/localStorage";
+
 const PharmacyDetail = () => {
+  const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const { id } = useParams();
   const { getPharmacy, pharmacy } = usePharmacy();
@@ -13,7 +15,8 @@ const PharmacyDetail = () => {
     if (id) {
       getPharmacy(id);
     }
-  }, [id]);
+  }, [id, lang]);
+
   return (
     <>
       <PageHead
