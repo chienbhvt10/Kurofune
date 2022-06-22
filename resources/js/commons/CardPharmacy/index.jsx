@@ -26,7 +26,7 @@ const CardCategory = ({ cardItems }) => {
               cover={
                 <img
                   style={{ objectFit: "cover", height: "180px" }}
-                  src={item?.images_outside[0]?.url || DEFAULT_IMAGE}
+                  src={item?.avatar || DEFAULT_IMAGE}
                   alt={item.name}
                   onError={(e) => {
                     e.target.onerror = null;
