@@ -53,7 +53,7 @@ return [
     'password' => [
         'updated' => 'Matagumpay na nabago ang Password.',
         'without_spaces' => 'Passwords must not contain spaces',
-        'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password.<br>Pakisuri ang iyong nakarehistrong email address.',
+        'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password. Pakisuri ang iyong nakarehistrong email address.',
     ],
     'category' => [
         'created' => 'Nagawa ang kategorya.',
