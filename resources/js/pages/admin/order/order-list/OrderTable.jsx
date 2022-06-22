@@ -60,30 +60,7 @@ const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
       title: t("admins.order.table.field_total"),
       dataIndex: 'total',
     },
-    // {
-    //   title: t("admins.order.table.field_action"),
-    //   dataIndex: 'Action',
-    //   width: 100,
-    //   fixed: 'center',
-    //   render: (_, record) =>
-    //     items && (
-    //       (
-    //         <>
-    //           <Link to={`${lang}/admin/order-update/${record.id}`}>
-    //             <FontAwesomeIcon
-    //               icon={faCheck}
-    //               style={{
-    //                 border: "1px solid ",
-    //                 padding: 7,
-    //                 borderRadius: 3,
-    //                 width: 8,
-    //               }} />
-    //           </Link>
-             
-    //         </>
-    //       )
-    //     ),
-    // },
+
     {
       align: "center",
       headerAlign: "center",
@@ -99,6 +76,7 @@ const OrderTable = ({ items, onChange,handleDeleteOrder }) => {
 
   return (
     <Table
+    rowKey={"id"}
       columns={column}
       dataSource={items}
       pagination={{
