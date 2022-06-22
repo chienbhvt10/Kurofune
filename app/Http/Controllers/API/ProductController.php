@@ -370,7 +370,7 @@ class ProductController extends Controller
             return $this->response_message_data_success(__('message.product.updated'), $product);
 
         } catch (\Exception $error) {
-            DB::rollBack();dd($error->getMessage());
+            DB::rollBack();
             return $this->response_exception();
         }
     }
