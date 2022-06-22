@@ -1,23 +1,17 @@
 #product-form {
   background-color: white;
   border-radius: 5px;
-  .separate {
-    display: flex;
-    border-bottom: 1px solid #eee;
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      padding: 10px 30px 20px 30px;
-      margin-bottom: 0;
-      width: 50%;
-      label {
-        font-weight: bold;
-        padding-bottom: 10px;
-      }
-    }
+  .form-image-custom .container {
+    position: relative;
+    width: 257px;
+    height: 257px;
+    padding: 0;
   }
   .form-group-col {
     padding: 10px 30px 20px 30px;
+  }
+  .form-image-custom {
+    width: 100%;
   }
 
   .input-field-space {

@@ -22,31 +22,16 @@ const AddProduct = () => {
     navigate(`${lang}/admin/product-list`);
   };
   const onSave = (data) => {
-    const submitData = {
-      ...data,
-      tax_id: Number(data.tax_id),
-      price: Number(data.price),
-    };
-
-    createNewProduct(submitData);
+    createNewProduct(data);
   };
 
   React.useEffect(() => {
     if (resCreateProduct?.error_code === "NO_ERROR") {
-      NotificationSuccess(t("notification"), resCreateProduct.message);
       navigate(`${lang}/admin/product-list`);
       getAllProducts();
     }
-    if (resCreateProduct?.error_code === "ERROR") {
-      const errorData = resCreateProduct?.error_data;
-      errorData &&
-        errorData?.slug &&
-        NotificationError(t("notification"), errorData?.slug);
-      errorData &&
-        errorData?.sku &&
-        NotificationError(t("notification"), errorData?.sku);
-    }
   }, [resCreateProduct]);
+
   return (
     <div id="add-product-page">
       <PageHead

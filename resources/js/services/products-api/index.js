@@ -1,5 +1,5 @@
 import { ROOT_URL } from "../../constants/api";
-import axiosClient from "../api-caller";
+import axiosClient, { axiosFormData } from "../api-caller";
 
 export const productsApis = {
   products: async (payload) => {
@@ -13,12 +13,12 @@ export const productsApis = {
 
   createProduct: async (payload) => {
     const url = ROOT_URL + "products";
-    return await axiosClient.post(url, payload);
+    return await axiosFormData.post(url, payload);
   },
 
   updateProduct: async (payload) => {
     const url = ROOT_URL + "products";
-    return await axiosClient.put(`${url}/${payload.id}`, payload);
+    return await axiosFormData.post(`${url}/${payload.get("id")}`, payload);
   },
 
   deleteProduct: async (id) => {

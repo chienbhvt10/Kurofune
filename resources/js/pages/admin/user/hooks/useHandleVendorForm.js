@@ -7,6 +7,13 @@ import {
   LANG_PHILIPPINES,
   LANG_VIETNAMESE,
 } from "../../../../constants";
+import {
+  LANG_CHINESE_INDEX,
+  LANG_ENGLISH_INDEX,
+  LANG_JAPANESE_INDEX,
+  LANG_PHILIPPINES_INDEX,
+  LANG_VIETNAMESE_INDEX,
+} from "../../../../constants/languages";
 import { getTranslateInitValues } from "../user-form/userFormInitValues";
 
 const useHandleVendorForm = (item) => {
@@ -16,23 +23,23 @@ const useHandleVendorForm = (item) => {
   const [vendorProfileFormVI] = Form.useForm();
   const [vendorProfileFormZH] = Form.useForm();
   const enInitValues = getTranslateInitValues(
-    item?.vendor_profile?.vendor_translations[0],
+    item?.vendor_profile?.vendor_translations[LANG_ENGLISH_INDEX],
     LANG_ENGLISH
   );
   const jaInitValues = getTranslateInitValues(
-    item?.vendor_profile?.vendor_translations[1],
+    item?.vendor_profile?.vendor_translations[LANG_JAPANESE_INDEX],
     LANG_JAPANESE
   );
   const tlInitValues = getTranslateInitValues(
-    item?.vendor_profile?.vendor_translations[2],
+    item?.vendor_profile?.vendor_translations[LANG_PHILIPPINES_INDEX],
     LANG_PHILIPPINES
   );
   const viInitValues = getTranslateInitValues(
-    item?.vendor_profile?.vendor_translations[3],
+    item?.vendor_profile?.vendor_translations[LANG_VIETNAMESE_INDEX],
     LANG_VIETNAMESE
   );
   const zhInitValues = getTranslateInitValues(
-    item?.vendor_profile?.vendor_translations[4],
+    item?.vendor_profile?.vendor_translations[LANG_CHINESE_INDEX],
     LANG_CHINESE
   );
 

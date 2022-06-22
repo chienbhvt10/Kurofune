@@ -22,7 +22,7 @@ const ProductTable = ({
       align: "center",
       title: <img className="img-head" src="/images/image.png" alt="" />,
       render: (_, record) => (
-        <div className="table-column-break">
+        <div className="table-column-break td-image">
           <Image
             src={record.product_image}
             onError={(e) => (e.target.src = "/images/image-default.png")}
@@ -38,7 +38,7 @@ const ProductTable = ({
       dataIndex: "name",
       title: t("admins.product.field_name"),
       render: (_, record) => (
-        <div className="table-column-break">
+        <div className="table-column-break td-name">
           <Link to={`${lang}/admin/product/update/${record.id}`}>
             {record.name}
           </Link>
@@ -50,7 +50,7 @@ const ProductTable = ({
       dataIndex: "sku",
       title: t("admins.product.sku_field"),
       render: (_, record) => (
-        <div className="table-column-break">
+        <div className="table-column-break td-sku">
           <span>{record.sku || "-"}</span>
         </div>
       ),
@@ -59,16 +59,18 @@ const ProductTable = ({
       key: "stock",
       dataIndex: "stock",
       title: t("admins.product.stock_status_field"),
-      render: (_, record) => <span>{record.stock_status}</span>,
+      render: (_, record) => (
+        <div className="td-status">{record.stock_status}</div>
+      ),
     },
     {
       key: "price",
       dataIndex: "price",
       title: t("admins.product.price_field"),
       render: (_, record) => (
-        <span>
+        <div className="td-price">
           {record.price} {!lang ? "円" : "(JPY)"}
-        </span>
+        </div>
       ),
     },
     {
@@ -76,8 +78,8 @@ const ProductTable = ({
       dataIndex: "categories",
       title: t("admins.product.category_field"),
       render: (categories) => (
-        <div className="category-wrapper">
-          {categories?.map((item,i) => (
+        <div className="category-wrapper td-categories">
+          {categories?.map((item, i) => (
             <span key={i}>{item?.name}</span>
           ))}
         </div>
@@ -88,7 +90,7 @@ const ProductTable = ({
       dataIndex: "date",
       title: t("admins.product.date_field"),
       render: (_, record) => (
-        <div className="table-column-break">
+        <div className="table-column-break td-date">
           <span>
             Published{" "}
             {moment(record.created_at).zone("+09:00").format("YYYY/MM/DD")} at{" "}
@@ -102,7 +104,7 @@ const ProductTable = ({
       dataIndex: "store",
       title: t("admins.product.store_field"),
       render: (store) => (
-        <div className="category-wrapper">
+        <div className="category-wrapper td-store">
           {store?.map((item, index) => (
             <span key={index}>{item?.name}</span>
           ))}
@@ -110,13 +112,10 @@ const ProductTable = ({
       ),
     },
     {
-      key: "vi",
-      dataIndex: "vi",
+      key: "tool",
+      dataIndex: "tool",
       align: "center",
       headerAlign: "center",
-      headerStyle: {
-        width: 100,
-      },
       render: (_, record) => (
         <div className="table-column-break">
           <TableRowAction record={record} onDelete={onDelete} onEdit={onEdit} />
@@ -133,6 +132,7 @@ const ProductTable = ({
       bordered
       onChange={onTableChange}
       loading={loading}
+      scroll={{ x: 1000 }}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,

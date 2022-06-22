@@ -2,6 +2,9 @@
   background: #fff;
   padding: 20px;
   border-radius: 5px;
+  td {
+    vertical-align: top;
+  }
   .select-role {
     width: 200px;
     margin-left: 10px;
@@ -26,5 +29,9 @@
   }
   .active-td {
     width: 170px;
+  }
+  .table-column-break {
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
