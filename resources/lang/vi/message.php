@@ -53,7 +53,7 @@ return [
     'password' => [
         'updated' => 'Đã thay đổi mật khẩu thành công.',
         'without_spaces' => 'Passwords must not contain spaces.',
-        'reset_link_sent' => 'Email cấp lại mật khẩu đã được gửi.<br>Vui lòng kiểm tra địa chỉ email đã đăng ký của bạn.',
+        'reset_link_sent' => 'Email cấp lại mật khẩu đã được gửi. Vui lòng kiểm tra địa chỉ email đã đăng ký của bạn.',
     ],
     'category' => [
         'created' => 'Danh mục đã tạo thành công',

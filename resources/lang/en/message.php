@@ -54,7 +54,7 @@ return [
     'password' => [
         'updated' => 'Password changed successfully.',
         'without_spaces' => 'Passwords must not contain spaces',
-        'reset_link_sent' => 'The password reissue email has been sent.<br>Please check your registered email address.',
+        'reset_link_sent' => 'The password reissue email has been sent. Please check your registered email address.',
     ],
     'category' => [
         'created' => 'Category created',
