@@ -264,7 +264,7 @@ class ProductController extends Controller
             ->where('locale', '=', 'en')->first()->name;
             $slug = $product->slug;
             if ($nameProduct != $request->en_name) {
-                $slug = $this->getSlug($request->en_name);
+                $slug = getSlug($request->en_name, new Product, 'product_translations');
             }
             $user = auth()->user();
             $user_id = $user->id;
@@ -370,7 +370,7 @@ class ProductController extends Controller
             return $this->response_message_data_success(__('message.product.updated'), $product);
 
         } catch (\Exception $error) {
-            DB::rollBack();
+            DB::rollBack();dd($error->getMessage());
             return $this->response_exception();
         }
     }
