@@ -25,7 +25,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               response={resCreateUser}
-              type={<Input.TextArea />}
+              type={<Input.TextArea maxLength={256} showCount/>}
             />
           </Col>
           <Col span={12}>
