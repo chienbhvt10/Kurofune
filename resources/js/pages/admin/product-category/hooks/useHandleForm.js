@@ -26,8 +26,8 @@ const useHandleForm = (item, onSave, typeForm) => {
     let submitValues = {
       id: initialCommonValues.id,
       category_image: avatar,
+      ...categoryForm.getFieldsValue(),
     };
-    appendObjectToFormData(formData, categoryForm.getFieldsValue());
     appendObjectToFormData(formData, categoryProfileFormEN.getFieldsValue());
     appendObjectToFormData(formData, categoryProfileFormJP.getFieldsValue());
     appendObjectToFormData(formData, categoryProfileFormTL.getFieldsValue());
@@ -37,7 +37,9 @@ const useHandleForm = (item, onSave, typeForm) => {
     if (!avatar) {
       delete submitValues.category_image;
     }
-
+    if (!categoryForm.getFieldValue("parent_id")) {
+      delete submitValues.parent_id;
+    }
     if (typeForm === TYPE_FORM_UPDATE) {
       setErrorMessImage("");
       formData.append("_method", "PUT");
