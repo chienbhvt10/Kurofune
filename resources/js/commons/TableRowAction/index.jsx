@@ -22,19 +22,16 @@ const TableRowAction = ({ onDelete, onEdit, record, confirmLoading, style }) => 
         onClick={onEdit(record)}
         className="img-row"
       />
-      {(!record.hasOwnProperty("allow_deleted") ||
-        (record.hasOwnProperty("allow_deleted") && record?.allow_deleted)) && (
-        <Popconfirm
-          title={t("admins.delete_item_message")}
-          onConfirm={onDelete(record)}
-          okText={t("admins.user.form.option.yes")}
-          cancelText={t("admins.user.form.option.no")}
-          okButtonProps={{ loading: confirmLoading }}
-          getPopupContainer={getDepend}
-        >
-          <FontAwesomeIcon icon={faTrashCan} className="img-row" />
-        </Popconfirm>
-      )}
+      <Popconfirm
+        title={t("admins.delete_item_message")}
+        onConfirm={onDelete(record)}
+        okText={t("admins.user.form.option.yes")}
+        cancelText={t("admins.user.form.option.no")}
+        okButtonProps={{ loading: confirmLoading }}
+        getPopupContainer={getDepend}
+      >
+        <FontAwesomeIcon icon={faTrashCan} className="img-row" />
+      </Popconfirm>
     </div>
   );
 };

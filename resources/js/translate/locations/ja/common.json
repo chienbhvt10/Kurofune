@@ -692,7 +692,8 @@
         "error_category": "「カテゴリ」フィールドは必須です。",
         "error_tax": "「税金」フィールドは必須です。",
         "error_en_product_name": "「商品名」フィールドは必須です。",
-        "error_price": "Please input valid number."
+        "error_price": "Please input valid number.",
+        "error_not_allowed_delete_category": "削除できません。 このカテゴリに販売されている商品があります。"
       },
       "title": {
         "product_title": "商品を新規追加 ",
