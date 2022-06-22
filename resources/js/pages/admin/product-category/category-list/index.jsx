@@ -25,7 +25,6 @@ const CategoryList = () => {
   };
 
   const onDelete = (row) => () => {
-    console.log("row", row);
     if (row.hasOwnProperty("allow_deleted") && !row?.allow_deleted)
       NotificationError(
         t("notification"),
@@ -81,6 +80,6 @@ const CategoryList = () => {
       />
     </div>
   );
-};;
+};
 
 export default CategoryList;

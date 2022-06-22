@@ -5,23 +5,23 @@ import {
 } from "../../commons/Notification";
 import { t } from "i18next";
 const useUpdateOrderAdmin = () => {
+  const updateOrderAdmin = (payload, onSuccess, onError) => {
+    let response = orderAdminAPI.updateOrderAdmin(payload.id, payload.data);
 
-  const updateOrderAdmin = (payload,onSuccess, onError) => {
-    let respose =  orderAdminAPI.updateOrderAdmin(payload.id,payload.data)
-
-    respose.then((result) => {
-      let { data } = result;
-      onSuccess(data)
-      console.log(result);
-      if(result.status_code===200) NotificationSuccess(t("notification"), result.message);
-      
-    }).catch((error) => {
-      NotificationError(t("notification"), `Update Error ${error.message}` );
-    })
+    response
+      .then((result) => {
+        let { data } = result;
+        onSuccess(data);
+        if (result.status_code === 200)
+          NotificationSuccess(t("notification"), result.message);
+      })
+      .catch((error) => {
+        NotificationError(t("notification"), `Update Error ${error.message}`);
+      });
   };
   return {
-    updateOrderAdmin
-  }
-}
+    updateOrderAdmin,
+  };
+};
 
 export default useUpdateOrderAdmin;
