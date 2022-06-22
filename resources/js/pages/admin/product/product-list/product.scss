@@ -15,7 +15,6 @@
   .table-header {
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
     .tool {
       button {
         display: flex;
@@ -45,7 +44,7 @@
     display: flex;
   }
 }
-.category-wrapper{
+.category-wrapper {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;
