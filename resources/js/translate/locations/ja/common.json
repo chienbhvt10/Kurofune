@@ -732,7 +732,7 @@
       "title": {
         "product_title": "商品を新規追加 ",
         "product_add": "新規追加",
-        "product_list": "商品リスト "
+        "product_list": "商品一覧 "
       }
     },
 
@@ -747,7 +747,7 @@
       "title": {
         "product_category_title": "商品カテゴリ",
         "product_category_add": "カテゴリを新規追加",
-        "category_list": "カテゴリリスト",
+        "category_list": "カテゴリ一覧",
         "category_add": "新規追加"
       },
       "type": {
