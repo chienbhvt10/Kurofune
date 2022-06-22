@@ -53,7 +53,7 @@ return [
     'password' => [
         'updated' => '密码更换成功。',
         'without_spaces' => '密码不能包含空格。',
-        'reset_link_sent' => '密码补发邮件已发送。<br>请检查您注册的电子邮件地址。',
+        'reset_link_sent' => '密码补发邮件已发送。请检查您注册的电子邮件地址。',
     ],
     'category' => [
         'created' => '创建的类别。',
