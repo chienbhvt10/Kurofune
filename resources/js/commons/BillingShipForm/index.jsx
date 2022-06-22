@@ -28,7 +28,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_full_name`}
-            error={`${typeForm}.full_name`}
+            error={`${typeForm}_full_name`}
             label={t("admins.user.form.field_full_name")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -39,7 +39,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_postal_code`}
-            error={`${typeForm}.postal_code`}
+            error={`${typeForm}_postal_code`}
             label={t("admins.user.form.field_postal_code")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -51,7 +51,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <SelectField
             field={`${typeForm}_prefecture`}
-            error={`${typeForm}.prefecture`}
+            error={`${typeForm}_prefecture`}
             label={t("admins.user.form.field_prefecture")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -64,7 +64,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_city`}
-            error={`${typeForm}.city`}
+            error={`${typeForm}_city`}
             label={t("admins.user.form.field_city")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -75,7 +75,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_street_address`}
-            error={`${typeForm}.street_address`}
+            error={`${typeForm}_street_address`}
             label={t("admins.user.form.field_street")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -86,7 +86,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_building`}
-            error={`${typeForm}.building`}
+            error={`${typeForm}_building`}
             label={t("admins.user.form.field_building")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -97,7 +97,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_phone`}
-            error={`${typeForm}.phone`}
+            error={`${typeForm}_phone`}
             label={t("admins.user.form.field_phone")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
@@ -109,7 +109,7 @@ const BillingShipForm = ({ className, form, typeForm, response }) => {
         <Col span={12}>
           <InputField
             field={`${typeForm}_email`}
-            error={`${typeForm}.email`}
+            error={`${typeForm}_email`}
             label={t("admins.user.form.field_email")}
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}

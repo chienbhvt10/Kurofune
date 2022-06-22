@@ -69,11 +69,11 @@ const useHandleForm = (item, onSave, typeForm) => {
     let submitValues = {
       id: userInfoInitValues.id,
       avatar,
+      ...userInfoForm.getFieldsValue(),
     };
     if (typeForm === TYPE_FORM_UPDATE) {
       formData.append("_method", "PUT");
     }
-    appendObjectToFormData(formData, userInfoForm.getFieldsValue());
     appendObjectToFormData(formData, commonAddressForm.getFieldsValue());
     appendObjectToFormData(formData, billingAddressForm.getFieldsValue());
     appendObjectToFormData(formData, shippingAddressForm.getFieldsValue());
@@ -85,7 +85,6 @@ const useHandleForm = (item, onSave, typeForm) => {
       delete submitValues.password;
     }
     if (role === ROLE_VENDOR) {
-      console.log(images_outside_delete);
       appendArrayToFormData(formData, "images_inside", images_inside);
       appendArrayToFormData(formData, "images_outside", images_outside);
       appendArrayToFormData(

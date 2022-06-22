@@ -1,5 +1,5 @@
 import { ROOT_URL } from "../../constants/api";
-import axiosClient from "../api-caller";
+import axiosClient, { axiosFormData } from "../api-caller";
 
 export const categoryApis = {
   categories: async (data) => {
@@ -24,12 +24,12 @@ export const categoryApis = {
 
   createAdminCategory: async (data) => {
     const url = ROOT_URL + "categories";
-    return await axiosClient.post(url, data);
+    return await axiosFormData.post(url, data);
   },
 
   updateAdminCategory: async (data) => {
-    const url = ROOT_URL + "categories";
-    return await axiosClient.put(`${url}/${data.id}`, data);
+    const url = ROOT_URL + `categories/${data.get("id")}`;
+    return await axiosFormData.post(url, data);
   },
 
   deleteAdminCategory: async (id) => {

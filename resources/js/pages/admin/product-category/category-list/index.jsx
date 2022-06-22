@@ -8,7 +8,7 @@ import useAdminCategories from "../../../../hooks/categoryAdmin/useAdminCategori
 import useDeleteAdminCategory from "../../../../hooks/categoryAdmin/useDeleteAdminCategory.js";
 import "./category.scss";
 import CategoryTable from "./CategoryTable";
-
+import { NotificationError } from "../../../../commons/Notification";
 const CategoryList = () => {
   const { getAdminCategories, adminCategories, pagination } =
     useAdminCategories();
@@ -25,7 +25,12 @@ const CategoryList = () => {
   };
 
   const onDelete = (row) => () => {
-    deleteAdminCategory(row.id);
+    if (row.hasOwnProperty("allow_deleted") && !row?.allow_deleted)
+      NotificationError(
+        t("notification"),
+        t("admins.product.error_message.error_not_allowed_delete_category")
+      );
+    else deleteAdminCategory(row.id);
   };
 
   const onEdit = (row) => () => {
