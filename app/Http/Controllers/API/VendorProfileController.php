@@ -53,6 +53,7 @@ class VendorProfileController extends Controller
                 'expiration_date_of_drugs' => $userVendor->vendor_profile->expiration_date_of_drugs,
                 'images_outside' => $images_outside,
                 'images_inside' => $images_inside,
+                'avatar' => get_avatar_url($userVendor->avatar)
             ];
             $vendors[] = $items;
         }
