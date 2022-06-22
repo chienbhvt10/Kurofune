@@ -5,11 +5,14 @@ import { useSelector } from "react-redux";
 import { PREF } from "../../../../../commons/data";
 import InputField from "../../../../../commons/Form/InputField";
 import SelectField from "../../../../../commons/Form/SelectField";
+import { TYPE_FORM_CREATE } from "../../../../../constants";
 import { validateUser } from "../../../../../helper/validateField";
 
-const CommonInfoForm = ({ className, form }) => {
+const CommonInfoForm = ({ className, form, typeForm }) => {
   const { t } = useTranslation();
-  const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+  const { resCreateUser, resUpdateUser } = useSelector(
+    (state) => state.userState
+  );
 
   const renderErrorTranslate = (field) => {
     return validateUser?.[field].map((item) => {
@@ -36,7 +39,9 @@ const CommonInfoForm = ({ className, form }) => {
             labelCol={{ span: 24 }}
             wrapperCol={{ span: 22 }}
             rules={renderErrorTranslate("postal_code")}
-            response={resCreateUser}
+            response={
+              typeForm === TYPE_FORM_CREATE ? resCreateUser : resUpdateUser
+            }
             type={<Input />}
           />
         </Col>
