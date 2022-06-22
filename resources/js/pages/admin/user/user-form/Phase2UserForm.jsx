@@ -44,7 +44,11 @@ const Phase2UserForm = (props) => {
   return (
     <Tabs defaultActiveKey="1" className="switch-tab-form">
       <Tabs.TabPane tab={t("admins.user.switch_tab.address")} key="1">
-        <CommonInfoForm className="common-info-form" form={commonAddressForm} />
+        <CommonInfoForm
+          className="common-info-form"
+          form={commonAddressForm}
+          typeForm={typeForm}
+        />
       </Tabs.TabPane>
       {isRoleMember(role) ? (
         <Tabs.TabPane tab={t("admins.user.switch_tab.role_info")} key="2">
