@@ -33,6 +33,7 @@ export const getTranslateInitValues = (translateValues, lang) => {
     [`${lang}_currently_working`]: translateValues?.currently_working || "",
     [`${lang}_open_sale_time`]: translateValues?.open_sale_time || "",
     [`${lang}_time_order_outside`]: translateValues?.time_order_outside || "",
+    [`${lang}_pharmacist_working`]: translateValues?.pharmacist_working || "",
     [`${lang}_expiration_date_of_drugs`]:
       translateValues?.expiration_date_of_drugs || "",
   };

@@ -93,7 +93,7 @@ export const Questionnaire = () => {
             <div className="product-list">
               {searchPharmacy?.map((item, index) => (
                 <div className="product-item" key={index}>
-                  <Link to={`${lang}/product-detail`} className="product-link">
+                  <Link to={`${lang}/product-detail/${item.id}`} className="product-link">
                     <img
                       src={item.product_image}
                       onError={(e) =>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useProductClient from "../../../hooks/product/useProductClient";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Form, Input, Select, Button, Modal } from "antd";
+import { Form, Input, Select, Button, Modal, Image } from "antd";
 import { CATEGORY_OPTIONS, PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
 import PageHead from "../../../commons/PageHead";
@@ -76,9 +76,10 @@ const ProductDetailPage = () => {
             >
               <div className="wrap-detail-product">
                 <div className="item-prod image-prod">
-                  <img
+                  <Image
                     alt={productClient.name}
                     src={productClient.product_image}
+                    onError={(e) => (e.target.src = "/images/image-default.png")}
                   />
                 </div>
                 <div className="item-prod summary-prod">
