@@ -4,16 +4,15 @@ import CardPharmacy from "../../../commons/CardPharmacy";
 import usePharmacies from "../../../hooks/pharmacy/usePharmacies";
 import "./pharmacy-list.scss";
 import PageHead from "../../../commons/PageHead";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 
 const PharmacyList = () => {
-  const { i18n, t } = useTranslation();
+  const {   t } = useTranslation();
   const { getAllPharmacies, pharmacies } = usePharmacies();
-
+  const lang = getCurrentLanguage();
   React.useEffect(() => {
-    if (!pharmacies) {
       getAllPharmacies();
-    }
-  }, [pharmacies]);
+  }, [lang]);
   return (
     <>
       <PageHead
