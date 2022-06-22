@@ -4,6 +4,11 @@ import {
   FIFTH_TAB,
   FIRST_TAB,
   FOURTH_TAB,
+  LANG_CHINESE,
+  LANG_ENGLISH,
+  LANG_JAPANESE,
+  LANG_PHILIPPINES,
+  LANG_VIETNAMESE,
   SECOND_TAB,
   THIRD_TAB,
 } from "../../../../constants";
@@ -29,31 +34,31 @@ const TranslateCategoryForm = ({
       activeTab={activeTab}
     >
       <SubFormCategoryTranslate
-        lang="JA"
+        lang={LANG_JAPANESE}
         className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
         form={formJP}
         response={response}
       />
       <SubFormCategoryTranslate
-        lang="VI"
+        lang={LANG_VIETNAMESE}
         className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
         form={formVI}
         response={response}
       />
       <SubFormCategoryTranslate
-        lang="ZH"
+        lang={LANG_CHINESE}
         className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
         form={formZH}
         response={response}
       />
       <SubFormCategoryTranslate
-        lang="TL"
+        lang={LANG_PHILIPPINES}
         className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
         form={formTL}
         response={response}
       />
       <SubFormCategoryTranslate
-        lang="EN"
+        lang={LANG_ENGLISH}
         className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
         form={formEN}
         response={response}

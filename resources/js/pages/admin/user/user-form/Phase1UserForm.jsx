@@ -45,8 +45,6 @@ export const UserForm = (props) => {
     planProfileForm,
   } = useHandleForm(item, onSave, typeForm);
 
-  const lang = getCurrentLanguage();
-
   React.useEffect(() => {
     setRole(userInfoForm.getFieldValue("role"));
   }, [item]);

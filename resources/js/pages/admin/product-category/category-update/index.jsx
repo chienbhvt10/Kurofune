@@ -19,12 +19,7 @@ const UpdateCategory = () => {
     navigate(`${lang}/admin/category-list`);
   };
   const onSave = (data) => {
-    const submitData = {
-      ...data,
-      type: Number(data.type),
-      id: id,
-    };
-    updateAdminCategory(submitData);
+    updateAdminCategory(data);
   };
 
   React.useEffect(() => {

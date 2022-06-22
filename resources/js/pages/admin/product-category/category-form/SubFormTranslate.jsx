@@ -4,7 +4,7 @@ import InputField from "../../../../commons/Form/InputField.jsx";
 import { getCategoryFormLayout } from "./categoryInitValues.js";
 import { useTranslation } from "react-i18next";
 
-const SubFormCategoryTranslate = ({ lang, className, form, response, onSaverenderErrorMessage, renderErrorMessage }) => {
+const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
   const formItemLayout = getCategoryFormLayout();
   const { t } = useTranslation();
   return (
@@ -18,30 +18,32 @@ const SubFormCategoryTranslate = ({ lang, className, form, response, onSaverende
         {(values, form) => {
           const renderErrorMessage = (field) => {
             return (
-              <div className="form-error">{form.getFieldError(field) && t(form.getFieldError(field)[0])}</div>
+              <div className="form-error">
+                {form.getFieldError(field) && t(form.getFieldError(field)[0])}
+              </div>
             );
           };
-          return(
+          return (
             <Row justify="center" className="input-field-space">
               <Col span={24}>
                 <InputField
-                  field="name"
+                  field={`${lang}_name`}
                   label={`(${lang}) ${t("admins.category.name_field")}`}
                   rules={[
                     {
                       required: true,
-                      message: "admins.category.error_message.error_name",
+                      message: t("admins.category.error_message.error_name"),
                       whitespace: true,
                     },
                   ]}
                   response={response}
-                  error="en.name"
+                  error={`${lang}.name`}
                   type={<Input />}
                 />
-                {renderErrorMessage('name')}
+                {renderErrorMessage("name")}
               </Col>
             </Row>
-          )
+          );
         }}
       </Form>
     </>
