@@ -26,7 +26,7 @@ const CategoryListDetail = () => {
         <div className="list_categories">
           <div className="type-wrapper">
             <div className="type-name">
-              {t("client.medicine_list.type_name1")}
+              {t("client.product_detail.product_list")}
             </div>
           </div>
           <CardCategoryDetail cardItems={category} />
