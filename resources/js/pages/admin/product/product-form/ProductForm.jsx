@@ -193,7 +193,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   <SelectField
                     field="user_id"
                     label={t("admins.product.vendor_field")}
-                    placeholder="Please select vendor"
+                    placeholder={t("admins.product.placeholder_select_vendor")}
                     rules={[
                       {
                         required: true,
@@ -225,7 +225,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 <SelectField
                   field="status"
                   label={t("admins.product.status_field")}
-                  placeholder="Please select active status"
+                  placeholder={t("admins.product.placeholder_select_status")}
                   options={productFormOptions.status}
                   rules={[
                     {
@@ -242,7 +242,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 <SelectField
                   field="stock_status"
                   label={t("admins.product.stock_status_field")}
-                  placeholder="Please select Category"
+                  placeholder={t("admins.product.placeholder_select_stock_status")}
                   options={productFormOptions.stock_status}
                   rules={[
                     {
@@ -278,7 +278,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 <SelectField
                   field="cat_id"
                   label={t("admins.product.category_field")}
-                  placeholder="Please select active status"
+                  placeholder={t("admins.product.placeholder_select_category")}
                   rules={[
                     {
                       required: true,
