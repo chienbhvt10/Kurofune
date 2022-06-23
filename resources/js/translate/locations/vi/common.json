@@ -114,6 +114,7 @@
     "medicine_title": "Danh sách thuốc",
     "order_history_title": "Lịch sử mua hàng",
     "cart_title": "Giỏ hàng",
+    "order_list_admin": "Danh sách đơn hàng",
     "billing_address_title": "Thông tin đăng kí",
     "media_title": "Trang chủ",
     "chatbot_title": "Log Chatbot",
@@ -243,34 +244,30 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "Thông tin người dùng",
       "btn_logout": "Thoát",
-      "light_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
-          "title":"※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
-          "the_services":{
-            "1":"Dịch vụ hiệu thuốc trực tuyến",
-            "2":"Dịch vụ tư vấn cuộc sống 24 giờ",
-            "linkVideo":"//www.youtube.com/embed/ausFxpMOYp4"
+      "light_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
+          "title": "※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
+          "the_services": {
+            "1": "Dịch vụ hiệu thuốc trực tuyến",
+            "2": "Dịch vụ tư vấn cuộc sống 24 giờ",
+            "linkVideo": "//www.youtube.com/embed/ausFxpMOYp4"
           }
         }
       },
-      "full_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
-          "title":"※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
-          "the_services":{
-            "1":"Dịch vụ hiệu thuốc trực tuyến",
-            "2":"Dịch vụ tư vấn cuộc sống 24 giờ",
-            "3":"Dịch vụ chuyển tiền ra nước ngoài",
-            "4":"Dịch vụ giáo dục tiếng Nhật trực tuyến",
-            "5":"Dịch vụ bảo hiểm bồi thường thu nhập",
-            "linkVideo":"//www.youtube.com/embed/xex5Wtt9VJY"
+      "full_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
+          "title": "※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
+          "the_services": {
+            "1": "Dịch vụ hiệu thuốc trực tuyến",
+            "2": "Dịch vụ tư vấn cuộc sống 24 giờ",
+            "3": "Dịch vụ chuyển tiền ra nước ngoài",
+            "4": "Dịch vụ giáo dục tiếng Nhật trực tuyến",
+            "5": "Dịch vụ bảo hiểm bồi thường thu nhập",
+            "linkVideo": "//www.youtube.com/embed/xex5Wtt9VJY"
           }
         }
       }
