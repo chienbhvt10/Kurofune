@@ -9,7 +9,6 @@ import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
 import useLogout from "../../hooks/auth/useLogout";
 import useCart from "../../hooks/cart/useCart";
-import { isAdmin } from "../../helper/checker";
 const HeaderHome = ({ toggleSideBar,isShowCart }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
