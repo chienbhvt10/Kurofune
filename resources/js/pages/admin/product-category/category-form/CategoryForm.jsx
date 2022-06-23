@@ -112,16 +112,6 @@ const CategoryForm = ({
                 options={CATEGORY_OPTIONS.CATEGORY_TYPES}
               />
             </Col>
-            <Col span={24} className="input-field-space">
-              <InputField
-                field="slug"
-                label={t("admins.category.slug_field")}
-                response={response}
-                error="slug"
-                placeholder={t("admins.category.placeholder_text")}
-                type={<Input />}
-              />
-            </Col>
 
             <Col span={24} className="input-field-space">
               <SelectField
