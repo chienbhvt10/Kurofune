@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => '薬局リストが空です。'
         ],
-        'inactive' => 'ユーザーが非アクティブ'
+        'inactive' => 'ユーザーが非アクティブ',
+        'unauthenticated' => '認証されていません。',
+        'active' => 'ユーザーが既にアクティブになっています。'
     ],
     'role' => [
         'created' => 'ロールを作成しました。',
@@ -51,7 +53,7 @@ return [
     'password' => [
         'updated' => 'パスワードは正常に変更されました。',
         'without_spaces' => 'パスワードにスペースを含んではいけません。',
-        'reset_link_sent' => 'パスワード再発行メールが送信されました。<br>ご登録メールアドレスをご確認ください。',
+        'reset_link_sent' => 'パスワード再発行メールが送信されました。ご登録メールアドレスをご確認ください。',
     ],
     'category' => [
         'created' => 'カテゴリーを作成しました。',
@@ -78,10 +80,10 @@ return [
         'not_exist' => '配送方法がありません'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name が買い物かごに追加されました。',
         'no_info' => '買い物かご内の情報はありません。',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => '買い物かごが消除されました。',
+        'updated' => '買い物かごが更新されました。',
         'quantity' => '購入内容をご確認ください。'
     ],
     'order' => [

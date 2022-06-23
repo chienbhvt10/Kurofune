@@ -47,7 +47,9 @@ class Handler extends ExceptionHandler
 
         $this->renderable(function (AuthenticationException $e, $request) {
             if ($request->is('api/*')) {
-                return $this->response_error(__('Unauthenticated'), 401);
+                $lang = ($request->hasHeader('X-localization')) ? $request->header('X-localization') : 'ja';
+                app()->setLocale($lang);
+                return $this->response_error(__('message.user.unauthenticated'), 401);
             }
         });
     }

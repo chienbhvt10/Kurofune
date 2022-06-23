@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
-use Illuminate\Support\Str;
-use App\Rules\Base64Image;
 
 class CategoryController extends Controller
 {
@@ -19,7 +17,7 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function index(Request $request)
     {
@@ -53,22 +51,22 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'category_image' => ['required', new Base64Image],
+                'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'type' => 'required|numeric',
-                'en.name' => 'required|string',
-                'ja.name' => 'required',
-                'vi.name' => 'required',
-                'tl.name' => 'required',
-                'zh.name' => 'required'
+                'en_name' => 'required|string',
+                'ja_name' => 'required',
+                'vi_name' => 'required',
+                'tl_name' => 'required',
+                'zh_name' => 'required'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
                 $errors = $validator->errors();
                 return $this->response_validate($errors);
             }
-            $slug = getSlug($request->en['name'], new Category, 'category_translations');
-            $image = $request->category_image;
-            $image_path = save_base_64_image($image, 'category');
+            $slug = getSlug($request->en_name, new Category, 'category_translations');
+            $image = $request->file('category_image');
+            $image_path = upload_single_image($image, 'category');
 
             $params = [
                 'slug' => $slug,
@@ -76,19 +74,19 @@ class CategoryController extends Controller
                 'type' => $request->type,
                 'parent_id' => $request->parent_id ?? '0',
                 'en' => [
-                    'name' => $request->en['name'],
+                    'name' => $request->en_name,
                 ],
                 'ja' => [
-                    'name' => $request->ja['name'] ?? null,
+                    'name' => $request->ja_name ?? null,
                 ],
                 'vi' => [
-                    'name' => $request->vi['name'] ?? null,
+                    'name' => $request->vi_name ?? null,
                 ],
                 'tl' => [
-                    'name' => $request->tl['name'] ?? null,
+                    'name' => $request->tl_name ?? null,
                 ],
                 'zh' => [
-                    'name' => $request->zh['name'] ?? null,
+                    'name' => $request->zh_name ?? null,
                 ]
             ];
 
@@ -144,13 +142,13 @@ class CategoryController extends Controller
 
             $validator = Validator::make($request->all(), [
                 'parent_id' => 'nullable|numeric',
-                'category_image' => ['nullable', new Base64Image],
+                'category_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:5120',
                 'type' => 'required|numeric',
-                'en.name' => 'required|string',
-                'ja.name' => 'required',
-                'vi.name' => 'required',
-                'tl.name' => 'required',
-                'zh.name' => 'required'
+                'en_name' => 'required|string',
+                'ja_name' => 'required',
+                'vi_name' => 'required',
+                'tl_name' => 'required',
+                'zh_name' => 'required'
             ]);
             if ($validator->fails()) {
                 DB::rollBack();
@@ -161,8 +159,8 @@ class CategoryController extends Controller
             $nameCategory = $cat->category_translations
             ->where('locale', '=', 'en')->first()->name;
             $slug = $cat->slug;
-            if ($nameCategory != $request->en['name']) {
-                $slug = getSlug($request->en['name'], new Category, 'category_translations');
+            if ($nameCategory != $request->en_name) {
+                $slug = getSlug($request->en_name, new Category, 'category_translations');
             }
 
             $params_update = [
@@ -170,25 +168,25 @@ class CategoryController extends Controller
                 'type' => $request->type,
                 'parent_id' => $request->parent_id ?? '0',
                 'en' => [
-                    'name' => $request->en['name'],
+                    'name' => $request->en_name,
                 ],
                 'ja' => [
-                    'name' => $request->ja['name'] ?? null,
+                    'name' => $request->ja_name ?? null,
                 ],
                 'vi' => [
-                    'name' => $request->vi['name'] ?? null,
+                    'name' => $request->vi_name ?? null,
                 ],
                 'tl' => [
-                    'name' => $request->tl['name'] ?? null,
+                    'name' => $request->tl_name ?? null,
                 ],
                 'zh' => [
-                    'name' => $request->zh['name'] ?? null,
+                    'name' => $request->zh_name ?? null,
                 ]
             ];
 
-            $image_update = $request->category_image;
+            $image_update = $request->file('category_image');
             if ($image_update) {
-                $image_path = save_base_64_image($image_update, 'category');
+                $image_path = upload_single_image($image_update, 'category');
                 $params_update['category_image'] = $image_path;
             }
 

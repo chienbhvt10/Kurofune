@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => 'Walang laman ang listahan ng mga botika.'
         ],
-        'inactive' => 'hindi aktibo ang user.'
+        'inactive' => 'hindi aktibo ang user.',
+        'unauthenticated' => 'Hindi napatotohanan',
+        'active' => 'Naka-activate ang user.'
     ],
     'role' => [
         'created' => 'Nabuong papel',
@@ -51,7 +53,7 @@ return [
     'password' => [
         'updated' => 'Matagumpay na nabago ang Password.',
         'without_spaces' => 'Passwords must not contain spaces',
-        'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password.<br>Pakisuri ang iyong nakarehistrong email address.',
+        'reset_link_sent' => 'Naipadala na ang email sa muling pag-isyu ng password. Pakisuri ang iyong nakarehistrong email address.',
     ],
     'category' => [
         'created' => 'Nagawa ang kategorya.',
@@ -78,10 +80,10 @@ return [
         'not_exist' => 'Ang paraan ng pagpapadala ay hindi umiiral'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name ay naidagdag sa iyong cart.',
         'no_info' => 'Walang impormasyon sa shopping cart.',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => 'Na-delete ang cart.',
+        'updated' => 'Na-update ang cart.',
         'quantity' => 'Pakisuri ang mga detalye ng pagbili.'
     ],
     'order' => [

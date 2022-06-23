@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => '药店名单是空的。'
         ],
-        'inactive' => '用戶不活躍。'
+        'inactive' => '用戶不活躍。',
+        'unauthenticated' => '未经身份验证。',
+        'active' => '用户已激活。'
     ],
     'role' => [
         'created' => '创建的角色。',
@@ -51,7 +53,7 @@ return [
     'password' => [
         'updated' => '密码更换成功。',
         'without_spaces' => '密码不能包含空格。',
-        'reset_link_sent' => '密码补发邮件已发送。<br>请检查您注册的电子邮件地址。',
+        'reset_link_sent' => '密码补发邮件已发送。请检查您注册的电子邮件地址。',
     ],
     'category' => [
         'created' => '创建的类别。',
@@ -78,10 +80,10 @@ return [
         'not_exist' => '配送方式不存在'
     ],
     'cart' => [
-        'add' => ':product_name has been added to your cart',
+        'add' => ':product_name 已添加到您的购物车。',
         'no_info' => '购物车中没有任何信息。',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => '购物车已删除。',
+        'updated' => '购物车已更新。',
         'quantity' => '请查看购买详情'
     ],
     'order' => [
