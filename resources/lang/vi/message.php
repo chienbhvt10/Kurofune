@@ -82,8 +82,8 @@ return [
     'cart' => [
         'add' => ':product_name đã được thêm vào giỏ hàng của bạn.',
         'no_info' => 'Không có thông tin trong giỏ hàng.',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => 'Đã xóa giỏ hàng',
+        'updated' => 'Đã cập nhật giỏ hàng',
         'quantity' => 'Vui lòng kiểm tra thông tin đơn hàng.'
     ],
     'order' => [
