@@ -19,17 +19,14 @@ const PrivateRoute = ({ children, roles }) => {
   const isNormalUser = !currentUserRole.some((item) =>
     [USER_ROLES.ADMIN, USER_ROLES.VENDOR].includes(item)
   );
-  return (
-    !isLoading &&
-    (isLogin ? (
-      (!roles && isNormalUser) || userHasRequiredRole ? (
-        children
-      ) : (
-        <AccessDenied />
-      )
+  return isLogin ? (
+    (!roles && isNormalUser) || userHasRequiredRole ? (
+      children
     ) : (
-      <Navigate to={`${lang}/login`} state={{ from: location }} />
-    ))
+      <AccessDenied />
+    )
+  ) : (
+    <Navigate to={`${lang}/login`} state={{ from: location }} />
   );
 };
 
