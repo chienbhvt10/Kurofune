@@ -51,7 +51,7 @@ final class Base extends Enum
     const PATH_AVATAR_DEFAULT = 'avatars/default.png';
     const PUBLISH_STATUS = 'publish';
     const DRAFT_STATUS = 'draft';
-    const PATH_IMG_DEFAULT = 'images_data/default-img.png';
+    const PATH_IMG_DEFAULT = 'images/image-default.png';
     const CAT_TYPE_1 = 1;
     const CAT_TYPE_2 = 2;
     const CAT_TYPE_3 = 3;
