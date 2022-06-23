@@ -108,26 +108,11 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
       productsForm.getFieldValue("cat_id")
     );
     appendObjectToFormData(formData, submitInput);
-    appendObjectToFormData(
-      formData,
-      deleteKeyUndefined(productProfileFormEN.getFieldsValue())
-    );
-    appendObjectToFormData(
-      formData,
-      deleteKeyUndefined(productProfileFormJP.getFieldsValue())
-    );
-    appendObjectToFormData(
-      formData,
-      deleteKeyUndefined(productProfileFormTL.getFieldsValue())
-    );
-    appendObjectToFormData(
-      formData,
-      deleteKeyUndefined(productProfileFormVI.getFieldsValue())
-    );
-    appendObjectToFormData(
-      formData,
-      deleteKeyUndefined(productProfileFormZH.getFieldsValue())
-    );
+    appendObjectToFormData(formData, productProfileFormEN.getFieldsValue());
+    appendObjectToFormData(formData, productProfileFormJP.getFieldsValue());
+    appendObjectToFormData(formData, productProfileFormTL.getFieldsValue());
+    appendObjectToFormData(formData, productProfileFormVI.getFieldsValue());
+    appendObjectToFormData(formData, productProfileFormZH.getFieldsValue());
 
     onSave(formData);
   };
