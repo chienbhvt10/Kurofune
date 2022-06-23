@@ -7,6 +7,9 @@ import moment from "moment";
 import useOrderHistory from "../../../hooks/order-history/useOrderHistory";
 import "./order-history.scss";
 import PageHead from "../../../commons/PageHead";
+import { Button, Popconfirm } from "antd";
+import { InfoCircleFilled } from "@ant-design/icons";
+
 const OrderHistoryPage = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -29,7 +32,31 @@ const OrderHistoryPage = () => {
       key: "id",
     },
     {
-      title: t("client.order-history.th_order_status"),
+      title: (
+        <span className="custom-tooltip">
+          {t("client.order-history.th_order_status")}
+          <Popconfirm
+            placement="bottom"
+            icon={false}
+            title={
+              <div className="custom-tooltip-content">
+                <h6>{t("client.order-history.about_status")}</h6>
+                <p>STEP①: {t("client.order-history.status_step_1")}</p>
+                <p>STEP②: {t("client.order-history.status_step_2")}</p>
+                <p>STEP③: {t("client.order-history.status_step_3")}</p>
+                <p>STEP④: {t("client.order-history.status_step_4")}</p>
+                <p>STEP⑤: {t("client.order-history.status_step_5")}</p>
+              </div>
+            }
+          >
+            <Button
+              type="text"
+              size="small"
+              icon={<InfoCircleFilled />}
+            ></Button>
+          </Popconfirm>
+        </span>
+      ),
       dataIndex: "status",
       key: "status",
     },
