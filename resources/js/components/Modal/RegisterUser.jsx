@@ -133,8 +133,7 @@ const RegisterUser = ({ modalVisible, setModalVisible }) => {
           <Form
             id="form-register"
             form={formInfo}
-            onFinish={(value) => {
-              console.log('value', value);
+            onFinish={(value) => { 
             }}
             autoComplete="off"
           >
@@ -503,9 +502,7 @@ const RegisterUser = ({ modalVisible, setModalVisible }) => {
                   wrapperCol={{ span: 23 }}
                 // rules={rules}
                 >
-                  <Radio.Group onChange={(value) => {
-                    console.log(value);
-                  }}
+                  <Radio.Group 
                     disabled={true}
                   >
                     <Radio value="ライトプラン">ライトプラン</Radio>
