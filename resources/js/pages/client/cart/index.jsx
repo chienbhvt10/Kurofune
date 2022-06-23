@@ -1,4 +1,4 @@
-import { Button, Col, Form, Input, Row, Table, Typography } from "antd";
+import { Button, Col, Form, Input, Row, Table, Typography, Empty } from "antd";
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
@@ -163,13 +163,17 @@ const Cart = () => {
                 </Col>
                 <Col xs={24} sm={{ span: 4 }}>
                   <Row justify="end">
-                    <Button
-                      type="primary"
-                      className="btn btn-primary btn-update"
-                      onClick={handleUpdateCart}
-                    >
-                      {t("client.cart.btn_update")}
-                    </Button>
+                    {cartItemState.length > 0 ? (
+                      <Button
+                        type="primary"
+                        className="btn btn-primary btn-update"
+                        onClick={handleUpdateCart}
+                      >
+                        {t("client.cart.btn_update")}
+                      </Button>
+                    ) : (
+                      ""
+                    )}
                   </Row>
                 </Col>
               </Row>
@@ -213,6 +217,19 @@ const Cart = () => {
                     columns={columns}
                     dataSource={cartItemState}
                     bordered
+                    locale={{
+                      emptyText: (
+                        <Empty
+                          image={Empty.PRESENTED_IMAGE_SIMPLE}
+                          imageStyle={{
+                            height: 60,
+                          }}
+                          description={
+                            <span>{t("client.cart.cart_empty")}</span>
+                          }
+                        ></Empty>
+                      ),
+                    }}
                   />
                 </div>
               </div>
@@ -222,21 +239,37 @@ const Cart = () => {
         <Row justify="center" style={{ padding: "20px 0" }}>
           <Col span={23}>
             <Row justify="space-between">
-              <Button
-                type="primary"
-                className="btn btn-primary btn-remove-all"
-                onClick={handleDeleteAllCart}
-              >
-                {t("client.cart.btn_empty")}
-              </Button>
-              <Button
-                type="primary"
-                onClick={() => {
-                  navigate(`${lang}/checkout`);
-                }}
-              >
-                {t("client.cart.btn_checkout")}
-              </Button>
+              {cartItemState.length > 0 ? (
+                <Button
+                  type="primary"
+                  className="btn btn-primary btn-remove-all"
+                  onClick={handleDeleteAllCart}
+                >
+                  {t("client.cart.btn_empty")}
+                </Button>
+              ) : (
+                ""
+              )}
+
+              {cartItemState.length > 0 ? (
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    navigate(`${lang}/checkout`);
+                  }}
+                >
+                  {t("client.cart.btn_checkout")}
+                </Button>
+              ) : (
+                <Button
+                  type="primary"
+                  onClick={() => {
+                    navigate(`${lang}/category-list`);
+                  }}
+                >
+                  {t("client.cart.btn_back_product")}
+                </Button>
+              )}
             </Row>
           </Col>
         </Row>

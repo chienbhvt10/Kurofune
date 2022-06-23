@@ -283,9 +283,11 @@
       "th_product_quantity": "Số lượng",
       "btn_delete": "XÓA BỎ",
       "btn_checkout": "TIẾP TỤC MUA HÀNG",
+      "btn_back_product": "QUAY LẠI CỬA HÀNG",
       "btn_empty": "GIỎ HÀNG TRỐNG",
       "btn_update": "CẬP NHẬT GIỎ HÀNG CỦA BẠN",
-      "btn_return": "Quay lại cửa hàng"
+      "btn_return": "Quay lại cửa hàng",
+      "cart_empty": "Giỏ hàng của bạn hiện đang trống"
     },
     "checkout": {
       "title_confirm": "Xác nhận mua hàng",

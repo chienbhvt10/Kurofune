@@ -12,6 +12,7 @@ import {
   NotificationSuccess,
   NotificationError,
 } from "../../commons/Notification";
+import { NO_ERROR } from "../../constants/error";
 const initialState = {
   cartInfo: { cart_item: [], total: 0, key: "" },
   isLoading: false,
@@ -23,7 +24,7 @@ const cartSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(getCartInfo.fulfilled, (state, action) => {
-      if (action.payload.status_code === 200) {
+      if (action.payload.error_code === NO_ERROR) {
         state.cartInfo = action.payload.data;
       }
     });
@@ -34,7 +35,7 @@ const cartSlice = createSlice({
       .addCase(addToCart.fulfilled, (state, actions) => {
         state.isLoading = false;
         state.resAddToCart = actions.payload;
-        if (actions.payload.status_code === 200) {
+        if (actions.payload.error_code === NO_ERROR) {
           NotificationSuccess("", actions.payload.message);
         } else {
           NotificationError("", actions.payload.message);
@@ -46,7 +47,7 @@ const cartSlice = createSlice({
       })
       .addCase(updateCart.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (action.payload.status_code === 200) {
+        if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Update Cart failed");
@@ -58,7 +59,7 @@ const cartSlice = createSlice({
       })
       .addCase(deleteCart.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (action.payload.status_code === 200) {
+        if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Delete cart failed");
@@ -70,7 +71,7 @@ const cartSlice = createSlice({
       })
       .addCase(deleteCartItem.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (action.payload.status_code === 200) {
+        if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Delete cart item failed");
@@ -82,7 +83,7 @@ const cartSlice = createSlice({
       })
       .addCase(checkout.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (action.payload.status_code === 200) {
+        if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Checkout failed");
