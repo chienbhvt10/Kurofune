@@ -117,10 +117,10 @@
     "billing_address_title": "Thông tin đăng kí",
     "media_title": "Trang chủ",
     "chatbot_title": "Log Chatbot",
-    "user_title": "User",
+    "user_title": "Hội viên",
     "product_title": "Sản phẩm",
     "category_title": "Danh mục sản phẩm",
-    "tax_title": "Tax"
+    "tax_title": "Thuế"
   },
   "member": {
     "dashboard": {
@@ -243,34 +243,30 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "Thông tin người dùng",
       "btn_logout": "Thoát",
-      "light_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
-          "title":"※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
-          "the_services":{
-            "1":"Dịch vụ hiệu thuốc trực tuyến",
-            "2":"Dịch vụ tư vấn cuộc sống 24 giờ",
-            "linkVideo":"//www.youtube.com/embed/ausFxpMOYp4"
+      "light_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
+          "title": "※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
+          "the_services": {
+            "1": "Dịch vụ hiệu thuốc trực tuyến",
+            "2": "Dịch vụ tư vấn cuộc sống 24 giờ",
+            "linkVideo": "//www.youtube.com/embed/ausFxpMOYp4"
           }
         }
       },
-      "full_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
-          "title":"※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
-          "the_services":{
-            "1":"Dịch vụ hiệu thuốc trực tuyến",
-            "2":"Dịch vụ tư vấn cuộc sống 24 giờ",
-            "3":"Dịch vụ chuyển tiền ra nước ngoài",
-            "4":"Dịch vụ giáo dục tiếng Nhật trực tuyến",
-            "5":"Dịch vụ bảo hiểm bồi thường thu nhập",
-            "linkVideo":"//www.youtube.com/embed/xex5Wtt9VJY"
+      "full_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
+          "title": "※ Do gói dịch vụ hiện tại là Gói tiết kiệm, các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:",
+          "the_services": {
+            "1": "Dịch vụ hiệu thuốc trực tuyến",
+            "2": "Dịch vụ tư vấn cuộc sống 24 giờ",
+            "3": "Dịch vụ chuyển tiền ra nước ngoài",
+            "4": "Dịch vụ giáo dục tiếng Nhật trực tuyến",
+            "5": "Dịch vụ bảo hiểm bồi thường thu nhập",
+            "linkVideo": "//www.youtube.com/embed/xex5Wtt9VJY"
           }
         }
       }
@@ -771,21 +767,15 @@
     },
     "tax": {
       "title": {
-        "tax_title": "Tax List",
-        "name_title": "Name",
-        "value_title": "Value",
-        "add_tax": "Add Tax"
+        "tax_title": "Danh sách thuế",
+        "name_title": "Tên thuế",
+        "value_title": "Giá trị thuế",
+        "add_tax": "Thêm thuế"
       },
-      "placeholder_seach": "Please enter name tax",
-      "placeholder_search_name": "Please enter name",
-      "placeholder_search_value": "Please enter value",
+      "placeholder_seach": "Vui lòng nhập tên thuế",
       "error": {
-        "name_required": "Please input name tax",
-        "value_required": "Please enter from 0 to 100",
-        "value": {
-          "required": "Please input your value.",
-          "pattern": "Please input valid number."
-        }
+        "name_required": "Vui lòng nhập tên thuế",
+        "value_requied": "Vui lòng nhập giá trị thuế"
       }
     }
   }

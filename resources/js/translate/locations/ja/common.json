@@ -117,10 +117,10 @@
     "billing_address_title": "登録情報",
     "media_title": "総合トップページ",
     "chatbot_title": "Log Chatbot",
-    "user_title": "User",
+    "user_title": "ユーザー",
     "product_title": "商品",
     "category_title": "商品カテゴリ",
-    "tax_title": "Tax"
+    "tax_title": "税金"
   },
   "member": {
     "dashboard": {
@@ -243,39 +243,33 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "ユーザー情報",
       "btn_logout": "ログアウト",
-      "light_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
-          "title":"※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
-          "the_services":{
-            "1":"オンライン薬局サービス",
-            "2":"24時間生活相談サービス",
-            "linkVideo":"//www.youtube.com/embed/Rda05UqBtR8"
+      "light_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
+          "the_services": {
+            "1": "オンライン薬局サービス",
+            "2": "24時間生活相談サービス",
+            "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
           }
         }
       },
-      "full_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
-          "title":"※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
-          "the_services":{ 
-            "1":"オンライン薬局サービス",
-            "2":"24時間生活相談サービス",
-            "3":"海外送金サービス",
-            "4":"オンライン日本語教育サービス",
-            "5":"所得補償保険サービス",
-            "linkVideo":"//www.youtube.com/embed/vjyWFKmuij0"
-          
+      "full_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
+          "the_services": {
+            "1": "オンライン薬局サービス",
+            "2": "24時間生活相談サービス",
+            "3": "海外送金サービス",
+            "4": "オンライン日本語教育サービス",
+            "5": "所得補償保険サービス",
+            "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
           }
         }
       }
-      
     },
     "cart": {
       "title_cart": "買い物かご",
@@ -778,21 +772,15 @@
     },
     "tax": {
       "title": {
-        "tax_title": "Tax List",
-        "name_title": "Name",
-        "value_title": "Value",
-        "add_tax": "Add Tax"
+        "tax_title": "税金一覧",
+        "name_title": "税金名",
+        "value_title": "税率",
+        "add_tax": "税金を新規追加"
       },
-      "placeholder_seach": "Please enter name tax",
-      "placeholder_search_name": "Please enter name",
-      "placeholder_search_value": "Please enter value",
+      "placeholder_seach": "税金名を入力してください。",
       "error": {
-        "name_required": "Please input name tax",
-        "value_required": "Please enter from 0 to 100",
-        "value": {
-          "required": "Please input your value.",
-          "pattern": "Please input valid number."
-        }
+        "name_required": "税金名を入力してください。",
+        "value_requied": "税率を入力してください。"
       }
     }
   }

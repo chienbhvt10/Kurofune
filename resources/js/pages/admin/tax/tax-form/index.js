@@ -59,7 +59,6 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               ]}
               response={response}
               error="name"
-              placeholder={t("admins.tax.placeholder_search_name")}
               type={<Input />}
             />
           </Col>
@@ -72,12 +71,11 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               rules={[
                 {
                   required: true,
-                  message: t("admins.tax.error.value.required"),
+                  message: t("admins.tax.error.value_requied"),
                 },
               ]}
               response={response}
               error="value"
-              placeholder={t("admins.tax.placeholder_search_value")}
               type={
                 <InputNumber
                   style={{ width: "100%" }}
