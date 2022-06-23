@@ -114,6 +114,13 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     appendObjectToFormData(formData, productProfileFormVI.getFieldsValue());
     appendObjectToFormData(formData, productProfileFormZH.getFieldsValue());
 
+    productProfileFormEN.validateFields();
+    productProfileFormJP.validateFields();
+    productProfileFormTL.validateFields();
+    productProfileFormVI.validateFields();
+    productProfileFormZH.validateFields();
+    productsForm.validateFields();
+
     onSave(formData);
   };
 
