@@ -99,14 +99,19 @@ const useHandleForm = (item, onSave, typeForm) => {
     }
     if (isRolePlan(role)) {
       appendObjectToFormData(formData, planProfileForm.getFieldsValue());
-      submitValues["dob"] = dob ? formatDate(dob) : "";
+      if(dob){
+        submitValues["dob"] = formatDate(dob) ;
+      }else if (!dob){
+        formData.delete('dob');
+      }
+      
       if(start_date_education){
-        submitValues["start_date_education"] = dob && formatDate(start_date_education);
+        submitValues["start_date_education"] = formatDate(start_date_education);
       }else if (!start_date_education){
         formData.delete('start_date_education');
       }
       if(end_date_education){
-        submitValues["end_date_education"] = dob && formatDate(end_date_education);
+        submitValues["end_date_education"] = formatDate(end_date_education);
       }else if (!end_date_education){
         formData.delete('end_date_education');
       }
