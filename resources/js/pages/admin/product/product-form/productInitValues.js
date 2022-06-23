@@ -25,7 +25,7 @@ export const getTranslateInitValues = (translateValues, lang) => {
     [`${lang}_precautions`]: translateValues?.precautions || "",
     [`${lang}_efficacy_effect`]: translateValues?.efficacy_effect || "",
     [`${lang}_usage_dose`]: translateValues?.usage_dose || "",
-    [`${lang}_active_ingredients`]: translateValues?.activeIngredients || "",
+    [`${lang}_active_ingredients`]: translateValues?.active_ingredients || "",
     [`${lang}_additives`]: translateValues?.additives || "",
     [`${lang}_precautions_storage_handling`]:
       translateValues?.precautions_storage_handling || "",

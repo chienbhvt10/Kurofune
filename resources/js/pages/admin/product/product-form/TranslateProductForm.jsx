@@ -3,6 +3,7 @@ import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLa
 import {
   FIFTH_TAB,
   FIRST_TAB,
+  FORM_PRODUCT,
   FOURTH_TAB,
   LANG_CHINESE,
   LANG_ENGLISH,
@@ -24,6 +25,7 @@ const TranslateProductForm = (props) => {
 
   return (
     <SwitchTabLangForm
+      formName={FORM_PRODUCT}
       onChangeLanguageForm={onChangeLanguageForm}
       activeTab={activeTab}
     >
