@@ -82,8 +82,8 @@ return [
     'cart' => [
         'add' => ':product_name 已添加到您的购物车。',
         'no_info' => '购物车中没有任何信息。',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => '购物车已删除。',
+        'updated' => '购物车已更新。',
         'quantity' => '请查看购买详情'
     ],
     'order' => [
