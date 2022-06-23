@@ -114,6 +114,7 @@
     "medicine_title": "薬剤情報",
     "order_history_title": "注文履歴",
     "cart_title": "買い物かご",
+    "order_list_admin": "注文一覧",
     "billing_address_title": "登録情報",
     "media_title": "総合トップページ",
     "chatbot_title": "Log Chatbot",
@@ -243,39 +244,33 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "ユーザー情報",
       "btn_logout": "ログアウト",
-      "light_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
-          "title":"※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
-          "the_services":{
-            "1":"オンライン薬局サービス",
-            "2":"24時間生活相談サービス",
-            "linkVideo":"//www.youtube.com/embed/Rda05UqBtR8"
+      "light_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
+          "the_services": {
+            "1": "オンライン薬局サービス",
+            "2": "24時間生活相談サービス",
+            "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
           }
         }
       },
-      "full_plan":{
-        "modal_access_right":{
-      
-        },
-        "modal_access_right2":{
-          "description":"サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
-          "title":"※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
-          "the_services":{ 
-            "1":"オンライン薬局サービス",
-            "2":"24時間生活相談サービス",
-            "3":"海外送金サービス",
-            "4":"オンライン日本語教育サービス",
-            "5":"所得補償保険サービス",
-            "linkVideo":"//www.youtube.com/embed/vjyWFKmuij0"
-          
+      "full_plan": {
+        "modal_access_right": {},
+        "modal_access_right2": {
+          "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
+          "the_services": {
+            "1": "オンライン薬局サービス",
+            "2": "24時間生活相談サービス",
+            "3": "海外送金サービス",
+            "4": "オンライン日本語教育サービス",
+            "5": "所得補償保険サービス",
+            "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
           }
         }
       }
-      
     },
     "cart": {
       "title_cart": "買い物かご",

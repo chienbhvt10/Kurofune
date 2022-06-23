@@ -462,7 +462,7 @@ export const navigateLinkAdminData = [
   {
     link: "admin/order-list",
     imageUrl: "/images/sidebar/cart.png",
-    title: "navigate_link.cart_title",
+    title: "navigate_link.order_list_admin",
   },
   {
     link: "admin/user-list",
