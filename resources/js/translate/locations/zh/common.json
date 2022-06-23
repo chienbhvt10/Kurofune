@@ -356,6 +356,7 @@
       "type_name3": "第2类"
     },
     "product_detail": {
+      "product_list": "产品列表 ",
       "btn_buy": "立即购买",
       "placeholder_option": "请选择选项",
       "label_gender": "请问您的性别为？",

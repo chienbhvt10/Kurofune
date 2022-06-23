@@ -355,6 +355,7 @@
       "type_name3": "Second-class OTC drugs"
     },
     "product_detail": {
+      "product_list": "Product List ",
       "btn_buy": "BUY NOW",
       "placeholder_option": "Please select option",
       "label_gender": "What is your gender?",

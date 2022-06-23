@@ -355,6 +355,7 @@
       "type_name3": "Loại 2"
     },
     "product_detail": {
+      "product_list": "Danh sách sản phẩm",
       "btn_buy": "MUA NGAY",
       "placeholder_option": "Vui lòng hãy chọn ",
       "label_gender": "Giới tính của bạn là gì ?",

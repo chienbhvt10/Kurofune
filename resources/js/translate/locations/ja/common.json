@@ -355,6 +355,7 @@
       "type_name3": "第2類"
     },
     "product_detail": {
+      "product_list": "商品一覧",
       "btn_buy": "買い物かごに入れる",
       "placeholder_option": "選択してください",
       "label_gender": "あなたの性別は何ですか？",

@@ -355,6 +355,7 @@
       "type_name3": "Second-class OTC drugs"
     },
     "product_detail": {
+      "product_list": "Listahan ng Produkto",
       "btn_buy": "BUMILI KA NA NGAYON",
       "placeholder_option": "Mangyaring pumili ng opsyon",
       "label_gender": "Ano ang iyong kasarian?",
