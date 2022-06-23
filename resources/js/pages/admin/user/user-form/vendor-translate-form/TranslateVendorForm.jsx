@@ -1,5 +1,5 @@
 import React from "react";
-import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
+import SwitchTabLangForm from "../../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import {
   FIFTH_TAB,
   FIRST_TAB,
@@ -11,43 +11,40 @@ import {
   LANG_VIETNAMESE,
   SECOND_TAB,
   THIRD_TAB,
-} from "../../../../constants";
-import SubFormTranslate from "./SubFormTranslate.jsx";
+} from "../../../../../constants";
+import SubFormUserTranslate from "./SubFormTranslate";
 
-const TranslateProductForm = (props) => {
-  const { formJP, formVI, formTL, formEN, formZH, response } = props;
+const TranslateVendorForm = ({ formJP, formVI, formTL, formEN, formZH }) => {
   const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
-
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
   };
-
   return (
     <SwitchTabLangForm
       onChangeLanguageForm={onChangeLanguageForm}
       activeTab={activeTab}
     >
-      <SubFormTranslate
+      <SubFormUserTranslate
         lang={LANG_ENGLISH}
         className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
         form={formEN}
       />
-      <SubFormTranslate
+      <SubFormUserTranslate
         lang={LANG_JAPANESE}
         className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
         form={formJP}
       />
-      <SubFormTranslate
+      <SubFormUserTranslate
         lang={LANG_PHILIPPINES}
         className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
         form={formTL}
       />
-      <SubFormTranslate
+      <SubFormUserTranslate
         lang={LANG_VIETNAMESE}
         className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
         form={formVI}
       />
-      <SubFormTranslate
+      <SubFormUserTranslate
         lang={LANG_CHINESE}
         className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
         form={formZH}
@@ -56,4 +53,4 @@ const TranslateProductForm = (props) => {
   );
 };
 
-export default TranslateProductForm;
+export default TranslateVendorForm;

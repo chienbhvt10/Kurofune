@@ -1,15 +1,7 @@
-import { Col, Form, Row, Tabs, Typography } from "antd";
-import React from "react";
+import { Col, Row, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import UploadList from "../../../../../commons/UploadList/UploadList";
-import {
-  LANG_CHINESE,
-  LANG_ENGLISH,
-  LANG_JAPANESE,
-  LANG_PHILIPPINES,
-  LANG_VIETNAMESE,
-} from "../../../../../constants";
-import SubFormUserTranslate from "./SubFormTranslate";
+import TranslateVendorForm from "./TranslateVendorForm";
 const VendorProfileForm = (props) => {
   const {
     formEN,
@@ -64,23 +56,13 @@ const VendorProfileForm = (props) => {
           </Row>
         </Col>
       </Row>
-      <Tabs defaultActiveKey="1" className="switch-tab-form">
-        <Tabs.TabPane tab="English" key="1">
-          <SubFormUserTranslate lang={LANG_ENGLISH} form={formEN} />
-        </Tabs.TabPane>
-        <Tabs.TabPane tab="Japanese" key="2">
-          <SubFormUserTranslate lang={LANG_JAPANESE} form={formJP} />
-        </Tabs.TabPane>
-        <Tabs.TabPane tab="Philippines" key="3">
-          <SubFormUserTranslate lang={LANG_PHILIPPINES} form={formTL} />
-        </Tabs.TabPane>
-        <Tabs.TabPane tab="Vietnamese" key="4">
-          <SubFormUserTranslate lang={LANG_VIETNAMESE} form={formVI} />
-        </Tabs.TabPane>
-        <Tabs.TabPane tab="Chinese" key="5">
-          <SubFormUserTranslate lang={LANG_CHINESE} form={formZH} />
-        </Tabs.TabPane>
-      </Tabs>
+      <TranslateVendorForm
+        formEN={formEN}
+        formJP={formJP}
+        formTL={formTL}
+        formVI={formVI}
+        formZH={formZH}
+      />
     </div>
   );
 };
