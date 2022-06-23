@@ -12,11 +12,10 @@ const SubFormTranslate = ({
   response,
   errorField,
   isFormSubmitted,
-  setListError = null,
 }) => {
   const formItemLayout = getProductFormLayout();
-  const { i18n, t } = useTranslation();
-  useEffect(() => {
+  const { t } = useTranslation();
+  React.useEffect(() => {
     if (isFormSubmitted) {
       try {
         const validateForm = async () => {
@@ -40,6 +39,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_name`}
+              error={`${lang}_name`}
               label={`(${lang}) ${t("admins.product.name_field")}`}
               rules={[
                 {
@@ -51,7 +51,6 @@ const SubFormTranslate = ({
                 },
               ]}
               response={response}
-              errorField={errorField}
               type={<Input.TextArea />}
             />
           </Col>
@@ -59,6 +58,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_medicinal_efficacy_classification`}
+              error={`${lang}_medicinal_efficacy_classification`}
               label={`(${lang}) ${t(
                 "admins.product.medicinal_efficacy_classification_field"
               )}`}
@@ -70,6 +70,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_features`}
+              error={`${lang}_features`}
               label={`(${lang}) ${t("admins.product.features_field")}`}
               response={response}
               type={<Input.TextArea />}
@@ -78,6 +79,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_precautions`}
+              error={`${lang}_precautions`}
               label={`(${lang}) ${t("admins.product.precautions_field")}`}
               response={response}
               type={<Input.TextArea />}
@@ -86,6 +88,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_efficacy_effect`}
+              error={`${lang}_efficacy_effect`}
               label={`(${lang}) ${t("admins.product.efficacy_effect_field")}`}
               response={response}
               type={<Input.TextArea />}
@@ -94,6 +97,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_usage_dose`}
+              error={`${lang}_usage_dose`}
               label={`(${lang}) ${t("admins.product.usage_does_field")}`}
               response={response}
               type={<Input.TextArea />}
@@ -102,6 +106,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_active_ingredients`}
+              error={`${lang}_active_ingredients`}
               label={`(${lang}) ${t(
                 "admins.product.active_ingredients_field"
               )}`}
@@ -112,6 +117,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_additives`}
+              error={`${lang}_additives`}
               label={`(${lang}) ${t("admins.product.additives_field")}`}
               response={response}
               type={<Input.TextArea />}
@@ -120,6 +126,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_precautions_storage_handling`}
+              error={`${lang}_precautions_storage_handling`}
               label={`(${lang}) ${t(
                 "admins.product.precautions_storage_handling_field"
               )}`}
@@ -130,6 +137,7 @@ const SubFormTranslate = ({
           <Col lg={12} md={12} sm={24} xs={24} className="form-group-col">
             <InputField
               field={`${lang}_manufacturer`}
+              error={`${lang}_manufacturer`}
               label={`(${lang}) ${t("admins.product.manufacturer_field")}`}
               response={response}
               type={<Input.TextArea />}
