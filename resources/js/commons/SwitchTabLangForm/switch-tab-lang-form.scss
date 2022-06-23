@@ -20,6 +20,13 @@
       }
     }
   }
+  .required-symbol {
+    color: red;
+    font-size: 11;
+    position: relative;
+    top: -5px;
+    right: 0;
+  }
 }
 #tab-form {
   padding-bottom: 30px;
