@@ -119,10 +119,10 @@
     "billing_address_title": "Impormasyon ng pagrehistro",
     "media_title": "Bumalik sa top page",
     "chatbot_title": "Log Chatbot",
-    "user_title": "User",
+    "user_title": "Gumagamit",
     "product_title": "Produkto",
     "category_title": "Kategorya ng Produkto",
-    "tax_title": "Tax"
+    "tax_title": "Buwis"
   },
   "member": {
     "dashboard": {
@@ -771,21 +771,15 @@
     },
     "tax": {
       "title": {
-        "tax_title": "Tax List",
-        "name_title": "Name",
-        "value_title": "Value",
-        "add_tax": "Add Tax"
+        "tax_title": "Listahan ng buwis",
+        "name_title": "Pangalan ng Buwis",
+        "value_title": "Halaga",
+        "add_tax": "Magdagdag ng Buwis"
       },
-      "placeholder_seach": "Please enter name tax",
-      "placeholder_search_name": "Please enter name",
-      "placeholder_search_value": "Please enter value",
+      "placeholder_seach": "Mangyaring ipasok ang buwis sa pangalan.",
       "error": {
-        "name_required": "Please input name tax",
-        "value_required": "Please enter from 0 to 100",
-        "value": {
-          "required": "Please input your value.",
-          "pattern": "Please input valid number."
-        }
+        "name_required": "Mangyaring ipasok ang buwis sa pangalan.",
+        "value_requied": "Mangyaring ipasok ang halaga ng buwis."
       }
     }
   }
