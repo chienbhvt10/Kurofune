@@ -17,4 +17,10 @@
   .input-field-space {
     padding: 0 30px;
   }
+  .tab {
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
 }

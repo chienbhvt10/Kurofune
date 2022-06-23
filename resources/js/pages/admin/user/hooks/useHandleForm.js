@@ -1,12 +1,11 @@
 import { Form } from "antd";
 import React from "react";
 import { formatDate } from "../../../../commons/string";
+import { ROLE_VENDOR, TYPE_FORM_UPDATE } from "../../../../constants";
 import {
-  ROLE_FULL_SUPPORT_PLAN,
-  ROLE_LIGHT_PLAN,
-  ROLE_VENDOR,
-  TYPE_FORM_UPDATE,
-} from "../../../../constants";
+  appendArrayToFormData,
+  appendObjectToFormData,
+} from "../../../../helper/handler";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import {
   getBillingAddressInitValues,
@@ -17,10 +16,8 @@ import {
 } from "../user-form/userFormInitValues";
 import useHandleImage from "./useHandleImage";
 import useHandleVendorForm from "./useHandleVendorForm";
-import {
-  appendArrayToFormData,
-  appendObjectToFormData,
-} from "../../../../helper/handler";
+
+import { isRolePlan } from "../../../../helper/checker";
 const useHandleForm = (item, onSave, typeForm) => {
   const lang = getCurrentLanguage();
   const [isSubmitted, setSubmitted] = React.useState(false);
@@ -103,7 +100,7 @@ const useHandleForm = (item, onSave, typeForm) => {
       appendObjectToFormData(formData, vendorProfileFormVI.getFieldsValue());
       appendObjectToFormData(formData, vendorProfileFormZH.getFieldsValue());
     }
-    if (role === ROLE_LIGHT_PLAN || role === ROLE_FULL_SUPPORT_PLAN) {
+    if (isRolePlan(role)) {
       appendObjectToFormData(formData, planProfileForm.getFieldsValue());
       submitValues["dob"] = dob ? formatDate(dob) : "";
       submitValues["start_date_education"] = dob

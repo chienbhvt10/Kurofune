@@ -1,4 +1,5 @@
-import { Tabs } from "antd";
+import React from "react";
+import SwitchTabLangForm from "../../../../commons/SwitchTabLangForm/SwitchTabLangForm";
 import {
   FIFTH_TAB,
   FIRST_TAB,
@@ -12,41 +13,46 @@ import {
   THIRD_TAB,
 } from "../../../../constants";
 import SubFormTranslate from "./SubFormTranslate.jsx";
-const { TabPane } = Tabs;
 
 const TranslateProductForm = (props) => {
   const { formJP, formVI, formTL, formEN, formZH, response } = props;
+  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
+
+  const onChangeLanguageForm = (number) => {
+    setActiveTab(number);
+  };
 
   return (
-    <Tabs defaultActiveKey={FIRST_TAB} centered>
-      <TabPane tab="English" key={FIRST_TAB}>
-        <SubFormTranslate
-          lang={LANG_ENGLISH}
-          form={formEN}
-          response={response}
-        />
-      </TabPane>
-      <TabPane tab="Japanese" key={SECOND_TAB}>
-        <SubFormTranslate lang={LANG_JAPANESE} form={formJP} />
-      </TabPane>
-      <TabPane tab="Tagalog" key={THIRD_TAB}>
-        <SubFormTranslate lang={LANG_PHILIPPINES} form={formTL} />
-      </TabPane>
-      <TabPane tab="Vietnamese" key={FOURTH_TAB}>
-        <SubFormTranslate
-          lang={LANG_VIETNAMESE}
-          form={formVI}
-          response={response}
-        />
-      </TabPane>
-      <TabPane tab="Chinese" key={FIFTH_TAB}>
-        <SubFormTranslate
-          lang={LANG_CHINESE}
-          form={formZH}
-          response={response}
-        />
-      </TabPane>
-    </Tabs>
+    <SwitchTabLangForm
+      onChangeLanguageForm={onChangeLanguageForm}
+      activeTab={activeTab}
+    >
+      <SubFormTranslate
+        lang={LANG_ENGLISH}
+        className={`tab ${activeTab === FIRST_TAB ? "active" : ""}`}
+        form={formEN}
+      />
+      <SubFormTranslate
+        lang={LANG_JAPANESE}
+        className={`tab ${activeTab === SECOND_TAB ? "active" : ""}`}
+        form={formJP}
+      />
+      <SubFormTranslate
+        lang={LANG_PHILIPPINES}
+        className={`tab ${activeTab === THIRD_TAB ? "active" : ""}`}
+        form={formTL}
+      />
+      <SubFormTranslate
+        lang={LANG_VIETNAMESE}
+        className={`tab ${activeTab === FOURTH_TAB ? "active" : ""}`}
+        form={formVI}
+      />
+      <SubFormTranslate
+        lang={LANG_CHINESE}
+        className={`tab ${activeTab === FIFTH_TAB ? "active" : ""}`}
+        form={formZH}
+      />
+    </SwitchTabLangForm>
   );
 };
 
