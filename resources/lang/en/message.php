@@ -10,7 +10,9 @@ return [
         'vendor' => [
             'not_data' => 'list of pharmacies is empty'
         ],
-        'inactive' => 'user inactive'
+        'inactive' => 'user inactive',
+        'unauthenticated' => 'Unauthenticated',
+        'active' => 'User is activated.'
     ],
     'role' => [
         'created' => 'role created',
@@ -52,7 +54,7 @@ return [
     'password' => [
         'updated' => 'Password changed successfully.',
         'without_spaces' => 'Passwords must not contain spaces',
-        'reset_link_sent' => 'The password reissue email has been sent.<br>Please check your registered email address.',
+        'reset_link_sent' => 'The password reissue email has been sent. Please check your registered email address.',
     ],
     'category' => [
         'created' => 'Category created',

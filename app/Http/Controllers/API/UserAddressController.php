@@ -54,9 +54,23 @@ class UserAddressController extends Controller
 
             $dataUser->update($dataUserUpdate);
             $dataUser->address()->update($dataUpdate);
+            $response = [
+                'id' => $data->first()->id,
+                'email' => $dataUser->email,
+                'user_id' => $data->first()->user_id,
+                'postal_code' => $data->first()->postal_code,
+                'city' => $data->first()->city,
+                'prefecture' => $data->first()->prefecture,
+                'street_address' => $data->first()->street_address,
+                'building' => $data->first()->building,
+                'deleted_at' => $data->first()->deleted_at,
+                'created_at' => $data->first()->created_at,
+                'updated_at' => $data->first()->updated_at
+            ];
 
-            return $this->response_message_data_success(__('message.address.updated'), $data->first());
+            return $this->response_message_data_success(__('message.address.updated'), $response);
         } catch (\Exception $error) {
+            return $error->getMessage();
             return $this->response_exception();
         }
     }
