@@ -199,6 +199,8 @@ class OrderController extends Controller
                 array_push($response, $order_item);
             return $this->response_data_success($response);
             }
+            
+
         } catch (\Exception $error) {
             return $this->response_exception();
         }
