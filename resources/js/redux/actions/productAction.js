@@ -36,22 +36,28 @@ export const getProductAction = createAsyncThunk(
 export const createProductAction = createAsyncThunk(
   productActions.createProduct,
   async (payload, { rejectWithValue }) => {
-    const res = await productsApis
-      .createProduct(payload)
-      .then((data) => data)
-      .catch((errors) => JSON.parse(errors.response.request.response));
-    return res;
+    try {
+      const res = await productsApis
+        .createProduct(payload)
+        .then((data) => data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
   }
 );
 
 export const updateProductAction = createAsyncThunk(
   productActions.updateProduct,
   async (payload) => {
-    const res = await productsApis
-      .updateProduct(payload)
-      .then((data) => data)
-      .catch((errors) => JSON.parse(errors.response.request.response));
-    return res;
+    try {
+      const res = await productsApis
+        .updateProduct(payload)
+        .then((data) => data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
   }
 );
 

@@ -27,8 +27,6 @@ const useHandleUserTable = () => {
     }
   }, [searchValue]);
 
-  localStorage.setItem("selectRole", selectRole);
-
   const onDelete = (row) => () => {
     deleteUser(row.id);
   };
@@ -42,11 +40,9 @@ const useHandleUserTable = () => {
   };
 
   const onChangeRole = (value) => {
-    // setFilterRole(value);
     dispatch(selectRoleAction(value));
 
     const temp = {
-      page: pagination.current_page,
       per_page: pagination.per_page,
       role: value,
     };

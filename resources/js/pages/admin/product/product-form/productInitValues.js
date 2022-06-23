@@ -1,5 +1,6 @@
 export const getProductInfoInitValues = (item) => {
   return {
+    id: item?.id || "",
     slug: item?.slug || "",
     sku: item?.sku || "",
     stock_status: item?.stock_status || undefined,
@@ -15,18 +16,20 @@ export const getProductInfoInitValues = (item) => {
   };
 };
 
-export const getTranslateInitValues = () => {
+export const getTranslateInitValues = (translateValues, lang) => {
   return {
-    name: "",
-    classification: "",
-    features: "",
-    precautions: "",
-    efficacy_effect: "",
-    usage_dose: "",
-    activeIngredients: "",
-    additives: "",
-    precautionsStorageHandling: "",
-    manufacturer: "",
+    [`${lang}_name`]: translateValues?.name || "",
+    [`${lang}_medicinal_efficacy_classification`]:
+      translateValues?.medicinal_efficacy_classification || "",
+    [`${lang}_features`]: translateValues?.features || "",
+    [`${lang}_precautions`]: translateValues?.precautions || "",
+    [`${lang}_efficacy_effect`]: translateValues?.efficacy_effect || "",
+    [`${lang}_usage_dose`]: translateValues?.usage_dose || "",
+    [`${lang}_active_ingredients`]: translateValues?.activeIngredients || "",
+    [`${lang}_additives`]: translateValues?.additives || "",
+    [`${lang}_precautions_storage_handling`]:
+      translateValues?.precautions_storage_handling || "",
+    [`${lang}_manufacturer`]: translateValues?.manufacturer || "",
   };
 };
 

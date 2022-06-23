@@ -2,6 +2,9 @@
   background-color: white;
   padding: 20px;
   border-radius: 5px;
+  td {
+    vertical-align: top;
+  }
   .img-head {
     width: 20px;
   }
@@ -11,41 +14,38 @@
   a {
     text-decoration: none;
   }
-
-  .table-header {
-    display: flex;
-    justify-content: space-between;
-    margin: 30px 0;
-    .tool {
-      button {
-        display: flex;
-        background-color: #2c3338;
-        color: white;
-        position: relative;
-        width: 120px;
-        height: 30px;
-        justify-content: center;
-        align-items: center;
-        border: none;
-        opacity: 1;
-        transition: all 0.3s ease;
-        &:hover {
-          opacity: 0.7;
-        }
-        .icon {
-          width: 20px;
-          height: 20px;
-          margin-right: 5px;
-        }
-      }
-    }
+  .td-image {
+    width: 50px;
   }
-
-  .table-row-action {
-    display: flex;
+  .td-name {
+    width: 200px;
+  }
+  .td-sku {
+    width: 200px;
+  }
+  .td-status {
+    width: 100px;
+  }
+  .td-price {
+    width: 150px;
+  }
+  .td-categories {
+    width: 200px;
+  }
+  .td-date {
+    width: 200px;
+  }
+  .td-store {
+    width: 200px;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+  }
+  .table-column-break {
+    word-wrap: break-word;
+    word-break: break-all;
   }
 }
-.category-wrapper{
+.category-wrapper {
   display: flex;
   flex-direction: column;
   word-wrap: break-word;

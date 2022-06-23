@@ -717,7 +717,8 @@
         "error_tax": "The Tax field is required",
         "error_en_product_name": "The Product Name field is required",
         "required_message": "This field is required.",
-        "error_price": "Please input valid number."
+        "error_price": "Please input valid number.",
+        "error_not_allowed_delete_category": "Can not delete. There are products for sale in this category."
       },
       "title": {
         "product_title": "Add Product ",

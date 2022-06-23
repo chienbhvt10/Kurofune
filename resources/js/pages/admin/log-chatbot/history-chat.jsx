@@ -2,6 +2,7 @@ import React from "react";
 import moment from "moment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
+import { Image } from "antd";
 export const HistoryChat = ({ data, langChat }) => {
   return (
     <>
@@ -17,11 +18,11 @@ export const HistoryChat = ({ data, langChat }) => {
               }`}
             >
               <div className="image-chat">
-                <img
+                <Image
                   src={
                     item.admin
-                      ? "https://pharma.its-globaltek.com/wp-content/themes/pharmacy/assets/imgs/bot-avatar.png"
-                      : data.user_avatar
+                      ? "/images/bot-admin.png"
+                      : (data.user_avatar||"/images/bot-user.png")
                   }
                   alt=""
                 />
@@ -35,7 +36,7 @@ export const HistoryChat = ({ data, langChat }) => {
                     }}
                   />
                 ) : item.type === "image" ? (
-                  <img style={{maxWidth:'100%'}} src={item.url_image} alt="" />
+                  <Image style={{maxWidth:'100%'}} src={item.url_image} alt="" />
                 ) : (
                   <a className="url_Chat" href={item.url} target="_blank">
                     {item[langChat]}

@@ -1,12 +1,35 @@
 import { Col, Form, Input, InputNumber, Row, Select } from "antd";
 import React from "react";
-import { useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
 import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
-import SwitchTabsLangForm from "../../../../commons/SwitchTabLangForm/index.jsx";
+import {
+  LANG_CHINESE,
+  LANG_ENGLISH,
+  LANG_JAPANESE,
+  LANG_PHILIPPINES,
+  LANG_VIETNAMESE,
+  TYPE_FORM_UPDATE,
+} from "../../../../constants/index.js";
+import {
+  LANG_CHINESE_INDEX,
+  LANG_ENGLISH_INDEX,
+  LANG_JAPANESE_INDEX,
+  LANG_PHILIPPINES_INDEX,
+  LANG_VIETNAMESE_INDEX,
+} from "../../../../constants/languages";
+import { isAdmin } from "../../../../helper/checker";
+import {
+  appendArrayToFormData,
+  appendObjectToFormData,
+  deleteKeyUndefined,
+} from "../../../../helper/handler";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import useCategories from "../../../../hooks/category/useCategories";
+import usePharmacies from "../../../../hooks/pharmacy/usePharmacies";
+import useTaxes from "../../../../hooks/tax/useTaxes";
 import SelectField from "./../../../../commons/Form/SelectField";
 import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
@@ -15,15 +38,8 @@ import {
   getProductInfoInitValues,
   getTranslateInitValues,
 } from "./productInitValues.js";
-import useCategories from "../../../../hooks/category/useCategories.js";
-import usePharmacies from "../../../../hooks/pharmacy/usePharmacies.js";
-import useTaxes from "../../../../hooks/tax/useTaxes";
-import { isAdmin } from "../../../../helper/checker";
-import { isEmpty, isUndefined } from "lodash";
-import {
-  TYPE_FORM_CREATE,
-  TYPE_FORM_UPDATE,
-} from "../../../../constants/index.js";
+import "./TranslateProductForm";
+import TranslateProductForm from "./TranslateProductForm";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const lang = getCurrentLanguage();
@@ -32,115 +48,90 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
   const { pharmacies, getAllPharmacies } = usePharmacies();
   const { getTaxes, taxes } = useTaxes();
   const { categoriesClient, getCategoriesClient } = useCategories();
-  const [isFormSubmitted, setIsFormSubmiited] = React.useState(false);
-  const [objectError, setObjectError] = React.useState(() => {
-    if (typeForm === TYPE_FORM_UPDATE) {
-      return {
-        EN: true,
-        JA: true,
-        TL: true,
-        VI: true,
-        ZH: true,
-      };
-    } else {
-      return {
-        EN: false,
-        JA: false,
-        TL: false,
-        VI: false,
-        ZH: false,
-      };
-    }
-  });
+  const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
 
-  const [avatarState, setAvatarState] = React.useState({
-    avatarUrl: undefined,
-    base64Avatar: undefined,
-    loading: false,
-  });
+  const [avatarUrl, setAvatarUrl] = React.useState();
+  const [avatar, setAvatar] = React.useState();
   const formItemLayout = getProductFormLayout();
   const initialFormCommonValues = getProductInfoInitValues(item);
-  const initialTranslateValues = getTranslateInitValues();
   const [productsForm] = Form.useForm();
   const [productProfileFormEN] = Form.useForm();
   const [productProfileFormJP] = Form.useForm();
   const [productProfileFormTL] = Form.useForm();
   const [productProfileFormVI] = Form.useForm();
   const [productProfileFormZH] = Form.useForm();
-  const validateFormTranslateValues = async () => {
-    let nameEN = await productProfileFormEN.getFieldsValue("name");
-    let nameJP = await productProfileFormJP.getFieldsValue("name");
-    let nameTL = await productProfileFormTL.getFieldsValue("name");
-    let nameVI = await productProfileFormVI.getFieldsValue("name");
-    let nameZH = await productProfileFormZH.getFieldsValue("name");
-    const objectCheckValidate = {
-      EN: nameEN,
-      JA: nameJP,
-      TL: nameTL,
-      VI: nameVI,
-      ZH: nameZH,
-    };
-    const objectError = {
-      EN: false,
-      JA: false,
-      TL: false,
-      VI: false,
-      ZH: false,
-    };
-    Object.keys(objectCheckValidate).map((key) => {
-      if (
-        objectCheckValidate[key] &&
-        !isUndefined(objectCheckValidate[key].name)
-      ) {
-        objectError[key] = true;
-      } else {
-        objectError[key] = false;
-      }
-      return key;
-    });
-    setObjectError(objectError);
-  };
-  const onSubmit = () => {
-    productsForm.submit();
-    productProfileFormEN.submit();
-    productProfileFormJP.submit();
-    productProfileFormTL.submit();
-    productProfileFormVI.submit();
-    productProfileFormZH.submit();
-  };
-  const onFinishAll = async (values) => {
+
+  const enInitValues = getTranslateInitValues(
+    item?.translations[LANG_ENGLISH_INDEX],
+    LANG_ENGLISH
+  );
+  const jaInitValues = getTranslateInitValues(
+    item?.translations[LANG_JAPANESE_INDEX],
+    LANG_JAPANESE
+  );
+  const tlInitValues = getTranslateInitValues(
+    item?.translations[LANG_PHILIPPINES_INDEX],
+    LANG_PHILIPPINES
+  );
+  const viInitValues = getTranslateInitValues(
+    item?.translations[LANG_VIETNAMESE_INDEX],
+    LANG_VIETNAMESE
+  );
+  const zhInitValues = getTranslateInitValues(
+    item?.translations[LANG_CHINESE_INDEX],
+    LANG_CHINESE
+  );
+
+  const onFinishAll = () => {
+    const formData = new FormData();
+
     const submitInput = {
+      id: initialFormCommonValues.id,
+      product_image: avatar,
+      tax_id: Number(initialFormCommonValues.tax_id),
+      price: Number(initialFormCommonValues.price),
       ...productsForm.getFieldsValue(),
-      product_image: avatarState.base64Avatar,
-      en: {
-        ...(Object.keys(productProfileFormEN.getFieldsValue()).length === 0
-          ? item?.translations[0]
-          : productProfileFormEN.getFieldsValue()),
-      },
-      ja: {
-        ...(Object.keys(productProfileFormJP.getFieldsValue()).length === 0
-          ? item?.translations[1]
-          : productProfileFormJP.getFieldsValue()),
-      },
-      tl: {
-        ...(Object.keys(productProfileFormTL.getFieldsValue()).length === 0
-          ? item?.translations[2]
-          : productProfileFormTL.getFieldsValue()),
-      },
-      vi: {
-        ...(Object.keys(productProfileFormVI.getFieldsValue()).length === 0
-          ? item?.translations[3]
-          : productProfileFormVI.getFieldsValue()),
-      },
-      zh: {
-        ...(Object.keys(productProfileFormZH.getFieldsValue()).length === 0
-          ? item?.translations[4]
-          : productProfileFormZH.getFieldsValue()),
-      },
     };
-    validateFormTranslateValues();
-    onSave(submitInput);
+
+    if (!avatar) {
+      delete submitInput.product_image;
+    }
+    delete submitInput.cat_id;
+
+    if (typeForm === TYPE_FORM_UPDATE) {
+      formData.append("_method", "PUT");
+    }
+
+    appendArrayToFormData(
+      formData,
+      "cat_id",
+      productsForm.getFieldValue("cat_id")
+    );
+    appendObjectToFormData(formData, submitInput);
+    appendObjectToFormData(
+      formData,
+      deleteKeyUndefined(productProfileFormEN.getFieldsValue())
+    );
+    appendObjectToFormData(
+      formData,
+      deleteKeyUndefined(productProfileFormJP.getFieldsValue())
+    );
+    appendObjectToFormData(
+      formData,
+      deleteKeyUndefined(productProfileFormTL.getFieldsValue())
+    );
+    appendObjectToFormData(
+      formData,
+      deleteKeyUndefined(productProfileFormVI.getFieldsValue())
+    );
+    appendObjectToFormData(
+      formData,
+      deleteKeyUndefined(productProfileFormZH.getFieldsValue())
+    );
+
+    onSave(formData);
   };
+
   const onFinishFailed = () => {
     productProfileFormEN.validateFields();
     productProfileFormJP.validateFields();
@@ -148,28 +139,19 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     productProfileFormVI.validateFields();
     productProfileFormZH.validateFields();
     productsForm.validateFields();
-    setIsFormSubmiited(true);
+    setIsFormSubmitted(true);
   };
+
   React.useEffect(() => {
     productsForm.setFieldsValue(initialFormCommonValues);
     if (item) {
-      productProfileFormEN.setFieldsValue(
-        item?.translations[0] || initialTranslateValues
-      );
-      productProfileFormJP.setFieldsValue(
-        item?.translations[1] || initialTranslateValues
-      );
-      productProfileFormTL.setFieldsValue(
-        item?.translations[2] || initialTranslateValues
-      );
-      productProfileFormVI.setFieldsValue(
-        item?.translations[3] || initialTranslateValues
-      );
-      productProfileFormZH.setFieldsValue(
-        item?.translations[4] || initialTranslateValues
-      );
+      productProfileFormEN.setFieldsValue(enInitValues);
+      productProfileFormJP.setFieldsValue(jaInitValues);
+      productProfileFormTL.setFieldsValue(tlInitValues);
+      productProfileFormVI.setFieldsValue(viInitValues);
+      productProfileFormZH.setFieldsValue(zhInitValues);
     }
-    setAvatarState({ avatarUrl: item?.product_image || "" });
+    setAvatarUrl(item?.product_image || "");
   }, [item]);
 
   React.useEffect(() => {
@@ -187,19 +169,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     }
   }, [lang]);
 
-  const onChangeAvatar = (base64Image) => {
-    setAvatarState({ base64Avatar: base64Image });
+  const onChangeAvatar = (file) => {
+    setAvatar(file);
   };
-
-  React.useEffect(() => {
-    const imgPreview = document.querySelector(".image");
-    imgPreview.addEventListener("click", (e) => {
-      e.preventDefault();
-    });
-    return imgPreview.removeEventListener("click", () => {
-      return false;
-    });
-  }, []);
 
   return (
     <div id="product-form">
@@ -214,15 +186,10 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
           ...initialFormCommonValues,
         }}
       >
-        <FormHeader
-          breadcrumb={[]}
-          title={title}
-          onCancel={onCancel}
-          onSubmit={onSubmit}
-        />
+        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
         <div>
           <Row justify="center">
-            <Col span={10} className="input-field-space">
+            <Col span={12} className="input-field-space">
               <Form.Item
                 field="product_image"
                 label={t("admins.product.product_image_field")}
@@ -230,13 +197,12 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               >
                 <UploadDragger
                   onChangeImage={onChangeAvatar}
-                  imageUrlProps={avatarState.avatarUrl}
-                  loading={avatarState.loading}
+                  imageUrlProps={avatarUrl}
                 />
               </Form.Item>
             </Col>
 
-            <Col span={14}>
+            <Col span={12}>
               {(isAdmin(profile?.roles) || isAdmin(userInfo?.roles?.name)) && (
                 <Col className="input-field-space">
                   <SelectField
@@ -252,9 +218,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                     response={response}
                     error="user_id"
                   >
-                    {pharmacies?.map((pharamacy, index) => (
-                      <Select.Option key={index} value={pharamacy.user_id}>
-                        {pharamacy.name}
+                    {pharmacies?.map((pharmacy, index) => (
+                      <Select.Option key={index} value={pharmacy.user_id}>
+                        {pharmacy.name}
                       </Select.Option>
                     ))}
                   </SelectField>
@@ -265,7 +231,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 <InputField
                   field="sku"
                   label={t("admins.product.sku_field")}
-                  rules={[]}
                   response={response}
                   type={<Input />}
                   error="sku"
@@ -311,7 +276,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                   <InputField
                     field="price"
                     label={t("admins.product.price_field")}
-                    rules={[]}
                     response={response}
                     error="price"
                     type={
@@ -354,7 +318,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 field="tax_id"
                 label={t("admins.product.tax_field")}
                 placeholder={t("admins.product.placeholder_select_tax")}
-                mode="multiple"
                 rules={[
                   {
                     required: true,
@@ -375,7 +338,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <InputField
                 field="meta_title"
                 label={t("admins.product.meta_title_field")}
-                rules={[]}
                 response={response}
                 type={<Input />}
               />
@@ -384,7 +346,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <InputField
                 field="meta_description"
                 label={t("admins.product.meta_description_field")}
-                rules={[]}
                 response={response}
                 type={<Input />}
               />
@@ -393,7 +354,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
               <InputField
                 field="meta_keywords"
                 label={t("admins.product.meta_keyword_field")}
-                rules={[]}
                 response={response}
                 type={<Input />}
               />
@@ -410,7 +370,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         </div>
       </Form>
 
-      <SwitchTabsLangForm
+      <TranslateProductForm
         formEN={productProfileFormEN}
         formJP={productProfileFormJP}
         formTL={productProfileFormTL}
@@ -418,7 +378,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         formZH={productProfileFormZH}
         response={response}
         isFormSubmitted={isFormSubmitted}
-        objectError={objectError}
       />
     </div>
   );

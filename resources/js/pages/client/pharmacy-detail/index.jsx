@@ -4,32 +4,34 @@ import PageHead from "../../../commons/PageHead";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
-import { Tooltip } from 'antd';
+import { Image, Typography } from "antd";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 const PharmacyDetail = () => {
   const { t } = useTranslation();
   const { id } = useParams();
   const { getPharmacy, pharmacy } = usePharmacy();
+  const lang = getCurrentLanguage();
+const { Paragraph  } = Typography;
+
   React.useEffect(() => {
     if (id) {
       getPharmacy(id);
     }
-  }, [id]);
+  }, [id, lang]);
   return (
     <>
       <PageHead
         title={t("meta.title_pharmacy_details")}
         content={t("meta.content_pharmacy_details")}
       />
-      <div id="list-of-pharmacies">
+      {pharmacy && <div id="list-of-pharmacies">
         <div className="list_pharmacies">
           <div className="card card-list-pharmacies">
             <div className="table-responsive">
               <div className="name-vendor first">
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: pharmacy?.name,
-                  }}
-                />
+                <Paragraph ellipsis className="text-white mb-1">
+                   { pharmacy.name}
+                </Paragraph>
               </div>
               <div className="vendor-wrap">
                 <div className="pc d-flex justify-content-between flex-wrap">
@@ -39,17 +41,17 @@ const PharmacyDetail = () => {
                   <div className="item-info title">
                     {t("client.list_pharmacies.inside_image")}
                   </div>
-                  <div className="item-info border-none">
-                    {pharmacy?.images_outside.map((item) => (
-                      <div className="item-image">
-                        <img alt="image-vendor" src={item} />
+                  <div className="item-info border-none d-flex  flex-wrap justify-content-center">
+                    {pharmacy.images_outside.map((item,index) => (
+                      <div key={index} className="item-image p-1">
+                        <Image alt="image-vendor" src={item.url} />
                       </div>
                     ))}
                   </div>
-                  <div className="item-info border-none">
-                    {pharmacy?.images_inside.map((item) => (
-                      <div className="item-image">
-                        <img alt="image-vendor" src={item} />
+                  <div className="item-info border-none d-flex  flex-wrap justify-content-center">
+                    {pharmacy.images_inside.map((item,index) => (
+                      <div key={index} className="item-image p-1">
+                        <Image alt="image-vendor" src={item.url} />
                       </div>
                     ))}
                   </div>
@@ -65,7 +67,7 @@ const PharmacyDetail = () => {
                 <div className="item-info item-info ">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.permit_classification,
+                      __html: pharmacy.permit_classification,
                     }}
                   />
                 </div>
@@ -75,7 +77,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.founder,
+                      __html: pharmacy.founder,
                     }}
                   />
                 </div>
@@ -85,7 +87,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.items_stated_permit,
+                      __html: pharmacy.items_stated_permit,
                     }}
                   />
                 </div>
@@ -95,7 +97,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.management_pharmacist,
+                      __html: pharmacy.management_pharmacist,
                     }}
                   />
                 </div>
@@ -105,7 +107,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.pharmacist_working,
+                      __html: pharmacy.pharmacist_working,
                     }}
                   />
                 </div>
@@ -115,7 +117,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.registered_seller_working,
+                      __html: pharmacy.registered_seller_working,
                     }}
                   />
                 </div>
@@ -127,7 +129,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.drugs_handled,
+                      __html: pharmacy.drugs_handled,
                     }}
                   />
                 </div>
@@ -137,7 +139,7 @@ const PharmacyDetail = () => {
                 <div className="item-info has-line-border">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.distinguishing_by_name,
+                      __html: pharmacy.distinguishing_by_name,
                     }}
                   />
                 </div>
@@ -148,7 +150,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.business_hours,
+                      __html: pharmacy.business_hours,
                     }}
                   />
                 </div>
@@ -158,7 +160,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.time_order_outside,
+                      __html: pharmacy.time_order_outside,
                     }}
                   />
                 </div>
@@ -169,7 +171,7 @@ const PharmacyDetail = () => {
                 <div className="item-info">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.contact_information,
+                      __html: pharmacy.contact_information,
                     }}
                   />
                 </div>
@@ -180,7 +182,7 @@ const PharmacyDetail = () => {
                 <div className="item-info has-line-border">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.currently_working,
+                      __html: pharmacy.currently_working,
                     }}
                   />
                 </div>
@@ -190,7 +192,7 @@ const PharmacyDetail = () => {
                 <div className="item-info has-line-border">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.open_sale_time,
+                      __html: pharmacy.open_sale_time,
                     }}
                   />
                 </div>
@@ -201,7 +203,7 @@ const PharmacyDetail = () => {
                 <div className="item-info ">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.time_order_outside,
+                      __html: pharmacy.time_order_outside,
                     }}
                   />
                 </div>
@@ -211,7 +213,7 @@ const PharmacyDetail = () => {
                 <div className="item-info border-none">
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: pharmacy?.expiration_date_of_drugs,
+                      __html: pharmacy.expiration_date_of_drugs,
                     }}
                   />
                 </div>
@@ -227,7 +229,8 @@ const PharmacyDetail = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div>}
+
     </>
   );
 };

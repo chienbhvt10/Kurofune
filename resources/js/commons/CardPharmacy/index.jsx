@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import { DEFAULT_IMAGE } from "../../constants";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import "./card-pharmacy.scss";
-import { Tooltip } from 'antd';
+import { Tooltip } from "antd";
 const CardCategory = ({ cardItems }) => {
   const lang = getCurrentLanguage();
 
   return (
     <Row gutter={[16, 16]}>
       {cardItems?.map((item, index) => (
-
         <Col
           xl={{ span: 4 }}
           lg={{ span: 6 }}
@@ -27,18 +26,22 @@ const CardCategory = ({ cardItems }) => {
               cover={
                 <img
                   style={{ objectFit: "cover", height: "180px" }}
-                  src={item.images_outside[0] || DEFAULT_IMAGE}
+                  src={item?.avatar || DEFAULT_IMAGE}
                   alt={item.name}
-                  onError={(e) => {
-                    e.target.onerror = null
-                    e.target.src = '/images/image-default.png'
-                  }}
+                  onError={(e) => e.target.src = "/images/image-default.png"}
                 />
               }
             >
-              <Card.Meta title={<span> <Tooltip  title={item.name || "Not set name now"}>
-                {item.name || "Not set name now"}
-              </Tooltip> </span>} />
+              <Card.Meta
+                title={
+                  <span>
+                    {" "}
+                    <Tooltip title={item.name || "Not set name now"}>
+                      {item.name || "Not set name now"}
+                    </Tooltip>{" "}
+                  </span>
+                }
+              />
             </Card>
           </Link>
         </Col>

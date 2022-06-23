@@ -4,14 +4,12 @@ import {
   NotificationSuccess,
 } from "../../commons/Notification";
 import {
+  createProductAction,
+  deleteProductAction,
   getAllProductsAction,
   getProductAction,
-  createProductAction,
-  updateProductAction,
-  deleteProductAction,
   getProductClientAction,
-  getProducts,
-  addToCartAction,
+  updateProductAction,
 } from "../actions/productAction";
 const initialState = {
   products: undefined,
@@ -19,7 +17,8 @@ const initialState = {
   resCreateProduct: undefined,
   resUpdateProduct: undefined,
   resDeleteProduct: undefined,
-
+  loadingCreateProduct: false,
+  loadingUpdateProduct: false,
   total: undefined,
   from: undefined,
   to: undefined,
@@ -49,13 +48,53 @@ const productReducers = createReducer(initialState, (builder) => {
     state.resDeleteProduct = undefined;
   });
 
-  builder.addCase(createProductAction.fulfilled, (state, actions) => {
-    state.resCreateProduct = actions.payload;
-  });
+  builder
+    .addCase(createProductAction.fulfilled, (state, actions) => {
+      NotificationSuccess("", actions.payload.message);
+      return {
+        ...state,
+        loadingCreateProduct: false,
+        resCreateProduct: actions.payload,
+      };
+    })
+    .addCase(createProductAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingCreateProduct: true,
+      };
+    })
+    .addCase(createProductAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload?.error_message || "Error");
+      return {
+        ...state,
+        loadingCreateProduct: false,
+        resCreateProduct: actions.payload,
+      };
+    });
 
-  builder.addCase(updateProductAction.fulfilled, (state, actions) => {
-    state.resUpdateProduct = actions.payload;
-  });
+  builder
+    .addCase(updateProductAction.fulfilled, (state, actions) => {
+      NotificationSuccess("", actions.payload.message);
+      return {
+        ...state,
+        loadingUpdateProduct: false,
+        resUpdateProduct: actions.payload,
+      };
+    })
+    .addCase(updateProductAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingUpdateProduct: true,
+      };
+    })
+    .addCase(updateProductAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload?.error_message || "Error");
+      return {
+        ...state,
+        loadingUpdateProduct: false,
+        resCreateProduct: actions.payload,
+      };
+    });
 
   builder.addCase(deleteProductAction.fulfilled, (state, actions) => {
     state.resDeleteProduct = actions.payload;
@@ -63,6 +102,5 @@ const productReducers = createReducer(initialState, (builder) => {
   builder.addCase(getProductClientAction.fulfilled, (state, actions) => {
     state.productClient = actions.payload.data;
   });
-
 });
 export default productReducers;

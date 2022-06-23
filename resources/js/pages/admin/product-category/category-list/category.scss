@@ -17,7 +17,6 @@
   .table-header {
     display: flex;
     justify-content: space-between;
-    margin: 30px 0;
     .tool {
       button {
         display: flex;
@@ -42,7 +41,7 @@
       }
     }
   }
-  .ant-table-content{
+  .ant-table-content {
     // .title-header-category{
     //   max-height:25px;
     //   height: 25px;
@@ -55,9 +54,9 @@
 
     .ant-table-thead > tr > th {
       height: 64px;
-      max-height:64px;
+      max-height: 64px;
       overflow: hidden;
-      padding:16px;
+      padding: 16px;
     }
   }
 }
