@@ -82,8 +82,8 @@ return [
     'cart' => [
         'add' => ':product_name ay naidagdag sa iyong cart.',
         'no_info' => 'Walang impormasyon sa shopping cart.',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => 'Na-delete ang cart.',
+        'updated' => 'Na-update ang cart.',
         'quantity' => 'Pakisuri ang mga detalye ng pagbili.'
     ],
     'order' => [

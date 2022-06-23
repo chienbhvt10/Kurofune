@@ -84,7 +84,7 @@ class UserController extends Controller
                 'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
                 'role' => ['required', 'string', Rule::in($roles)],
                 'full_name' => 'string|max:100',
-                'postal_code' => ['required', 'string', 'max:50', new PostalCode],
+                'postal_code' => ['nullable', 'string', 'max:50', new PostalCode],
                 'city' => 'nullable|string|max:255',
                 'prefecture' => 'nullable|string|max:150',
                 'street_address' => 'nullable|string|max:255',

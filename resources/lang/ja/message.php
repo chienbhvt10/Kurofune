@@ -82,8 +82,8 @@ return [
     'cart' => [
         'add' => ':product_name が買い物かごに追加されました。',
         'no_info' => '買い物かご内の情報はありません。',
-        'deleted' => 'Cart deleted',
-        'updated' => 'Cart updated',
+        'deleted' => '買い物かごが消除されました。',
+        'updated' => '買い物かごが更新されました。',
         'quantity' => '購入内容をご確認ください。'
     ],
     'order' => [
