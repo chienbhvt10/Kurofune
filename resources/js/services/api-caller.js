@@ -6,12 +6,9 @@ const configRequest = async (config) => {
   const access_token =
     getAccessToken() || sessionStorage.getItem("access_token") || "";
   const lang = getCurrentLanguage();
-  if (access_token) {
-    config.headers = {
-      Authorization: `Bearer ${access_token}`,
-      "X-localization": lang.replace("/", "") || "ja",
-    };
-  }
+  config.headers["X-localization"] = lang.replace("/", "") || "ja";
+  if (access_token) config.headers["Authorization"] = `Bearer ${access_token}`;
+
   return config;
 };
 

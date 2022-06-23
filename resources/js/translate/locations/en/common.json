@@ -89,7 +89,8 @@
   },
   "forgot_password": {
     "title1": "Lost your password? Please enter your email address.",
-    "title2": "You will receive a link to create a new password via email."
+    "title2": "You will receive a link to create a new password via email.",
+    "email_field": "Email"
   },
   "reset_password": {
     "reset_password_title": "Password reset email has been sent.",

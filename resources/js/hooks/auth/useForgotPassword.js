@@ -34,6 +34,7 @@ const useForgotPassword = () => {
       dispatch(resetAuthResponse());
     }
     if (resForgotPassword && resForgotPassword.error_code === ERROR) {
+      dispatch(resetAuthResponse());
       setLoadingForgotPassword(false);
       NotificationError(t("notification"), resForgotPassword.error_message);
     }

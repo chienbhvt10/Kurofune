@@ -89,7 +89,8 @@
   },
   "forgot_password": {
     "title1": "パスワードをお忘れの方は、以下に登録時のメールアドレスを",
-    "title2": "入力して「メール送信」ボタンを押してください。"
+    "title2": "入力して「メール送信」ボタンを押してください。",
+    "email_field": "メールアドレス"
   },
   "reset_password": {
     "reset_password_title": "送信完了",

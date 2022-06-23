@@ -64,7 +64,7 @@ const ForgotPassword = () => {
               <Col span={24}>
                 <InputField
                   field="email"
-                  label="Email"
+                  label={t("forgot_password.email_field")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 24 }}
                   response={resForgotPassword}

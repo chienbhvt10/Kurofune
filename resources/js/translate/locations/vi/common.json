@@ -89,7 +89,8 @@
   },
   "forgot_password": {
     "title1": "Bạn quên mật khẩu đúng không?",
-    "title2": "Hãy điền địa chỉ email, chúng tôi sẽ gửi một đường dẫn cài đặt lại mật khẩu mới."
+    "title2": "Hãy điền địa chỉ email, chúng tôi sẽ gửi một đường dẫn cài đặt lại mật khẩu mới.",
+    "email_field": "Địa chỉ email"
   },
   "reset_password": {
     "reset_password_title": "Email đặt lại mật khẩu đã được gửi.",

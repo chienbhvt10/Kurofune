@@ -89,7 +89,8 @@
   },
   "forgot_password": {
     "title1": "Nawala ang iyong password? Pakilagay ang iyong email address.",
-    "title2": "Makakatanggap ka ng link para gumawa ng bagong password sa pamamagitan ng email."
+    "title2": "Makakatanggap ka ng link para gumawa ng bagong password sa pamamagitan ng email.",
+    "email_field": "Email address"
   },
   "reset_password": {
     "reset_password_title": "Naipadala na ang email sa pag-reset ng password.",
