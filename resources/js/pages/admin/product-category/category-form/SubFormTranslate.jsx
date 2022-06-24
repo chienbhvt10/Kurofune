@@ -37,7 +37,7 @@ const SubFormCategoryTranslate = ({ lang, className, form, response }) => {
                     },
                   ]}
                   response={response}
-                  error={`${lang}.name`}
+                  error={`${lang}_name`}
                   type={<Input />}
                 />
                 {renderErrorMessage("name")}

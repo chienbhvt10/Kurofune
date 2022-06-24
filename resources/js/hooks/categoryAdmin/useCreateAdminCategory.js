@@ -33,6 +33,9 @@ const useCreateAdminCategory = () => {
       NotificationSuccess(t("notification"), resCreateCategory?.message);
       navigate(`${lang}/admin/category-list`);
     }
+    if (resCreateCategory?.error_code === ERROR) {
+      NotificationError(t("notification"), resCreateCategory?.error_message);
+    }
   }, [resCreateCategory]);
 
   return {
