@@ -283,9 +283,11 @@
       "th_product_quantity": "Dami",
       "btn_delete": "TANGGALIN",
       "btn_checkout": "TUMULOY SA PAG-CHECKOUT",
+      "btn_back_product": "BUMALIK SA SHOP",
       "btn_empty": "ALISAN ANG LAMAN NG SHOPPING CART",
       "btn_update": "I-UPDATE ANG IYONG SHOPPING CART",
-      "btn_return": "Bumalik sa tindahan"
+      "btn_return": "Bumalik sa tindahan",
+      "cart_empty": "Kasalukuyang walang laman ang iyong basket."
     },
     "checkout": {
       "title_confirm": "Pagkumpirma ng pagbili",

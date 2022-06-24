@@ -283,9 +283,11 @@
       "th_product_quantity": "個数",
       "btn_delete": "削除",
       "btn_checkout": "購入手続きへ",
+      "btn_back_product": "商品一覧へ戻る",
       "btn_empty": "買い物かごを空にする",
       "btn_update": "買い物かごを更新する",
-      "btn_return": "薬剤一覧へ戻る"
+      "btn_return": "薬剤一覧へ戻る",
+      "cart_empty": "買い物かご内の情報はありません。"
     },
     "checkout": {
       "title_confirm": "購入確認",

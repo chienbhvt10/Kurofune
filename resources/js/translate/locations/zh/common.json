@@ -284,9 +284,11 @@
       "th_product_quantity": "数量",
       "btn_delete": "删除",
       "btn_checkout": "继续结帐",
+      "btn_back_product": "返回购物",
       "btn_empty": "清空购物车",
       "btn_update": "更新您的购物车",
-      "btn_return": "返回商店"
+      "btn_return": "返回商店",
+      "cart_empty": "你的购物篮目前是空的。"
     },
     "checkout": {
       "title_confirm": "购买确认",

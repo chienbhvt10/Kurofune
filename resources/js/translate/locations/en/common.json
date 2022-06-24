@@ -283,9 +283,11 @@
       "th_product_quantity": "Quantity",
       "btn_delete": "DELETE",
       "btn_checkout": "PROCEED CHECKOUT",
+      "btn_back_product": "RETURN TO SHOP",
       "btn_empty": "EMPTY THE SHOPPING CART",
       "btn_update": "UPDATE YOUR SHOPPING CART",
-      "btn_return": "Return to shop"
+      "btn_return": "Return to shop",
+      "cart_empty": "Your basket is currently empty"
     },
     "checkout": {
       "title_confirm": "Purchase confirmation",
