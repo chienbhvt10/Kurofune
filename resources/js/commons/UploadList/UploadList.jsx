@@ -4,13 +4,37 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { getBase64 } from "../string";
 import "./upload-list.scss";
+
 const UploadList = (props) => {
-  const { onChangeFileList, fileListUrlProps, onSaveDeletedImage } = props;
+  const {
+    onChangeFileList,
+    stateImageUrl,
+    onSaveDeletedImage,
+    setStateImageUrl,
+  } = props;
   const { t } = useTranslation();
   const [previewImageURL, setPreviewImageURL] = React.useState();
   const [previewVisible, setPreviewVisible] = React.useState(false);
   const [fileList, setFileList] = React.useState();
-  const [fileListUrl, setFileListUrl] = React.useState();
+  const [fileListUrl, setFileListUrl] = React.useState(stateImageUrl);
+
+  React.useEffect(() => {
+    const newArr = fileList?.map((file) => {
+      return { file, original_url: URL.createObjectURL(file.originFileObj) };
+    });
+    if (!stateImageUrl) {
+      setFileListUrl(newArr);
+    } else {
+      setFileListUrl(newArr ? stateImageUrl?.concat(newArr) : stateImageUrl);
+    }
+  }, [fileList, stateImageUrl]);
+
+  React.useEffect(() => {
+    if (fileList) {
+      const filesObj = fileList?.map((file) => file.originFileObj);
+      onChangeFileList && onChangeFileList(filesObj);
+    }
+  }, [fileList]);
 
   const beforeUpload = (file) => {
     const isValidImage =
@@ -33,7 +57,7 @@ const UploadList = (props) => {
   };
 
   const handleChange = async (info) => {
-    const filesObj = info.fileList.map((file) => file.originFileObj);
+    const filesObj = info.fileList?.map((file) => file.originFileObj);
     onChangeFileList && onChangeFileList(filesObj);
     setFileList(info.fileList);
   };
@@ -42,31 +66,25 @@ const UploadList = (props) => {
     setPreviewVisible(false);
   };
 
-  React.useEffect(() => {
-    const newArr = fileList?.map((file) => {
-      return { file, url: URL.createObjectURL(file.originFileObj) };
-    });
-    if (!fileListUrlProps) {
-      setFileListUrl(newArr);
-    } else {
-      setFileListUrl(
-        newArr ? fileListUrlProps?.concat(newArr) : fileListUrlProps
-      );
-    }
-  }, [fileList, fileListUrlProps]);
-
   const openModal = (url) => () => {
     setPreviewVisible(true);
     setPreviewImageURL(url);
   };
 
-  const onRemoveImage = (deletedImage, deletedImageIndex) => () => {
+  const onRemoveImage = (deletedImage) => () => {
     const newFileListURL = fileListUrl.filter(
-      (item) => item.url !== deletedImage.url
+      (item) => item.original_url !== deletedImage.original_url
     );
+    const newFileList = fileList?.filter((item) => item !== deletedImage.file);
+
     setFileListUrl(newFileListURL);
-    if (deletedImage.url.startsWith("https")) {
-      onSaveDeletedImage(deletedImageIndex);
+    if (deletedImage.original_url.includes("media")) {
+      onSaveDeletedImage(deletedImage.id);
+      setStateImageUrl(
+        stateImageUrl.filter((item) => item.id !== deletedImage.id)
+      );
+    } else {
+      setFileList(newFileList);
     }
   };
 
@@ -113,7 +131,7 @@ const UploadList = (props) => {
           {fileListUrl?.map((item, index) => (
             <Col key={index} className="image-container">
               <Col className="list-image-preview">
-                <img src={item.url} alt="Image outside" />
+                <img src={item.original_url || item.url} alt="Image outside" />
                 <div className="middle">
                   <Space>
                     <Button
@@ -122,7 +140,7 @@ const UploadList = (props) => {
                       icon={<EyeOutlined style={{ color: "#ffffff" }} />}
                       size="small"
                       title="Xem"
-                      onClick={openModal(item.url)}
+                      onClick={openModal(item.original_url)}
                     />
                     <Button
                       type="ghost"
@@ -130,7 +148,7 @@ const UploadList = (props) => {
                       icon={<DeleteOutlined style={{ color: "#ffffff" }} />}
                       size="small"
                       title="Xóa"
-                      onClick={onRemoveImage(item, index)}
+                      onClick={onRemoveImage(item)}
                     />
                   </Space>
                 </div>

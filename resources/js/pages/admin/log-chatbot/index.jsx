@@ -136,11 +136,8 @@ const LogChatBot = () => {
         content={t("meta.content_log_chatbot")}
       />
       <TableHeader
-        breadcrumb={[
-          { name: "Home", routerLink: "../" },
-          { name: "Chatbot List", routerLink: "/log-questionnaire" },
-        ]}
-        title="Chatbot List"
+        breadcrumb={[]}
+        title={t("admins.log_chatbot.title")}
       >
         <div>
           <Button

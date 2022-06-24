@@ -2,7 +2,7 @@ import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BackButton from "../../commons/BackButton";
 import { Languages } from "../../commons/Languges";
 import { getCurrentLanguage } from "../../helper/localStorage";
@@ -17,6 +17,8 @@ const HeaderHome = ({ toggleSideBar }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const { getLogout } = useLogout();
+  const [disabledCart, setDisabledCart] = React.useState("");
+  const location = useLocation();
   const isShowCart = !(
     isAdmin(roles) ||
     isAdmin(userInfo?.roles?.name) ||
@@ -33,6 +35,13 @@ const HeaderHome = ({ toggleSideBar }) => {
         0
       )
     : 0;
+
+      React.useEffect(() => {
+        location.pathname === `${lang}/cart`
+          ? setDisabledCart("disabled-cart")
+          : setDisabledCart("");
+      }, [location]);
+
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -63,7 +72,7 @@ const HeaderHome = ({ toggleSideBar }) => {
           />
           <div className="block-profile-header ">
             {isShowCart && (
-              <div className="shopping-cart">
+              <div className={`shopping-cart ${disabledCart}`}>
                 <div className="icon-cart">
                   <Link
                     id="cart-custom"
