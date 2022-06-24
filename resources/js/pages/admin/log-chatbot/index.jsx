@@ -33,7 +33,7 @@ const LogChatBot = () => {
       title: "No.",
       dataIndex: "no",
       key: "no",
-      render: (value, item, index) => (page - 1) * 10 + index,
+      render: (value, item, index) => (page - 1) * 10 + index + 1,
     },
     {
       title: "ID",
@@ -174,6 +174,9 @@ const LogChatBot = () => {
         pagination={{
           onChange(current) {
             setPage(current);
+          },
+          showTotal() {
+            return `Total ${listChat.length} items`;
           },
         }}
       />
