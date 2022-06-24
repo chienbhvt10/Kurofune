@@ -774,7 +774,8 @@
       "show_history_ja": "聊天记录（日语）",
       "created_at": "创建日期",
       "dow_history": "下载 ",
-      "dow_history_ja": "下载（日语）"
+      "dow_history_ja": "下载（日语）",
+      "title": "聊天机器人列表"
     },
     "tax": {
       "title": {

@@ -774,7 +774,8 @@
       "show_history_ja": "History ng chat (Japanese)",
       "created_at": "Nagawa ang petsa",
       "dow_history": "I-download ",
-      "dow_history_ja": "I-download (Japanese)"
+      "dow_history_ja": "I-download (Japanese)",
+      "title": "Listahan ng chatbot"
     },
     "tax": {
       "title": {

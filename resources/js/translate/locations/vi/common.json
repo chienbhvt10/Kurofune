@@ -766,7 +766,8 @@
       "show_history_ja": "Lịch sử trò chuyện (Tiếng Nhật)",
       "created_at": "Ngày tạo",
       "dow_history": "Tải xuống ",
-      "dow_history_ja": "Tải xuống (tiếng Nhật)"
+      "dow_history_ja": "Tải xuống (tiếng Nhật)",
+      "title": "Danh sách Chatbot"
     },
     "tax": {
       "title": {

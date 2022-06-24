@@ -771,7 +771,8 @@
       "show_history_ja": "チャット履歴(日本語）",
       "created_at": "作成日",
       "dow_history": "ダウンロード ",
-      "dow_history_ja": "ダウンロード(日本語）"
+      "dow_history_ja": "ダウンロード(日本語）",
+      "title": "チャットボット一覧"
     },
     "tax": {
       "title": {
