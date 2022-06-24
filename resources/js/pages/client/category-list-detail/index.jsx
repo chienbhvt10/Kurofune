@@ -5,9 +5,11 @@ import CardCategoryDetail from "../../../commons/CardCategoryDetail";
 import "./category-list-detail.scss";
 import useCategory from "../../../hooks/category/useCategory";
 import PageHead from "../../../commons/PageHead";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 
 const CategoryListDetail = () => {
   const { i18n, t } = useTranslation();
+  const lang = getCurrentLanguage();
   const { id } = useParams();
   const { getCategory, category } = useCategory();
 
@@ -16,6 +18,7 @@ const CategoryListDetail = () => {
       getCategory(id);
     }
   }, [id]);
+
   return (
     <>
       <PageHead
@@ -26,10 +29,15 @@ const CategoryListDetail = () => {
         <div className="list_categories">
           <div className="type-wrapper">
             <div className="type-name">
-              {t("client.product_detail.product_list")}
+              {
+                category?.category?.translations?.find((item) => {
+                  const _lang = lang || "ja";
+                  return _lang.includes(item.locale);
+                })?.name
+              }
             </div>
           </div>
-          <CardCategoryDetail cardItems={category} />
+          <CardCategoryDetail cardItems={category?.product} />
         </div>
       </div>
     </>
