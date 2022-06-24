@@ -309,6 +309,7 @@ export const mediaBoardItemData = [
     title: "client.media.card_pharmacy",
     type: "link_component",
     disable: false,
+    name:'member',
   },
   {
     link: "/service-24h",
@@ -316,6 +317,7 @@ export const mediaBoardItemData = [
     title: "client.media.card_consultation",
     type: "link_component",
     disable: true,
+    name:'service',
   },
   {
     link: "https://www.payforex.net/smypay/sloginregister.aspx?cd=4TW4BQ0TPWXS&amp;lang=vi-vn",
@@ -323,6 +325,7 @@ export const mediaBoardItemData = [
     title: "client.media.card_remittance",
     type: "a_tag",
     disable: false,
+    name:'payforex',
   },
   {
     link: "https://kg-japaneseschool.jp/login",
@@ -330,6 +333,7 @@ export const mediaBoardItemData = [
     title: "client.media.card_e_leaning",
     type: "a_tag",
     disable: false,
+    name:'e-learning',
   },
   {
     link: "vietnam/income-insurance/",
@@ -337,6 +341,7 @@ export const mediaBoardItemData = [
     title: "client.media.card_insurance",
     type: "link_component",
     disable: false,
+    name:'insurance',
   },
   {
     link: "vietnam",
@@ -345,6 +350,7 @@ export const mediaBoardItemData = [
     title: "client.media.card_wabisabi",
     type: "a_tag",
     disable: false,
+    name:'wabisabi',
   },
 ];
 export const memberBoardItemData = [

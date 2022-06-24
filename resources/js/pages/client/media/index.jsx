@@ -1,6 +1,5 @@
 import { faSignOutAlt, faUserGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Col, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -15,8 +14,8 @@ import "./media.scss";
 import { useDispatch } from "react-redux";
 import { resetAuthResponse } from "../../../redux/actions/authAction";
 import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
-import ModalAccessRight2 from "../../../components/Modal/ModalAccessRight2";
-import RegisterUser from "../../../components/Modal/RegisterUser";
+import { useSelector } from "react-redux";
+import { ROLE_FULL_SUPPORT_PLAN, ROLE_LIGHT_PLAN } from "../../../constants";
 
 const MediaPage = () => {
   const { t } = useTranslation();
@@ -31,6 +30,19 @@ const MediaPage = () => {
   const logout = () => {
     getLogout();
   };
+  const userInfo = useSelector((state) => state.authState.userInfo);
+  const [role,setRole] = React.useState('default')
+  console.log(userInfo?.roles);
+  React.useEffect(() => {
+    if(userInfo?.roles?.name===ROLE_LIGHT_PLAN){
+      setRole('light_plan')
+    }else if(userInfo?.roles?.name === ROLE_FULL_SUPPORT_PLAN){
+      setRole('full_plan')
+    }else{
+      setRole('default')
+    }
+    
+  }, [userInfo]);
 
   React.useEffect(() => {
     dispatch(resetAuthResponse());
@@ -53,7 +65,7 @@ const MediaPage = () => {
             </div>
           </div>
           <div className="service_dashboard">
-            <Board boardItems={mediaBoardItemData} setModalVisible={setModalVisible}/>
+            <Board boardItems={mediaBoardItemData} setModalVisible={setModalVisible} role={role}/>
             <div className="switch">
               <div>
                 <Languages />
@@ -102,9 +114,9 @@ const MediaPage = () => {
           </div>
         </div>
         <Footer />
-        {/* <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} /> */}
-        {/* <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} /> */}
-         {modalVisible && <RegisterUser modalVisible={modalVisible} setModalVisible={setModalVisible} /> }
+        <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/>
+        {/* <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
+         {/* {modalVisible && <RegisterUser modalVisible={modalVisible} setModalVisible={setModalVisible} role={role} /> } */}
       </div>
     </>
   );
