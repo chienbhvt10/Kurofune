@@ -255,8 +255,7 @@ const Cart = () => {
                 <Button
                   type="primary"
                   onClick={() => {
-                    handleUpdateCart();
-                    navigate(`${lang}/checkout`);
+                    handleUpdateCart(navigate(`${lang}/checkout`));
                   }}
                 >
                   {t("client.cart.btn_checkout")}
