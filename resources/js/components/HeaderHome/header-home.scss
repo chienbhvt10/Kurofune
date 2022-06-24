@@ -32,6 +32,9 @@
     .block-profile-header {
       display: flex;
       align-self: center;
+      .disabled-cart {
+        pointer-events: none;
+      }
       .shopping-cart {
         padding: 0 25px;
         position: relative;
@@ -51,7 +54,7 @@
           left: 0;
           background: #ffffff;
           border: 1px solid #ddd;
-          .empty-cart-text{
+          .empty-cart-text {
             text-align: center;
             color: rgb(98, 161, 155);
             font-size: 16px;
@@ -127,7 +130,7 @@
                   font-weight: 700;
                   border: 0;
                   background: transparent;
-                  outline:none;
+                  outline: none;
                   margin-right: 4px;
                   padding: 0;
                   &:hover {
@@ -140,8 +143,8 @@
                   font-weight: 700;
                   line-height: 15px;
                   transition: all 0.3s ease;
-                
-                  &.item-img{
+
+                  &.item-img {
                     margin-left: auto;
                   }
                   img {
@@ -152,7 +155,6 @@
                     box-shadow: none;
                   }
                 }
-      
               }
             }
           }
