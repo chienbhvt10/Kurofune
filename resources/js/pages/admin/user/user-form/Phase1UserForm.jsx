@@ -234,13 +234,15 @@ export const UserForm = (props) => {
           commonAddressForm={commonAddressForm}
           billingAddressForm={billingAddressForm}
           shippingAddressForm={shippingAddressForm}
+          onSaveDeletedImage={onSaveDeletedImage}
+          insideImageUrl={insideImageUrl}
+          outSideImageUrl={outSideImageUrl}
           onChangeImageInside={onChangeImageInside}
           onChangeImageOutside={onChangeImageOutside}
           onSaveImgInsideDelete={onSaveImgInsideDelete}
           onSaveImgOutsideDelete={onSaveImgOutsideDelete}
-          onSaveDeletedImage={onSaveDeletedImage}
-          insideImageUrl={insideImageUrl}
-          outSideImageUrl={outSideImageUrl}
+          setInsideImageUrl={setInsideImageUrl}
+          setOutSideImageUrl={setOutSideImageUrl}
         />
       </div>
     </div>

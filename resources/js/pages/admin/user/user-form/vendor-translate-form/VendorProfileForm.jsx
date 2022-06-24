@@ -16,6 +16,8 @@ const VendorProfileForm = (props) => {
     insideImageUrl,
     onSaveImgInsideDelete,
     onSaveImgOutsideDelete,
+    setInsideImageUrl,
+    setOutSideImageUrl,
   } = props;
   const { t } = useTranslation();
   return (
@@ -32,7 +34,8 @@ const VendorProfileForm = (props) => {
               <UploadList
                 onSaveDeletedImage={onSaveImgInsideDelete}
                 onChangeFileList={onChangeImageInside}
-                fileListUrlProps={insideImageUrl}
+                stateImageUrl={insideImageUrl}
+                setStateImageUrl={setInsideImageUrl}
               />
             </Col>
           </Row>
@@ -49,7 +52,8 @@ const VendorProfileForm = (props) => {
                 <UploadList
                   onSaveDeletedImage={onSaveImgOutsideDelete}
                   onChangeFileList={onChangeImageOutside}
-                  fileListUrlProps={outSideImageUrl}
+                  stateImageUrl={outSideImageUrl}
+                  setStateImageUrl={setOutSideImageUrl}
                 />
               </Row>
             </Col>
