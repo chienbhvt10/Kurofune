@@ -787,6 +787,40 @@
         "value_requied": "税率を入力してください。"
       }
     },
+    "log_questionnaire": {
+      "title_log_questionnaire": "問診票",
+      "btn_download_log": "CSVダウンロード",
+      "label_orderId": "注文番号",
+      "label_username": "ユーザー名",
+      "label_userMail": "ユーザーメールアドレス",
+      "label_productName": "注文商品",
+      "label_orderDate": "注文日",
+      "label_quantity": "個数",
+      "label_price": "金額",
+      "label_answer1": "あなたの性別は何ですか。",
+      "label_answer2": "あなたの年齢を教えてください。",
+      "label_answer3": "このお薬を使ったことはありますか。",
+      "label_answer4": "今までにお薬を飲んで副作用を起こしたことはありますか。",
+      "label_answer5": "その時に使っていたお薬の名前はなんですか。",
+      "label_answer6": "現在治療中の病気はありますか。",
+      "label_answer7": "何か相談したいことはありますか。",
+      "label_billingName": "請求先ー氏名",
+      "label_billingZipCode": "請求先ー郵便番号",
+      "label_billingPrefecture": "請求先ー都道府県",
+      "label_billingCity": "請求先ー市区町村",
+      "label_billingStreetAddress": "請求先ー丁目・番地・号",
+      "label_billingBuilding": "請求先ー建物名・部屋番号",
+      "label_billingPhone": "請求先ー電話番号",
+      "label_billingEmail": "請求先ーメールアドレス",
+      "label_shippingName": "お届け先ー氏名",
+      "label_shippingZipCode": "お届け先ー郵便番号",
+      "label_shippingPrefecture": "お届け先ー都道府県",
+      "label_shippingCity": "お届け先ー市区町村",
+      "label_shippingStreetAddress": "お届け先ー丁目・番地・号",
+      "label_shippingBuilding": "お届け先ー建物名・部屋番号",
+      "label_shippingPhone": "お届け先ー電話番号",
+      "label_shippingEmail": "お届け先ーメールアドレス"
+    },
     "list_empty": "データなし"
   }
 }

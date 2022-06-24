@@ -3,215 +3,217 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const QuestionnaireTable = ({ items }) => {
+  const { t } = useTranslation();
   const columns = [
     {
       dataField: "orderId",
-      text: "注文番号",
+      text: t("admins.log_questionnaire.label_orderId"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "username",
-      text: "ユーザ名",
+      text: t("admins.log_questionnaire.label_username"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "userMail",
-      text: "ユーザメール",
+      text: t("admins.log_questionnaire.label_userMail"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "productName",
-      text: "注文商品",
+      text: t("admins.log_questionnaire.label_productName"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "orderDate",
-      text: "注文日",
+      text: t("admins.log_questionnaire.label_orderDate"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "quantity",
-      text: "個数",
+      text: t("admins.log_questionnaire.label_quantity"),
       headerStyle: {
         width: 150,
       },
     },
     {
       dataField: "price",
-      text: "金額",
+      text: t("admins.log_questionnaire.label_price"),
       headerStyle: {
         width: 150,
       },
     },
     {
       dataField: "answer1",
-      text: "あなたの性別は何ですか？",
+      text: t("admins.log_questionnaire.label_answer1"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "answer2",
-      text: "あなたの年齢を教えてください",
+      text: t("admins.log_questionnaire.label_answer2"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "answer3",
-      text: "このお薬を使ったことはありますか？",
+      text: t("admins.log_questionnaire.label_answer3"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "answer4",
-      text: "今までにお薬を飲んで副作用を起こしたことはありますか？",
+      text: t("admins.log_questionnaire.label_answer4"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "answer5",
-      text: "その時に使っていたお薬の名前はなんですか？",
+      text: t("admins.log_questionnaire.label_answer5"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "answer6",
-      text: "その時に使っていたお薬の名前はなんですか？",
+      text: t("admins.log_questionnaire.label_answer6"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "answer7",
-      text: "何か相談したいことはありますか？",
+      text: t("admins.log_questionnaire.label_answer7"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingName",
-      text: "請求先氏名",
+      text: t("admins.log_questionnaire.label_billingName"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingZipCode",
-      text: "請求先郵便番号",
+      text: t("admins.log_questionnaire.label_billingZipCode"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingPrefecture",
-      text: "請求先都道府県",
+      text: t("admins.log_questionnaire.label_billingPrefecture"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingCity",
-      text: "請求先市区町村",
+      text: t("admins.log_questionnaire.label_billingCity"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingStreetAddress",
-      text: "請求先丁目・番地・号",
+      text: t("admins.log_questionnaire.label_billingStreetAddress"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingBuilding",
-      text: "請求先建物名・部屋番号",
+      text: t("admins.log_questionnaire.label_billingBuilding"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingPhone",
-      text: "請求先電話番号",
+      text: t("admins.log_questionnaire.label_billingPhone"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "billingEmail",
-      text: "請求先メールアドレス",
+      text: t("admins.log_questionnaire.label_billingEmail"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingName",
-      text: "お届け先氏名",
+      text: t("admins.log_questionnaire.label_shippingName"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingZipCode",
-      text: "	お届け先郵便番号",
+      text: t("admins.log_questionnaire.label_shippingZipCode"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingPrefecture",
-      text: "お届け先都道府県",
+      text: t("admins.log_questionnaire.label_shippingPrefecture"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingCity",
-      text: "お届け先市区町村",
+      text: t("admins.log_questionnaire.label_shippingCity"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingStreetAddress",
-      text: "お届け先丁目・番地・号",
+      text: t("admins.log_questionnaire.label_shippingStreetAddress"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingBuilding",
-      text: "お届け先建物名・部屋番号",
+      text: t("admins.log_questionnaire.label_shippingBuilding"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingPhone",
-      text: "お届け先電話番号",
+      text: t("admins.log_questionnaire.label_shippingPhone"),
       headerStyle: {
         width: 200,
       },
     },
     {
       dataField: "shippingEmail",
-      text: "お届け先メールアドレス",
+      text: t("admins.log_questionnaire.label_shippingEmail"),
       headerStyle: {
         width: 200,
       },

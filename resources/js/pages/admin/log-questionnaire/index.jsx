@@ -83,11 +83,8 @@ const LogQuestionnaire = () => {
         content={t("meta.content_questionnaire_list")}
       />
       <TableHeader
-        breadcrumb={[
-          { name: "Home", routerLink: "../" },
-          { name: "Questionnaire List", routerLink: "/log-questionnaire" },
-        ]}
-        title="Questionnaire List"
+        breadcrumb={[]}
+        title={t("admins.log_questionnaire.title_log_questionnaire")}
       >
         <div className="btn-group">
           <Link to="/" className="btn-show">
@@ -96,7 +93,7 @@ const LogQuestionnaire = () => {
               className=""
               style={{ color: "white" }}
             />
-            <span> CSVダウンロード</span>
+            <span>{t("admins.log_questionnaire.btn_download_log")}</span>
           </Link>
         </div>
       </TableHeader>
