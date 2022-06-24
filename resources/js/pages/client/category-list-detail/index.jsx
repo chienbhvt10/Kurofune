@@ -37,7 +37,7 @@ const CategoryListDetail = () => {
               }
             </div>
           </div>
-          <CardCategoryDetail cardItems={category?.product} />
+          <CardCategoryDetail cardItems={category?.products} />
         </div>
       </div>
     </>
