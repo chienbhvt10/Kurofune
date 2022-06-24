@@ -255,6 +255,7 @@ const Cart = () => {
                 <Button
                   type="primary"
                   onClick={() => {
+                    handleUpdateCart();
                     navigate(`${lang}/checkout`);
                   }}
                 >
