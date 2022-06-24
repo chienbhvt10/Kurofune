@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
+import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
 
 const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
   const lang = getCurrentLanguage();
@@ -63,6 +64,7 @@ const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
         total: pagination.total,
         showTotal: () => `Total ${pagination.total} items`,
       }}
+      locale={EMPTY_TABLE_LIST()}
     />
   );
 };

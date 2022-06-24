@@ -9,13 +9,22 @@ import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
 import useLogout from "../../hooks/auth/useLogout";
 import useCart from "../../hooks/cart/useCart";
-const HeaderHome = ({ toggleSideBar, isShowCart }) => {
+import { useSelector } from "react-redux";
+import { isAdmin, isVendor } from "../../helper/checker";
+const HeaderHome = ({ toggleSideBar }) => {
+  const userInfo = useSelector((state) => state.authState.userInfo);
+  const roles = useSelector((state) => state.authState.profile?.roles);
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
-  const location = useLocation();
   const { getLogout } = useLogout();
   const [disabledCart, setDisabledCart] = React.useState("");
-
+  const location = useLocation();
+  const isShowCart = !(
+    isAdmin(roles) ||
+    isAdmin(userInfo?.roles?.name) ||
+    isVendor(roles) ||
+    isVendor(userInfo?.roles?.name)
+  );
   const handleLogout = () => {
     getLogout();
   };
@@ -27,11 +36,12 @@ const HeaderHome = ({ toggleSideBar, isShowCart }) => {
       )
     : 0;
 
-  React.useEffect(() => {
-    location.pathname === `${lang}/cart`
-      ? setDisabledCart("disabled-cart")
-      : setDisabledCart("");
-  }, [location]);
+      React.useEffect(() => {
+        location.pathname === `${lang}/cart`
+          ? setDisabledCart("disabled-cart")
+          : setDisabledCart("");
+      }, [location]);
+
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -61,7 +71,7 @@ const HeaderHome = ({ toggleSideBar, isShowCart }) => {
             title={t("header.btn_back3")}
           />
           <div className="block-profile-header ">
-            {isShowCart() && (
+            {isShowCart && (
               <div className={`shopping-cart ${disabledCart}`}>
                 <div className="icon-cart">
                   <Link
