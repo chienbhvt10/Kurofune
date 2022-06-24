@@ -24,6 +24,7 @@ const Cart = () => {
       quantity,
     }));
     updateCart({ cart_items });
+    navigate(`${lang}/checkout`)
   };
   const handleDeleteAllCart = () => {
     deleteCart();
@@ -255,7 +256,7 @@ const Cart = () => {
                 <Button
                   type="primary"
                   onClick={() => {
-                    navigate(`${lang}/checkout`);
+                    handleUpdateCart();
                   }}
                 >
                   {t("client.cart.btn_checkout")}
