@@ -78,7 +78,7 @@ const UploadList = (props) => {
     const newFileList = fileList?.filter((item) => item !== deletedImage.file);
 
     setFileListUrl(newFileListURL);
-    if (deletedImage.original_url.startsWith("http")) {
+    if (deletedImage.original_url.includes("media")) {
       onSaveDeletedImage(deletedImage.id);
       setStateImageUrl(
         stateImageUrl.filter((item) => item.id !== deletedImage.id)
