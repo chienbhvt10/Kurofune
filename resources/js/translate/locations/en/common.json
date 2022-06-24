@@ -778,7 +778,8 @@
       "show_history_ja": "Chat history (Japanese)",
       "created_at": "Created date",
       "dow_history": "Download ",
-      "dow_history_ja": "Download (Japanese)"
+      "dow_history_ja": "Download (Japanese)",
+      "title": "Chatbot list"
     },
     "tax": {
       "title": {
