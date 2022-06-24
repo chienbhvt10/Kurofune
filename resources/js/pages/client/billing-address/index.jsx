@@ -9,19 +9,14 @@ import useUpdateBillingAddress from "../../../hooks/auth/useUpdateBillingAddress
 import "./style.scss";
 
 const BillingAddress = () => {
-  const {  t } = useTranslation();
-  const { showProfile, profile } = useShowProfile();
+  const { t } = useTranslation();
+  const { profile } = useShowProfile();
   const {
     updateBillingAddress,
     resUpdateBillingAddress,
     loadingUpdateBilling,
   } = useUpdateBillingAddress();
 
-  React.useEffect(() => {
-    if (!profile) {
-      showProfile();
-    }
-  }, [profile]);
 
   const onSave = (values) => {
     updateBillingAddress(values);
@@ -56,6 +51,6 @@ const BillingAddress = () => {
       </div>
     </div>
   );
-};
+};;
 
 export default BillingAddress;

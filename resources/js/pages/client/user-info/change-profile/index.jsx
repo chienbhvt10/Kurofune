@@ -21,7 +21,6 @@ export const ChangeProfile = () => {
         title={t("meta.title_change_profile")}
         content={t("meta.content_change_profile")}
       />
-
       <FormInfo
         loading={isLoadingUpdateProfile}
         item={profile}

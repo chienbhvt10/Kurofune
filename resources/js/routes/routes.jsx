@@ -58,11 +58,17 @@ import { showProfileAction } from "../redux/actions/authAction";
 import TaxList from "../pages/admin/tax/tax-list";
 import AddTax from "../pages/admin/tax/tax-add";
 import UpdateTax from "../pages/admin/tax/tax-update";
-
+import _ from "underscore";
 const appRouter = () => {
   const { i18n } = useTranslation();
-  const userInfo = useSelector((state) => state.authState.userInfo);
-  const roles = useSelector((state) => state.authState.profile?.roles);
+  const rolesName = useSelector(
+    (state) => state.authState.userInfo?.roles?.name,
+    _.isEqual
+  );
+  const roles = useSelector(
+    (state) => state.authState.profile?.roles,
+    _.isEqual
+  );
   const langUrl = i18n.language;
   if (
     langUrl === LANG_VIETNAMESE ||
@@ -96,15 +102,15 @@ const appRouter = () => {
   return (
     <BrowserRouter>
       <Routes>
-        {(roles || userInfo?.roles?.name) && (
+        {(roles || rolesName) && (
           <Route
             path={`/`}
             element={
               <Navigate
                 to={
-                  isAdmin(roles) || isAdmin(userInfo?.roles?.name)
+                  isAdmin(roles) || isAdmin(rolesName)
                     ? `${lang}/admin`
-                    : isVendor(roles) || isVendor(userInfo?.roles?.name)
+                    : isVendor(roles) || isVendor(rolesName)
                     ? `${lang}/admin/product-list`
                     : `${lang}/media`
                 }

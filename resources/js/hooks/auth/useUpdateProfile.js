@@ -12,10 +12,12 @@ import {
 } from "../../redux/actions/authAction";
 import useShowProfile from "./useShowProfile";
 const useUpdateProfile = () => {
-  const { resUpdateProfile,isLoadingUpdateProfile } = useSelector((state) => state.authState);
+  const { resUpdateProfile, isLoadingUpdateProfile } = useSelector(
+    (state) => state.authState
+  );
   const dispatch = useDispatch();
   const { t } = useTranslation();
-const {showProfile }= useShowProfile()
+  // const {showProfile }= useShowProfile()
   const updateProfile = (payload) => {
     dispatch(updateProfileAction(payload));
   };
@@ -23,8 +25,8 @@ const {showProfile }= useShowProfile()
   React.useEffect(() => {
     if (resUpdateProfile?.error_code === NO_ERROR) {
       NotificationSuccess(t("notification"), resUpdateProfile.message);
-      showProfile(),
-      dispatch(resetAuthResponse())
+      // showProfile();
+      dispatch(resetAuthResponse());
     }
     if (resUpdateProfile && resUpdateProfile.error_code === ERROR) {
       NotificationError(t("notification"), resUpdateProfile.error_message);
@@ -33,7 +35,7 @@ const {showProfile }= useShowProfile()
   return {
     resUpdateProfile,
     updateProfile,
-    isLoadingUpdateProfile
+    isLoadingUpdateProfile,
   };
 };
 
