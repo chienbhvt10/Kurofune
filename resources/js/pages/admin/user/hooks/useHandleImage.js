@@ -4,8 +4,7 @@ const useHandleImage = () => {
   const [avatar, setAvatar] = React.useState();
   const [images_inside, setImagesInSide] = React.useState();
   const [images_outside, setImagesOutSide] = React.useState();
-  const [images_inside_delete, setImagesInSideDelete] = React.useState([]);
-  const [images_outside_delete, setImagesOutSideDelete] = React.useState([]);
+  const [images_delete, setImagesDelete] = React.useState([]);
 
   const onChangeAvatar = (file) => {
     setAvatar(file);
@@ -20,19 +19,18 @@ const useHandleImage = () => {
   };
 
   const onSaveImgInsideDelete = (index) => {
-    setImagesInSideDelete([...images_inside_delete, index]);
+    setImagesDelete([...images_delete, index]);
   };
 
   const onSaveImgOutsideDelete = (index) => {
-    setImagesOutSideDelete([...images_outside_delete, index]);
+    setImagesDelete([...images_delete, index]);
   };
 
   return {
     avatar,
     images_inside,
     images_outside,
-    images_inside_delete,
-    images_outside_delete,
+    images_delete,
     onChangeAvatar,
     onChangeImageOutside,
     onChangeImageInside,

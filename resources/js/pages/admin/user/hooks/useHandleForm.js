@@ -25,11 +25,10 @@ const useHandleForm = (item, onSave, typeForm) => {
     avatar,
     images_inside,
     images_outside,
+    images_delete,
     onChangeAvatar,
     onChangeImageInside,
     onChangeImageOutside,
-    images_inside_delete,
-    images_outside_delete,
     onSaveImgInsideDelete,
     onSaveImgOutsideDelete,
   } = useHandleImage();
@@ -81,16 +80,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     if (role === ROLE_VENDOR) {
       appendArrayToFormData(formData, "images_inside", images_inside);
       appendArrayToFormData(formData, "images_outside", images_outside);
-      appendArrayToFormData(
-        formData,
-        "images_inside_delete",
-        images_inside_delete
-      );
-      appendArrayToFormData(
-        formData,
-        "images_outside_delete",
-        images_outside_delete
-      );
+      appendArrayToFormData(formData, "images_delete", images_delete);
       appendObjectToFormData(formData, vendorProfileFormEN.getFieldsValue());
       appendObjectToFormData(formData, vendorProfileFormJP.getFieldsValue());
       appendObjectToFormData(formData, vendorProfileFormTL.getFieldsValue());

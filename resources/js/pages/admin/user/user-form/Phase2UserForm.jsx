@@ -39,6 +39,8 @@ const Phase2UserForm = (props) => {
     insideImageUrl,
     onSaveImgInsideDelete,
     onSaveImgOutsideDelete,
+    setInsideImageUrl,
+    setOutSideImageUrl,
   } = props;
   const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
   const { resCreateUser, resUpdateUser } = useSelector(
@@ -76,9 +78,11 @@ const Phase2UserForm = (props) => {
               formVI={vendorProfileFormVI}
               formZH={vendorProfileFormZH}
               onChangeImageOutside={onChangeImageOutside}
-              outSideImageUrl={outSideImageUrl}
               onChangeImageInside={onChangeImageInside}
+              outSideImageUrl={outSideImageUrl}
               insideImageUrl={insideImageUrl}
+              setInsideImageUrl={setInsideImageUrl}
+              setOutSideImageUrl={setOutSideImageUrl}
               onSaveImgInsideDelete={onSaveImgInsideDelete}
               onSaveImgOutsideDelete={onSaveImgOutsideDelete}
             />
