@@ -1,4 +1,4 @@
-import { Row, Typography, Col } from "antd";
+import { Row, Typography, Col, Button } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
@@ -38,7 +38,9 @@ const ResetLinkPassword = () => {
             </Col>
             <Col span={24} className="text-center mt-2">
               <Link to={`${lang}/login`} onClick={backLogin}>
-                BACK
+                <Button className="accept-btn" size="large" type="primary">
+                  OK
+                </Button>
               </Link>
             </Col>
           </Row>
