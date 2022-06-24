@@ -57,10 +57,11 @@ const authReducers = createReducer(initialState, (builder) => {
         };
       }
     })
-    .addCase(login.rejected, (state) => {
+    .addCase(login.rejected, (state, action) => {
+      state.resLogin = action.payload;
       state.isLoadingLogin = false;
     });
-    // End Login
+  // End Login
 
   builder.addCase(forgotPassword.fulfilled, (state, actions) => {
     return {
