@@ -70,16 +70,15 @@ const UploadList = (props) => {
     setPreviewVisible(true);
     setPreviewImageURL(url);
   };
+
   const onRemoveImage = (deletedImage) => () => {
     const newFileListURL = fileListUrl.filter(
       (item) => item.original_url !== deletedImage.original_url
     );
-    const newFileList = fileList?.filter(
-      (item) => item !== deletedImage.original_url
-    );
+    const newFileList = fileList?.filter((item) => item !== deletedImage.file);
 
     setFileListUrl(newFileListURL);
-    if (deletedImage.original_url.startsWith("https")) {
+    if (deletedImage.original_url.startsWith("http")) {
       onSaveDeletedImage(deletedImage.id);
       setStateImageUrl(
         stateImageUrl.filter((item) => item.id !== deletedImage.id)
