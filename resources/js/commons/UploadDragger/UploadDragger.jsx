@@ -47,6 +47,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
     setPreviewImage(true);
   };
   const onRemoveImage = () => {
+    onChangeImage(undefined);
     setImageUrl("");
   };
 
