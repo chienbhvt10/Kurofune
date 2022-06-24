@@ -76,6 +76,7 @@ const Cart = () => {
           className="input-field"
           defaultValue={record.quantity}
           min={1}
+          max={3}
           onChange={(e) =>
             setCartItemState((prev) =>
               prev.map((item) =>

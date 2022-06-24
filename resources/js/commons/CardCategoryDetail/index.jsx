@@ -18,12 +18,12 @@ const CardCategoryDetail = ({ cardItems }) => {
           span={24}
           key={index}
         >
-          <Link to={`${lang}/product-detail/${item.id}`}>
+          <Link to={`${lang}/product-detail/${item?.product_id}`}>
             <Card
               hoverable
               cover={
                 <img
-                  style={{ objectFit: "cover", height:"180px" }}
+                  style={{ objectFit: "cover", height: "180px" }}
                   src={item.product_image || DEFAULT_IMAGE}
                   alt={item.name}
                 />
