@@ -41,8 +41,9 @@ const Phase2UserForm = (props) => {
     onSaveImgOutsideDelete,
     setInsideImageUrl,
     setOutSideImageUrl,
+    activeTab,
+    setActiveTab,
   } = props;
-  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
   const { resCreateUser, resUpdateUser } = useSelector(
     (state) => state.userState
   );

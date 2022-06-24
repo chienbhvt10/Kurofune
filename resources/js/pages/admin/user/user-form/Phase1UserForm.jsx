@@ -7,7 +7,11 @@ import SelectField from "../../../../commons/Form/SelectField";
 import FormHeader from "../../../../commons/FormHeader";
 import { generatePassword } from "../../../../commons/string.js";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger";
-import { TYPE_FORM_CREATE, TYPE_FORM_UPDATE } from "../../../../constants";
+import {
+  FIRST_TAB,
+  TYPE_FORM_CREATE,
+  TYPE_FORM_UPDATE,
+} from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
 import useRoles from "../../../../hooks/role/useRoles";
@@ -22,6 +26,7 @@ export const UserForm = (props) => {
   const [avatarUrl, setAvatarUrl] = React.useState();
   const [insideImageUrl, setInsideImageUrl] = React.useState();
   const [outSideImageUrl, setOutSideImageUrl] = React.useState();
+  const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
 
   const {
     billingAddressForm,
@@ -56,6 +61,7 @@ export const UserForm = (props) => {
 
   const onChangeRole = (values) => {
     setRole(values);
+    setActiveTab(FIRST_TAB);
   };
 
   React.useEffect(() => {
@@ -243,6 +249,8 @@ export const UserForm = (props) => {
           onSaveImgOutsideDelete={onSaveImgOutsideDelete}
           setInsideImageUrl={setInsideImageUrl}
           setOutSideImageUrl={setOutSideImageUrl}
+          setActiveTab={setActiveTab}
+          activeTab={activeTab}
         />
       </div>
     </div>
