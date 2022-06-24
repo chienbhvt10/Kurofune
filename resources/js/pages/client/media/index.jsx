@@ -32,7 +32,6 @@ const MediaPage = () => {
   };
   const userInfo = useSelector((state) => state.authState.userInfo);
   const [role,setRole] = React.useState('default')
-  console.log(userInfo?.roles);
   React.useEffect(() => {
     if(userInfo?.roles?.name===ROLE_LIGHT_PLAN){
       setRole('light_plan')
