@@ -30,7 +30,7 @@ const initialState = {
   resForgotPassword: undefined,
   resResetPassword: undefined,
   resResetResponse: undefined,
-  isLoading: true,
+  isLoading: false,
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -111,9 +111,6 @@ const authReducers = createReducer(initialState, (builder) => {
     }
   });
   builder
-    .addCase(showProfileAction.pending, (state) => {
-      state.isLoading = true;
-    })
     .addCase(showProfileAction.fulfilled, (state, actions) => {
       if (actions.payload.error_code === "ERROR") {
         state.isLogin = false;
