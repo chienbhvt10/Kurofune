@@ -703,7 +703,7 @@
       "placeholder_select_tax": "税金を選択してください。",
       "placeholder_select_vendor": "薬局を選択してください。",
       "placeholder_select_status": "ステータスを選択してください。",
-      "placeholder_select_stock_status":"在庫ステータスを選択してください。",
+      "placeholder_select_stock_status": "在庫ステータスを選択してください。",
       "placeholder_select_category": "カテゴリを選択してください。",
       "medicinal_efficacy_classification_field": "薬効分類",
       "features_field": "製品の特徴",
@@ -791,6 +791,7 @@
         "name_required": "税金名を入力してください。",
         "value_requied": "税率を入力してください。"
       }
-    }
+    },
+    "list_empty": "データなし"
   }
 }

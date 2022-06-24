@@ -5,6 +5,7 @@ import { Image, Table } from "antd";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import { useTranslation } from "react-i18next";
+import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
 const ProductTable = ({
   items,
   onEdit,
@@ -123,7 +124,6 @@ const ProductTable = ({
       ),
     },
   ];
-
   return (
     <Table
       rowKey="id"
@@ -142,6 +142,7 @@ const ProductTable = ({
         pageSize: pagination.per_page,
         showTotal: () => `Total ${pagination.total} items`,
       }}
+      locale={EMPTY_TABLE_LIST()}
     />
   );
 };
