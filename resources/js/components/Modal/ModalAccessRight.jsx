@@ -36,7 +36,7 @@ const ModalAccessRight = ({ modalVisible, setModalVisible,role }) => {
             <ul className="modal-custom-list">
               {theServices[role].map((content, index) => {
                 return (
-                  <li className="modal-custom-item">
+                  <li className="modal-custom-item" key={index}>
                     <span className="modal-custom-item-index">{index + 1}</span>
                     <span className="modal-custom-item-content">{t(content)}</span>
                   </li>
