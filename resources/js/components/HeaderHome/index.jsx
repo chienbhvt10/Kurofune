@@ -2,29 +2,36 @@ import { faBars, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import BackButton from "../../commons/BackButton";
 import { Languages } from "../../commons/Languges";
 import { getCurrentLanguage } from "../../helper/localStorage";
 import "./header-home.scss";
 import useLogout from "../../hooks/auth/useLogout";
 import useCart from "../../hooks/cart/useCart";
-const HeaderHome = ({ toggleSideBar,isShowCart }) => {
+const HeaderHome = ({ toggleSideBar, isShowCart }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
+  const location = useLocation();
   const { getLogout } = useLogout();
-  // const { profile } = useShowProfile();
-  
+  const [disabledCart, setDisabledCart] = React.useState("");
+
   const handleLogout = () => {
     getLogout();
   };
   const { cartInfo, deleteCartItem } = useCart();
   const totalQuantity = cartInfo?.cart_item
     ? cartInfo.cart_item.reduce(
-      (prev, currentItem) => prev + currentItem.quantity,
-      0
-    )
+        (prev, currentItem) => prev + currentItem.quantity,
+        0
+      )
     : 0;
+
+  React.useEffect(() => {
+    location.pathname === `${lang}/cart`
+      ? setDisabledCart("disabled-cart")
+      : setDisabledCart("");
+  }, [location]);
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -54,9 +61,8 @@ const HeaderHome = ({ toggleSideBar,isShowCart }) => {
             title={t("header.btn_back3")}
           />
           <div className="block-profile-header ">
-
-            {isShowCart() &&
-              <div className="shopping-cart">
+            {isShowCart() && (
+              <div className={`shopping-cart ${disabledCart}`}>
                 <div className="icon-cart">
                   <Link
                     id="cart-custom"
@@ -147,7 +153,7 @@ const HeaderHome = ({ toggleSideBar,isShowCart }) => {
                   </div>
                 </div>
               </div>
-            }
+            )}
 
             <div className="language-switcher language-switcher-dropdown">
               <Languages />
