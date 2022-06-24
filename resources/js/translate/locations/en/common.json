@@ -794,6 +794,40 @@
         "value_requied": "Please input your value."
       }
     },
+    "log_questionnaire": {
+      "title_log_questionnaire": "Questionnaire List",
+      "btn_download_log": "Download CSV",
+      "label_orderId": "Order number",
+      "label_username": "Username",
+      "label_userMail": "User email address",
+      "label_productName": "Order product",
+      "label_orderDate": "Order date",
+      "label_quantity": "Quantity",
+      "label_price": "Price",
+      "label_answer1": "What is your gender?",
+      "label_answer2": "How old are you?",
+      "label_answer3": "Have you ever used this medicine?",
+      "label_answer4": "Have you ever taken any medicine and had side effects?",
+      "label_answer5": "What is the name of the medicine you were using at that time?",
+      "label_answer6": "Are there any illnesses you are currently treating?",
+      "label_answer7": "Do you have any questions?",
+      "label_billingName": "Billing address - Full name",
+      "label_billingZipCode": "Billing address - Postal code",
+      "label_billingPrefecture": "Billing address - Prefecture",
+      "label_billingCity": "Billing address - Town / City",
+      "label_billingStreetAddress": "Billing address - Street address",
+      "label_billingBuilding": "Billing address - Building",
+      "label_billingPhone": "Billing address - Phone number",
+      "label_billingEmail": "Billing address - Email",
+      "label_shippingName": "Shipping address - Full name",
+      "label_shippingZipCode": "Shipping address - Postal code",
+      "label_shippingPrefecture": "Shipping address - Prefecture",
+      "label_shippingCity": "Shipping address - Town / City",
+      "label_shippingStreetAddress": "Shipping address - Street address",
+      "label_shippingBuilding": "Shipping address - Building",
+      "label_shippingPhone": "Shipping address - Phone number",
+      "label_shippingEmail": "Shipping address - Email"
+    },
     "list_empty": "No Data"
   }
 }
