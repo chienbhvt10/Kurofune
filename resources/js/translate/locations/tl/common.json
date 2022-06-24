@@ -643,7 +643,7 @@
       "placeholder_select_tax": "Mangyaring piliin ang Buwis.",
       "placeholder_select_vendor": "Mangyaring piliin ang Vendor.",
       "placeholder_select_status": "Mangyaring piliin ang Katayuan.",
-      "placeholder_select_stock_status":"Mangyaring piliin ang katayuan ng stock.",
+      "placeholder_select_stock_status": "Mangyaring piliin ang katayuan ng stock.",
       "placeholder_select_category": "Mangyaring piliin ang Kategorya.",
       "name_field": "Buwis",
       "field_name": "Pangalan",
@@ -788,6 +788,7 @@
         "name_required": "Mangyaring ipasok ang buwis sa pangalan.",
         "value_requied": "Mangyaring ipasok ang halaga ng buwis."
       }
-    }
+    },
+    "list_empty": "Walang data"
   }
 }

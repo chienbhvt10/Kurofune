@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "../../../../commons/TableRowAction";
 import { ACTIVE, ACTIVE_TEXT, IN_ACTIVE_TEXT } from "../../../../constants";
+import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 
 export const UserTable = (props) => {
@@ -112,6 +113,7 @@ export const UserTable = (props) => {
         pageSize: pagination.per_page,
         showTotal: () => `Total ${pagination.total} items`,
       }}
+      locale={EMPTY_TABLE_LIST()}
     />
   );
 };

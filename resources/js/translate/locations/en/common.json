@@ -697,7 +697,7 @@
       "placeholder_select_tax": "Please select tax",
       "placeholder_select_vendor": "Please select vendor",
       "placeholder_select_status": "Please select status",
-      "placeholder_select_stock_status":"Please select stock status",
+      "placeholder_select_stock_status": "Please select stock status",
       "placeholder_select_category": "Please select Category",
       "name_field": "Product Name",
       "field_name": "Name",
@@ -792,6 +792,7 @@
         "name_required": "Please input name tax",
         "value_requied": "Please input your value."
       }
-    }
+    },
+    "list_empty": "No Data"
   }
 }

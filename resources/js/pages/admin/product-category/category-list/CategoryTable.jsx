@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { CATEGORY_OPTIONS } from "../../../../commons/data";
+import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
 
 const CategoryTable = ({
   items,
@@ -139,6 +140,7 @@ const CategoryTable = ({
         total: pagination.total,
         showTotal: () => `Total ${pagination.total} items`,
       }}
+      locale={EMPTY_TABLE_LIST()}
     />
   );
 };

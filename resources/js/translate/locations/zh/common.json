@@ -649,7 +649,7 @@
       "placeholder_select_tax": "请选择税。",
       "placeholder_select_vendor": "请选择供应商。",
       "placeholder_select_status": "请选择状态。",
-      "placeholder_select_stock_status":"请选择库存状态。",
+      "placeholder_select_stock_status": "请选择库存状态。",
       "placeholder_select_category": "请选择类别。",
       "name_field": "产品名称",
       "medicinal_efficacy_classification_field": "药效分类",
@@ -794,6 +794,7 @@
         "name_required": "请输入地名税。",
         "value_requied": "请输入增值税。"
       }
-    }
+    },
+    "list_empty": "没有数据"
   }
 }

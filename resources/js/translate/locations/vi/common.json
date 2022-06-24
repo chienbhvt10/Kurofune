@@ -640,7 +640,7 @@
       "placeholder_select_tax": "Vui lòng chọn Thuế.",
       "placeholder_select_vendor": "Vui lòng chọn Nhà thuốc.",
       "placeholder_select_status": "Vui lòng chọn Trạng thái.",
-      "placeholder_select_stock_status":"Vui lòng chọn Trạng thái tồn kho.",
+      "placeholder_select_stock_status": "Vui lòng chọn Trạng thái tồn kho.",
       "placeholder_select_category": "Vui lòng chọn Danh mục.",
       "tax_field": "Thuế",
       "meta_title_field": "Thẻ Meta Title",
@@ -786,6 +786,7 @@
         "name_required": "Vui lòng nhập tên thuế",
         "value_requied": "Vui lòng nhập giá trị thuế"
       }
-    }
+    },
+    "list_empty": "Không có dữ liệu"
   }
 }

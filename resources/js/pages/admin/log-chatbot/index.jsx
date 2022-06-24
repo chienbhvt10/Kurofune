@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import PageHead from "../../../commons/PageHead";
 import { TableHeader } from "../../../commons/TableHeader";
+import { EMPTY_TABLE_LIST } from "../../../constants/emptyTable";
 import useDetailChat from "../../../hooks/logChat/useDetailChat";
 import useExportCsv from "../../../hooks/logChat/useExportCSV";
 import useExportCsvAll from "../../../hooks/logChat/useExportCSVAll";
@@ -176,6 +177,7 @@ const LogChatBot = () => {
             setPage(current);
           },
         }}
+        locale={EMPTY_TABLE_LIST()}
       />
       <Modal
         title={t("admins.log_chatbot.show_history")}
