@@ -1,5 +1,6 @@
 export const validateFormRegister = {
     full_name: [{ required: true, message: "admins.user.error.name_required" }],
+    name_furigana: [{ required: true, message: "admins.user.error.name_furigana_required" }],
     email: [
         { required: true, message: "admins.user.error.email.required" },
         {
@@ -9,8 +10,8 @@ export const validateFormRegister = {
             message: "admins.user.error.email.type",
         },
     ],
-    birthday: [
-        { required: true, message: "admins.user.error.birthday.required" },
+    dob: [
+        { required: true, message: "admins.user.error.dob.required" },
     ],
     gender: [
         { required: true, message: "admins.user.error.gender.required" },
@@ -61,7 +62,7 @@ export const validateFormRegister = {
     prefecture: [
         { required: true, message: "admins.user.error.prefecture_required" },
     ],
-    town_city: [{ required: true, message: "admins.user.error.city_required" }],
+    city: [{ required: true, message: "admins.user.error.city_required" }],
     street_address: [
         { required: true, message: "admins.user.error.street_address_required" },
     ],
@@ -74,10 +75,10 @@ export const validateFormRegister = {
     visa_type:[
         { required: true, message: "admins.user.error.visa_type_required" }
     ],
-    course:[
+    education_status:[
         { required: true, message: "admins.user.error.course_required" }
     ],
-    job:[
+    job_name:[
         { required: true, message: "admins.user.error.job_required" }
     ]
 

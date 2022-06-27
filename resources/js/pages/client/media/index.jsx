@@ -16,6 +16,7 @@ import { resetAuthResponse } from "../../../redux/actions/authAction";
 import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
 import { useSelector } from "react-redux";
 import { ROLE_FULL_SUPPORT_PLAN, ROLE_LIGHT_PLAN } from "../../../constants";
+import UserProfileClient from "../../../components/Modal/UserProfileClient";
 
 const MediaPage = () => {
   const { t } = useTranslation();
@@ -113,9 +114,9 @@ const MediaPage = () => {
           </div>
         </div>
         <Footer />
-        <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/>
+        {/* <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
         {/* <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
-         {/* {modalVisible && <RegisterUser modalVisible={modalVisible} setModalVisible={setModalVisible} role={role} /> } */}
+         {modalVisible && <UserProfileClient modalVisible={modalVisible} setModalVisible={setModalVisible} role={'full_plan'} /> }
       </div>
     </>
   );

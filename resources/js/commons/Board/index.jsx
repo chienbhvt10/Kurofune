@@ -21,11 +21,16 @@ const Board = ({ boardItems, setModalVisible }) => {
                 : "board-item"
             }
             onClick={() => {
-              if (!isRequest) {
+              if (item.disable) {
                 setModalVisible((pre) => {
                   return !pre
                 })
               }
+              // if (!isRequest) {
+              //   // setModalVisible((pre) => {
+              //   //   return !pre
+              //   // })
+              // }
             }
             }
           >
