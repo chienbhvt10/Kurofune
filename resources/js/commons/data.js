@@ -439,7 +439,7 @@ export const navigateLinkAdminData = [
   {
     link: "admin/log-questionnaire",
     imageUrl: "/images/sidebar/Questionnaire-form.png",
-    title: "navigate_link.questionnaire_title",
+    title: "navigate_link.log_questionnaire_title",
     isAdminOnly: true,
   },
   {

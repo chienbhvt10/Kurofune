@@ -104,7 +104,8 @@
   },
   "navigate_link": {
     "title": "网上药店",
-    "questionnaire_title": "他加禄语",
+    "questionnaire_title": "诊断问卷",
+    "log_questionnaire_title": "问卷清单",
     "pharmacies_title": "药房信息",
     "medicine_title": "药品信息",
     "order_history_title": "订单历史",
