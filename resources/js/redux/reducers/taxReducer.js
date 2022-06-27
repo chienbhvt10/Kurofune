@@ -5,6 +5,7 @@ import {
   addTaxAction,
   deleteTaxAction,
   updateTaxAction,
+  resetTaxCRUDAction,
 } from "../actions/taxAction";
 const initialState = {
   taxes: undefined,
@@ -35,7 +36,7 @@ const taxReducers = createReducer(initialState, (builder) => {
   });
 
   builder.addCase(addTaxAction.fulfilled, (state, actions) => {
-    state.resAddTax = actions?.payload.data;
+    state.resAddTax = actions?.payload;
   });
 
   builder.addCase(updateTaxAction.fulfilled, (state, actions) => {
@@ -45,6 +46,15 @@ const taxReducers = createReducer(initialState, (builder) => {
   builder.addCase(deleteTaxAction.fulfilled, (state, actions) => {
     state.resDeleteTax = actions.payload;
   });
+
+   builder.addCase(resetTaxCRUDAction, (state) => {
+     return {
+       ...state,
+       resAddTax: undefined,
+       resUpdateTax: undefined,
+       resDeleteTax: undefined,
+     };
+   });
 });
 
 export default taxReducers;
