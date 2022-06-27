@@ -663,7 +663,7 @@
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
         "error_en_product_name": "产品名称字段是必需的。",
-        "error_price": "Please input valid number.",
+        "error_price": "请输入一个大于 0 的值。",
         "error_not_allowed_delete_category": "不能删除。 此类别中有待售产品。"
       },
       "title": {
