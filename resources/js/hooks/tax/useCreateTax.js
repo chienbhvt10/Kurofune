@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import React from "react";
-import { addTaxAction } from "../../redux/actions/taxAction";
+import {
+  addTaxAction,
+  resetTaxCRUDAction,
+} from "../../redux/actions/taxAction";
 import { NO_ERROR, ERROR } from "../../constants/error";
 import {
   NotificationSuccess,
@@ -22,15 +25,16 @@ const useCreateTax = () => {
 
   const createTax = (data) => {
     dispatch(addTaxAction(data));
-    navigate(`${lang}/admin/tax-list`);
   };
 
   React.useEffect(() => {
     if (resAddTax?.error_code === NO_ERROR) {
-      getTaxes({ page: pagination?.current_page });
+     dispatch(resetTaxCRUDAction());
       NotificationSuccess(t("notification"), resAddTax?.message);
       navigate(`${lang}/admin/tax-list`);
+      getTaxes({ page: pagination?.current_page });
     }
+   
   }, [resAddTax]);
 
   return {
