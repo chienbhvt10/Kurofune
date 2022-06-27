@@ -105,6 +105,7 @@
   "navigate_link": {
     "title": "オンライン薬局",
     "questionnaire_title": "問診票",
+    "log_questionnaire_title": "問診票",
     "pharmacies_title": "薬局情報",
     "medicine_title": "薬剤情報",
     "order_history_title": "注文履歴",

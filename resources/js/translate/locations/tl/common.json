@@ -110,7 +110,8 @@
   },
   "navigate_link": {
     "title": "Online pharmacy",
-    "questionnaire_title": "Bumili ng gamot gamit ang chatbot",
+    "questionnaire_title": "Palatanungan",
+    "log_questionnaire_title": "Bumili ng gamot gamit ang chatbot",
     "pharmacies_title": "Impormasyon sa Pharmacy",
     "medicine_title": "Impormasyon ng mga gamot",
     "order_history_title": "History ng order",
