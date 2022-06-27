@@ -24,3 +24,9 @@ export const deleteKeyUndefined = (object) => {
   }
   return object;
 };
+export const getResultValidate = async (formInstance) => {
+  return await formInstance
+    .validateFields()
+    .then((values) => values)
+    .catch((err) => err);
+};

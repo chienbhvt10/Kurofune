@@ -15,6 +15,13 @@ const useHandleTranslateForm = (item) => {
   const [categoryProfileFormTL] = Form.useForm();
   const [categoryProfileFormVI] = Form.useForm();
   const [categoryProfileFormZH] = Form.useForm();
+  const validateTranslateForm = () => {
+    categoryProfileFormJP.validateFields();
+    categoryProfileFormVI.validateFields();
+    categoryProfileFormTL.validateFields();
+    categoryProfileFormZH.validateFields();
+    categoryProfileFormEN.validateFields();
+  };
 
   const enInitValues = getTranslateCategoryInitValues(
     item?.translations[0],
@@ -53,6 +60,7 @@ const useHandleTranslateForm = (item) => {
     categoryProfileFormTL,
     categoryProfileFormVI,
     categoryProfileFormZH,
+    validateTranslateForm,
   };
 };
 
