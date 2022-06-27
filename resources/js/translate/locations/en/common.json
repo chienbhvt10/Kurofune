@@ -114,7 +114,8 @@
     "user_title": "User",
     "product_title": "Product",
     "category_title": "Product Category",
-    "questionnaire_title": "Log Questionnaire",
+    "questionnaire_title": "Questionnaire",
+    "log_questionnaire_title": "Log Questionnaire",
     "pharmacies_title": "Pharmacy information",
     "medicine_title": "Drug information",
     "order_history_title": "Order history",
@@ -232,7 +233,7 @@
       "btn_search": "Submit",
       "title_number_results": "Search results:",
       "btn_detail": "Detail",
-      "no_result": "No search results found",
+      "no_result": "Please enter keywords to search",
       "description_number": " cases in total"
     },
     "media": {

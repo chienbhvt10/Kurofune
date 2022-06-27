@@ -7,8 +7,10 @@ import "./checkout.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { showProfileAction } from "../../../redux/actions/authAction";
 import PageHead from "../../../commons/PageHead";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 const CheckoutPage = () => {
   const dispatch = useDispatch();
+  const lang = getCurrentLanguage();
   const profile = useSelector((state) => state.authState.profile);
   const { t } = useTranslation();
   const { cartInfo, checkout } = useCart();
@@ -112,7 +114,7 @@ const CheckoutPage = () => {
                       <bdi>
                         {item?.price_tax.toFixed(3)}&nbsp;
                         <span className="woocommerce-Price-currencySymbol">
-                          (JPY)
+                        {!lang ? "円" : "(JPY)"}
                         </span>
                       </bdi>
                     </span>
@@ -128,7 +130,7 @@ const CheckoutPage = () => {
                       <bdi>
                         {(item?.price_tax * item?.quantity).toFixed(3)}&nbsp;
                         <span className="woocommerce-Price-currencySymbol">
-                          (JPY)
+                        {!lang ? "円" : "(JPY)"}
                         </span>
                       </bdi>
                     </span>
@@ -150,7 +152,7 @@ const CheckoutPage = () => {
                       <bdi>
                         {totalValue.toFixed(3)}&nbsp;
                         <span className="woocommerce-Price-currencySymbol">
-                          (JPY)
+                        {!lang ? "円" : "(JPY)"}
                         </span>
                       </bdi>
                     </span>

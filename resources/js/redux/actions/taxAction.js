@@ -7,6 +7,7 @@ const taxesActions = {
   addTax: createAction("ADD_TAX"),
   updateTax: createAction("UPDATE_TAX"),
   deleteTax: createAction("DELETE_TAX"),
+  resetTaxCRUD: createAction("RESET_TAX_CRUD"),
 };
 
 export const getTaxesAction = createAsyncThunk(
@@ -61,5 +62,7 @@ export const deleteTaxAction = createAsyncThunk(
     return res;
   }
 );
+
+export const resetTaxCRUDAction = taxesActions.resetTaxCRUD;
 
 export default taxesActions;

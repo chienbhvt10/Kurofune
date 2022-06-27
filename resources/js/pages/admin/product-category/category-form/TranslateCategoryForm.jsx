@@ -28,7 +28,6 @@ const TranslateCategoryForm = ({
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);
   };
-
   return (
     <SwitchTabLangForm
       formName={FORM_CATEGORY}

@@ -105,6 +105,7 @@
   "navigate_link": {
     "title": "オンライン薬局",
     "questionnaire_title": "問診票",
+    "log_questionnaire_title": "問診票",
     "pharmacies_title": "薬局情報",
     "medicine_title": "薬剤情報",
     "order_history_title": "注文履歴",
@@ -226,7 +227,7 @@
       "btn_search": "検索する",
       "title_number_results": "検索結果:",
       "btn_detail": " 詳細",
-      "no_result": "検索結果が見つかりません",
+      "no_result": "薬剤名を入力してください",
       "description_number": "件"
     },
     "media": {

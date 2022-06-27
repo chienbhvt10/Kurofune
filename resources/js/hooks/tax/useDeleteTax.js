@@ -1,6 +1,9 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteTaxAction } from "../../redux/actions/taxAction";
+import {
+  deleteTaxAction,
+  resetTaxCRUDAction,
+} from "../../redux/actions/taxAction";
 import { useTranslation } from "react-i18next";
 import { NO_ERROR, ERROR } from "../../constants/error";
 import {
@@ -27,6 +30,7 @@ const useDeleteAdminCategory = () => {
 
   React.useEffect(() => {
     if (resDeleteTax?.error_code === NO_ERROR) {
+      dispatch(resetTaxCRUDAction());
       getTaxes({ page: pagination.current_page });
       NotificationSuccess(t("notification"), resDeleteTax?.message);
       navigate(`${lang}/admin/tax-list`);

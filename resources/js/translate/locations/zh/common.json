@@ -104,7 +104,8 @@
   },
   "navigate_link": {
     "title": "网上药店",
-    "questionnaire_title": "他加禄语",
+    "questionnaire_title": "诊断问卷",
+    "log_questionnaire_title": "问卷清单",
     "pharmacies_title": "药房信息",
     "medicine_title": "药品信息",
     "order_history_title": "订单历史",
@@ -226,7 +227,7 @@
       "btn_search": "提交",
       "title_number_results": "搜索结果s:",
       "btn_detail": "详情",
-      "no_result": "未找到搜索结果",
+      "no_result": "请输入关键字进行搜索",
       "description_number": "总共有"
     },
     "media": {

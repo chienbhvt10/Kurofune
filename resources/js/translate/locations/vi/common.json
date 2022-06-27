@@ -105,6 +105,7 @@
   "navigate_link": {
     "title": "Hiệu thuốc Online",
     "questionnaire_title": "Bảng câu hỏi chẩn đoán bệnh",
+    "log_questionnaire_title": "Bảng câu hỏi chẩn đoán bệnh",
     "pharmacies_title": "Danh sách nhà thuốc",
     "medicine_title": "Danh sách thuốc",
     "order_history_title": "Lịch sử mua hàng",
@@ -226,7 +227,7 @@
       "btn_search": "Tìm kiếm",
       "title_number_results": "Kết quả tìm kiếm: ",
       "btn_detail": "Chi tiết",
-      "no_result": "Không tìm thấy kết quả tìm kiếm.",
+      "no_result": "Hãy nhập từ để tìm kiếm.",
       "description_number": " trường hợp"
     },
     "media": {
