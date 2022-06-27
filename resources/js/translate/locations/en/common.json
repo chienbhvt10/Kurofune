@@ -232,7 +232,7 @@
       "btn_search": "Submit",
       "title_number_results": "Search results:",
       "btn_detail": "Detail",
-      "no_result": "No search results found",
+      "no_result": "Please enter keywords to search",
       "description_number": " cases in total"
     },
     "media": {
