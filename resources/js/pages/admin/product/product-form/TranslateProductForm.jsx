@@ -5,14 +5,16 @@ import {
   FIRST_TAB,
   FORM_PRODUCT,
   FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+} from "../../../../constants";
+import {
   LANG_CHINESE,
   LANG_ENGLISH,
   LANG_JAPANESE,
   LANG_PHILIPPINES,
   LANG_VIETNAMESE,
-  SECOND_TAB,
-  THIRD_TAB,
-} from "../../../../constants";
+} from "../../../../constants/languages";
 import SubFormTranslate from "./SubFormTranslate.jsx";
 
 const TranslateProductForm = (props) => {
