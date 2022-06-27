@@ -54,6 +54,8 @@ export const Questionnaire = () => {
   const onFinish = (values) => {
     searchPharmacies(values.search);
   };
+
+  const _lang = lang || "/ja";
   return (
     <div className="questionnaire-container">
       <input type="hidden" id="sys_userid" value={profile?.id} />
@@ -106,7 +108,7 @@ export const Questionnaire = () => {
                       to={`${lang}/product-detail/${item.id}`}
                       className="product-title"
                     >
-                      {item.name}
+                      {item.translations.find((trans) => _lang.includes(trans.locale))?.name}
                     </Link>
                     <Link
                       to={`${lang}/product-detail/${item.id}`}
