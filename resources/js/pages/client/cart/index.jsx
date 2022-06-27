@@ -60,7 +60,12 @@ const Cart = () => {
       key: "price",
       dataIndex: "price",
       title: t("client.cart.th_product_price"),
-      render: (_, record) => <span>{record?.price_tax.toFixed(3)}</span>,
+      render: (_, record) => (
+        <span>
+          {new Intl.NumberFormat().format(record?.price)}{" "}
+          {!lang ? "円" : "(JPY)"}
+        </span>
+      ),
       align: "center",
       width: 230,
     },
