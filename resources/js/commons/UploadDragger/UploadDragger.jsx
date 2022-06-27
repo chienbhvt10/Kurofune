@@ -9,7 +9,7 @@ import {
 } from "../../constants";
 import "./upload-dragger.scss";
 
-const UploadDragger = ({ imageUrlProps, onChangeImage, setImageUrlProps }) => {
+const UploadDragger = ({ imageUrlProps, onChangeImage, setIsRemoveImage }) => {
   const { t } = useTranslation();
   const ref = React.useRef();
   const [previewImage, setPreviewImage] = React.useState(false);
@@ -57,7 +57,7 @@ const UploadDragger = ({ imageUrlProps, onChangeImage, setImageUrlProps }) => {
   const onRemoveImage = () => {
     onChangeImage(undefined);
     setImageUrl("");
-    setImageUrlProps("");
+    setIsRemoveImage(true);
   };
 
   const preventSubmit = (e) => e.preventDefault();

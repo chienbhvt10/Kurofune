@@ -2,12 +2,10 @@ import React from "react";
 
 const useHandleImage = (item) => {
   const [avatar, setAvatar] = React.useState();
-  const [errorMessImage, setErrorMessImage] = React.useState("");
   const [avatarUrl, setAvatarUrl] = React.useState();
-
+  const [isRemoveImage, setIsRemoveImage] = React.useState(false);
   const onChangeAvatar = (file) => {
     setAvatar(file);
-    setErrorMessImage("");
   };
 
   React.useEffect(() => {
@@ -17,10 +15,10 @@ const useHandleImage = (item) => {
   return {
     avatar,
     avatarUrl,
+    isRemoveImage,
     setAvatarUrl,
-    errorMessImage,
     onChangeAvatar,
-    setErrorMessImage,
+    setIsRemoveImage,
   };
 };
 
