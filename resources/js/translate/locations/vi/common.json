@@ -782,6 +782,40 @@
         "value_requied": "Vui lòng nhập giá trị thuế"
       }
     },
+    "log_questionnaire": {
+      "title_log_questionnaire": "Bảng câu hỏi chẩn đoán bệnh",
+      "btn_download_log": "Tải xuống CSV",
+      "label_orderId": "Số đơn hàng",
+      "label_username": "Tên người dùng",
+      "label_userMail": "Email người dùng",
+      "label_productName": "Sản phẩm đặt hàng",
+      "label_orderDate": "Ngày đặt hàng",
+      "label_quantity": "Số lượng",
+      "label_price": "Số tiền",
+      "label_answer1": "Giới tính của bạn là gì ?",
+      "label_answer2": "Bạn bao nhiêu tuổi ?",
+      "label_answer3": "Bạn dùng thuốc này bao giờ chưa ?",
+      "label_answer4": "Bạn đã bao giờ uống thuốc và bị tác dụng phụ chưa?",
+      "label_answer5": "Tên loại thuốc bạn đang sử dụng lúc đó là gì?",
+      "label_answer6": "Hiện tại bạn có đang điều trị bệnh gì không ?",
+      "label_answer7": "Bạn có câu hỏi nào không?",
+      "label_billingName": "Địa chỉ thanh toán - Họ và tên",
+      "label_billingZipCode": "Địa chỉ thanh toán - Mã bưu điện",
+      "label_billingPrefecture": "Địa chỉ thanh toán - Tỉnh/ Thành phố",
+      "label_billingCity": "Địa chỉ thanh toán - Thị trấn / Thành phố",
+      "label_billingStreetAddress": "Địa chỉ thanh toán - Địa chỉ khu phố",
+      "label_billingBuilding": "Địa chỉ thanh toán - Tên toà nhà",
+      "label_billingPhone": "Địa chỉ thanh toán - Số điện thoại",
+      "label_billingEmail": "Địa chỉ thanh toán - Email",
+      "label_shippingName": "Địa chỉ giao hàng - Họ và tên",
+      "label_shippingZipCode": "Địa chỉ giao hàng - Mã bưu điện",
+      "label_shippingPrefecture": "Địa chỉ giao hàng - Tỉnh/ Thành phố",
+      "label_shippingCity": "Địa chỉ giao hàng - Thị trấn / Thành phố",
+      "label_shippingStreetAddress": "Địa chỉ giao hàng - Địa chỉ khu phố",
+      "label_shippingBuilding": "Địa chỉ giao hàng - Tên toà nhà",
+      "label_shippingPhone": "Địa chỉ giao hàng - Số điện thoại",
+      "label_shippingEmail": "Địa chỉ giao hàng - Email"
+    },
     "list_empty": "Không có dữ liệu"
   }
 }

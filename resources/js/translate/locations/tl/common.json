@@ -790,6 +790,40 @@
         "value_requied": "Mangyaring ipasok ang halaga ng buwis."
       }
     },
+    "log_questionnaire": {
+      "title_log_questionnaire": "Bumili ng gamot gamit ang chatbot",
+      "btn_download_log": "I-download ang CSV",
+      "label_orderId": "Numero ng order",
+      "label_username": "Username",
+      "label_userMail": "Email address ng user",
+      "label_productName": "Mag-order ng produkto",
+      "label_orderDate": "Petsa ng order",
+      "label_quantity": "Dami",
+      "label_price": "Presyo",
+      "label_answer1": "Ano ang iyong kasarian?",
+      "label_answer2": "Ilang taon ka na?",
+      "label_answer3": "Nagamit mo na ba ang gamot na ito?",
+      "label_answer4": "Nakainom ka na ba ng anumang gamot at nagkaroon ng side effect?",
+      "label_answer5": "Ano ang pangalan ng gamot na iyong ginagamit noong panahong iyon?",
+      "label_answer6": "Mayroon bang anumang mga sakit na iyong ginagamot sa kasalukuyan?",
+      "label_answer7": "May tanong ka ba?",
+      "label_billingName": "Billing address - Buong pangalan",
+      "label_billingZipCode": "Billing address - Postal code",
+      "label_billingPrefecture": "Billing address - Prefecture",
+      "label_billingCity": "Billing address - Bayan / Lungsod",
+      "label_billingStreetAddress": "Billing address - Address ng kalye",
+      "label_billingBuilding": "Billing address - Gusali",
+      "label_billingPhone": "Billing address - Numero ng telepono",
+      "label_billingEmail": "Billing address - Email",
+      "label_shippingName": "Address ng pagpapadala - Buong pangalan",
+      "label_shippingZipCode": "Address ng pagpapadala - Postal code",
+      "label_shippingPrefecture": "Address ng pagpapadala - Prefecture",
+      "label_shippingCity": "Address ng pagpapadala - Bayan / Lungsod",
+      "label_shippingStreetAddress": "Address ng pagpapadala - Address ng kalye",
+      "label_shippingBuilding": "Address ng pagpapadala - Gusali",
+      "label_shippingPhone": "Address ng pagpapadala - Numero ng telepono",
+      "label_shippingEmail": "Address ng pagpapadala - Email"
+    },
     "list_empty": "Walang data"
   }
 }

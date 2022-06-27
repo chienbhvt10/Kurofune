@@ -35,7 +35,7 @@ const Cart = () => {
       title: t("client.cart.th_product_name"),
       align: "center",
       render: (_, record) => (
-        <Link to={`${lang}/member/product-detail/${record.id}`}>
+        <Link to={`${lang}/product-detail/${record.product_id}`}>
           <Row>
             <Col span={4}>
               <Row justify="center">

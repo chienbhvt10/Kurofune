@@ -790,6 +790,40 @@
         "value_requied": "请输入增值税。"
       }
     },
+    "log_questionnaire": {
+      "title_log_questionnaire": "问卷清单",
+      "btn_download_log": "CSV 下载",
+      "label_orderId": "订单号",
+      "label_username": "用户名",
+      "label_userMail": "用户电子邮件地址",
+      "label_productName": "订购的产品",
+      "label_orderDate": "订购日期",
+      "label_quantity": "数量",
+      "label_price": "金钱数额",
+      "label_answer1": "你的性别是什么？",
+      "label_answer2": "请告诉我你的年龄",
+      "label_answer3": "你用过这种药吗？",
+      "label_answer4": "你有没有吃过药并且有副作用？",
+      "label_answer5": "你当时用的药叫什么名字？",
+      "label_answer6": "您目前正在治疗任何疾病吗？",
+      "label_answer7": "你有任何问题吗？",
+      "label_billingName": "遗址名称",
+      "label_billingZipCode": "帐单地址 - 邮政编码",
+      "label_billingPrefecture": "帐单地址-县",
+      "label_billingCity": "帐单地址-城市",
+      "label_billingStreetAddress": "帐单地址 - 街道地址",
+      "label_billingBuilding": "帐单地址 - 建筑物",
+      "label_billingPhone": "帐单地址-电话号码",
+      "label_billingEmail": "帐单地址 - 电子邮件地址",
+      "label_shippingName": "收货地址-名称",
+      "label_shippingZipCode": "收货地址-邮政编码",
+      "label_shippingPrefecture": "配送目的地-县",
+      "label_shippingCity": "交货目的地城市",
+      "label_shippingStreetAddress": "送货地址 - 街道地址",
+      "label_shippingBuilding": "收货地址 - 建筑物",
+      "label_shippingPhone": "收货地址-电话号码",
+      "label_shippingEmail": "收货地址-电子邮件地址"
+    },
     "list_empty": "没有数据"
   }
 }

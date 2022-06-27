@@ -1,4 +1,4 @@
-import { createReducer } from "@reduxjs/toolkit";
+import { createReducer, createSelector } from "@reduxjs/toolkit";
 import { NO_ERROR } from "../../constants/error";
 import {
   changePasswordAction,
@@ -30,7 +30,7 @@ const initialState = {
   resForgotPassword: undefined,
   resResetPassword: undefined,
   resResetResponse: undefined,
-  isLoading: false,
+  isLoading: true,
 };
 
 const authReducers = createReducer(initialState, (builder) => {
@@ -111,6 +111,10 @@ const authReducers = createReducer(initialState, (builder) => {
     }
   });
   builder
+    .addCase(showProfileAction.pending, (state) => {
+      if (!state.profile && !state.userInfo) state.isLoading = true;
+      else state.isLoading = false;
+    })
     .addCase(showProfileAction.fulfilled, (state, actions) => {
       if (actions.payload.error_code === "ERROR") {
         state.isLogin = false;
@@ -164,4 +168,15 @@ const authReducers = createReducer(initialState, (builder) => {
     };
   });
 });
+const selectSelf = (state) => state.authState;
+const rolesNameSelector = createSelector(
+  selectSelf,
+  (state) => state?.userInfo?.roles?.name
+);
+const rolesSelector = createSelector(
+  selectSelf,
+  (state) => state?.profile?.roles
+);
+
+export const authSelectors = { rolesNameSelector, rolesSelector };
 export default authReducers;
