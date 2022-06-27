@@ -3,11 +3,16 @@ import { Form } from "antd";
 import { getTranslateCategoryInitValues } from "../category-form/categoryInitValues";
 import {
   LANG_CHINESE,
+  LANG_CHINESE_INDEX,
   LANG_ENGLISH,
+  LANG_ENGLISH_INDEX,
   LANG_JAPANESE,
+  LANG_JAPANESE_INDEX,
   LANG_PHILIPPINES,
+  LANG_PHILIPPINES_INDEX,
   LANG_VIETNAMESE,
-} from "../../../../constants";
+  LANG_VIETNAMESE_INDEX,
+} from "../../../../constants/languages";
 
 const useHandleTranslateForm = (item) => {
   const [categoryProfileFormEN] = Form.useForm();
@@ -24,23 +29,23 @@ const useHandleTranslateForm = (item) => {
   };
 
   const enInitValues = getTranslateCategoryInitValues(
-    item?.translations[0],
+    item?.translations[LANG_ENGLISH_INDEX],
     LANG_ENGLISH
   );
   const jaInitValues = getTranslateCategoryInitValues(
-    item?.translations[1],
+    item?.translations[LANG_JAPANESE_INDEX],
     LANG_JAPANESE
   );
   const tlInitValues = getTranslateCategoryInitValues(
-    item?.translations[2],
+    item?.translations[LANG_PHILIPPINES_INDEX],
     LANG_PHILIPPINES
   );
   const viInitValues = getTranslateCategoryInitValues(
-    item?.translations[3],
+    item?.translations[LANG_VIETNAMESE_INDEX],
     LANG_VIETNAMESE
   );
   const zhInitValues = getTranslateCategoryInitValues(
-    item?.translations[4],
+    item?.translations[LANG_CHINESE_INDEX],
     LANG_CHINESE
   );
 
