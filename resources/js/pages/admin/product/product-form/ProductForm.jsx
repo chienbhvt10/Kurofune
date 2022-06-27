@@ -249,7 +249,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 <SelectField
                   field="stock_status"
                   label={t("admins.product.stock_status_field")}
-                  placeholder={t("admins.product.placeholder_select_stock_status")}
+                  placeholder={t(
+                    "admins.product.placeholder_select_stock_status"
+                  )}
                   options={productFormOptions.stock_status}
                   rules={[
                     {
@@ -274,10 +276,21 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                       <InputNumber
                         type="number"
                         className="input-field"
-                        min="0"
                         style={{ width: "100%" }}
                       />
                     }
+                    rules={[
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (getFieldValue("price") < 0 || value < 0) {
+                            return Promise.reject(
+                              t("admins.product.error_message.error_price")
+                            );
+                          }
+                          return Promise.resolve();
+                        },
+                      }),
+                    ]}
                   />
                 </Col>
               </Col>
