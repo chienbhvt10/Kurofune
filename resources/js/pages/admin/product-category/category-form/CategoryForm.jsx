@@ -29,12 +29,13 @@ const CategoryForm = ({
     categoryProfileFormZH,
     initialCommonValues,
     errorMessImage,
+    avatarUrl,
     onChangeAvatar,
     onFinishAll,
     onFinishError,
+    setAvatarUrl,
   } = useHandleForm(item, onSave, typeForm);
 
-  const [avatarUrl, setAvatarUrl] = React.useState();
   const { t } = useTranslation();
   const formItemLayout = getCategoryFormLayout();
   const { getAllCategories, categories } = useCategories();
@@ -42,10 +43,6 @@ const CategoryForm = ({
   React.useEffect(() => {
     getAllCategories();
   }, []);
-
-  React.useEffect(() => {
-    setAvatarUrl(item?.category_image || "");
-  }, [item]);
 
   return (
     <div id="category-form">
@@ -71,6 +68,7 @@ const CategoryForm = ({
               <UploadDragger
                 onChangeImage={onChangeAvatar}
                 imageUrlProps={avatarUrl}
+                setImageUrlProps={setAvatarUrl}
               />
             </Form.Item>
             {errorMessImage && (
