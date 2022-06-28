@@ -609,7 +609,7 @@
         "new_password_required": "请输入新密码。",
         "confirm_password_required": "请输入密码确认。",
         "not_same_password": "您输入的两个密码不匹配。",
-        "required": "请选择此项。"
+        "required": "请选择此项。w"
       }
     },
     "crud": {

@@ -37,16 +37,6 @@ const PlanProfileForm = ({ form, className, role }) => {
       });
     }
   }, [role]);
-
-  // const isCheckRoleFullAndLight = React.useMemo(()=>{
-  //   if(role ===ROLE_FULL_SUPPORT_PLAN || role === ROLE_LIGHT_PLAN) {
-  //     userInfoForm.setFieldsValue({
-  //       active : 0
-  //     })
-  //     return true
-  //   }
-  //   return false
-  // },[role])
   const renderErrorTranslate = (field) => {
     return validateUser?.[field].map((item) => {
       return {
