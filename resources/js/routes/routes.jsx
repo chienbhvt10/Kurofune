@@ -4,14 +4,14 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { navigateLinkAdminData, navigateLinkData } from "../commons/data";
 import { LangAfterReload } from "../commons/Languges/langAfterReload";
 import HomeLayout from "../commons/layout/HomeLayout";
+import { USER_ROLES } from "../constants";
 import {
   LANG_CHINESE,
   LANG_ENGLISH,
   LANG_JAPANESE,
   LANG_PHILIPPINES,
   LANG_VIETNAMESE,
-  USER_ROLES,
-} from "../constants";
+} from "../constants/languages";
 import { getCurrentLanguage, setCurrentLanguage } from "../helper/localStorage";
 import LogChatBot from "../pages/admin/log-chatbot";
 import LogQuestionnaire from "../pages/admin/log-questionnaire";

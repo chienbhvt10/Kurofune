@@ -662,7 +662,7 @@
         "error_category": "Trường 'Danh mục' là trường bắt buộc",
         "error_tax": "Trường 'Thuế' là trường bắt buộc",
         "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc",
-        "error_price": "Vui lòng nhập số hợp lệ.",
+        "error_price": "Vui lòng nhập số lớn hơn 0",
         "error_not_allowed_delete_category": "Thao tác xoá không thể thực hiện. Đang có sản phẩm được bán trong danh mục sản phẩm này."
       },
       "title": {

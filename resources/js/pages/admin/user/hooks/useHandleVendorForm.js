@@ -2,16 +2,14 @@ import { Form } from "antd";
 import React from "react";
 import {
   LANG_CHINESE,
-  LANG_ENGLISH,
-  LANG_JAPANESE,
-  LANG_PHILIPPINES,
-  LANG_VIETNAMESE,
-} from "../../../../constants";
-import {
   LANG_CHINESE_INDEX,
+  LANG_ENGLISH,
   LANG_ENGLISH_INDEX,
+  LANG_JAPANESE,
   LANG_JAPANESE_INDEX,
+  LANG_PHILIPPINES,
   LANG_PHILIPPINES_INDEX,
+  LANG_VIETNAMESE,
   LANG_VIETNAMESE_INDEX,
 } from "../../../../constants/languages";
 import { getTranslateInitValues } from "../user-form/userFormInitValues";

@@ -15,8 +15,15 @@ const useHandleForm = (item, onSave, typeForm) => {
   const [categoryForm] = Form.useForm();
   const lang = getCurrentLanguage();
   const initialCommonValues = getCategoryInitValues(item);
-  const { avatar, onChangeAvatar, errorMessImage, setErrorMessImage } =
-    useHandleImage();
+  const {
+    avatar,
+    avatarUrl,
+    isRemoveImage,
+    onChangeAvatar,
+    setAvatarUrl,
+    setIsRemoveImage,
+  } = useHandleImage(item);
+
   const {
     categoryProfileFormEN,
     categoryProfileFormJP,
@@ -35,25 +42,23 @@ const useHandleForm = (item, onSave, typeForm) => {
     const zhFormValues = await getResultValidate(categoryProfileFormZH);
 
     if (typeForm === TYPE_FORM_UPDATE) {
-      setErrorMessImage("");
       formData.append("_method", "PUT");
-    } else {
-      setErrorMessImage(!avatar);
     }
 
-    if (
+    const isErrorValidate =
       enFormValues.errorFields ||
       jaFormValues.errorFields ||
       tlFormValues.errorFields ||
       viFormValues.errorFields ||
-      zhFormValues.errorFields ||
-      !avatar
-    ) {
+      zhFormValues.errorFields;
+
+    if (isErrorValidate) {
       return;
     } else {
       let submitValues = {
         id: initialCommonValues.id,
         category_image: avatar,
+        delete_image: isRemoveImage,
         ...categoryForm.getFieldsValue(),
       };
 
@@ -70,7 +75,6 @@ const useHandleForm = (item, onSave, typeForm) => {
 
   const onFinishError = () => {
     validateTranslateForm();
-    setErrorMessImage(!avatar);
     setSubmitted(true);
   };
 
@@ -86,7 +90,9 @@ const useHandleForm = (item, onSave, typeForm) => {
   }, [lang]);
 
   return {
+    avatarUrl,
     categoryForm,
+    initialCommonValues,
     categoryProfileFormEN,
     categoryProfileFormJP,
     categoryProfileFormTL,
@@ -95,8 +101,8 @@ const useHandleForm = (item, onSave, typeForm) => {
     onChangeAvatar,
     onFinishAll,
     onFinishError,
-    initialCommonValues,
-    errorMessImage,
+    setAvatarUrl,
+    setIsRemoveImage,
   };
 };
 

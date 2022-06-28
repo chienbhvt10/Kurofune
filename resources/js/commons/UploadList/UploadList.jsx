@@ -41,10 +41,19 @@ const UploadList = (props) => {
       file.type === TYPE_IMAGE_PNG ||
       file.type === TYPE_IMAGE_JPEG ||
       file.type === TYPE_IMAGE_JPG;
+
     if (!isValidImage) {
       message.error("Ảnh phải là định dạng png/jpeg/jpg/gif");
       throw new Error("Ảnh phải là định dạng png/jpeg/jpg/gif");
     }
+
+    const isLessThan5MB = file.size / 1024 / 1024 < 5;
+
+    if (!isLessThan5MB) {
+      message.error("Ảnh phải nhỏ hơn 5MB");
+      throw new Error("Ảnh phải nhỏ hơn 5MB");
+    }
+
     return true;
   };
 
