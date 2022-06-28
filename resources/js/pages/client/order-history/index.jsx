@@ -16,7 +16,7 @@ const OrderHistoryPage = () => {
   const { orderHistory, getOrderHistory } = useOrderHistory();
   React.useEffect(() => {
     getOrderHistory();
-  }, []);
+  }, [lang]);
 
   const columns = [
     {
@@ -104,7 +104,16 @@ const OrderHistoryPage = () => {
         content={t("meta.content_order_history")}
       />
       <div className="card table-responsive">
-        <Table rowKey="id" dataSource={orderHistory} columns={columns} />
+        <Table
+          rowKey="id"
+          dataSource={orderHistory}
+          columns={columns}
+          pagination={{
+            showTotal() {
+              return `Total ${orderHistory.length} items`;
+            },
+          }}
+        />
       </div>
     </div>
   );
