@@ -93,6 +93,7 @@ const cartSlice = createSlice({
       return {
         ...state,
         resAddToCart: undefined,
+        cartInfo: undefined
       };
     });
   },
