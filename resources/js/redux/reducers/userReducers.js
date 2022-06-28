@@ -7,6 +7,9 @@ import {
   resetResCRUDAction,
   updateUserAction,
   selectRoleAction,
+  exportReportUserAction,
+  selectCompanyAction,
+  getCompanyAction,
 } from "../actions/userAction";
 import {
   NotificationError,
@@ -18,8 +21,10 @@ const initialState = {
   resCreateUser: undefined,
   resUpdateUser: undefined,
   resDeleteUser: undefined,
+  resExportReportUser: undefined,
   loadingUpdateUser: false,
   loadingCreateUser: false,
+  loadingExport: false,
   total: undefined,
   from: undefined,
   to: undefined,
@@ -27,6 +32,8 @@ const initialState = {
   last_page: undefined,
   per_page: undefined,
   selectRole: undefined,
+  selectCompany: undefined,
+  company: undefined,
 };
 
 const userReducers = createReducer(initialState, (builder) => {
@@ -40,6 +47,13 @@ const userReducers = createReducer(initialState, (builder) => {
       current_page: actions.payload.data.current_page,
       last_page: actions.payload.data.last_page,
       per_page: actions.payload.data.per_page,
+    };
+  });
+
+  builder.addCase(getCompanyAction.fulfilled, (state, actions) => {
+    return {
+      ...state,
+      company: actions.payload.data,
     };
   });
 
@@ -120,5 +134,34 @@ const userReducers = createReducer(initialState, (builder) => {
       selectRole: actions.payload,
     };
   });
+
+  builder.addCase(selectCompanyAction, (state, actions) => {
+    return {
+      ...state,
+      selectCompany: actions.payload,
+    };
+  });
+
+  builder
+    .addCase(exportReportUserAction.fulfilled, (state, actions) => {
+      return {
+        ...state,
+        loadingExport: false,
+        resExportReportUser: actions.payload,
+      };
+    })
+    .addCase(exportReportUserAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingExport: true,
+      };
+    })
+    .addCase(exportReportUserAction.rejected, (state, actions) => {
+      return {
+        ...state,
+        loadingExport: false,
+        resExportReportUser: actions.payload,
+      };
+    });
 });
 export default userReducers;

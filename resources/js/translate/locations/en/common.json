@@ -567,6 +567,7 @@
         "placeholder": {
           "search": "Search Name",
           "select_role": "Please select a role",
+          "select_company": "Please select a company",
           "select_active_status": "Please select a active status",
           "select_prefecture": "Please select prefecture",
           "select_date": "Select date",
