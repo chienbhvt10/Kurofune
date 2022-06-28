@@ -4,6 +4,7 @@ import {
   getPharmacyAction,
   getPharmaciesAdminAction,
   searchPharmacyAction,
+  resetPharmacyAction,
 } from "../actions/pharmacyAction";
 const initialState = {
   pharmacies: undefined,
@@ -31,6 +32,9 @@ const pharmacyReducer = createReducer(initialState, (builder) => {
       } else {
         state.emptyPharmacy = true;
       }
+    })
+    .addCase(resetPharmacyAction.fulfilled, (state, actions) => {
+      state.searchPharmacy =undefined;
     });
 });
 
