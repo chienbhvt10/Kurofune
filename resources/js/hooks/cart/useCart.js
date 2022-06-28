@@ -13,7 +13,7 @@ import {
 } from "../../redux/actions/cartAction";
 const useCart = () => {
   const lang = getCurrentLanguage();
-  const { cartInfo, resAddToCart } = useSelector((state) => state.cartState);
+  const { cartInfo, resAddToCart, resCheckout } = useSelector((state) => state.cartState);
   const isLoading = useSelector((state) => state.cartState.isLoading);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -46,6 +46,12 @@ const useCart = () => {
     }
   }, [resAddToCart]);
 
+  React.useEffect(() => {
+    if(resCheckout?.error_code == "NO_ERROR"){
+      navigate(`${lang}/member/order-history`)
+    }
+  })
+
   return {
     cartInfo,
     isLoading,
@@ -55,6 +61,7 @@ const useCart = () => {
     addToCart,
     deleteCartItem,
     checkout,
+    resCheckout,
     resAddToCart,
   };
 };
