@@ -16,12 +16,13 @@ const OrderHistoryPage = () => {
   const { orderHistory, getOrderHistory } = useOrderHistory();
   React.useEffect(() => {
     getOrderHistory();
-  }, []);
+  }, [lang]);
 
   const columns = [
     {
       title: t("client.order-history.th_order_date"),
       dataIndex: "date_order",
+      align: "center",
       key: "date_order",
       render: (date_order) =>
         moment(date_order).zone("+09:00").format("YYYY/MM/DD"),
@@ -30,6 +31,7 @@ const OrderHistoryPage = () => {
       title: t("client.order-history.th_order_ID"),
       dataIndex: "id",
       key: "id",
+      align: "center",
     },
     {
       title: (
@@ -59,16 +61,19 @@ const OrderHistoryPage = () => {
       ),
       dataIndex: "status",
       key: "status",
+      align: "center",
     },
     {
       title: t("client.order-history.th_order_price"),
       dataIndex: "total_tax",
       key: "total_tax",
+      align: "center",
     },
     {
       title: t("client.order-history.th_purchase_product"),
       dataIndex: "order_products",
       key: "id",
+      align: "center",
       render: (order_products) => (
         <div className="info-product">
           {order_products.map((product, index) => (
@@ -77,7 +82,7 @@ const OrderHistoryPage = () => {
                 <img
                   width="50"
                   alt="アネトンせき止め顆粒 16包"
-                  src={product?.imageUrl || "/images/image-default.png"}
+                  src={product?.image || "/images/image-default.png"}
                 />
               </div>
               <div className="p-item p-name">{product.name}</div>
@@ -90,6 +95,7 @@ const OrderHistoryPage = () => {
       title: null,
       dataIndex: "id",
       key: "id",
+      align: "center",
       render: (id) => (
         <Link to={`../order-detail/${id}`}>
           {t("client.order-history.btn_view")}
@@ -104,7 +110,16 @@ const OrderHistoryPage = () => {
         content={t("meta.content_order_history")}
       />
       <div className="card table-responsive">
-        <Table rowKey="id" dataSource={orderHistory} columns={columns} />
+        <Table
+          rowKey="id"
+          dataSource={orderHistory}
+          columns={columns}
+          pagination={{
+            showTotal() {
+              return `Total ${orderHistory.length} items`;
+            },
+          }}
+        />
       </div>
     </div>
   );

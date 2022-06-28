@@ -2,28 +2,35 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { NO_ERROR } from "../../../../constants/error";
+import { deleteKeyUndefined } from "../../../../helper/handler";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useDeleteUser from "../../../../hooks/user/useDeleteUser";
 import useUsers from "../../../../hooks/user/useUsers";
-import { selectRoleAction } from "../../../../redux/actions/userAction";
+import {
+  selectCompanyAction,
+  selectRoleAction,
+} from "../../../../redux/actions/userAction";
 
 const useHandleUserTable = () => {
   const { getAllUsers, users, pagination, loadingListUser } = useUsers();
   const { deleteUser, loadingDeleteUser } = useDeleteUser();
-  const [filterRole, setFilterRole] = React.useState();
-  const [searchValue, setSearchValue] = React.useState("");
+  const [searchValue, setSearchValue] = React.useState();
+
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
   const dispatch = useDispatch();
   const { selectRole } = useSelector((state) => state.userState);
+  const { selectCompany } = useSelector((state) => state.userState);
 
   React.useEffect(() => {
     if (!searchValue) {
-      getAllUsers({
+      const temp = {
         page: pagination.current_page,
         role: selectRole,
+        company_name: selectCompany,
         per_page: pagination.per_page,
-      });
+      };
+      getAllUsers(deleteKeyUndefined(temp));
     }
   }, [searchValue]);
 
@@ -45,12 +52,28 @@ const useHandleUserTable = () => {
     const temp = {
       per_page: pagination.per_page,
       role: value,
+      company_name: selectCompany,
+      name: searchValue,
     };
-    getAllUsers(searchValue ? { ...temp, name: searchValue } : temp);
+    getAllUsers(deleteKeyUndefined(temp));
+  };
+
+  const onChangeCompany = (value) => {
+    dispatch(selectCompanyAction(value));
+
+    const temp = {
+      per_page: pagination.per_page,
+      company_name: value,
+      role: selectRole,
+      name: searchValue || undefined,
+    };
+    getAllUsers(deleteKeyUndefined(temp));
   };
 
   const onResetFilter = () => {
     dispatch(selectRoleAction(undefined));
+    dispatch(selectCompanyAction(undefined));
+
     getAllUsers({
       page: pagination.current_page,
       per_page: pagination.per_page,
@@ -62,22 +85,23 @@ const useHandleUserTable = () => {
       page: pagination.current_page,
       per_page: pagination.per_page,
       name: values.name,
+      role: selectRole || undefined,
+      company_name: selectCompany || undefined,
     };
-    getAllUsers(
-      selectRole || values.name ? { ...temp, role: selectRole } : temp
-    );
+    getAllUsers(deleteKeyUndefined(temp));
   };
 
   const onTableChange = (paginationTable, filters, sorter) => {
     const current = paginationTable.current || 1;
     const per_page = paginationTable.pageSize || 10;
-
-    getAllUsers({
+    const temp = {
       page: current,
       per_page: per_page,
-      role: selectRole || "",
+      role: selectRole || undefined,
+      company_name: selectCompany || undefined,
       name: searchValue,
-    });
+    };
+    getAllUsers(deleteKeyUndefined(temp));
   };
 
   return {
@@ -85,9 +109,10 @@ const useHandleUserTable = () => {
     pagination,
     loadingListUser,
     loadingDeleteUser,
-    filterRole,
     searchValue,
     selectRole,
+    selectCompany,
+    onChangeCompany,
     onChangeRole,
     onChangeSearchValue,
     onDelete,

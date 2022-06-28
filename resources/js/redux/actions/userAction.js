@@ -1,7 +1,9 @@
 import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
+import { downloadBlob } from "../../helper/handler";
 import { userApis } from "../../services/user-apis";
 
 const userActions = {
+  getCompany: createAction("GET_COMPANY"),
   getUsers: createAction("GET_USERS"),
   getUser: createAction("GET_USER"),
   createUser: createAction("CREATE_USER"),
@@ -9,8 +11,20 @@ const userActions = {
   deleteUser: createAction("DELETE_USER"),
   resetResCRUD: createAction("RESET_RES_CRUD"),
   selectRole: createAction("SELECT_ROLE"),
+  selectCompany: createAction("SELECT_COMPANY"),
+  exportCsvReportUser: createAction("EXPORT_CSV_REPORT_USER"),
 };
 
+export const getCompanyAction = createAsyncThunk(
+  userActions.getCompany,
+  async (payload) => {
+    const res = await userApis
+      .getCompany(payload)
+      .then((data) => data)
+      .catch((err) => JSON.parse(err.response.request.response));
+    return res;
+  }
+);
 export const getUsersAction = createAsyncThunk(
   userActions.getUsers,
   async (payload) => {
@@ -21,6 +35,7 @@ export const getUsersAction = createAsyncThunk(
     return res;
   }
 );
+
 export const getUserAction = createAsyncThunk(
   userActions.getUser,
   async (payload) => {
@@ -28,6 +43,7 @@ export const getUserAction = createAsyncThunk(
     return res;
   }
 );
+
 export const createUserAction = createAsyncThunk(
   userActions.createUser,
   async (payload, { rejectWithValue }) => {
@@ -39,6 +55,7 @@ export const createUserAction = createAsyncThunk(
     }
   }
 );
+
 export const updateUserAction = createAsyncThunk(
   userActions.updateUser,
   async (payload, { rejectWithValue }) => {
@@ -50,6 +67,7 @@ export const updateUserAction = createAsyncThunk(
     }
   }
 );
+
 export const deleteUserAction = createAsyncThunk(
   userActions.deleteUser,
   async (payload) => {
@@ -60,6 +78,7 @@ export const deleteUserAction = createAsyncThunk(
     return res;
   }
 );
+
 export const resetResCRUDAction = createAsyncThunk(
   userActions.resetResCRUD,
   async () => {
@@ -67,6 +86,29 @@ export const resetResCRUDAction = createAsyncThunk(
   }
 );
 
+export const exportReportUserAction = createAsyncThunk(
+  userActions.exportCsvReportUser,
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await userApis.exportCsvReportUser(payload).then((data) => {
+        const dateExported = new Date();
+        const fileName = `${
+          payload?.company_name ? payload?.company_name + "_" : ""
+        }${payload?.role ? payload?.role + "_users" : "users"}_report_${
+          dateExported.toISOString().split("T")[0]
+        }.csv`;
+
+        downloadBlob(data, fileName);
+        return data;
+      });
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
+  }
+);
+
 export const selectRoleAction = userActions.selectRole;
+export const selectCompanyAction = userActions.selectCompany;
 
 export default userActions;

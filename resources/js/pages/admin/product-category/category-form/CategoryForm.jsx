@@ -61,7 +61,6 @@ const CategoryForm = ({
             <Form.Item
               field="product_image"
               label={t("admins.category.product_image_field")}
-              required={true}
             >
               <UploadDragger
                 onChangeImage={onChangeAvatar}

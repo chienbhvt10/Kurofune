@@ -63,7 +63,7 @@ export const UserTable = (props) => {
       dataIndex: "role",
       title: t("admins.user.form.field_role"),
       render: (_, record) => {
-        return <div className="role-td"></div>;
+        return <div className="role-td">{record?.roles[0]?.name}</div>;
       },
     },
     {

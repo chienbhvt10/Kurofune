@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import useProductClient from "../../../hooks/product/useProductClient";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { Form, Input, Select, Button, Modal, Image } from "antd";
+import { Form, Input, Select, Button, Modal, Image, Tooltip } from "antd";
 import { CATEGORY_OPTIONS, PRODUCT_OPTION } from "../../../commons/data";
 import useCart from "../../../hooks/cart/useCart";
 import PageHead from "../../../commons/PageHead";
@@ -89,9 +89,11 @@ const ProductDetailPage = () => {
                       <div className="medicinal_efficacy_item medicinal_efficacy_label">
                         {t("client.product_detail.medicinal_efficacy")}
                       </div>
-                      <div className="medicinal_efficacy_item medicinal_efficacy_value">
+                      <Tooltip title={productClient.medicinal_efficacy_classification}>
+                      <span className="medicinal_efficacy_item medicinal_efficacy_value">
                         {productClient.medicinal_efficacy_classification}
-                      </div>
+                      </span>
+                      </Tooltip>
                     </div>
                     <div className="block-price flex">
                       <div className="item-info price-info flex flex-column">

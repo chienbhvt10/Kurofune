@@ -1,6 +1,7 @@
 export const validateUser = {
   role: [{ required: true, message: "admins.user.error.role_required" }],
   name: [{ required: true, message: "admins.user.error.name_required" }],
+<<<<<<< HEAD
   language: [{ required: true, message: "admins.user.error.language_required" }],
   company_name: [{ required: true, message: "admins.user.error.company_name_required" }],
   company_email: [
@@ -13,12 +14,30 @@ export const validateUser = {
     },],
   person_in_charge: [{ required: true, message: "admins.user.error.person_in_charge_required" }],
   person_in_charge_contact_information: [{ required: true, message: "admins.user.error.person_contact_information_required" }],
+=======
+  language: [
+    { required: true, message: "admins.user.error.language_required" },
+  ],
+  company_name: [
+    { required: true, message: "admins.user.error.company_name_required" },
+  ],
+  company_email: [
+    { required: true, message: "admins.user.error.company_email_required" },
+  ],
+  person_in_charge: [
+    { required: true, message: "admins.user.error.person_in_charge_required" },
+  ],
+  person_in_charge_contact_information: [
+    {
+      required: true,
+      message: "admins.user.error.person_contact_information_required",
+    },
+  ],
+>>>>>>> 824d6bedf6cf22c203b144ba8048a538d42810dc
   email: [
     { required: true, message: "admins.user.error.email.required" },
     {
-      pattern: new RegExp(
-        /^([\w\-]|[^ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\W]|(\.(?!(\.|@))))+@([\w-]+\.)+[\w-]{2,4}$/
-      ),
+      type: "email",
       message: "admins.user.error.email.type",
     },
   ],
@@ -30,6 +49,11 @@ export const validateUser = {
     {
       pattern: new RegExp(/^[0-9]+$/),
       message: "admins.user.error.phone.pattern",
+    },
+    {
+      min: 9,
+      max: 13,
+      message: "admins.user.error.phone.limit",
     },
   ],
   user_name: [

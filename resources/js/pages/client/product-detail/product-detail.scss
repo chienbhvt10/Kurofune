@@ -100,6 +100,14 @@
                         flex: 1 auto;
                         justify-content: left;
                         padding-left: 10px;
+                        display: -webkit-box;
+                        height: 20px;
+                        font-size: 16px;
+                        line-height: 1.3;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                     }
                 }
                 .block-price {
@@ -211,7 +219,7 @@
                 width: 50% !important;
             }
         }
-        .summary-prod{ 
+        .summary-prod{
             .block-btn-checkout{
                 justify-self: center;
             }
