@@ -9,9 +9,7 @@ export const validateUser = {
   email: [
     { required: true, message: "admins.user.error.email.required" },
     {
-      pattern: new RegExp(
-        /^([\w\-]|[^ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\W]|(\.(?!(\.|@))))+@([\w-]+\.)+[\w-]{2,4}$/
-      ),
+      type: "email",
       message: "admins.user.error.email.type",
     },
   ],
