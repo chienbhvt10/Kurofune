@@ -2,6 +2,8 @@ import React from "react";
 
 const useHandleImage = () => {
   const [avatar, setAvatar] = React.useState();
+  const [isRemoveImage, setIsRemoveImage] = React.useState(false);
+
   const onChangeAvatar = (file) => {
     setAvatar(file);
   };
@@ -9,6 +11,8 @@ const useHandleImage = () => {
   return {
     avatar,
     onChangeAvatar,
+    isRemoveImage,
+    setIsRemoveImage,
   };
 };
 

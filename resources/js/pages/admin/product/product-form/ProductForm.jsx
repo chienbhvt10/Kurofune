@@ -26,10 +26,11 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     productProfileFormVI,
     productProfileFormZH,
     initialFormCommonValues,
-    onChangeAvatar,
-    onFinishAll,
-    onFinishFailed,
     productsForm,
+    onFinishAll,
+    onChangeAvatar,
+    onFinishFailed,
+    setIsRemoveImage,
   } = useHandleForm(item, onSave, typeForm);
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
@@ -74,6 +75,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 labelCol={{ span: 24 }}
               >
                 <UploadDragger
+                  setIsRemoveImage={setIsRemoveImage}
                   onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarUrl}
                 />

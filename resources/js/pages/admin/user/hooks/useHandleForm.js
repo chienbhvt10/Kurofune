@@ -31,6 +31,8 @@ const useHandleForm = (item, onSave, typeForm) => {
     onChangeImageOutside,
     onSaveImgInsideDelete,
     onSaveImgOutsideDelete,
+    isRemoveAvatar,
+    setIsRemoveAvatar,
   } = useHandleImage();
   const {
     vendorProfileFormEN,
@@ -56,12 +58,16 @@ const useHandleForm = (item, onSave, typeForm) => {
     const formData = new FormData();
     const role = userInfoForm.getFieldValue("role");
     const dob = planProfileForm.getFieldValue("dob");
-    const start_date_education = planProfileForm.getFieldValue("start_date_education");
-    const end_date_education = planProfileForm.getFieldValue("end_date_education");
+    const start_date_education = planProfileForm.getFieldValue(
+      "start_date_education"
+    );
+    const end_date_education =
+      planProfileForm.getFieldValue("end_date_education");
 
     let submitValues = {
       id: userInfoInitValues.id,
       avatar,
+      delete_avatar: isRemoveAvatar,
       ...userInfoForm.getFieldsValue(),
     };
     if (typeForm === TYPE_FORM_UPDATE) {
@@ -89,21 +95,21 @@ const useHandleForm = (item, onSave, typeForm) => {
     }
     if (isRolePlan(role)) {
       appendObjectToFormData(formData, planProfileForm.getFieldsValue());
-      if(dob){
-        submitValues["dob"] = formatDate(dob) ;
-      }else if (!dob){
-        formData.delete('dob');
+      if (dob) {
+        submitValues["dob"] = formatDate(dob);
+      } else if (!dob) {
+        formData.delete("dob");
       }
-      
-      if(start_date_education){
+
+      if (start_date_education) {
         submitValues["start_date_education"] = formatDate(start_date_education);
-      }else if (!start_date_education){
-        formData.delete('start_date_education');
+      } else if (!start_date_education) {
+        formData.delete("start_date_education");
       }
-      if(end_date_education){
+      if (end_date_education) {
         submitValues["end_date_education"] = formatDate(end_date_education);
-      }else if (!end_date_education){
-        formData.delete('end_date_education');
+      } else if (!end_date_education) {
+        formData.delete("end_date_education");
       }
     }
     appendObjectToFormData(formData, submitValues);
@@ -153,6 +159,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     onSaveImgInsideDelete,
     onSaveImgOutsideDelete,
     planProfileForm,
+    setIsRemoveAvatar,
   };
 };
 

@@ -9,7 +9,7 @@ import {
 } from "../../constants";
 import "./upload-dragger.scss";
 
-const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
+const UploadDragger = ({ imageUrlProps, onChangeImage, setIsRemoveImage }) => {
   const { t } = useTranslation();
   const ref = React.useRef();
   const [previewImage, setPreviewImage] = React.useState(false);
@@ -25,6 +25,13 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
       message.error("Ảnh phải là định dạng png/jpeg/jpg/gif");
       throw new Error("Ảnh phải là định dạng png/jpeg/jpg/gif");
     }
+
+    const isLessThan5MB = file.size / 1024 / 1024 < 5;
+    if (!isLessThan5MB) {
+      message.error("Ảnh phải nhỏ hơn 5MB");
+      throw new Error("Ảnh phải nhỏ hơn 5MB");
+    }
+
     return false;
   };
 
@@ -46,12 +53,15 @@ const UploadDragger = ({ imageUrlProps, onChangeImage }) => {
   const openModal = () => {
     setPreviewImage(true);
   };
+
   const onRemoveImage = () => {
     onChangeImage(undefined);
     setImageUrl("");
+    setIsRemoveImage(true);
   };
 
   const preventSubmit = (e) => e.preventDefault();
+
   return (
     <div className="form-image-custom">
       <div className="container">
