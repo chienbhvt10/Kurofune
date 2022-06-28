@@ -5,7 +5,7 @@ const useUserRegistrationClient = () => {
   const UserRegistrationClient = (userProfile) => {
     userApis.userRegistration(userProfile)
     .then((data)=>{
-      console.log('data',data);
+      // console.log('data',data);
     }).catch((err) => {
       console.log('error');
     })
