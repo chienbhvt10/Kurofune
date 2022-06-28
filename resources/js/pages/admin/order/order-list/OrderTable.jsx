@@ -56,11 +56,11 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
         { value: "completed", text: "Completed" },
       ],
       onFilter: (value, record) =>
-        record.transaction.status.indexOf(value) === 0,
+        record.status.indexOf(value) === 0,
       render: (_, record) => {
         return (
           <Tag color="success">
-            {String(record.transaction.status).toLocaleUpperCase()}
+            {String(record.status).toLocaleUpperCase()}
           </Tag>
         );
       },

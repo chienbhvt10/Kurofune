@@ -35,11 +35,11 @@ const useLogin = () => {
 
   React.useEffect(() => {
     if (resLogin?.error_code === NO_ERROR) {
+      dispatch(showProfileAction());
       if (remember) {
         setRememberLogin(REMEMBER_LOGIN_VALUES);
         setAccessToken(resLogin.data?.access_token);
       } else {
-        dispatch(showProfileAction());
         sessionStorage.setItem("access_token", resLogin.data?.access_token);
       }
     }
