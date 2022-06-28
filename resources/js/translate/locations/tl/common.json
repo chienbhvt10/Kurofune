@@ -586,7 +586,8 @@
         },
         "phone": {
           "required": "Mangyaring ipasok ang iyong telepono.",
-          "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
+          "pattern": "Mangyaring maglagay ng wastong numero ng telepono.",
+          "limit": "Ang mga numero ng telepono ay dapat na 9 hanggang 13 digit ang haba."
         },
         "user_name": {
           "required": "Mangyaring ipasok ang iyong username.",
