@@ -48,6 +48,7 @@ export const UserForm = (props) => {
     vendorProfileFormZH,
     userInfoInitValues,
     planProfileForm,
+    setIsRemoveAvatar,
   } = useHandleForm(item, onSave, typeForm);
 
   React.useEffect(() => {
@@ -105,6 +106,7 @@ export const UserForm = (props) => {
         <Row justify="center" style={{ marginTop: 30 }}>
           <Col span={8}>
             <UploadDragger
+              setIsRemoveImage={setIsRemoveAvatar}
               onChangeImage={onChangeAvatar}
               imageUrlProps={avatarUrl}
             />

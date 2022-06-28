@@ -20,7 +20,8 @@ const useHandleForm = (item, onSave, typeForm) => {
     validateTranslateForm,
   } = useHandleTranslateForm(item);
 
-  const { avatar, onChangeAvatar } = useHandleImage();
+  const { avatar, onChangeAvatar, isRemoveImage, setIsRemoveImage } =
+    useHandleImage();
   const lang = getCurrentLanguage();
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
   const initialFormCommonValues = getProductInfoInitValues(item);
@@ -50,6 +51,7 @@ const useHandleForm = (item, onSave, typeForm) => {
       const submitInput = {
         id: initialFormCommonValues.id,
         product_image: avatar,
+        delete_image: isRemoveImage,
         tax_id: Number(initialFormCommonValues.tax_id),
         price: Number(initialFormCommonValues.price),
         ...productsForm.getFieldsValue(),
@@ -102,6 +104,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     onFinishFailed,
     onChangeAvatar,
     initialFormCommonValues,
+    setIsRemoveImage,
   };
 };
 
