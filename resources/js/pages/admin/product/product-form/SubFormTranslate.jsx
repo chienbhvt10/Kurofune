@@ -51,7 +51,7 @@ const SubFormTranslate = ({
                 },
               ]}
               response={response}
-              type={<Input.TextArea />}
+              type={<Input.TextArea maxLength={191} showCount />}
             />
           </Col>
 
