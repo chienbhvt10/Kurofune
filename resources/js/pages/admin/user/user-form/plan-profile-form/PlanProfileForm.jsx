@@ -12,9 +12,11 @@ import {
   ROLE_FULL_SUPPORT_PLAN,
   ROLE_LIGHT_PLAN,
 } from "../../../../../constants/index.js";
+import { validateUser } from "../../../../../helper/validateField";
 const PlanProfileForm = ({ form, className, role }) => {
   const { t } = useTranslation();
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
+  console.log('resCreateUser',resCreateUser);
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
 
@@ -39,6 +41,23 @@ const PlanProfileForm = ({ form, className, role }) => {
     }
   }, [role]);
 
+  // const isCheckRoleFullAndLight = React.useMemo(()=>{
+  //   if(role ===ROLE_FULL_SUPPORT_PLAN || role === ROLE_LIGHT_PLAN) {
+  //     userInfoForm.setFieldsValue({
+  //       active : 0
+  //     })
+  //     return true
+  //   }
+  //   return false
+  // },[role])
+  const renderErrorTranslate = (field) => {
+    return validateUser?.[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
   const disabledDate = (current) => {
     return current && current > moment().endOf("day");
   };
@@ -93,7 +112,7 @@ const PlanProfileForm = ({ form, className, role }) => {
               type={<Input />}
             />
           </Col>
-          <Col span={12}>
+          {/* <Col span={12}>
             <InputField
               field="address"
               error="address"
@@ -103,7 +122,7 @@ const PlanProfileForm = ({ form, className, role }) => {
               response={resCreateUser}
               type={<Input />}
             />
-          </Col>
+          </Col> */}
           <Col span={12}>
             <InputField
               field="nationality"
@@ -116,39 +135,85 @@ const PlanProfileForm = ({ form, className, role }) => {
             />
           </Col>
           <Col span={12}>
-            <InputField
+            <SelectField
               field="visa_type"
               error="visa_type"
               label={t("admins.user.form.profile.field_visa_type")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               response={resCreateUser}
-              type={<Input />}
+              placeholder={t(
+                "admins.user.form.placeholder.select_education_status"
+              )}
+              options={userFormOptions.VISA_TYPE}
             />
           </Col>
           <Col span={12}>
-            <InputField
+            <SelectField
               field="job_name"
               error="job_name"
               label={t("admins.user.form.profile.field_job_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               response={resCreateUser}
-              type={<Input />}
+              placeholder={t(
+                "admins.user.form.placeholder.select_education_status"
+              )}
+              options={userFormOptions.JOB}
+            />
+          </Col>
+          <Col span={12}>
+            <SelectField
+              field="education_status"
+              error="education_status"
+              label={t("admins.user.form.profile.field_education_status")}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              response={resCreateUser}
+              placeholder={t(
+                "admins.user.form.placeholder.select_education_status"
+              )}
+              options={userFormOptions.education_status}
             />
           </Col>
           <Col span={12}>
             <InputField
-              field="company_representative"
-              error="company_representative"
-              label={t("admins.user.form.profile.field_company_representative")}
+              field="company_name"
+              error="company_name"
+              label={t("admins.user.form.profile.field_company_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
+              rules={renderErrorTranslate("company_name")}
               response={resCreateUser}
               type={<Input />}
             />
           </Col>
           <Col span={12}>
+            <InputField
+              field="company_email"
+              error="company_email"
+              label={t("admins.user.form.profile.field_company_mail")}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={renderErrorTranslate("company_email")}
+              response={resCreateUser}
+              type={<Input />}
+            />
+          </Col>
+          <Col span={12}>
+            <InputField
+              field="person_in_charge"
+              error="person_in_charge"
+              label={t("admins.user.form.profile.field_person_in_charge")}
+              labelCol={{ span: 24 }}
+              wrapperCol={{ span: 22 }}
+              rules={renderErrorTranslate("person_in_charge")}
+              response={resCreateUser}
+              type={<Input />}
+            />
+          </Col>
+         
+          {/* <Col span={12}>
             <InputField
               field="inflow_source"
               error="inflow_source"
@@ -158,8 +223,8 @@ const PlanProfileForm = ({ form, className, role }) => {
               response={resCreateUser}
               type={<Input />}
             />
-          </Col>
-          <Col span={12}>
+          </Col> */}
+          {/* <Col span={12}>
             <SelectField
               field="payment"
               error="payment"
@@ -171,8 +236,8 @@ const PlanProfileForm = ({ form, className, role }) => {
               placeholder={t("admins.user.form.placeholder.select_payment")}
               options={userFormOptions.payment}
             />
-          </Col>
-          <Col span={12}>
+          </Col> */}
+          {/* <Col span={12}>
             <SelectField
               field="insurance_status"
               error="insurance_status"
@@ -185,8 +250,8 @@ const PlanProfileForm = ({ form, className, role }) => {
               )}
               options={userFormOptions.insurance_status}
             />
-          </Col>
-          <Col span={12}>
+          </Col> */}
+          {/* <Col span={12}>
             <SelectField
               field="insurance_support"
               error="insurance_support"
@@ -198,8 +263,8 @@ const PlanProfileForm = ({ form, className, role }) => {
               options={userFormOptions.insurance_support}
               disabled={true}
             />
-          </Col>
-          {role === "full support plan" && (
+          </Col> */}
+          {/* {role === "full support plan" && (
             <Col span={12}>
               <InputField
                 field="insurance_start_date"
@@ -211,8 +276,8 @@ const PlanProfileForm = ({ form, className, role }) => {
                 type={<Input />}
               />
             </Col>
-          )}
-          <Col span={12}>
+          )} */}
+          {/* <Col span={12}>
             <SelectField
               field="overseas_remittance_status"
               error="overseas_remittance_status"
@@ -225,8 +290,8 @@ const PlanProfileForm = ({ form, className, role }) => {
               options={userFormOptions.overseas_remittance_status}
               disabled={true}
             />
-          </Col>
-          <Col span={12}>
+          </Col> */}
+          {/* <Col span={12}>
             <InputField
               field="orientation"
               error="orientation"
@@ -236,8 +301,8 @@ const PlanProfileForm = ({ form, className, role }) => {
               response={resCreateUser}
               type={<Input />}
             />
-          </Col>
-          {role === ROLE_FULL_SUPPORT_PLAN && (
+          </Col> */}
+          {/* {role === ROLE_FULL_SUPPORT_PLAN && (
             <>
               <Col span={12}>
                 <DateField
@@ -274,23 +339,10 @@ const PlanProfileForm = ({ form, className, role }) => {
                 />
               </Col>
             </>
-          )}
+          )} */}
 
-          <Col span={12}>
-            <SelectField
-              field="education_status"
-              error="education_status"
-              label={t("admins.user.form.profile.field_education_status")}
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              response={resCreateUser}
-              placeholder={t(
-                "admins.user.form.placeholder.select_education_status"
-              )}
-              options={userFormOptions.education_status}
-            />
-          </Col>
-          <Col span={12}>
+
+          {/* <Col span={12}>
             <SelectField
               field="wabisabi_my_page_registration"
               error="wabisabi_my_page_registration"
@@ -301,15 +353,18 @@ const PlanProfileForm = ({ form, className, role }) => {
               options={userFormOptions.wabisabi_my_page_registration}
               disabled={true}
             />
-          </Col>
+          </Col> */}
+          
+          
           <Col span={12}>
             <InputField
-              field="emailCompany"
-              error="emailCompany"
-              label={t("admins.user.form.profile.field_company_mail")}
+              field="person_in_charge_contact_information"
+              error="person_in_charge_contact_information"
+              label={t("admins.user.form.profile.field_person_contact_information")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               response={resCreateUser}
+              rules={renderErrorTranslate("person_in_charge_contact_information")}
               type={<Input />}
             />
           </Col>
