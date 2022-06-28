@@ -55,7 +55,7 @@ const OrderList = () => {
         title="Orders"
       />
       <OrderTable
-        items={dataOrder?.data}
+        items={dataOrder}
         handleDeleteOrder={handleDeleteOrder}
       />
     </div>

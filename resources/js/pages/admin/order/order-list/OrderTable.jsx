@@ -38,10 +38,10 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
     },
     {
       title: t("admins.order.table.field_date"),
-      dataIndex: "created_at",
+      dataIndex: "date_order",
       width: "20%",
       render: (_, record) => {
-        return <>{moment(record.created_at).format("YYYY/MM/DD hh:ss")}</>;
+        return <>{moment(record.date_order).format("YYYY/MM/DD hh:ss")}</>;
       },
     },
     {
@@ -56,11 +56,11 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
         { value: "completed", text: "Completed" },
       ],
       onFilter: (value, record) =>
-        record.transaction.status.indexOf(value) === 0,
+        record.status.indexOf(value) === 0,
       render: (_, record) => {
         return (
           <Tag color="success">
-            {String(record.transaction.status).toLocaleUpperCase()}
+            {String(record.status).toLocaleUpperCase()}
           </Tag>
         );
       },
