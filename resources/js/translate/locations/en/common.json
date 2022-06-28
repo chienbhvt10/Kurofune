@@ -590,7 +590,8 @@
         },
         "phone": {
           "required": "Please input your phone.",
-          "pattern": "Please input valid phone number."
+          "pattern": "Please input valid phone number.",
+          "limit": "Phone numbers must be 9 to 13 digits in length."
         },
         "user_name": {
           "required": "Please input your username.",

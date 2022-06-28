@@ -579,7 +579,8 @@
         },
         "phone": {
           "required": "Vui lòng nhập số điện thoại của bạn",
-          "pattern": "Vui lòng nhập số điện thoại hợp lệ."
+          "pattern": "Vui lòng nhập số điện thoại hợp lệ.",
+          "limit": "Số điện thoại phải có độ dài từ 9 đến 13 chữ số."
         },
         "user_name": {
           "required": "Vui lòng nhập tên người dùng của bạn.",
