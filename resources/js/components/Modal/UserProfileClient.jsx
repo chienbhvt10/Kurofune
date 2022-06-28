@@ -8,28 +8,46 @@ import SelectField from '../../commons/Form/SelectField';
 import { PREF } from '../../commons/data';
 import { validateFormRegister } from './validateFormRegister';
 import postal_code from "japan-postal-code";
-import { ROLE_FULL_SUPPORT_PLAN } from '../../constants';
+import { ROLE_FULL_SUPPORT_PLAN, ROLE_FULL_SUPPORT_PLAN2 } from '../../constants';
 import useUserRegistrationClient from '../../hooks/user/useUserRegistrationClient';
+import { isNumber } from 'lodash';
 
-const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
+const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
   const [formInfo] = Form.useForm();
   // const [placement, SetPlacement] = useState('topLeft');
+  
   const initialValues = {
-    name_furigana: '',
-    dob:'',
-    gender: '',
-    phone_number: '',
-    facebook:'',
-    line:'',
-    postcode: '',
-    prefecture: '',
-    city: '',
-    building: '',
-    nationality: '',
-    type_visa: '',
-    education_status: '',
-    job_name: '',
+    name_furigana: profile && profile.name_furigana || '',
+    dob: profile && moment(profile.profile.dob) || '',
+    gender: profile && isNumber(profile.profile.gender) ? profile.profile.gender : '',
+    phone_number: profile && profile?.phone || '',
+    facebook: profile && profile.profile.facebook ||'',
+    line:profile?.profile?.line ||'',
+    postcode: profile?.address?.postal_code ||'',
+    prefecture: profile?.address?.prefecture ||'',
+    city: profile?.address?.city ||'',
+    building: profile?.address?.building ||'',
+    nationality:profile && isNumber(profile.profile.nationality) ? profile.profile.nationality : '',
+    visa_type: profile && isNumber(profile.profile.visa_type) ? profile.profile.visa_type : '',
+    education_status:profile && isNumber(profile.profile.education_status) ? profile.profile.education_status : '',
+    job_name:profile && isNumber(profile.profile.job_name) ? profile.profile.job_name : '',
   }
+  // const initialValues = {
+  //   name_furigana: '',
+  //   dob:'',
+  //   gender: '',
+  //   phone_number: '',
+  //   facebook:'',
+  //   line:'',
+  //   postcode: '',
+  //   prefecture: '',
+  //   city: '',
+  //   building: '',
+  //   nationality: '',
+  //   type_visa: '',
+  //   education_status: '',
+  //   job_name: '',
+  // }
   const onCodeJapan = () => {
     let code = formInfo.getFieldValue("postcode")
     if (code) {
@@ -45,7 +63,22 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
     }
   };
   React.useEffect(() => {
-   
+    formInfo.setFieldsValue({
+      name_furigana: initialValues.name_furigana,
+      dob: initialValues.dob,
+      gender: initialValues.gender,
+      phone_number: initialValues.phone_number,
+      facebook: initialValues.facebook,
+      line: initialValues.line,
+      postcode: initialValues.postcode,
+      prefecture: initialValues.prefecture,
+      city: initialValues.city,
+      building: initialValues.building,
+      nationality: initialValues.nationality,
+      visa_type: initialValues.visa_type,
+      education_status: initialValues.education_status,
+      job_name: initialValues.job_name,
+    })
     return () => {
       formInfo.setFieldsValue({
         name_furigana: initialValues.name_furigana,
@@ -64,7 +97,7 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
         job_name: initialValues.job_name,
       })
     }
-  }, [])
+  }, [profile])
 
   const renderErrorTranslate = (field) => {
     if (!field) return
@@ -131,13 +164,13 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
                   label="Gender"
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN ? 'gender' :''}`)}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'gender' :''}`)}
                   // response={response}
                   options={
                     [
-                      { value: '0', label: 'male  ' },
-                      { value: '1', label: 'female' },
-                      { value: '2', label: 'other' },
+                      { value: 0, label: 'male' },
+                      { value: 1, label: 'female' },
+                      { value: 2, label: 'other' },
                     ]
                   }
                   type={<Input className="input-field" />}
@@ -265,17 +298,17 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
                 // response={response}
                 options={
                   [
-                    { value: '1', label: 'Technical internship' },
-                    { value: '2', label: 'Raw Specific Skills' },
-                    { value: '3', label: 'Specific Skills' },
-                    { value: '4', label: 'Specially Designated Activities Technical/Humanities/International Services' },
-                    { value: '5', label: '	Permanent residence 1' },
-                    { value: '6', label: 'Japanese spouse' },
-                    { value: '7', label: 'Spouse of a permanent resident' },
-                    { value: '8', label: 'Long-term resident' },
-                    { value: '9', label: 'Studying abroad' },
-                    { value: '10', label: 'Dependent' },
-                    { value: '11', label: 'Building cleaning' },
+                    { value: 1, label: 'Technical internship' },
+                    { value: 2, label: 'Raw Specific Skills' },
+                    { value: 3, label: 'Specific Skills' },
+                    { value: 4, label: 'Specially Designated Activities Technical/Humanities/International Services' },
+                    { value: 5, label: '	Permanent residence 1' },
+                    { value: 6, label: 'Japanese spouse' },
+                    { value: 7, label: 'Spouse of a permanent resident' },
+                    { value: 8, label: 'Long-term resident' },
+                    { value: 9, label: 'Studying abroad' },
+                    { value: 10, label: 'Dependent' },
+                    { value: 11, label: 'Building cleaning' },
                   ]
                 }
                 type={<Input className="input-field" />}
@@ -289,26 +322,26 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
                   label="Job"
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN ? 'job_name' :''}`)}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'job_name' :''}`)}
                   // response={response}
                   options={
                     [
-                      { value: '1', label: 'Agriculture' },
-                      { value: '2', label: 'Fishing (industry)' },
-                      { value: '3', label: 'Manufacturing (factory)' },
-                      { value: '4', label: 'Manufacturing (design)' },
-                      { value: '5', label: 'Construction (on-site)' },
-                      { value: '6', label: 'Construction (design)' },
-                      { value: '7', label: 'Sales' },
-                      { value: '8', label: 'Accounting' },
-                      { value: '9', label: 'Business' },
-                      { value: '10', label: 'Automobile maintenance' },
-                      { value: '11', label: 'Care' },
-                      { value: '12', label: 'Hospitality industry (food & beverage, lodging)' },
-                      { value: '13', label: 'Interpretation (i.e. oral translation)' },
-                      { value: '14', label: 'IT engineer' },
-                      { value: '15', label: 'Building cleaning' },
-                      { value: '16', label: 'Other' },
+                      { value: 0, label: 'Agriculture' },
+                      { value: 1, label: 'Fishing (industry)' },
+                      { value: 2, label: 'Manufacturing (factory)' },
+                      { value: 3, label: 'Manufacturing (design)' },
+                      { value: 4, label: 'Construction (on-site)' },
+                      { value: 5, label: 'Construction (design)' },
+                      { value: 6, label: 'Sales' },
+                      { value: 7, label: 'Accounting' },
+                      { value: 8, label: 'Business' },
+                      { value: 9, label: 'Automobile maintenance' },
+                      { value: 10, label: 'Care' },
+                      { value: 11, label: 'Hospitality industry (food & beverage, lodging)' },
+                      { value: 12, label: 'Interpretation (i.e. oral translation)' },
+                      { value: 13, label: 'IT engineer' },
+                      { value: 14, label: 'Building cleaning' },
+                      { value: 15, label: 'Other' },
                     ]
                   }
                   type={<Input className="input-field" />}
@@ -321,16 +354,16 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role }) => {
                   label="The Course"
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN ? 'education_status' :''}`)}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'education_status' :''}`)}
                   // response={response}
                   options={
                     [
-                      { value: '1', label: 'N1' },
-                      { value: '2', label: 'N2' },
-                      { value: '3', label: 'N3' },
-                      { value: '4', label: 'N4' },
-                      { value: '5', label: 'N5' },
-                      { value: '6', label: 'N0' },
+                      { value: 1, label: 'N1' },
+                      { value: 2, label: 'N2' },
+                      { value: 3, label: 'N3' },
+                      { value: 4, label: 'N4' },
+                      { value: 5, label: 'N5' },
+                      { value: 6, label: 'N0' },
                     ]
                   }
                   type={<Input className="input-field" />}

@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import Board from "../../../commons/Board";
 import { mediaBoardItemData } from "../../../commons/data";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
@@ -15,8 +14,9 @@ import { useDispatch } from "react-redux";
 import { resetAuthResponse } from "../../../redux/actions/authAction";
 import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
 import { useSelector } from "react-redux";
-import { ROLE_FULL_SUPPORT_PLAN, ROLE_LIGHT_PLAN } from "../../../constants";
+import { ACTIVE, IN_ACTIVE, ROLE_FULL_SUPPORT_PLAN, ROLE_LIGHT_PLAN } from "../../../constants";
 import UserProfileClient from "../../../components/Modal/UserProfileClient";
+import Board from "./Board"
 
 const MediaPage = () => {
   const { t } = useTranslation();
@@ -31,23 +31,29 @@ const MediaPage = () => {
   const logout = () => {
     getLogout();
   };
-  const userInfo = useSelector((state) => state.authState.userInfo);
+  const profile = useSelector((state) => state.authState.profile);
+  const state = useSelector((state) => state);
   const [role,setRole] = React.useState('default')
+  const [active,setActive] = React.useState(false)
+  const [modalVisible, setModalVisible] = React.useState(true);
   React.useEffect(() => {
-    if(userInfo?.roles?.name===ROLE_LIGHT_PLAN){
+    if(profile?.roles[0].name===ROLE_LIGHT_PLAN){
       setRole('light_plan')
-    }else if(userInfo?.roles?.name === ROLE_FULL_SUPPORT_PLAN){
-      setRole('full_plan')
+    }else if(profile?.roles[0].name === ROLE_FULL_SUPPORT_PLAN){
+      setRole('full_support_plan')
     }else{
       setRole('default')
     }
-    
-  }, [userInfo]);
+    if(profile?.active===ACTIVE){
+      setActive(true)
+    }else{
+      setActive(false)
+    }
+  }, [profile]);
 
   React.useEffect(() => {
     dispatch(resetAuthResponse());
   }, []);
-  const [modalVisible, setModalVisible] = React.useState(false);
   return (
     <>
       <PageHead
@@ -116,7 +122,7 @@ const MediaPage = () => {
         <Footer />
         {/* <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
         {/* <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
-         {modalVisible && <UserProfileClient modalVisible={modalVisible} setModalVisible={setModalVisible} role={'full_plan'} /> }
+         { modalVisible&& <UserProfileClient modalVisible={modalVisible} setModalVisible={setModalVisible} role={role} profile={profile} /> }
       </div>
     </>
   );

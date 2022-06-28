@@ -107,8 +107,13 @@
            background-color: #fff;
         }
         
-
+        // .ant-modal-footer{
+        //     .ant-btn.ant-btn-default{
+        //         display: none;
+        //     }
+        // }
         .ant-modal-close {
+            display: none;
             .ant-modal-close-x{
                 width: 20px;
                 height: 20px;
@@ -167,7 +172,6 @@
                     .modal-custom-video{
                         display:flex;
                         align-content: center;
-                        
                     }
                 }
                 
