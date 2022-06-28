@@ -19,6 +19,7 @@ export const FIELD_USER_NAME = "name";
 export const FIELD_USER_FULL_NAME = "full_name";
 export const ROLE_LIGHT_PLAN = "light plan";
 export const ROLE_VENDOR = "vendor";
+export const ROLE_ADMINISTRATOR = "administrator";
 export const ROLE_FULL_SUPPORT_PLAN = "full support plan";
 export const ACTIVE = 1;
 export const IN_ACTIVE = 0;
