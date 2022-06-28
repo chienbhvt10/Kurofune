@@ -9,6 +9,8 @@ import { generatePassword } from "../../../../commons/string.js";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger";
 import {
   FIRST_TAB,
+  ROLE_FULL_SUPPORT_PLAN,
+  ROLE_LIGHT_PLAN,
   TYPE_FORM_CREATE,
   TYPE_FORM_UPDATE,
 } from "../../../../constants";
@@ -64,6 +66,16 @@ export const UserForm = (props) => {
     setRole(values);
     setActiveTab(FIRST_TAB);
   };
+
+  // const isDisabledSelectActive = React.useMemo(()=>{
+  //   if(role ===ROLE_FULL_SUPPORT_PLAN || role === ROLE_LIGHT_PLAN) {
+  //     userInfoForm.setFieldsValue({
+  //       active : 0
+  //     })
+  //     return true
+  //   }
+  //   return false
+  // },[role])
 
   React.useEffect(() => {
     setAvatarUrl(item?.avatar || "");
@@ -150,6 +162,18 @@ export const UserForm = (props) => {
             </Col>
             <Col span={23}>
               <InputField
+                field="name_furigana"
+                error="name_furigana"
+                label="Name furigana"
+                // label={t("admins.user.form.field_name_furigana")}
+                labelCol={{ span: 6 }}
+                wrapperCol={{ span: 18 }}
+                response={response}
+                type={<Input />}
+              />
+            </Col>
+            <Col span={23}>
+              <InputField
                 field="email"
                 error="email"
                 label={t("admins.user.form.field_email")}
@@ -212,6 +236,21 @@ export const UserForm = (props) => {
             </Col>
             <Col span={23}>
               <SelectField
+                field="language"
+                error="language"
+                label={t("admins.user.form.field_language")}
+                labelCol={{ span: 6 }}
+                wrapperCol={{ span: 18 }}
+                rules={renderErrorTranslate("language")}
+                response={response}
+                placeholder={t(
+                  "admins.user.form.placeholder.select_language"
+                )}
+                options={userFormOptions.LANGUAGES}
+              />
+            </Col>
+            <Col span={23}>
+              <SelectField
                 field="active"
                 error="active"
                 label={t("admins.user.form.field_active")}
@@ -219,6 +258,7 @@ export const UserForm = (props) => {
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("active")}
                 response={response}
+                // disabled={isDisabledSelectActive}
                 placeholder={t(
                   "admins.user.form.placeholder.select_active_status"
                 )}
