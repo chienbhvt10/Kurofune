@@ -65,6 +65,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     const tlFormValues = await getResultValidate(vendorProfileFormTL);
     const viFormValues = await getResultValidate(vendorProfileFormVI);
     const zhFormValues = await getResultValidate(vendorProfileFormZH);
+    const planProfileFormValues = await getResultValidate(planProfileForm);
 
     if (typeForm === TYPE_FORM_UPDATE) {
       formData.append("_method", "PUT");
@@ -75,7 +76,8 @@ const useHandleForm = (item, onSave, typeForm) => {
       jaFormValues.errorFields ||
       tlFormValues.errorFields ||
       viFormValues.errorFields ||
-      zhFormValues.errorFields
+      zhFormValues.errorFields ||
+      planProfileFormValues.errorFields
     ) {
       return;
     } else {
