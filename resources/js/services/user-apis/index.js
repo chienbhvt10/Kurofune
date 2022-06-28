@@ -22,4 +22,18 @@ export const userApis = {
     const url = ROOT_URL + `users/${data}`;
     return await axiosClient.delete(url);
   },
+  getCompany: async (data) => {
+    const url = ROOT_URL + "list-company";
+    return await axiosFormData.get(url, data);
+  },
+  exportCsvReportUser: async (data) => {
+    const url = ROOT_URL + "export-report-user";
+    return await axiosClient.get(url, {
+      params: {
+        company_name: data.company_name,
+        role: data.role,
+        name: data.name,
+      },
+    });
+  },
 };

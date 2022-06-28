@@ -6,15 +6,18 @@ const useUser = () => {
   const user = useSelector((state) => state.userState.user);
   const [loadingUser, setLoadingUser] = React.useState(false);
   const dispatch = useDispatch();
+
   const getUser = (payload) => {
     setLoadingUser(true);
     dispatch(getUserAction(payload));
   };
+
   React.useEffect(() => {
     if (user) {
       setLoadingUser(false);
     }
   }, [user]);
+
   return {
     user,
     getUser,
