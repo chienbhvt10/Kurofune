@@ -3,10 +3,19 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import InputField from "../../../../../commons/Form/InputField";
+import { validateUser } from "../../../../../helper/validateField";
 
 const SubFormUserTranslate = ({ lang, className, form }) => {
   const { t } = useTranslation();
+  const renderErrorTranslate = (field) => {
 
+    return validateUser[field].map((item) => {
+      return {
+        ...item,
+        message: t(item.message),
+      };
+    });
+  };
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
 
   React.useEffect(() => {
@@ -24,6 +33,7 @@ const SubFormUserTranslate = ({ lang, className, form }) => {
               label={t("admins.user.form.vendor_profile.field_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
+              rules={renderErrorTranslate('name')}
               response={resCreateUser}
               type={<Input.TextArea maxLength={256} showCount/>}
             />

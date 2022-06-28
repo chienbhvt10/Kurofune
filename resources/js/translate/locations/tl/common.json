@@ -615,7 +615,8 @@
         "current_password_required": "Mangyaring ipasok ang kasalukuyang password.",
         "new_password_required": "Mangyaring maglagay ng bagong password.",
         "confirm_password_required": "Mangyaring ipasok ang kumpirmasyon ng password.",
-        "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay."
+        "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay.",
+        "required": "Kinakailangan ang field na ito."
       }
     },
     "crud": {

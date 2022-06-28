@@ -620,7 +620,8 @@
         "current_password_required": "Please input current password.",
         "new_password_required": "Please input new password.",
         "confirm_password_required": "Please input password confirmation.",
-        "not_same_password": "The two passwords that you entered do not match."
+        "not_same_password": "The two passwords that you entered do not match.",
+        "required": "This field is required."
       }
     },
     "order": {
