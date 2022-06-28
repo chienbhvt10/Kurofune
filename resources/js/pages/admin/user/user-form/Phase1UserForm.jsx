@@ -164,7 +164,8 @@ export const UserForm = (props) => {
               <InputField
                 field="name_furigana"
                 error="name_furigana"
-                label={t("admins.user.form.field_name_furigana")}
+                label="Name furigana"
+                // label={t("admins.user.form.field_name_furigana")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 response={response}
