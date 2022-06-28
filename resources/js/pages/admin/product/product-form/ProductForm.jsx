@@ -5,144 +5,44 @@ import { useSelector } from "react-redux";
 import { productFormOptions } from "../../../../commons/data.js";
 import InputField from "../../../../commons/Form/InputField.jsx";
 import FormHeader from "../../../../commons/FormHeader";
-import {
-  LANG_CHINESE,
-  LANG_ENGLISH,
-  LANG_JAPANESE,
-  LANG_PHILIPPINES,
-  LANG_VIETNAMESE,
-  TYPE_FORM_UPDATE,
-} from "../../../../constants/index.js";
-import {
-  LANG_CHINESE_INDEX,
-  LANG_ENGLISH_INDEX,
-  LANG_JAPANESE_INDEX,
-  LANG_PHILIPPINES_INDEX,
-  LANG_VIETNAMESE_INDEX,
-} from "../../../../constants/languages";
 import { isAdmin } from "../../../../helper/checker";
-import {
-  appendArrayToFormData,
-  appendObjectToFormData,
-  deleteKeyUndefined,
-} from "../../../../helper/handler";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useCategories from "../../../../hooks/category/useCategories";
 import usePharmacies from "../../../../hooks/pharmacy/usePharmacies";
 import useTaxes from "../../../../hooks/tax/useTaxes";
+import useHandleForm from "../hooks/useHandleForm.js";
 import SelectField from "./../../../../commons/Form/SelectField";
 import UploadDragger from "./../../../../commons/UploadDragger/UploadDragger";
 import "./product-form.scss";
-import {
-  getProductFormLayout,
-  getProductInfoInitValues,
-  getTranslateInitValues,
-} from "./productInitValues.js";
+import { getProductFormLayout } from "./productInitValues.js";
 import "./TranslateProductForm";
 import TranslateProductForm from "./TranslateProductForm";
 
 const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
+  const {
+    productProfileFormEN,
+    productProfileFormJP,
+    productProfileFormTL,
+    productProfileFormVI,
+    productProfileFormZH,
+    initialFormCommonValues,
+    productsForm,
+    onFinishAll,
+    onChangeAvatar,
+    onFinishFailed,
+    setIsRemoveImage,
+  } = useHandleForm(item, onSave, typeForm);
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const { profile, userInfo } = useSelector((state) => state.authState);
   const { pharmacies, getAllPharmacies } = usePharmacies();
   const { getTaxes, taxes } = useTaxes();
   const { categoriesClient, getCategoriesClient } = useCategories();
-  const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
 
   const [avatarUrl, setAvatarUrl] = React.useState();
-  const [avatar, setAvatar] = React.useState();
   const formItemLayout = getProductFormLayout();
-  const initialFormCommonValues = getProductInfoInitValues(item);
-  const [productsForm] = Form.useForm();
-  const [productProfileFormEN] = Form.useForm();
-  const [productProfileFormJP] = Form.useForm();
-  const [productProfileFormTL] = Form.useForm();
-  const [productProfileFormVI] = Form.useForm();
-  const [productProfileFormZH] = Form.useForm();
-
-  const enInitValues = getTranslateInitValues(
-    item?.translations[LANG_ENGLISH_INDEX],
-    LANG_ENGLISH
-  );
-  const jaInitValues = getTranslateInitValues(
-    item?.translations[LANG_JAPANESE_INDEX],
-    LANG_JAPANESE
-  );
-  const tlInitValues = getTranslateInitValues(
-    item?.translations[LANG_PHILIPPINES_INDEX],
-    LANG_PHILIPPINES
-  );
-  const viInitValues = getTranslateInitValues(
-    item?.translations[LANG_VIETNAMESE_INDEX],
-    LANG_VIETNAMESE
-  );
-  const zhInitValues = getTranslateInitValues(
-    item?.translations[LANG_CHINESE_INDEX],
-    LANG_CHINESE
-  );
-
-  const onFinishAll = () => {
-    const formData = new FormData();
-
-    const submitInput = {
-      id: initialFormCommonValues.id,
-      product_image: avatar,
-      tax_id: Number(initialFormCommonValues.tax_id),
-      price: Number(initialFormCommonValues.price),
-      ...productsForm.getFieldsValue(),
-    };
-
-    if (!avatar) {
-      delete submitInput.product_image;
-    }
-    delete submitInput.cat_id;
-
-    if (typeForm === TYPE_FORM_UPDATE) {
-      formData.append("_method", "PUT");
-    }
-
-    appendArrayToFormData(
-      formData,
-      "cat_id",
-      productsForm.getFieldValue("cat_id")
-    );
-    appendObjectToFormData(formData, submitInput);
-    appendObjectToFormData(formData, productProfileFormEN.getFieldsValue());
-    appendObjectToFormData(formData, productProfileFormJP.getFieldsValue());
-    appendObjectToFormData(formData, productProfileFormTL.getFieldsValue());
-    appendObjectToFormData(formData, productProfileFormVI.getFieldsValue());
-    appendObjectToFormData(formData, productProfileFormZH.getFieldsValue());
-
-    productProfileFormEN.validateFields();
-    productProfileFormJP.validateFields();
-    productProfileFormTL.validateFields();
-    productProfileFormVI.validateFields();
-    productProfileFormZH.validateFields();
-    productsForm.validateFields();
-
-    onSave(formData);
-  };
-
-  const onFinishFailed = () => {
-    productProfileFormEN.validateFields();
-    productProfileFormJP.validateFields();
-    productProfileFormTL.validateFields();
-    productProfileFormVI.validateFields();
-    productProfileFormZH.validateFields();
-    productsForm.validateFields();
-    setIsFormSubmitted(true);
-  };
 
   React.useEffect(() => {
-    productsForm.setFieldsValue(initialFormCommonValues);
-    if (item) {
-      productProfileFormEN.setFieldsValue(enInitValues);
-      productProfileFormJP.setFieldsValue(jaInitValues);
-      productProfileFormTL.setFieldsValue(tlInitValues);
-      productProfileFormVI.setFieldsValue(viInitValues);
-      productProfileFormZH.setFieldsValue(zhInitValues);
-    }
     setAvatarUrl(item?.product_image || "");
   }, [item]);
 
@@ -150,20 +50,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
     getCategoriesClient();
     getAllPharmacies();
     getTaxes();
-
-    if (isFormSubmitted) {
-      productProfileFormEN.validateFields();
-      productProfileFormJP.validateFields();
-      productProfileFormTL.validateFields();
-      productProfileFormVI.validateFields();
-      productProfileFormZH.validateFields();
-      productsForm.validateFields();
-    }
   }, [lang]);
-
-  const onChangeAvatar = (file) => {
-    setAvatar(file);
-  };
 
   return (
     <div id="product-form">
@@ -188,6 +75,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 labelCol={{ span: 24 }}
               >
                 <UploadDragger
+                  setIsRemoveImage={setIsRemoveImage}
                   onChangeImage={onChangeAvatar}
                   imageUrlProps={avatarUrl}
                 />
@@ -249,7 +137,9 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                 <SelectField
                   field="stock_status"
                   label={t("admins.product.stock_status_field")}
-                  placeholder={t("admins.product.placeholder_select_stock_status")}
+                  placeholder={t(
+                    "admins.product.placeholder_select_stock_status"
+                  )}
                   options={productFormOptions.stock_status}
                   rules={[
                     {
@@ -274,10 +164,21 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
                       <InputNumber
                         type="number"
                         className="input-field"
-                        min="0"
                         style={{ width: "100%" }}
                       />
                     }
+                    rules={[
+                      ({ getFieldValue }) => ({
+                        validator(_, value) {
+                          if (getFieldValue("price") < 0 || value < 0) {
+                            return Promise.reject(
+                              t("admins.product.error_message.error_price")
+                            );
+                          }
+                          return Promise.resolve();
+                        },
+                      }),
+                    ]}
                   />
                 </Col>
               </Col>
@@ -369,7 +270,6 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         formVI={productProfileFormVI}
         formZH={productProfileFormZH}
         response={response}
-        isFormSubmitted={isFormSubmitted}
       />
     </div>
   );

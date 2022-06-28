@@ -82,7 +82,7 @@ const OrderDetailPage = () => {
                           <img
                             width="50"
                             alt="Thuốc trị ho dạng bột Aneton (16 gói)"
-                            src={item?.imageUrl || "/images/image-default.png"}
+                            src={item?.image || "/images/image-default.png"}
                           />
                         </div>
                         <div className="p-item p-name">{item.name}</div>

@@ -566,6 +566,7 @@
         "placeholder": {
           "search": "Maghanap ayon sa pangalan",
           "select_role": "Mangyaring pumili ng isang tungkulin.",
+          "select_company": "Please select a company",
           "select_active_status": "Mangyaring pumili ng aktibong katayuan.",
           "select_prefecture": "Mangyaring pumili ng prefecture.",
           "select_date": "Mangyaring pumili ng petsa.",
@@ -585,7 +586,8 @@
         },
         "phone": {
           "required": "Mangyaring ipasok ang iyong telepono.",
-          "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
+          "pattern": "Mangyaring maglagay ng wastong numero ng telepono.",
+          "limit": "Ang mga numero ng telepono ay dapat na 9 hanggang 13 digit ang haba."
         },
         "user_name": {
           "required": "Mangyaring ipasok ang iyong username.",
@@ -666,7 +668,7 @@
         "error_category": "Kinakailangan ang field ng Kategorya",
         "error_tax": "Kinakailangan ang field ng Buwis",
         "error_en_product_name": "Kinakailangan ang field ng Pangalan ng Produkto",
-        "error_price": "Please input valid number.",
+        "error_price": "Mangyaring magpasok ng halagang mas mataas sa 0.",
         "error_not_allowed_delete_category": "Hindi matanggal. May mga produktong ibinebenta sa kategoryang ito."
       },
       "title": {

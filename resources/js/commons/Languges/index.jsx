@@ -9,7 +9,7 @@ import {
   LANG_JAPANESE,
   LANG_PHILIPPINES,
   LANG_VIETNAMESE,
-} from "../../constants";
+} from "../../constants/languages";
 import { setCurrentLanguage } from "../../helper/localStorage";
 import "./style.scss";
 export const Languages = () => {

@@ -7,7 +7,6 @@ import FormHeader from "../../../../commons/FormHeader";
 import UploadDragger from "../../../../commons/UploadDragger/UploadDragger.jsx";
 import useCategories from "../../../../hooks/category/useCategories";
 import useHandleForm from "../hooks/useHandleForm";
-import InputField from "./../../../../commons/Form/InputField";
 import "./category-form.scss";
 import { getCategoryFormLayout } from "./categoryInitValues.js";
 import TranslateCategoryForm from "./TranslateCategoryForm";
@@ -28,13 +27,13 @@ const CategoryForm = ({
     categoryProfileFormVI,
     categoryProfileFormZH,
     initialCommonValues,
-    errorMessImage,
+    avatarUrl,
     onChangeAvatar,
     onFinishAll,
     onFinishError,
+    setIsRemoveImage,
   } = useHandleForm(item, onSave, typeForm);
 
-  const [avatarUrl, setAvatarUrl] = React.useState();
   const { t } = useTranslation();
   const formItemLayout = getCategoryFormLayout();
   const { getAllCategories, categories } = useCategories();
@@ -42,10 +41,6 @@ const CategoryForm = ({
   React.useEffect(() => {
     getAllCategories();
   }, []);
-
-  React.useEffect(() => {
-    setAvatarUrl(item?.category_image || "");
-  }, [item]);
 
   return (
     <div id="category-form">
@@ -66,22 +61,13 @@ const CategoryForm = ({
             <Form.Item
               field="product_image"
               label={t("admins.category.product_image_field")}
-              required={true}
             >
               <UploadDragger
                 onChangeImage={onChangeAvatar}
                 imageUrlProps={avatarUrl}
+                setIsRemoveImage={setIsRemoveImage}
               />
             </Form.Item>
-            {errorMessImage && (
-              <Row justify="center">
-                <Col>
-                  <span style={{ color: "red" }}>
-                    {t("admins.category.error_message.error_category_image")}
-                  </span>
-                </Col>
-              </Row>
-            )}
           </Col>
 
           <Col span={12}>

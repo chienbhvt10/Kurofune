@@ -4,14 +4,16 @@ import {
   FIFTH_TAB,
   FIRST_TAB,
   FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+} from "../../../../../constants";
+import {
   LANG_CHINESE,
   LANG_ENGLISH,
   LANG_JAPANESE,
   LANG_PHILIPPINES,
   LANG_VIETNAMESE,
-  SECOND_TAB,
-  THIRD_TAB,
-} from "../../../../../constants";
+} from "../../../../../constants/languages";
 import SubFormUserTranslate from "./SubFormTranslate";
 
 const TranslateVendorForm = ({ formJP, formVI, formTL, formEN, formZH }) => {

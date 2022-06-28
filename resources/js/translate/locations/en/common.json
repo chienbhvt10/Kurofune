@@ -567,6 +567,7 @@
         "placeholder": {
           "search": "Search Name",
           "select_role": "Please select a role",
+          "select_company": "Please select a company",
           "select_active_status": "Please select a active status",
           "select_prefecture": "Please select prefecture",
           "select_date": "Select date",
@@ -590,7 +591,8 @@
         },
         "phone": {
           "required": "Please input your phone.",
-          "pattern": "Please input valid phone number."
+          "pattern": "Please input valid phone number.",
+          "limit": "Phone numbers must be 9 to 13 digits in length."
         },
         "user_name": {
           "required": "Please input your username.",
@@ -721,7 +723,7 @@
         "error_tax": "The Tax field is required",
         "error_en_product_name": "The Product Name field is required",
         "required_message": "This field is required.",
-        "error_price": "Please input valid number.",
+        "error_price": "Please enter a value greater than 0.",
         "error_not_allowed_delete_category": "Can not delete. There are products for sale in this category."
       },
       "title": {

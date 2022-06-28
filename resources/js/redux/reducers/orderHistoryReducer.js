@@ -12,7 +12,7 @@ const orderHistoryReducer = createReducer(initialState, (builder) => {
       state.orderHistory = actions.payload.data;
     })
     .addCase(getOrderHistoryDetailAction.fulfilled, (state, actions) => {
-      state.orderHistoryDetail = actions.payload.data[0];
+      state.orderHistoryDetail = actions.payload.data;
     });
 });
 

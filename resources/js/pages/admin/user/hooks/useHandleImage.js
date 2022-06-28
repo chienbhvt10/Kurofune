@@ -5,6 +5,7 @@ const useHandleImage = () => {
   const [images_inside, setImagesInSide] = React.useState();
   const [images_outside, setImagesOutSide] = React.useState();
   const [images_delete, setImagesDelete] = React.useState([]);
+  const [isRemoveAvatar, setIsRemoveAvatar] = React.useState(false);
 
   const onChangeAvatar = (file) => {
     setAvatar(file);
@@ -36,6 +37,8 @@ const useHandleImage = () => {
     onChangeImageInside,
     onSaveImgInsideDelete,
     onSaveImgOutsideDelete,
+    isRemoveAvatar,
+    setIsRemoveAvatar,
   };
 };
 

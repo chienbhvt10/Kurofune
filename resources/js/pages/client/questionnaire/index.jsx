@@ -3,10 +3,11 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import "./style.scss";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import usePharmacies from "../../../hooks/pharmacy/usePharmacy";
 import { SearchOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
+import { resetPharmacyAction } from "../../../redux/actions/pharmacyAction";
 
 export const Questionnaire = () => {
   const { t } = useTranslation();
@@ -15,7 +16,7 @@ export const Questionnaire = () => {
   const { profile } = useSelector((state) => state.authState);
   const [form] = Form.useForm();
   const [, forceUpdate] = React.useState({});
-
+  const dispatch = useDispatch();
   React.useEffect(() => {
     forceUpdate({});
     (function () {
@@ -45,6 +46,7 @@ export const Questionnaire = () => {
       }
     })();
     return () => {
+      dispatch(resetPharmacyAction())
       const sc = document.getElementsByTagName("script")[0];
       const webChat = document.getElementsByClassName("wc-webchat-ctn")[0];
       webChat.style.display = "none";

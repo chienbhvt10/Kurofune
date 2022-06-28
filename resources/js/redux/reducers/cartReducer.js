@@ -17,6 +17,7 @@ const initialState = {
   cartInfo: { cart_item: [], total: 0, key: "" },
   isLoading: false,
   resAddToCart: undefined,
+  resCheckout:undefined,
 };
 const cartSlice = createSlice({
   name: "slice",
@@ -83,6 +84,7 @@ const cartSlice = createSlice({
       })
       .addCase(checkout.fulfilled, (state, action) => {
         state.isLoading = false;
+        state.resCheckout = action.payload;
         if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
@@ -93,6 +95,7 @@ const cartSlice = createSlice({
       return {
         ...state,
         resAddToCart: undefined,
+        cartInfo: undefined
       };
     });
   },

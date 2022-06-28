@@ -225,7 +225,7 @@
     "questionnaire": {
       "placeholder": "输入药物名称",
       "btn_search": "提交",
-      "title_number_results": "搜索结果s:",
+      "title_number_results": "搜索结果:",
       "btn_detail": "详情",
       "no_result": "请输入关键字进行搜索",
       "description_number": "总共有"
@@ -561,6 +561,7 @@
         "placeholder": {
           "search": "按名称搜索",
           "select_role": "请选择一个角色。",
+          "select_company": "Please select a company",
           "select_active_status": "请选择一个活动状态。",
           "select_prefecture": "请选择县。",
           "select_date": "请选择日期。",
@@ -580,7 +581,8 @@
         },
         "phone": {
           "required": "请输入您的手机。",
-          "pattern": "请输入有效的电话号码。"
+          "pattern": "请输入有效的电话号码。",
+          "limit": "电话号码的长度必须为 9 到 13 位。"
         },
         "user_name": {
           "required": "请输入您的用户名。",
@@ -663,7 +665,7 @@
         "error_category": "类别字段是必需的。",
         "error_tax": "税金字段为必填项。",
         "error_en_product_name": "产品名称字段是必需的。",
-        "error_price": "Please input valid number.",
+        "error_price": "请输入一个大于 0 的值。",
         "error_not_allowed_delete_category": "不能删除。 此类别中有待售产品。"
       },
       "title": {
