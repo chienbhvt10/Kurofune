@@ -13,6 +13,7 @@ import {
   ROLE_LIGHT_PLAN,
   TYPE_FORM_CREATE,
   TYPE_FORM_UPDATE,
+  VIETNAMESE_DIACRITIC_CHARACTERS,
 } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
@@ -179,7 +180,25 @@ export const UserForm = (props) => {
                 label={t("admins.user.form.field_email")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={renderErrorTranslate("email")}
+                rules={[
+                  ...renderErrorTranslate("email"),
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (
+                        VIETNAMESE_DIACRITIC_CHARACTERS.some((character) =>
+                          getFieldValue("email")
+                            .toUpperCase()
+                            .includes(character)
+                        )
+                      ) {
+                        return Promise.reject(
+                          t("admins.user.error.email.type")
+                        );
+                      }
+                      return Promise.resolve();
+                    },
+                  }),
+                ]}
                 response={response}
                 type={<Input />}
               />
@@ -244,9 +263,7 @@ export const UserForm = (props) => {
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("language")}
                 response={response}
-                placeholder={t(
-                  "admins.user.form.placeholder.select_language"
-                )}
+                placeholder={t("admins.user.form.placeholder.select_language")}
                 options={userFormOptions.LANGUAGES}
               />
             </Col>
