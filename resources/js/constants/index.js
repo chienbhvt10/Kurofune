@@ -38,3 +38,6 @@ export const USER_ROLES = {
   ADMIN: "administrator",
   VENDOR: "vendor",
 };
+export const VIETNAMESE_DIACRITIC_CHARACTERS = Array.from(
+  "ẮẰẲẴẶĂẤẦẨẪẬÂÁÀÃẢẠĐẾỀỂỄỆÊÉÈẺẼẸÍÌỈĨỊỐỒỔỖỘÔỚỜỞỠỢƠÓÒÕỎỌỨỪỬỮỰƯÚÙỦŨỤÝỲỶỸỴ"
+);
