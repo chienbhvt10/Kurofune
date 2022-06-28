@@ -16,9 +16,6 @@ import { validateUser } from "../../../../../helper/validateField";
 const PlanProfileForm = ({ form, className, role }) => {
   const { t } = useTranslation();
   const resCreateUser = useSelector((state) => state.userState.resCreateUser);
-  console.log('resCreateUser',resCreateUser);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
 
   React.useEffect(() => {
     if (role === ROLE_FULL_SUPPORT_PLAN) {
