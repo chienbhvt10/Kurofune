@@ -676,7 +676,7 @@ export const userFormOptions = {
   ],
   JOB: [
     { value: 1, label: "Agriculture" },
-    { value: 2, label: "	Fishing (industry)" },
+    { value: 2, label: "Fishing (industry)" },
     { value: 3, label: "Manufacturing (factory)" },
     { value: 4, label: "Manufacturing (design)" },
     { value: 5, label: "Construction (on-site)" },

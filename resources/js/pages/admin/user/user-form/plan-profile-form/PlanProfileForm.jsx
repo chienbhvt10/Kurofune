@@ -109,17 +109,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               type={<Input />}
             />
           </Col>
-          {/* <Col span={12}>
-            <InputField
-              field="address"
-              error="address"
-              label={t("admins.user.form.profile.field_address")}
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              response={resCreateUser}
-              type={<Input />}
-            />
-          </Col> */}
           <Col span={12}>
             <InputField
               field="nationality"

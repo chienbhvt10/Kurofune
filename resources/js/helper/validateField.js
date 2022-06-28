@@ -3,7 +3,14 @@ export const validateUser = {
   name: [{ required: true, message: "admins.user.error.name_required" }],
   language: [{ required: true, message: "admins.user.error.language_required" }],
   company_name: [{ required: true, message: "admins.user.error.company_name_required" }],
-  company_email: [{ required: true, message: "admins.user.error.company_email_required" }],
+  company_email: [
+    { required: true, message: "admins.user.error.email.required" },
+    {
+      pattern: new RegExp(
+        /^([\w\-]|[^ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶẸẺẼỀỀỂẾưăạảấầẩẫậắằẳẵặẹẻẽềềểếỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\W]|(\.(?!(\.|@))))+@([\w-]+\.)+[\w-]{2,4}$/
+      ),
+      message: "admins.user.error.email.type",
+    },],
   person_in_charge: [{ required: true, message: "admins.user.error.person_in_charge_required" }],
   person_in_charge_contact_information: [{ required: true, message: "admins.user.error.person_contact_information_required" }],
   email: [

@@ -191,7 +191,7 @@ export const UserForm = (props) => {
                 label={t("admins.user.form.field_phone")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={renderErrorTranslate("phone")}
+                // rules={renderErrorTranslate("phone")}
                 response={response}
                 type={<Input />}
               />
@@ -238,7 +238,8 @@ export const UserForm = (props) => {
               <SelectField
                 field="language"
                 error="language"
-                label={t("admins.user.form.field_language")}
+                label="Language"
+                // label={t("admins.user.form.field_language")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("language")}

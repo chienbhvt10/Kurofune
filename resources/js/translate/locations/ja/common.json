@@ -607,7 +607,8 @@
         "current_password_required": "現在のパスワードを入力してください。",
         "new_password_required": "新パスワードを入力してください。",
         "confirm_password_required": "新パスワード（確認）の入力してください。",
-        "not_same_password": "新パスワードと再入力パスワードが一致しません。"
+        "not_same_password": "新パスワードと再入力パスワードが一致しません。",
+        "required": "この項目は必須です。"
       }
     },
     "crud": {
