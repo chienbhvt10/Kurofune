@@ -21,6 +21,7 @@ import useRoles from "../../../../hooks/role/useRoles";
 import useHandleForm from "../hooks/useHandleForm";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
+import { isAdmin, isRolePlan, isVendor } from "../../../../helper/checker";
 export const UserForm = (props) => {
   const { item, typeForm, onCancel, onSave, title, response, loading } = props;
   const { t } = useTranslation();
@@ -140,12 +141,22 @@ export const UserForm = (props) => {
                   placeholder={t("admins.user.form.placeholder.select_role")}
                   onChange={onChangeRole}
                   getPopupContainer={getDepend}
+                  disabled={
+                    typeForm === TYPE_FORM_UPDATE &&
+                    (isAdmin(item?.role) || isVendor(item?.role))
+                  }
                 >
-                  {roles.map((item, index) => (
-                    <Select.Option key={index} value={item.name}>
-                      {item.name}
-                    </Select.Option>
-                  ))}
+                  {roles
+                    .filter((item) =>
+                      typeForm === TYPE_FORM_UPDATE
+                        ? isRolePlan(item.name)
+                        : item
+                    )
+                    .map((item, index) => (
+                      <Select.Option key={index} value={item.name}>
+                        {item.name}
+                      </Select.Option>
+                    ))}
                 </Select>
               </Form.Item>
             </Col>
