@@ -1,7 +1,7 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Col, Modal, Row, Select } from "antd";
-import React from "react";
+import { Button, Col, Modal, Row, Select, Upload } from "antd";
+import React, { useCallback } from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useTranslation } from "react-i18next";
 import PageHead from "../../../../commons/PageHead";
@@ -14,12 +14,16 @@ import useHandleUserTable from "../hooks/useHandleUserTable";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
 import useCompany from "../../../../hooks/user/useCompany";
+import UploadCsv from "../../../../commons/UploadCsv/UploadCsv";
+import useImportUser from "../../../../hooks/user/useImportUser";
 export const UserList = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const { exportCsvReportUser } = useExportReportUser();
+  const { importCsvUser } = useImportUser();
   const { roles } = useRoles();
   const { company } = useCompany();
+  const [fileCsv, setFileCsv] = React.useState();
   const {
     loadingDeleteUser,
     loadingListUser,
@@ -33,9 +37,10 @@ export const UserList = () => {
     pagination,
     users,
     selectRole,
-    searchValue,
     onChangeCompany,
     selectCompany,
+    onChangeFileCsv,
+    onExportCsvReportUser,
   } = useHandleUserTable();
 
   function createMarkup() {
@@ -44,14 +49,26 @@ export const UserList = () => {
 
   const getDepend = () => document.querySelector("#role-select");
 
-  const onExportCsvReportUser = () => {
-    const exportParams = deleteKeyUndefined({
-      company_name: selectCompany,
-      role: selectRole,
-      name: searchValue,
-    });
-    exportCsvReportUser(exportParams);
-  };
+  // const onExportCsvReportUser = () => {
+  //   const exportParams = deleteKeyUndefined({
+  //     company_name: selectCompany,
+  //     role: selectRole,
+  //     name: searchValue,
+  //   });
+  //   exportCsvReportUser(exportParams);
+  // };
+
+  // const onChangeFileCsv = (file) => {
+  //   setFileCsv(file);
+  // };
+
+  // React.useEffect(() => {
+  //   if (fileCsv) {
+  //     const formData = new FormData();
+  //     formData.append("file_upload", fileCsv);
+  //     importCsvUser(formData);
+  //   }
+  // }, [fileCsv]);
 
   return (
     <div className="user-list">
@@ -83,6 +100,9 @@ export const UserList = () => {
               />
               <span>{t("admins.log_chatbot.btn_export")}</span>
             </Button>
+          </Col>
+          <Col>
+            <UploadCsv onChangeFile={onChangeFileCsv} />
           </Col>
           <Col id="role-select">
             <Select

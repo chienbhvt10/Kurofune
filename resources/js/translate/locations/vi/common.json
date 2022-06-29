@@ -3,6 +3,7 @@
   "btn_send_mail": "Gửi email",
   "btn_back": "Trở lại",
   "btn_ok": "Ok",
+  "btn_import": "Import CSV",
   "meta": {
     "title_login": "Đăng nhập",
     "content_login": "Đăng nhập",
