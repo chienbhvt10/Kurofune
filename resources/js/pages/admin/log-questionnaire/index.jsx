@@ -1,5 +1,6 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import PageHead from "../../../commons/PageHead";
@@ -10,7 +11,11 @@ import QuestionnaireTable from "./QuestionnaireTable";
 
 const LogQuestionnaire = () => {
   const { t } = useTranslation();
-  const { listQuestions, loadingListLogQues } = useListQuestions();
+  const { listQuestions, getListQuestions } = useListQuestions();
+
+  React.useEffect(() => {
+    getListQuestions();
+  }, []);
 
   return (
     <div className="questionnaire-container">

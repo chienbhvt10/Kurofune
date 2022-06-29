@@ -10,12 +10,6 @@ const useListQuestions = () => {
     dispatch(getListLogActions());
   };
 
-  React.useEffect(() => {
-    if (listQuestions.length === 0) {
-      getListQuestions();
-    }
-  }, [listQuestions]);
-
   return {
     getListQuestions,
     listQuestions,
