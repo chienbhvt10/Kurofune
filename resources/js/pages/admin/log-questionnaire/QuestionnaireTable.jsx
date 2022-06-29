@@ -41,8 +41,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_productName"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.name}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.name}</li>
           ))}
         </ul>
       ),
@@ -61,8 +61,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_quantity"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.quantity}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.quantity}</li>
           ))}
         </ul>
       ),
@@ -73,8 +73,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_price"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.total}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.total}</li>
           ))}
         </ul>
       ),
@@ -85,8 +85,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_answer1"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.anket_1}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_1}</li>
           ))}
         </ul>
       ),
@@ -98,8 +98,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       render: (_, record) => (
         <div className="question-cell">
           <ul className="question-cell">
-            {record?.order_products?.map((product) => (
-              <li>{product.anket_2}</li>
+            {record?.order_products?.map((product, i) => (
+              <li key={i}>{product.anket_2}</li>
             ))}
           </ul>
         </div>
@@ -112,8 +112,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       render: (_, record) => (
         <div className="question-cell">
           <ul className="question-cell">
-            {record?.order_products?.map((product) => (
-              <li>{product.anket_3}</li>
+            {record?.order_products?.map((product, i) => (
+              <li key={i}>{product.anket_3}</li>
             ))}
           </ul>
         </div>
@@ -125,8 +125,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_answer4"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.anket_4}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_4}</li>
           ))}
         </ul>
       ),
@@ -137,8 +137,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_answer5"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.anket_5}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_5}</li>
           ))}
         </ul>
       ),
@@ -149,8 +149,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_answer6"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.anket_6}</li>
+          {record?.order_products?.map((product , i) => (
+            <li key={i}>{product.anket_6}</li>
           ))}
         </ul>
       ),
@@ -161,8 +161,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_answer7"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product) => (
-            <li>{product.anket_8}</li>
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_8}</li>
           ))}
         </ul>
       ),
