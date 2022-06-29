@@ -15,8 +15,8 @@ import useCreateProduct from "./../../../../hooks/product/useCreateProduct";
 const AddProduct = () => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
-  const { getAllProducts, products } = useProducts();
-  const { createNewProduct, resCreateProduct } = useCreateProduct();
+  const { getAllProducts, products,  } = useProducts();
+  const { createNewProduct, resCreateProduct, loadingCreateProduct } = useCreateProduct();
   const navigate = useNavigate();
   const onCancel = () => {
     navigate(`${lang}/admin/product-list`);
@@ -43,6 +43,7 @@ const AddProduct = () => {
         title={t("admins.product.title.product_title")}
         onCancel={onCancel}
         onSave={onSave}
+        loading={loadingCreateProduct}
         response={resCreateProduct}
       />
     </div>
