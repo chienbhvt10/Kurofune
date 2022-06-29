@@ -1,6 +1,8 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTaxesAction } from "../../redux/actions/taxAction";
+import {
+  getTaxesAction,
+  resetTaxCRUDAction,
+} from "../../redux/actions/taxAction";
 
 const useTaxes = () => {
   const { taxes, from, total, to, current_page, last_page } = useSelector(
@@ -10,11 +12,8 @@ const useTaxes = () => {
 
   const getTaxes = (value) => {
     dispatch(getTaxesAction(value));
+    dispatch(resetTaxCRUDAction());
   };
-
-  React.useEffect(() => {
-    getTaxes({ page: current_page });
-  }, []);
 
   return {
     taxes,
