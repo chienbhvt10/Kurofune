@@ -3,6 +3,7 @@
   "btn_send_mail": "I-RESET ANG PASSWORD",
   "btn_back": "BUMALIK",
   "btn_ok": "Ok",
+  "btn_import": "Import CSV",
   "meta": {
     "title_login": "Login",
     "content_login": "Login",

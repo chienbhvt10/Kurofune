@@ -3,6 +3,7 @@
   "btn_send_mail": "RESET PASSWORD",
   "btn_back": "BACK",
   "btn_ok": "OK",
+  "btn_import": "Import CSV",
   "meta": {
     "title_login": "Login",
     "content_login": "Login",
