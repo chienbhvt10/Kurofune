@@ -69,15 +69,6 @@ export const UserForm = (props) => {
     setActiveTab(FIRST_TAB);
   };
 
-  // const isDisabledSelectActive = React.useMemo(()=>{
-  //   if(role ===ROLE_FULL_SUPPORT_PLAN || role === ROLE_LIGHT_PLAN) {
-  //     userInfoForm.setFieldsValue({
-  //       active : 0
-  //     })
-  //     return true
-  //   }
-  //   return false
-  // },[role])
 
   React.useEffect(() => {
     setAvatarUrl(item?.avatar || "");
@@ -176,8 +167,7 @@ export const UserForm = (props) => {
               <InputField
                 field="name_furigana"
                 error="name_furigana"
-                label="Name furigana"
-                // label={t("admins.user.form.field_name_furigana")}
+                label={t("admins.user.form.field_name_furigana")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 response={response}
@@ -268,8 +258,7 @@ export const UserForm = (props) => {
               <SelectField
                 field="language"
                 error="language"
-                label="Language"
-                // label={t("admins.user.form.field_language")}
+                label={t("admins.user.form.field_language")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("language")}

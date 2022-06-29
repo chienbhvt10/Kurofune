@@ -490,6 +490,8 @@
         "field_city": "Thị trấn / Thành Phố",
         "field_street": "Địa chỉ khu phố",
         "field_building": "Tên toà nhà",
+        "field_language":"Ngôn ngữ",
+        "field_name_furigana":"Tên (Furigana)",
         "profile": {
           "field_dob": "Ngày sinh",
           "field_gender": "Giới tính",
@@ -511,7 +513,11 @@
           "field_end_date_education": "Ngày kết thúc giáo dục tiếng Nhật",
           "field_education_status": "Trình độ giáo dục tiếng Nhật ",
           "field_page_registration": "Đăng kí My page Wabisabi",
-          "field_company_mail": "Email của công ty"
+          "field_company_mail": "Email của công ty",
+          "field_company_email": "Email của công ty",
+          "field_company_name": "Tên công ty trực thuộc",
+          "field_person_in_charge":"Tên người phụ trách công ty",
+          "field_person_contact_information":"Địa chỉ liên hệ người phụ trách"
         },
         "vendor_profile": {
           "field_image_inside": "Hình ảnh bên trong hiệu thuốc",
@@ -708,7 +714,8 @@
         "field_prefecture": "Tỉnh / Thành Phố",
         "field_city": "Thị trấn / Thành Phố",
         "field_street_address": "Địa chỉ khu phố",
-        "field_building": "Tên toà nhà"
+        "field_building": "Tên toà nhà",
+        "field_language":"Language"
       },
       "error": {
         "full_name_required": "Vui lòng nhập họ tên của bạn.",

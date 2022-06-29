@@ -497,6 +497,8 @@
         "field_city": "Town / City",
         "field_street": " Street address",
         "field_building": "Building",
+        "field_language":"Language",
+        "field_name_furigana":"Name (Furigana)",
         "profile": {
           "field_dob": "Date of birth",
           "field_gender": "Gender",
@@ -518,7 +520,11 @@
           "field_end_date_education": "End Date Education",
           "field_education_status": "Japanese language education status",
           "field_page_registration": "Wabisabi My Page Registration",
-          "field_company_mail": "Company representative mail"
+          "field_company_mail": "Company representative mail",
+          "field_company_email": "Company email",
+          "field_company_name": "Company name",
+          "field_person_in_charge":"Person in charge",
+          "field_person_contact_information":"Person in charge contact information"
         },
         "vendor_profile": {
           "field_image_inside": "Image inside",
