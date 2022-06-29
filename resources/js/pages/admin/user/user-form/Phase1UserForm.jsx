@@ -13,6 +13,7 @@ import {
   ROLE_LIGHT_PLAN,
   TYPE_FORM_CREATE,
   TYPE_FORM_UPDATE,
+  VIETNAMESE_DIACRITIC_CHARACTERS,
 } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
@@ -20,6 +21,7 @@ import useRoles from "../../../../hooks/role/useRoles";
 import useHandleForm from "../hooks/useHandleForm";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
+import { isAdmin, isRolePlan, isVendor } from "../../../../helper/checker";
 export const UserForm = (props) => {
   const { item, typeForm, onCancel, onSave, title, response, loading } = props;
   const { t } = useTranslation();
@@ -139,12 +141,22 @@ export const UserForm = (props) => {
                   placeholder={t("admins.user.form.placeholder.select_role")}
                   onChange={onChangeRole}
                   getPopupContainer={getDepend}
+                  disabled={
+                    typeForm === TYPE_FORM_UPDATE &&
+                    (isAdmin(item?.role) || isVendor(item?.role))
+                  }
                 >
-                  {roles.map((item, index) => (
-                    <Select.Option key={index} value={item.name}>
-                      {item.name}
-                    </Select.Option>
-                  ))}
+                  {roles
+                    .filter((item) =>
+                      typeForm === TYPE_FORM_UPDATE
+                        ? isRolePlan(item.name)
+                        : item
+                    )
+                    .map((item, index) => (
+                      <Select.Option key={index} value={item.name}>
+                        {item.name}
+                      </Select.Option>
+                    ))}
                 </Select>
               </Form.Item>
             </Col>
@@ -179,7 +191,25 @@ export const UserForm = (props) => {
                 label={t("admins.user.form.field_email")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={renderErrorTranslate("email")}
+                rules={[
+                  ...renderErrorTranslate("email"),
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (
+                        VIETNAMESE_DIACRITIC_CHARACTERS.some((character) =>
+                          getFieldValue("email")
+                            .toUpperCase()
+                            .includes(character)
+                        )
+                      ) {
+                        return Promise.reject(
+                          t("admins.user.error.email.type")
+                        );
+                      }
+                      return Promise.resolve();
+                    },
+                  }),
+                ]}
                 response={response}
                 type={<Input />}
               />
@@ -191,7 +221,7 @@ export const UserForm = (props) => {
                 label={t("admins.user.form.field_phone")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                rules={renderErrorTranslate("phone")}
+                // rules={renderErrorTranslate("phone")}
                 response={response}
                 type={<Input />}
               />
@@ -238,14 +268,13 @@ export const UserForm = (props) => {
               <SelectField
                 field="language"
                 error="language"
-                label={t("admins.user.form.field_language")}
+                label="Language"
+                // label={t("admins.user.form.field_language")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("language")}
                 response={response}
-                placeholder={t(
-                  "admins.user.form.placeholder.select_language"
-                )}
+                placeholder={t("admins.user.form.placeholder.select_language")}
                 options={userFormOptions.LANGUAGES}
               />
             </Col>

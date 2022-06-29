@@ -5,6 +5,7 @@ import { ROLE_VENDOR, TYPE_FORM_UPDATE } from "../../../../constants";
 import {
   appendArrayToFormData,
   appendObjectToFormData,
+  getResultValidate,
 } from "../../../../helper/handler";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import {
@@ -54,67 +55,71 @@ const useHandleForm = (item, onSave, typeForm) => {
   const billingAddressInitValues = getBillingAddressInitValues(item);
   const shippingAddressInitValues = getShippingAddressInitValues(item);
 
-  const onFinishAll = () => {
+  const onFinishAll = async () => {
     const formData = new FormData();
     const role = userInfoForm.getFieldValue("role");
     const dob = planProfileForm.getFieldValue("dob");
-    const start_date_education = planProfileForm.getFieldValue(
-      "start_date_education"
-    );
-    const end_date_education =
-      planProfileForm.getFieldValue("end_date_education");
 
-    let submitValues = {
-      id: userInfoInitValues.id,
-      avatar,
-      delete_avatar: isRemoveAvatar,
-      ...userInfoForm.getFieldsValue(),
-    };
+    const enFormValues = await getResultValidate(vendorProfileFormEN);
+    const jaFormValues = await getResultValidate(vendorProfileFormJP);
+    const tlFormValues = await getResultValidate(vendorProfileFormTL);
+    const viFormValues = await getResultValidate(vendorProfileFormVI);
+    const zhFormValues = await getResultValidate(vendorProfileFormZH);
+    const planProfileFormValues = await getResultValidate(planProfileForm);
+
     if (typeForm === TYPE_FORM_UPDATE) {
       formData.append("_method", "PUT");
     }
-    appendObjectToFormData(formData, commonAddressForm.getFieldsValue());
-    appendObjectToFormData(formData, billingAddressForm.getFieldsValue());
-    appendObjectToFormData(formData, shippingAddressForm.getFieldsValue());
 
-    if (!avatar) {
-      delete submitValues.avatar;
-    }
-    if (!userInfoForm.getFieldValue("password")) {
-      delete submitValues.password;
-    }
-    if (role === ROLE_VENDOR) {
-      appendArrayToFormData(formData, "images_inside", images_inside);
-      appendArrayToFormData(formData, "images_outside", images_outside);
-      appendArrayToFormData(formData, "images_delete", images_delete);
-      appendObjectToFormData(formData, vendorProfileFormEN.getFieldsValue());
-      appendObjectToFormData(formData, vendorProfileFormJP.getFieldsValue());
-      appendObjectToFormData(formData, vendorProfileFormTL.getFieldsValue());
-      appendObjectToFormData(formData, vendorProfileFormVI.getFieldsValue());
-      appendObjectToFormData(formData, vendorProfileFormZH.getFieldsValue());
-    }
-    if (isRolePlan(role)) {
-      appendObjectToFormData(formData, planProfileForm.getFieldsValue());
-      if (dob) {
-        submitValues["dob"] = formatDate(dob);
-      } else if (!dob) {
-        formData.delete("dob");
+    if (
+      enFormValues.errorFields ||
+      jaFormValues.errorFields ||
+      tlFormValues.errorFields ||
+      viFormValues.errorFields ||
+      zhFormValues.errorFields ||
+      planProfileFormValues.errorFields
+    ) {
+      return;
+    } else {
+      let submitValues = {
+        id: userInfoInitValues.id,
+        avatar,
+        delete_avatar: isRemoveAvatar,
+        ...userInfoForm.getFieldsValue(),
+      };
+      
+      appendObjectToFormData(formData, commonAddressForm.getFieldsValue());
+      appendObjectToFormData(formData, billingAddressForm.getFieldsValue());
+      appendObjectToFormData(formData, shippingAddressForm.getFieldsValue());
+  
+      if (!avatar) {
+        delete submitValues.avatar;
       }
-
-      if (start_date_education) {
-        submitValues["start_date_education"] = formatDate(start_date_education);
-      } else if (!start_date_education) {
-        formData.delete("start_date_education");
+      if (!userInfoForm.getFieldValue("password")) {
+        delete submitValues.password;
       }
-      if (end_date_education) {
-        submitValues["end_date_education"] = formatDate(end_date_education);
-      } else if (!end_date_education) {
-        formData.delete("end_date_education");
+      if (role === ROLE_VENDOR) {
+        appendArrayToFormData(formData, "images_inside", images_inside);
+        appendArrayToFormData(formData, "images_outside", images_outside);
+        appendArrayToFormData(formData, "images_delete", images_delete);
+        appendObjectToFormData(formData, vendorProfileFormEN.getFieldsValue());
+        appendObjectToFormData(formData, vendorProfileFormJP.getFieldsValue());
+        appendObjectToFormData(formData, vendorProfileFormTL.getFieldsValue());
+        appendObjectToFormData(formData, vendorProfileFormVI.getFieldsValue());
+        appendObjectToFormData(formData, vendorProfileFormZH.getFieldsValue());
       }
+      if (isRolePlan(role)) {
+        appendObjectToFormData(formData, planProfileForm.getFieldsValue());
+        if (dob) {
+          submitValues["dob"] = formatDate(dob);
+        } else if (!dob) {
+          formData.delete("dob");
+        }
+      }
+      appendObjectToFormData(formData, submitValues);
+      setSubmitted(true);
+      onSave(formData);
     }
-    appendObjectToFormData(formData, submitValues);
-    setSubmitted(true);
-    onSave(formData);
   };
 
   const onFinishAllFailed = () => {

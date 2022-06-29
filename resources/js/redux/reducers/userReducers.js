@@ -10,6 +10,7 @@ import {
   exportReportUserAction,
   selectCompanyAction,
   getCompanyAction,
+  importUserAction,
 } from "../actions/userAction";
 import {
   NotificationError,
@@ -22,9 +23,11 @@ const initialState = {
   resUpdateUser: undefined,
   resDeleteUser: undefined,
   resExportReportUser: undefined,
+  resImportReportUser: undefined,
   loadingUpdateUser: false,
   loadingCreateUser: false,
   loadingExport: false,
+  loadingImport: false,
   total: undefined,
   from: undefined,
   to: undefined,
@@ -161,6 +164,29 @@ const userReducers = createReducer(initialState, (builder) => {
         ...state,
         loadingExport: false,
         resExportReportUser: actions.payload,
+      };
+    });
+
+  builder
+    .addCase(importUserAction.fulfilled, (state, actions) => {
+      return {
+        ...state,
+        loadingImport: false,
+        resImportReportUser: actions.payload,
+      };
+    })
+    .addCase(importUserAction.pending, (state, actions) => {
+      return {
+        ...state,
+        loadingImport: true,
+      };
+    })
+    .addCase(importUserAction.rejected, (state, actions) => {
+      NotificationError("", actions.payload.error_data.file_upload[0]);
+      return {
+        ...state,
+        loadingImport: false,
+        resImportReportUser: actions.payload,
       };
     });
 });

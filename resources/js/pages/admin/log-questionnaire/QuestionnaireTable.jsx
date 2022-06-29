@@ -1,254 +1,321 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
-import { Link } from "react-router-dom";
+import { Button, Table } from "antd";
 import { useTranslation } from "react-i18next";
 
-const QuestionnaireTable = ({ items }) => {
+const QuestionnaireTable = ({ items, loading }) => {
   const { t } = useTranslation();
+  const handleExportQuestionCSV = (e, data) => {
+    e.preventDefault();
+    console.log(data);
+  };
+
   const columns = [
     {
-      dataField: "orderId",
-      text: t("admins.log_questionnaire.label_orderId"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "order_number",
+      dataIndex: "order_number",
+      title: t("admins.log_questionnaire.label_orderId"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.order_number}</div>
+      ),
     },
     {
-      dataField: "username",
-      text: t("admins.log_questionnaire.label_username"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "name",
+      dataIndex: "name",
+      title: t("admins.log_questionnaire.label_username"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.name}</div>
+      ),
     },
     {
-      dataField: "userMail",
-      text: t("admins.log_questionnaire.label_userMail"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "user_email",
+      dataIndex: "user_email",
+      title: t("admins.log_questionnaire.label_userMail"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.user_email}</div>
+      ),
     },
     {
-      dataField: "productName",
-      text: t("admins.log_questionnaire.label_productName"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "product_name",
+      dataIndex: "product_name",
+      title: t("admins.log_questionnaire.label_productName"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.name}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "orderDate",
-      text: t("admins.log_questionnaire.label_orderDate"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "date_order",
+      dataIndex: "date_order",
+      title: t("admins.log_questionnaire.label_orderDate"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.date_order}</div>
+      ),
     },
     {
-      dataField: "quantity",
-      text: t("admins.log_questionnaire.label_quantity"),
-      headerStyle: {
-        width: 150,
-      },
+      key: "quantity",
+      dataIndex: "quantity",
+      title: t("admins.log_questionnaire.label_quantity"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.quantity}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "price",
-      text: t("admins.log_questionnaire.label_price"),
-      headerStyle: {
-        width: 150,
-      },
+      key: "price",
+      dataIndex: "price",
+      title: t("admins.log_questionnaire.label_price"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.total}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "answer1",
-      text: t("admins.log_questionnaire.label_answer1"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer1",
+      dataIndex: "answer1",
+      title: t("admins.log_questionnaire.label_answer1"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_1}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "answer2",
-      text: t("admins.log_questionnaire.label_answer2"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer2",
+      dataIndex: "answer2",
+      title: t("admins.log_questionnaire.label_answer2"),
+      render: (_, record) => (
+        <div className="question-cell">
+          <ul className="question-cell">
+            {record?.order_products?.map((product, i) => (
+              <li key={i}>{product.anket_2}</li>
+            ))}
+          </ul>
+        </div>
+      ),
     },
     {
-      dataField: "answer3",
-      text: t("admins.log_questionnaire.label_answer3"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer3",
+      dataIndex: "answer3",
+      title: t("admins.log_questionnaire.label_answer3"),
+      render: (_, record) => (
+        <div className="question-cell">
+          <ul className="question-cell">
+            {record?.order_products?.map((product, i) => (
+              <li key={i}>{product.anket_3}</li>
+            ))}
+          </ul>
+        </div>
+      ),
     },
     {
-      dataField: "answer4",
-      text: t("admins.log_questionnaire.label_answer4"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer4",
+      dataIndex: "answer4",
+      title: t("admins.log_questionnaire.label_answer4"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_4}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "answer5",
-      text: t("admins.log_questionnaire.label_answer5"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer5",
+      dataIndex: "answer5",
+      title: t("admins.log_questionnaire.label_answer5"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_5}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "answer6",
-      text: t("admins.log_questionnaire.label_answer6"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer6",
+      dataIndex: "answer6",
+      title: t("admins.log_questionnaire.label_answer6"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product , i) => (
+            <li key={i}>{product.anket_6}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "answer7",
-      text: t("admins.log_questionnaire.label_answer7"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "answer7",
+      dataIndex: "answer7",
+      title: t("admins.log_questionnaire.label_answer7"),
+      render: (_, record) => (
+        <ul className="question-cell">
+          {record?.order_products?.map((product, i) => (
+            <li key={i}>{product.anket_8}</li>
+          ))}
+        </ul>
+      ),
     },
     {
-      dataField: "billingName",
-      text: t("admins.log_questionnaire.label_billingName"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_full_name",
+      dataIndex: "billing_full_name",
+      title: t("admins.log_questionnaire.label_billingName"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_full_name}</div>
+      ),
     },
     {
-      dataField: "billingZipCode",
-      text: t("admins.log_questionnaire.label_billingZipCode"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_postal_code",
+      dataIndex: "billing_postal_code",
+      title: t("admins.log_questionnaire.label_billingZipCode"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_postal_code}</div>
+      ),
     },
     {
-      dataField: "billingPrefecture",
-      text: t("admins.log_questionnaire.label_billingPrefecture"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_prefecture",
+      dataIndex: "billing_prefecture",
+      title: t("admins.log_questionnaire.label_billingPrefecture"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_prefecture}</div>
+      ),
     },
     {
-      dataField: "billingCity",
-      text: t("admins.log_questionnaire.label_billingCity"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_city",
+      dataIndex: "billing_city",
+      title: t("admins.log_questionnaire.label_billingCity"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_city}</div>
+      ),
     },
     {
-      dataField: "billingStreetAddress",
-      text: t("admins.log_questionnaire.label_billingStreetAddress"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_street_address",
+      dataIndex: "billing_street_address",
+      title: t("admins.log_questionnaire.label_billingStreetAddress"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_street_address}</div>
+      ),
     },
     {
-      dataField: "billingBuilding",
-      text: t("admins.log_questionnaire.label_billingBuilding"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_building",
+      dataIndex: "billing_building",
+      title: t("admins.log_questionnaire.label_billingBuilding"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_building}</div>
+      ),
     },
     {
-      dataField: "billingPhone",
-      text: t("admins.log_questionnaire.label_billingPhone"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_phone",
+      dataIndex: "billing_phone",
+      title: t("admins.log_questionnaire.label_billingPhone"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_phone}</div>
+      ),
     },
     {
-      dataField: "billingEmail",
-      text: t("admins.log_questionnaire.label_billingEmail"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "billing_email",
+      dataIndex: "billing_email",
+      title: t("admins.log_questionnaire.label_billingEmail"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.billing_email}</div>
+      ),
     },
     {
-      dataField: "shippingName",
-      text: t("admins.log_questionnaire.label_shippingName"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_full_name",
+      dataIndex: "shipping_full_name",
+      title: t("admins.log_questionnaire.label_shippingName"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_full_name}</div>
+      ),
     },
     {
-      dataField: "shippingZipCode",
-      text: t("admins.log_questionnaire.label_shippingZipCode"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_postal_code",
+      dataIndex: "shipping_postal_code",
+      title: t("admins.log_questionnaire.label_shippingZipCode"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_postal_code}</div>
+      ),
     },
     {
-      dataField: "shippingPrefecture",
-      text: t("admins.log_questionnaire.label_shippingPrefecture"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_prefecture",
+      dataIndex: "shipping_prefecture",
+      title: t("admins.log_questionnaire.label_shippingPrefecture"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_prefecture}</div>
+      ),
     },
     {
-      dataField: "shippingCity",
-      text: t("admins.log_questionnaire.label_shippingCity"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_city",
+      dataIndex: "shipping_city",
+      title: t("admins.log_questionnaire.label_shippingCity"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_city}</div>
+      ),
     },
     {
-      dataField: "shippingStreetAddress",
-      text: t("admins.log_questionnaire.label_shippingStreetAddress"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_street_address",
+      dataIndex: "shipping_street_address",
+      title: t("admins.log_questionnaire.label_shippingStreetAddress"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_street_address}</div>
+      ),
     },
     {
-      dataField: "shippingBuilding",
-      text: t("admins.log_questionnaire.label_shippingBuilding"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_building",
+      dataIndex: "shipping_building",
+      title: t("admins.log_questionnaire.label_shippingBuilding"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_building}</div>
+      ),
     },
     {
-      dataField: "shippingPhone",
-      text: t("admins.log_questionnaire.label_shippingPhone"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_phone",
+      dataIndex: "shipping_phone",
+      title: t("admins.log_questionnaire.label_shippingPhone"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_phone}</div>
+      ),
     },
     {
-      dataField: "shippingEmail",
-      text: t("admins.log_questionnaire.label_shippingEmail"),
-      headerStyle: {
-        width: 200,
-      },
+      key: "shipping_email",
+      dataIndex: "shipping_email",
+      title: t("admins.log_questionnaire.label_shippingEmail"),
+      render: (_, record) => (
+        <div className="question-cell">{record?.shipping_email}</div>
+      ),
     },
     {
-      dataField: "downloadCsv",
-      text: "",
+      key: "downloadCsv",
+      dataIndex: "downloadCsv",
+      title: "",
       headerStyle: {
         width: 80,
       },
-      formatter: (cell, row) => (
-        <Link to="/" className="btn-download-csv">
-          <FontAwesomeIcon
-            icon={faDownload}
-            className=""
-            style={{ color: "#62a19b" }}
-          />
-        </Link>
+      render: (_, record) => (
+        <Button onClick={(e) => handleExportQuestionCSV(e, record?.id)}>
+          <FontAwesomeIcon icon={faDownload} style={{ color: "#62a19b" }} />
+        </Button>
       ),
     },
   ];
-  const defaultSorted = [{ dataField: "orderId", order: "desc" }];
 
   return (
-    <BootstrapTable
-      keyField="orderId"
-      columns={columns}
-      data={items}
-      defaultSorted={defaultSorted}
-      //   selectRow={{ mode: "checkbox" }}
-      bootstrap4
+    <Table
       bordered
-      hover
-      striped
-      tabIndexCell
+      columns={columns}
+      dataSource={items}
+      rowKey="question-id"
     />
   );
 };

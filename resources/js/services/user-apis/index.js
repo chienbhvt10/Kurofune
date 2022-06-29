@@ -44,4 +44,8 @@ export const userApis = {
       },
     });
   },
+  importCsvUser: async (data) => {
+    const url = ROOT_URL + "import-user-temporary";
+    return await axiosFormData.post(url, data);
+  },
 };

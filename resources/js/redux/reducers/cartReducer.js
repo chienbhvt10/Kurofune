@@ -7,6 +7,7 @@ import {
   deleteCartItem,
   checkout,
   resetCartCRUD,
+  clearCart,
 } from "../actions/cartAction";
 import {
   NotificationSuccess,
@@ -94,10 +95,17 @@ const cartSlice = createSlice({
     builder.addCase(resetCartCRUD, (state) => {
       return {
         ...state,
-        resAddToCart: undefined,
-        cartInfo: undefined
+        resAddToCart: undefined
       };
     });
+
+    builder.addCase(clearCart, (state) => {
+      return{
+        ...state,
+        resAddToCart: undefined,
+        cartInfo: undefined
+      }
+    })
   },
 });
 

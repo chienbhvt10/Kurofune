@@ -3,6 +3,7 @@
   "btn_send_mail": "Gửi email",
   "btn_back": "Trở lại",
   "btn_ok": "Ok",
+  "btn_import": "Import CSV",
   "meta": {
     "title_login": "Đăng nhập",
     "content_login": "Đăng nhập",
@@ -632,7 +633,8 @@
         "current_password_required": "Vui lòng nhập mật khẩu hiện tại.",
         "new_password_required": "Vui lòng nhập mật khẩu mới.",
         "confirm_password_required": "Vui lòng nhập xác nhận mật khẩu.",
-        "not_same_password": "Hai mật khẩu bạn vừa nhập không khớp nhau."
+        "not_same_password": "Hai mật khẩu bạn vừa nhập không khớp nhau.",
+        "requied":"Vui lòng chọn trường này."
       }
     },
     "crud": {

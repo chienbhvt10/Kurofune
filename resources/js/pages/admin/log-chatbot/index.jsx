@@ -139,7 +139,7 @@ const LogChatBot = () => {
         breadcrumb={[]}
         title={t("admins.log_chatbot.title")}
       >
-        <div>
+        {listChat?.length> 0  && <div>
           <Button
             type="primary"
             onClick={() => exportHistoryChatBot({ export_ja: false })}
@@ -163,7 +163,8 @@ const LogChatBot = () => {
             />
             <span>{t("admins.log_chatbot.btn_export_ja")}</span>
           </Button>
-        </div>
+        </div>}
+
       </TableHeader>
       <Table
         rowKey="id"

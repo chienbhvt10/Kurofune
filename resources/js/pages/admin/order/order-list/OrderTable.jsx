@@ -38,10 +38,10 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
     },
     {
       title: t("admins.order.table.field_date"),
-      dataIndex: "created_at",
+      dataIndex: "date_order",
       width: "20%",
       render: (_, record) => {
-        return <>{moment(record.created_at).format("YYYY/MM/DD hh:ss")}</>;
+        return <>{moment(record.date_order).zone("+09:00").format("DD MMM YYYY")}</>;
       },
     },
     {

@@ -1,10 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { NO_ERROR } from "../../../../constants/error";
 import { deleteKeyUndefined } from "../../../../helper/handler";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useDeleteUser from "../../../../hooks/user/useDeleteUser";
+import useExportReportUser from "../../../../hooks/user/useExportReportUser";
+import useImportUser from "../../../../hooks/user/useImportUser";
 import useUsers from "../../../../hooks/user/useUsers";
 import {
   selectCompanyAction,
@@ -15,12 +16,14 @@ const useHandleUserTable = () => {
   const { getAllUsers, users, pagination, loadingListUser } = useUsers();
   const { deleteUser, loadingDeleteUser } = useDeleteUser();
   const [searchValue, setSearchValue] = React.useState();
-
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
   const dispatch = useDispatch();
   const { selectRole } = useSelector((state) => state.userState);
   const { selectCompany } = useSelector((state) => state.userState);
+  const { exportCsvReportUser } = useExportReportUser();
+  const { importCsvUser } = useImportUser();
+  const [fileCsv, setFileCsv] = React.useState();
 
   React.useEffect(() => {
     if (!searchValue) {
@@ -32,7 +35,15 @@ const useHandleUserTable = () => {
       };
       getAllUsers(deleteKeyUndefined(temp));
     }
-  }, [searchValue]);
+  }, [searchValue, fileCsv]);
+
+  React.useEffect(() => {
+    if (fileCsv) {
+      const formData = new FormData();
+      formData.append("file_upload", fileCsv);
+      importCsvUser(formData);
+    }
+  }, [fileCsv]);
 
   const onDelete = (row) => () => {
     deleteUser(row.id);
@@ -104,6 +115,19 @@ const useHandleUserTable = () => {
     getAllUsers(deleteKeyUndefined(temp));
   };
 
+  const onExportCsvReportUser = () => {
+    const exportParams = deleteKeyUndefined({
+      company_name: selectCompany,
+      role: selectRole,
+      name: searchValue,
+    });
+    exportCsvReportUser(exportParams);
+  };
+
+  const onChangeFileCsv = (file) => {
+    setFileCsv(file);
+  };
+
   return {
     users,
     pagination,
@@ -120,6 +144,8 @@ const useHandleUserTable = () => {
     onSearch,
     onTableChange,
     onResetFilter,
+    onChangeFileCsv,
+    onExportCsvReportUser,
   };
 };
 
