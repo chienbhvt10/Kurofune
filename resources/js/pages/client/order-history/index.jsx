@@ -68,6 +68,7 @@ const OrderHistoryPage = () => {
       dataIndex: "total_tax",
       key: "total_tax",
       align: "center",
+      render: (total_tax) => (`${total_tax}${!lang?' 円':' (JPY)'}`)
     },
     {
       title: t("client.order-history.th_purchase_product"),
