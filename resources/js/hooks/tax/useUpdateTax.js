@@ -26,7 +26,6 @@ const useUpdateTax = () => {
 
   React.useEffect(() => {
     if (resUpdateTax?.error_code === NO_ERROR) {
-      getTaxes({ page: pagination.current_page });
       navigate(`${lang}/admin/tax-list`);
       NotificationSuccess(t("notification"), resUpdateTax?.message);
     }

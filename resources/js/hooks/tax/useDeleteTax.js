@@ -30,10 +30,8 @@ const useDeleteAdminCategory = () => {
 
   React.useEffect(() => {
     if (resDeleteTax?.error_code === NO_ERROR) {
-      dispatch(resetTaxCRUDAction());
       getTaxes({ page: pagination.current_page });
       NotificationSuccess(t("notification"), resDeleteTax?.message);
-      navigate(`${lang}/admin/tax-list`);
     }
   }, [resDeleteTax]);
 

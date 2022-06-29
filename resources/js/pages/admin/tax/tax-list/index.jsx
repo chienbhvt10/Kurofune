@@ -42,12 +42,12 @@ const TaxList = () => {
   };
 
   const onSearch = () => {
-    getTaxes({ name: searchValue });
+    getTaxes({ name: searchValue, page: pagination.current_page });
   };
 
   React.useEffect(() => {
     if (!searchValue) {
-      getTaxes({ name: searchValue });
+      getTaxes({ name: searchValue, page: pagination.current_page });
     }
   }, [searchValue]);
 
