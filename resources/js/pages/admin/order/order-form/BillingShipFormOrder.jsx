@@ -149,7 +149,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                       options={[{ value: 'N/A', label: 'N/A' }, { value: 'Cash on delivery', label: 'Cash on delivery' }, { value: 'Other', label: 'Other' }]}
                     /> */}
                      <InputField
-                      field="payment_method"
+                      field="payment_mode"
                       error={`${typeForm}.payment_method`}
                       label={t("admins.order.form.field_payment_method")}
                       labelCol={{ span: 24 }}

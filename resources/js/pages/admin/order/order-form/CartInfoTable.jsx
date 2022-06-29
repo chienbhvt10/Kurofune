@@ -22,12 +22,13 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     return unit
   }, [dataCartInforTable]);
 
-  const itemsSubtotal = React.useMemo(() => {
-    let total = dataCartInforTable.products.reduce((total, item) => {
-      return Number(total) + Number(item.pivot.quantity) * Number(item.price);
-    }, 0);
-    return total;
-  }, [dataCartInforTable]);
+  // const itemsSubtotal = React.useMemo(() => {
+  //   let total = dataCartInforTable.order_products.reduce((total, item) => {
+  //     return Number(total) + Number(item.pivot.quantity) * Number(item.price);
+  //   }, 0);
+  //   return total;
+  // }, [dataCartInforTable]);
+  console.log('dataCartInforTable',dataCartInforTable);
 
   const columns = [
     {
