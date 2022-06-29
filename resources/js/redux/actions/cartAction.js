@@ -8,6 +8,7 @@ const cartActions = {
   deleteCartItem: createAction("DELETE_CART_ITEM"),
   checkout: createAction("CHECKOUT"),
   resetCartCRUD: createAction("RESET_CART_CRUD"),
+  clearCart: createAction("CLEAR_CART")
 };
 
 export const getCartInfo = createAsyncThunk(
@@ -86,4 +87,5 @@ export const checkout = createAsyncThunk(
     return res;
   }
 );
+export const clearCart = cartActions.clearCart;
 export const resetCartCRUD = cartActions.resetCartCRUD;
