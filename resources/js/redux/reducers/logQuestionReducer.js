@@ -1,14 +1,14 @@
 import { createReducer } from "@reduxjs/toolkit";
 import {
-  getListLogActions,
-  exportDetailQuestionCSVLogAction,
   exportAllQuestionCSVLogAction,
-} from "../actions/logQuestionAction";
+  exportDetailQuestionCSVLogAction,
+} from "../actions/exportCsvAction.js";
+import { getListLogActions } from "../actions/logQuestionAction";
 
 const initialState = {
   listQuestions: "",
-  exportDetailLogQuestion: undefined,
-  exportAllLogQuestion: undefined,
+  csvDetailLog: undefined,
+  csvAllLog: undefined,
 };
 
 const logQuestionReducer = createReducer(initialState, (builder) => {
@@ -16,12 +16,15 @@ const logQuestionReducer = createReducer(initialState, (builder) => {
     state.listQuestions = actions.payload.data;
   });
 
-  builder.addCase(exportDetailQuestionCSVLogAction.fulfilled, (state, actions) => {
-    state.exportLogQuestion = actions.payload;
-  });
+  builder.addCase(
+    exportDetailQuestionCSVLogAction.fulfilled,
+    (state, actions) => {
+      state.csvDetailLog = actions.payload;
+    }
+  );
 
   builder.addCase(exportAllQuestionCSVLogAction.fulfilled, (state, actions) => {
-    state.exportAllLogQuestion = actions.payload;
+    state.csvAllLog = actions.payload;
   });
 });
 
