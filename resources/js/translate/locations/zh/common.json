@@ -561,6 +561,7 @@
         "placeholder": {
           "search": "按名称搜索",
           "select_role": "请选择一个角色。",
+          "select_company": "Please select a company",
           "select_active_status": "请选择一个活动状态。",
           "select_prefecture": "请选择县。",
           "select_date": "请选择日期。",
@@ -580,7 +581,8 @@
         },
         "phone": {
           "required": "请输入您的手机。",
-          "pattern": "请输入有效的电话号码。"
+          "pattern": "请输入有效的电话号码。",
+          "limit": "电话号码的长度必须为 9 到 13 位。"
         },
         "user_name": {
           "required": "请输入您的用户名。",
@@ -608,7 +610,8 @@
         "current_password_required": "请输入当前密码。",
         "new_password_required": "请输入新密码。",
         "confirm_password_required": "请输入密码确认。",
-        "not_same_password": "您输入的两个密码不匹配。"
+        "not_same_password": "您输入的两个密码不匹配。",
+        "required": "请选择此项。w"
       }
     },
     "crud": {

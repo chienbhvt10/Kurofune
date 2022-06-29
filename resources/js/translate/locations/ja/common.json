@@ -560,6 +560,7 @@
         "placeholder": {
           "search": "名前で検索する",
           "select_role": "ユーザーロールを選択してください。",
+          "select_company": "Please select a company",
           "select_active_status": "アクティブステータスを選択してください。",
           "select_prefecture": "都道府県を選択してください。",
           "select_date": "日付を選択してください。",
@@ -579,7 +580,8 @@
         },
         "phone": {
           "required": "電話番号を入力してください。",
-          "pattern": "有効な電話番号を入力してください。"
+          "pattern": "有効な電話番号を入力してください。",
+          "limit": "電話番号は９桁から13桁までを入力してください。"
         },
         "user_name": {
           "required": "ユーザー名を入力してください。",
@@ -607,7 +609,8 @@
         "current_password_required": "現在のパスワードを入力してください。",
         "new_password_required": "新パスワードを入力してください。",
         "confirm_password_required": "新パスワード（確認）の入力してください。",
-        "not_same_password": "新パスワードと再入力パスワードが一致しません。"
+        "not_same_password": "新パスワードと再入力パスワードが一致しません。",
+        "required": "この項目は必須です。"
       }
     },
     "crud": {

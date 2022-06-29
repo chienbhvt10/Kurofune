@@ -10,7 +10,7 @@ export const Breadcrumb = ({ title, breadcrumb }) => {
         </h3>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb px-1 bg-white">
-            {breadcrumb.map((item, index) => (
+            {breadcrumb?.map((item, index) => (
               <li
                 key={index}
                 className={

@@ -567,6 +567,7 @@
         "placeholder": {
           "search": "Search Name",
           "select_role": "Please select a role",
+          "select_company": "Please select a company",
           "select_active_status": "Please select a active status",
           "select_prefecture": "Please select prefecture",
           "select_date": "Select date",
@@ -590,7 +591,8 @@
         },
         "phone": {
           "required": "Please input your phone.",
-          "pattern": "Please input valid phone number."
+          "pattern": "Please input valid phone number.",
+          "limit": "Phone numbers must be 9 to 13 digits in length."
         },
         "user_name": {
           "required": "Please input your username.",
@@ -618,7 +620,8 @@
         "current_password_required": "Please input current password.",
         "new_password_required": "Please input new password.",
         "confirm_password_required": "Please input password confirmation.",
-        "not_same_password": "The two passwords that you entered do not match."
+        "not_same_password": "The two passwords that you entered do not match.",
+        "required": "This field is required."
       }
     },
     "order": {

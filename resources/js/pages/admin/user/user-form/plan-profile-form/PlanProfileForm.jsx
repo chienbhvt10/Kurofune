@@ -37,16 +37,6 @@ const PlanProfileForm = ({ form, className, role }) => {
       });
     }
   }, [role]);
-
-  // const isCheckRoleFullAndLight = React.useMemo(()=>{
-  //   if(role ===ROLE_FULL_SUPPORT_PLAN || role === ROLE_LIGHT_PLAN) {
-  //     userInfoForm.setFieldsValue({
-  //       active : 0
-  //     })
-  //     return true
-  //   }
-  //   return false
-  // },[role])
   const renderErrorTranslate = (field) => {
     return validateUser?.[field].map((item) => {
       return {
@@ -109,17 +99,6 @@ const PlanProfileForm = ({ form, className, role }) => {
               type={<Input />}
             />
           </Col>
-          {/* <Col span={12}>
-            <InputField
-              field="address"
-              error="address"
-              label={t("admins.user.form.profile.field_address")}
-              labelCol={{ span: 24 }}
-              wrapperCol={{ span: 22 }}
-              response={resCreateUser}
-              type={<Input />}
-            />
-          </Col> */}
           <Col span={12}>
             <InputField
               field="nationality"

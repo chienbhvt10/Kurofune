@@ -82,7 +82,7 @@ const OrderHistoryPage = () => {
                 <img
                   width="50"
                   alt="アネトンせき止め顆粒 16包"
-                  src={product?.imageUrl || "/images/image-default.png"}
+                  src={product?.image || "/images/image-default.png"}
                 />
               </div>
               <div className="p-item p-name">{product.name}</div>

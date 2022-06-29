@@ -566,6 +566,7 @@
         "placeholder": {
           "search": "Maghanap ayon sa pangalan",
           "select_role": "Mangyaring pumili ng isang tungkulin.",
+          "select_company": "Please select a company",
           "select_active_status": "Mangyaring pumili ng aktibong katayuan.",
           "select_prefecture": "Mangyaring pumili ng prefecture.",
           "select_date": "Mangyaring pumili ng petsa.",
@@ -585,7 +586,8 @@
         },
         "phone": {
           "required": "Mangyaring ipasok ang iyong telepono.",
-          "pattern": "Mangyaring maglagay ng wastong numero ng telepono."
+          "pattern": "Mangyaring maglagay ng wastong numero ng telepono.",
+          "limit": "Ang mga numero ng telepono ay dapat na 9 hanggang 13 digit ang haba."
         },
         "user_name": {
           "required": "Mangyaring ipasok ang iyong username.",
@@ -613,7 +615,8 @@
         "current_password_required": "Mangyaring ipasok ang kasalukuyang password.",
         "new_password_required": "Mangyaring maglagay ng bagong password.",
         "confirm_password_required": "Mangyaring ipasok ang kumpirmasyon ng password.",
-        "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay."
+        "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay.",
+        "required": "Kinakailangan ang field na ito."
       }
     },
     "crud": {
