@@ -41,8 +41,7 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
       dataIndex: "date_order",
       width: "20%",
       render: (_, record) => {
-        return <>{moment(record.date_order).zone("+09:00").format("YYYY/MM/DD")} at{" "}
-                {moment(record.date_order).zone("+09:00").format("LT")}</>;
+        return <>{moment(record.date_order).zone("+09:00").format("DD MMM YYYY")}</>;
       },
     },
     {
