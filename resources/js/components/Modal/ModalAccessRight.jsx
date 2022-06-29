@@ -1,23 +1,14 @@
 import { Button, Modal } from 'antd';
 import { t } from 'i18next';
 import React, { useState } from 'react';
+import useUserRegistrationClient from '../../hooks/user/useUserRegistrationClient';
+import { TheServices } from './data';
 import "./modal-custom.scss";
-const ModalAccessRight = ({ modalVisible, setModalVisible,role }) => {
-  // const [modalVisible, setModalVisible] = useState(true);
-  const theServices = {
-    light_plan: [
-      'client.media.light_plan.modal_access_right2.the_services.1',
-      'client.media.light_plan.modal_access_right2.the_services.2',
-    ],
-    full_plan: [
-      'client.media.full_plan.modal_access_right2.the_services.1',
-      'client.media.full_plan.modal_access_right2.the_services.2',
-      'client.media.full_plan.modal_access_right2.the_services.3',
-      'client.media.full_plan.modal_access_right2.the_services.4',
-      'client.media.full_plan.modal_access_right2.the_services.5',
-    ],
-    default:[]
-  }
+const ModalAccessRight = ({ modalVisible, setModalVisible, role, profile }) => {
+  const { aviableCounterClient } = useUserRegistrationClient()
+  React.useEffect(() => {
+    aviableCounterClient();
+  }, [])
   return (
     <Modal
       visible={modalVisible}
@@ -30,11 +21,11 @@ const ModalAccessRight = ({ modalVisible, setModalVisible,role }) => {
       <div className="modal-custom">
         <div className="modal-custom-body">
           <div className="modal-custom-content">
-            <img className="modal-custom-image" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6NqqRWa810JiTbmC1IZuD4URna60QMvnsNR_QpnSxKt0CRbjrBzcBZMVVxnnBg3poDls&usqp=CAU' />
-            <p className="modal-custom-description"> lorem ipsum dolor sit am</p>
-            <p className="modal-custom-title"> lorem ipsum dolor sit am</p>
+            <img className="modal-custom-image" src='/images/people.png' />
+            <p className="modal-custom-description">{t(`client.media.light_plan.modal_access_right.description`,{ payload: profile.profile.company_name })}</p>
+            <p className="modal-custom-title">{t(`client.media.light_plan.modal_access_right.title`, { payload: profile.name })}</p>
             <ul className="modal-custom-list">
-              {theServices[role].map((content, index) => {
+              {TheServices[role] && TheServices[role].map((content, index) => {
                 return (
                   <li className="modal-custom-item" key={index}>
                     <span className="modal-custom-item-index">{index + 1}</span>

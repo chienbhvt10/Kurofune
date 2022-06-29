@@ -3,15 +3,24 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import "./board.scss";
-import { LANG_VIETNAMESE } from "../../../../constants";
+import { LANG_VIETNAMESE } from "../../../../constants/languages";
+import { ROLE_FULL_SUPPORT_PLAN2 } from "../../../../constants";
 const Board = ({ boardItems, setModalVisible,role }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
-  const arrayScreenRequest = ['member', 'service']
+  const arrayScreenRequest = ['member','service']
+
+  const checkRoleRequest = React.useCallback((nameRouter,disable)=>{
+    let isRequest = arrayScreenRequest.includes(nameRouter)
+    if(disable) return false
+    if(!isRequest && role !== ROLE_FULL_SUPPORT_PLAN2) {
+      return false
+    }
+    return true
+  },[role])
   return (
     <div className="board-container">
       {boardItems.map((item, index) => {
-        let isRequest = arrayScreenRequest.includes(item.name)
         return (
           <div
             key={index}
@@ -21,26 +30,21 @@ const Board = ({ boardItems, setModalVisible,role }) => {
                 : "board-item"
             }
             onClick={() => {
-              if (item.disable) {
+              if (!checkRoleRequest(item.name,item.disable)) {
                 setModalVisible((pre) => {
                   return !pre
                 })
-              }
-              // if (!isRequest) {
-              //   // setModalVisible((pre) => {
-              //   //   return !pre
-              //   // })
-              // }
+              } 
             }
             }
           >
             {item.type === "a_tag" ? (
               <a
-                target={!isRequest ?'' : '_blank'}
-                href={(!item.disable && isRequest) ? item.link : null}
+                target={!checkRoleRequest(item.name,item.disable) ? '_blank' : ''}
+                href={!checkRoleRequest(item.name,item.disable) ? null : item.link}
                 className="item"
                 title={item.link}
-                disabled={!isRequest}
+                // disabled={}
               >
                 <div className="icon">
                   <img src={item.imageUrl} alt="" />
@@ -51,7 +55,7 @@ const Board = ({ boardItems, setModalVisible,role }) => {
                 </div>
               </a>
             ) : (
-              <Link to={(!item.disable && isRequest) ? `${lang}${item.link}` : ''} className="item" title={item.link}>
+              <Link to={checkRoleRequest(item.name,item.disable) ? `${lang}${item.link}` : ''  } className="item" title={item.link}>
                 <div className="icon">
                   <img
                     src={

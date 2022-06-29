@@ -11,45 +11,31 @@ import postal_code from "japan-postal-code";
 import { ROLE_FULL_SUPPORT_PLAN, ROLE_FULL_SUPPORT_PLAN2 } from '../../constants';
 import useUserRegistrationClient from '../../hooks/user/useUserRegistrationClient';
 import { isNumber } from 'lodash';
+import { userFormOptions } from '../../commons/data'
 
-const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
+const UserProfileClient = ({ modalVisible, setModalVisible, role, profile,setAccessRightVisiable2 }) => {
   const [formInfo] = Form.useForm();
-  // const [placement, SetPlacement] = useState('topLeft');
-  
+
   const initialValues = {
     name_furigana: profile && profile.name_furigana || '',
-    dob: profile && moment(profile.profile.dob) || '',
+    dob: profile && moment(profile.profile.dob,'YYYY-MM-DD') || '',
     gender: profile && isNumber(profile.profile.gender) ? profile.profile.gender : '',
-    phone_number: profile && profile?.phone || '',
-    facebook: profile && profile.profile.facebook ||'',
-    line:profile?.profile?.line ||'',
-    postcode: profile?.address?.postal_code ||'',
-    prefecture: profile?.address?.prefecture ||'',
-    city: profile?.address?.city ||'',
-    building: profile?.address?.building ||'',
-    nationality:profile && isNumber(profile.profile.nationality) ? profile.profile.nationality : '',
+    phone: profile && profile?.phone || '',
+    facebook: profile && profile.profile.facebook || '',
+    line: profile?.profile?.line || '',
+    postal_code: profile?.address?.postal_code || '',
+    prefecture: profile?.address?.prefecture || '',
+    city: profile?.address?.city || '',
+    building: profile?.address?.building || '',
+    street_address: profile?.address?.street_address || '',
+    nationality: profile?.profile?.nationality || '',
     visa_type: profile && isNumber(profile.profile.visa_type) ? profile.profile.visa_type : '',
-    education_status:profile && isNumber(profile.profile.education_status) ? profile.profile.education_status : '',
-    job_name:profile && isNumber(profile.profile.job_name) ? profile.profile.job_name : '',
+    education_status: profile && isNumber(profile.profile.education_status) ? profile.profile.education_status : '',
+    job_name: profile && isNumber(profile.profile.job_name) ? profile.profile.job_name : '',
   }
-  // const initialValues = {
-  //   name_furigana: '',
-  //   dob:'',
-  //   gender: '',
-  //   phone_number: '',
-  //   facebook:'',
-  //   line:'',
-  //   postcode: '',
-  //   prefecture: '',
-  //   city: '',
-  //   building: '',
-  //   nationality: '',
-  //   type_visa: '',
-  //   education_status: '',
-  //   job_name: '',
-  // }
+
   const onCodeJapan = () => {
-    let code = formInfo.getFieldValue("postcode")
+    let code = formInfo.getFieldValue("postal_code")
     if (code) {
       postal_code.get(code, (address) => {
         if (address.prefecture || address.city || address.area) {
@@ -67,12 +53,13 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
       name_furigana: initialValues.name_furigana,
       dob: initialValues.dob,
       gender: initialValues.gender,
-      phone_number: initialValues.phone_number,
+      phone: initialValues.phone,
       facebook: initialValues.facebook,
       line: initialValues.line,
-      postcode: initialValues.postcode,
+      postal_code: initialValues.postal_code,
       prefecture: initialValues.prefecture,
       city: initialValues.city,
+      street_address: initialValues.street_address,
       building: initialValues.building,
       nationality: initialValues.nationality,
       visa_type: initialValues.visa_type,
@@ -87,7 +74,7 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
         phone_number: initialValues.phone_number,
         facebook: initialValues.facebook,
         line: initialValues.line,
-        postcode: initialValues.postcode,
+        postal_code: initialValues.postal_code,
         prefecture: initialValues.prefecture,
         city: initialValues.city,
         building: initialValues.building,
@@ -108,22 +95,34 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
       };
     });
   };
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
   const { UserRegistrationClient } = useUserRegistrationClient();
-  const onFinish = (value) =>{
-    UserRegistrationClient(value)
+  const onFinish =(value) => {
+    if (!value) return
+    let dob = formInfo.getFieldValue("dob")
+    dob = dob.format('YYYY-MM-DD');
+    let objectUpdate= {
+      ...value,dob
+    };
+    UserRegistrationClient(objectUpdate, async()=>{
+      setModalVisible(false)
+      await sleep(2000);
+      setAccessRightVisiable2(true)
+    })
+  }
+  const onOk = async () =>{
+    formInfo.submit();
   }
 
   return <Modal
     visible={modalVisible}
-    onCancel={() => {
-      setModalVisible(false)
-    }}
-    onOk={() => {
-      let value = formInfo.getFieldError()
-      console.log('error',value);
-      formInfo.submit();
-    }}
-    className="modal-access-right"
+    // onCancel={() => {
+    //   setModalVisible(false)
+    // }}
+    onOk={onOk}
+    className="modal-access-right hidden-x"
   >
     <div className="modal-custom">
       <div className="modal-custom-body">
@@ -138,7 +137,7 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
               <InputField
                 field='name_furigana'
                 error='name_furigana'
-                label={t("member.change_profile.field_name_furigana")}
+                label={t("client.media.user_profile.field_name_furigana")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 23 }}
                 type={<Input className="input-field" />}
@@ -152,8 +151,7 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                   label='Dob'
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN ? 'dob' :''}`)}
-                  // response={response}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN ? 'dob' : ''}`)}
                   type={<DatePicker className="input-field" allowClear={false} />}
                 />
               </Col>
@@ -161,10 +159,10 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                 <SelectField
                   field='gender'
                   error='gender'
-                  label="Gender"
+                  label={t("client.media.user_profile.field_gender")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'gender' :''}`)}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'gender' : ''}`)}
                   // response={response}
                   options={
                     [
@@ -175,18 +173,17 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                   }
                   type={<Input className="input-field" />}
                 />
-
               </Col>
             </Row>
             <Row span={24}>
               <Col span={24}>
                 <InputField
-                  field='phone_number'
-                  error='phone_number'
-                  label='Phone Number'
+                  field='phone'
+                  error='phone'
+                  label={t("client.media.user_profile.field_phone")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate("phone_number")}
+                  rules={renderErrorTranslate("phone")}
                   type={<Input className="input-field" />}
                 />
               </Col>
@@ -196,7 +193,7 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                 <InputField
                   field='facebook'
                   error='facebook'
-                  label="Facebook"
+                  label={t("client.media.user_profile.field_facebook")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
                   type={<Input className="input-field" />}
@@ -204,9 +201,9 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
               </Col>
               <Col span={12}>
                 <InputField
-                  field='lINE'
-                  error='lINE'
-                  label="LINE"
+                  field='line'
+                  error='line'
+                  label={t("client.media.user_profile.field_line")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
                   type={<Input className="input-field" />}
@@ -216,12 +213,12 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
             <Row>
               <Col span={12}>
                 <InputField
-                  field='postcode'
-                  error='postcode'
-                  label='Postcode'
+                  field='postal_code'
+                  error='postal_code'
+                  label={t("client.media.user_profile.field_postcode")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate("postcode")}
+                  rules={renderErrorTranslate("postal_code")}
                   // response={response}
                   type={<Input className="input-field" />}
                 />
@@ -241,7 +238,7 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                 <SelectField
                   field='prefecture'
                   error='prefecture'
-                  label="Prefecture"
+                  label={t("client.media.user_profile.field_prefecture")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
                   options={PREF}
@@ -255,62 +252,62 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                 <InputField
                   field='city'
                   error='city'
-                  label="City"
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
+                  label={t("client.media.user_profile.field_city")}
                   rules={renderErrorTranslate("city")}
                   // response={response}
                   type={<Input className="input-field" />}
                 />
               </Col>
             </Row>
+
             <Row>
+              <Col span={12}>
+                <InputField
+                  field='street_address'
+                  error='street_address'
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 23 }}
+                  label={t("client.media.user_profile.field_street_address")}
+                  rules={renderErrorTranslate("street_address")}
+                  // response={response}
+                  type={<Input className="input-field" />}
+                />
+              </Col>
               <Col span={12}>
                 <InputField
                   field='building'
                   error='building'
-                  label="Building"
+                  label={t("client.media.user_profile.field_building")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
                   type={<Input className="input-field" />}
                 />
               </Col>
-              <Col span={12}>
-                <InputField
-                  field='nationality'
-                  error='nationality'
-                  label="Nationality"
-                  rules={renderErrorTranslate("nationality")}
-                  labelCol={{ span: 24 }}
-                  wrapperCol={{ span: 23 }}
-                  type={<Input className="input-field" />}
-                />
-              </Col>
+
             </Row>
+            <Col span={12}>
+              <InputField
+                field='nationality'
+                error='nationality'
+                label={t("client.media.user_profile.field_nationality")}
+                rules={renderErrorTranslate("nationality")}
+                labelCol={{ span: 24 }}
+                wrapperCol={{ span: 23 }}
+                type={<Input className="input-field" />}
+              />
+            </Col>
             <Col span={24}>
               <SelectField
                 field='visa_type'
                 error='visa_type'
-                label="Visa"
+                label={t("client.media.user_profile.field_visa_type")}
                 labelCol={{ span: 24 }}
                 wrapperCol={{ span: 23 }}
                 rules={renderErrorTranslate("visa_type")}
                 // response={response}
-                options={
-                  [
-                    { value: 1, label: 'Technical internship' },
-                    { value: 2, label: 'Raw Specific Skills' },
-                    { value: 3, label: 'Specific Skills' },
-                    { value: 4, label: 'Specially Designated Activities Technical/Humanities/International Services' },
-                    { value: 5, label: '	Permanent residence 1' },
-                    { value: 6, label: 'Japanese spouse' },
-                    { value: 7, label: 'Spouse of a permanent resident' },
-                    { value: 8, label: 'Long-term resident' },
-                    { value: 9, label: 'Studying abroad' },
-                    { value: 10, label: 'Dependent' },
-                    { value: 11, label: 'Building cleaning' },
-                  ]
-                }
+                options={userFormOptions.VISA_TYPE}
                 type={<Input className="input-field" />}
               />
             </Col>
@@ -319,31 +316,12 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                 <SelectField
                   field='job_name'
                   error='job_name'
-                  label="Job"
+                  label={t("client.media.user_profile.field_job")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'job_name' :''}`)}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'job_name' : ''}`)}
                   // response={response}
-                  options={
-                    [
-                      { value: 0, label: 'Agriculture' },
-                      { value: 1, label: 'Fishing (industry)' },
-                      { value: 2, label: 'Manufacturing (factory)' },
-                      { value: 3, label: 'Manufacturing (design)' },
-                      { value: 4, label: 'Construction (on-site)' },
-                      { value: 5, label: 'Construction (design)' },
-                      { value: 6, label: 'Sales' },
-                      { value: 7, label: 'Accounting' },
-                      { value: 8, label: 'Business' },
-                      { value: 9, label: 'Automobile maintenance' },
-                      { value: 10, label: 'Care' },
-                      { value: 11, label: 'Hospitality industry (food & beverage, lodging)' },
-                      { value: 12, label: 'Interpretation (i.e. oral translation)' },
-                      { value: 13, label: 'IT engineer' },
-                      { value: 14, label: 'Building cleaning' },
-                      { value: 15, label: 'Other' },
-                    ]
-                  }
+                  options={userFormOptions.JOB}
                   type={<Input className="input-field" />}
                 />
               </Col>
@@ -351,21 +329,12 @@ const UserProfileClient = ({ modalVisible, setModalVisible,role,profile}) => {
                 <SelectField
                   field='education_status'
                   error='education_status'
-                  label="The Course"
+                  label={t("client.media.user_profile.field_education_status")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 23 }}
-                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'education_status' :''}`)}
+                  rules={renderErrorTranslate(`${role === ROLE_FULL_SUPPORT_PLAN2 ? 'education_status' : ''}`)}
                   // response={response}
-                  options={
-                    [
-                      { value: 1, label: 'N1' },
-                      { value: 2, label: 'N2' },
-                      { value: 3, label: 'N3' },
-                      { value: 4, label: 'N4' },
-                      { value: 5, label: 'N5' },
-                      { value: 6, label: 'N0' },
-                    ]
-                  }
+                  options={userFormOptions.education_status}
                   type={<Input className="input-field" />}
                 />
               </Col>

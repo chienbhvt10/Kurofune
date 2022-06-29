@@ -240,31 +240,55 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "ユーザー情報",
       "btn_logout": "ログアウト",
+      "user_profile":{
+        "field_name_furigana":"名前（ふりがな）",
+        "field_phone":"電話番号",
+        "field_gender":"性別",
+        "field_facebook":"Facebookアカウント",
+        "field_line":"LINEアカウント",
+        "field_visa_type":"ビザの種類",
+        "field_nationality":"国籍",
+        "field_job":"職種名",
+        "field_language":"言語",
+        "field_postcode": "郵便番号",
+        "field_prefecture": "都道府県 ",
+        "field_city": "市区町村",
+        "field_building": "建物名・部屋番号",
+        "field_education_status": "Education status"
+      },
       "light_plan": {
-        "modal_access_right": {},
+        "the_services": {
+          "1": "オンライン薬局サービス",
+          "2": "24時間生活相談サービス",
+          "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
+        },
+        "modal_access_right": {
+          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには{{payload}}社での新規加入が必要となります。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様が使えるサービスは、"
+        },
         "modal_access_right2": {
           "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
           "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
-          "the_services": {
-            "1": "オンライン薬局サービス",
-            "2": "24時間生活相談サービス",
-            "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
-          }
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       },
-      "full_plan": {
-        "modal_access_right": {},
+      "full_support_plan": {
+        "the_services": {
+          "1": "オンライン薬局サービス",
+          "2": "24時間生活相談サービス",
+          "3": "海外送金サービス",
+          "4": "オンライン日本語教育サービス",
+          "5": "所得補償保険サービス"
+        },
+        "modal_access_right": {
+          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、"
+        },
         "modal_access_right2": {
           "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
           "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
-          "the_services": {
-            "1": "オンライン薬局サービス",
-            "2": "24時間生活相談サービス",
-            "3": "海外送金サービス",
-            "4": "オンライン日本語教育サービス",
-            "5": "所得補償保険サービス",
-            "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
-          }
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
+         
         }
       }
     },

@@ -16,7 +16,7 @@ export const validateFormRegister = {
     gender: [
         { required: true, message: "admins.user.error.gender.required" },
     ],
-    phone_number: [
+    phone: [
         {
             required: true,
             message: "admins.user.error.phone.required",
@@ -52,7 +52,7 @@ export const validateFormRegister = {
             message: "admins.user.error.password.pattern_space",
         },
     ],
-    postcode: [
+    postal_code: [
         { required: true, message: "admins.user.error.postcode_required"},
         {
             pattern: new RegExp(/〒?[0-9]{3}-?[0-9]{4}/),

@@ -2,23 +2,11 @@ import { Button, Modal } from 'antd';
 import React, { useState } from 'react';
 import "./modal-custom.scss";
 import { useTranslation } from "react-i18next";
-const ModalAccessRight2 = ({ modalVisible, setModalVisible,role }) => {
+import { TheServices } from './data';
+const ModalAccessRight2 = ({ modalVisible, setModalVisible, role,profile }) => {
 
-    const theServices = {
-        light_plan: [
-            'client.media.light_plan.modal_access_right2.the_services.1',
-            'client.media.light_plan.modal_access_right2.the_services.2',
-        ],
-        full_plan: [
-            'client.media.full_plan.modal_access_right2.the_services.1',
-            'client.media.full_plan.modal_access_right2.the_services.2',
-            'client.media.full_plan.modal_access_right2.the_services.3',
-            'client.media.full_plan.modal_access_right2.the_services.4',
-            'client.media.full_plan.modal_access_right2.the_services.5',
-        ],
-        default: []
-    }
     const { t } = useTranslation();
+
     return (
         <Modal
             visible={modalVisible}
@@ -31,12 +19,12 @@ const ModalAccessRight2 = ({ modalVisible, setModalVisible,role }) => {
             <div className="modal-custom">
                 <div className="modal-custom-body">
                     <div className="modal-custom-content">
-                        <p className="modal-custom-description">{t("client.media.full_plan.modal_access_right2.description")}</p>
-                        <p className="modal-custom-title">{t("client.media.full_plan.modal_access_right2.title", { payload: 'Name User' })}</p>
+                    <p className="modal-custom-description">{t(`client.media.${role}.modal_access_right2.description`)}</p>
+                    <p className="modal-custom-title">{t(`client.media.${role}.modal_access_right2.title`, { payload: profile.name })}</p>
                         <ul className="modal-custom-list">
-                            {theServices[role].map((content, index) => {
+                            {TheServices[role] && TheServices[role].map((content, index) => {
                                 return (
-                                    <li className="modal-custom-item">
+                                    <li className="modal-custom-item" key={index}>
                                         <span className="modal-custom-item-index">{index + 1}</span>
                                         <span className="modal-custom-item-content">{t(content)}</span>
                                     </li>
@@ -48,7 +36,7 @@ const ModalAccessRight2 = ({ modalVisible, setModalVisible,role }) => {
                                 width="100%"
                                 height="240"
                                 controls
-                                src={t("client.media.full_plan.modal_access_right2.the_services.linkVideo")}
+                                src={t("client.media.light_plan.modal_access_right2.linkVideo")}
                             >
                             </iframe>
                         </div>

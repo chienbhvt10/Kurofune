@@ -26,6 +26,10 @@ export const userApis = {
     const url = ROOT_URL + `register`;
     return await axiosClient.put(url,data)
   },
+  aviableCounter: async (data) => {
+    const url = ROOT_URL + `click-not-available-counter`;
+    return await axiosClient.get(url)
+  },
   getCompany: async (data) => {
     const url = ROOT_URL + "list-company";
     return await axiosFormData.get(url, data);

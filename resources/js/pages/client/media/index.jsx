@@ -13,8 +13,9 @@ import "./media.scss";
 import { useDispatch } from "react-redux";
 import { resetAuthResponse } from "../../../redux/actions/authAction";
 import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
+import ModalAccessRight2 from "../../../components/Modal/ModalAccessRight2";
 import { useSelector } from "react-redux";
-import { ACTIVE, IN_ACTIVE, ROLE_FULL_SUPPORT_PLAN, ROLE_LIGHT_PLAN } from "../../../constants";
+import { ACTIVE, IN_ACTIVE, ROLE_FULL_SUPPORT_PLAN, ROLE_FULL_SUPPORT_PLAN2, ROLE_LIGHT_PLAN, ROLE_LIGHT_PLAN2 } from "../../../constants";
 import UserProfileClient from "../../../components/Modal/UserProfileClient";
 import Board from "./Board"
 
@@ -32,22 +33,24 @@ const MediaPage = () => {
     getLogout();
   };
   const profile = useSelector((state) => state.authState.profile);
-  const state = useSelector((state) => state);
   const [role,setRole] = React.useState('default')
   const [active,setActive] = React.useState(false)
-  const [modalVisible, setModalVisible] = React.useState(true);
+  const [accessRightVisiable, setAccessRightVisiable] = React.useState(false);
+  const [userProfileVisiable, setUserProfileVisiable] = React.useState(true);
+  const [accessRightVisiable2, setAccessRightVisiable2] = React.useState(false);
+  const [modalVisible,setModalVisible] = React.useState(true);
   React.useEffect(() => {
     if(profile?.roles[0].name===ROLE_LIGHT_PLAN){
-      setRole('light_plan')
+      setRole(ROLE_LIGHT_PLAN2)
     }else if(profile?.roles[0].name === ROLE_FULL_SUPPORT_PLAN){
-      setRole('full_support_plan')
+      setRole(ROLE_FULL_SUPPORT_PLAN2)
     }else{
       setRole('default')
     }
-    if(profile?.active===ACTIVE){
-      setActive(true)
-    }else{
+    if(profile?.active===IN_ACTIVE){
       setActive(false)
+    }else{
+      setActive(true)
     }
   }, [profile]);
 
@@ -71,7 +74,7 @@ const MediaPage = () => {
             </div>
           </div>
           <div className="service_dashboard">
-            <Board boardItems={mediaBoardItemData} setModalVisible={setModalVisible} role={role}/>
+            <Board boardItems={mediaBoardItemData} setModalVisible={setAccessRightVisiable} role={role}/>
             <div className="switch">
               <div>
                 <Languages />
@@ -120,9 +123,9 @@ const MediaPage = () => {
           </div>
         </div>
         <Footer />
-        {/* <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
-        {/* <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} role={role}/> */}
-         { modalVisible&& <UserProfileClient modalVisible={modalVisible} setModalVisible={setModalVisible} role={role} profile={profile} /> }
+        { accessRightVisiable && <ModalAccessRight modalVisible={accessRightVisiable} setModalVisible={setAccessRightVisiable} role={role} profile={profile}/>}
+        {!active && <UserProfileClient modalVisible={userProfileVisiable} setModalVisible={setUserProfileVisiable} setAccessRightVisiable2={setAccessRightVisiable2} role={role} profile={profile} /> }
+        {active && accessRightVisiable2 && <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} role={role} profile={profile} /> }
       </div>
     </>
   );

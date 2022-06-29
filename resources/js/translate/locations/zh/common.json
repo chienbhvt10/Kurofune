@@ -240,32 +240,54 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "用户信息",
       "btn_logout": "登出",
-
+      "user_profile":{
+        "field_name_furigana":"Tên (Furigana)",
+        "field_phone":"电话",
+        "field_gender":"性别",
+        "field_facebook":"Facebook帐户",
+        "field_line":"Line帐户",
+        "field_visa_type":"签证类型",
+        "field_nationality":"国籍",
+        "field_job":"职位名称",
+        "field_language":"语言",
+        "field_postcode": "邮编",
+        "field_prefecture": "州 ",
+        "field_city": "城镇/城市",
+        "field_building": "建造",
+        "field_education_status": "Education status"
+      },
       "light_plan": {
-        "modal_access_right": {},
+        "the_services": {
+          "1": "Online pharmacy service",
+          "2": "24-hour life consultation service",
+          "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
+        },
+        "modal_access_right": {
+          "description": "此服务仅适用于已获得“Full Support Plan”的公司。 要使用它，您需要通知您的公司并要求获得*Full Support Plan*。",
+          "title": "※ 由于您目前的计划是“Light Plan”，因此可用的服务只有："
+        },
         "modal_access_right2": {
           "description": "You can only start using the portal site after the video finishes.Please watch",
           "title": "* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are",
-          "the_services": {
-            "1": "Online pharmacy service",
-            "2": "24-hour life consultation service",
-            "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
-          }
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       },
-      "full_plan": {
-        "modal_access_right": {},
+      "full_support_plan": {
+        "the_services": {
+          "1": "Online pharmacy service",
+          "2": "24-hour life consultation service",
+          "3": "Overseas remittance service",
+          "4": "Online Japanese language education service",
+          "5": "Income compensation insurance service"
+        },
+        "modal_access_right": {
+          "description": "此服务仅适用于已获得“Full Support Plan”的公司。 要使用它，您需要通知您的公司并要求获得*Full Support Plan*。",
+          "title": "※ 由于您目前的计划是“Light Plan”，因此可用的服务只有："
+        },
         "modal_access_right2": {
           "description": "You can only start using the portal site after the video finishes.Please watch",
           "title": "* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are",
-          "the_services": {
-            "1": "Online pharmacy service",
-            "2": "24-hour life consultation service",
-            "3": "Overseas remittance service",
-            "4": "Online Japanese language education service",
-            "5": "Income compensation insurance service",
-            "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
-          }
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       }
     },

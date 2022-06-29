@@ -84,6 +84,8 @@
         }
     }
 }
+
+
 .modal-access-right{
     #form-register{
         .btn-search{
@@ -113,7 +115,7 @@
         //     }
         // }
         .ant-modal-close {
-            display: none;
+            // display: none;
             .ant-modal-close-x{
                 width: 20px;
                 height: 20px;
@@ -140,8 +142,8 @@
                     max-height: 70vh;
                     overflow: auto;
                     .modal-custom-image{
-                        width: 200px;
-                        height: 200px;
+                        // width: 200px;
+                        // height: 200px;
                         margin: 0 auto;
                     }
                     .modal-custom-description{
@@ -175,6 +177,19 @@
                     }
                 }
                 
+            }
+        }
+    }
+}
+
+.modal-access-right.hidden-x {
+    .ant-modal-close {
+        display: none;
+        .ant-modal-close-x{
+            width: 20px;
+            height: 20px;
+            svg {
+                color:#fff;
             }
         }
     }
