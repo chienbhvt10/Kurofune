@@ -10,6 +10,7 @@ import cartState from "../reducers/cartReducer";
 import logChatState from "./../reducers/logChatReducer";
 import taxState from "../reducers/taxReducer";
 import orderHistoryState from "./../reducers/orderHistoryReducer";
+import logQuestionState from "./../reducers/logQuestionReducer";
 
 export const store = configureStore({
   reducer: {
@@ -23,8 +24,8 @@ export const store = configureStore({
     logChatState,
     taxState,
     cartState,
-    cartState,
     orderHistoryState,
+    logQuestionState,
   },
 });
 
