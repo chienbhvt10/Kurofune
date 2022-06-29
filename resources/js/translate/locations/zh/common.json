@@ -491,6 +491,9 @@
         "field_city": "城镇/城市",
         "field_street": "街道地址",
         "field_building": "建造",
+        "field_language":"语言",
+        "field_name_furigana":"舔（注音）",
+
         "profile": {
           "field_dob": "出生日期",
           "field_gender": "性别",
@@ -512,7 +515,10 @@
           "field_end_date_education": "结束日期教育",
           "field_education_status": "日语教育状况",
           "field_page_registration": "Wabisabi我的页面注册",
-          "field_company_mail": "公司邮件"
+          "field_company_mail": "公司邮件",
+          "field_company_name": "公司名称",
+          "field_person_in_charge":"负责人",
+          "field_person_contact_information":"负责人联系方式"
         },
         "vendor_profile": {
           "field_image_inside": "里面的图片",

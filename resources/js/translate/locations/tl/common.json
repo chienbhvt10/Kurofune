@@ -496,6 +496,8 @@
         "field_city": "Bayan / Lungsod",
         "field_street": "Address ng kalye",
         "field_building": "Gusali",
+        "field_language":"Wika",
+        "field_name_furigana":"Name (Furigana)",
         "profile": {
           "field_dob": "Araw ng kapanganakan",
           "field_gender": "Kasarian",
@@ -517,7 +519,11 @@
           "field_end_date_education": "Petsa ng Pagtatapos ng Edukasyon",
           "field_education_status": "Katayuan ng edukasyon sa wikang Hapon",
           "field_page_registration": "Wabisabi My Page Registration",
-          "field_company_mail": "Mail ng Kumpanya"
+          "field_company_mail": "Mail ng Kumpanya",
+          "field_company_email": "Email ng kumpanya",
+          "field_company_name": "Pangalan ng Kumpanya",
+          "field_person_in_charge":"Taong namumuno",
+          "field_person_contact_information":"Impormasyon sa pakikipag-ugnayan ng taong namamahala"
         },
         "vendor_profile": {
           "field_image_inside": "Mga larawan sa loob ng botika",
@@ -712,7 +718,8 @@
         "field_prefecture": "Prefecture",
         "field_city": "Bayan / Lungsod",
         "field_street_address": "Address ng kalye",
-        "field_building": "Gusali"
+        "field_building": "Gusali",
+        "field_language":"Language"
       },
       "error": {
         "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",

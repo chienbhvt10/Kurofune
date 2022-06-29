@@ -490,6 +490,8 @@
         "field_city": "市区町村",
         "field_street": "丁目・番地・号",
         "field_building": "建物名・部屋番号",
+        "field_language":"言語",
+        "field_name_furigana":"名前（ふりがな）",
         "profile": {
           "field_dob": "生年月日",
           "field_gender": "性別",
@@ -511,7 +513,11 @@
           "field_end_date_education": "日本語教育終了日",
           "field_education_status": "日本語教育ステータス",
           "field_page_registration": "WABISABIマイページ登録",
-          "field_company_mail": "代行企業のメールアドレス"
+          "field_company_mail": "代行企業のメールアドレス",
+          "field_company_email": "企業メールアドレス",
+          "field_company_name": "所属企業名",
+          "field_person_in_charge":"企業担当者",
+          "field_person_contact_information":"担当者連絡先"
         },
         "vendor_profile": {
           "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
@@ -657,7 +663,8 @@
         "field_prefecture": "都道府県",
         "field_city": "市区町村",
         "field_street_address": "丁目・番地・号",
-        "field_building": "建物名・部屋番号"
+        "field_building": "建物名・部屋番号",
+        "field_language":"Language"
       },
       "error": {
         "full_name_required": "氏名を入力してください。",

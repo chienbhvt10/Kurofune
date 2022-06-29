@@ -156,8 +156,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="company_name"
               error="company_name"
-              label="Company name"
-              // label={t("admins.user.form.profile.field_company_name")}
+              label={t("admins.user.form.profile.field_company_name")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={renderErrorTranslate("company_name")}
@@ -169,8 +168,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="company_email"
               error="company_email"
-              label="Company email"
-              // label={t("admins.user.form.profile.field_company_mail")}
+              label={t("admins.user.form.profile.field_company_email")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={renderErrorTranslate("company_email")}
@@ -182,8 +180,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="person_in_charge"
               error="person_in_charge"
-              label="Person in charge"
-              // label={t("admins.user.form.profile.field_person_in_charge")}
+              label={t("admins.user.form.profile.field_person_in_charge")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               rules={renderErrorTranslate("person_in_charge")}
@@ -196,8 +193,7 @@ const PlanProfileForm = ({ form, className, role }) => {
             <InputField
               field="person_in_charge_contact_information"
               error="person_in_charge_contact_information"
-              label="Person in charge contact information"
-              // label={t("admins.user.form.profile.field_person_contact_information")}
+              label={t("admins.user.form.profile.field_person_contact_information")}
               labelCol={{ span: 24 }}
               wrapperCol={{ span: 22 }}
               response={resCreateUser}
