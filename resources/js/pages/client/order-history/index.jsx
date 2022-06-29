@@ -29,8 +29,8 @@ const OrderHistoryPage = () => {
     },
     {
       title: t("client.order-history.th_order_ID"),
-      dataIndex: "id",
-      key: "id",
+      dataIndex: "order_number",
+      key: "order_number",
       align: "center",
     },
     {
