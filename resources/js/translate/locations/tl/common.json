@@ -247,31 +247,55 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "User Information",
       "btn_logout": "Mag-logout",
+      "user_profile":{
+        "field_name_furigana":"Name (Furigana)",
+        "field_phone":"Telepono",
+        "field_gender":"Kasarian",
+        "field_facebook":"Facebook account",
+        "field_line":"LINE account",
+        "field_visa_type":"Uri ng Visa",
+        "field_nationality":"Nasyonalidad",
+        "field_job":"Pangalan ng trabaho",
+        "field_language":"Wika",
+        "field_postcode": "Postal code",
+        "field_prefecture": "Mga prefecture ",
+        "field_city": "Bayan / Lungsod",
+        "field_building": "Gusali",
+        "field_education_status": "Education status"
+      },
       "light_plan": {
-        "modal_access_right": {},
+        "the_services": {
+          "1": "Online na serbisyo sa parmasya",
+          "2": "24 na oras na serbisyo sa konsultasyon sa buhay",
+          "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
+        },
+        "modal_access_right": {
+          "description": "Ang serbisyong ito ay magagamit lamang sa mga kumpanyang nag-avail ng \"Full Support Plan\". Upang magamit ito, kailangan mong ipaalam sa iyong kumpanya at hilingin ang *Full Support Plan*.",
+          "title": "※ Ang kasalukuyang plano ay \"Light Plan\", ang mga serbisyong available lamang ay:"
+        },
         "modal_access_right2": {
           "description": "Maaari mo lamang simulan ang paggamit ng portal site pagkatapos ng video. Mangyaring panoorin",
           "title": "* Dahil ang kasalukuyang plano ay Light Plan, ang mga serbisyong magagamit ni G. {{payload}} ay",
-          "the_services": {
-            "1": "Online na serbisyo sa parmasya",
-            "2": "24 na oras na serbisyo sa konsultasyon sa buhay",
-            "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
-          }
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       },
-      "full_plan": {
-        "modal_access_right": {},
+      "full_support_plan": {
+        "the_services": {
+          "1": "Online na serbisyo sa parmasya",
+          "2": "24 na oras na serbisyo sa konsultasyon sa buhay",
+          "3": "Overseas remittance service",
+          "4": "Online Japanese language education service",
+          "5": "Income compensation insurance service"
+        
+        },
+        "modal_access_right": {
+          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、"
+        },
         "modal_access_right2": {
           "description": "Maaari mo lamang simulan ang paggamit ng portal site pagkatapos ng video. Mangyaring panoorin",
           "title": "* Dahil ang kasalukuyang plano ay Light Plan, ang mga serbisyong magagamit ni G. {{payload}} ay",
-          "the_services": {
-            "1": "Online na serbisyo sa parmasya",
-            "2": "24 na oras na serbisyo sa konsultasyon sa buhay",
-            "3": "Overseas remittance service",
-            "4": "Online Japanese language education service",
-            "5": "Income compensation insurance service",
-            "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
-          }
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       }
     },

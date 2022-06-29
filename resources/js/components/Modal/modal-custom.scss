@@ -84,6 +84,8 @@
         }
     }
 }
+
+
 .modal-access-right{
     #form-register{
         .btn-search{
@@ -107,8 +109,13 @@
            background-color: #fff;
         }
         
-
+        // .ant-modal-footer{
+        //     .ant-btn.ant-btn-default{
+        //         display: none;
+        //     }
+        // }
         .ant-modal-close {
+            // display: none;
             .ant-modal-close-x{
                 width: 20px;
                 height: 20px;
@@ -135,8 +142,8 @@
                     max-height: 70vh;
                     overflow: auto;
                     .modal-custom-image{
-                        width: 200px;
-                        height: 200px;
+                        // width: 200px;
+                        // height: 200px;
                         margin: 0 auto;
                     }
                     .modal-custom-description{
@@ -167,10 +174,22 @@
                     .modal-custom-video{
                         display:flex;
                         align-content: center;
-                        
                     }
                 }
                 
+            }
+        }
+    }
+}
+
+.modal-access-right.hidden-x {
+    .ant-modal-close {
+        display: none;
+        .ant-modal-close-x{
+            width: 20px;
+            height: 20px;
+            svg {
+                color:#fff;
             }
         }
     }

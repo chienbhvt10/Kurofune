@@ -10,7 +10,7 @@ import {
   setAccessToken,
   setRememberLogin,
 } from "../../helper/localStorage";
-import { login } from "../../redux/actions/authAction";
+import { login, showProfileAction } from "../../redux/actions/authAction";
 import useShowProfile from "./useShowProfile";
 
 const useLogin = () => {
@@ -23,7 +23,6 @@ const useLogin = () => {
   const { profile } = useShowProfile();
 
   const loginUser = (values) => {
-
     setRemember(values.remember);
     dispatch(login(values));
   };
@@ -36,6 +35,7 @@ const useLogin = () => {
 
   React.useEffect(() => {
     if (resLogin?.error_code === NO_ERROR) {
+      dispatch(showProfileAction());
       if (remember) {
         setRememberLogin(REMEMBER_LOGIN_VALUES);
         setAccessToken(resLogin.data?.access_token);

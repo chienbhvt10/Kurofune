@@ -34,10 +34,7 @@ const OrderList = () => {
   const debounceSearch = useCallback(
     debounce((valueSearch) => {
       getListOrderAdmin(
-        { page: 1, per_page: 10, status: valueSearch },
-        (data) => {
-          setDataOrder(data);
-        }
+        { page: 1, per_page: 10, status: valueSearch },(data) => {setDataOrder(data);}
       );
     }, 1000),
     []
