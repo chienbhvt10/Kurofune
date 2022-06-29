@@ -10,7 +10,7 @@ const AddCategory = () => {
 
   const navigate = useNavigate();
 
-  const { createAdminCategory, resCreateCategory } = useCreateAdminCategory();
+  const { createAdminCategory, resCreateCategory, loadingCreateCategory } = useCreateAdminCategory();
   const onCancel = () => {
     navigate(`${lang}/admin/category-list`);
   };
@@ -25,6 +25,7 @@ const AddCategory = () => {
         content={t("meta.content_category_create")}
       />
       <CategoryForm
+        loading={loadingCreateCategory}
         typeForm={TYPE_FORM_CREATE}
         title={t("admins.category.title.product_category_add")}
         onCancel={onCancel}

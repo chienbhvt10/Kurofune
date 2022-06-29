@@ -10,7 +10,7 @@ import "./category.scss";
 import CategoryTable from "./CategoryTable";
 import { NotificationError } from "../../../../commons/Notification";
 const CategoryList = () => {
-  const { getAdminCategories, adminCategories, pagination } =
+  const { getAdminCategories, adminCategories, pagination, loadingListCategory } =
     useAdminCategories();
   const { deleteAdminCategory, resDeleteCategory, resCreateCategory } =
     useDeleteAdminCategory();
@@ -77,6 +77,7 @@ const CategoryList = () => {
         onEdit={onEdit}
         onTableChange={onTableChange}
         pagination={pagination}
+        loading={loadingListCategory}
       />
     </div>
   );

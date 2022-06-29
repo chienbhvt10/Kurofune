@@ -1,3 +1,4 @@
+import { Spin } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,8 +12,8 @@ const UpdateCategory = () => {
   const lang = localStorage.getItem("lang");
   const navigate = useNavigate();
   const { id } = useParams();
-  const { getAdminCategory, adminCategory } = useAdminCategory();
-  const { updateAdminCategory, resUpdateCategory } = useUpdateAdminCategory();
+  const { getAdminCategory, adminCategory, loadingCategory } = useAdminCategory();
+  const { updateAdminCategory, resUpdateCategory, loadingUpdateCategory } = useUpdateAdminCategory();
   const { t } = useTranslation();
 
   const onCancel = () => {
@@ -34,7 +35,10 @@ const UpdateCategory = () => {
         title={t("meta.title_category_update")}
         content={t("meta.content_category_update")}
       />
+      <Spin spinning={loadingCategory} tip="Loading...">
+      {adminCategory && (
       <CategoryForm
+        loading={loadingUpdateCategory}
         item={adminCategory}
         typeForm={TYPE_FORM_UPDATE}
         title="Update Category"
@@ -42,6 +46,8 @@ const UpdateCategory = () => {
         onSave={onSave}
         response={resUpdateCategory}
       />
+      )}
+      </Spin>
     </div>
   );
 };

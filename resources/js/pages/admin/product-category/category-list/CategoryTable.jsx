@@ -12,6 +12,7 @@ const CategoryTable = ({
   onEdit,
   pagination,
   onTableChange,
+  loading
 }) => {
   const lang = localStorage.getItem("lang");
   const { t } = useTranslation();
@@ -128,6 +129,7 @@ const CategoryTable = ({
   return (
     <Table
       rowKey="id"
+      loading={loading}
       columns={columns}
       dataSource={items}
       bordered
