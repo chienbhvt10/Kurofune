@@ -13,6 +13,7 @@ const userActions = {
   selectRole: createAction("SELECT_ROLE"),
   selectCompany: createAction("SELECT_COMPANY"),
   exportCsvReportUser: createAction("EXPORT_CSV_REPORT_USER"),
+  importCsvUser: createAction("IMPORT_CSV_REPORT_USER"),
 };
 
 export const getCompanyAction = createAsyncThunk(
@@ -101,6 +102,18 @@ export const exportReportUserAction = createAsyncThunk(
         downloadBlob(data, fileName);
         return data;
       });
+      return res;
+    } catch (err) {
+      return rejectWithValue(JSON.parse(err.response.request.response));
+    }
+  }
+);
+
+export const importUserAction = createAsyncThunk(
+  userActions.importCsvUser,
+  async (payload, { rejectWithValue }) => {
+    try {
+      const res = await userApis.importCsvUser(payload).then((data) => data);
       return res;
     } catch (err) {
       return rejectWithValue(JSON.parse(err.response.request.response));

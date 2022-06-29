@@ -3,6 +3,7 @@
   "btn_send_mail": "发送电子邮件",
   "btn_back": "后退",
   "btn_ok": "Ok",
+  "btn_import": "Import CSV",
   "meta": {
     "title_login": "登录",
     "content_login": "登录",
