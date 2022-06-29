@@ -13,7 +13,7 @@ import {
   removeAccessToken,
 } from "../../helper/localStorage";
 import { logout, resetAuthResponse } from "../../redux/actions/authAction";
-import { resetCartCRUD } from "../../redux/actions/cartAction";
+import { clearCart } from "../../redux/actions/cartAction";
 
 const useLogout = () => {
   const { resLogout } = useSelector((state) => state.authState);
@@ -34,7 +34,7 @@ const useLogout = () => {
       sessionStorage.clear();
       navigate(`${lang}/login`);
       dispatch(resetAuthResponse());
-      dispatch(resetCartCRUD());
+      dispatch(clearCart());
     }
     if (resLogout && resLogout.status_code === ERROR) {
       NotificationError(t("notification"), resLogout.error_message);
