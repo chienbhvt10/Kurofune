@@ -335,7 +335,10 @@
       "field_email": "Email address",
       "title_ship": "Impormasyon ng Pagpapadala",
       "accept_term": "Bumili pagkatapos sumang-ayon sa mga tuntunin ng paggamit.",
-      "btn_text_buy": "BUMILI"
+      "btn_text_buy": "BUMILI",
+      "message_error_blling_shipping":"Mangyaring ipasok ang impormasyon sa pagbabayad at pagpapadala",
+      "message_error_blling":"Mangyaring magpasok ng impormasyon sa pagbabayad",
+      "message_error_shipping":"Mangyaring ipasok ang impormasyon sa pagpapadala"
     },
     "order-history": {
       "th_order_date": "Petsa ng Order",

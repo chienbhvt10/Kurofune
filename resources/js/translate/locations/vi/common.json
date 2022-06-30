@@ -330,7 +330,10 @@
       "field_email": "Địa chỉ email",
       "title_ship": "Thông tin giao hàng",
       "accept_term": "Tôi đồng ý với điều khoản sử dụng và mua hàng.",
-      "btn_text_buy": "MUA"
+      "btn_text_buy": "MUA",
+      "message_error_blling_shipping":"Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
+      "message_error_blling":"Vui lòng nhập thông tin thanh toán",
+      "message_error_shipping":"Vui lòng nhập địa chỉ giao hàng"
     },
     "order-history": {
       "th_order_date": "Ngày đặt hàng",

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createReducer } from "@reduxjs/toolkit";
 import {
   getCartInfo,
   updateCart,
@@ -20,82 +20,110 @@ const initialState = {
   resAddToCart: undefined,
   resCheckout:undefined,
 };
-const cartSlice = createSlice({
-  name: "slice",
-  initialState,
-  reducers: {},
-  extraReducers: (builder) => {
+const cartSlice = createReducer(initialState,(builder) => {
     builder.addCase(getCartInfo.fulfilled, (state, action) => {
-      if (action.payload.error_code === NO_ERROR) {
-        state.cartInfo = action.payload.data;
+      if (action.payload?.error_code === NO_ERROR) {
+        return{
+          ...state,
+          cartInfo : action.payload.data
+        }
       }
     });
     builder
       .addCase(addToCart.pending, (state) => {
-        state.isLoading = true;
+        return{
+          ...state,
+          isLoading : true
+        }
       })
       .addCase(addToCart.fulfilled, (state, actions) => {
-        state.isLoading = false;
-        state.resAddToCart = actions.payload;
         if (actions.payload.error_code === NO_ERROR) {
           NotificationSuccess("", actions.payload.message);
         } else {
           NotificationError("", actions.payload.message);
         }
+        return{
+          ...state,
+          isLoading : false,
+          resAddToCart : actions.payload,
+        }
       });
     builder
       .addCase(updateCart.pending, (state, action) => {
-        state.isLoading = true;
+        return{
+          ...state,
+          isLoading : true
+        }
       })
       .addCase(updateCart.fulfilled, (state, action) => {
-        state.isLoading = false;
         if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Update Cart failed");
         }
+        return{
+          ...state,
+          isLoading : false
+        }
       });
     builder
       .addCase(deleteCart.pending, (state, action) => {
-        state.isLoading = true;
+        return{
+          ...state,
+          isLoading : true
+        }
       })
       .addCase(deleteCart.fulfilled, (state, action) => {
-        state.isLoading = false;
         if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Delete cart failed");
         }
+        return{
+          ...state,
+          isLoading : false,
+        }
       });
     builder
       .addCase(deleteCartItem.pending, (state) => {
-        state.isLoading = true;
+        return{
+          ...state,
+          isLoading : true,
+        }
       })
       .addCase(deleteCartItem.fulfilled, (state, action) => {
-        state.isLoading = false;
         if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
         } else {
           NotificationError("", "Delete cart item failed");
         }
+        return{
+          ...state,
+          isLoading : false,
+        }
       });
     builder
       .addCase(checkout.pending, (state) => {
-        state.isLoading = true;
+        return{
+          ...state,
+          isLoading : true,
+        }
       })
       .addCase(checkout.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.resCheckout = action.payload;
         if (action.payload.error_code === NO_ERROR) {
           NotificationSuccess("", action.payload.message);
-        } else {
-          NotificationError("", "Checkout failed");
+        }
+        return{
+          ...state,
+          isLoading : false,
+          resCheckout : action.payload,
         }
       });
     builder.addCase(resetCartCRUD, (state) => {
       return {
         ...state,
-        resAddToCart: undefined
+        resAddToCart: undefined,
+        resCheckout: undefined
       };
     });
 
@@ -107,6 +135,6 @@ const cartSlice = createSlice({
       }
     })
   },
-});
+);
 
-export default cartSlice.reducer;
+export default cartSlice;

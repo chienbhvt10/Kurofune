@@ -330,7 +330,10 @@
       "field_email": "メールアドレス",
       "title_ship": "お届け先情報",
       "accept_term": "利用規約に同意した上で、購入します。",
-      "btn_text_buy": "購入する"
+      "btn_text_buy": "購入する",
+      "message_error_blling_shipping":"請求情報とお届け先情報を入力してください。",
+      "message_error_blling":"請求情報を入力してください。",
+      "message_error_shipping":"お届け先情報を入力してください。"
     },
     "order-history": {
       "th_order_date": "注文日",

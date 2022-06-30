@@ -335,7 +335,10 @@
       "field_email": "Email address",
       "title_ship": "Shipping information",
       "accept_term": "Purchase after agreeing to the terms of use.",
-      "btn_text_buy": "BUY"
+      "btn_text_buy": "BUY",
+      "message_error_blling_shipping":"Please enter payment and shipping information",
+      "message_error_blling":"Please enter payment information",
+      "message_error_shipping":"Please enter shipping information"
     },
     "order-history": {
       "th_order_date": "Order Date",
