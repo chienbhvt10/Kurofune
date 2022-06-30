@@ -1,6 +1,5 @@
 import moment from "moment";
 export const getUserInfoInitValues = (item) => {
-  console.log('item',item);
   return {
     id: item?.id || "",
     role: item?.role[0]?.name || undefined,
@@ -71,10 +70,11 @@ export const getPlanInitValues = (item) => {
     education_status: item?.profile?.education_status || undefined,
     wabisabi_my_page_registration:
       item?.profile?.wabisabi_my_page_registration || undefined,
-      person_in_charge_contact_information : item?.profile?.person_in_charge_contact_information || "",
-      person_in_charge : item?.profile?.person_in_charge || "",
-      company_email : item?.profile?.company_email || "",
-      company_name : item?.profile?.company_name || "",
+    person_in_charge_contact_information:
+      item?.profile?.person_in_charge_contact_information || "",
+    person_in_charge: item?.profile?.person_in_charge || "",
+    company_email: item?.profile?.company_email || "",
+    company_name: item?.profile?.company_name || "",
   };
 };
 export const getCommonAddressInitValues = (item) => {
