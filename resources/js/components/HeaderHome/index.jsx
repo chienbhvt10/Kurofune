@@ -41,7 +41,6 @@ const HeaderHome = ({ toggleSideBar }) => {
           ? setDisabledCart("disabled-cart")
           : setDisabledCart("");
       }, [location]);
-      console.log(cartInfo)
   return (
     <div id="header-home">
       <div className="container-fluid">
