@@ -5,9 +5,9 @@ import useUserRegistrationClient from '../../hooks/user/useUserRegistrationClien
 import { TheServices } from './data';
 import "./modal-custom.scss";
 const ModalAccessRight = ({ modalVisible, setModalVisible, role, profile }) => {
-  const { aviableCounterClient } = useUserRegistrationClient()
+  const { availableCounterClient } = useUserRegistrationClient()
   React.useEffect(() => {
-    aviableCounterClient();
+    availableCounterClient();
   }, [])
   return (
     <Modal

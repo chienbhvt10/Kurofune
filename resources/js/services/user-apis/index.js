@@ -24,11 +24,11 @@ export const userApis = {
   },
   userRegistration: async (data) => {
     const url = ROOT_URL + `register`;
-    return await axiosClient.put(url,data)
+    return await axiosClient.put(url, data);
   },
-  aviableCounter: async (data) => {
+  availableCounter: async (data) => {
     const url = ROOT_URL + `click-not-available-counter`;
-    return await axiosClient.get(url)
+    return await axiosClient.get(url);
   },
   getCompany: async (data) => {
     const url = ROOT_URL + "list-company";

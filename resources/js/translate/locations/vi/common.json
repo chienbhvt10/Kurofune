@@ -266,8 +266,8 @@
           "linkVideo": "//www.youtube.com/embed/ausFxpMOYp4"
         },
         "modal_access_right": {
-          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
-          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、"
+          "description": "Dịch vụ này chỉ có thể được sử dụng bởi các công ty có \"Full Support Plan\". Để sử dụng nó, anh/chị cần phải đăng ký tham gia tại công ty {{payload}}.",
+          "title": "※Vì gói hiện tại là \"Light Plan\", các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:"
         },
         "modal_access_right2": {
           "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
@@ -331,9 +331,9 @@
       "title_ship": "Thông tin giao hàng",
       "accept_term": "Tôi đồng ý với điều khoản sử dụng và mua hàng.",
       "btn_text_buy": "MUA",
-      "message_error_blling_shipping":"Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
-      "message_error_blling":"Vui lòng nhập thông tin thanh toán",
-      "message_error_shipping":"Vui lòng nhập địa chỉ giao hàng"
+      "message_error_blling_shipping": "Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
+      "message_error_blling": "Vui lòng nhập thông tin thanh toán",
+      "message_error_shipping": "Vui lòng nhập địa chỉ giao hàng"
     },
     "order-history": {
       "th_order_date": "Ngày đặt hàng",
