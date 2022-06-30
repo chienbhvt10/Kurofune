@@ -3,6 +3,7 @@ import {
   NotificationError,
   NotificationSuccess,
 } from "../../commons/Notification";
+import { NO_ERROR } from "../../constants/error";
 import { t } from "i18next";
 const useDeleteOrderAdmin = () => {
   const deleteOrderAdmin = (id, onSuccess, onError) => {
@@ -11,7 +12,7 @@ const useDeleteOrderAdmin = () => {
       .then((result) => {
         let { data } = result;
         onSuccess(data);
-        if (result.status_code === 200)
+        if (result.NO_ERROR === NO_ERROR)
           NotificationSuccess(t("notification"), result.message);
       })
       .catch((error) => {

@@ -242,16 +242,16 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "用户信息",
       "btn_logout": "登出",
-      "user_profile":{
-        "field_name_furigana":"Tên (Furigana)",
-        "field_phone":"电话",
-        "field_gender":"性别",
-        "field_facebook":"Facebook帐户",
-        "field_line":"Line帐户",
-        "field_visa_type":"签证类型",
-        "field_nationality":"国籍",
-        "field_job":"职位名称",
-        "field_language":"语言",
+      "user_profile": {
+        "field_name_furigana": "Tên (Furigana)",
+        "field_phone": "电话",
+        "field_gender": "性别",
+        "field_facebook": "Facebook帐户",
+        "field_line": "Line帐户",
+        "field_visa_type": "签证类型",
+        "field_nationality": "国籍",
+        "field_job": "职位名称",
+        "field_language": "语言",
         "field_postcode": "邮编",
         "field_prefecture": "州 ",
         "field_city": "城镇/城市",
@@ -341,11 +341,11 @@
       "btn_next": "下一个",
       "btn_prev": "上一个",
       "about_status": "关于订单状态",
-      "status_step_1": "等待确认",
-      "status_step_2": "包装",
-      "status_step_3": "交货",
-      "status_step_4": "船运",
-      "status_step_5": "完全的"
+      "status_step_1": "STEP①: 等待确认",
+      "status_step_2": "STEP②: 包装",
+      "status_step_3": "STEP③: 交货",
+      "status_step_4": "STEP④: 船运",
+      "status_step_5": "STEP⑤: 完全的"
     },
     "order-detail": {
       "title": "订单详细信息",
@@ -514,8 +514,8 @@
         "field_city": "城镇/城市",
         "field_street": "街道地址",
         "field_building": "建造",
-        "field_language":"语言",
-        "field_name_furigana":"舔（注音）",
+        "field_language": "语言",
+        "field_name_furigana": "舔（注音）",
 
         "profile": {
           "field_dob": "出生日期",
@@ -540,8 +540,8 @@
           "field_page_registration": "Wabisabi我的页面注册",
           "field_company_mail": "公司邮件",
           "field_company_name": "公司名称",
-          "field_person_in_charge":"负责人",
-          "field_person_contact_information":"负责人联系方式"
+          "field_person_in_charge": "负责人",
+          "field_person_contact_information": "负责人联系方式"
         },
         "vendor_profile": {
           "field_image_inside": "里面的图片",

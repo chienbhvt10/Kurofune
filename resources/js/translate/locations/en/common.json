@@ -248,16 +248,16 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "User information",
       "btn_logout": "Logout",
-      "user_profile":{
-        "field_name_furigana":"Name (Furigana)",
-        "field_phone":"Phone",
-        "field_gender":"Gender",
-        "field_facebook":"Facebook",
-        "field_line":"Line",
-        "field_visa_type":"Visa Type",
-        "field_nationality":"Nationality",
-        "field_job":"Job Name",
-        "field_language":"Language",
+      "user_profile": {
+        "field_name_furigana": "Name (Furigana)",
+        "field_phone": "Phone",
+        "field_gender": "Gender",
+        "field_facebook": "Facebook",
+        "field_line": "Line",
+        "field_visa_type": "Visa Type",
+        "field_nationality": "Nationality",
+        "field_job": "Job Name",
+        "field_language": "Language",
         "field_postcode": "Postal code/zip",
         "field_prefecture": "Prefecture",
         "field_city": "Town / City",
@@ -347,11 +347,11 @@
       "btn_next": "Next",
       "btn_prev": "Previous",
       "about_status": "About order status",
-      "status_step_1": "Awaiting confirm",
-      "status_step_2": "Packing",
-      "status_step_3": "Delivery",
-      "status_step_4": "Shipping",
-      "status_step_5": "Completed"
+      "status_step_1": "STEP①: Awaiting confirm",
+      "status_step_2": "STEP②: Packing",
+      "status_step_3": "STEP③: Delivery",
+      "status_step_4": "STEP④: Shipping",
+      "status_step_5": "STEP⑤: Completed"
     },
     "order-detail": {
       "title": "Order details",
@@ -521,8 +521,8 @@
         "field_city": "Town / City",
         "field_street": " Street address",
         "field_building": "Building",
-        "field_language":"Language",
-        "field_name_furigana":"Name (Furigana)",
+        "field_language": "Language",
+        "field_name_furigana": "Name (Furigana)",
         "profile": {
           "field_dob": "Date of birth",
           "field_gender": "Gender",
@@ -547,8 +547,8 @@
           "field_company_mail": "Company representative mail",
           "field_company_email": "Company email",
           "field_company_name": "Company name",
-          "field_person_in_charge":"Person in charge",
-          "field_person_contact_information":"Person in charge contact information"
+          "field_person_in_charge": "Person in charge",
+          "field_person_contact_information": "Person in charge contact information"
         },
         "vendor_profile": {
           "field_image_inside": "Image inside",

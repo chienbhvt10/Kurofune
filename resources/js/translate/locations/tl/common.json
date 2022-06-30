@@ -248,16 +248,16 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "User Information",
       "btn_logout": "Mag-logout",
-      "user_profile":{
-        "field_name_furigana":"Name (Furigana)",
-        "field_phone":"Telepono",
-        "field_gender":"Kasarian",
-        "field_facebook":"Facebook account",
-        "field_line":"LINE account",
-        "field_visa_type":"Uri ng Visa",
-        "field_nationality":"Nasyonalidad",
-        "field_job":"Pangalan ng trabaho",
-        "field_language":"Wika",
+      "user_profile": {
+        "field_name_furigana": "Name (Furigana)",
+        "field_phone": "Telepono",
+        "field_gender": "Kasarian",
+        "field_facebook": "Facebook account",
+        "field_line": "LINE account",
+        "field_visa_type": "Uri ng Visa",
+        "field_nationality": "Nasyonalidad",
+        "field_job": "Pangalan ng trabaho",
+        "field_language": "Wika",
         "field_postcode": "Postal code",
         "field_prefecture": "Mga prefecture ",
         "field_city": "Bayan / Lungsod",
@@ -287,7 +287,6 @@
           "3": "Overseas remittance service",
           "4": "Online Japanese language education service",
           "5": "Income compensation insurance service"
-        
         },
         "modal_access_right": {
           "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
@@ -348,11 +347,11 @@
       "btn_next": "Next",
       "btn_prev": "Previous",
       "about_status": "Tungkol sa katayuan ng order",
-      "status_step_1": "Naghihintay ng kumpirmasyon",
-      "status_step_2": "Pag-iimpake",
-      "status_step_3": "Paghahatid",
-      "status_step_4": "Pagpapadala",
-      "status_step_5": "Nakumpleto"
+      "status_step_1": "STEP①: Naghihintay ng kumpirmasyon",
+      "status_step_2": "STEP②: Pag-iimpake",
+      "status_step_3": "STEP③: Paghahatid",
+      "status_step_4": "STEP④: Pagpapadala",
+      "status_step_5": "STEP⑤: Nakumpleto"
     },
     "order-detail": {
       "title": "Mga detalye ng order",
@@ -521,8 +520,8 @@
         "field_city": "Bayan / Lungsod",
         "field_street": "Address ng kalye",
         "field_building": "Gusali",
-        "field_language":"Wika",
-        "field_name_furigana":"Name (Furigana)",
+        "field_language": "Wika",
+        "field_name_furigana": "Name (Furigana)",
         "profile": {
           "field_dob": "Araw ng kapanganakan",
           "field_gender": "Kasarian",
@@ -547,8 +546,8 @@
           "field_company_mail": "Mail ng Kumpanya",
           "field_company_email": "Email ng kumpanya",
           "field_company_name": "Pangalan ng Kumpanya",
-          "field_person_in_charge":"Taong namumuno",
-          "field_person_contact_information":"Impormasyon sa pakikipag-ugnayan ng taong namamahala"
+          "field_person_in_charge": "Taong namumuno",
+          "field_person_contact_information": "Impormasyon sa pakikipag-ugnayan ng taong namamahala"
         },
         "vendor_profile": {
           "field_image_inside": "Mga larawan sa loob ng botika",
@@ -744,7 +743,7 @@
         "field_city": "Bayan / Lungsod",
         "field_street_address": "Address ng kalye",
         "field_building": "Gusali",
-        "field_language":"Language"
+        "field_language": "Language"
       },
       "error": {
         "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
