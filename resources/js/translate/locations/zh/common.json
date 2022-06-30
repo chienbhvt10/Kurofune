@@ -330,7 +330,10 @@
       "field_email": "电子邮件地址",
       "title_ship": "发货信息",
       "accept_term": "同意使用条款后购买。",
-      "btn_text_buy": "买"
+      "btn_text_buy": "买",
+      "message_error_blling_shipping":"请输入付款和运输信息",
+      "message_error_blling":"请输入付款信息",
+      "message_error_shipping":"请输入运输信息"
     },
     "order-history": {
       "th_order_date": "订购日期",
