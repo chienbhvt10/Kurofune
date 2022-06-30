@@ -16,13 +16,15 @@ const useUpdateAdminCategory = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
 
-  const { resUpdateCategory, loadingUpdateCategory } = useSelector(
+  const { resUpdateCategory } = useSelector(
     (state) => state.adminCategoryState
   );
-  const { getAdminCategories, pagination } = useAdminCategories();
+  const { getAdminCategories, pagination, adminCategories } = useAdminCategories();
+  const [loadingUpdateCategory, setLoadingUpdateCategory] = React.useState(false);
   const dispatch = useDispatch();
 
   const updateAdminCategory = (data) => {
+    setLoadingUpdateCategory(true)
     return dispatch(updateAdminCategoryAction(data));
   };
 
@@ -33,11 +35,18 @@ const useUpdateAdminCategory = () => {
       NotificationSuccess(t("notification"), resUpdateCategory?.message);
     }
   }, [resUpdateCategory]);
+  React.useEffect(() => {
+    if (adminCategories) {
+      setLoadingUpdateCategory(false);
+    }
+  }, [adminCategories]);
 
   return {
     updateAdminCategory,
     resUpdateCategory,
-    loadingUpdateCategory
+    adminCategories,
+    loadingUpdateCategory,
+    setLoadingUpdateCategory
   };
 };
 
