@@ -33,7 +33,7 @@ const useUserRegistrationClient = () => {
 
   return {
     UserRegistrationClient,
-    aviableCounterClient,
+    availableCounterClient,
   };
 };
 
