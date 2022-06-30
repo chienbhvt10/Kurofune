@@ -3,8 +3,8 @@ import { createProductAction } from "../../redux/actions/productAction.js";
 
 const useCreateProduct = () => {
   const dispatch = useDispatch();
-  const resCreateProduct = useSelector(
-    (state) => state.productState.resCreateProduct
+  const {resCreateProduct, loadingCreateProduct} = useSelector(
+    (state) => state.productState
   );
 
   const createNewProduct = (payload) => {
@@ -13,6 +13,7 @@ const useCreateProduct = () => {
   return {
     createNewProduct,
     resCreateProduct,
+    loadingCreateProduct
   };
 };
 
