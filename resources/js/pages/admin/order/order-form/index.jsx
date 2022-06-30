@@ -99,7 +99,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         postal_code: dataOrder.billing_postal_code,
         prefecture: dataOrder.billing_prefecture,
         street_address: dataOrder.billing_street_address,
-        payment_method: dataOrder.transaction.payment_mode,
+        payment_mode: dataOrder.payment_mode,
         phone: dataOrder.billing_phone,
       });
       formShipping.setFieldsValue({
@@ -115,8 +115,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
 
       formGeneral.setFieldsValue({
         date: moment(new Date(dataOrder.created_at)),
-        customer: dataOrder.user?.username,
-        status: dataOrder.transaction.status,
+        status: dataOrder.status,
       });
       setDataCartInforTable({
         products: dataOrder.products,
@@ -127,7 +126,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   }, [dataOrder]);
   React.useEffect(() => {
     getOrderDetailAdmin(id, (data) => {
-      setDataOrder(data[0]);
+      setDataOrder(data);
     });
   }, []);
   return (
@@ -215,7 +214,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     disabled={false}
                   />
                 </Form.Item>
-                <Form.Item name="customer">
+                {/* <Form.Item name="customer">
                   <InputField
                     field="customer"
                     label={t("admins.order.form.field_customer")}
@@ -230,7 +229,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     ]}
                     type={<Input disabled={true} />}
                   />
-                </Form.Item>
+                </Form.Item> */}
               </div>
             </div>
           </Form>

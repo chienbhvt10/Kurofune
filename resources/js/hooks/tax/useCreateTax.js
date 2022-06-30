@@ -29,12 +29,9 @@ const useCreateTax = () => {
 
   React.useEffect(() => {
     if (resAddTax?.error_code === NO_ERROR) {
-     dispatch(resetTaxCRUDAction());
       NotificationSuccess(t("notification"), resAddTax?.message);
       navigate(`${lang}/admin/tax-list`);
-      getTaxes({ page: pagination?.current_page });
     }
-   
   }, [resAddTax]);
 
   return {

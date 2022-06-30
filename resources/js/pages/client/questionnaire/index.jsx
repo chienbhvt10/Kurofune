@@ -87,8 +87,10 @@ export const Questionnaire = () => {
         {searchPharmacy && (
           <div className="product-container">
             <p className="show-number-result">
-              {emptyPharmacy
-                ? t("client.questionnaire.no_result")
+              {emptyPharmacy && !!form.getFieldValue("search")
+                ? t("client.questionnaire.result_not_found"):
+                emptyPharmacy ? 
+                t("client.questionnaire.no_result")
                 : `${t("client.questionnaire.title_number_results")} ${
                     searchPharmacy.length
                   }

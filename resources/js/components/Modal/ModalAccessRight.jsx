@@ -1,9 +1,14 @@
 import { Button, Modal } from 'antd';
+import { t } from 'i18next';
 import React, { useState } from 'react';
+import useUserRegistrationClient from '../../hooks/user/useUserRegistrationClient';
+import { TheServices } from './data';
 import "./modal-custom.scss";
-const ModalAccessRight = ({ modalVisible, setModalVisible }) => {
-  // const [modalVisible, setModalVisible] = useState(true);
-
+const ModalAccessRight = ({ modalVisible, setModalVisible, role, profile }) => {
+  const { aviableCounterClient } = useUserRegistrationClient()
+  React.useEffect(() => {
+    aviableCounterClient();
+  }, [])
   return (
     <Modal
       visible={modalVisible}
@@ -16,27 +21,18 @@ const ModalAccessRight = ({ modalVisible, setModalVisible }) => {
       <div className="modal-custom">
         <div className="modal-custom-body">
           <div className="modal-custom-content">
-            <img className="modal-custom-image" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6NqqRWa810JiTbmC1IZuD4URna60QMvnsNR_QpnSxKt0CRbjrBzcBZMVVxnnBg3poDls&usqp=CAU'/>
-            <p className="modal-custom-description"> lorem ipsum dolor sit am</p>
-            <p className="modal-custom-title"> lorem ipsum dolor sit am</p>
+            <img className="modal-custom-image" src='/images/people.png' />
+            <p className="modal-custom-description">{t(`client.media.light_plan.modal_access_right.description`,{ payload: profile.profile.company_name })}</p>
+            <p className="modal-custom-title">{t(`client.media.light_plan.modal_access_right.title`, { payload: profile.name })}</p>
             <ul className="modal-custom-list">
-              <li className="modal-custom-item">
-                <span className="modal-custom-item-index">1</span>
-                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-              </li>
-              <li className="modal-custom-item">
-                <span className="modal-custom-item-index">2</span>
-                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-              </li>
-              <li className="modal-custom-item">
-                <span className="modal-custom-item-index">3</span>
-                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-              </li>
-              <li className="modal-custom-item">
-                <span className="modal-custom-item-index">4</span>
-                <span className="modal-custom-item-content">lorem ipsum dolor sit am</span>
-              </li>
-              
+              {TheServices[role] && TheServices[role].map((content, index) => {
+                return (
+                  <li className="modal-custom-item" key={index}>
+                    <span className="modal-custom-item-index">{index + 1}</span>
+                    <span className="modal-custom-item-content">{t(content)}</span>
+                  </li>
+                )
+              })}
             </ul>
           </div>
         </div>

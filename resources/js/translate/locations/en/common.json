@@ -234,7 +234,8 @@
       "btn_search": "Submit",
       "title_number_results": "Search results:",
       "btn_detail": "Detail",
-      "no_result": "Please enter keywords to search",
+      "no_result": "Please enter drug name",
+      "result_not_found": "No search results found",
       "description_number": " cases in total"
     },
     "media": {
@@ -247,31 +248,54 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "User information",
       "btn_logout": "Logout",
+      "user_profile":{
+        "field_name_furigana":"Name (Furigana)",
+        "field_phone":"Phone",
+        "field_gender":"Gender",
+        "field_facebook":"Facebook",
+        "field_line":"Line",
+        "field_visa_type":"Visa Type",
+        "field_nationality":"Nationality",
+        "field_job":"Job Name",
+        "field_language":"Language",
+        "field_postcode": "Postal code/zip",
+        "field_prefecture": "Prefecture",
+        "field_city": "Town / City",
+        "field_building": "Building",
+        "field_education_status": "Education status"
+      },
       "light_plan": {
-        "modal_access_right": {},
+        "the_services": {
+          "1": "Online pharmacy service",
+          "2": "24-hour life consultation service",
+          "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
+        },
+        "modal_access_right": {
+          "description": "This service is only available to companies that have acquired the  \"Full Support Plan\". To use it, you need to inform your company and ask for the *Full Support Plan*.",
+          "title": "※ Since your current plan is \"Light Plan\", the services that are available are only: "
+        },
         "modal_access_right2": {
           "description": "You can only start using the portal site after the video finishes.Please watch",
-          "title": "* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are",
-          "the_services": {
-            "1": "Online pharmacy service",
-            "2": "24-hour life consultation service",
-            "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
-          }
+          "title": "* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are:",
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       },
-      "full_plan": {
-        "modal_access_right": {},
+      "full_support_plan": {
+        "the_services": {
+          "1": "Online pharmacy service",
+          "2": "24-hour life consultation service",
+          "3": "Overseas remittance service",
+          "4": "Online Japanese language education service",
+          "5": "Income compensation insurance service"
+        },
+        "modal_access_right": {
+          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
+          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、"
+        },
         "modal_access_right2": {
           "description": "You can only start using the portal site after the video finishes.Please watch",
-          "title": "* Since the current plan is Light Plan, the services that can be used by Mr.{{payload}} are",
-          "the_services": {
-            "1": "Online pharmacy service",
-            "2": "24-hour life consultation service",
-            "3": "Overseas remittance service",
-            "4": "Online Japanese language education service",
-            "5": "Income compensation insurance service",
-            "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
-          }
+          "title": "* Since the current plan is Full Support Plan, the services that can be used by Mr.{{payload}} are:",
+          "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
         }
       }
     },
@@ -497,6 +521,8 @@
         "field_city": "Town / City",
         "field_street": " Street address",
         "field_building": "Building",
+        "field_language":"Language",
+        "field_name_furigana":"Name (Furigana)",
         "profile": {
           "field_dob": "Date of birth",
           "field_gender": "Gender",
@@ -518,7 +544,11 @@
           "field_end_date_education": "End Date Education",
           "field_education_status": "Japanese language education status",
           "field_page_registration": "Wabisabi My Page Registration",
-          "field_company_mail": "Company representative mail"
+          "field_company_mail": "Company representative mail",
+          "field_company_email": "Company email",
+          "field_company_name": "Company name",
+          "field_person_in_charge":"Person in charge",
+          "field_person_contact_information":"Person in charge contact information"
         },
         "vendor_profile": {
           "field_image_inside": "Image inside",

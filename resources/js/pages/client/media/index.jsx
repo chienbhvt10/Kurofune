@@ -1,10 +1,8 @@
 import { faSignOutAlt, faUserGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Col, Row } from "antd";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import Board from "../../../commons/Board";
 import { mediaBoardItemData } from "../../../commons/data";
 import { Languages } from "../../../commons/Languges";
 import PageHead from "../../../commons/PageHead";
@@ -16,7 +14,10 @@ import { useDispatch } from "react-redux";
 import { resetAuthResponse } from "../../../redux/actions/authAction";
 import ModalAccessRight from "../../../components/Modal/ModalAccessRight";
 import ModalAccessRight2 from "../../../components/Modal/ModalAccessRight2";
-import RegisterUser from "../../../components/Modal/RegisterUser";
+import { useSelector } from "react-redux";
+import { ACTIVE, IN_ACTIVE, ROLE_FULL_SUPPORT_PLAN, ROLE_FULL_SUPPORT_PLAN2, ROLE_LIGHT_PLAN, ROLE_LIGHT_PLAN2 } from "../../../constants";
+import UserProfileClient from "../../../components/Modal/UserProfileClient";
+import Board from "./Board"
 
 const MediaPage = () => {
   const { t } = useTranslation();
@@ -31,11 +32,31 @@ const MediaPage = () => {
   const logout = () => {
     getLogout();
   };
+  const profile = useSelector((state) => state.authState.profile);
+  const [role,setRole] = React.useState('default')
+  const [active,setActive] = React.useState(false)
+  const [accessRightVisiable, setAccessRightVisiable] = React.useState(false);
+  const [userProfileVisiable, setUserProfileVisiable] = React.useState(true);
+  const [accessRightVisiable2, setAccessRightVisiable2] = React.useState(false);
+  const [modalVisible,setModalVisible] = React.useState(true);
+  React.useEffect(() => {
+    if(profile?.roles[0].name===ROLE_LIGHT_PLAN){
+      setRole(ROLE_LIGHT_PLAN2)
+    }else if(profile?.roles[0].name === ROLE_FULL_SUPPORT_PLAN){
+      setRole(ROLE_FULL_SUPPORT_PLAN2)
+    }else{
+      setRole('default')
+    }
+    if(profile?.active===IN_ACTIVE){
+      setActive(false)
+    }else{
+      setActive(true)
+    }
+  }, [profile]);
 
   React.useEffect(() => {
     dispatch(resetAuthResponse());
   }, []);
-  const [modalVisible, setModalVisible] = React.useState(false);
   return (
     <>
       <PageHead
@@ -53,7 +74,7 @@ const MediaPage = () => {
             </div>
           </div>
           <div className="service_dashboard">
-            <Board boardItems={mediaBoardItemData} setModalVisible={setModalVisible}/>
+            <Board boardItems={mediaBoardItemData} setModalVisible={setAccessRightVisiable} role={role}/>
             <div className="switch">
               <div>
                 <Languages />
@@ -102,9 +123,9 @@ const MediaPage = () => {
           </div>
         </div>
         <Footer />
-        {/* <ModalAccessRight modalVisible={modalVisible} setModalVisible={setModalVisible} /> */}
-        {/* <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} /> */}
-         {modalVisible && <RegisterUser modalVisible={modalVisible} setModalVisible={setModalVisible} /> }
+        { accessRightVisiable && <ModalAccessRight modalVisible={accessRightVisiable} setModalVisible={setAccessRightVisiable} role={role} profile={profile}/>}
+        {!active && <UserProfileClient modalVisible={userProfileVisiable} setModalVisible={setUserProfileVisiable} setAccessRightVisiable2={setAccessRightVisiable2} role={role} profile={profile} /> }
+        {active && accessRightVisiable2 && <ModalAccessRight2 modalVisible={modalVisible} setModalVisible={setModalVisible} role={role} profile={profile} /> }
       </div>
     </>
   );

@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import "./board.scss";
 import { getCurrentLanguage } from "../../helper/localStorage";
-import { LANG_VIETNAMESE } from "../../constants/languages";
-const Board = ({ boardItems, setModalVisible }) => {
+import { LANG_VIETNAMESE } from "../../constants";
+const Board = ({ boardItems }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   return (
@@ -17,18 +17,11 @@ const Board = ({ boardItems, setModalVisible }) => {
               ? "board-item block-disabled"
               : "board-item"
           }
-          onClick={() => {
-            if (item.disable) {
-              setModalVisible((pre) => {
-                return !pre;
-              });
-            }
-          }}
         >
           {item.type === "a_tag" ? (
             <a
               target="_blank"
-              href={!item.disable ? item.link : ""}
+              href={item.link}
               className="item"
               title={item.link}
             >

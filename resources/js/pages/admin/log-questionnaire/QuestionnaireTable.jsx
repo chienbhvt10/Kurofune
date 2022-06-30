@@ -3,12 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Table } from "antd";
 import { useTranslation } from "react-i18next";
 
-const QuestionnaireTable = ({ items, loading }) => {
+const QuestionnaireTable = ({ items, handleExportDetailCSV }) => {
   const { t } = useTranslation();
-  const handleExportQuestionCSV = (e, data) => {
-    e.preventDefault();
-    console.log(data);
-  };
 
   const columns = [
     {
@@ -40,11 +36,11 @@ const QuestionnaireTable = ({ items, loading }) => {
       dataIndex: "product_name",
       title: t("admins.log_questionnaire.label_productName"),
       render: (_, record) => (
-        <ul className="question-cell">
+        <div rowSpan={2} className="question-cell">
           {record?.order_products?.map((product, i) => (
-            <li key={i}>{product.name}</li>
+            <span key={i}>{product.name}</span>
           ))}
-        </ul>
+        </div>
       ),
     },
     {
@@ -149,7 +145,7 @@ const QuestionnaireTable = ({ items, loading }) => {
       title: t("admins.log_questionnaire.label_answer6"),
       render: (_, record) => (
         <ul className="question-cell">
-          {record?.order_products?.map((product , i) => (
+          {record?.order_products?.map((product, i) => (
             <li key={i}>{product.anket_6}</li>
           ))}
         </ul>
@@ -299,11 +295,8 @@ const QuestionnaireTable = ({ items, loading }) => {
       key: "downloadCsv",
       dataIndex: "downloadCsv",
       title: "",
-      headerStyle: {
-        width: 80,
-      },
       render: (_, record) => (
-        <Button onClick={(e) => handleExportQuestionCSV(e, record?.id)}>
+        <Button onClick={(e) => handleExportDetailCSV(e, record?.id)}>
           <FontAwesomeIcon icon={faDownload} style={{ color: "#62a19b" }} />
         </Button>
       ),
@@ -316,6 +309,13 @@ const QuestionnaireTable = ({ items, loading }) => {
       columns={columns}
       dataSource={items}
       rowKey="question-id"
+      scroll={{ x: 1000 }}
+      pagination={{
+        showSizeChanger: true,
+        showPrevNextJumpers: false,
+        pageSizeOptions: ["5", "10", "20", "50", "100"],
+        showTotal: () => `Total ${items.length} items`,
+      }}
     />
   );
 };
