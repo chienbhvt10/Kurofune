@@ -11,10 +11,8 @@ const useCompany = () => {
   };
 
   React.useEffect(() => {
-    if (!company) {
-      getAllCompany();
-    }
-  }, [company]);
+    getAllCompany();
+  }, []);
 
   return { getAllCompany, company };
 };

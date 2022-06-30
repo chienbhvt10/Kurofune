@@ -54,6 +54,7 @@
     "title_product_update": "产品更新",
     "content_product_update": "产品更新",
     "title_category_list": "类别列表",
+    "title_tax_list": "税单",
     "content_category_list": "类别列表",
     "title_category_create": "类别创建",
     "content_category_create": "类别创建",
@@ -591,7 +592,7 @@
         "placeholder": {
           "search": "按名称搜索",
           "select_role": "请选择一个角色。",
-          "select_company": "Please select a company",
+          "select_company": "请选择公司。",
           "select_active_status": "请选择一个活动状态。",
           "select_prefecture": "请选择县。",
           "select_date": "请选择日期。",

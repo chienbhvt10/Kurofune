@@ -54,6 +54,7 @@
     "title_product_update": "商品を更新",
     "content_product_update": "商品を更新",
     "title_category_list": "カテゴリ一覧",
+    "title_tax_list": "税金一覧",
     "content_category_list": "カテゴリ一覧",
     "title_category_create": "カテゴリを登録",
     "content_category_create": "カテゴリを登録",
@@ -591,7 +592,7 @@
         "placeholder": {
           "search": "名前で検索する",
           "select_role": "ユーザーロールを選択してください。",
-          "select_company": "Please select a company",
+          "select_company": "会社を選択してください。",
           "select_active_status": "アクティブステータスを選択してください。",
           "select_prefecture": "都道府県を選択してください。",
           "select_date": "日付を選択してください。",
