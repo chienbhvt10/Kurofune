@@ -698,6 +698,23 @@ export const productFormOptions = {
     { value: "instock", label: "instock" },
     { value: "outofstock", label: "outofstock" },
   ],
+  VISA_TYPE: [
+    { value: 1, label: "Technical internship" },
+    { value: 2, label: "Raw Specific Skills" },
+    { value: 3, label: "Specific Skills" },
+    {
+      value: 4,
+      label:
+        "Specially Designated Activities Technical/Humanities/International Services",
+    },
+    { value: 5, label: "Permanent residence 1" },
+    { value: 6, label: "Japanese spouse" },
+    { value: 7, label: "Spouse of a permanent resident" },
+    { value: 8, label: "Long-term resident" },
+    { value: 9, label: "Studying abroad" },
+    { value: 10, label: "Dependent" },
+    { value: 11, label: "Other" },
+  ],
   status: [
     { value: "publish", label: "publish" },
     { value: "draft", label: "draft" },
