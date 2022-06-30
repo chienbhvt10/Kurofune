@@ -10,7 +10,7 @@ import "./tax.scss";
 import PageHead from "../../../../commons/PageHead";
 
 const TaxList = () => {
-  const { getTaxes, taxes, pagination } = useTaxes();
+  const { getTaxes, taxes, pagination, loadingTax } = useTaxes();
 
   const { deleteTax } = useDeleteTax();
 
@@ -67,6 +67,7 @@ const TaxList = () => {
         onChangeSearch={onChangeSearchValue}
       />
       <TaxTable
+        loading={loadingTax}
         items={taxes}
         onDelete={onDelete}
         onEdit={onEdit}

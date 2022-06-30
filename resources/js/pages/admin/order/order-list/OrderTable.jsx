@@ -1,15 +1,12 @@
-import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React from "react";
-import BootstrapTable from "react-bootstrap-table-next/lib/src/bootstrap-table";
-import { Link, useNavigate } from "react-router-dom";
-import { Button, Popconfirm, Table, Tag } from "antd";
+import { Table, Tag } from "antd";
 import { t } from "i18next";
+import { useNavigate } from "react-router-dom";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 
-import TableRowAction from "./../../../../commons/TableRowAction/index";
 import moment from "moment";
 import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
+import TableRowAction from "./../../../../commons/TableRowAction/index";
+
 const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
   const lang = getCurrentLanguage();
   let navigate = useNavigate();
@@ -41,27 +38,18 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
       dataIndex: "date_order",
       width: "20%",
       render: (_, record) => {
-        return <>{moment(record.date_order).zone("+09:00").format("DD MMM YYYY")}</>;
+        return (
+          <>{moment(record.date_order).zone("+09:00").format("DD MMM YYYY")}</>
+        );
       },
     },
     {
       title: t("admins.order.table.field_status"),
       dataIndex: "status",
       width: "10%",
-      filters: [
-        { value: "awaiting confirm", text: "Awaiting confirm" },
-        { value: "packing", text: "Packing" },
-        { value: "delivery", text: "Delivery" },
-        { value: "shipping", text: "Shipping" },
-        { value: "completed", text: "Completed" },
-      ],
-      onFilter: (value, record) =>
-        record.status.indexOf(value) === 0,
       render: (_, record) => {
         return (
-          <Tag color="success">
-            {String(record.status).toLocaleUpperCase()}
-          </Tag>
+          <Tag color="success">{String(record.status).toLocaleUpperCase()}</Tag>
         );
       },
     },

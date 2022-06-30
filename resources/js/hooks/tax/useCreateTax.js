@@ -20,10 +20,12 @@ const useCreateTax = () => {
   const lang = getCurrentLanguage();
   const dispatch = useDispatch();
 
-  const { resAddTax } = useSelector((state) => state.taxState);
+  const { resAddTax, taxes } = useSelector((state) => state.taxState);
+  const [loadingCreateTax, setLoadingCreateTax] = React.useState(false);
   const { getTaxes, pagination } = useTaxes();
 
   const createTax = (data) => {
+    setLoadingCreateTax(true);
     dispatch(addTaxAction(data));
   };
 
@@ -33,10 +35,17 @@ const useCreateTax = () => {
       navigate(`${lang}/admin/tax-list`);
     }
   }, [resAddTax]);
-
+  React.useEffect(() => {
+    if (taxes) {
+      setLoadingCreateTax(false);
+    }
+  }, [taxes]);
   return {
     createTax,
     resAddTax,
+    taxes,
+    setLoadingCreateTax,
+    loadingCreateTax
   };
 };
 

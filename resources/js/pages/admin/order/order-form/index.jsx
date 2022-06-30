@@ -1,11 +1,9 @@
-import { DatePicker, Form, Input, InputNumber, Select, Typography } from "antd";
+import { DatePicker, Form, Input } from "antd";
 import { t } from "i18next";
 import moment from "moment";
 import React from "react";
-import * as Yup from "yup";
 import { useParams } from "react-router-dom";
 import DateField from "../../../../commons/Form/DateField";
-import InputField from "../../../../commons/Form/InputField";
 import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
 import FormHeader from "../../../../commons/FormHeader";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
@@ -14,9 +12,6 @@ import useUpdateOrderAdmin from "../../../../hooks/orderAdmin/useUpdateOrderAdmi
 import BillingShipFormOrder from "./BillingShipFormOrder";
 import CartInfoTable from "./CartInfoTable";
 import "./order-form.scss";
-const { Option } = Select;
-const { Title } = Typography;
-const credential = Yup.object().shape({});
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const { id } = useParams();
   const lang = getCurrentLanguage();
@@ -29,14 +24,27 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
     customer: 0,
     status: 0,
   };
-  const initialBillingValue = {};
-  const initialShippingValue = {};
   const dataOptionsStatus = [
-    { value: "awaiting confirm", label: "Awaiting confirm" },
-    { value: "packing", label: "Packing" },
-    { value: "delivery", label: "Delivery" },
-    { value: "shipping", label: "Shipping" },
-    { value: "completed", label: "Completed" },
+    {
+      value: "awaiting confirm",
+      label_translate: "client.order-history.status_step_1",
+    },
+    {
+      value: "packing",
+      label_translate: "client.order-history.status_step_2",
+    },
+    {
+      value: "delivery",
+      label_translate: "client.order-history.status_step_3",
+    },
+    {
+      value: "shipping",
+      label_translate: "client.order-history.status_step_4",
+    },
+    {
+      value: "completed",
+      label_translate: "client.order-history.status_step_5",
+    },
   ];
   const [dataOrder, setDataOrder] = React.useState();
   const [dataCartInforTable, setDataCartInforTable] = React.useState({
@@ -114,21 +122,23 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       });
 
       formGeneral.setFieldsValue({
-        date: moment(new Date(dataOrder.created_at)),
+        date_order: moment(new Date(dataOrder.date_order)),
         status: dataOrder.status,
       });
       setDataCartInforTable({
-        products: dataOrder.products,
-        total: dataOrder.total,
-        total_tax: dataOrder.total_tax,
+        products: dataOrder?.order_products,
+        total: dataOrder?.total,
+        total_tax: dataOrder?.total_tax,
       });
     }
   }, [dataOrder]);
+
   React.useEffect(() => {
     getOrderDetailAdmin(id, (data) => {
       setDataOrder(data);
     });
   }, []);
+
   return (
     <div id="order-form">
       <FormHeader
@@ -137,7 +147,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
         onCancel={onCancel}
         onSubmit={handleSubmit}
       />
-      <p className="order-detail-title">Order #1723 details</p>
+      <p className="order-detail-title">Order #{dataOrder?.id} details</p>
       <div className="order-info">
         <div className="general-info section-info">
           <p className="title-section">General</p>
@@ -155,7 +165,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                   }}
                 >
                   <DateField
-                    field="date"
+                    field="date_order"
                     rules={[
                       {
                         required: true,
@@ -169,39 +179,6 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     disable={true}
                     type={<DatePicker format="DD-MM-YYYY HH:mm:ss" />}
                   />
-                  {/* @ 
-                  <InputField
-                    field="hours"
-                    labelCol={{ span: 24 }}
-                    wrapperCol={{ span: 22 }}
-                    style={{ margin: 0 }}
-                    className="marginUnset"
-                    type={
-                      <InputNumber
-                        min={0}
-                        max={23}
-                        defaultValue={0}
-                        style={{ margin: "0 8px" }}
-                      />
-                    }
-                  />  
-                  :
-                  <InputField
-                    field="minute"
-                    // rules={[{ required: true, message: 'Please input your username!' }]}
-                    labelCol={{ span: 24 }}
-                    wrapperCol={{ span: 22 }}
-                    style={{ margin: 0 }}
-                    className="marginUnset"
-                    type={
-                      <InputNumber
-                        min={0}
-                        max={60}
-                        defaultValue={0}
-                        style={{ margin: "0 8px" }}
-                      />
-                    }
-                  /> */}
                 </div>
                 <Form.Item name="status">
                   <SelectFieldSearch
@@ -214,22 +191,6 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
                     disabled={false}
                   />
                 </Form.Item>
-                {/* <Form.Item name="customer">
-                  <InputField
-                    field="customer"
-                    label={t("admins.order.form.field_customer")}
-                    labelCol={{ span: 24 }}
-                    wrapperCol={{ span: 22 }}
-                    style={{ margin: 0 }}
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please input your username!",
-                      },
-                    ]}
-                    type={<Input disabled={true} />}
-                  />
-                </Form.Item> */}
               </div>
             </div>
           </Form>

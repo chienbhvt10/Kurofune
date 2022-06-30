@@ -16,14 +16,17 @@ const useCreateAdminCategory = () => {
   const navigate = useNavigate();
   const lang = getCurrentLanguage();
 
-  const { resCreateCategory } = useSelector(
+  const { resCreateCategory} = useSelector(
     (state) => state.adminCategoryState
   );
+  
   const { getAdminCategories, adminCategories, pagination } =
     useAdminCategories();
+  const [loadingCreateCategory, setloadingCreateCategory] = React.useState(false);
   const dispatch = useDispatch();
 
   const createAdminCategory = (data) => {
+    setloadingCreateCategory(true)
     return dispatch(createCategoryAdminAction(data));
   };
 
@@ -38,9 +41,17 @@ const useCreateAdminCategory = () => {
     }
   }, [resCreateCategory]);
 
+  React.useEffect(() => {
+    if (adminCategories) {
+      setloadingCreateCategory(false);
+    }
+  }, [adminCategories]);
+
   return {
     createAdminCategory,
     resCreateCategory: resCreateCategory,
+    loadingCreateCategory,
+    adminCategories
   };
 };
 

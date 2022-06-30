@@ -54,6 +54,7 @@
     "title_product_update": "商品を更新",
     "content_product_update": "商品を更新",
     "title_category_list": "カテゴリ一覧",
+    "title_tax_list": "税金一覧",
     "content_category_list": "カテゴリ一覧",
     "title_category_create": "カテゴリを登録",
     "content_category_create": "カテゴリを登録",
@@ -242,16 +243,16 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "ユーザー情報",
       "btn_logout": "ログアウト",
-      "user_profile":{
-        "field_name_furigana":"名前（ふりがな）",
-        "field_phone":"電話番号",
-        "field_gender":"性別",
-        "field_facebook":"Facebookアカウント",
-        "field_line":"LINEアカウント",
-        "field_visa_type":"ビザの種類",
-        "field_nationality":"国籍",
-        "field_job":"職種名",
-        "field_language":"言語",
+      "user_profile": {
+        "field_name_furigana": "名前（ふりがな）",
+        "field_phone": "電話番号",
+        "field_gender": "性別",
+        "field_facebook": "Facebookアカウント",
+        "field_line": "LINEアカウント",
+        "field_visa_type": "ビザの種類",
+        "field_nationality": "国籍",
+        "field_job": "職種名",
+        "field_language": "言語",
         "field_postcode": "郵便番号",
         "field_prefecture": "都道府県 ",
         "field_city": "市区町村",
@@ -290,7 +291,6 @@
           "description": "サービスを利用する前にまずはオリエンテーション動画をご覧ください。動画を見終わりますとサービスを利用することができます。",
           "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、",
           "linkVideo": "//www.youtube.com/embed/vjyWFKmuij0"
-         
         }
       }
     },
@@ -342,11 +342,11 @@
       "btn_next": "次",
       "btn_prev": "前",
       "about_status": "【ステータスについて】",
-      "status_step_1": "薬剤師からのメール確認",
-      "status_step_2": "商品発送準備",
-      "status_step_3": "商品発送済み",
-      "status_step_4": "商品受け取り＆支払い",
-      "status_step_5": "商品受け取り完了"
+      "status_step_1": "STEP①: 薬剤師からのメール確認",
+      "status_step_2": "STEP②: 商品発送準備",
+      "status_step_3": "STEP③: 商品発送済み",
+      "status_step_4": "STEP④: 商品受け取り＆支払い",
+      "status_step_5": "STEP⑤: 商品受け取り完了"
     },
     "order-detail": {
       "title": "注文履歴詳細",
@@ -515,8 +515,8 @@
         "field_city": "市区町村",
         "field_street": "丁目・番地・号",
         "field_building": "建物名・部屋番号",
-        "field_language":"言語",
-        "field_name_furigana":"名前（ふりがな）",
+        "field_language": "言語",
+        "field_name_furigana": "名前（ふりがな）",
         "profile": {
           "field_dob": "生年月日",
           "field_gender": "性別",
@@ -541,8 +541,8 @@
           "field_company_mail": "代行企業のメールアドレス",
           "field_company_email": "企業メールアドレス",
           "field_company_name": "所属企業名",
-          "field_person_in_charge":"企業担当者",
-          "field_person_contact_information":"担当者連絡先"
+          "field_person_in_charge": "企業担当者",
+          "field_person_contact_information": "担当者連絡先"
         },
         "vendor_profile": {
           "field_image_inside": "一般用医薬品の陳列の状況を示す写真",
@@ -592,7 +592,7 @@
         "placeholder": {
           "search": "名前で検索する",
           "select_role": "ユーザーロールを選択してください。",
-          "select_company": "Please select a company",
+          "select_company": "会社を選択してください。",
           "select_active_status": "アクティブステータスを選択してください。",
           "select_prefecture": "都道府県を選択してください。",
           "select_date": "日付を選択してください。",
@@ -689,7 +689,7 @@
         "field_city": "市区町村",
         "field_street_address": "丁目・番地・号",
         "field_building": "建物名・部屋番号",
-        "field_language":"Language"
+        "field_language": "Language"
       },
       "error": {
         "full_name_required": "氏名を入力してください。",

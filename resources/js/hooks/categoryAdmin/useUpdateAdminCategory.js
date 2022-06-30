@@ -16,7 +16,7 @@ const useUpdateAdminCategory = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
 
-  const { resUpdateCategory } = useSelector(
+  const { resUpdateCategory, loadingUpdateCategory } = useSelector(
     (state) => state.adminCategoryState
   );
   const { getAdminCategories, pagination } = useAdminCategories();
@@ -37,6 +37,7 @@ const useUpdateAdminCategory = () => {
   return {
     updateAdminCategory,
     resUpdateCategory,
+    loadingUpdateCategory
   };
 };
 

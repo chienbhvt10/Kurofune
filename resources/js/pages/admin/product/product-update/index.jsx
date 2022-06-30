@@ -1,4 +1,5 @@
 import React from "react";
+import { Spin } from "antd";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 import {
@@ -19,8 +20,8 @@ const UpdateProduct = () => {
   const { t } = useTranslation();
   const { getAllProducts } = useProducts();
 
-  const { getProduct, product } = useProductDetail();
-  const { updateProduct, resUpdateProduct } = useUpdateProduct();
+  const { getProduct, product, loadingProduct } = useProductDetail();
+  const { updateProduct, resUpdateProduct, loadingUpdateProduct } = useUpdateProduct();
   const onCancel = () => {
     navigate(`${lang}/admin/product-list`);
   };
@@ -47,13 +48,18 @@ const UpdateProduct = () => {
         title={t("meta.title_product_update")}
         content={t("meta.content_product_update")}
       />
+      <Spin spinning={loadingProduct} tip="Loading...">
+      {product && (
       <ProductForm
+        loading={loadingUpdateProduct}
         item={product}
         typeForm={TYPE_FORM_UPDATE}
         title="Update Product"
         onCancel={onCancel}
         onSave={onSave}
       />
+      )}
+      </Spin>
     </div>
   );
 };

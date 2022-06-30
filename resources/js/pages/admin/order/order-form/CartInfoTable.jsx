@@ -1,25 +1,21 @@
-import { Form, Input, InputNumber, Popconfirm, Table, Typography } from "antd";
+import { Form, Table } from "antd";
 import React from "react";
-import { debounce, pick, groupBy, unionBy } from "lodash";
-
 
 const CartInfoTable = ({ dataCartInforTable }) => {
   const [activeRefund, setActiveRefund] = React.useState(false);
   const [activeToolSecond, setActiveToolSecond] = React.useState(false);
   const [form] = Form.useForm();
-  const [fee, setFee] = React.useState(0);
-  const [shipping, setShipping] = React.useState(0);
   const removeFirstWord = (str) => {
-    if (!str) return ''
-    const indexOfSpace = str.indexOf(' ');
+    if (!str) return "";
+    const indexOfSpace = str.indexOf(" ");
     if (indexOfSpace === -1) {
-      return '';
+      return "";
     }
     return str.substring(indexOfSpace + 1);
-  }
+  };
   const unitMoney = React.useMemo(() => {
     let unit = removeFirstWord(String(dataCartInforTable.total_tax));
-    return unit
+    return unit;
   }, [dataCartInforTable]);
 
   // const itemsSubtotal = React.useMemo(() => {
@@ -28,7 +24,6 @@ const CartInfoTable = ({ dataCartInforTable }) => {
   //   }, 0);
   //   return total;
   // }, [dataCartInforTable]);
-  console.log('dataCartInforTable',dataCartInforTable);
 
   const columns = [
     {
@@ -40,7 +35,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
           <div style={{ display: "flex" }}>
             <div style={{ marginRight: 15 }}>
               <img
-                src={`${record.product_image}`}
+                src={`${record.image}`}
                 alt="Flowers in Chania"
                 width="35"
                 height="35"
@@ -60,7 +55,9 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       title: "Qty",
       editable: true,
       render: (_, record) => {
-        return <span id={`quantity-${record?.key}`}>{record?.pivot?.quantity}</span>;
+        return (
+          <span id={`quantity-${record?.key}`}>{record?.pivot?.quantity}</span>
+        );
       },
     },
 
@@ -68,14 +65,19 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       title: "VAT",
       editable: true,
       render: (_, record) => {
-        return <span id={`quantity-${record?.key}`}>{Number(record.pivot.total_tax) - (Number(record?.pivot?.quantity) * Number(record?.price))}</span>;
+        return (
+          <span id={`quantity-${record?.key}`}>
+            {Number(record?.pivot?.total_tax) -
+              Number(record?.pivot?.quantity) * Number(record?.price)}
+          </span>
+        );
       },
     },
     {
       title: "Total",
       editable: true,
       render: (_, record) => {
-        return <span>{(Number(record.pivot.total_tax))}</span>;
+        return <span>{Number(record?.pivot?.total_tax)}</span>;
       },
     },
   ];
@@ -97,11 +99,6 @@ const CartInfoTable = ({ dataCartInforTable }) => {
           }}
         >
           <Table
-            // components={{
-            //   body: {
-            //     cell: EditableCell,
-            //   },
-            // }}
             dataSource={dataCartInforTable.products}
             columns={columns}
             rowClassName="editable-row"
@@ -123,7 +120,6 @@ const CartInfoTable = ({ dataCartInforTable }) => {
               <p>{dataCartInforTable.total}</p>
               <p> 0 ({unitMoney})</p>
               <p> 0 ({unitMoney})</p>
-              {/* <p>{maxValueVAT} ({unitMoney})</p> */}
               <p>{dataCartInforTable.total_tax}</p>
             </div>
           </div>
@@ -149,11 +145,6 @@ const CartInfoTable = ({ dataCartInforTable }) => {
                   Refund
                 </button>
               </div>
-              {/* <div className="tool-right">
-                <button className="recalculate-btn tool-btn" type="button">
-                  Recalculate
-                </button>
-              </div> */}
             </div>
             <div
               className={
@@ -167,7 +158,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
                 <button
                   className="add-btn tool-btn"
                   type="button"
-                  onClick={() => { }}
+                  onClick={() => {}}
                 >
                   Add product(s)
                 </button>

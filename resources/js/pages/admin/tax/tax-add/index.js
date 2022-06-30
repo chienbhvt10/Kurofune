@@ -9,7 +9,7 @@ import { useTranslation } from "react-i18next";
 
 const AddTax = () => {
   const lang = getCurrentLanguage();
-  const { createTax, resAddTax } = useCreateTax();
+  const { createTax, resAddTax, loadingCreateTax } = useCreateTax();
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -27,6 +27,7 @@ const AddTax = () => {
         content={t("meta.content_tax_create")}
       />
       <TaxForm
+        loading={loadingCreateTax}
         title={t("admins.tax.title.add_tax")}
         onCancel={onCancel}
         onSave={onSave}

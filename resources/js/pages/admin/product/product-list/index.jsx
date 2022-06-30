@@ -13,7 +13,7 @@ import ProductTable from "./ProductTable";
 const ProductList = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
-  const { getAllProducts, products, pagination } = useProducts();
+  const { getAllProducts, products, pagination, loadingListProduct } = useProducts();
   const { deleteProduct, resDeleteProduct } = useDeleteProduct();
   const { t } = useTranslation();
 
@@ -70,6 +70,7 @@ const ProductList = () => {
           items={products}
           onDelete={onDelete}
           onEdit={onEdit}
+          loading={loadingListProduct}
           onTableChange={onTableChange}
           pagination={pagination}
         />
