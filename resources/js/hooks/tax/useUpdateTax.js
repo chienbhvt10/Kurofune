@@ -15,7 +15,6 @@ const useUpdateTax = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
-
   const { resUpdateTax } = useSelector((state) => state.taxState);
   const [loadingUpdateTax, setLoadingUpdateTax] = React.useState(false);
   const { getTaxes, pagination, taxes  } = useTaxes();
