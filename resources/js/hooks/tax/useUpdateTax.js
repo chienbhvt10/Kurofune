@@ -16,11 +16,13 @@ const useUpdateTax = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
 
-  const { resUpdateTax, loadingUpdateTax } = useSelector((state) => state.taxState);
-  const { getTaxes, pagination } = useTaxes();
+  const { resUpdateTax } = useSelector((state) => state.taxState);
+  const [loadingUpdateTax, setLoadingUpdateTax] = React.useState(false);
+  const { getTaxes, pagination, taxes  } = useTaxes();
   const dispatch = useDispatch();
 
   const updateTax = (data) => {
+    setLoadingUpdateTax(true);
     return dispatch(updateTaxAction(data));
   };
 
@@ -30,11 +32,17 @@ const useUpdateTax = () => {
       NotificationSuccess(t("notification"), resUpdateTax?.message);
     }
   }, [resUpdateTax]);
-
+  React.useEffect(() => {
+    if (taxes) {
+      setLoadingUpdateTax(false);
+    }
+  }, [taxes]);
   return {
     updateTax,
     resUpdateTax,
-    loadingUpdateTax
+    loadingUpdateTax,
+    setLoadingUpdateTax,
+    taxes,
   };
 };
 
