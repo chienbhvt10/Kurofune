@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../../../helper/localStorage.js";
 import { TYPE_FORM_UPDATE } from "../../../../constants";
 
-const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
+const TaxForm = ({ item, typeForm, title, onCancel, onSave, response, loading }) => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
   const formItemLayout = getTaxFormLayout();
@@ -43,7 +43,7 @@ const TaxForm = ({ item, typeForm, title, onCancel, onSave, response }) => {
         }}
         className="mb-30"
       >
-        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
+        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} loading={loading} />
         <Row span={24} className="mb-30">
           <Col span={24}>
             <InputField

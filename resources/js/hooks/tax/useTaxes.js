@@ -1,3 +1,4 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getTaxesAction,
@@ -8,12 +9,20 @@ const useTaxes = () => {
   const { taxes, from, total, to, current_page, last_page } = useSelector(
     (state) => state.taxState
   );
+  const [loadingTax, setLoadingTax] = React.useState(false)
   const dispatch = useDispatch();
 
   const getTaxes = (value) => {
+    setLoadingTax(true)
     dispatch(getTaxesAction(value));
     dispatch(resetTaxCRUDAction());
   };
+
+  React.useEffect(() => {
+    if (taxes) {
+      setLoadingTax(false);
+    }
+  }, [taxes]);
 
   return {
     taxes,
@@ -24,7 +33,10 @@ const useTaxes = () => {
       total,
       current_page,
       last_page,
+     
     },
+    loadingTax,
+    setLoadingTax
   };
 };
 

@@ -6,7 +6,7 @@ import TableRowAction from "./../../../../commons/TableRowAction/index";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
 
-const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
+const TaxTable = ({ items, onDelete, onEdit,loading, pagination, onTableChange }) => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const columns = [
@@ -56,6 +56,7 @@ const TaxTable = ({ items, onDelete, onEdit, pagination, onTableChange }) => {
       dataSource={items}
       bordered
       onChange={onTableChange}
+      loading={loading}
       pagination={{
         showSizeChanger: true,
         showPrevNextJumpers: false,
