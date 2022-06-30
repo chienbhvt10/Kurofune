@@ -5,8 +5,8 @@ const useOrderHistory = () => {
   const orderHistoryState = useSelector((state) => state.orderHistoryState);
   const dispatch = useDispatch();
 
-  const getOrderHistory = () => {
-    dispatch(getOrderHistoryAction());
+  const getOrderHistory = (payload) => {
+    dispatch(getOrderHistoryAction(payload));
   };
   const getOrderDetail = (payload) => {
     dispatch(getOrderHistoryDetailAction(payload));

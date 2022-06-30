@@ -111,16 +111,25 @@ const OrderHistoryPage = () => {
         content={t("meta.content_order_history")}
       />
       <div className="card table-responsive">
+        {orderHistory &&
         <Table
           rowKey="id"
-          dataSource={orderHistory?.data}
+          dataSource={orderHistory.data}
           columns={columns}
           pagination={{
+            onChange(current) {
+              getOrderHistory({page: current});
+            },
+            showPrevNextJumpers: false,
+            current: orderHistory.current_page,
+            total: orderHistory.total,
+            pageSize: orderHistory.per_page,
             showTotal() {
-              return `Total ${orderHistory?.data.length} items`;
+              return `Total ${orderHistory.total} items`;
             },
           }}
-        />
+        />}
+
       </div>
     </div>
   );
