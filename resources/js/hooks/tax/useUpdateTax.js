@@ -16,7 +16,7 @@ const useUpdateTax = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
 
-  const { resUpdateTax } = useSelector((state) => state.taxState);
+  const { resUpdateTax, loadingUpdateTax } = useSelector((state) => state.taxState);
   const { getTaxes, pagination } = useTaxes();
   const dispatch = useDispatch();
 
@@ -34,6 +34,7 @@ const useUpdateTax = () => {
   return {
     updateTax,
     resUpdateTax,
+    loadingUpdateTax
   };
 };
 
