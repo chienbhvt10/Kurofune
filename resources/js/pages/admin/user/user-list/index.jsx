@@ -1,21 +1,20 @@
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button, Col, Modal, Row, Select, Upload } from "antd";
-import React, { useCallback } from "react";
+import { Button, Col, Row, Select } from "antd";
+import React from "react";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import { useTranslation } from "react-i18next";
 import PageHead from "../../../../commons/PageHead";
 import { TableHeader } from "../../../../commons/TableHeader";
-import { deleteKeyUndefined } from "../../../../helper/handler.js";
+import UploadCsv from "../../../../commons/UploadCsv/UploadCsv";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import useRoles from "../../../../hooks/role/useRoles";
+import useCompany from "../../../../hooks/user/useCompany";
 import useExportReportUser from "../../../../hooks/user/useExportReportUser";
+import useImportUser from "../../../../hooks/user/useImportUser";
 import useHandleUserTable from "../hooks/useHandleUserTable";
 import "./user-list.scss";
 import { UserTable } from "./UserTable";
-import useCompany from "../../../../hooks/user/useCompany";
-import UploadCsv from "../../../../commons/UploadCsv/UploadCsv";
-import useImportUser from "../../../../hooks/user/useImportUser";
 export const UserList = () => {
   const { t } = useTranslation();
   const lang = getCurrentLanguage();
@@ -49,27 +48,6 @@ export const UserList = () => {
 
   const getDepend = () => document.querySelector("#role-select");
 
-  // const onExportCsvReportUser = () => {
-  //   const exportParams = deleteKeyUndefined({
-  //     company_name: selectCompany,
-  //     role: selectRole,
-  //     name: searchValue,
-  //   });
-  //   exportCsvReportUser(exportParams);
-  // };
-
-  // const onChangeFileCsv = (file) => {
-  //   setFileCsv(file);
-  // };
-
-  // React.useEffect(() => {
-  //   if (fileCsv) {
-  //     const formData = new FormData();
-  //     formData.append("file_upload", fileCsv);
-  //     importCsvUser(formData);
-  //   }
-  // }, [fileCsv]);
-
   return (
     <div className="user-list">
       <PageHead
@@ -85,56 +63,45 @@ export const UserList = () => {
         onChangeSearch={onChangeSearchValue}
         onResetFilter={onResetFilter}
         showReset={true}
+        onExportCsv={onExportCsvReportUser}
+        onImportCsv={onChangeFileCsv}
+        importCsv={true}
+        exportCsv={true}
       >
-        <Row>
-          <Col>
-            <Button
-              className="btn-export"
-              type="primary"
-              onClick={onExportCsvReportUser}
-            >
-              <FontAwesomeIcon
-                icon={faDownload}
-                className="mr-2"
-                style={{ color: "white" }}
-              />
-              <span>{t("admins.log_chatbot.btn_export")}</span>
-            </Button>
-          </Col>
-          <Col>
-            <UploadCsv onChangeFile={onChangeFileCsv} />
-          </Col>
-          <Col id="role-select">
-            <Select
-              placeholder={t("admins.user.form.placeholder.select_role")}
-              onChange={onChangeRole}
-              className="select-role"
-              getPopupContainer={getDepend}
-              value={selectRole}
-            >
-              {roles.map((item, index) => (
-                <Select.Option key={index} value={item.name}>
-                  {item.name}
-                </Select.Option>
-              ))}
-            </Select>
-          </Col>
-          <Col>
-            <Select
-              placeholder={t("admins.user.form.placeholder.select_company")}
-              onChange={onChangeCompany}
-              className="select-company"
-              getPopupContainer={getDepend}
-              value={selectCompany}
-            >
-              {company?.map((item, index) => (
-                <Select.Option key={index} value={item}>
-                  {item}
-                </Select.Option>
-              ))}
-            </Select>
-          </Col>
-        </Row>
+        <Col>
+          <Row gutter={[10, 10]}>
+            <Col id="role-select">
+              <Select
+                placeholder={t("admins.user.form.placeholder.select_role")}
+                onChange={onChangeRole}
+                className="select-role"
+                getPopupContainer={getDepend}
+                value={selectRole}
+              >
+                {roles.map((item, index) => (
+                  <Select.Option key={index} value={item.name}>
+                    {item.name}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Col>
+            <Col>
+              <Select
+                placeholder={t("admins.user.form.placeholder.select_company")}
+                onChange={onChangeCompany}
+                className="select-company"
+                getPopupContainer={getDepend}
+                value={selectCompany}
+              >
+                {company?.map((item, index) => (
+                  <Select.Option key={index} value={item}>
+                    {item}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Col>
+          </Row>
+        </Col>
       </TableHeader>
       <UserTable
         items={users}

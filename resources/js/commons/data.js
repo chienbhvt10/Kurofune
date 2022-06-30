@@ -698,6 +698,12 @@ export const userFormOptions = {
     { value: 14, label: "Building cleaning " },
     { value: 15, label: "other" },
   ],
+};
+export const productFormOptions = {
+  stock_status: [
+    { value: "instock", label: "instock" },
+    { value: "outofstock", label: "outofstock" },
+  ],
   VISA_TYPE: [
     { value: 1, label: "Technical internship" },
     { value: 2, label: "Raw Specific Skills" },
@@ -711,15 +717,9 @@ export const userFormOptions = {
     { value: 6, label: "Japanese spouse" },
     { value: 7, label: "Spouse of a permanent resident" },
     { value: 8, label: "Long-term resident" },
-    { value: 9, label: "Long-term resident" },
-    { value: 10, label: "Studying abroad" },
-    { value: 11, label: "Building cleaning" },
-  ],
-};
-export const productFormOptions = {
-  stock_status: [
-    { value: "instock", label: "instock" },
-    { value: "outofstock", label: "outofstock" },
+    { value: 9, label: "Studying abroad" },
+    { value: 10, label: "Dependent" },
+    { value: 11, label: "Other" },
   ],
   status: [
     { value: "publish", label: "publish" },
@@ -796,9 +796,9 @@ export const PRODUCT_OPTION = {
     { value: 6, label: "Japanese spouse" },
     { value: 7, label: "Spouse of a permanent resident" },
     { value: 8, label: "Long-term resident" },
-    { value: 9, label: "Long-term resident" },
-    { value: 10, label: "Studying abroad" },
-    { value: 11, label: "Building cleaning" },
+    { value: 9, label: "Studying abroad" },
+    { value: 10, label: "Dependent" },
+    { value: 11, label: "Other" },
   ],
   JOB: [
     { value: 1, label: "Agriculture" },
