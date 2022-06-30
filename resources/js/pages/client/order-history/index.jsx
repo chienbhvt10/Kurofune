@@ -113,11 +113,11 @@ const OrderHistoryPage = () => {
       <div className="card table-responsive">
         <Table
           rowKey="id"
-          dataSource={orderHistory}
+          dataSource={orderHistory?.data}
           columns={columns}
           pagination={{
             showTotal() {
-              return `Total ${orderHistory.length} items`;
+              return `Total ${orderHistory?.data.length} items`;
             },
           }}
         />
