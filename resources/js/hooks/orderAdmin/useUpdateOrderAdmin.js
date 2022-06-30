@@ -12,11 +12,10 @@ const useUpdateOrderAdmin = () => {
       .then((result) => {
         let { data } = result;
         onSuccess(data);
-        if (result.status_code === 200)
-          NotificationSuccess(t("notification"), result.message);
+        if (result.status_code === 200) NotificationSuccess("", result.message);
       })
       .catch((error) => {
-        NotificationError(t("notification"), `Update Error ${error.message}`);
+        NotificationError("", error.response.data.error_message);
       });
   };
   return {

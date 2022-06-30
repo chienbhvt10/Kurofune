@@ -7,7 +7,13 @@ import { validateForm } from "./validateForm";
 
 const { TextArea } = Input;
 
-const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish }) => {
+const BillingShipFormOrder = ({
+  className,
+  form,
+  typeForm,
+  response,
+  onFinish,
+}) => {
   const { t } = useTranslation();
 
   const renderErrorTranslate = (field) => {
@@ -28,7 +34,9 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
       {(values, form) => {
         const renderErrorMessage = (field) => {
           return (
-            <div className="form-error">{form.getFieldError(field) && t(form.getFieldError(field)[0])}</div>
+            <div className="form-error">
+              {form.getFieldError(field) && t(form.getFieldError(field)[0])}
+            </div>
           );
         };
         return (
@@ -44,7 +52,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                   rules={renderErrorTranslate("full_name")}
                   type={<Input className="input-field" />}
                 />
-                {renderErrorMessage('full_name')}
+                {renderErrorMessage("full_name")}
               </Col>
               <Col span={12}>
                 <InputField
@@ -57,7 +65,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                   // response={response}
                   type={<Input className="input-field" />}
                 />
-                {renderErrorMessage('street_address')}
+                {renderErrorMessage("street_address")}
               </Col>
               <Col span={12}>
                 <InputField
@@ -70,7 +78,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                   // response={response}
                   type={<Input className="input-field" />}
                 />
-                 {renderErrorMessage('building')}
+                {renderErrorMessage("building")}
               </Col>
               <Col span={12}>
                 <InputField
@@ -83,7 +91,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                   // response={response}
                   type={<Input className="input-field" />}
                 />
-                {renderErrorMessage('city')}
+                {renderErrorMessage("city")}
               </Col>
               <Col span={12}>
                 <InputField
@@ -96,7 +104,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                   // response={response}
                   type={<Input className="input-field" />}
                 />
-                 {renderErrorMessage('postal_code')}
+                {renderErrorMessage("postal_code")}
               </Col>
               <Col span={24}>
                 <InputField
@@ -109,9 +117,9 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                   // response={response}
                   type={<Input className="input-field" />}
                 />
-                {renderErrorMessage('prefecture')}
+                {renderErrorMessage("prefecture")}
               </Col>
-              {typeForm === 'billing' ?
+              {typeForm === "billing" ? (
                 <>
                   <Col span={12}>
                     <InputField
@@ -124,7 +132,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                       rules={renderErrorTranslate("email")}
                       type={<Input className="input-field" />}
                     />
-                    {renderErrorMessage('email')}
+                    {renderErrorMessage("email")}
                   </Col>
                   <Col span={12}>
                     <InputField
@@ -136,7 +144,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                       rules={renderErrorTranslate("phone")}
                       type={<Input className="input-field" />}
                     />
-                    {renderErrorMessage('phone')}
+                    {renderErrorMessage("phone")}
                   </Col>
                   <Col span={24}>
                     {/* <SelectField
@@ -148,7 +156,7 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                       // response={response}
                       options={[{ value: 'N/A', label: 'N/A' }, { value: 'Cash on delivery', label: 'Cash on delivery' }, { value: 'Other', label: 'Other' }]}
                     /> */}
-                     <InputField
+                    <InputField
                       field="payment_mode"
                       error={`${typeForm}.payment_method`}
                       label={t("admins.order.form.field_payment_method")}
@@ -159,50 +167,56 @@ const BillingShipFormOrder = ({ className, form, typeForm, response, onFinish })
                     />
                   </Col>
                 </>
-                :
+              ) : (
                 <>
                   <Col span={12}>
                     <InputField
                       field="email"
                       error={`${typeForm}.email`}
-                      label={t("admins.user.form.order.field_email")}
+                      label={t("admins.order.form.field_email")}
                       labelCol={{ span: 24 }}
                       wrapperCol={{ span: 22 }}
                       // response={response}
                       rules={renderErrorTranslate("email")}
                       type={<Input className="input-field" />}
                     />
-                    {renderErrorMessage('email')}
+                    {renderErrorMessage("email")}
                   </Col>
                   <Col span={12}>
                     <InputField
                       field="phone"
                       error={`${typeForm}.phone`}
-                      label={t("admins.user.form.order.field_phone")}
+                      label={t("admins.order.form.field_phone")}
                       labelCol={{ span: 24 }}
                       wrapperCol={{ span: 22 }}
                       rules={renderErrorTranslate("phone")}
                       type={<Input className="input-field" />}
                     />
-                    {renderErrorMessage('phone')}
+                    {renderErrorMessage("phone")}
                   </Col>
                   <Col span={24}>
                     <InputField
                       field="customer_provided_note"
                       error={`${typeForm}.customer_provided_note`}
-                      label={t("admins.user.form.order.field_customer_provided_note")}
+                      label={t(
+                        "admins.order.form.field_customer_provided_note"
+                      )}
                       labelCol={{ span: 24 }}
                       wrapperCol={{ span: 23 }}
-                      type={<TextArea className="input-field" style={{ minHeight: 115 }} />}
+                      type={
+                        <TextArea
+                          className="input-field"
+                          style={{ minHeight: 115 }}
+                        />
+                      }
                     />
                   </Col>
                 </>
-              }
+              )}
             </Row>
           </>
         );
       }}
-
     </Form>
   );
 };

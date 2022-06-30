@@ -242,16 +242,16 @@
       "card_wabisabi": "WABISABI-MEDIA",
       "btn_user_info": "Thông tin người dùng",
       "btn_logout": "Thoát",
-      "user_profile":{
-        "field_name_furigana":"Tên (Furigana)",
-        "field_phone":"Số điện thoại",
-        "field_gender":"Giới tính",
-        "field_facebook":"Tài khoản Facebook",
-        "field_line":"Tài khoản LINE",
-        "field_visa_type":"Loại visa",
-        "field_nationality":"Quốc tịch",
-        "field_job":"Nghề nghiệp",
-        "field_language":"Ngôn ngữ",
+      "user_profile": {
+        "field_name_furigana": "Tên (Furigana)",
+        "field_phone": "Số điện thoại",
+        "field_gender": "Giới tính",
+        "field_facebook": "Tài khoản Facebook",
+        "field_line": "Tài khoản LINE",
+        "field_visa_type": "Loại visa",
+        "field_nationality": "Quốc tịch",
+        "field_job": "Nghề nghiệp",
+        "field_language": "Ngôn ngữ",
         "field_postcode": "Mã bưu điện",
         "field_prefecture": "Tỉnh/ Thành phố ",
         "field_city": "Thị trấn / Thành phố",
@@ -341,11 +341,11 @@
       "btn_next": "Kế tiếp",
       "btn_prev": "Trước",
       "about_status": "Tình trạng đơn hàng",
-      "status_step_1": "Đang chờ mail xác nhận",
-      "status_step_2": "Đang chuẩn bị hàng",
-      "status_step_3": "Đang vận chuyển",
-      "status_step_4": "Đang giao hàng",
-      "status_step_5": "Hoàn thành"
+      "status_step_1": "STEP①: Đang chờ mail xác nhận",
+      "status_step_2": "STEP②: Đang chuẩn bị hàng",
+      "status_step_3": "STEP③: Đang vận chuyển",
+      "status_step_4": "STEP④: Đang giao hàng",
+      "status_step_5": "STEP⑤: Hoàn thành"
     },
     "order-detail": {
       "title": "Chi tiết đơn đặt hàng",
@@ -514,8 +514,8 @@
         "field_city": "Thị trấn / Thành Phố",
         "field_street": "Địa chỉ khu phố",
         "field_building": "Tên toà nhà",
-        "field_language":"Ngôn ngữ",
-        "field_name_furigana":"Tên (Furigana)",
+        "field_language": "Ngôn ngữ",
+        "field_name_furigana": "Tên (Furigana)",
         "profile": {
           "field_dob": "Ngày sinh",
           "field_gender": "Giới tính",
@@ -540,8 +540,8 @@
           "field_company_mail": "Email của công ty",
           "field_company_email": "Email của công ty",
           "field_company_name": "Tên công ty trực thuộc",
-          "field_person_in_charge":"Tên người phụ trách công ty",
-          "field_person_contact_information":"Địa chỉ liên hệ người phụ trách"
+          "field_person_in_charge": "Tên người phụ trách công ty",
+          "field_person_contact_information": "Địa chỉ liên hệ người phụ trách"
         },
         "vendor_profile": {
           "field_image_inside": "Hình ảnh bên trong hiệu thuốc",
@@ -641,7 +641,7 @@
         "new_password_required": "Vui lòng nhập mật khẩu mới.",
         "confirm_password_required": "Vui lòng nhập xác nhận mật khẩu.",
         "not_same_password": "Hai mật khẩu bạn vừa nhập không khớp nhau.",
-        "requied":"Vui lòng chọn trường này."
+        "requied": "Vui lòng chọn trường này."
       }
     },
     "crud": {
@@ -739,7 +739,7 @@
         "field_city": "Thị trấn / Thành Phố",
         "field_street_address": "Địa chỉ khu phố",
         "field_building": "Tên toà nhà",
-        "field_language":"Language"
+        "field_language": "Language"
       },
       "error": {
         "full_name_required": "Vui lòng nhập họ tên của bạn.",
