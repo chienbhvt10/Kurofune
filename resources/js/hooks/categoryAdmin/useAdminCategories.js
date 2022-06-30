@@ -10,10 +10,11 @@ const useAdminCategories = () => {
   const lang = getCurrentLanguage();
   const { from, total, to, current_page, last_page, adminCategories } =
     useSelector((state) => state.adminCategoryState);
-
+  const [loadingListCategory, setLoadingListCategory] = React.useState(false);
   const dispatch = useDispatch();
 
   const getAdminCategories = (payload) => {
+    setLoadingListCategory(true);
     dispatch(getAllCategoriesAdminAction(payload));
     dispatch(resetCategoryResCRUDAction());
   };
@@ -23,7 +24,11 @@ const useAdminCategories = () => {
       getAdminCategories({ page: current_page });
     }
   }, []);
-
+  React.useEffect(() => {
+    if (adminCategories) {
+      setLoadingListCategory(false);
+    }
+  }, [adminCategories]);
   return {
     adminCategories,
     pagination: {
@@ -34,6 +39,8 @@ const useAdminCategories = () => {
       last_page,
     },
     getAdminCategories,
+    loadingListCategory,
+    setLoadingListCategory
   };
 };
 

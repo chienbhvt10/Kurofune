@@ -18,6 +18,7 @@ const CategoryForm = ({
   onCancel,
   onSave,
   response,
+  loading
 }) => {
   const {
     categoryForm,
@@ -55,7 +56,7 @@ const CategoryForm = ({
           ...initialCommonValues,
         }}
       >
-        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} />
+        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} loading={loading} />
         <Row className="pb-60" justify="center">
           <Col span={12} className="input-field-space">
             <Form.Item
