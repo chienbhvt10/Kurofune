@@ -228,7 +228,8 @@
       "btn_search": "Tìm kiếm",
       "title_number_results": "Kết quả tìm kiếm: ",
       "btn_detail": "Chi tiết",
-      "no_result": "Hãy nhập từ để tìm kiếm.",
+      "no_result": "Vui lòng nhập tên thuốc",
+      "result_not_found": "Không tìm thấy kết quả tìm kiếm",
       "description_number": " trường hợp"
     },
     "media": {

@@ -234,7 +234,8 @@
       "btn_search": "Ipasa",
       "title_number_results": "Mga resulta ng paghahanap:",
       "btn_detail": "Detalye",
-      "no_result": "Mangyaring magpasok ng mga keyword na hahanapin",
+      "no_result": "Pakilagay ang pangalan ng gamot",
+      "result_not_found": "Hindi nakita ang mga resulta ng paghahanap",
       "description_number": " kaso sa kabuuan"
     },
     "media": {

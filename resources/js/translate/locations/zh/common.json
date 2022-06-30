@@ -228,7 +228,8 @@
       "btn_search": "提交",
       "title_number_results": "搜索结果:",
       "btn_detail": "详情",
-      "no_result": "请输入关键字进行搜索",
+      "no_result": "请输入药品名称",
+      "result_not_found": "未找到搜索结果",
       "description_number": "总共有"
     },
     "media": {
