@@ -105,7 +105,7 @@ export const UserTable = (props) => {
       loading={loading}
       scroll={{ x: 1000 }}
       pagination={{
-        showSizeChanger: true,
+
         showPrevNextJumpers: false,
         pageSizeOptions: ["5", "10", "20", "50", "100"],
         current: pagination.current_page,

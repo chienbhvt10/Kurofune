@@ -9,9 +9,9 @@ const orderHistoryAction = {
 
 export const getOrderHistoryAction = createAsyncThunk(
   orderHistoryAction.getOrderHistory,
-  async () => {
+  async (payload) => {
     const res = await orderHistoryApi
-      .getOrderHistory()
+      .getOrderHistory(payload)
       .then((data) => data)
       .catch((errors) => JSON.parse(errors.response.request.response));
     return res;
