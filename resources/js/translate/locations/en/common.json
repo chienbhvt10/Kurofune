@@ -234,7 +234,8 @@
       "btn_search": "Submit",
       "title_number_results": "Search results:",
       "btn_detail": "Detail",
-      "no_result": "Please enter keywords to search",
+      "no_result": "Please enter drug name",
+      "result_not_found": "No search results found",
       "description_number": " cases in total"
     },
     "media": {

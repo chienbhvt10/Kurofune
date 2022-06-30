@@ -229,6 +229,7 @@
       "title_number_results": "検索結果:",
       "btn_detail": " 詳細",
       "no_result": "薬剤名を入力してください",
+      "result_not_found": "検索結果が見つかりません",
       "description_number": "件"
     },
     "media": {
