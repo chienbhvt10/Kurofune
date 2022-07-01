@@ -474,6 +474,7 @@
       "title_specific_sale_time": "开业时间与具体销售时间不同时",
       "title_time_accept_order": "营业时间以外接受药品订单的时间",
       "title_expiration_date": "特定销售药品的有效期",
+      "title_list_product": "产品列表",
       "title_problem": "指导药品和非处方药销售制度有关事项"
     }
   },

@@ -474,6 +474,7 @@
       "title_specific_sale_time": "開店時間と特定販売を行う時間が異なる場合",
       "title_time_accept_order": "営業時間外で医薬品の注文を受理する時間",
       "title_expiration_date": "特定販売を行う医薬品の使用期限",
+      "title_list_product": "商品一覧",
       "title_problem": "要指導医薬品及び一般用医薬品の販売に関する制度に関する事項"
     }
   },
