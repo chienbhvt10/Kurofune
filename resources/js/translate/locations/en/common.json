@@ -675,6 +675,7 @@
       "general":"General",
       "billing_address":"Billing address",
       "shipping_address":"Shipping address",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",

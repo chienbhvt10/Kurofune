@@ -4,7 +4,11 @@ import { NotificationError } from "../../commons/Notification/index.jsx";
 import { orderAdminAPI } from "../../services/order-admin-apis/index.js";
 
 const useGetListOrderAdmin = () => {
-  const [pagination, setPagination] = useState([]);
+  const [pagination, setPagination] = useState({
+    total: 0,
+    current_page: 0,
+    last_page: {},
+  });
   const getListOrderAdmin = async (payload=null,onSuccess, onError) => {
     if (!payload) await orderAdminAPI.getListOrderAdminNotData().then((result) => {
       let { data } = result
@@ -13,6 +17,7 @@ const useGetListOrderAdmin = () => {
         current_page: data.current_page,
         last_page: data.last_page,
       }
+      onSuccess(data)
       setPagination(page)
     })
     await orderAdminAPI.getListOrderAdmin(payload).then((result) => {

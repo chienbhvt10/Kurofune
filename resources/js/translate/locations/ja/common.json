@@ -675,6 +675,7 @@
       "general":"全般",
       "billing_address":"請求先情報",
       "shipping_address":"お届け先情報",
+      "unit":"円",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",

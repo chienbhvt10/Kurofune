@@ -123,9 +123,9 @@ const CartInfoTable = ({ dataCartInforTable }) => {
               <p>Order Total:</p>
             </div>
             <div className="cal-total">
-              <p>{dataCartInforTable.total}</p>
+              <p>{dataCartInforTable.total } ({t("admins.order.unit")})</p>
               <p>{`${calculateVAT(dataCartInforTable.total_tax,dataCartInforTable.total)} %`}</p>
-              <p>{dataCartInforTable.total_tax}</p>
+              <p>{dataCartInforTable.total_tax} ({t("admins.order.unit")})</p>
             </div>
           </div>
           {/* <div className="tool-container">
