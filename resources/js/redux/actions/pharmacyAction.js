@@ -7,6 +7,7 @@ const pharmacyAction = {
   getPharmaciesAdmin: createAction("GET_PHARMACIES_ADMIN"),
   searchPharmacy: createAction("SEARCH_PHARMACY"),
   resetPharmacy: createAction("RESET_PHARMACY"),
+  getProductPharmacy: createAction("GET_PRODUCT_PHARMACY")
 };
 
 export const getPharmaciesAction = createAsyncThunk(
@@ -55,6 +56,16 @@ export const resetPharmacyAction = createAsyncThunk(
   pharmacyAction.resetPharmacy,
   async () => {
     return;
+  }
+);
+export const getProductPharmacyAction = createAsyncThunk(
+  pharmacyAction.getProductPharmacy,
+  async (payload) => {
+    const res = await pharmacyApi
+      .productPharmacy(payload)
+      .then((data) => data)
+      .catch((err) => JSON.parse(err.response.request.response));
+    return res;
   }
 );
 export default pharmacyAction;
