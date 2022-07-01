@@ -7,7 +7,7 @@ import moment from "moment";
 import { EMPTY_TABLE_LIST } from "../../../../constants/emptyTable";
 import TableRowAction from "./../../../../commons/TableRowAction/index";
 
-const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
+const OrderTable = ({ items, onChange, handleDeleteOrder,pagination }) => {
   const lang = getCurrentLanguage();
   let navigate = useNavigate();
   const confirmDelete =
@@ -23,9 +23,9 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
 
   const column = [
     {
-      title: t("admins.order.table.field_id"),
-      dataIndex: "id",
-      width: "10%",
+      title: t("admins.order.table.field_order_number"),
+      dataIndex: "order_number",
+      width: "15%",
       sorter: (a, b) => a.id - b.id,
     },
     {
@@ -59,12 +59,12 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
     },
 
     {
-      align: "center",
-      headerAlign: "center",
       title: t("admins.order.table.field_action"),
       headerStyle: {
         width: 100,
       },
+      align: "center",
+      headerAlign: "center",
       render: (_, record) => (
         <TableRowAction
           record={record}
@@ -82,9 +82,14 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
       dataSource={items}
       pagination={{
         showSizeChanger: true,
-        pageSizeOptions: ["10", "20", "30"],
-        defaultPageSize: 10,
+        showPrevNextJumpers: false,
+        pageSizeOptions: ["5", "10", "20", "50", "100"],
+        current: pagination.current_page,
+        total: pagination.total,
+        pageSize: pagination.per_page,
+        showTotal: () => `Total ${pagination.total} items`,
       }}
+      bordered
       onChange={onChange}
       locale={EMPTY_TABLE_LIST()}
     />
