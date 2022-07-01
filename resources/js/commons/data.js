@@ -336,15 +336,15 @@ export const mediaBoardItemData = [
     name:'e-learning',
   },
   {
-    link: "vietnam/income-insurance/",
+    link: "https://wabisabi.media/vietnam/income-insurance/",
     imageUrl: "/images/media/heat.png",
     title: "client.media.card_insurance",
-    type: "link_component",
+    type: "a_tag",
     disable: false,
     name:'insurance',
   },
   {
-    link: "vietnam",
+    link: "https://wabisabi.media/vietnam/",
     imageUrl:
       "https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/wasabi-logo.svg",
     title: "client.media.card_wabisabi",
