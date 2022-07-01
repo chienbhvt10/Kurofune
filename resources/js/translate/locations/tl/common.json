@@ -480,6 +480,7 @@
       "title_specific_sale_time": "Kapag ang oras ng pagbubukas at ang tiyak na oras ng pagbebenta ay magkaiba",
       "title_time_accept_order": "Oras na para tanggapin ang mga order ng gamot sa labas ng oras ng negosyo",
       "title_expiration_date": "Petsa ng pag-expire ng mga gamot para sa partikular na pagbebenta",
+      "title_list_product": "Listahan ng Produkto",
       "title_problem": "Mga usapin tungkol sa sistema para sa pagbebenta ng mga gamot na nangangailangan ng gabay at mga gamot na nabibili nang walang reseta"
     }
   },

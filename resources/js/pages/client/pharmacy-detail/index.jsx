@@ -236,7 +236,7 @@ const PharmacyDetail = () => {
             <div id="pharmacy-list">
                   <div className="list_pharmacies">
                     <div className="type-wrapper">
-                      <div className="type-name">List of Product</div>
+                      <div className="type-name">{t("client.list_pharmacies.title_list_product")}</div>
                     </div>
                     <CardPharmacy cardItems={productPharmacy} />
                   </div>

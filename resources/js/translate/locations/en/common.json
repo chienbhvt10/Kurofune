@@ -481,6 +481,7 @@
       "title_specific_sale_time": "When the opening time and the specific sales time are different",
       "title_time_accept_order": "Time to accept drug orders outside business hours",
       "title_expiration_date": "Expiration date of drugs for specific sale",
+      "title_list_product": "Product List",
       "title_problem": "Matters concerning the system for sales of drugs requiring guidance and over-the-counter drugs"
     }
   },
