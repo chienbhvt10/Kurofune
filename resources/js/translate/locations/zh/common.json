@@ -726,6 +726,7 @@
       "general":"一般的",
       "billing_address":"帐单地址",
       "shipping_address":"收件地址",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",

@@ -675,6 +675,7 @@
       "general":"Chung",
       "billing_address":"Địa chỉ thanh toán",
       "shipping_address":"Địa chỉ giao hàng",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
