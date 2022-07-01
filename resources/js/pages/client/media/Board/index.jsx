@@ -40,7 +40,7 @@ const Board = ({ boardItems, setModalVisible,role }) => {
           >
             {item.type === "a_tag" ? (
               <a
-                target={!checkRoleRequest(item.name,item.disable) ? '_blank' : ''}
+                target={!checkRoleRequest(item.name,item.disable) ? '' : '_blank'}
                 href={!checkRoleRequest(item.name,item.disable) ? null : item.link}
                 className="item"
                 title={item.link}

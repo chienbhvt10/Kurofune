@@ -19,7 +19,7 @@ export const exportCsvUserAction = createAsyncThunk(
       .then((data) => {
         const dateExported = new Date();
         const fileName = `${
-          payload ? "User" + payload + "_" : ""
+          payload ? "User" + payload.id + "_" : ""
         }chat_log_export_${dateExported.toISOString().split("T")[0]}.csv`;
 
         downloadBlob(data, fileName);

@@ -12,6 +12,10 @@ const CategoryListDetail = () => {
   const lang = getCurrentLanguage();
   const { id } = useParams();
   const { getCategory, category } = useCategory();
+  console.log(
+    "🚀 ~ file: index.jsx ~ line 15 ~ CategoryListDetail ~ category",
+    category
+  );
 
   React.useEffect(() => {
     if (id) {
@@ -37,7 +41,8 @@ const CategoryListDetail = () => {
               }
             </div>
           </div>
-          <CardCategoryDetail cardItems={category?.data.products} />
+
+          <CardCategoryDetail cardItems={category?.data?.products} />
         </div>
       </div>
     </>

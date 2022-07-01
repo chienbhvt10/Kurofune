@@ -9,6 +9,7 @@ const ModalAccessRight = ({ modalVisible, setModalVisible, role, profile }) => {
   React.useEffect(() => {
     availableCounterClient();
   }, []);
+
   return (
     <Modal
       visible={modalVisible}

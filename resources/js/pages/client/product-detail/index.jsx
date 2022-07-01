@@ -89,7 +89,7 @@ const ProductDetailPage = () => {
                       <div className="medicinal_efficacy_item medicinal_efficacy_label">
                         {t("client.product_detail.medicinal_efficacy")}
                       </div>
-                      <Tooltip title={productClient.medicinal_efficacy_classification}>
+                      <Tooltip>
                       <span className="medicinal_efficacy_item medicinal_efficacy_value">
                         {productClient.medicinal_efficacy_classification}
                       </span>
