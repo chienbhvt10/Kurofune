@@ -193,4 +193,9 @@
             }
         }
     }
+    .ant-modal-footer{
+        .ant-btn.ant-btn-default{
+            display: none;
+        }
+    }
 }

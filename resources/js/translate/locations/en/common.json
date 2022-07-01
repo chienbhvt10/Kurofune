@@ -256,10 +256,11 @@
         "field_line": "Line",
         "field_visa_type": "Visa Type",
         "field_nationality": "Nationality",
-        "field_job": "Job Name",
+        "field_job": "Job Description",
         "field_language": "Language",
         "field_postcode": "Postal code/zip",
         "field_prefecture": "Prefecture",
+        "field_street_address": " Street address",
         "field_city": "Town / City",
         "field_building": "Building",
         "field_education_status": "Education status"
@@ -655,6 +656,10 @@
           "max_4_number": "Please enter only 4 numbers.",
           "max_7_number": "Please enter only 7 numbers."
         },
+        "job_required":"Please select job name.",
+        "visa_type_required":"Please select visa type.",
+        "education_status_required":"Please select education status.",
+        "nationality_required":"Please input nationality",
         "prefecture_required": "Please select prefecture.",
         "city_required": "Please input city.",
         "street_address_required": "Please input street address.",

@@ -251,10 +251,11 @@
         "field_line": "Tài khoản LINE",
         "field_visa_type": "Loại visa",
         "field_nationality": "Quốc tịch",
-        "field_job": "Nghề nghiệp",
+        "field_job": "Nội dung công việc",
         "field_language": "Ngôn ngữ",
         "field_postcode": "Mã bưu điện",
         "field_prefecture": "Tỉnh/ Thành phố ",
+        "field_street_address": "Địa chỉ khu phố",
         "field_city": "Thị trấn / Thành phố",
         "field_building": "Tên toà nhà",
         "field_education_status": "Education status"
@@ -737,6 +738,10 @@
           "max_4_number": "Vui lòng chỉ nhập 4 chữ số.",
           "max_7_number": "Vui lòng chỉ nhập 7 chữ số."
         },
+        "job_required":"Vui lòng chọn nội dung công việc. ",
+        "visa_type_required":"Vui lòng chọn loại visa. ",
+        "education_status_required":"Vui lòng chọn trình độ giáo dục tiếng Nhật.",
+        "nationality_required":"Vui lòng nhập quốc tịch.",
         "prefecture_required": "Vui lòng chọn tỉnh/ thành phố.",
         "city_required": "Vui lòng nhập tên thị trấn / thành phố.",
         "street_address_required": "Vui lòng nhập địa chỉ khu phố."
