@@ -1,7 +1,15 @@
 import { Form } from "antd";
 import React from "react";
 import { formatDate } from "../../../../commons/string";
-import { ROLE_VENDOR, TYPE_FORM_UPDATE } from "../../../../constants";
+import {
+  FIFTH_TAB,
+  FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+  FIRST_TAB,
+  ROLE_VENDOR,
+  TYPE_FORM_UPDATE,
+} from "../../../../constants";
 import {
   appendArrayToFormData,
   appendObjectToFormData,
@@ -22,6 +30,9 @@ import { isRolePlan } from "../../../../helper/checker";
 const useHandleForm = (item, onSave, typeForm) => {
   const lang = getCurrentLanguage();
   const [isSubmitted, setSubmitted] = React.useState(false);
+  const [tabRequiredLang, setTabRequiredLang] = React.useState();
+  const [tabRequired, setTabRequired] = React.useState();
+
   const {
     avatar,
     images_inside,
@@ -67,6 +78,18 @@ const useHandleForm = (item, onSave, typeForm) => {
     const zhFormValues = await getResultValidate(vendorProfileFormZH);
     const planProfileFormValues = await getResultValidate(planProfileForm);
 
+    if (enFormValues.errorFields) {
+      setTabRequiredLang(FIRST_TAB);
+    } else if (jaFormValues.errorFields) {
+      setTabRequiredLang(SECOND_TAB);
+    } else if (tlFormValues.errorFields) {
+      setTabRequiredLang(THIRD_TAB);
+    } else if (viFormValues.errorFields) {
+      setTabRequiredLang(FOURTH_TAB);
+    } else if (zhFormValues.errorFields) {
+      setTabRequiredLang(FIFTH_TAB);
+    }
+
     if (typeForm === TYPE_FORM_UPDATE) {
       formData.append("_method", "PUT");
     }
@@ -76,8 +99,7 @@ const useHandleForm = (item, onSave, typeForm) => {
       jaFormValues.errorFields ||
       tlFormValues.errorFields ||
       viFormValues.errorFields ||
-      zhFormValues.errorFields ||
-      planProfileFormValues.errorFields
+      zhFormValues.errorFields
     ) {
       return;
     } else {
@@ -87,11 +109,11 @@ const useHandleForm = (item, onSave, typeForm) => {
         delete_avatar: isRemoveAvatar,
         ...userInfoForm.getFieldsValue(),
       };
-      
+
       appendObjectToFormData(formData, commonAddressForm.getFieldsValue());
       appendObjectToFormData(formData, billingAddressForm.getFieldsValue());
       appendObjectToFormData(formData, shippingAddressForm.getFieldsValue());
-  
+
       if (!avatar) {
         delete submitValues.avatar;
       }
@@ -116,6 +138,22 @@ const useHandleForm = (item, onSave, typeForm) => {
           formData.delete("dob");
         }
       }
+
+      const commonAddressValue = await getResultValidate(commonAddressForm);
+      const billingAddressValue = await getResultValidate(billingAddressForm);
+      const shippingAddressValue = await getResultValidate(shippingAddressForm);
+      if (planProfileFormValues.errorFields) {
+        setTabRequired(SECOND_TAB);
+      } else if (commonAddressValue.errorFields) {
+        setTabRequired(FIRST_TAB);
+      } else if (billingAddressValue.errorFields) {
+        setTabRequired(THIRD_TAB);
+      } else if (shippingAddressValue.errorFields) {
+        setTabRequired(FOURTH_TAB);
+      }
+
+      if (planProfileFormValues.errorFields) return;
+
       appendObjectToFormData(formData, submitValues);
       setSubmitted(true);
       onSave(formData);
@@ -157,6 +195,9 @@ const useHandleForm = (item, onSave, typeForm) => {
     vendorProfileFormTL,
     vendorProfileFormVI,
     vendorProfileFormZH,
+    tabRequiredLang,
+    isSubmitted,
+    tabRequired,
     onFinishAll,
     onFinishAllFailed,
     onChangeAvatar,

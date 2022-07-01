@@ -1,6 +1,7 @@
 export const LIST_PRODUCT = "LIST_PRODUCT";
 export const FORM_PRODUCT = "FORM_PRODUCT";
 export const FORM_CATEGORY = "FORM_CATEGORY";
+export const FORM_USER = "FORM_USER";
 export const TYPE_FORM_CREATE = "CREATE";
 export const TYPE_FORM_UPDATE = "UPDATE";
 export const DEFAULT_SKIP = 0;

@@ -18,8 +18,10 @@ const VendorProfileForm = (props) => {
     onSaveImgOutsideDelete,
     setInsideImageUrl,
     setOutSideImageUrl,
+    tabRequiredLang,
   } = props;
   const { t } = useTranslation();
+
   return (
     <div className={`vendor-profile-form ${className}`}>
       <Row justify="center" className="control-image">
@@ -61,6 +63,7 @@ const VendorProfileForm = (props) => {
         </Col>
       </Row>
       <TranslateVendorForm
+        tabRequiredLang={tabRequiredLang}
         formEN={formEN}
         formJP={formJP}
         formTL={formTL}
