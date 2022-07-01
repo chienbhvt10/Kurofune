@@ -2,7 +2,7 @@ import { DatePicker, Form, Input } from "antd";
 import { t } from "i18next";
 import moment from "moment";
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DateField from "../../../../commons/Form/DateField";
 import SelectFieldSearch from "../../../../commons/Form/SelectFieldSearch";
 import FormHeader from "../../../../commons/FormHeader";
@@ -15,6 +15,7 @@ import "./order-form.scss";
 const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
   const { id } = useParams();
   const lang = getCurrentLanguage();
+  const navigate = useNavigate();
   const { getOrderDetailAdmin } = useOrderDetailAdmin();
   const { updateOrderAdmin } = useUpdateOrderAdmin();
   const initialGeneralValues = {
@@ -90,7 +91,9 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
           billing_email: valueFormBillingError.email,
         };
         const { id } = dataOrder;
-        updateOrderAdmin({ id, data: objectUpdate }, (data) => {});
+        updateOrderAdmin({ id, data: objectUpdate }, (data) => {
+          navigate(`${lang}/admin/order-list`);
+        });
       }
     } catch (error) {
       console.log("Validate fail");
