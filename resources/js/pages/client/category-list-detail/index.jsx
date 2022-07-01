@@ -12,6 +12,10 @@ const CategoryListDetail = () => {
   const lang = getCurrentLanguage();
   const { id } = useParams();
   const { getCategory, category } = useCategory();
+  console.log(
+    "🚀 ~ file: index.jsx ~ line 15 ~ CategoryListDetail ~ category",
+    category
+  );
 
   React.useEffect(() => {
     if (id) {
@@ -30,14 +34,14 @@ const CategoryListDetail = () => {
           <div className="type-wrapper">
             <div className="type-name">
               {
-                category?.category?.translations?.find((item) => {
+                category?.data?.category?.translations?.find((item) => {
                   const _lang = lang || "ja";
                   return _lang.includes(item.locale);
                 })?.name
               }
             </div>
           </div>
-          <CardCategoryDetail cardItems={category?.products} />
+          <CardCategoryDetail cardItems={category?.data?.products} />
         </div>
       </div>
     </>
