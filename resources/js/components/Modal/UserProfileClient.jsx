@@ -13,12 +13,12 @@ import useUserRegistrationClient from '../../hooks/user/useUserRegistrationClien
 import { isNumber } from 'lodash';
 import { userFormOptions } from '../../commons/data'
 
-const UserProfileClient = ({ modalVisible, setModalVisible, role, profile,setAccessRightVisiable2 }) => {
+const UserProfileClient = ({ modalVisible, setModalVisible, role, profile, setAccessRightVisiable2 }) => {
   const [formInfo] = Form.useForm();
 
   const initialValues = {
     name_furigana: profile && profile.name_furigana || '',
-    dob: profile && moment(profile.profile.dob,'YYYY-MM-DD') || '',
+    dob: profile?.profile?.dob && moment(profile.profile.dob, 'YYYY-MM-DD') || '',
     gender: profile && isNumber(profile.profile.gender) ? profile.profile.gender : '',
     phone: profile && profile?.phone || '',
     facebook: profile && profile.profile.facebook || '',
@@ -29,9 +29,9 @@ const UserProfileClient = ({ modalVisible, setModalVisible, role, profile,setAcc
     building: profile?.address?.building || '',
     street_address: profile?.address?.street_address || '',
     nationality: profile?.profile?.nationality || '',
-    visa_type: profile && isNumber(profile.profile.visa_type) ? profile.profile.visa_type : '',
-    education_status: profile && isNumber(profile.profile.education_status) ? profile.profile.education_status : '',
-    job_name: profile && isNumber(profile.profile.job_name) ? profile.profile.job_name : '',
+    visa_type: profile && !isNumber(profile.profile.visa_type) === 0 ? profile.profile.visa_type : '',
+    education_status: profile && !isNumber(profile.profile.education_status) === 0 ? profile.profile.education_status : '',
+    job_name: profile && !isNumber(profile.profile.job_name) === 0 ? profile.profile.job_name : '',
   }
 
   const onCodeJapan = () => {
@@ -99,20 +99,20 @@ const UserProfileClient = ({ modalVisible, setModalVisible, role, profile,setAcc
     return new Promise(resolve => setTimeout(resolve, ms));
   }
   const { UserRegistrationClient } = useUserRegistrationClient();
-  const onFinish =(value) => {
+  const onFinish = (value) => {
     if (!value) return
     let dob = formInfo.getFieldValue("dob")
     dob = dob.format('YYYY-MM-DD');
-    let objectUpdate= {
-      ...value,dob
+    let objectUpdate = {
+      ...value, dob
     };
-    UserRegistrationClient(objectUpdate, async()=>{
+    UserRegistrationClient(objectUpdate, async () => {
       setModalVisible(false)
       await sleep(2000);
       setAccessRightVisiable2(true)
     })
   }
-  const onOk = async () =>{
+  const onOk = async () => {
     formInfo.submit();
   }
 
@@ -287,30 +287,32 @@ const UserProfileClient = ({ modalVisible, setModalVisible, role, profile,setAcc
               </Col>
 
             </Row>
-            <Col span={12}>
-              <InputField
-                field='nationality'
-                error='nationality'
-                label={t("client.media.user_profile.field_nationality")}
-                rules={renderErrorTranslate("nationality")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 23 }}
-                type={<Input className="input-field" />}
-              />
-            </Col>
-            <Col span={24}>
-              <SelectField
-                field='visa_type'
-                error='visa_type'
-                label={t("client.media.user_profile.field_visa_type")}
-                labelCol={{ span: 24 }}
-                wrapperCol={{ span: 23 }}
-                rules={renderErrorTranslate("visa_type")}
-                // response={response}
-                options={userFormOptions.VISA_TYPE}
-                type={<Input className="input-field" />}
-              />
-            </Col>
+            <Row>
+              <Col span={12}>
+                <InputField
+                  field='nationality'
+                  error='nationality'
+                  label={t("client.media.user_profile.field_nationality")}
+                  rules={renderErrorTranslate("nationality")}
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 23 }}
+                  type={<Input className="input-field" />}
+                />
+              </Col>
+              <Col span={12}>
+                <SelectField
+                  field='visa_type'
+                  error='visa_type'
+                  label={t("client.media.user_profile.field_visa_type")}
+                  labelCol={{ span: 24 }}
+                  wrapperCol={{ span: 23 }}
+                  rules={renderErrorTranslate("visa_type")}
+                  // response={response}
+                  options={userFormOptions.VISA_TYPE}
+                  type={<Input className="input-field" />}
+                />
+              </Col>
+            </Row>
             <Row>
               <Col span={12}>
                 <SelectField

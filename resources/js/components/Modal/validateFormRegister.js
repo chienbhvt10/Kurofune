@@ -53,7 +53,7 @@ export const validateFormRegister = {
         },
     ],
     postal_code: [
-        { required: true, message: "admins.user.error.postcode_required"},
+        { required: true, message: "admins.user.error.postal_code.required"},
         {
             pattern: new RegExp(/〒?[0-9]{3}-?[0-9]{4}/),
             message: "admins.user.error.postal_code.pattern",
@@ -76,7 +76,7 @@ export const validateFormRegister = {
         { required: true, message: "admins.user.error.visa_type_required" }
     ],
     education_status:[
-        { required: true, message: "admins.user.error.course_required" }
+        { required: true, message: "admins.user.error.education_status_required" }
     ],
     job_name:[
         { required: true, message: "admins.user.error.job_required" }

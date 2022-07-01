@@ -256,10 +256,11 @@
         "field_line": "LINE account",
         "field_visa_type": "Uri ng Visa",
         "field_nationality": "Nasyonalidad",
-        "field_job": "Pangalan ng trabaho",
+        "field_job": "Deskripsyon ng trabaho",
         "field_language": "Wika",
         "field_postcode": "Postal code",
         "field_prefecture": "Mga prefecture ",
+        "field_street_address": "Address ng kalye",
         "field_city": "Bayan / Lungsod",
         "field_building": "Gusali",
         "field_education_status": "Education status"
@@ -770,6 +771,10 @@
           "max_4_number": "Mangyaring magpasok lamang ng 4 numero.",
           "max_7_number": "Mangyaring magpasok lamang ng 7 numero."
         },
+        "job_required":"Mangyaring piliin ang paglalarawan ng trabaho.",
+        "visa_type_required":"Mangyaring pumili ng uri ng visa.",
+        "education_status_required":"Mangyaring pumili ng katayuan sa edukasyon ng wikang Hapon.",
+        "nationality_required":"Mangyaring ipasok ang nasyonalidad.",
         "prefecture_required": "Mangyaring pumili ng prefecture.",
         "city_required": "Mangyaring ipasok ang lungsod.",
         "street_address_required": "Mangyaring ipasok ang address ng kalye."

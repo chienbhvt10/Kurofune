@@ -251,10 +251,11 @@
         "field_line": "Line帐户",
         "field_visa_type": "签证类型",
         "field_nationality": "国籍",
-        "field_job": "职位名称",
+        "field_job": "职位描述",
         "field_language": "语言",
         "field_postcode": "邮编",
         "field_prefecture": "州 ",
+        "field_street_address": "街道地址",
         "field_city": "城镇/城市",
         "field_building": "建造",
         "field_education_status": "Education status"
@@ -759,6 +760,10 @@
           "max_4_number": "请仅输入 4 个数字。",
           "max_7_number": "请仅输入 7 个数字。"
         },
+        "job_required":"请选择职位描述。",
+        "visa_type_required":"请选择签证类型。",
+        "education_status_required":"请选择日语教育状况。",
+        "nationality_required":"请输入国籍。",
         "prefecture_required": "请选择县。",
         "city_required": "请输入城市。",
         "street_address_required": "请输入街道地址。"

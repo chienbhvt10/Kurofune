@@ -251,10 +251,11 @@
         "field_line": "LINEアカウント",
         "field_visa_type": "ビザの種類",
         "field_nationality": "国籍",
-        "field_job": "職種名",
+        "field_job": "仕事内容",
         "field_language": "言語",
         "field_postcode": "郵便番号",
         "field_prefecture": "都道府県 ",
+        "field_street_address": "丁目・番地・号",
         "field_city": "市区町村",
         "field_building": "建物名・部屋番号",
         "field_education_status": "Education status"
@@ -638,6 +639,10 @@
           "max_4_number": "4数字以内入力してください。",
           "max_7_number": "7数字以内入力してください。"
         },
+        "job_required":"仕事内容を選択してください。",
+        "visa_type_required":"ビザの種類を選択してください。",
+        "education_status_required":"日本語教育ステータスを選択してください。",
+        "nationality_required":"国籍を入力してください。",
         "prefecture_required": "都道府県を入力してください。",
         "city_required": "市区町村を入力してください。",
         "street_address_required": "市区町村を入力してください。",
