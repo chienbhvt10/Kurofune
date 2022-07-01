@@ -211,7 +211,7 @@ export const UserForm = (props) => {
                 label={t("admins.user.form.field_phone")}
                 labelCol={{ span: 6 }}
                 wrapperCol={{ span: 18 }}
-                // rules={renderErrorTranslate("phone")}
+                rules={renderErrorTranslate("phone")}
                 response={response}
                 type={<Input />}
               />
