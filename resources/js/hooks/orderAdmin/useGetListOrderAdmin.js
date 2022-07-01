@@ -7,7 +7,7 @@ const useGetListOrderAdmin = () => {
   const [pagination, setPagination] = useState({
     total: 0,
     current_page: 0,
-    last_page: {},
+    last_page: 0,
   });
   const getListOrderAdmin = async (payload=null,onSuccess, onError) => {
     if (!payload) await orderAdminAPI.getListOrderAdminNotData().then((result) => {
