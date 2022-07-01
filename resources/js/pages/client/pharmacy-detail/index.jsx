@@ -8,6 +8,7 @@ import usePharmacy from "../../../hooks/pharmacy/usePharmacy";
 import { Image, Typography } from "antd";
 import { getCurrentLanguage } from "../../../helper/localStorage";
 import usePharmacies from "../../../hooks/pharmacy/usePharmacies";
+import CardProduct from "../../../commons/CardProduct";
 const PharmacyDetail = () => {
   const { t } = useTranslation();
   const { id } = useParams();
@@ -238,7 +239,7 @@ const PharmacyDetail = () => {
                     <div className="type-wrapper">
                       <div className="type-name">{t("client.list_pharmacies.title_list_product")}</div>
                     </div>
-                    <CardPharmacy cardItems={productPharmacy} />
+                    <CardProduct cardItems={productPharmacy} />
                   </div>
                 </div>
             <div className="guide-wrapper">

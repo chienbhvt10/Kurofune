@@ -3,9 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { DEFAULT_IMAGE } from "../../constants";
 import { getCurrentLanguage } from "../../helper/localStorage";
-import "./card-pharmacy.scss";
 import { Tooltip } from "antd";
-const CardCategory = ({ cardItems }) => {
+const CardProduct = ({ cardItems }) => {
   const lang = getCurrentLanguage();
 
   return (
@@ -20,13 +19,13 @@ const CardCategory = ({ cardItems }) => {
           span={24}
           key={index}
         >
-          <Link to={`${lang}/pharmacy-detail/${item.id}`}>
+          <Link to={`${lang}/product-detail/${item.id}`}>
             <Card
               hoverable
               cover={
                 <img
                   style={{ objectFit: "cover", height: "180px" }}
-                  src={item?.avatar || DEFAULT_IMAGE}
+                  src={item?.product_image || DEFAULT_IMAGE}
                   alt={item.name}
                   onError={(e) => e.target.src = "/images/image-default.png"}
                 />
@@ -50,4 +49,4 @@ const CardCategory = ({ cardItems }) => {
   );
 };
 
-export default CardCategory;
+export default CardProduct;
