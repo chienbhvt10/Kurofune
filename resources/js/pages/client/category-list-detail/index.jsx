@@ -30,14 +30,14 @@ const CategoryListDetail = () => {
           <div className="type-wrapper">
             <div className="type-name">
               {
-                category?.category?.translations?.find((item) => {
+                category?.data?.category?.translations?.find((item) => {
                   const _lang = lang || "ja";
                   return _lang.includes(item.locale);
                 })?.name
               }
             </div>
           </div>
-          <CardCategoryDetail cardItems={category?.products} />
+          <CardCategoryDetail cardItems={category?.data.products} />
         </div>
       </div>
     </>

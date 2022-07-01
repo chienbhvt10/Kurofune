@@ -13,11 +13,22 @@ const Cart = () => {
   const lang = getCurrentLanguage();
   const navigate = useNavigate();
   const [cartItemState, setCartItemState] = useState([]);
-  const { cartInfo, updateCart, deleteCart, deleteCartItem, isLoading } =
-    useCart();
+  const {
+    cartInfo,
+    getCartInfo,
+    updateCart,
+    deleteCart,
+    deleteCartItem,
+    isLoading,
+  } = useCart();
+
   useEffect(() => {
     setCartItemState(cartInfo?.cart_item.length > 0 ? cartInfo.cart_item : []);
   }, [cartInfo]);
+  useEffect(() => {
+    getCartInfo();
+  }, [lang]);
+
   const handleUpdateCart = () => {
     const cart_items = cartItemState.map(({ id, quantity }) => ({
       id,
@@ -28,6 +39,7 @@ const Cart = () => {
   const handleDeleteAllCart = () => {
     deleteCart();
   };
+
   const columns = [
     {
       key: "name",
@@ -261,7 +273,7 @@ const Cart = () => {
                 <Button
                   type="primary"
                   onClick={() => {
-                    navigate(`${lang}/checkout`)
+                    navigate(`${lang}/checkout`);
                   }}
                 >
                   {t("client.cart.btn_checkout")}
