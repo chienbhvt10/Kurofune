@@ -4,6 +4,7 @@ import {
   FIRST_TAB,
   FORM_CATEGORY,
   FORM_PRODUCT,
+  FORM_USER,
   FOURTH_TAB,
   SECOND_TAB,
   THIRD_TAB,
@@ -19,9 +20,9 @@ const SwitchTabLangForm = ({
   const getActiveTab = (tab) => (activeTab === tab ? "active" : "");
 
   const showRequired = () =>
-    (formName === FORM_PRODUCT || formName === FORM_CATEGORY) && (
-      <span className="required-symbol">*</span>
-    );
+    (formName === FORM_PRODUCT ||
+      formName === FORM_CATEGORY ||
+      formName === FORM_USER) && <span className="required-symbol">*</span>;
 
   return (
     <>

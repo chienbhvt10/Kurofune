@@ -51,6 +51,9 @@ export const UserForm = (props) => {
     userInfoInitValues,
     planProfileForm,
     setIsRemoveAvatar,
+    tabRequiredLang,
+    isSubmitted,
+    tabRequired,
   } = useHandleForm(item, onSave, typeForm);
 
   React.useEffect(() => {
@@ -66,7 +69,6 @@ export const UserForm = (props) => {
     setRole(values);
     setActiveTab(FIRST_TAB);
   };
-
 
   React.useEffect(() => {
     setAvatarUrl(item?.avatar || "");
@@ -287,6 +289,9 @@ export const UserForm = (props) => {
 
       <div className="translate-role">
         <Phase2UserForm
+          tabRequiredLang={tabRequiredLang}
+          tabRequired={tabRequired}
+          isSubmitted={isSubmitted}
           role={role}
           typeForm={typeForm}
           vendorProfileFormJP={vendorProfileFormJP}

@@ -18,7 +18,7 @@ const CategoryForm = ({
   onCancel,
   onSave,
   response,
-  loading
+  loading,
 }) => {
   const {
     categoryForm,
@@ -33,6 +33,7 @@ const CategoryForm = ({
     onFinishAll,
     onFinishError,
     setIsRemoveImage,
+    tabRequired,
   } = useHandleForm(item, onSave, typeForm);
 
   const { t } = useTranslation();
@@ -56,7 +57,12 @@ const CategoryForm = ({
           ...initialCommonValues,
         }}
       >
-        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} loading={loading} />
+        <FormHeader
+          breadcrumb={[]}
+          title={title}
+          onCancel={onCancel}
+          loading={loading}
+        />
         <Row className="pb-60" justify="center">
           <Col span={12} className="input-field-space">
             <Form.Item
@@ -74,6 +80,7 @@ const CategoryForm = ({
           <Col span={12}>
             <Col span={24}>
               <TranslateCategoryForm
+                tabRequired={tabRequired}
                 formEN={categoryProfileFormEN}
                 formJP={categoryProfileFormJP}
                 formTL={categoryProfileFormTL}

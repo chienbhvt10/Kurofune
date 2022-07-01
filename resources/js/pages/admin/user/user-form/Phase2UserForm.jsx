@@ -43,10 +43,23 @@ const Phase2UserForm = (props) => {
     setOutSideImageUrl,
     activeTab,
     setActiveTab,
+    tabRequiredLang,
+    isSubmitted,
+    tabRequired,
   } = props;
   const { resCreateUser, resUpdateUser } = useSelector(
     (state) => state.userState
   );
+  React.useEffect(() => {
+    if (tabRequiredLang && role === "vendor") {
+      setActiveTab(SECOND_TAB);
+    } else if (!tabRequiredLang && role === "vendor") {
+      setActiveTab(FIRST_TAB);
+    }
+    if (tabRequired && role !== "vendor") {
+      setActiveTab(tabRequired);
+    }
+  }, [tabRequiredLang, isSubmitted, tabRequired]);
 
   const onChangeForm = (number) => {
     setActiveTab(number);
@@ -86,6 +99,7 @@ const Phase2UserForm = (props) => {
               setOutSideImageUrl={setOutSideImageUrl}
               onSaveImgInsideDelete={onSaveImgInsideDelete}
               onSaveImgOutsideDelete={onSaveImgOutsideDelete}
+              tabRequiredLang={tabRequiredLang}
             />
           )}
           {isRolePlan(role) && (
