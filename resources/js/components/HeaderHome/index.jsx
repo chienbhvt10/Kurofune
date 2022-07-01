@@ -41,7 +41,6 @@ const HeaderHome = ({ toggleSideBar }) => {
           ? setDisabledCart("disabled-cart")
           : setDisabledCart("");
       }, [location]);
-
   return (
     <div id="header-home">
       <div className="container-fluid">
@@ -123,7 +122,7 @@ const HeaderHome = ({ toggleSideBar }) => {
                                   </span>
                                 </span>{" "}
                                 <Link
-                                  to={`${lang}/product-detail/${item?.id}`}
+                                  to={`${lang}/product-detail/${item?.product_id}`}
                                   className="item-img"
                                 >
                                   <img
