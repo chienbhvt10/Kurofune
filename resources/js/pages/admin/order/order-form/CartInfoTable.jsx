@@ -54,7 +54,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       editable: true,
       render: (_, record) => {
         return (
-          <span id={`quantity-${record?.key}`}>{record?.pivot?.quantity}</span>
+          <span id={`quantity-${record?.key}`}>{record?.quantity}</span>
         );
       },
     },
@@ -65,8 +65,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       render: (_, record) => {
         return (
           <span id={`quantity-${record?.key}`}>
-            {Number(record?.pivot?.total_tax) -
-              Number(record?.pivot?.quantity) * Number(record?.price)}
+            {`${firstString(record.tax)} %`}
           </span>
         );
       },
@@ -75,7 +74,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       title: t("admins.order.table.field_order_total"),
       editable: true,
       render: (_, record) => {
-        return <span>{Number(record?.pivot?.total_tax)}</span>;
+        return <span>{Number(record.total_tax)}</span>;
       },
     },
   ];
@@ -86,6 +85,15 @@ const CartInfoTable = ({ dataCartInforTable }) => {
   const onToggleRefund = () => {
     setActiveRefund(!activeRefund);
   };
+
+  const firstString =(string)=>{
+    let removed;
+    const index = string.indexOf('.');
+    if (index !== -1) {
+      removed = string.slice(0 , index);
+    }
+    return removed;
+  }
   return (
     <>
       <div className="cart-product">
@@ -108,13 +116,15 @@ const CartInfoTable = ({ dataCartInforTable }) => {
         <div className={activeRefund ? "cart-total" : "cart-total active"}>
           <div className="calculate">
             <div className="cal-title">
-              <p>{t("admins.order.table.field_items_subtotal")}:</p>
-              <p>{t("admins.order.table.field_vat")}:</p>
-              <p>{t("admins.order.table.field_order_total")}:</p>
+              <p>Items Subtotal:</p>
+              {/* <p>Fees: </p>
+              <p>Shipping:</p> */}
+              <p>VAT:</p>
+              <p>Order Total:</p>
             </div>
             <div className="cal-total">
               <p>{dataCartInforTable.total}</p>
-              <p>{`${calculateVAT(dataCartInforTable.total_tax, dataCartInforTable.total)} %`}</p>
+              <p>{`${calculateVAT(dataCartInforTable.total_tax,dataCartInforTable.total)} %`}</p>
               <p>{dataCartInforTable.total_tax}</p>
             </div>
           </div>
@@ -180,49 +190,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
             </div>
           </div> */}
         </div>
-        {/* <div
-          className={
-            activeRefund
-              ? "cart-total-refund cart-total active"
-              : "cart-total-refund cart-total"
-          }
-        >
-          <div className="calculate">
-            <div className="cal-title">
-              <p>Restock refunded items:</p>
-              <p>Amount already refunded: </p>
-              <p>Total available to refund: </p>
-              <p>Refund amount: </p>
-              <p>Reason for refund (optional): </p>
-            </div>
-            <div className="cal-total">
-              <input type="checkbox" name="restockItem" />
-              <p>12 (JPY)</p>
-              <p>0 (JPY)</p>
-              <input type="text" name="refundAmount" />
-              <br />
-              <input type="text" name="reason" />
-            </div>
-          </div>
-          <div className="tool-container">
-            <div className="tool-first-refund tool">
-              <div className="tool-left">
-                <button
-                  className="add-btn tool-btn"
-                  type="button"
-                  onClick={onToggleRefund}
-                >
-                  Cancel
-                </button>
-              </div>
-              <div className="tool-right-refund">
-                <button className="refund-btn tool-btn" type="button">
-                  Refund 0 (JPY) manually
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
+       
       </div>
     </>
   );

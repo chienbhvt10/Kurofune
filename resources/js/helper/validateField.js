@@ -8,7 +8,11 @@ export const validateUser = {
     { required: true, message: "admins.user.error.company_name_required" },
   ],
   company_email: [
-    { required: true, message: "admins.user.error.company_email_required" },
+    { required: true, message: "admins.user.error.company_email.required" },
+    {
+      type: "email",
+      message: "admins.user.error.company_email.type",
+    },
   ],
   person_in_charge: [
     { required: true, message: "admins.user.error.person_in_charge_required" },

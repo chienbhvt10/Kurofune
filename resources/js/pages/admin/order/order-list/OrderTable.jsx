@@ -55,7 +55,7 @@ const OrderTable = ({ items, onChange, handleDeleteOrder,pagination }) => {
     },
     {
       title: t("admins.order.table.field_total"),
-      dataIndex: "total",
+      dataIndex: "total_tax",
     },
 
     {

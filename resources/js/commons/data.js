@@ -336,15 +336,15 @@ export const mediaBoardItemData = [
     name:'e-learning',
   },
   {
-    link: "vietnam/income-insurance/",
+    link: "https://wabisabi.media/vietnam/income-insurance/",
     imageUrl: "/images/media/heat.png",
     title: "client.media.card_insurance",
-    type: "link_component",
+    type: "a_tag",
     disable: false,
     name:'insurance',
   },
   {
-    link: "vietnam",
+    link: "https://wabisabi.media/vietnam/",
     imageUrl:
       "https://member.wabisabi.media/wp-content/themes/pharmacy/assets/imgs/wasabi-logo.svg",
     title: "client.media.card_wabisabi",
@@ -617,6 +617,18 @@ export const PREF = [
   { value: "JP47", label: "沖縄県" },
 ];
 export const userFormOptions = {
+  role_list: [
+    {
+      value: "administrator",
+      label: "admins.user.form.role_list.administrator",
+    },
+    { value: "vendor", label: "admins.user.form.role_list.vendor" },
+    { value: "light plan", label: "admins.user.form.role_list.light_plan" },
+    {
+      value: "full support plan",
+      label: "admins.user.form.role_list.full_support_plan",
+    },
+  ],
   active_status: [
     { value: 1, label_translate: "admins.user.form.option.active" },
     { value: 0, label_translate: "admins.user.form.option.inactive" },

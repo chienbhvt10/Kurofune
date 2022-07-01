@@ -266,8 +266,8 @@
           "linkVideo": "//www.youtube.com/embed/ausFxpMOYp4"
         },
         "modal_access_right": {
-          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
-          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、"
+          "description": "Dịch vụ này chỉ có thể được sử dụng bởi các công ty có \"Full Support Plan\". Để sử dụng nó, anh/chị cần phải đăng ký tham gia tại công ty {{payload}}.",
+          "title": "※Vì gói hiện tại là \"Light Plan\", các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:"
         },
         "modal_access_right2": {
           "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
@@ -331,9 +331,9 @@
       "title_ship": "Thông tin giao hàng",
       "accept_term": "Tôi đồng ý với điều khoản sử dụng và mua hàng.",
       "btn_text_buy": "MUA",
-      "message_error_blling_shipping":"Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
-      "message_error_blling":"Vui lòng nhập thông tin thanh toán",
-      "message_error_shipping":"Vui lòng nhập địa chỉ giao hàng"
+      "message_error_blling_shipping": "Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
+      "message_error_blling": "Vui lòng nhập thông tin thanh toán",
+      "message_error_shipping": "Vui lòng nhập địa chỉ giao hàng"
     },
     "order-history": {
       "th_order_date": "Ngày đặt hàng",
@@ -603,6 +603,12 @@
           "select_payment": "Vui lòng chọn tiền gửi vào.",
           "select_insurance_status": "Vui lòng chọn trạng thái bảo hiểm.",
           "select_education_status": "Vui lòng chọn trình độ giáo dục tiếng Nhật."
+        },
+        "role_list": {
+          "light_plan": "Gói tiết kiệm",
+          "full_support_plan": "Gói hỗ trợ đầy đủ ",
+          "vendor": "Nhà thuốc",
+          "administrator": "Administrator"
         }
       },
       "error": {
@@ -645,7 +651,14 @@
         "new_password_required": "Vui lòng nhập mật khẩu mới.",
         "confirm_password_required": "Vui lòng nhập xác nhận mật khẩu.",
         "not_same_password": "Hai mật khẩu bạn vừa nhập không khớp nhau.",
-        "requied": "Vui lòng chọn trường này."
+        "requied": "Vui lòng chọn trường này.",
+        "company_name_required": "Vui lòng nhập tên công ty trực thuộc.",
+        "company_email": {
+          "required": "Vui lòng nhập email của công ty trực thuộc.",
+          "type": "Vui lòng nhập email hợp lệ."
+        },
+        "person_in_charge_required": "Vui lòng nhập tên người phụ trách công ty.",
+        "person_contact_information_required": "Vui lòng nhập địa chỉ liên hệ người phụ trách."
       }
     },
     "crud": {

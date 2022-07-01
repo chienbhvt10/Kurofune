@@ -261,8 +261,8 @@
       },
       "light_plan": {
         "the_services": {
-          "1": "Online pharmacy service",
-          "2": "24-hour life consultation service",
+          "1": "网上药店服务",
+          "2": "24小时生活咨询服务",
           "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
         },
         "modal_access_right": {
@@ -331,9 +331,9 @@
       "title_ship": "发货信息",
       "accept_term": "同意使用条款后购买。",
       "btn_text_buy": "买",
-      "message_error_blling_shipping":"请输入付款和运输信息",
-      "message_error_blling":"请输入付款信息",
-      "message_error_shipping":"请输入运输信息"
+      "message_error_blling_shipping": "请输入付款和运输信息",
+      "message_error_blling": "请输入付款信息",
+      "message_error_shipping": "请输入运输信息"
     },
     "order-history": {
       "th_order_date": "订购日期",
@@ -603,6 +603,12 @@
           "select_payment": "请选择付款。",
           "select_insurance_status": "请选择保险状态。",
           "select_education_status": "请选择日语教育状况。"
+        },
+        "role_list": {
+          "light_plan": "灯光计划",
+          "full_support_plan": "全面支持计划",
+          "vendor": "小贩",
+          "administrator": "行政人员"
         }
       },
       "error": {
@@ -645,7 +651,14 @@
         "new_password_required": "请输入新密码。",
         "confirm_password_required": "请输入密码确认。",
         "not_same_password": "您输入的两个密码不匹配。",
-        "required": "请选择此项。w"
+        "required": "请选择此项。",
+        "company_name_required": "请输入公司名称。",
+        "company_email": {
+          "required": "请输入公司邮箱。",
+          "type": "请输入有效的电子邮件。"
+        },
+        "person_in_charge_required": "请输入公司负责人的姓名。",
+        "person_contact_information_required": "请输入负责人联系方式。"
       }
     },
     "crud": {
