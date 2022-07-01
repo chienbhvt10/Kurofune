@@ -12,11 +12,10 @@ const useDeleteOrderAdmin = () => {
       .then((result) => {
         let { data } = result;
         onSuccess(data);
-        if (result.NO_ERROR === NO_ERROR)
-          NotificationSuccess(t("notification"), result.message);
+        NotificationSuccess(t("notification"), result.message);
       })
       .catch((error) => {
-        NotificationError(t("notification"), `Update Error ${error.message}`);
+        NotificationError(t("notification"), `${error.message}`);
       });
   };
   return {
