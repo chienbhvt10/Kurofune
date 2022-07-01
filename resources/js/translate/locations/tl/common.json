@@ -621,10 +621,6 @@
         "name_required": "Pakilagay ang iyong pangalan.",
         "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
         "language_required":"Mangyaring pumili ng wika.",
-        "company_name_required":"Pakilagay ang pangalan ng iyong kumpanya.",
-        "company_email_required":"Pakilagay ang email address ng iyong kumpanya.",
-        "person_in_charge_required":"Mangyaring ipasok ang iyong taong namamahala.",
-        "person_contact_information_required":"Kinakailangan ang field ng impormasyon ng contact ng taong namamahala.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
@@ -855,7 +851,8 @@
       "placeholder_seach": "Mangyaring ipasok ang buwis sa pangalan.",
       "error": {
         "name_required": "Mangyaring ipasok ang buwis sa pangalan.",
-        "value_requied": "Mangyaring ipasok ang halaga ng buwis."
+        "value_requied": "Mangyaring ipasok ang halaga ng buwis.",
+        "error_not_allowed_delete_tax":"Hindi matanggal. Ang buwis na ito ay kasalukuyang ginagamit para sa mga produkto ng system."
       }
     },
     "log_questionnaire": {
