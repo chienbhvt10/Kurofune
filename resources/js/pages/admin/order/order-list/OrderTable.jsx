@@ -56,6 +56,11 @@ const OrderTable = ({ items, onChange, handleDeleteOrder }) => {
     {
       title: t("admins.order.table.field_total"),
       dataIndex: "total_tax",
+      render: (_, record) => {
+        return(
+          <>{new Intl.NumberFormat("en-US").format(record?.total_tax)} {!lang ? "円" : "(JPY)"}</>
+        )
+      }
     },
 
     {

@@ -1,10 +1,12 @@
 import { Form, Table } from "antd";
 import React from "react";
+import { getCurrentLanguage } from "../../../../helper/localStorage";
 
 const CartInfoTable = ({ dataCartInforTable }) => {
   const [activeRefund, setActiveRefund] = React.useState(false);
   const [activeToolSecond, setActiveToolSecond] = React.useState(false);
   const [form] = Form.useForm();
+  const lang = getCurrentLanguage();
   const removeFirstWord = (str) => {
     if (!str) return "";
     const indexOfSpace = str.indexOf(" ");
@@ -47,6 +49,11 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       title: "Price",
       dataIndex: "price",
       editable: true,
+      render: (_, record) => {
+        return(
+          <span id={`quantity-${record?.key}`}>{new Intl.NumberFormat('en-US').format(record?.price)} {!lang ? "円" : "(JPY)"}</span>
+        )
+      }
     },
     {
       title: "Qty",
@@ -73,7 +80,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       title: "Total",
       editable: true,
       render: (_, record) => {
-        return <span>{Number(record.total_tax)}</span>;
+        return <span id={`quantity-${record?.key}`}>{new Intl.NumberFormat('en-US').format(record?.total_tax)} {!lang ? "円" : "(JPY)"}</span>;
       },
     },
   ];
@@ -116,78 +123,15 @@ const CartInfoTable = ({ dataCartInforTable }) => {
           <div className="calculate">
             <div className="cal-title">
               <p>Items Subtotal:</p>
-              {/* <p>Fees: </p>
-              <p>Shipping:</p> */}
               <p>VAT:</p>
               <p>Order Total:</p>
             </div>
             <div className="cal-total">
-              <p>{dataCartInforTable.total}</p>
+              <p>{new Intl.NumberFormat("en-US").format(dataCartInforTable.total)} {!lang ? "円" : "(JPY)"}</p>
               <p>{`${calculateVAT(dataCartInforTable.total_tax,dataCartInforTable.total)} %`}</p>
-              <p>{dataCartInforTable.total_tax}</p>
+              <p>{new Intl.NumberFormat("en-US").format(dataCartInforTable.total_tax)} {!lang ? "円" : "(JPY)"}</p>
             </div>
           </div>
-          {/* <div className="tool-container">
-            <div
-              className={
-                activeToolSecond ? "tool-first tool " : "tool-first tool active"
-              }
-            >
-              <div className="tool-left">
-                <button
-                  className="add-btn tool-btn"
-                  type="button"
-                  onClick={onToggleToolSecond}
-                >
-                  Add item(s)
-                </button>
-                <button
-                  className="add-btn tool-btn"
-                  type="button"
-                  onClick={onToggleRefund}
-                >
-                  Refund
-                </button>
-              </div>
-            </div>
-            <div
-              className={
-                activeToolSecond
-                  ? "tool-second tool active"
-                  : "tool-second tool"
-              }
-            >
-              <div className="tool-left"></div>
-              <div className="tool-right">
-                <button
-                  className="add-btn tool-btn"
-                  type="button"
-                  onClick={() => {}}
-                >
-                  Add product(s)
-                </button>
-                <button className="add-btn tool-btn" type="button">
-                  Add fee
-                </button>
-                <button className="add-btn tool-btn" type="button">
-                  Add shipping
-                </button>
-                <button className="add-btn tool-btn" type="button">
-                  Add tax
-                </button>
-                <button
-                  className="add-btn tool-btn"
-                  type="button"
-                  onClick={onToggleToolSecond}
-                >
-                  Cancel
-                </button>
-                <button className="save-btn tool-btn" type="button">
-                  Save
-                </button>
-              </div>
-            </div>
-          </div> */}
         </div>
        
       </div>
