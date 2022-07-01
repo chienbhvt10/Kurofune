@@ -261,8 +261,8 @@
       },
       "light_plan": {
         "the_services": {
-          "1": "Online pharmacy service",
-          "2": "24-hour life consultation service",
+          "1": "网上药店服务",
+          "2": "24小时生活咨询服务",
           "linkVideo": "//www.youtube.com/embed/Rda05UqBtR8"
         },
         "modal_access_right": {
@@ -331,9 +331,9 @@
       "title_ship": "发货信息",
       "accept_term": "同意使用条款后购买。",
       "btn_text_buy": "买",
-      "message_error_blling_shipping":"请输入付款和运输信息",
-      "message_error_blling":"请输入付款信息",
-      "message_error_shipping":"请输入运输信息"
+      "message_error_blling_shipping": "请输入付款和运输信息",
+      "message_error_blling": "请输入付款信息",
+      "message_error_shipping": "请输入运输信息"
     },
     "order-history": {
       "th_order_date": "订购日期",
