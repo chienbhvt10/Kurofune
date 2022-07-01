@@ -617,6 +617,18 @@ export const PREF = [
   { value: "JP47", label: "沖縄県" },
 ];
 export const userFormOptions = {
+  role_list: [
+    {
+      value: "administrator",
+      label: "admins.user.form.role_list.administrator",
+    },
+    { value: "vendor", label: "admins.user.form.role_list.vendor" },
+    { value: "light plan", label: "admins.user.form.role_list.light_plan" },
+    {
+      value: "full support plan",
+      label: "admins.user.form.role_list.full_support_plan",
+    },
+  ],
   active_status: [
     { value: 1, label_translate: "admins.user.form.option.active" },
     { value: 0, label_translate: "admins.user.form.option.inactive" },
