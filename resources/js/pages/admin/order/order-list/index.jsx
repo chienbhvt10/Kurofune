@@ -49,7 +49,7 @@ const OrderList = () => {
         content={t("meta.content_order_list")}
       />
       <TableHeader
-        addLink={`${lang}/admin/order-add`}
+        // addLink={`${lang}/admin/order-add`}
         breadcrumb={[]}
         title="Orders"
       />
