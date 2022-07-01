@@ -101,7 +101,7 @@ const ProductDetailPage = () => {
                           <div className="Ybrg9j">
                             <span className="woocommerce-Price-amount amount">
                               <bdi>
-                                {productClient.price} {!lang ? "円" : "(JPY)"}
+                                {new Intl.NumberFormat("en-US").format(productClient.price)} {!lang ? "円" : "(JPY)"}
                               </bdi>
                             </span>
                           </div>

@@ -116,8 +116,7 @@ const HeaderHome = ({ toggleSideBar }) => {
                                   {item?.quantity} ×{" "}
                                   <span className="amount">
                                     <bdi>
-                                      {item?.price_tax.toFixed(3)}&nbsp;
-                                      <span>(JPY)</span>
+                                      {new Intl.NumberFormat("en-US").format(item?.price_tax)} {!lang ? "円" : "(JPY)"}
                                     </bdi>
                                   </span>
                                 </span>{" "}

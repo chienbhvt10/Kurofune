@@ -2,9 +2,11 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Table } from "antd";
 import { useTranslation } from "react-i18next";
+import { getCurrentLanguage } from "../../../helper/localStorage";
 
 const QuestionnaireTable = ({ items, handleExportDetailCSV }) => {
   const { t } = useTranslation();
+  const lang = getCurrentLanguage();
 
   const columns = [
     {
@@ -70,7 +72,7 @@ const QuestionnaireTable = ({ items, handleExportDetailCSV }) => {
       render: (_, record) => (
         <ul className="question-cell">
           {record?.order_products?.map((product, i) => (
-            <li key={i}>{product.total}</li>
+            <li key={i}>{new Intl.NumberFormat("en-US").format(product.total)} {!lang ? "円" : "(JPY)"}</li>
           ))}
         </ul>
       ),
