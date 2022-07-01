@@ -112,10 +112,7 @@ const CheckoutPage = () => {
                   >
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
-                        {item?.price_tax.toFixed(3)}&nbsp;
-                        <span className="woocommerce-Price-currencySymbol">
-                        {!lang ? "円" : "(JPY)"}
-                        </span>
+                        {new Intl.NumberFormat("en-US").format(item?.price_tax)} {!lang ? "円" : "(JPY)"}
                       </bdi>
                     </span>
                   </td>
@@ -128,10 +125,7 @@ const CheckoutPage = () => {
                   <td className="product-subtotal">
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
-                        {(item?.price_tax * item?.quantity).toFixed(3)}&nbsp;
-                        <span className="woocommerce-Price-currencySymbol">
-                        {!lang ? "円" : "(JPY)"}
-                        </span>
+                        {new Intl.NumberFormat("en-US").format(item?.price_tax * item?.quantity)} {!lang ? "円" : "(JPY)"}
                       </bdi>
                     </span>
                   </td>
@@ -150,10 +144,7 @@ const CheckoutPage = () => {
                   <td className="cart-totals-value">
                     <span className="woocommerce-Price-amount amount">
                       <bdi>
-                        {totalValue.toFixed(3)}&nbsp;
-                        <span className="woocommerce-Price-currencySymbol">
-                        {!lang ? "円" : "(JPY)"}
-                        </span>
+                        {new Intl.NumberFormat("en-US").format(totalValue)} {!lang ? "円" : "(JPY)"}
                       </bdi>
                     </span>
                   </td>

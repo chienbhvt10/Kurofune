@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next";
 import TaxTable from "./TaxTable";
 import "./tax.scss";
 import PageHead from "../../../../commons/PageHead";
+import { NotificationError } from "../../../../commons/Notification";
 
 const TaxList = () => {
   const { getTaxes, taxes, pagination, loadingTax } = useTaxes();
@@ -25,7 +26,12 @@ const TaxList = () => {
   };
 
   const onDelete = (row) => () => {
-    deleteTax(row.id);
+    if (row.hasOwnProperty("allow_delete") && !row?.allow_delete)
+      NotificationError(
+        t("notification"),
+        t("admins.tax.error.error_not_allowed_delete_tax")
+      );
+    else deleteTax(row.id);
   };
 
   const onEdit = (row) => () => {

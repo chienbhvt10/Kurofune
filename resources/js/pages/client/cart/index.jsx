@@ -74,7 +74,7 @@ const Cart = () => {
       title: t("client.cart.th_product_price"),
       render: (_, record) => (
         <span>
-          {new Intl.NumberFormat().format(record?.price)}{" "}
+          {new Intl.NumberFormat("en-US").format(record?.price)}{" "}
           {!lang ? "円" : "(JPY)"}
         </span>
       ),

@@ -63,6 +63,7 @@
             padding: 10px;
             .checkout-btn {
               height: 30px;
+              margin-top: 10px;
             }
             .buttons {
               text-align: right;
@@ -91,9 +92,7 @@
                 font-size: 13px;
                 text-align: center;
                 &.checkout {
-                  position: absolute;
-                  bottom: 10px;
-                  right: 10px;
+                  margin-top: 8px;
                 }
               }
             }

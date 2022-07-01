@@ -70,7 +70,7 @@ const ProductTable = ({
       title: t("admins.product.price_field"),
       render: (_, record) => (
         <div className="td-price">
-          {record.price} {!lang ? "円" : "(JPY)"}
+          {new Intl.NumberFormat('en-US').format(record?.price)} {!lang ? "円" : "(JPY)"}
         </div>
       ),
     },

@@ -616,10 +616,6 @@
         "name_required": "名前を入力してください。",
         "full_name_required": "氏名を入力してください。",
         "language_required":"言語を選択してください。",
-        "company_name_required":"所属企業名を入力してください。",
-        "company_email_required":"企業メールアドレスを入力してください。",
-        "person_in_charge_required":"企業担当者を入力してください。",
-        "person_contact_information_required":"「担当者連絡先」フィールドは必須です。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -852,7 +848,8 @@
       "placeholder_seach": "税金名を入力してください。",
       "error": {
         "name_required": "税金名を入力してください。",
-        "value_requied": "税率を入力してください。"
+        "value_requied": "税率を入力してください。",
+        "error_not_allowed_delete_tax":"削除できません。現在、この税金はシステムの商品に適用されています。"
       }
     },
     "log_questionnaire": {

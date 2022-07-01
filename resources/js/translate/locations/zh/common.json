@@ -616,10 +616,6 @@
         "name_required": "请输入您的姓名。",
         "full_name_required": "Please input your full name!",
         "language_required":"请选择语言。",
-        "company_name_required":"请输入您的公司名称。",
-        "company_email_required":"请输入您的公司电子邮件地址。",
-        "person_in_charge_required":"请输入您的负责人。",
-        "person_contact_information_required":"负责人联系方式为必填项。",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"
@@ -854,7 +850,8 @@
       "placeholder_seach": "请输入地名税。",
       "error": {
         "name_required": "请输入地名税。",
-        "value_requied": "请输入增值税。"
+        "value_requied": "请输入增值税。",
+        "error_not_allowed_delete_tax":"不能删除。该税目前用于该系统的产品。"
       }
     },
     "log_questionnaire": {
