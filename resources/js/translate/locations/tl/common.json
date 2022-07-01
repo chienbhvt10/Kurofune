@@ -620,6 +620,7 @@
         "role_required": "Mangyaring pumili ng isang tungkulin.",
         "name_required": "Pakilagay ang iyong pangalan.",
         "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
+        "language_required":"Mangyaring pumili ng wika.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
@@ -726,15 +727,26 @@
       }
     },
     "order": {
+      "general":"Heneral",
+      "billing_address":"Billing address",
+      "shipping_address":"Address ng pagpapadala",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
-        "field_date": "Date",
-        "field_total": "Total",
+        "field_date": "Nilikha ang petsa",
+        "field_total": "Kabuuan",
         "field_status": "Status",
         "field_action": "Action",
         "field_full_name": "Full name",
-        "field_id": "Id"
+        "field_id": "Id",
+        "field_product": "Pangalan ng Produkto",
+        "field_price": "Presyo",
+        "field_items_subtotal": "Subtotal",
+        "field_order_total": "Kabuuan ng Order",        
+        "field_vat": "VAT",
+        "field_quantity": "Dami",
+        "field_order_number": "Numero ng order"
       },
       "form": {
         "field_date_create": "Nagawa ang petsa:",
@@ -839,7 +851,8 @@
       "placeholder_seach": "Mangyaring ipasok ang buwis sa pangalan.",
       "error": {
         "name_required": "Mangyaring ipasok ang buwis sa pangalan.",
-        "value_requied": "Mangyaring ipasok ang halaga ng buwis."
+        "value_requied": "Mangyaring ipasok ang halaga ng buwis.",
+        "error_not_allowed_delete_tax":"Hindi matanggal. Ang buwis na ito ay kasalukuyang ginagamit para sa mga produkto ng system."
       }
     },
     "log_questionnaire": {

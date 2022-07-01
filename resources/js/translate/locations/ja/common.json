@@ -615,6 +615,7 @@
         "role_required": "ユーザーロールを選択してください。",
         "name_required": "名前を入力してください。",
         "full_name_required": "氏名を入力してください。",
+        "language_required":"言語を選択してください。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"
@@ -672,15 +673,25 @@
       }
     },
     "order": {
+      "general":"全般",
+      "billing_address":"請求先情報",
+      "shipping_address":"お届け先情報",
+      "unit":"円",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
-        "field_date": "Date",
-        "field_total": "Total",
+        "field_date": "作成日",
+        "field_total": "合計",
         "field_status": "ステータス",
         "field_action": "操作",
         "field_full_name": "氏名",
-        "field_id": "Id"
+        "field_product": "商品名",
+        "field_price": "金額",
+        "field_items_subtotal": "小計",
+        "field_order_total": "注文の合計金額",        
+        "field_vat": "付加価値税",
+        "field_quantity": "個数",
+        "field_order_number": "注文番号"
       },
       "form": {
         "field_date_create": "作成日:",
@@ -837,7 +848,8 @@
       "placeholder_seach": "税金名を入力してください。",
       "error": {
         "name_required": "税金名を入力してください。",
-        "value_requied": "税率を入力してください。"
+        "value_requied": "税率を入力してください。",
+        "error_not_allowed_delete_tax":"削除できません。現在、この税金はシステムの商品に適用されています。"
       }
     },
     "log_questionnaire": {

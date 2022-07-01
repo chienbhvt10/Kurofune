@@ -331,9 +331,9 @@
       "title_ship": "发货信息",
       "accept_term": "同意使用条款后购买。",
       "btn_text_buy": "买",
-      "message_error_blling_shipping": "请输入付款和运输信息",
-      "message_error_blling": "请输入付款信息",
-      "message_error_shipping": "请输入运输信息"
+      "message_error_blling_shipping":"请输入付款和运输信息",
+      "message_error_blling":"请输入付款信息",
+      "message_error_shipping":"请输入运输信息"
     },
     "order-history": {
       "th_order_date": "订购日期",
@@ -615,6 +615,7 @@
         "role_required": "请选择一个角色。",
         "name_required": "请输入您的姓名。",
         "full_name_required": "Please input your full name!",
+        "language_required":"请选择语言。",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"
@@ -723,15 +724,26 @@
       }
     },
     "order": {
+      "general":"一般的",
+      "billing_address":"帐单地址",
+      "shipping_address":"收件地址",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
-        "field_date": "Date",
+        "field_date": "创建日期",
         "field_total": "Total",
         "field_status": "Status",
         "field_action": "Action",
         "field_full_name": "Full name",
-        "field_id": "Id"
+        "field_id": "Id",
+        "field_product": "产品名称",
+        "field_price": "价格",
+        "field_items_subtotal": "小计",
+        "field_order_total": "合计订单",        
+        "field_vat": "增值税",
+        "field_quantity": "数量",
+        "field_order_number": "订单号"
       },
       "form": {
         "field_date_create": "创建日期:",
@@ -838,7 +850,8 @@
       "placeholder_seach": "请输入地名税。",
       "error": {
         "name_required": "请输入地名税。",
-        "value_requied": "请输入增值税。"
+        "value_requied": "请输入增值税。",
+        "error_not_allowed_delete_tax":"不能删除。该税目前用于该系统的产品。"
       }
     },
     "log_questionnaire": {

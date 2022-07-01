@@ -1,4 +1,5 @@
 import { Form, Table } from "antd";
+import { t } from "i18next";
 import React from "react";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 
@@ -26,7 +27,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
   }
   const columns = [
     {
-      title: "Product",
+      title: t("admins.order.table.field_product"),
       width: "60%",
       editable: false,
       render: (_, record) => {
@@ -46,7 +47,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       },
     },
     {
-      title: "Price",
+      title: t("admins.order.table.field_price"),
       dataIndex: "price",
       editable: true,
       render: (_, record) => {
@@ -56,7 +57,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       }
     },
     {
-      title: "Qty",
+      title: t("admins.order.table.field_quantity"),
       editable: true,
       render: (_, record) => {
         return (
@@ -66,7 +67,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     },
 
     {
-      title: "VAT",
+      title: t("admins.order.table.field_vat"),
       editable: true,
       render: (_, record) => {
         return (
@@ -77,7 +78,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       },
     },
     {
-      title: "Total",
+      title: t("admins.order.table.field_order_total"),
       editable: true,
       render: (_, record) => {
         return <span id={`quantity-${record?.key}`}>{new Intl.NumberFormat('en-US').format(record?.total_tax)} {!lang ? "円" : "(JPY)"}</span>;
