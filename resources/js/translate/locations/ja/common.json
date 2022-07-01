@@ -615,6 +615,11 @@
         "role_required": "ユーザーロールを選択してください。",
         "name_required": "名前を入力してください。",
         "full_name_required": "氏名を入力してください。",
+        "language_required":"言語を選択してください。",
+        "company_name_required":"所属企業名を入力してください。",
+        "company_email_required":"企業メールアドレスを入力してください。",
+        "person_in_charge_required":"企業担当者を入力してください。",
+        "person_contact_information_required":"「担当者連絡先」フィールドは必須です。",
         "email": {
           "required": "メールを入力してください。",
           "type": "有効なメールアドレスを入力してください。"

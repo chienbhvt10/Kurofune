@@ -615,6 +615,11 @@
         "role_required": "Vui lòng chọn một vai trò của người dùng.",
         "name_required": "Vui lòng nhập tên của bạn.",
         "full_name_required": "Vui lòng nhập họ tên của bạn.",
+        "language_required":"Vui lòng chọn ngôn ngữ.",
+        "company_name_required":"Vui lòng nhập tên công ty của bạn.",
+        "company_email_required":"Vui lòng nhập email công ty của bạn.",
+        "person_in_charge_required":"Vui lòng nhập tên người phụ trách công ty.",
+        "person_contact_information_required":"Trường 'Địa chỉ liên hệ người phụ trách' là trường bắt buộc.",
         "email": {
           "required": "Vui lòng nhập email của bạn.",
           "type": "Vui lòng nhập email hợp lệ."

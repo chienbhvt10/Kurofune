@@ -331,9 +331,9 @@
       "title_ship": "发货信息",
       "accept_term": "同意使用条款后购买。",
       "btn_text_buy": "买",
-      "message_error_blling_shipping": "请输入付款和运输信息",
-      "message_error_blling": "请输入付款信息",
-      "message_error_shipping": "请输入运输信息"
+      "message_error_blling_shipping":"请输入付款和运输信息",
+      "message_error_blling":"请输入付款信息",
+      "message_error_shipping":"请输入运输信息"
     },
     "order-history": {
       "th_order_date": "订购日期",
@@ -615,6 +615,11 @@
         "role_required": "请选择一个角色。",
         "name_required": "请输入您的姓名。",
         "full_name_required": "Please input your full name!",
+        "language_required":"请选择语言。",
+        "company_name_required":"请输入您的公司名称。",
+        "company_email_required":"请输入您的公司电子邮件地址。",
+        "person_in_charge_required":"请输入您的负责人。",
+        "person_contact_information_required":"负责人联系方式为必填项。",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"

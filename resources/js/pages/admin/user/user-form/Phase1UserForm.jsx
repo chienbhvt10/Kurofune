@@ -211,7 +211,7 @@ export const UserForm = (props) => {
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("phone")}
                 response={response}
-                type={<Input />}
+                type={<Input/>}
               />
             </Col>
             <Col span={23}>

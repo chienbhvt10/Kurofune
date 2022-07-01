@@ -32,7 +32,6 @@ export const validateUser = {
   ],
   phone: [
     {
-      required: true,
       message: "admins.user.error.phone.required",
     },
     {

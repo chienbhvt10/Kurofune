@@ -622,9 +622,14 @@
         "name_required": "Please input your name.",
         "first_name_required": "Please input your first name.",
         "last_name_required": "Please input your last name.",
+        "language_required":"Please select language",
         "company_required": "Please input your company.",
         "country_region_required": "Please input your Country/Region.",
         "state_county_required": "Please input your State/Country.",
+        "company_name_required":"Please input your company name",
+        "company_email_required":"Please input your company email.",
+        "person_in_charge_required":"Please input your person in charge.",
+        "person_contact_information_required":"The person in charge contact information field is required.",
         "email": {
           "required": "Please input your email.",
           "type": "Please input valid email."
