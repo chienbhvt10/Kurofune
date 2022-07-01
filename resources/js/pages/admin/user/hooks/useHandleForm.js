@@ -124,6 +124,7 @@ const useHandleForm = (item, onSave, typeForm) => {
 
   const onFinishAllFailed = () => {
     setSubmitted(true);
+    planProfileForm.validateFields();
   };
 
   React.useEffect(() => {

@@ -1,4 +1,5 @@
 import { Form, Table } from "antd";
+import { t } from "i18next";
 import React from "react";
 
 const CartInfoTable = ({ dataCartInforTable }) => {
@@ -24,7 +25,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
   }
   const columns = [
     {
-      title: "Product",
+      title: t("admins.order.table.field_product"),
       width: "60%",
       editable: false,
       render: (_, record) => {
@@ -44,12 +45,12 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       },
     },
     {
-      title: "Price",
+      title: t("admins.order.table.field_price"),
       dataIndex: "price",
       editable: true,
     },
     {
-      title: "Qty",
+      title: t("admins.order.table.field_quantity"),
       editable: true,
       render: (_, record) => {
         return (
@@ -59,7 +60,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     },
 
     {
-      title: "VAT",
+      title: t("admins.order.table.field_vat"),
       editable: true,
       render: (_, record) => {
         return (
@@ -70,7 +71,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       },
     },
     {
-      title: "Total",
+      title: t("admins.order.table.field_order_total"),
       editable: true,
       render: (_, record) => {
         return <span>{Number(record.total_tax)}</span>;
@@ -122,9 +123,9 @@ const CartInfoTable = ({ dataCartInforTable }) => {
               <p>Order Total:</p>
             </div>
             <div className="cal-total">
-              <p>{dataCartInforTable.total}</p>
+              <p>{dataCartInforTable.total } ({t("admins.order.unit")})</p>
               <p>{`${calculateVAT(dataCartInforTable.total_tax,dataCartInforTable.total)} %`}</p>
-              <p>{dataCartInforTable.total_tax}</p>
+              <p>{dataCartInforTable.total_tax} ({t("admins.order.unit")})</p>
             </div>
           </div>
           {/* <div className="tool-container">
@@ -162,7 +163,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
                 <button
                   className="add-btn tool-btn"
                   type="button"
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   Add product(s)
                 </button>

@@ -41,6 +41,7 @@ const CategoryListDetail = () => {
               }
             </div>
           </div>
+
           <CardCategoryDetail cardItems={category?.data?.products} />
         </div>
       </div>

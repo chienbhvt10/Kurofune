@@ -17,15 +17,13 @@ import {
 } from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { validateUser } from "../../../../helper/validateField";
-import useRoles from "../../../../hooks/role/useRoles";
 import useHandleForm from "../hooks/useHandleForm";
 import Phase2UserForm from "./Phase2UserForm";
 import "./user-form.scss";
-import { isAdmin, isRolePlan, isVendor } from "../../../../helper/checker";
+import { isAdmin, isRolePlan, isVendor } from "../../../../helper/checker"
 export const UserForm = (props) => {
   const { item, typeForm, onCancel, onSave, title, response, loading } = props;
   const { t } = useTranslation();
-  const { roles } = useRoles();
   const [role, setRole] = React.useState();
   const [avatarUrl, setAvatarUrl] = React.useState();
   const [insideImageUrl, setInsideImageUrl] = React.useState();
@@ -137,15 +135,15 @@ export const UserForm = (props) => {
                     (isAdmin(item?.role) || isVendor(item?.role))
                   }
                 >
-                  {roles
+                  {userFormOptions.role_list
                     .filter((item) =>
                       typeForm === TYPE_FORM_UPDATE
-                        ? isRolePlan(item.name)
+                        ? isRolePlan(item.value)
                         : item
                     )
                     .map((item, index) => (
-                      <Select.Option key={index} value={item.name}>
-                        {item.name}
+                      <Select.Option key={index} value={item.value}>
+                        {t(item.label)}
                       </Select.Option>
                     ))}
                 </Select>
@@ -213,7 +211,7 @@ export const UserForm = (props) => {
                 wrapperCol={{ span: 18 }}
                 rules={renderErrorTranslate("phone")}
                 response={response}
-                type={<Input />}
+                type={<Input/>}
               />
             </Col>
             <Col span={23}>
