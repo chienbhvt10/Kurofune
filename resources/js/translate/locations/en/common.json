@@ -609,6 +609,12 @@
           "select_payment": "Please select payment",
           "select_insurance_status": "Please select insurance status",
           "select_education_status": "Please select japanese language education status"
+        },
+        "role_list": {
+          "light_plan": "Light plan",
+          "full_support_plan": "Full support plan",
+          "vendor": "Vendor",
+          "administrator": "Administrator"
         }
       },
       "error": {
@@ -655,7 +661,14 @@
         "new_password_required": "Please input new password.",
         "confirm_password_required": "Please input password confirmation.",
         "not_same_password": "The two passwords that you entered do not match.",
-        "required": "This field is required."
+        "required": "This field is required.",
+        "company_name_required": "Please input company name.",
+        "company_email": {
+          "required": "Please input company email.",
+          "type": "Please input valid email."
+        },
+        "person_in_charge_required": "Please input person in charge.",
+        "person_contact_information_required": "Please input person in charge contact information."
       }
     },
     "order": {

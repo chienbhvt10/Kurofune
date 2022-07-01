@@ -603,6 +603,12 @@
           "select_payment": "入金を選択してください。",
           "select_insurance_status": "保険ステータスを選択してください。",
           "select_education_status": "日本語能力のレベルを選択してください。"
+        },
+        "role_list": {
+          "light_plan": "ライトプラン",
+          "full_support_plan": "フルサポートプラン",
+          "vendor": "薬局",
+          "administrator": "管理者"
         }
       },
       "error": {
@@ -645,7 +651,14 @@
         "new_password_required": "新パスワードを入力してください。",
         "confirm_password_required": "新パスワード（確認）の入力してください。",
         "not_same_password": "新パスワードと再入力パスワードが一致しません。",
-        "required": "この項目は必須です。"
+        "required": "この項目は必須です。",
+        "company_name_required": "所属企業名を入力してください。",
+        "company_email": {
+          "required": "企業メールアドレスを入力してください。",
+          "type": "有効なメールアドレスを入力してください。"
+        },
+        "person_in_charge_required": "企業担当者を入力してください。",
+        "person_contact_information_required": "担当者連絡先を入力してください。"
       }
     },
     "crud": {

@@ -608,6 +608,12 @@
           "select_payment": "Mangyaring pumili ng pagbabayad.",
           "select_insurance_status": "Mangyaring pumili ng katayuan ng seguro.",
           "select_education_status": "Mangyaring pumili ng katayuan sa edukasyon ng wikang Hapon."
+        },
+        "role_list": {
+          "light_plan": "Light plan",
+          "full_support_plan": "Full support plan",
+          "vendor": "Vendor",
+          "administrator": "Administrator"
         }
       },
       "error": {
@@ -650,7 +656,14 @@
         "new_password_required": "Mangyaring maglagay ng bagong password.",
         "confirm_password_required": "Mangyaring ipasok ang kumpirmasyon ng password.",
         "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay.",
-        "required": "Kinakailangan ang field na ito."
+        "required": "Kinakailangan ang field na ito.",
+        "company_name_required": "Pakilagay ang pangalan ng kumpanya.",
+        "company_email": {
+          "required": "Mangyaring mag-input ng email ng kumpanya.",
+          "type": "Mangyaring maglagay ng wastong email."
+        },
+        "person_in_charge_required": "Pakilagay ang pangalan ng taong namamahala sa kumpanya.",
+        "person_contact_information_required": "Mangyaring ipasok ang impormasyon sa pakikipag-ugnayan ng taong namamahala."
       }
     },
     "crud": {
