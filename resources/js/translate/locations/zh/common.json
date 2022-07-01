@@ -609,6 +609,7 @@
         "role_required": "请选择一个角色。",
         "name_required": "请输入您的姓名。",
         "full_name_required": "Please input your full name!",
+        "language_required":"请选择语言。",
         "email": {
           "required": "请输入您的电子邮件。",
           "type": "请输入有效的电子邮件。"
