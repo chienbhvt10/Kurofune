@@ -659,6 +659,9 @@
       }
     },
     "order": {
+      "general":"General",
+      "billing_address":"Billing address",
+      "shipping_address":"Shipping address",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
@@ -667,7 +670,14 @@
         "field_action": "Action",
         "field_status": "Status",
         "field_full_name": "Full name",
-        "field_id": "Id"
+        "field_id": "Id",
+        "field_product": "Product",
+        "field_price": "Price",
+        "field_items_subtotal": "Items Subtotal",
+        "field_order_total": "Order Total",        
+        "field_vat": "VAT",
+        "field_quantity": "Quantity",
+        "field_order_number": "Order number"
       },
       "form": {
         "field_date_create": "Created date:",
@@ -691,6 +701,7 @@
         "field_street_address": " Street address",
         "field_building": "Building"
       },
+
       "error": {
         "full_name_required": "Please input your full name!",
         "building_required": "Please enter your building name!",

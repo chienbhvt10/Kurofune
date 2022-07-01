@@ -23,7 +23,7 @@ const OrderTable = ({ items, onChange, handleDeleteOrder,pagination }) => {
 
   const column = [
     {
-      title: t("admins.order.table.field_id"),
+      title: t("admins.order.table.field_order_number"),
       dataIndex: "order_number",
       width: "15%",
       sorter: (a, b) => a.id - b.id,

@@ -153,7 +153,7 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
       <p className="order-detail-title">Order #{dataOrder?.id} details</p>
       <div className="order-info">
         <div className="general-info section-info">
-          <p className="title-section">General</p>
+          <p className="title-section">{t("admins.order.general")}</p>
           <Form form={formGeneral} name="formGeneral">
             <div className="form-group">
               <div>
@@ -199,11 +199,11 @@ const OrderForm = ({ item, typeForm, title, onCancel, onSave }) => {
           </Form>
         </div>
         <div className="billing-info section-info">
-          <p className="title-section">Billing</p>
+          <p className="title-section">{t("admins.order.billing_address")}</p>
           <BillingShipFormOrder form={formBilling} typeForm="billing" />
         </div>
         <div className="shipping-info section-info">
-          <p className="title-section">Shipping</p>
+          <p className="title-section">{t("admins.order.shipping_address")}</p>
           <BillingShipFormOrder form={formShipping} typeForm="shipping" />
         </div>
       </div>

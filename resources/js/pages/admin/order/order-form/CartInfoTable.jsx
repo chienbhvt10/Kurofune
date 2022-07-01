@@ -1,4 +1,5 @@
 import { Form, Table } from "antd";
+import { t } from "i18next";
 import React from "react";
 
 const CartInfoTable = ({ dataCartInforTable }) => {
@@ -18,16 +19,13 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     return unit;
   }, [dataCartInforTable]);
 
-  // const itemsSubtotal = React.useMemo(() => {
-  //   let total = dataCartInforTable.order_products.reduce((total, item) => {
-  //     return Number(total) + Number(item.pivot.quantity) * Number(item.price);
-  //   }, 0);
-  //   return total;
-  // }, [dataCartInforTable]);
-
+  const calculateVAT =(total_tax,total)=>{
+    const taxMoney = (total_tax-total)/total_tax*100;
+    return taxMoney.toFixed(1)
+  }
   const columns = [
     {
-      title: "Product",
+      title: t("admins.order.table.field_product"),
       width: "60%",
       editable: false,
       render: (_, record) => {
@@ -47,12 +45,12 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       },
     },
     {
-      title: "Price",
+      title: t("admins.order.table.field_price"),
       dataIndex: "price",
       editable: true,
     },
     {
-      title: "Qty",
+      title: t("admins.order.table.field_quantity"),
       editable: true,
       render: (_, record) => {
         return (
@@ -62,7 +60,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
     },
 
     {
-      title: "VAT",
+      title: t("admins.order.table.field_vat"),
       editable: true,
       render: (_, record) => {
         return (
@@ -74,7 +72,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
       },
     },
     {
-      title: "Total",
+      title: t("admins.order.table.field_order_total"),
       editable: true,
       render: (_, record) => {
         return <span>{Number(record?.pivot?.total_tax)}</span>;
@@ -110,20 +108,17 @@ const CartInfoTable = ({ dataCartInforTable }) => {
         <div className={activeRefund ? "cart-total" : "cart-total active"}>
           <div className="calculate">
             <div className="cal-title">
-              <p>Items Subtotal:</p>
-              <p>Fees: </p>
-              <p>Shipping:</p>
-              <p>VAT:</p>
-              <p>Order Total:</p>
+              <p>{t("admins.order.table.field_items_subtotal")}:</p>
+              <p>{t("admins.order.table.field_vat")}:</p>
+              <p>{t("admins.order.table.field_order_total")}:</p>
             </div>
             <div className="cal-total">
               <p>{dataCartInforTable.total}</p>
-              <p> 0 ({unitMoney})</p>
-              <p> 0 ({unitMoney})</p>
+              <p>{`${calculateVAT(dataCartInforTable.total_tax, dataCartInforTable.total)} %`}</p>
               <p>{dataCartInforTable.total_tax}</p>
             </div>
           </div>
-          <div className="tool-container">
+          {/* <div className="tool-container">
             <div
               className={
                 activeToolSecond ? "tool-first tool " : "tool-first tool active"
@@ -158,7 +153,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
                 <button
                   className="add-btn tool-btn"
                   type="button"
-                  onClick={() => {}}
+                  onClick={() => { }}
                 >
                   Add product(s)
                 </button>
@@ -183,7 +178,7 @@ const CartInfoTable = ({ dataCartInforTable }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         {/* <div
           className={
