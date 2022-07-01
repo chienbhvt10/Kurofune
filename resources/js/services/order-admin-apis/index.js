@@ -6,6 +6,10 @@ export const orderAdminAPI = {
     const url = ROOT_URL + "orders";
     return await axiosClient.get(url,{ params: data });
   },
+  getListOrderAdminNotData: async () => {
+    const url = ROOT_URL + "orders";
+    return await axiosClient.get(url);
+  },
   getOrderDetailAdmin: async (id) => {
     const url = ROOT_URL + `orders/${id}`;
     return await axiosClient.get(url);

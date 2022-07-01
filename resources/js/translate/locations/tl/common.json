@@ -609,12 +609,23 @@
           "select_payment": "Mangyaring pumili ng pagbabayad.",
           "select_insurance_status": "Mangyaring pumili ng katayuan ng seguro.",
           "select_education_status": "Mangyaring pumili ng katayuan sa edukasyon ng wikang Hapon."
+        },
+        "role_list": {
+          "light_plan": "Light plan",
+          "full_support_plan": "Full support plan",
+          "vendor": "Vendor",
+          "administrator": "Administrator"
         }
       },
       "error": {
         "role_required": "Mangyaring pumili ng isang tungkulin.",
         "name_required": "Pakilagay ang iyong pangalan.",
         "full_name_required": "Mangyaring ipasok ang iyong buong pangalan.",
+        "language_required":"Mangyaring pumili ng wika.",
+        "company_name_required":"Pakilagay ang pangalan ng iyong kumpanya.",
+        "company_email_required":"Pakilagay ang email address ng iyong kumpanya.",
+        "person_in_charge_required":"Mangyaring ipasok ang iyong taong namamahala.",
+        "person_contact_information_required":"Kinakailangan ang field ng impormasyon ng contact ng taong namamahala.",
         "email": {
           "required": "Mangyaring ipasok ang iyong email.",
           "type": "Mangyaring maglagay ng wastong email."
@@ -651,7 +662,14 @@
         "new_password_required": "Mangyaring maglagay ng bagong password.",
         "confirm_password_required": "Mangyaring ipasok ang kumpirmasyon ng password.",
         "not_same_password": "Hindi magkatugma ang dalawang password na iyong inilagay.",
-        "required": "Kinakailangan ang field na ito."
+        "required": "Kinakailangan ang field na ito.",
+        "company_name_required": "Pakilagay ang pangalan ng kumpanya.",
+        "company_email": {
+          "required": "Mangyaring mag-input ng email ng kumpanya.",
+          "type": "Mangyaring maglagay ng wastong email."
+        },
+        "person_in_charge_required": "Pakilagay ang pangalan ng taong namamahala sa kumpanya.",
+        "person_contact_information_required": "Mangyaring ipasok ang impormasyon sa pakikipag-ugnayan ng taong namamahala."
       }
     },
     "crud": {
@@ -714,15 +732,26 @@
       }
     },
     "order": {
+      "general":"Heneral",
+      "billing_address":"Billing address",
+      "shipping_address":"Address ng pagpapadala",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
-        "field_date": "Date",
-        "field_total": "Total",
+        "field_date": "Nilikha ang petsa",
+        "field_total": "Kabuuan",
         "field_status": "Status",
         "field_action": "Action",
         "field_full_name": "Full name",
-        "field_id": "Id"
+        "field_id": "Id",
+        "field_product": "Pangalan ng Produkto",
+        "field_price": "Presyo",
+        "field_items_subtotal": "Subtotal",
+        "field_order_total": "Kabuuan ng Order",        
+        "field_vat": "VAT",
+        "field_quantity": "Dami",
+        "field_order_number": "Numero ng order"
       },
       "form": {
         "field_date_create": "Nagawa ang petsa:",

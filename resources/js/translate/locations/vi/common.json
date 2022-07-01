@@ -267,8 +267,8 @@
           "linkVideo": "//www.youtube.com/embed/ausFxpMOYp4"
         },
         "modal_access_right": {
-          "description": "こちらのサービスは、「フルサポートプラン」に加入している企業のみが使用することができます。利用するためには ITS社での新規加入が必要となります。",
-          "title": "※現在のプランは「ライトプラン」なので、{{payload}}様 が使えるサービスは、"
+          "description": "Dịch vụ này chỉ có thể được sử dụng bởi các công ty có \"Full Support Plan\". Để sử dụng nó, anh/chị cần phải đăng ký tham gia tại công ty {{payload}}.",
+          "title": "※Vì gói hiện tại là \"Light Plan\", các dịch vụ mà anh/chị {{payload}} có thể sử dụng là:"
         },
         "modal_access_right2": {
           "description": "Để sử dụng dịch vụ, anh/chị vui lòng xem hết video hướng dẫn. Sau khi xem xong, anh/chị có thể có thể bắt đầu sử dụng dịch vụ.",
@@ -332,9 +332,9 @@
       "title_ship": "Thông tin giao hàng",
       "accept_term": "Tôi đồng ý với điều khoản sử dụng và mua hàng.",
       "btn_text_buy": "MUA",
-      "message_error_blling_shipping":"Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
-      "message_error_blling":"Vui lòng nhập thông tin thanh toán",
-      "message_error_shipping":"Vui lòng nhập địa chỉ giao hàng"
+      "message_error_blling_shipping": "Vui lòng nhập thông tin thanh toán và địa chỉ giao hàng",
+      "message_error_blling": "Vui lòng nhập thông tin thanh toán",
+      "message_error_shipping": "Vui lòng nhập địa chỉ giao hàng"
     },
     "order-history": {
       "th_order_date": "Ngày đặt hàng",
@@ -604,12 +604,23 @@
           "select_payment": "Vui lòng chọn tiền gửi vào.",
           "select_insurance_status": "Vui lòng chọn trạng thái bảo hiểm.",
           "select_education_status": "Vui lòng chọn trình độ giáo dục tiếng Nhật."
+        },
+        "role_list": {
+          "light_plan": "Gói tiết kiệm",
+          "full_support_plan": "Gói hỗ trợ đầy đủ ",
+          "vendor": "Nhà thuốc",
+          "administrator": "Administrator"
         }
       },
       "error": {
         "role_required": "Vui lòng chọn một vai trò của người dùng.",
         "name_required": "Vui lòng nhập tên của bạn.",
         "full_name_required": "Vui lòng nhập họ tên của bạn.",
+        "language_required":"Vui lòng chọn ngôn ngữ.",
+        "company_name_required":"Vui lòng nhập tên công ty của bạn.",
+        "company_email_required":"Vui lòng nhập email công ty của bạn.",
+        "person_in_charge_required":"Vui lòng nhập tên người phụ trách công ty.",
+        "person_contact_information_required":"Trường 'Địa chỉ liên hệ người phụ trách' là trường bắt buộc.",
         "email": {
           "required": "Vui lòng nhập email của bạn.",
           "type": "Vui lòng nhập email hợp lệ."
@@ -646,7 +657,14 @@
         "new_password_required": "Vui lòng nhập mật khẩu mới.",
         "confirm_password_required": "Vui lòng nhập xác nhận mật khẩu.",
         "not_same_password": "Hai mật khẩu bạn vừa nhập không khớp nhau.",
-        "requied": "Vui lòng chọn trường này."
+        "requied": "Vui lòng chọn trường này.",
+        "company_name_required": "Vui lòng nhập tên công ty trực thuộc.",
+        "company_email": {
+          "required": "Vui lòng nhập email của công ty trực thuộc.",
+          "type": "Vui lòng nhập email hợp lệ."
+        },
+        "person_in_charge_required": "Vui lòng nhập tên người phụ trách công ty.",
+        "person_contact_information_required": "Vui lòng nhập địa chỉ liên hệ người phụ trách."
       }
     },
     "crud": {
@@ -659,58 +677,11 @@
         "delete_fail": "Xoá người dùng thất bại"
       }
     },
-    "product": {
-      "title_product": "Sản phẩm",
-      "slug_field": "Đường dẫn",
-      "vendor_field": "Nhà thuốc",
-      "sku_field": "Mã sản phẩm",
-      "status_field": "Trạng thái",
-      "stock_status_field": "Trạng thái tồn kho",
-      "price_field": "Giá sản phẩm",
-      "category_field": "Danh mục",
-      "date_field": "Ngày đăng sản phẩm",
-      "store_field": "Nhà thuốc",
-      "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
-      "placeholder_select_tax": "Vui lòng chọn Thuế.",
-      "placeholder_select_vendor": "Vui lòng chọn Nhà thuốc.",
-      "placeholder_select_status": "Vui lòng chọn Trạng thái.",
-      "placeholder_select_stock_status": "Vui lòng chọn Trạng thái tồn kho.",
-      "placeholder_select_category": "Vui lòng chọn Danh mục.",
-      "tax_field": "Thuế",
-      "meta_title_field": "Thẻ Meta Title",
-      "meta_description_field": "Thẻ Meta Description",
-      "meta_keyword_field": "Thẻ Meta Keyword",
-      "product_image_field": "Ảnh sản phẩm",
-      "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
-      "features_field": "Tính năng sản phẩm",
-      "precautions_field": "Lưu ý khi sử dụng",
-      "efficacy_effect_field": "Công dụng / Hiệu quả",
-      "usage_does_field": "Cách dùng / liều lượng",
-      "active_ingredients_field": "Số lượng thành phần",
-      "additives_field": "Phụ gia",
-      "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
-      "manufacturer_field": "Công ty sản xuất và kinh doanh",
-      "name_field": "Tên gọi chung",
-      "field_name": "Tên sản phẩm",
-      "use_manual_field": "Cách sử dụng",
-      "product_list": "Danh sách sản phẩm",
-      "error_message": {
-        "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
-        "error_status": "Trường 'Trạng thái' là trường bắt buộc",
-        "error_stockstatus": "Trường 'Trạng thái tồn kho' là trường bắt buộc",
-        "error_category": "Trường 'Danh mục' là trường bắt buộc",
-        "error_tax": "Trường 'Thuế' là trường bắt buộc",
-        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc",
-        "error_price": "Vui lòng nhập số lớn hơn 0",
-        "error_not_allowed_delete_category": "Thao tác xoá không thể thực hiện. Đang có sản phẩm được bán trong danh mục sản phẩm này."
-      },
-      "title": {
-        "product_title": "Thêm sản phẩm ",
-        "product_add": "Thêm mới",
-        "product_list": "Danh sách sản phẩm"
-      }
-    },
     "order": {
+      "general":"Chung",
+      "billing_address":"Địa chỉ thanh toán",
+      "shipping_address":"Địa chỉ giao hàng",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
@@ -719,7 +690,14 @@
         "field_status": "Status",
         "field_action": "Action",
         "field_full_name": "Full name",
-        "field_id": "Id"
+        "field_id": "Id",
+        "field_product": "Tên sản phẩm",
+        "field_price": "Giá",
+        "field_items_subtotal": "Tổng (chưa thuế)",
+        "field_order_total": "Tổng đơn hàng",        
+        "field_vat": "Thuế VAT",
+        "field_quantity": "Số lượng",
+        "field_order_number": "Mã đơn hàng"
       },
       "form": {
         "field_date_create": "Ngày tạo",
@@ -773,6 +751,58 @@
         "street_address_required": "Vui lòng nhập địa chỉ khu phố."
       }
     },
+    "product": {
+      "title_product": "Sản phẩm",
+      "slug_field": "Đường dẫn",
+      "vendor_field": "Nhà thuốc",
+      "sku_field": "Mã sản phẩm",
+      "status_field": "Trạng thái",
+      "stock_status_field": "Trạng thái tồn kho",
+      "price_field": "Giá sản phẩm",
+      "category_field": "Danh mục",
+      "date_field": "Ngày đăng sản phẩm",
+      "store_field": "Nhà thuốc",
+      "placeholder_seach": "Vui lòng nhập tên sản phẩm.",
+      "placeholder_select_tax": "Vui lòng chọn Thuế.",
+      "placeholder_select_vendor": "Vui lòng chọn Nhà thuốc.",
+      "placeholder_select_status": "Vui lòng chọn Trạng thái.",
+      "placeholder_select_stock_status": "Vui lòng chọn Trạng thái tồn kho.",
+      "placeholder_select_category": "Vui lòng chọn Danh mục.",
+      "tax_field": "Thuế",
+      "meta_title_field": "Thẻ Meta Title",
+      "meta_description_field": "Thẻ Meta Description",
+      "meta_keyword_field": "Thẻ Meta Keyword",
+      "product_image_field": "Ảnh sản phẩm",
+      "medicinal_efficacy_classification_field": "Phân loại thuốc theo công dụng",
+      "features_field": "Tính năng sản phẩm",
+      "precautions_field": "Lưu ý khi sử dụng",
+      "efficacy_effect_field": "Công dụng / Hiệu quả",
+      "usage_does_field": "Cách dùng / liều lượng",
+      "active_ingredients_field": "Số lượng thành phần",
+      "additives_field": "Phụ gia",
+      "precautions_storage_handling_field": "Các lưu ý khi lưu trữ và xử lý",
+      "manufacturer_field": "Công ty sản xuất và kinh doanh",
+      "name_field": "Tên gọi chung",
+      "field_name": "Tên sản phẩm",
+      "use_manual_field": "Cách sử dụng",
+      "product_list": "Danh sách sản phẩm",
+      "error_message": {
+        "error_vendor": "Trường 'Nhà thuốc' là trường bắt buộc",
+        "error_status": "Trường 'Trạng thái' là trường bắt buộc",
+        "error_stockstatus": "Trường 'Trạng thái tồn kho' là trường bắt buộc",
+        "error_category": "Trường 'Danh mục' là trường bắt buộc",
+        "error_tax": "Trường 'Thuế' là trường bắt buộc",
+        "error_en_product_name": "Trường 'Tên sản phẩm' là trường bắt buộc",
+        "error_price": "Vui lòng nhập số lớn hơn 0",
+        "error_not_allowed_delete_category": "Thao tác xoá không thể thực hiện. Đang có sản phẩm được bán trong danh mục sản phẩm này."
+      },
+      "title": {
+        "product_title": "Thêm sản phẩm ",
+        "product_add": "Thêm mới",
+        "product_list": "Danh sách sản phẩm"
+      }
+    },
+    
     "category": {
       "slug_field": "Đường dẫn",
       "name_field": "Tên",

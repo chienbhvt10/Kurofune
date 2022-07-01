@@ -610,6 +610,12 @@
           "select_payment": "Please select payment",
           "select_insurance_status": "Please select insurance status",
           "select_education_status": "Please select japanese language education status"
+        },
+        "role_list": {
+          "light_plan": "Light plan",
+          "full_support_plan": "Full support plan",
+          "vendor": "Vendor",
+          "administrator": "Administrator"
         }
       },
       "error": {
@@ -617,9 +623,14 @@
         "name_required": "Please input your name.",
         "first_name_required": "Please input your first name.",
         "last_name_required": "Please input your last name.",
+        "language_required":"Please select language",
         "company_required": "Please input your company.",
         "country_region_required": "Please input your Country/Region.",
         "state_county_required": "Please input your State/Country.",
+        "company_name_required":"Please input your company name",
+        "company_email_required":"Please input your company email.",
+        "person_in_charge_required":"Please input your person in charge.",
+        "person_contact_information_required":"The person in charge contact information field is required.",
         "email": {
           "required": "Please input your email.",
           "type": "Please input valid email."
@@ -660,10 +671,21 @@
         "new_password_required": "Please input new password.",
         "confirm_password_required": "Please input password confirmation.",
         "not_same_password": "The two passwords that you entered do not match.",
-        "required": "This field is required."
+        "required": "This field is required.",
+        "company_name_required": "Please input company name.",
+        "company_email": {
+          "required": "Please input company email.",
+          "type": "Please input valid email."
+        },
+        "person_in_charge_required": "Please input person in charge.",
+        "person_contact_information_required": "Please input person in charge contact information."
       }
     },
     "order": {
+      "general":"General",
+      "billing_address":"Billing address",
+      "shipping_address":"Shipping address",
+      "unit":"JPY",
       "table": {
         "field_subOrder": "SubOrder",
         "field_order": "Order",
@@ -672,7 +694,14 @@
         "field_action": "Action",
         "field_status": "Status",
         "field_full_name": "Full name",
-        "field_id": "Id"
+        "field_id": "Id",
+        "field_product": "Product",
+        "field_price": "Price",
+        "field_items_subtotal": "Items Subtotal",
+        "field_order_total": "Order Total",        
+        "field_vat": "VAT",
+        "field_quantity": "Quantity",
+        "field_order_number": "Order number"
       },
       "form": {
         "field_date_create": "Created date:",
@@ -696,6 +725,7 @@
         "field_street_address": " Street address",
         "field_building": "Building"
       },
+
       "error": {
         "full_name_required": "Please input your full name!",
         "building_required": "Please enter your building name!",

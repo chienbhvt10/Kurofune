@@ -13,16 +13,15 @@ const OrderList = () => {
   const lang = getCurrentLanguage();
   const { t } = useTranslation();
   const [dataOrder, setDataOrder] = React.useState([]);
-  let { getListOrderAdmin } = useGetListOrderAdmin();
+  let { getListOrderAdmin, pagination} = useGetListOrderAdmin();
   const { deleteOrderAdmin } = useDeleteOrderAdmin();
   const prevDataListRef = useRef();
   React.useEffect(() => {
-    getListOrderAdmin({ page: 1, per_page: 10 }, (data) => {
+    getListOrderAdmin(null,(data) => {
       setDataOrder(data);
-      prevDataListRef.current = data.data;
+      prevDataListRef.current = data;
     });
   }, []);
-
   const handleDeleteOrder = (id) => {
     deleteOrderAdmin(id, (data) => {
       getListOrderAdmin(null, (response) => {
@@ -31,17 +30,13 @@ const OrderList = () => {
     });
   };
 
-  const debounceSearch = useCallback(
-    debounce((valueSearch) => {
-      getListOrderAdmin(
-        { page: 1, per_page: 10, status: valueSearch },
-        (data) => {
-          setDataOrder(data);
-        }
-      );
-    }, 1000),
-    []
-  );
+  const onTableChange = (paginationTable, filters, sorter) => {
+    const current = paginationTable.current || 1;
+    const per_page = paginationTable.pageSize || 10;
+    getListOrderAdmin({ page: current, per_page: per_page },(data)=>{
+      setDataOrder(data);
+    });
+  };
   return (
     <div className="order-container">
       <PageHead
@@ -49,13 +44,16 @@ const OrderList = () => {
         content={t("meta.content_order_list")}
       />
       <TableHeader
-        addLink={`${lang}/admin/order-add`}
+        // addLink={`${lang}/admin/order-add`}
         breadcrumb={[]}
         title="Orders"
       />
       <OrderTable
         items={dataOrder.data}
         handleDeleteOrder={handleDeleteOrder}
+        pagination={pagination}
+        onTableChange={onTableChange}
+        onChange={onTableChange}
       />
     </div>
   );

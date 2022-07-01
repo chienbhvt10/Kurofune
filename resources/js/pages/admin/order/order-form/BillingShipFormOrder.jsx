@@ -74,11 +74,11 @@ const BillingShipFormOrder = ({
                   label={t("admins.order.form.field_building")}
                   labelCol={{ span: 24 }}
                   wrapperCol={{ span: 22 }}
-                  rules={renderErrorTranslate("building")}
+                  // rules={renderErrorTranslate("building")}
                   // response={response}
                   type={<Input className="input-field" />}
                 />
-                {renderErrorMessage("building")}
+                {/* {renderErrorMessage("building")} */}
               </Col>
               <Col span={12}>
                 <InputField
