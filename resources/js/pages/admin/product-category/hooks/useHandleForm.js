@@ -1,6 +1,13 @@
 import { Form } from "antd";
 import React from "react";
-import { TYPE_FORM_UPDATE } from "../../../../constants";
+import {
+  FIFTH_TAB,
+  FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+  FIRST_TAB,
+  TYPE_FORM_UPDATE,
+} from "../../../../constants";
 import {
   appendObjectToFormData,
   getResultValidate,
@@ -15,6 +22,7 @@ const useHandleForm = (item, onSave, typeForm) => {
   const [categoryForm] = Form.useForm();
   const lang = getCurrentLanguage();
   const initialCommonValues = getCategoryInitValues(item);
+  const [tabRequired, setTabRequired] = React.useState("");
   const {
     avatar,
     avatarUrl,
@@ -40,6 +48,18 @@ const useHandleForm = (item, onSave, typeForm) => {
     const tlFormValues = await getResultValidate(categoryProfileFormTL);
     const viFormValues = await getResultValidate(categoryProfileFormVI);
     const zhFormValues = await getResultValidate(categoryProfileFormZH);
+
+    if (enFormValues.errorFields) {
+      setTabRequired(FIRST_TAB);
+    } else if (jaFormValues.errorFields) {
+      setTabRequired(SECOND_TAB);
+    } else if (tlFormValues.errorFields) {
+      setTabRequired(THIRD_TAB);
+    } else if (viFormValues.errorFields) {
+      setTabRequired(FOURTH_TAB);
+    } else if (zhFormValues.errorFields) {
+      setTabRequired(FIFTH_TAB);
+    }
 
     if (typeForm === TYPE_FORM_UPDATE) {
       formData.append("_method", "PUT");
@@ -98,6 +118,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     categoryProfileFormTL,
     categoryProfileFormVI,
     categoryProfileFormZH,
+    tabRequired,
     onChangeAvatar,
     onFinishAll,
     onFinishError,

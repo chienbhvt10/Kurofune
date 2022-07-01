@@ -18,8 +18,15 @@ import {
 import SubFormTranslate from "./SubFormTranslate.jsx";
 
 const TranslateProductForm = (props) => {
-  const { formJP, formVI, formTL, formEN, formZH, response } = props;
+  const { formJP, formVI, formTL, formEN, formZH, response, tabRequired } =
+    props;
   const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
+
+  React.useEffect(() => {
+    if (tabRequired) {
+      setActiveTab(tabRequired);
+    }
+  }, [tabRequired]);
 
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);

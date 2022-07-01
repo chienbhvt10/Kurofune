@@ -24,8 +24,15 @@ const TranslateCategoryForm = ({
   formEN,
   formZH,
   response,
+  tabRequired,
 }) => {
   const [activeTab, setActiveTab] = React.useState(FIRST_TAB);
+
+  React.useEffect(() => {
+    if (tabRequired) {
+      setActiveTab(tabRequired);
+    }
+  }, [tabRequired]);
 
   const onChangeLanguageForm = (number) => {
     setActiveTab(number);

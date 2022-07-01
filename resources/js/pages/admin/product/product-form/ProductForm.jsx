@@ -18,7 +18,15 @@ import { getProductFormLayout } from "./productInitValues.js";
 import "./TranslateProductForm";
 import TranslateProductForm from "./TranslateProductForm";
 
-const ProductForm = ({ item, typeForm, title, onCancel, onSave, response, loading }) => {
+const ProductForm = ({
+  item,
+  typeForm,
+  title,
+  onCancel,
+  onSave,
+  response,
+  loading,
+}) => {
   const {
     productProfileFormEN,
     productProfileFormJP,
@@ -27,6 +35,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response, loadin
     productProfileFormZH,
     initialFormCommonValues,
     productsForm,
+    tabRequired,
     onFinishAll,
     onChangeAvatar,
     onFinishFailed,
@@ -65,7 +74,12 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response, loadin
           ...initialFormCommonValues,
         }}
       >
-        <FormHeader breadcrumb={[]} title={title} onCancel={onCancel} loading={loading} />
+        <FormHeader
+          breadcrumb={[]}
+          title={title}
+          onCancel={onCancel}
+          loading={loading}
+        />
         <div>
           <Row justify="center">
             <Col span={12} className="input-field-space">
@@ -264,6 +278,7 @@ const ProductForm = ({ item, typeForm, title, onCancel, onSave, response, loadin
       </Form>
 
       <TranslateProductForm
+        tabRequired={tabRequired}
         formEN={productProfileFormEN}
         formJP={productProfileFormJP}
         formTL={productProfileFormTL}

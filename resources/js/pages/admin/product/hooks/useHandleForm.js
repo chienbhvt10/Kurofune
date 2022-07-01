@@ -2,7 +2,14 @@ import React from "react";
 import useHandleTranslateForm from "./useHandleTranslateForm";
 import useHandleImage from "./useHandleImage";
 import { Form } from "antd";
-import { TYPE_FORM_UPDATE } from "../../../../constants";
+import {
+  FIFTH_TAB,
+  FOURTH_TAB,
+  SECOND_TAB,
+  THIRD_TAB,
+  FIRST_TAB,
+  TYPE_FORM_UPDATE,
+} from "../../../../constants";
 import { getCurrentLanguage } from "../../../../helper/localStorage";
 import { getProductInfoInitValues } from "../product-form/productInitValues";
 import {
@@ -10,6 +17,7 @@ import {
   appendObjectToFormData,
   getResultValidate,
 } from "../../../../helper/handler";
+
 const useHandleForm = (item, onSave, typeForm) => {
   const {
     productProfileFormEN,
@@ -26,6 +34,7 @@ const useHandleForm = (item, onSave, typeForm) => {
   const [isFormSubmitted, setIsFormSubmitted] = React.useState(false);
   const initialFormCommonValues = getProductInfoInitValues(item);
   const [productsForm] = Form.useForm();
+  const [tabRequired, setTabRequired] = React.useState("");
 
   const onFinishAll = async () => {
     const formData = new FormData();
@@ -34,6 +43,18 @@ const useHandleForm = (item, onSave, typeForm) => {
     const tlFormValues = await getResultValidate(productProfileFormTL);
     const viFormValues = await getResultValidate(productProfileFormVI);
     const zhFormValues = await getResultValidate(productProfileFormZH);
+
+    if (enFormValues.errorFields) {
+      setTabRequired(FIRST_TAB);
+    } else if (jaFormValues.errorFields) {
+      setTabRequired(SECOND_TAB);
+    } else if (tlFormValues.errorFields) {
+      setTabRequired(THIRD_TAB);
+    } else if (viFormValues.errorFields) {
+      setTabRequired(FOURTH_TAB);
+    } else if (zhFormValues.errorFields) {
+      setTabRequired(FIFTH_TAB);
+    }
 
     if (typeForm === TYPE_FORM_UPDATE) {
       formData.append("_method", "PUT");
@@ -100,6 +121,7 @@ const useHandleForm = (item, onSave, typeForm) => {
     productProfileFormVI,
     productsForm,
     productProfileFormZH,
+    tabRequired,
     onFinishAll,
     onFinishFailed,
     onChangeAvatar,
